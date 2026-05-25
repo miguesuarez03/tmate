@@ -1,9 +1,11 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 import { CITIES } from "../data/cities";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import SearchBar from "../components/SearchBar";
 import CityCard from "../components/CityCard";
+
+const Globe3D = lazy(() => import("../components/Globe3D"));
 
 const HERO_WORDS = [
   { word: "Erasmus.", gender: "m" },
@@ -64,18 +66,7 @@ const TESTIMONIALS = [
   },
 ];
 
-const GLOBE_CITIES = [
-  { name: "Bolonia", code: "BOL", flag: "🇮🇹", x: 51, y: 38 },
-  { name: "Berlín", code: "BER", flag: "🇩🇪", x: 52, y: 31 },
-  { name: "Lisboa", code: "LIS", flag: "🇵🇹", x: 40, y: 41 },
-  { name: "Praga", code: "PRG", flag: "🇨🇿", x: 54, y: 33 },
-  { name: "Ámsterdam", code: "AMS", flag: "🇳🇱", x: 48, y: 30 },
-  { name: "Viena", code: "VIE", flag: "🇦🇹", x: 55, y: 35 },
-  { name: "Budapest", code: "BUD", flag: "🇭🇺", x: 57, y: 36 },
-  { name: "París", code: "PAR", flag: "🇫🇷", x: 46, y: 35 },
-  { name: "Múnich", code: "MUC", flag: "🇩🇪", x: 52, y: 35 },
-  { name: "Londres", code: "LON", flag: "🇬🇧", x: 45, y: 30 },
-];
+
 
 function AnimatedWord() {
   const [idx, setIdx] = useState(0);
@@ -116,44 +107,41 @@ function HowCard({ item, index }) {
   );
 }
 
+const CITY_PILLS = [
+  { name: "Bolonia",   code: "BOL", flag: "🇮🇹", slug: "bolonia"   },
+  { name: "Berlín",    code: "BER", flag: "🇩🇪", slug: "berlin"    },
+  { name: "Lisboa",    code: "LIS", flag: "🇵🇹", slug: "lisboa"    },
+  { name: "Praga",     code: "PRG", flag: "🇨🇿", slug: "praga"     },
+  { name: "Ámsterdam", code: "AMS", flag: "🇳🇱", slug: "amsterdam" },
+  { name: "Viena",     code: "VIE", flag: "🇦🇹", slug: "viena"     },
+  { name: "Budapest",  code: "BUD", flag: "🇭🇺", slug: "budapest"  },
+  { name: "París",     code: "PAR", flag: "🇫🇷", slug: "paris"     },
+];
+
 function GlobeSection() {
   const navigate = useNavigate();
-  const [activeCity, setActiveCity] = useState(null);
-  const [rotation, setRotation] = useState(0);
-  const animRef = useRef(null);
-  const pausedRef = useRef(false);
-
-  useEffect(() => {
-    const animate = () => {
-      if (!pausedRef.current) {
-        setRotation(r => (r + 0.08) % 360);
-      }
-      animRef.current = requestAnimationFrame(animate);
-    };
-    animRef.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animRef.current);
-  }, []);
-
-  const handleCityClick = (cityName) => {
-    const city = CITIES.find(c => c.name === cityName);
-    if (city) navigate(`/city/${city.slug}`);
-  };
 
   return (
     <section className="globe-section">
       <div className="globe-section__inner">
+
+        {/* Text side */}
         <div className="globe-section__text">
           <SectionLabel color="var(--color-teal)">Mapa Erasmus</SectionLabel>
           <h2 className="section__title" style={{ color: "#fff", marginBottom: 16 }}>
             Europa te espera.
           </h2>
-          <p style={{ fontSize: "clamp(15px,2vw,17px)", color: "rgba(255,255,255,0.6)", lineHeight: 1.7, marginBottom: 32, maxWidth: 400 }}>
-            20 ciudades Erasmus cuidadosamente seleccionadas. Haz clic en cualquier marcador para explorar.
+          <p style={{
+            fontSize: "clamp(15px,2vw,17px)",
+            color: "rgba(255,255,255,0.6)",
+            lineHeight: 1.7, marginBottom: 32, maxWidth: 400,
+          }}>
+            20 ciudades Erasmus con datos reales. Gira el globo y haz clic en cualquier marcador para explorar.
           </p>
           <div className="globe-city-list">
-            {GLOBE_CITIES.slice(0, 6).map(c => (
+            {CITY_PILLS.map(c => (
               <button key={c.name} className="globe-city-pill"
-                onClick={() => handleCityClick(c.name)}>
+                onClick={() => navigate(`/city/${c.slug}`)}>
                 <span>{c.flag}</span>
                 <span>{c.name}</span>
                 <span className="globe-city-pill__code">{c.code}</span>
@@ -162,110 +150,21 @@ function GlobeSection() {
           </div>
         </div>
 
-        <div className="globe-wrap"
-          onMouseEnter={() => { pausedRef.current = true; }}
-          onMouseLeave={() => { pausedRef.current = false; setActiveCity(null); }}>
-          {/* SVG Globe */}
-          <svg viewBox="0 0 400 400" className="globe-svg" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="globeGrad" cx="38%" cy="35%">
-                <stop offset="0%" stopColor="#1E4976" />
-                <stop offset="50%" stopColor="#0F3460" />
-                <stop offset="100%" stopColor="#080F20" />
-              </radialGradient>
-              <radialGradient id="globeShine" cx="35%" cy="30%">
-                <stop offset="0%" stopColor="rgba(255,255,255,0.18)" />
-                <stop offset="60%" stopColor="rgba(255,255,255,0)" />
-              </radialGradient>
-              <radialGradient id="glowGrad" cx="50%" cy="50%">
-                <stop offset="0%" stopColor="rgba(14,165,233,0.3)" />
-                <stop offset="100%" stopColor="rgba(14,165,233,0)" />
-              </radialGradient>
-              <clipPath id="globeClip">
-                <circle cx="200" cy="200" r="168" />
-              </clipPath>
-              <filter id="markerGlow">
-                <feGaussianBlur stdDeviation="2" result="blur" />
-                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-              </filter>
-            </defs>
-
-            {/* Outer glow */}
-            <circle cx="200" cy="200" r="195" fill="url(#glowGrad)" />
-
-            {/* Globe base */}
-            <circle cx="200" cy="200" r="168" fill="url(#globeGrad)" />
-
-            {/* Latitude lines */}
-            {[-60, -30, 0, 30, 60].map(lat => {
-              const r = 168 * Math.cos(lat * Math.PI / 180);
-              const cy = 200 + 168 * Math.sin(lat * Math.PI / 180);
-              return r > 0 ? <ellipse key={lat} cx="200" cy={cy} rx={r} ry={r * 0.12} fill="none" stroke="rgba(255,255,255,0.07)" strokeWidth="0.8" /> : null;
-            })}
-
-            {/* Longitude lines — animated */}
-            {[0, 30, 60, 90, 120, 150].map((lng, i) => {
-              const offset = (rotation + i * 30) % 180;
-              const rx = Math.abs(168 * Math.cos(offset * Math.PI / 180));
-              return rx > 5 ? (
-                <ellipse key={lng} cx="200" cy="200" rx={rx} ry="168" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="0.8" />
-              ) : null;
-            })}
-
-            {/* Land masses (simplified Europe) */}
-            <g clipPath="url(#globeClip)" opacity="0.7">
-              <path d="M 185 130 Q 195 115 215 120 Q 235 118 245 130 Q 250 145 245 160 Q 240 175 255 178 Q 265 180 268 195 Q 270 210 260 215 Q 248 220 240 230 Q 232 240 220 245 Q 208 248 200 240 Q 190 235 182 228 Q 172 220 168 208 Q 165 195 170 182 Q 174 168 170 155 Q 167 142 175 133 Z"
-                fill="rgba(20,184,166,0.25)" stroke="rgba(20,184,166,0.4)" strokeWidth="0.8" />
-              <path d="M 155 155 Q 165 148 175 152 Q 180 158 177 168 Q 173 178 163 180 Q 152 180 148 172 Q 145 163 150 157 Z"
-                fill="rgba(20,184,166,0.2)" stroke="rgba(20,184,166,0.3)" strokeWidth="0.5" />
-            </g>
-
-            {/* City markers */}
-            {GLOBE_CITIES.map((city, i) => {
-              const px = (city.x / 100) * 336 + 32;
-              const py = (city.y / 100) * 336 + 32;
-              const isActive = activeCity === city.name;
-
-              return (
-                <g key={city.name} style={{ cursor: "pointer" }}
-                  onMouseEnter={() => setActiveCity(city.name)}
-                  onMouseLeave={() => setActiveCity(null)}
-                  onClick={() => handleCityClick(city.name)}>
-
-                  {/* Pulse ring */}
-                  {isActive && (
-                    <circle cx={px} cy={py} r="14" fill="none" stroke="rgba(14,165,233,0.5)" strokeWidth="1.5" opacity="0.8" />
-                  )}
-
-                  {/* Dot */}
-                  <circle cx={px} cy={py} r={isActive ? 5 : 4}
-                    fill={isActive ? "#14B8A6" : "#0EA5E9"}
-                    filter="url(#markerGlow)"
-                    style={{ transition: "all 0.2s" }} />
-
-                  {/* Label on hover */}
-                  {isActive && (
-                    <g>
-                      <rect x={px - 38} y={py - 32} width="76" height="22" rx="6"
-                        fill="rgba(10,20,40,0.92)" stroke="rgba(14,165,233,0.4)" strokeWidth="0.8" />
-                      <text x={px} y={py - 17} textAnchor="middle"
-                        fontSize="9" fontWeight="700" fill="#fff" fontFamily="DM Sans, sans-serif">
-                        {city.flag} {city.name}
-                      </text>
-                    </g>
-                  )}
-                </g>
-              );
-            })}
-
-            {/* Shine overlay */}
-            <circle cx="200" cy="200" r="168" fill="url(#globeShine)" />
-
-            {/* Rim */}
-            <circle cx="200" cy="200" r="168" fill="none"
-              stroke="rgba(14,165,233,0.35)" strokeWidth="1.5" />
-          </svg>
+        {/* Globe 3D */}
+        <div className="globe-wrap">
+          <Suspense fallback={
+            <div style={{
+              width: "100%", height: "100%",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              color: "rgba(255,255,255,0.3)", fontSize: 14, fontFamily: "DM Sans, sans-serif",
+            }}>
+              Cargando globo...
+            </div>
+          }>
+            <Globe3D />
+          </Suspense>
         </div>
+
       </div>
     </section>
   );
