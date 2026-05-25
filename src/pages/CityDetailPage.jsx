@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getCityBySlug, CITIES } from "../data/cities";
-import { getCityInsights } from "../data/insights";
+import { getCityBySlug, getCityInsights, getRelatedCities, getOverallScore } from "../lib/cities";
 import { NavbarCity, Footer, SectionLabel } from "../components/Layout";
 import ScoreCard, { ProgressBar } from "../components/ScoreCard";
+import { useSEO } from "../hooks/useSEO";
 
 const EXP_META = {
   erasmus:       { label: "Erasmus+",           color: "#0EA5E9", icon: "🎓" },
@@ -30,9 +30,8 @@ const TABS = [
 ];
 
 // ─── STICKY SCORE BAR ─────────────────────────────────────────────────────────
-function StickyScoreBar({ scores, city }) {
+function StickyScoreBar({ scores, city, overall }) {
   const [visible, setVisible] = useState(false);
-  const overall = (scores.reduce((a, b) => a + b.score, 0) / scores.length).toFixed(1);
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 420);
@@ -392,8 +391,14 @@ export default function CityDetailPage() {
   const { slug } = useParams();
   const navigate = useNavigate();
   const city = getCityBySlug(slug);
-  const insights = getCityInsights(slug, city);
+  const insights = getCityInsights(slug);
   const [activeTab, setActiveTab] = useState("overview");
+
+  const overall = city ? getOverallScore(slug) : 0;
+  const related = city ? getRelatedCities(city, 3) : [];
+
+  // SEO dinámico por ciudad
+  useSEO({ city, overallScore: overall });
 
   useEffect(() => { window.scrollTo(0, 0); }, [slug]);
 
@@ -407,9 +412,6 @@ export default function CityDetailPage() {
     );
   }
 
-  const overall = (insights.scores.reduce((a, b) => a + b.score, 0) / insights.scores.length).toFixed(1);
-  const related = CITIES.filter((c) => c.country === city.country && c.slug !== city.slug).slice(0, 3);
-
   const scrollToTab = (tabId) => {
     setActiveTab(tabId);
     const el = document.getElementById(`tab-${tabId}`);
@@ -418,7 +420,7 @@ export default function CityDetailPage() {
 
   return (
     <div>
-      <StickyScoreBar scores={insights.scores} city={city} />
+      <StickyScoreBar scores={insights.scores} city={city} overall={overall} />
       <NavbarCity cityName={city.name} overall={overall} />
 
       <CityHero city={city} insights={insights} overall={overall} />

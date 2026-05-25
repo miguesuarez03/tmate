@@ -4,6 +4,8 @@ import { CITIES } from "../data/cities";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import SearchBar from "../components/SearchBar";
 import CityCard from "../components/CityCard";
+import { useCityFilter } from "../hooks/useCityFilter";
+import { useSEO } from "../hooks/useSEO";
 
 const Globe3D = lazy(() => import("../components/Globe3D"));
 
@@ -322,12 +324,21 @@ function CommunitySection() {
 }
 
 export default function HomePage() {
-  const [filter, setFilter] = useState("Todos");
-  const [showAll, setShowAll] = useState(false);
   const navigate = useNavigate();
+  const [showAll, setShowAll] = useState(false);
 
-  const regions = ["Todos", ...Array.from(new Set(CITIES.map((c) => c.region)))];
-  const filtered = filter === "Todos" ? CITIES : CITIES.filter((c) => c.region === filter);
+  // Hook de filtros dinámico — preparado para filtros avanzados futuros
+  const {
+    region, setRegion,
+    cities: filtered,
+    regions,
+    totalCount,
+    hasActiveFilters,
+    resetFilters,
+  } = useCityFilter({ initialSort: 'erasmus' });
+
+  // SEO dinámico
+  useSEO({ isHome: true });
 
   const INITIAL_COUNT = 8;
   const displayedCities = showAll ? filtered : filtered.slice(0, INITIAL_COUNT);
@@ -395,12 +406,20 @@ export default function HomePage() {
             <SectionLabel>Destinos Erasmus</SectionLabel>
             <h2 className="section__title">Ciudades que te cambian.</h2>
           </div>
-          <span className="section__count">{filtered.length} ciudades</span>
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            {hasActiveFilters && (
+              <button onClick={() => { resetFilters(); setShowAll(false); }}
+                style={{ fontSize: 12, color: "var(--color-muted)", textDecoration: "underline", background: "none", border: "none", cursor: "pointer" }}>
+                Limpiar filtros
+              </button>
+            )}
+            <span className="section__count">{totalCount} ciudades</span>
+          </div>
         </div>
         <div className="filters">
           {regions.map((r) => (
-            <button key={r} className={`filter-pill${filter === r ? " filter-pill--active" : ""}`}
-              onClick={() => { setFilter(r); setShowAll(false); }}>
+            <button key={r} className={`filter-pill${region === r ? " filter-pill--active" : ""}`}
+              onClick={() => { setRegion(r); setShowAll(false); }}>
               {r}
             </button>
           ))}

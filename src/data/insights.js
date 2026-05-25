@@ -434,3 +434,13 @@ export const getCityInsights = (slug, cityData) => {
     scores: DEFAULT_SCORES(cityData),
   };
 };
+
+// ─── DEFAULT_INSIGHTS ─────────────────────────────────────────────────────────
+// Exportado para que lib/cities.js pueda usarlo directamente.
+// Ciudades sin insights propios usan este fallback automáticamente.
+export const DEFAULT_INSIGHTS = (city) => ({
+  heroImg: city?.img || "",
+  tagline: city?.description || "",
+  atmosphere: city?.vibe || "",
+  scores: DEFAULT_SCORES(city),
+});
