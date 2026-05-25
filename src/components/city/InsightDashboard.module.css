@@ -1,0 +1,361 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   INSIGHT DASHBOARD — InsightDashboard.module.css
+   Accordion score rows with progress bars and chat-bubble reviews
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.dashboard {
+  padding: 5rem 5vw;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ─── Header ────────────────────────────────────────────────────────────────── */
+.dashHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.dashEyebrow {
+  font-family: var(--font-mono, 'DM Mono', monospace);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-muted, #888);
+  margin: 0 0 0.4rem;
+}
+
+.dashTitle {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  margin: 0 0 0.5rem;
+  color: var(--color-heading, #0a0a0f);
+  line-height: 1.15;
+}
+
+.dashSubtitle {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.95rem;
+  color: var(--color-muted, #888);
+  margin: 0;
+}
+
+.dashOverall {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.dashOverallNum {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.dashOverallLabel {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.78rem;
+  color: var(--color-muted, #888);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ─── Accordion list ────────────────────────────────────────────────────────── */
+.dashList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* ─── Row ───────────────────────────────────────────────────────────────────── */
+.row {
+  border: 1.5px solid #f0f0f4;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.rowOpen {
+  border-color: #e0e7ff;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.07);
+}
+
+/* ─── Row header (the button) ───────────────────────────────────────────────── */
+.rowHeader {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1.1rem 1.4rem;
+  width: 100%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+.rowHeader:hover {
+  background: #fafafa;
+}
+
+/* ─── Icon pill ─────────────────────────────────────────────────────────────── */
+.rowIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.22s ease;
+}
+
+.rowHeader:hover .rowIcon {
+  transform: scale(1.08);
+}
+
+.rowEmoji {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+/* ─── Row main content ──────────────────────────────────────────────────────── */
+.rowMain {
+  flex: 1;
+  min-width: 0;
+}
+
+.rowTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.rowLabel {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-heading, #0a0a0f);
+}
+
+.rowBadge {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.18rem 0.55rem;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Progress bar track */
+.rowTrack {
+  height: 5px;
+  background: #f0f0f4;
+  border-radius: 100px;
+  overflow: hidden;
+  margin-bottom: 0.4rem;
+}
+
+.rowFill {
+  height: 100%;
+  border-radius: 100px;
+  transition: width 0.8s cubic-bezier(0.22,1,0.36,1);
+}
+
+.rowSummary {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.82rem;
+  color: var(--color-muted, #888);
+  margin: 0;
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ─── Score + chevron ───────────────────────────────────────────────────────── */
+.rowRight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  flex-shrink: 0;
+}
+
+.rowScore {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: 1.75rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.rowChevron {
+  display: flex;
+}
+
+/* ─── Expandable panel ──────────────────────────────────────────────────────── */
+.rowPanel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+
+.rowPanelOpen {
+  max-height: 1000px;
+}
+
+.rowPanelInner {
+  padding: 0 1.4rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-top: 1px solid #f0f0f4;
+  padding-top: 1.2rem;
+  margin-top: 0;
+}
+
+/* ─── Section labels inside panel ──────────────────────────────────────────── */
+.panelSectionLabel {
+  font-family: var(--font-mono, 'DM Mono', monospace);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-muted, #888);
+  margin: 0 0 0.8rem;
+}
+
+/* ─── Subcategories ─────────────────────────────────────────────────────────── */
+.subcats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.subcat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.subcatHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subcatLabel {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-heading, #0a0a0f);
+}
+
+.subcatScore {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.subcatTrack {
+  height: 6px;
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.subcatFill {
+  height: 100%;
+  border-radius: 100px;
+  transition: width 0.9s cubic-bezier(0.22,1,0.36,1) 0.15s;
+}
+
+.subcatDesc {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.8rem;
+  color: var(--color-muted, #888);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ─── Reviews ───────────────────────────────────────────────────────────────── */
+.reviews {}
+
+.reviewsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.9rem;
+}
+
+.bubble {
+  background: #f8f8fc;
+  border: 1px solid #ececf4;
+  border-radius: 18px 18px 18px 6px;
+  padding: 1.1rem 1.1rem 0.85rem;
+  position: relative;
+  transition: transform 0.22s ease;
+}
+
+.bubble:hover {
+  transform: translateY(-2px);
+}
+
+.bubbleQuote {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.9rem;
+}
+
+.bubbleText {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.88rem;
+  color: #3a3a4a;
+  margin: 0 0 0.8rem;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.bubbleAuthor {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.bubbleFlag {
+  font-size: 1.1rem;
+}
+
+.bubbleName {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-muted, #888);
+}
+
+/* ─── Responsive ────────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .dashHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dashOverall {
+    align-items: flex-start;
+  }
+
+  .rowSummary {
+    display: none;
+  }
+
+  .reviewsGrid {
+    grid-template-columns: 1fr;
+  }
+}

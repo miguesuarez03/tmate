@@ -1,0 +1,60 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   cityDetailPage.css
+   Scope: reset, font imports, and page-level variables exclusively for
+   the new CityDetailPage v5 system.
+
+   Component-specific styles live in their own *.module.css files.
+   This file should NOT contain component UI rules.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Google Fonts ──────────────────────────────────────────────────────────── */
+/* Playfair Display — display/heading serif                                      */
+/* DM Sans          — body copy                                                  */
+/* DM Mono          — mono labels, eyebrows                                      */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
+/* ─── CSS variables (extend or override your global.css here) ──────────────── */
+:root {
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+  --font-mono:    'DM Mono', 'Courier New', monospace;
+
+  /* Colors */
+  --color-bg:       #ffffff;
+  --color-heading:  #0a0a0f;
+  --color-body:     #3a3a4a;
+  --color-muted:    #888896;
+  --color-border:   #ececf0;
+  --color-surface:  #fafafa;
+}
+
+/* ─── Page root ─────────────────────────────────────────────────────────────── */
+.cdp-root {
+  background: var(--color-bg);
+  color: var(--color-body);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  /* Prevent horizontal scroll from hover transforms */
+  overflow-x: hidden;
+}
+
+/* ─── Section dividers ──────────────────────────────────────────────────────── */
+.cdp-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-border) 20%, var(--color-border) 80%, transparent);
+  margin: 0 5vw;
+}
+
+/* ─── Tips wrapper (full-bleed bg inside max-width page) ────────────────────── */
+.cdp-tips-wrapper {
+  padding: 0 5vw;
+  margin: 0 auto;
+  max-width: 1400px;
+}
+
+@media (max-width: 640px) {
+  .cdp-tips-wrapper {
+    padding: 0;
+  }
+}
