@@ -31,7 +31,7 @@ export function Navbar({ transparent = false }) {
       <Logo dark={!isDark} onClick={() => navigate("/")} />
 
       <div className="navbar__links">
-        {["Explorar", "Experiencias", "Comunidad"].map((item) => (
+        {["Explorar", "Comunidad"].map((item) => (
           <button key={item} className="navbar__link" style={{ color: linkColor }}>{item}</button>
         ))}
         <button className="navbar__cta">Registro gratis</button>
