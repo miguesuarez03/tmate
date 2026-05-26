@@ -1,145 +1,174 @@
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./HeroSection.module.css";
 
-// ─── SVG ICONS ────────────────────────────────────────────────────────────────
-const IconMapPin = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/>
-    <circle cx="12" cy="10" r="3"/>
-  </svg>
-);
+// ─── MOOD TAGS CONFIG ─────────────────────────────────────────────────────────
+const MOOD_ICONS = {
+  erasmus: { icon: "🌍", label: "Top Erasmus" },
+  fiesta:  { icon: "🎉", label: "Gran vida social" },
+  barato:  { icon: "💸", label: "Asequible" },
+  sol:     { icon: "☀️", label: "Mucho sol" },
+  bici:    { icon: "🚲", label: "Ciclable" },
+  seguro:  { icon: "🛡️", label: "Segura" },
+  foodie:  { icon: "🍝", label: "Gastronómica" },
+  arte:    { icon: "🎨", label: "Cultural" },
+  tech:    { icon: "💻", label: "Tech & startups" },
+  playa:   { icon: "🏖️", label: "Cerca del mar" },
+};
 
-const IconStar = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-  </svg>
-);
+function getMoodTags(city) {
+  const tags = [];
+  if (city.erasmus >= 90) tags.push("erasmus");
+  if (city.costDetail?.includes("350") || city.costDetail?.includes("450") || city.costDetail?.includes("500")) tags.push("barato");
+  if (city.vibe?.toLowerCase().includes("gastro") || city.highlights?.some(h => h.toLowerCase().includes("pasta") || h.toLowerCase().includes("gastro"))) tags.push("foodie");
+  if (city.weather?.toLowerCase().includes("mediterr") || city.weather?.toLowerCase().includes("sol")) tags.push("sol");
+  if (city.highlights?.some(h => h.toLowerCase().includes("bici") || h.toLowerCase().includes("cicl"))) tags.push("bici");
+  if (city.highlights?.some(h => h.toLowerCase().includes("playa") || h.toLowerCase().includes("mar") || h.toLowerCase().includes("surf"))) tags.push("playa");
+  if (city.vibe?.toLowerCase().includes("cultur") || city.highlights?.some(h => h.toLowerCase().includes("museo") || h.toLowerCase().includes("arte"))) tags.push("arte");
+  if (city.highlights?.some(h => h.toLowerCase().includes("startup") || h.toLowerCase().includes("tech") || h.toLowerCase().includes("fintech"))) tags.push("tech");
+  tags.push("fiesta");
+  return tags.slice(0, 5).map(k => MOOD_ICONS[k]).filter(Boolean);
+}
 
-const IconWallet = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/>
-    <path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/>
-    <path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"/>
-  </svg>
-);
+function scoreColor(score) {
+  if (score >= 8.5) return "#22C55E";
+  if (score >= 7.5) return "#00BFA5";
+  if (score >= 6.5) return "#0EA5E9";
+  return "#F59E0B";
+}
 
-const IconArrow = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M5 12h14M12 5l7 7-7 7"/>
-  </svg>
-);
+function scoreLabel(score) {
+  if (score >= 8.5) return "Excelente";
+  if (score >= 7.5) return "Muy bueno";
+  if (score >= 6.5) return "Bueno";
+  return "Regular";
+}
 
-const IconUsers = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-    <circle cx="9" cy="7" r="4"/>
-    <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-  </svg>
-);
+// ─── SCORE RING ───────────────────────────────────────────────────────────────
+function ScoreRing({ score, size = 110 }) {
+  const [animated, setAnimated] = useState(false);
+  const r = 44;
+  const circ = 2 * Math.PI * r;
+  const color = scoreColor(score);
 
-// ─── COMPONENT ────────────────────────────────────────────────────────────────
+  useEffect(() => {
+    const t = setTimeout(() => setAnimated(true), 400);
+    return () => clearTimeout(t);
+  }, []);
 
-export default function HeroSection({ city, overallScore }) {
+  return (
+    <div className={styles.ringWrap} style={{ width: size, height: size }}>
+      <svg viewBox="0 0 100 100" className={styles.ringsvg}>
+        <circle cx="50" cy="50" r={r} fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="7"/>
+        <circle
+          cx="50" cy="50" r={r}
+          fill="none"
+          stroke={color}
+          strokeWidth="7"
+          strokeLinecap="round"
+          strokeDasharray={circ}
+          strokeDashoffset={animated ? circ * (1 - score / 10) : circ}
+          transform="rotate(-90 50 50)"
+          style={{ transition: "stroke-dashoffset 1.4s cubic-bezier(0.16,1,0.3,1)" }}
+        />
+      </svg>
+      <div className={styles.ringCenter}>
+        <span className={styles.ringScore} style={{ color }}>{score}</span>
+        <span className={styles.ringDen}>/10</span>
+        <span className={styles.ringLabel} style={{ color }}>{scoreLabel(score)}</span>
+      </div>
+    </div>
+  );
+}
+
+// ─── MAIN ─────────────────────────────────────────────────────────────────────
+export default function HeroSection({ city, overallScore, insights }) {
   const navigate = useNavigate();
-
-  const scoreColor =
-    overallScore >= 8.5 ? "#22C55E" :
-    overallScore >= 7   ? "#0EA5E9" :
-    overallScore >= 5.5 ? "#F59E0B" : "#EF4444";
-
-  const scoreLabel =
-    overallScore >= 8.5 ? "Excelente" :
-    overallScore >= 7   ? "Muy bueno" :
-    overallScore >= 5.5 ? "Regular"   : "Difícil";
+  const moodTags = getMoodTags(city);
+  const color = scoreColor(overallScore);
 
   return (
     <section className={styles.hero}>
-      {/* Background image */}
+      {/* ── Background ── */}
       <div className={styles.heroBg}>
-        <img
-          src={city.heroImg || city.img}
-          alt={city.name}
-          className={styles.heroBgImg}
-        />
-        <div className={styles.heroBgOverlay} />
+        <img src={city.heroImg || city.img} alt={city.name} className={styles.heroBgImg} />
+        <div className={styles.heroBgGradient} />
       </div>
 
-      {/* Content */}
-      <div className={styles.heroContent}>
-        {/* Left — city identity */}
+      {/* ── Content ── */}
+      <div className={styles.heroInner}>
+
+        {/* LEFT */}
         <div className={styles.heroLeft}>
           <div className={styles.heroBreadcrumb}>
-            <IconMapPin />
+            <span>{city.emoji}</span>
             <span>{city.country}</span>
-            <span className={styles.heroDot} />
+            <span className={styles.heroBreadSep}>·</span>
             <span>{city.region}</span>
           </div>
 
           <h1 className={styles.heroTitle}>{city.name}</h1>
 
-          <blockquote className={styles.heroQuote}>
-            "{city.phrase}"
-          </blockquote>
+          <p className={styles.heroTagline}>
+            {insights?.tagline || city.phrase}
+          </p>
 
-          <div className={styles.heroMeta}>
-            <div className={styles.heroMetaBadge}>
-              <IconUsers />
-              <span>{city.students} estudiantes</span>
-            </div>
-            <div className={styles.heroMetaBadge}>
-              <span className={styles.heroLang}>{city.language}</span>
-            </div>
-            <div className={styles.heroMetaBadge}>
-              <span>{city.vibe}</span>
-            </div>
+          <div className={styles.heroMoodTags}>
+            {moodTags.map((tag, i) => (
+              <span key={i} className={styles.heroMoodTag}>
+                <span>{tag.icon}</span>
+                <span>{tag.label}</span>
+              </span>
+            ))}
+          </div>
+
+          <div className={styles.heroActions}>
+            <button
+              className={styles.heroCta}
+              onClick={() => document.getElementById("insights")?.scrollIntoView({ behavior: "smooth" })}
+            >
+              Ver análisis completo
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+            <button className={styles.heroSecondary} onClick={() => navigate("/")}>
+              ← Explorar más ciudades
+            </button>
           </div>
         </div>
 
-        {/* Right — glassmorphic card */}
+        {/* RIGHT — glass card */}
         <div className={styles.heroCard}>
-          <div className={styles.heroCardHeader}>
-            <span className={styles.heroCardEmojiFlag}>{city.emoji}</span>
+          <div className={styles.heroCardTop}>
             <div>
-              <p className={styles.heroCardCitySmall}>{city.name}</p>
+              <p className={styles.heroCardCity}>{city.name}</p>
               <p className={styles.heroCardTag}>{city.tag}</p>
             </div>
+            <span className={styles.heroCardFlag}>{city.emoji}</span>
           </div>
 
-          {/* Score ring */}
-          <div className={styles.heroScoreRing}>
-            <svg viewBox="0 0 120 120" className={styles.heroRingsvg}>
-              <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="8"/>
-              <circle
-                cx="60" cy="60" r="52"
-                fill="none"
-                stroke={scoreColor}
-                strokeWidth="8"
-                strokeLinecap="round"
-                strokeDasharray={`${2 * Math.PI * 52}`}
-                strokeDashoffset={`${2 * Math.PI * 52 * (1 - overallScore / 10)}`}
-                transform="rotate(-90 60 60)"
-                className={styles.heroRingProgress}
-              />
-            </svg>
-            <div className={styles.heroScoreCenter}>
-              <span className={styles.heroScoreNum} style={{ color: scoreColor }}>{overallScore}</span>
-              <span className={styles.heroScoreDen}>/10</span>
-              <span className={styles.heroScoreLabel} style={{ color: scoreColor }}>{scoreLabel}</span>
-            </div>
-          </div>
+          <ScoreRing score={overallScore} />
 
-          {/* Stats row */}
-          <div className={styles.heroCardStats}>
-            <div className={styles.heroCardStat}>
-              <IconWallet />
+          <div className={styles.heroStats}>
+            <div className={styles.heroStat}>
+              <span className={styles.heroStatIcon}>💶</span>
               <div>
                 <p className={styles.heroStatVal}>{city.costDetail}</p>
                 <p className={styles.heroStatKey}>presupuesto/mes</p>
               </div>
             </div>
-            <div className={styles.heroCardStatDivider} />
-            <div className={styles.heroCardStat}>
-              <IconStar />
+            <div className={styles.heroStatDiv} />
+            <div className={styles.heroStat}>
+              <span className={styles.heroStatIcon}>🎓</span>
+              <div>
+                <p className={styles.heroStatVal}>{city.students}</p>
+                <p className={styles.heroStatKey}>estudiantes</p>
+              </div>
+            </div>
+            <div className={styles.heroStatDiv} />
+            <div className={styles.heroStat}>
+              <span className={styles.heroStatIcon}>🌍</span>
               <div>
                 <p className={styles.heroStatVal}>{city.erasmus}/100</p>
                 <p className={styles.heroStatKey}>índice Erasmus</p>
@@ -147,19 +176,18 @@ export default function HeroSection({ city, overallScore }) {
             </div>
           </div>
 
-          {/* CTA */}
           <button
-            className={styles.heroCta}
-            onClick={() => navigate(`/city/${city.slug}`)}
+            className={styles.heroCardCta}
+            style={{ "--cta-color": color }}
+            onClick={() => document.getElementById("insights")?.scrollIntoView({ behavior: "smooth" })}
           >
-            <span>Explorar programas</span>
-            <IconArrow />
+            Explorar guía completa →
           </button>
         </div>
       </div>
 
       {/* Scroll hint */}
-      <div className={styles.heroScroll}>
+      <div className={styles.heroScrollHint}>
         <div className={styles.heroScrollLine} />
         <span>Desliza para explorar</span>
       </div>

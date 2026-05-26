@@ -1,9 +1,7 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   HERO SECTION — HeroSection.module.css
-   Full-bleed image hero with glassmorphic card and score ring
+   HERO SECTION v2 — HeroSection.module.css
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* ─── Layout shell ─────────────────────────────────────────────────────────── */
 .hero {
   position: relative;
   min-height: 100svh;
@@ -13,352 +11,269 @@
   overflow: hidden;
 }
 
-/* ─── Background ────────────────────────────────────────────────────────────── */
-.heroBg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
+/* ── Background ── */
+.heroBg { position: absolute; inset: 0; z-index: 0; }
 
 .heroBgImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 30%;
-  transform: scale(1.04);
-  transition: transform 8s ease-out;
-  animation: heroZoom 8s ease-out forwards;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 30%;
+  animation: heroZoom 10s ease-out forwards;
 }
 
 @keyframes heroZoom {
-  from { transform: scale(1.08); }
-  to   { transform: scale(1.02); }
+  from { transform: scale(1.06); }
+  to   { transform: scale(1.01); }
 }
 
-.heroBgOverlay {
-  position: absolute;
-  inset: 0;
+.heroBgGradient {
+  position: absolute; inset: 0;
   background:
-    linear-gradient(to top, rgba(8,8,12,0.92) 0%, rgba(8,8,12,0.55) 45%, rgba(8,8,12,0.20) 75%, transparent 100%),
-    linear-gradient(to right, rgba(8,8,12,0.6) 0%, transparent 60%);
+    linear-gradient(to top,  rgba(8,12,22,0.96) 0%,  rgba(8,12,22,0.65) 40%, rgba(8,12,22,0.2) 70%,  transparent 100%),
+    linear-gradient(to right, rgba(8,12,22,0.75) 0%, rgba(8,12,22,0.3) 50%, transparent 80%);
 }
 
-/* ─── Content grid ──────────────────────────────────────────────────────────── */
-.heroContent {
-  position: relative;
-  z-index: 1;
+/* ── Inner grid ── */
+.heroInner {
+  position: relative; z-index: 1;
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 2rem;
+  grid-template-columns: 1fr 320px;
+  gap: 2.5rem;
   align-items: flex-end;
-  padding: 0 5vw 5vh;
-  max-width: 1400px;
+  max-width: 1320px;
   margin: 0 auto;
   width: 100%;
+  padding: 120px var(--section-px) 5vh;
   min-height: 100svh;
-  padding-top: 100px;
 }
 
-/* ─── Left — city identity ──────────────────────────────────────────────────── */
+/* ── Left ── */
 .heroLeft {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  animation: heroFadeUp 0.9s cubic-bezier(0.22,1,0.36,1) 0.2s both;
+  display: flex; flex-direction: column; gap: 1.4rem;
+  animation: fadeUp 0.9s var(--ease-smooth) 0.1s both;
 }
 
-@keyframes heroFadeUp {
-  from { opacity: 0; transform: translateY(30px); }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 .heroBreadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: rgba(255,255,255,0.65);
-  font-size: 0.875rem;
-  font-family: var(--font-mono, 'DM Mono', monospace);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  display: flex; align-items: center; gap: 0.5rem;
+  font-family: var(--font-body); font-size: 0.85rem;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase; letter-spacing: 0.08em;
 }
 
-.heroDot {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.4);
-}
+.heroBreadSep { color: rgba(255,255,255,0.25); }
 
 .heroTitle {
-  font-family: var(--font-display, 'Playfair Display', serif);
-  font-size: clamp(4rem, 11vw, 9rem);
-  font-weight: 900;
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 12vw, 9.5rem);
+  font-weight: 800;
   color: #fff;
-  line-height: 0.92;
+  line-height: 0.9;
   letter-spacing: -0.03em;
   margin: 0;
-  text-shadow: 0 4px 40px rgba(0,0,0,0.4);
+  text-shadow: 0 4px 40px rgba(0,0,0,0.3);
 }
 
-.heroQuote {
-  font-family: var(--font-body, 'DM Sans', sans-serif);
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
-  color: rgba(255,255,255,0.8);
+.heroTagline {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  color: rgba(255,255,255,0.72);
   font-style: italic;
-  font-weight: 400;
-  margin: 0;
-  padding: 0;
-  border: none;
-  max-width: 480px;
-  line-height: 1.6;
+  margin: 0; max-width: 520px; line-height: 1.65;
 }
 
-.heroMeta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
+/* ── Mood tags ── */
+.heroMoodTags {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
 }
 
-.heroMetaBadge {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
+.heroMoodTag {
+  display: flex; align-items: center; gap: 0.4rem;
   background: rgba(255,255,255,0.1);
   border: 1px solid rgba(255,255,255,0.18);
-  backdrop-filter: blur(8px);
-  border-radius: 100px;
-  padding: 0.35rem 0.85rem;
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.85);
-  font-family: var(--font-body, 'DM Sans', sans-serif);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius-full);
+  padding: 0.38rem 0.9rem;
+  font-family: var(--font-body); font-size: 0.8rem;
+  color: rgba(255,255,255,0.88);
+  font-weight: 500;
+  transition: background 0.2s ease, transform 0.2s ease;
+  cursor: default;
 }
 
-.heroLang {
-  font-weight: 600;
+.heroMoodTag:hover {
+  background: rgba(255,255,255,0.18);
+  transform: translateY(-2px);
 }
 
-/* ─── Glassmorphic card ─────────────────────────────────────────────────────── */
-.heroCard {
-  background: rgba(255,255,255,0.07);
-  backdrop-filter: blur(28px) saturate(180%);
-  -webkit-backdrop-filter: blur(28px) saturate(180%);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 28px;
-  padding: 2rem 1.75rem;
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.04) inset,
-    0 24px 60px rgba(0,0,0,0.5),
-    0 8px 20px rgba(0,0,0,0.3);
-  animation: heroCardIn 1s cubic-bezier(0.22,1,0.36,1) 0.45s both;
-  align-self: flex-end;
-  margin-bottom: 2rem;
-}
+/* ── Actions ── */
+.heroActions { display: flex; gap: 0.85rem; flex-wrap: wrap; align-items: center; }
 
-@keyframes heroCardIn {
-  from { opacity: 0; transform: translateY(24px) scale(0.97); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-.heroCardHeader {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.heroCardEmojiFlag {
-  font-size: 1.75rem;
-  line-height: 1;
-}
-
-.heroCardCitySmall {
-  font-family: var(--font-display, 'Playfair Display', serif);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #fff;
-  margin: 0;
-  line-height: 1.2;
-}
-
-.heroCardTag {
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.5);
-  margin: 0;
-  font-family: var(--font-body, 'DM Sans', sans-serif);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-/* ─── Score ring ────────────────────────────────────────────────────────────── */
-.heroScoreRing {
-  position: relative;
-  width: 130px;
-  height: 130px;
-  margin: 0 auto;
-}
-
-.heroRingsvg {
-  width: 100%;
-  height: 100%;
-}
-
-.heroRingProgress {
-  transition: stroke-dashoffset 1.4s cubic-bezier(0.22,1,0.36,1) 0.8s;
-}
-
-.heroScoreCenter {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.heroScoreNum {
-  font-family: var(--font-display, 'Playfair Display', serif);
-  font-size: 2.4rem;
-  font-weight: 900;
-  line-height: 1;
-}
-
-.heroScoreDen {
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.45);
-  font-family: var(--font-body, 'DM Sans', sans-serif);
-}
-
-.heroScoreLabel {
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-top: 2px;
-  font-family: var(--font-body, 'DM Sans', sans-serif);
-}
-
-/* ─── Card stats ────────────────────────────────────────────────────────────── */
-.heroCardStats {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  background: rgba(255,255,255,0.05);
-  border-radius: 16px;
-  padding: 0.85rem 1rem;
-  border: 1px solid rgba(255,255,255,0.08);
-}
-
-.heroCardStat {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex: 1;
-  color: rgba(255,255,255,0.7);
-}
-
-.heroCardStatDivider {
-  width: 1px;
-  height: 30px;
-  background: rgba(255,255,255,0.12);
-}
-
-.heroStatVal {
-  font-family: var(--font-body, 'DM Sans', sans-serif);
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #fff;
-  margin: 0;
-  line-height: 1.2;
-}
-
-.heroStatKey {
-  font-size: 0.68rem;
-  color: rgba(255,255,255,0.45);
-  margin: 0;
-  font-family: var(--font-body, 'DM Sans', sans-serif);
-}
-
-/* ─── CTA button ────────────────────────────────────────────────────────────── */
 .heroCta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  background: #fff;
-  color: #0a0a0f;
-  border: none;
-  border-radius: 100px;
-  padding: 0.9rem 1.5rem;
-  font-family: var(--font-body, 'DM Sans', sans-serif);
-  font-size: 0.9rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
-  letter-spacing: 0.01em;
+  display: flex; align-items: center; gap: 0.5rem;
+  background: #fff; color: #0a0f1e;
+  border: none; border-radius: var(--radius-full);
+  padding: 0.85rem 1.75rem;
+  font-family: var(--font-body); font-size: 0.92rem; font-weight: 700;
+  cursor: pointer; letter-spacing: 0.01em;
+  transition: transform 0.22s var(--ease-spring), box-shadow 0.22s ease;
 }
 
 .heroCta:hover {
-  background: #f0f0f0;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255,255,255,0.25);
 }
 
-.heroCta:active {
-  transform: translateY(0);
+.heroSecondary {
+  background: transparent; color: rgba(255,255,255,0.6);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius-full);
+  padding: 0.85rem 1.4rem;
+  font-family: var(--font-body); font-size: 0.88rem; font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
 }
 
-/* ─── Scroll hint ───────────────────────────────────────────────────────────── */
-.heroScroll {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
+.heroSecondary:hover {
+  color: #fff;
+  border-color: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.06);
+}
+
+/* ── Glass card ── */
+.heroCard {
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(32px) saturate(160%);
+  -webkit-backdrop-filter: blur(32px) saturate(160%);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  display: flex; flex-direction: column; gap: 1.25rem;
+  align-self: flex-end; margin-bottom: 2rem;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.04) inset, 0 32px 80px rgba(0,0,0,0.5);
+  animation: cardIn 1s var(--ease-smooth) 0.35s both;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.heroCardTop {
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.heroCardCity {
+  font-family: var(--font-display); font-size: 1.15rem; font-weight: 700;
+  color: #fff; margin: 0; line-height: 1.2;
+}
+
+.heroCardTag {
+  font-size: 0.72rem; color: rgba(255,255,255,0.45);
+  margin: 0; text-transform: uppercase; letter-spacing: 0.06em;
+  font-family: var(--font-body);
+}
+
+.heroCardFlag { font-size: 2rem; line-height: 1; }
+
+/* ── Score ring ── */
+.ringWrap {
+  position: relative; margin: 0 auto;
+}
+
+.ringsvg { width: 100%; height: 100%; }
+
+.ringCenter {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+
+.ringScore {
+  font-family: var(--font-display); font-size: 2.5rem;
+  font-weight: 800; line-height: 1;
+}
+
+.ringDen {
+  font-size: 0.72rem; color: rgba(255,255,255,0.4);
+  font-family: var(--font-body);
+}
+
+.ringLabel {
+  font-size: 0.68rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  margin-top: 2px; font-family: var(--font-body);
+}
+
+/* ── Stats ── */
+.heroStats {
+  display: flex; flex-direction: column; gap: 0.75rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-md); padding: 1rem;
+}
+
+.heroStat {
+  display: flex; align-items: center; gap: 0.6rem; color: rgba(255,255,255,0.75);
+}
+
+.heroStatIcon { font-size: 1rem; flex-shrink: 0; }
+
+.heroStatVal {
+  font-family: var(--font-body); font-size: 0.88rem;
+  font-weight: 700; color: #fff; margin: 0; line-height: 1.2;
+}
+
+.heroStatKey {
+  font-size: 0.68rem; color: rgba(255,255,255,0.4);
+  margin: 0; font-family: var(--font-body);
+}
+
+.heroStatDiv {
+  height: 1px; background: rgba(255,255,255,0.08);
+}
+
+/* ── Card CTA ── */
+.heroCardCta {
+  width: 100%;
+  background: var(--cta-color, #00BFA5);
+  color: #fff; border: none;
+  border-radius: var(--radius-full);
+  padding: 0.85rem;
+  font-family: var(--font-body); font-size: 0.88rem; font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s var(--ease-spring);
+}
+
+.heroCardCta:hover { opacity: 0.88; transform: translateY(-2px); }
+
+/* ── Scroll hint ── */
+.heroScrollHint {
+  position: absolute; bottom: 2rem; left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  color: rgba(255,255,255,0.35);
-  font-size: 0.7rem;
-  font-family: var(--font-body, 'DM Sans', sans-serif);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  z-index: 1;
-  animation: heroScrollBob 2.4s ease-in-out infinite;
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  color: rgba(255,255,255,0.3); font-size: 0.68rem;
+  font-family: var(--font-body); text-transform: uppercase; letter-spacing: 0.1em;
+  z-index: 1; animation: scrollBob 2.5s ease-in-out infinite;
 }
 
 .heroScrollLine {
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+  width: 1px; height: 38px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.35), transparent);
 }
 
-@keyframes heroScrollBob {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%       { transform: translateX(-50%) translateY(6px); }
+@keyframes scrollBob {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(7px); }
 }
 
-/* ─── Responsive ────────────────────────────────────────────────────────────── */
-@media (max-width: 900px) {
-  .heroContent {
-    grid-template-columns: 1fr;
-    align-items: flex-end;
-    padding-bottom: 2rem;
-  }
-
-  .heroCard {
-    width: 100%;
-    margin-bottom: 0;
-  }
-
-  .heroTitle {
-    font-size: clamp(3rem, 14vw, 5rem);
-  }
-
-  .heroScroll {
-    display: none;
-  }
+/* ── Responsive ── */
+@media (max-width: 920px) {
+  .heroInner { grid-template-columns: 1fr; padding-bottom: 2rem; }
+  .heroCard { width: 100%; margin-bottom: 0; align-self: auto; }
+  .heroTitle { font-size: clamp(3.5rem, 16vw, 6rem); }
+  .heroScrollHint { display: none; }
 }
