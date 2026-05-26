@@ -7,7 +7,7 @@ import CityCard from "../components/CityCard";
 import { useCityFilter } from "../hooks/useCityFilter";
 import { useSEO } from "../hooks/useSEO";
 
-const Globe3D = lazy(() => import("../components/Globe3D"));
+import WorldMap from "../components/WorldMap";
 
 const HERO_WORDS = [
   { word: "Erasmus.", gender: "m" },
@@ -121,55 +121,7 @@ const CITY_PILLS = [
 ];
 
 function GlobeSection() {
-  const navigate = useNavigate();
-
-  return (
-    <section className="globe-section">
-      <div className="globe-section__inner">
-
-        {/* Text side */}
-        <div className="globe-section__text">
-          <SectionLabel color="var(--color-teal)">Mapa Erasmus</SectionLabel>
-          <h2 className="section__title" style={{ color: "#fff", marginBottom: 16 }}>
-            Europa te espera.
-          </h2>
-          <p style={{
-            fontSize: "clamp(15px,2vw,17px)",
-            color: "rgba(255,255,255,0.6)",
-            lineHeight: 1.7, marginBottom: 32, maxWidth: 400,
-          }}>
-            20 ciudades Erasmus con datos reales. Gira el globo y haz clic en cualquier marcador para explorar.
-          </p>
-          <div className="globe-city-list">
-            {CITY_PILLS.map(c => (
-              <button key={c.name} className="globe-city-pill"
-                onClick={() => navigate(`/city/${c.slug}`)}>
-                <span>{c.flag}</span>
-                <span>{c.name}</span>
-                <span className="globe-city-pill__code">{c.code}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Globe 3D */}
-        <div className="globe-wrap">
-          <Suspense fallback={
-            <div style={{
-              width: "100%", height: "100%",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              color: "rgba(255,255,255,0.3)", fontSize: 14, fontFamily: "DM Sans, sans-serif",
-            }}>
-              Cargando globo...
-            </div>
-          }>
-            <Globe3D />
-          </Suspense>
-        </div>
-
-      </div>
-    </section>
-  );
+  return <WorldMap />;
 }
 
 function CommunitySection() {
