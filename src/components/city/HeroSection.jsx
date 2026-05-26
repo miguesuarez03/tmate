@@ -31,17 +31,20 @@ function getMoodTags(city) {
 }
 
 function scoreColor(score) {
-  if (score >= 8.5) return "#22C55E";
-  if (score >= 7.5) return "#00BFA5";
-  if (score >= 6.5) return "#0EA5E9";
-  return "#F59E0B";
+  if (score >= 9)   return "#22C55E";
+  if (score >= 8)   return "#00BFA5";
+  if (score >= 6)   return "#0EA5E9";
+  if (score >= 5)   return "#F59E0B";
+  return "#EF4444";
 }
 
 function scoreLabel(score) {
-  if (score >= 8.5) return "Excelente";
-  if (score >= 7.5) return "Muy bueno";
-  if (score >= 6.5) return "Bueno";
-  return "Regular";
+  if (score >= 9)   return "Excelente";
+  if (score >= 8)   return "Muy bueno";
+  if (score >= 6)   return "Bueno";
+  if (score >= 5)   return "Aceptable";
+  if (score >= 3)   return "Malo";
+  return "Muy malo";
 }
 
 // ─── SCORE RING ───────────────────────────────────────────────────────────────
@@ -160,18 +163,10 @@ export default function HeroSection({ city, overallScore, insights }) {
             </div>
             <div className={styles.heroStatDiv} />
             <div className={styles.heroStat}>
-              <span className={styles.heroStatIcon}>🎓</span>
-              <div>
-                <p className={styles.heroStatVal}>{city.students}</p>
-                <p className={styles.heroStatKey}>estudiantes</p>
-              </div>
-            </div>
-            <div className={styles.heroStatDiv} />
-            <div className={styles.heroStat}>
               <span className={styles.heroStatIcon}>🌍</span>
               <div>
-                <p className={styles.heroStatVal}>{city.erasmus}/100</p>
-                <p className={styles.heroStatKey}>índice Erasmus</p>
+                <p className={styles.heroStatVal}>{city.erasmusStudents}</p>
+                <p className={styles.heroStatKey}>estudiantes Erasmus/año</p>
               </div>
             </div>
           </div>

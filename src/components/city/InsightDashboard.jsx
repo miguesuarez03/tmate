@@ -2,16 +2,20 @@ import { useState, useEffect } from "react";
 import styles from "./InsightDashboard.module.css";
 
 function scoreColor(s) {
-  if (s >= 8.5) return "#22C55E";
-  if (s >= 7)   return "#00BFA5";
-  if (s >= 5.5) return "#0EA5E9";
-  return "#EF4444";
+  if (s >= 9)   return "#22C55E";
+  if (s >= 8)   return "#00BFA5";
+  if (s >= 6)   return "#0EA5E9";
+  if (s >= 5)   return "#F59E0B";
+  if (s >= 3)   return "#EF4444";
+  return "#991B1B";
 }
 function scoreLabel(s) {
-  if (s >= 8.5) return "Excelente";
-  if (s >= 7)   return "Bueno";
-  if (s >= 5.5) return "Regular";
-  return "Difícil";
+  if (s >= 9)   return "Excelente";
+  if (s >= 8)   return "Muy bueno";
+  if (s >= 6)   return "Bueno";
+  if (s >= 5)   return "Aceptable";
+  if (s >= 3)   return "Malo";
+  return "Muy malo";
 }
 
 // ── Bar ──────────────────────────────────────────────────────────────────────

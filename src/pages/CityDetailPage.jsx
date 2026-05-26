@@ -25,7 +25,9 @@ export default function CityDetailPage() {
     if (!city) return;
     document.title = `${city.name} Erasmus — Guía completa | TMate`;
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", `Todo sobre el Erasmus en ${city.name}: coste ${city.costDetail}, scores reales. Puntuación TMate: ${overallScore}/10.`);
+    if (meta) meta.setAttribute("content",
+      `Todo sobre el Erasmus en ${city.name}: coste ${city.costDetail}, scores reales. Puntuación TMate: ${overallScore}/10.`
+    );
   }, [city, overallScore]);
 
   if (!city) return null;
@@ -33,18 +35,34 @@ export default function CityDetailPage() {
   return (
     <div className="cdp-root">
       <NavbarCity cityName={city.name} overall={overallScore} />
+
+      {/* 1. Hero */}
       <HeroSection city={city} overallScore={overallScore} insights={insights} />
-      <BentoHighlights highlights={city.highlights} cityName={city.name} />
+
+      {/* 2. Bento highlights — with photos */}
+      <BentoHighlights highlights={city.highlights} cityName={city.name} cityImg={city.heroImg || city.img} />
+
       <div className="cdp-divider" />
+
+      {/* 3. Insight dashboard */}
       <InsightDashboard scores={insights?.scores ?? []} overallScore={overallScore} />
+
       <div className="cdp-divider" />
-      <NeighborhoodSlider neighborhoods={city.neighborhoods} universities={city.universities} />
+
+      {/* 4. Weather — right after insights */}
       <WeatherTimeline cityName={city.name} />
+
       <div className="cdp-divider" />
-      <div className="cdp-tips-wrapper">
-        <TipsSection tips={city.tips} cityName={city.name} />
-      </div>
+
+      {/* 5. Tips insider — premium dark section */}
+      <TipsSection tips={city.tips} cityName={city.name} />
+
+      {/* 6. Universities */}
+      <NeighborhoodSlider universities={city.universities} />
+
+      {/* 7. Related cities + CTA */}
       <RelatedCities relatedCities={relatedCities} currentCity={city} />
+
       <Footer />
     </div>
   );

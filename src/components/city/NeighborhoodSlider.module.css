@@ -1,48 +1,82 @@
-/* NeighborhoodSlider v2 */
-.section { padding: var(--section-py) var(--section-px); max-width: 1320px; margin: 0 auto; display: flex; flex-direction: column; gap: 3.5rem; }
+/* Universities section — big cards, no sliders */
+.section {
+  padding: var(--section-py) var(--section-px);
+  max-width: 1320px; margin: 0 auto;
+}
 
-.sliderBlock {}
+.header { margin-bottom: 2.5rem; }
 
-.sliderHeader { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 1.5rem; }
+.eyebrow {
+  font-family: var(--font-body); font-size: 0.75rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-teal); margin: 0 0 0.4rem;
+}
 
-.eyebrow { font-family: var(--font-body); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-teal); margin: 0 0 0.3rem; }
+.title {
+  font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 800; color: var(--color-dark); margin: 0 0 0.35rem; line-height: 1.1;
+}
 
-.title { font-family: var(--font-display); font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 800; color: var(--color-dark); margin: 0; line-height: 1.15; }
+.sub {
+  font-family: var(--font-body); font-size: 0.92rem; color: var(--color-muted); margin: 0;
+}
 
-.sliderBtns { display: flex; gap: 0.4rem; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
 
-.sliderBtn { width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid var(--color-border); background: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--color-dark); transition: background 0.2s, box-shadow 0.2s, transform 0.2s var(--ease-spring); box-shadow: var(--shadow-sm); }
+.uniCard {
+  background: #fff;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem 1.75rem;
+  display: flex; align-items: center; gap: 1.25rem;
+  transition: border-color 0.22s, box-shadow 0.22s, transform 0.22s var(--ease-spring);
+  cursor: pointer;
+}
 
-.sliderBtn:hover { background: var(--color-surface); transform: scale(1.1); box-shadow: var(--shadow-md); }
+.uniCard:hover {
+  border-color: var(--uni-color, var(--color-primary));
+  box-shadow: 0 8px 32px color-mix(in srgb, var(--uni-color, var(--color-primary)) 15%, transparent);
+  transform: translateY(-4px);
+}
 
-.track { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 0.5rem; scrollbar-width: none; }
+.uniIconWrap {
+  width: 52px; height: 52px; border-radius: 16px; flex-shrink: 0;
+  background: color-mix(in srgb, var(--uni-color, #0EA5E9) 10%, white);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--uni-color, #0EA5E9);
+  transition: background 0.2s;
+}
 
-.track::-webkit-scrollbar { display: none; }
-
-/* Hood card */
-.hoodCard { flex: 0 0 200px; scroll-snap-align: start; background: var(--color-surface); border: 1.5px solid var(--color-border); border-radius: var(--radius-xl); padding: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; transition: border-color 0.22s, box-shadow 0.22s, transform 0.22s var(--ease-spring); cursor: pointer; }
-
-.hoodCard:hover { border-color: #c8d8e8; box-shadow: var(--shadow-md); transform: translateY(-4px); }
-
-.hoodCardTop {}
-
-.hoodPricePill { font-family: var(--font-body); font-size: 0.7rem; font-weight: 700; border-radius: var(--radius-full); padding: 0.22rem 0.65rem; text-transform: uppercase; letter-spacing: 0.04em; }
-
-.hoodName { font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; color: var(--color-dark); margin: 0; line-height: 1.2; }
-
-.hoodVibe { font-family: var(--font-body); font-size: 0.8rem; color: var(--color-muted); margin: 0; flex: 1; }
-
-.hoodExplore { font-family: var(--font-body); font-size: 0.75rem; font-weight: 600; color: var(--color-primary); }
-
-/* Uni card */
-.uniCard { flex: 0 0 260px; scroll-snap-align: start; background: #fff; border: 1.5px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.1rem 1.25rem; display: flex; align-items: center; gap: 0.85rem; transition: border-color 0.22s, box-shadow 0.22s, transform 0.22s var(--ease-spring); cursor: pointer; }
-
-.uniCard:hover { border-color: #c8d8e8; box-shadow: var(--shadow-md); transform: translateY(-3px); }
-
-.uniIcon { width: 38px; height: 38px; border-radius: 12px; background: var(--color-surface); display: flex; align-items: center; justify-content: center; color: var(--color-primary); flex-shrink: 0; }
+.uniCard:hover .uniIconWrap {
+  background: color-mix(in srgb, var(--uni-color, #0EA5E9) 18%, white);
+}
 
 .uniBody { flex: 1; min-width: 0; }
 
-.uniName { font-family: var(--font-body); font-size: 0.88rem; font-weight: 700; color: var(--color-dark); margin: 0 0 0.25rem; line-height: 1.3; }
+.uniName {
+  font-family: var(--font-body); font-size: 1rem; font-weight: 700;
+  color: var(--color-dark); margin: 0 0 0.3rem; line-height: 1.3;
+}
 
-.uniLink { font-family: var(--font-body); font-size: 0.75rem; color: var(--color-teal); font-weight: 600; }
+.uniLink {
+  font-family: var(--font-body); font-size: 0.78rem;
+  color: var(--uni-color, var(--color-teal)); font-weight: 600;
+}
+
+.uniArrow {
+  font-size: 1.2rem; color: var(--color-muted);
+  transition: transform 0.22s ease, color 0.22s;
+  flex-shrink: 0;
+}
+
+.uniCard:hover .uniArrow {
+  transform: translateX(4px);
+  color: var(--uni-color, var(--color-primary));
+}
+
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; }
+}
