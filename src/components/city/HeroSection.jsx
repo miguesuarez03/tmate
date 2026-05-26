@@ -174,9 +174,9 @@ export default function HeroSection({ city, overallScore, insights }) {
           <button
             className={styles.heroCardCta}
             style={{ "--cta-color": color }}
-            onClick={() => document.getElementById("insights")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            Explorar guía completa →
+            Estás en la guía ↑
           </button>
         </div>
       </div>

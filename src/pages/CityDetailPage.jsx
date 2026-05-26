@@ -19,7 +19,10 @@ export default function CityDetailPage() {
   const overallScore  = getOverallScore(slug);
   const relatedCities = city ? getRelatedCities(city, 3) : [];
 
-  useEffect(() => { if (!city) navigate("/", { replace: true }); }, [city, navigate]);
+  useEffect(() => {
+    if (!city) navigate("/", { replace: true });
+    window.scrollTo(0, 0);
+  }, [slug]);
 
   useEffect(() => {
     if (!city) return;

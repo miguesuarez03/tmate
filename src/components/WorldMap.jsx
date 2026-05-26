@@ -103,7 +103,7 @@ export default function WorldMap() {
   const navigate = useNavigate();
   const [selected, setSelected]     = useState(null);
   const [tooltip, setTooltip]       = useState(null); // { city, x, y }
-  const [position, setPosition]     = useState({ coordinates: [13, 50], zoom: 3.2 });
+  const [position, setPosition]     = useState({ coordinates: [13, 50], zoom: 2.2 });
   const containerRef                = useRef(null);
 
   const handleMoveEnd = useCallback(pos => setPosition(pos), []);
