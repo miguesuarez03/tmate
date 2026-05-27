@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { useSEO } from "../hooks/useSEO";
@@ -9,12 +9,19 @@ const STEPS = [
   {
     num: "01",
     emoji: "🔍",
-    title: "Busca tu destino y sácate el nivel de idioma",
+    title: "Elige tu destino",
     color: "#0EA5E9",
     tag: "Preparación",
-    content: `Antes de solicitar nada, tienes que hacer dos cosas en paralelo: explorar destinos y preparar el idioma.
+    content: `Antes de solicitar nada, tómate tiempo en serio para elegir bien. No es solo elegir una ciudad bonita — es elegir dónde vas a vivir varios meses.
 
-La mayoría de programas Erasmus exigen un nivel mínimo de idioma (normalmente B1 o B2). Aquí van las opciones más comunes:`,
+Factores que realmente importan:
+· Tu nota media y créditos superados — en la mayoría de universidades determinan el orden de adjudicación de plazas
+· El idioma — comprueba qué nivel exigen y si tienes certificado o necesitas sacártelo
+· Las asignaturas disponibles — que puedas convalidar lo que necesitas en tu carrera
+· El coste real de vida — no solo el alquiler, también comida, transporte y ocio
+
+Visita la Oficina de Relaciones Internacionales (ORI) de tu facultad cuanto antes. Ellos tienen la lista de universidades con las que hay acuerdo, los requisitos concretos de cada plaza y los plazos exactos. Mucha gente llega tarde por no ir a informarse a tiempo.`,
+    note: "Usa TMate para comparar ciudades con scores reales de estudiantes que ya estuvieron ahí. Es exactamente para esto.",
     languages: [
       { lang: "Inglés", cert: "Cambridge B2 / IELTS / TOEFL", note: "El más solicitado, vale para casi todos los países" },
       { lang: "Alemán", cert: "Goethe B1/B2", note: "Obligatorio para Alemania y Austria" },
@@ -22,131 +29,129 @@ La mayoría de programas Erasmus exigen un nivel mínimo de idioma (normalmente 
       { lang: "Italiano", cert: "CELI / CILS B1", note: "Italia — muchos programas aceptan sin certificado" },
       { lang: "Portugués", cert: "CAPLE B1", note: "Portugal — nivel relativamente accesible" },
     ],
-    note: "Según tu universidad, la nota media puede ser determinante para elegir destino. Cada uni tiene su propio sistema de puntuación. ¡Consulta con tu Oficina de Relaciones Internacionales (RRII)!",
   },
   {
     num: "02",
     emoji: "📋",
-    title: "Pones tu lista de preferencias y esperas",
+    title: "Solicita en tu universidad",
     color: "#14B8A6",
     tag: "Solicitud",
-    content: `Llega el momento de la solicitud oficial. Tu universidad abrirá un plazo (normalmente entre octubre y febrero para el curso siguiente) en el que debes:
+    content: `Tu universidad abrirá un plazo oficial (normalmente entre octubre y febrero para el curso siguiente). En ese período debes:
 
-• Entrar en la plataforma interna de tu universidad
-• Ordenar tus destinos por preferencia (suele pedirse entre 3 y 5 opciones)
-• Adjuntar documentación: expediente académico, certificado de idioma y carta de motivación
+· Entrar en la plataforma interna de movilidad de tu uni
+· Ordenar tus destinos por preferencia (suelen pedirse entre 3 y 5 opciones)
+· Adjuntar la documentación: expediente académico, certificado de idioma y carta de motivación
 
-Una vez enviada la solicitud, toca esperar. La resolución suele tardar entre 2 y 6 semanas dependiendo de la universidad.`,
-    tip: "💡 Investiga bien antes de ordenar las preferencias. No pongas una ciudad de número 1 solo porque suena bien — usa TMate para comparar scores reales.",
+Una vez enviada la solicitud, toca esperar. La resolución suele tardar entre 2 y 6 semanas.`,
+    tip: "💡 Ordena las preferencias con cabeza. No pongas una ciudad de número 1 solo porque suena bien — compara scores reales en TMate antes de decidir.",
+    urgencyAlert: {
+      title: "⚠️ Empieza a mirar pisos y vuelos ahora mismo — aunque todavía no sepas si te aceptan",
+      body: "Los alojamientos cerca de universidades con mucha demanda Erasmus se van en semanas. Cuando tengas la confirmación puede ser demasiado tarde para encontrar algo decente a buen precio.\n\nNadie va a avisarte ni a gestionarlo por ti — es tu responsabilidad buscar, reservar y pagar. Cuanto antes empieces a mirar, más opciones y mejores precios encontrarás. Empieza ya a explorar grupos de Facebook de la ciudad, plataformas locales y residencias universitarias.",
+    },
   },
   {
     num: "03",
     emoji: "✉️",
-    title: "Resultado: te aceptan o te quedas en lista de espera",
+    title: "Resolución: aceptado o lista de espera",
     color: "#8B5CF6",
     tag: "Resolución",
     content: `Llega el email con la resolución. Hay dos escenarios:
 
-✅ Te han aceptado en uno de tus destinos — ¡enhorabuena! Pasa directamente al paso 4.
+✅ Te han aceptado en uno de tus destinos — pasa directamente al paso 4.
 
-⏳ Estás en lista de espera — no todo está perdido. Depende de tu universidad:
-• Algunas permiten esperar activamente a que salga una plaza
-• Otras cierran el proceso y tendrás que solicitar en la siguiente convocatoria
-• En algunos casos puedes cambiar tu orden de preferencias
+⏳ Estás en lista de espera — no todo está perdido:
+· Algunas universidades permiten esperar activamente a que salga una plaza
+· Otras cierran el proceso y tendrás que solicitar en la siguiente convocatoria
+· En algunos casos puedes cambiar tu orden de preferencias
 
-Lo más importante: mantén el contacto con tu oficina RRII y sé rápido respondiendo si te ofrecen una plaza de lista de espera, porque los plazos suelen ser cortos.`,
+Lo más importante: mantén el contacto con tu ORI y responde rápido si te ofrecen una plaza de lista de espera. Los plazos son muy cortos.`,
   },
   {
     num: "04",
-    emoji: "🤝",
-    title: "Aceptas tu destino y tu universidad se pone en marcha",
+    emoji: "✅",
+    title: "Acepta la plaza formalmente",
     color: "#F59E0B",
     tag: "Aceptación",
-    content: `Una vez aceptas formalmente tu plaza, tu universidad de origen hace su parte:
+    content: `Una vez aceptas tu plaza, tu universidad de origen hace su parte:
 
-• Comunica oficialmente tu nominación a la universidad de destino
-• Te envía documentación a firmar (acuerdo bilateral, carta de compromiso, etc.)
-• Empieza a gestionar la beca Erasmus+ en tu nombre
+· Comunica oficialmente tu nominación a la universidad de destino
+· Te envía documentación a firmar (acuerdo bilateral, carta de compromiso)
+· Empieza a gestionar la beca Erasmus+ en tu nombre
 
-Mientras tanto, tú tienes cosas que hacer:
+Sobre la beca: las cantidades varían según el país de destino y la universidad, pero en general rondan los 300–500€/mes. Lo importante es saber que el primer pago puede tardar semanas o incluso meses en llegar — planifica tener un colchón económico para los primeros meses. Nadie te lo adelanta.
 
-🏠 Busca alojamiento YA — es lo más crítico. Los pisos cerca de universidades populares se van rápido. Busca grupos de Facebook de la ciudad, páginas de la propia universidad, o contacta con antiguos Erasmus que conozcan caseros de confianza.
-
-✈️ Reserva los vuelos con antelación — cuanto antes, más baratos.
-
-💶 Infórmate de cuándo cobrarás la beca — varía mucho según la universidad y el país. A veces el primer pago tarda meses.`,
+Mientras tanto, si aún no has empezado a buscar piso y vuelos, hazlo ahora sin falta.`,
   },
   {
     num: "05",
-    emoji: "🎓",
-    title: "Eres nominado por tu universidad de destino",
+    emoji: "🏛️",
+    title: "La universidad de destino te contacta",
     color: "#EC4899",
     tag: "Nominación",
-    content: `La universidad de destino recibe tu información y te envía un email oficial de nominación. Este email es importantísimo porque incluye:
+    content: `La universidad de destino recibe tu nominación y te manda un email oficial. Este email es muy importante — léelo con atención y apunta todas las fechas.
 
-• Instrucciones para el proceso de matrícula en destino
-• Lista de documentación que debes subir a su plataforma
-• Fechas límite para cada trámite
-• Información sobre el Learning Agreement (paso 6)
-• Detalles de la orientación para estudiantes Erasmus
+Normalmente incluye:
+· Instrucciones para registrarte en su plataforma propia
+· Lista de documentación que debes subir
+· Fechas límite para cada trámite (suelen ser más estrictas de lo que parece)
+· Información sobre la matrícula en destino
+· Detalles de la orientación para Erasmus
 
-Lee ese email con mucha atención y marca las fechas en el calendario. Los plazos de las universidades extranjeras son más estrictos de lo que parece.`,
-    tip: "💡 Muchas universidades tienen una plataforma propia (tipo portal del estudiante) donde gestionas toda la documentación. Créate la cuenta cuanto antes.",
+Créate la cuenta en su plataforma cuanto antes y sube la documentación sin esperar al último día. Las universidades extranjeras no suelen dar segundas oportunidades con los plazos.`,
+    tip: "💡 En esta fase también arranca el Learning Agreement — el contrato académico que define qué asignaturas cursarás y cómo se convalidarán. Tenemos una guía completa para hacerlo bien.",
+    laLink: true,
   },
   {
     num: "06",
-    emoji: "📝",
-    title: "El Learning Agreement",
+    emoji: "🧳",
+    title: "Prepara la partida",
     color: "#10B981",
-    tag: "Learning Agreement",
-    isLA: true,
-    content: `El Learning Agreement (LA) es el documento más importante de todo el proceso. Es básicamente el contrato académico que dice qué asignaturas vas a cursar en destino y cómo se van a convalidar en tu universidad de origen.
+    tag: "Pre-partida",
+    content: `Esta fase tiene más papeleo del que parece. Organízate con tiempo:
 
-Tiene que estar firmado por ti, por tu tutor en la universidad de origen y por la universidad de destino antes de irte.`,
-  },
-];
+🏠 Piso — si todavía no tienes, es urgente. Busca en grupos de Facebook de estudiantes de la ciudad, en la web de la propia universidad (algunas tienen residencias para Erasmus) y pregunta en foros o a gente que ya estuvo allí. Los mejores pisos se van semanas antes de que empiece el curso.
 
-const LA_TIPS = [
-  {
-    icon: "🏛️",
-    title: "Consulta el histórico de convalidaciones",
-    content: `Casi seguro que alguien de tu universidad ya se fue de Erasmus a tu destino. Las universidades guardan registro de qué asignaturas se han convalidado antes.
+✈️ Vuelos — reserva con antelación. Cuanto antes, más barato. Y recuerda que la beca puede no haber llegado todavía cuando tengas que pagar.
 
-Contacta con tu oficina RRII o tu coordinador de grado y pídeles el histórico de convalidaciones. Es la información más valiosa que puedes tener.`,
-  },
-  {
-    icon: "👥",
-    title: "Contacta con antiguos Erasmus",
-    content: `Busca en redes sociales a estudiantes de tu universidad que ya hayan ido a tu destino. Pregúntales:
+🩺 Tarjeta Sanitaria Europea (TSE) — es gratuita y cubre atención médica básica en cualquier país de la UE. Pídela en la Seguridad Social con al menos 15 días de antelación antes de irte. Es obligatoria.
 
-• Qué asignaturas cogieron y cuáles les convalidaron
-• Cuáles eran las más llevaderas o más interesantes
-• Qué nivel de exigencia había en cada una
+🛡️ Seguro complementario — muchas universidades lo exigen además de la TSE. Cubre lo que la TSE no cubre (repatriación, gastos extras). Es barato y no es opcional si tu uni lo pide.
 
-Esta información de primera mano vale oro y no la encontrarás en ningún sitio oficial.`,
+📄 Firma electrónica / DNI electrónico — algunas universidades de destino requieren firma digital para sus trámites. Si necesitas activarla, hazlo con tiempo porque el proceso puede tardar.
+
+📁 Copia de todos tus documentos — guárdalos en la nube (Google Drive, iCloud). DNI/pasaporte, seguro, matrícula, Learning Agreement, datos bancarios. Si pierdes algo allí, lo agradecerás.`,
   },
   {
-    icon: "🌐",
-    title: "Busca convalidaciones de otros estudiantes",
-    content: `Pregunta en grupos de estudiantes de tu universidad, en redes sociales o en foros de Erasmus. Es muy probable que alguien ya haya hecho exactamente el mismo camino que tú y esté dispuesto a compartir su experiencia.`,
+    num: "07",
+    emoji: "🎉",
+    title: "Llegada y primeros días",
+    color: "#F97316",
+    tag: "Llegada",
+    content: `Ya estás ahí. Pero aún quedan trámites importantes:
+
+📋 Certificado de llegada — uno de los documentos más críticos de todo el proceso. Lo firma el coordinador Erasmus de tu universidad de destino y lo tienes que enviar a tu ORI en España. Sin este certificado, no cobras la beca. Consíguelo en los primeros días y mándalo cuanto antes.
+
+🎓 Orientación Erasmus — casi todas las universidades organizan una sesión de bienvenida en los primeros días. Ve sin falta: te explican cómo funciona todo, conoces a otros Erasmus y resuelves dudas.
+
+📝 Cambios en el Learning Agreement — si al llegar ves que alguna asignatura no te encaja o tiene conflicto de horario, hay un plazo (normalmente las primeras semanas) para modificarlo. Fuera de ese plazo no puedes cambiar nada.
+
+🏦 Cuenta bancaria local — en algunos países conviene abrirla para evitar comisiones. Pregunta a otros Erasmus qué banco usan allí.`,
   },
   {
-    icon: "🤖",
-    title: "Usa la IA como apoyo",
-    content: `Las herramientas de IA pueden ayudarte a comparar programas de asignaturas, encontrar equivalencias y redactar la justificación de convalidación. Bien utilizadas son muy útiles.
+    num: "08",
+    emoji: "🏠",
+    title: "Vuelta y cierre",
+    color: "#6366F1",
+    tag: "Fin de estancia",
+    content: `El Erasmus no termina cuando coges el avión de vuelta. Aún quedan cosas por hacer:
 
-Tip: pégale el programa de la asignatura de destino y el de la de origen y pídele que compare y argumente por qué son equivalentes. Te ahorra mucho tiempo.`,
-  },
-  {
-    icon: "📚",
-    title: "Criterios para elegir bien las asignaturas",
-    content: `A la hora de elegir, ten en cuenta:
+📋 Certificado de salida — igual que el de llegada, lo firma la universidad de destino. Es obligatorio para cerrar la beca. No te vayas sin él.
 
-✅ Que tengan equivalente claro en tu plan de estudios
-✅ Que el nivel de idioma requerido sea el que tú tienes
-✅ Que los horarios sean compatibles entre sí
-✅ Que la carga de trabajo sea razonable (recuerda que también quieres vivir el Erasmus)
-⚠️ Evita asignaturas con examen único y sin evaluación continua si no dominas el idioma`,
+📊 Encuesta obligatoria de la UE — recibirás un email de la Comisión Europea pidiendo que rellenes una encuesta sobre tu experiencia. Es obligatoria para haber recibido la beca. No la ignores.
+
+📄 Informe final Erasmus — tu universidad de origen también puede pedirte una memoria o informe de la estancia. Consulta con tu ORI qué formato exigen.
+
+🎓 Convalidaciones — entrega toda la documentación a tu coordinador de grado para que tramiten las convalidaciones. El certificado de notas de la universidad de destino es el documento clave. El proceso puede tardar un par de meses en reflejarse en tu expediente — es normal.`,
   },
 ];
 
@@ -171,29 +176,7 @@ function ProgressBar({ currentStep, total }) {
   );
 }
 
-function LATip({ tip, index }) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div className={`la-tip ${open ? "la-tip--open" : ""}`}>
-      <button className="la-tip__header" onClick={() => setOpen((v) => !v)}>
-        <span className="la-tip__icon">{tip.icon}</span>
-        <span className="la-tip__title">{tip.title}</span>
-        <span className="la-tip__chevron">{open ? "▲" : "▼"}</span>
-      </button>
-      {open && (
-        <div className="la-tip__body">
-          <p style={{ whiteSpace: "pre-line", lineHeight: 1.7, color: "var(--color-slate)", fontSize: 15 }}>
-            {tip.content}
-          </p>
-
-        </div>
-      )}
-    </div>
-  );
-}
-
-function StepCard({ step, index, isActive, onClick }) {
+function StepCard({ step, isActive, onClick }) {
   return (
     <button
       className={`proceso-step-pill ${isActive ? "proceso-step-pill--active" : ""}`}
@@ -248,33 +231,43 @@ function StepDetail({ step }) {
       {/* Note box */}
       {step.note && (
         <div className="proceso-note">
-          <span style={{ fontSize: 20 }}>⚠️</span>
+          <span style={{ fontSize: 20 }}>💡</span>
           <p>{step.note}</p>
         </div>
       )}
 
       {/* Tip box */}
-      {step.tip && (
+      {step.tip && !step.laLink && (
         <div className="proceso-tip">
           <p>{step.tip}</p>
         </div>
       )}
 
-      {/* Learning Agreement subsection */}
-      {step.isLA && (
-        <div className="la-section">
-          <div className="la-section__header">
-            <SectionLabel color={step.color}>Cómo hacer un buen Learning Agreement</SectionLabel>
-            <h3 className="la-section__title">5 claves para que te convaliden todo</h3>
-            <p className="la-section__subtitle">
-              Es el documento que más dolores de cabeza da, pero con la estrategia correcta es manejable.
+      {/* LA link tip */}
+      {step.laLink && (
+        <div className="proceso-la-callout">
+          <div className="proceso-la-callout__icon">📝</div>
+          <div className="proceso-la-callout__body">
+            <p className="proceso-la-callout__text">
+              En esta fase arranca el <strong>Learning Agreement</strong> — el contrato académico más importante de todo el proceso. Define qué asignaturas cursarás y cómo se convalidarán.
             </p>
+            <button
+              className="proceso-la-callout__btn"
+              onClick={() => navigate("/learning-agreement")}
+            >
+              Guía completa del Learning Agreement →
+            </button>
           </div>
-          <div className="la-tips-list">
-            {LA_TIPS.map((tip, i) => (
-              <LATip key={i} tip={tip} index={i} />
-            ))}
-          </div>
+        </div>
+      )}
+
+      {/* Urgency alert for step 02 */}
+      {step.urgencyAlert && (
+        <div className="proceso-urgency">
+          <div className="proceso-urgency__title">{step.urgencyAlert.title}</div>
+          <p className="proceso-urgency__body" style={{ whiteSpace: "pre-line" }}>
+            {step.urgencyAlert.body}
+          </p>
         </div>
       )}
     </div>
@@ -289,8 +282,8 @@ export default function ProcesoPage() {
   const detailRef = useRef(null);
 
   useSEO({
-    title: "Cómo funciona el Erasmus — Guía completa paso a paso | TMate",
-    description: "Todo el proceso Erasmus explicado en 6 pasos: desde buscar destino hasta el Learning Agreement. Guía práctica y honesta.",
+    title: "¿Cómo funciona el Erasmus? — Guía completa paso a paso | TMate",
+    description: "Todo el proceso Erasmus explicado en 8 pasos: desde elegir destino hasta volver a casa. Guía práctica y honesta para estudiantes.",
   });
 
   const handleStepClick = (i) => {
@@ -313,20 +306,20 @@ export default function ProcesoPage() {
           </button>
           <SectionLabel color="#14B8A6">Guía completa</SectionLabel>
           <h1 className="proceso-hero__title">
-            El Erasmus,<br />
-            <span className="proceso-hero__title-accent">paso a paso.</span>
+            ¿Cómo funciona<br />
+            <span className="proceso-hero__title-accent">el Erasmus?</span>
           </h1>
           <p className="proceso-hero__subtitle">
             Todo el proceso explicado sin rodeos. Desde que decides que quieres ir
-            hasta que aterrizas en tu nueva ciudad.
+            hasta que vuelves a casa con el certificado en la mano.
           </p>
           <div className="proceso-hero__stats">
             <div className="proceso-hero__stat">
-              <span className="proceso-hero__stat-val">6</span>
+              <span className="proceso-hero__stat-val">8</span>
               <span className="proceso-hero__stat-label">Pasos clave</span>
             </div>
             <div className="proceso-hero__stat">
-              <span className="proceso-hero__stat-val">~6</span>
+              <span className="proceso-hero__stat-val">~8</span>
               <span className="proceso-hero__stat-label">Meses de proceso</span>
             </div>
             <div className="proceso-hero__stat">
@@ -349,14 +342,12 @@ export default function ProcesoPage() {
                 <StepCard
                   key={step.num}
                   step={step}
-                  index={i}
                   isActive={activeStep === i}
                   onClick={() => handleStepClick(i)}
                 />
               ))}
             </div>
 
-            {/* Navigation arrows */}
             <div className="proceso-nav-arrows">
               <button
                 className="proceso-nav-btn"
@@ -381,7 +372,6 @@ export default function ProcesoPage() {
             <ProgressBar currentStep={activeStep} total={STEPS.length} />
             <StepDetail step={STEPS[activeStep]} />
 
-            {/* Bottom navigation */}
             <div className="proceso-bottom-nav">
               {activeStep > 0 && (
                 <button
@@ -415,7 +405,7 @@ export default function ProcesoPage() {
           <button className="btn-primary" onClick={() => navigate("/")}>
             Explorar destinos →
           </button>
-          <button className="btn-ghost" onClick={() => navigate("/")}>
+          <button className="btn-ghost" onClick={() => navigate("/comparar")}>
             Comparar ciudades
           </button>
         </div>

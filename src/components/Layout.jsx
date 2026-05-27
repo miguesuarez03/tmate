@@ -26,10 +26,16 @@ const MENU_ITEMS = [
     action: "compare",
   },
   {
-    icon: "📋",
-    label: "Erasmus en 5 pasos",
-    desc: "Todo el proceso explicado paso a paso",
+    icon: "❓",
+    label: "¿Cómo funciona el Erasmus?",
+    desc: "Todo el proceso explicado sin rodeos, paso a paso",
     action: "steps",
+  },
+  {
+    icon: "📝",
+    label: "Tu Learning Agreement",
+    desc: "Cómo preparar el contrato académico y conseguir las convalidaciones",
+    action: "la",
   },
   {
     icon: "⭐",
@@ -50,7 +56,6 @@ export function Navbar({ transparent = false }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close menu on route change or scroll
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = "hidden";
@@ -76,6 +81,8 @@ export function Navbar({ transparent = false }) {
         navigate("/comparar");
       } else if (action === "steps") {
         navigate("/proceso");
+      } else if (action === "la") {
+        navigate("/learning-agreement");
       } else if (action === "share") {
         navigate("/");
         setTimeout(() => {
@@ -102,12 +109,10 @@ export function Navbar({ transparent = false }) {
         </button>
       </nav>
 
-      {/* Overlay */}
       {menuOpen && (
         <div className="nav-overlay" onClick={() => setMenuOpen(false)} />
       )}
 
-      {/* Drawer */}
       <div className={`nav-drawer${menuOpen ? " nav-drawer--open" : ""}`}>
         <div className="nav-drawer__header">
           <span className="nav-drawer__title">Menú</span>
@@ -130,14 +135,11 @@ export function Navbar({ transparent = false }) {
             </button>
           ))}
         </nav>
-
-
       </div>
     </>
   );
 }
 
-// Navbar for city pages — always white, logo always goes home
 export function NavbarCity({ cityName, overall }) {
   const navigate = useNavigate();
   return (

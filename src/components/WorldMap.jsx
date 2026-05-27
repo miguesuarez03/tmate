@@ -118,7 +118,7 @@ export default function WorldMap() {
   const navigate = useNavigate();
   const [selected, setSelected]   = useState(null);
   const [tooltip, setTooltip]     = useState(null);
-  const [position, setPosition]   = useState({ coordinates: [13, 50], zoom: 1.4 });
+  const [position, setPosition]   = useState({ coordinates: [13, 50], zoom: 1.0 });
   const zoom = position.zoom;
   const [country, setCountry]     = useState("Todos");
   const [vibeFilter, setVibeFilter] = useState(null); // null | "fiesta"|"cultura"|"economia"|"dinero"
