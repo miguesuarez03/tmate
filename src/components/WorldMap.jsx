@@ -51,6 +51,21 @@ const COUNTRY_ZOOM = {
   "Bélgica":       { coords: [4.5, 50.5],zoom: 5.5 },
 };
 
+// ─── ETIQUETAS DE PAÍS ───────────────────────────────────────────────────────
+const COUNTRY_LABELS = [
+  { name: "Italia",       flag: "🇮🇹", coords: [12.5, 42.5] },
+  { name: "Alemania",    flag: "🇩🇪", coords: [10.5, 51.2] },
+  { name: "Polonia",     flag: "🇵🇱", coords: [19.5, 52.0] },
+  { name: "Portugal",    flag: "🇵🇹", coords: [-8.0, 39.5] },
+  { name: "Francia",     flag: "🇫🇷", coords: [2.5,  46.5] },
+  { name: "Reino Unido", flag: "🇬🇧", coords: [-2.0, 53.5] },
+  { name: "Países Bajos",flag: "🇳🇱", coords: [5.3,  52.3] },
+  { name: "Hungría",     flag: "🇭🇺", coords: [19.0, 47.2] },
+  { name: "Rep. Checa",  flag: "🇨🇿", coords: [15.5, 49.8] },
+  { name: "Austria",     flag: "🇦🇹", coords: [14.0, 47.5] },
+  { name: "Bélgica",     flag: "🇧🇪", coords: [4.5,  50.5] },
+];
+
 // ─── FILTROS DE VIBE ──────────────────────────────────────────────────────────
 const VIBE_FILTERS = [
   { key: "fiesta",   label: "Fiesta",   icon: "🎉", desc: "Vida nocturna" },
@@ -118,7 +133,7 @@ export default function WorldMap() {
   const navigate = useNavigate();
   const [selected, setSelected]   = useState(null);
   const [tooltip, setTooltip]     = useState(null);
-  const [position, setPosition]   = useState({ coordinates: [13, 50], zoom: 1.0 });
+  const [position, setPosition]   = useState({ coordinates: [13, 50], zoom: 1.4 });
   const zoom = position.zoom;
   const [country, setCountry]     = useState("Todos");
   const [vibeFilter, setVibeFilter] = useState(null); // null | "fiesta"|"cultura"|"economia"|"dinero"
@@ -244,6 +259,36 @@ export default function WorldMap() {
                 ))
               }
             </Geographies>
+
+            {/* Etiquetas de país */}
+            {COUNTRY_LABELS.map(c => {
+              const base = 1 / zoom;
+              const fontSize = Math.max(4, Math.min(10, base * 10));
+              const emojiSize = Math.max(7, Math.min(18, base * 16));
+              return (
+                <Marker key={c.name} coordinates={c.coords} style={{ pointerEvents: "none" }}>
+                  <text
+                    textAnchor="middle"
+                    y={0}
+                    fontSize={emojiSize}
+                    style={{ pointerEvents: "none", userSelect: "none" }}
+                  >
+                    {c.flag}
+                  </text>
+                  <text
+                    textAnchor="middle"
+                    y={emojiSize + 2}
+                    fontSize={fontSize}
+                    fill="#6b8fa8"
+                    fontFamily="DM Sans, sans-serif"
+                    fontWeight="600"
+                    style={{ pointerEvents: "none", userSelect: "none" }}
+                  >
+                    {c.name}
+                  </text>
+                </Marker>
+              );
+            })}
 
             {/* Pins de ciudades */}
             {CITIES.map(city => {
