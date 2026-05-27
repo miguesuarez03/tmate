@@ -24,12 +24,7 @@ const STATS = [
   { val: "Gratis", label: "Siempre" },
 ];
 
-const HOW_IT_WORKS = [
-  { step: "01", icon: "🏫", title: "Tu universidad te nomina", desc: "Habla con tu oficina internacional. Cada uni tiene plazas Erasmus en universidades de toda Europa." },
-  { step: "02", icon: "🌍", title: "Eliges tu destino", desc: "Seleccionas entre los destinos con convenio. Aquí es donde TMate te ayuda a elegir bien." },
-  { step: "03", icon: "💶", title: "Recibes la beca", desc: "La UE te paga entre 250€ y 500€/mes según el país. Más lo que aporte tu universidad." },
-  { step: "04", icon: "✈️", title: "Te vas entre 3 y 12 meses", desc: "Estudias en el extranjero, las notas cuentan en tu universidad de origen. Sin perder el curso." },
-];
+
 
 const TRENDING = ["Bolonia", "Lisboa", "Berlín", "Praga", "Viena"];
 
@@ -41,14 +36,18 @@ const TESTIMONIALS = [
     text: "TMate me ayudó a elegir Bolonia sin dudarlo. Los scores de vida nocturna y coste de vida fueron exactamente lo que necesitaba para convencer a mis padres.",
     avatar: "L",
     color: "#E0F2FE",
+    stars: 5,
+    photo: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=600&q=80",
   },
   {
     name: "Andrés P.",
     city: "Berlín",
     flag: "🇩🇪",
-    text: "Llevaba semanas dudando entre Berlín y Múnich. Con la comparativa de scores lo vi clarísimo: Berlín ganaba en vibes, Múnich en calidad de vida. Elegí Berlín y no me arrepiento.",
+    text: "Llevaba semanas dudando entre Berlín y Múnich. Con la comparativa de scores lo vi clarísimo. Elegí Berlín y no me arrepiento.",
     avatar: "A",
     color: "#D1FAE5",
+    stars: 5,
+    photo: "https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?w=600&q=80",
   },
   {
     name: "Sara K.",
@@ -57,6 +56,8 @@ const TESTIMONIALS = [
     text: "La guía de barrios de Lisboa es increíble. Encontré piso en Mouraria gracias a los consejos. Nadie más me dio esa info tan específica y honesta.",
     avatar: "S",
     color: "#FEF3C7",
+    stars: 5,
+    photo: "https://images.unsplash.com/photo-1548707309-dcebeab9ea9b?w=600&q=80",
   },
   {
     name: "Anónimo",
@@ -65,6 +66,28 @@ const TESTIMONIALS = [
     text: "Nunca había viajado solo. TMate me dio la confianza de saber exactamente a qué iba. La sección de transporte y tips locales es oro puro.",
     avatar: "?",
     color: "#F3E8FF",
+    stars: 4,
+    photo: "https://images.unsplash.com/photo-1519677100203-a0e668c92439?w=600&q=80",
+  },
+  {
+    name: "Marta V.",
+    city: "Budapest",
+    flag: "🇭🇺",
+    text: "Budapest fue una sorpresa enorme. Con 400€ al mes viví como una reina. La comunidad Erasmus allí es brutal.",
+    avatar: "M",
+    color: "#FCE7F3",
+    stars: 5,
+    photo: "https://images.unsplash.com/photo-1541849546-216549ae216d?w=600&q=80",
+  },
+  {
+    name: "Carlos R.",
+    city: "Ámsterdam",
+    flag: "🇳🇱",
+    text: "Caro pero vale cada euro. La ciudad te cambia la perspectiva de todo. Volví siendo otra persona.",
+    avatar: "C",
+    color: "#DCFCE7",
+    stars: 4,
+    photo: "https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=600&q=80",
   },
 ];
 
@@ -95,20 +118,6 @@ function AnimatedWord() {
   );
 }
 
-function HowCard({ item, index }) {
-  return (
-    <div className="how-card"
-      onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 16px 48px rgba(14,165,233,0.12)"; e.currentTarget.style.borderColor = "rgba(14,165,233,0.3)"; }}
-      onMouseLeave={(e) => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = ""; e.currentTarget.style.borderColor = ""; }}
-    >
-      <span className="how-card__step">{item.step}</span>
-      <span style={{ fontSize: 38, display: "block", marginBottom: 16 }}>{item.icon}</span>
-      <h3 className="how-card__title">{item.title}</h3>
-      <p className="how-card__desc">{item.desc}</p>
-    </div>
-  );
-}
-
 const CITY_PILLS = [
   { name: "Bolonia",   code: "BOL", flag: "🇮🇹", slug: "bolonia"   },
   { name: "Berlín",    code: "BER", flag: "🇩🇪", slug: "berlin"    },
@@ -124,16 +133,52 @@ function GlobeSection() {
   return <WorldMap />;
 }
 
+function StarRating({ value, onChange }) {
+  const [hovered, setHovered] = useState(0);
+  return (
+    <div className="star-rating">
+      {[1,2,3,4,5].map(n => (
+        <button
+          key={n}
+          type="button"
+          className={`star-rating__star ${n <= (hovered || value) ? "star-rating__star--active" : ""}`}
+          onMouseEnter={() => setHovered(n)}
+          onMouseLeave={() => setHovered(0)}
+          onClick={() => onChange(n)}
+          aria-label={`${n} estrellas`}
+        >
+          ★
+        </button>
+      ))}
+      {value > 0 && (
+        <span className="star-rating__label">
+          {["","Regular","Bien","Muy bien","Genial","¡Imprescindible!"][value]}
+        </span>
+      )}
+    </div>
+  );
+}
+
 function CommunitySection() {
-  const [formData, setFormData] = useState({ name: "", anon: false, city: "", text: "" });
+  const [formData, setFormData] = useState({ name: "", anon: false, city: "", text: "", stars: 0, photo: null });
   const [submitted, setSubmitted] = useState(false);
-  const navigate = useNavigate();
+  const [photoPreview, setPhotoPreview] = useState(null);
+  const fileRef = useRef(null);
+
+  const handlePhoto = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => setPhotoPreview(ev.target.result);
+    reader.readAsDataURL(file);
+    setFormData(p => ({ ...p, photo: file }));
+  };
 
   const handleSubmit = () => {
-    if (!formData.city || !formData.text.trim()) return;
+    if (!formData.city || !formData.text.trim() || !formData.stars) return;
     setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
-    setFormData({ name: "", anon: false, city: "", text: "" });
+    setTimeout(() => { setSubmitted(false); setPhotoPreview(null); }, 4000);
+    setFormData({ name: "", anon: false, city: "", text: "", stars: 0, photo: null });
   };
 
   return (
@@ -143,50 +188,48 @@ function CommunitySection() {
         <SectionLabel color="var(--color-teal)">Comunidad TMate</SectionLabel>
         <h2 className="section__title" style={{ marginBottom: 14 }}>Erasmus que inspiran.</h2>
         <p style={{ fontSize: "clamp(15px,2vw,17px)", color: "var(--color-slate-light)", maxWidth: 520, margin: "0 auto", lineHeight: 1.6 }}>
-          Historias reales de estudiantes que eligieron bien su destino. Y ahora comparten lo que aprendieron.
+          Historias reales de estudiantes. Cada tarjeta mezcla su opinión con sus propias fotos del viaje.
         </p>
       </div>
 
-      {/* Testimonials grid */}
-      <div className="testimonials-grid">
+      {/* Tarjetas mixtas: opinión + foto unidos */}
+      <div className="community-cards">
         {TESTIMONIALS.map((t, i) => (
-          <div key={i} className="testimonial-card" style={{ "--t-color": t.color }}>
-            <div className="testimonial-card__top">
-              <div className="testimonial-avatar" style={{ background: t.color, color: "#0F172A" }}>
-                {t.avatar}
+          <div key={i} className="community-card">
+            {/* Foto del destino */}
+            <div className="community-card__img">
+              <img src={t.photo} alt={t.city} loading="lazy" />
+              <div className="community-card__img-overlay" />
+              <div className="community-card__city-badge">
+                <span>{t.flag}</span>
+                <span>{t.city}</span>
               </div>
-              <div>
-                <p className="testimonial-name">{t.anon ? "Anónimo" : t.name}</p>
-                <p className="testimonial-city">{t.flag} {t.city}</p>
+              {/* Estrellas sobre la foto */}
+              <div className="community-card__stars">
+                {[1,2,3,4,5].map(n => (
+                  <span key={n} className={n <= t.stars ? "star--on" : "star--off"}>★</span>
+                ))}
               </div>
-              <span className="testimonial-quote-icon">"</span>
             </div>
-            <p className="testimonial-text">{t.text}</p>
+            {/* Opinión */}
+            <div className="community-card__body">
+              <div className="community-card__author">
+                <div className="community-card__avatar" style={{ background: t.color }}>
+                  {t.avatar}
+                </div>
+                <div>
+                  <p className="community-card__name">{t.name}</p>
+                  <p className="community-card__meta">{t.flag} Erasmus en {t.city}</p>
+                </div>
+                <span className="community-card__quote">"</span>
+              </div>
+              <p className="community-card__text">{t.text}</p>
+            </div>
           </div>
         ))}
       </div>
 
-      {/* Photo gallery placeholder */}
-      <div className="community-gallery">
-        <p className="community-gallery__label">📸 Momentos Erasmus</p>
-        <div className="gallery-grid">
-          {[
-            "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&q=80",
-            "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&q=80",
-            "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&q=80",
-            "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?w=400&q=80",
-            "https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?w=400&q=80",
-            "https://images.unsplash.com/photo-1488085061387-422e29b40080?w=400&q=80",
-          ].map((src, i) => (
-            <div key={i} className="gallery-item">
-              <img src={src} alt={`Erasmus moment ${i + 1}`} loading="lazy" />
-              <div className="gallery-item__overlay" />
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Social links placeholder */}
+      {/* Social links */}
       <div className="social-placeholder">
         <p className="social-placeholder__label">Síguenos — Próximamente</p>
         <div className="social-icons">
@@ -212,7 +255,7 @@ function CommunitySection() {
             <span style={{ fontSize: 36 }}>✍️</span>
             <div>
               <h3 className="exp-form-title">Cuéntanos tu experiencia</h3>
-              <p className="exp-form-subtitle">Tu historia puede ayudar a miles de estudiantes a elegir mejor.</p>
+              <p className="exp-form-subtitle">Tu historia y tus fotos pueden ayudar a miles de estudiantes.</p>
             </div>
           </div>
 
@@ -224,22 +267,7 @@ function CommunitySection() {
             </div>
           ) : (
             <div className="exp-form">
-              <div className="exp-form__row">
-                <div className="exp-form__field">
-                  <label className="exp-form__label">Nombre (opcional)</label>
-                  <input className="exp-form__input" placeholder="Tu nombre o alias"
-                    value={formData.name}
-                    onChange={e => setFormData(p => ({ ...p, name: e.target.value }))} />
-                </div>
-                <div className="exp-form__field exp-form__field--checkbox">
-                  <label className="exp-form__checkbox-label">
-                    <input type="checkbox" checked={formData.anon}
-                      onChange={e => setFormData(p => ({ ...p, anon: e.target.checked }))} />
-                    <span>Publicar en anonimato</span>
-                  </label>
-                </div>
-              </div>
-
+              {/* Paso 1: Destino */}
               <div className="exp-form__field">
                 <label className="exp-form__label">Ciudad Erasmus *</label>
                 <select className="exp-form__input exp-form__select"
@@ -252,6 +280,30 @@ function CommunitySection() {
                 </select>
               </div>
 
+              {/* Paso 2: Estrellas */}
+              <div className="exp-form__field">
+                <label className="exp-form__label">¿Cómo fue tu experiencia? *</label>
+                <StarRating value={formData.stars} onChange={stars => setFormData(p => ({ ...p, stars }))} />
+              </div>
+
+              {/* Paso 3: Nombre */}
+              <div className="exp-form__row">
+                <div className="exp-form__field">
+                  <label className="exp-form__label">Tu nombre (opcional)</label>
+                  <input className="exp-form__input" placeholder="Nombre o alias"
+                    value={formData.name}
+                    onChange={e => setFormData(p => ({ ...p, name: e.target.value }))} />
+                </div>
+                <div className="exp-form__field exp-form__field--checkbox">
+                  <label className="exp-form__checkbox-label">
+                    <input type="checkbox" checked={formData.anon}
+                      onChange={e => setFormData(p => ({ ...p, anon: e.target.checked }))} />
+                    <span>Publicar en anonimato</span>
+                  </label>
+                </div>
+              </div>
+
+              {/* Paso 4: Texto */}
               <div className="exp-form__field">
                 <label className="exp-form__label">Tu experiencia *</label>
                 <textarea className="exp-form__textarea"
@@ -262,11 +314,38 @@ function CommunitySection() {
                 <span className="exp-form__char">{formData.text.length}/600 caracteres</span>
               </div>
 
+              {/* Paso 5: Foto */}
+              <div className="exp-form__field">
+                <label className="exp-form__label">Sube una foto tuya del Erasmus (opcional)</label>
+                <div className="photo-upload" onClick={() => fileRef.current?.click()}>
+                  {photoPreview ? (
+                    <img src={photoPreview} alt="Preview" className="photo-upload__preview" />
+                  ) : (
+                    <div className="photo-upload__placeholder">
+                      <span style={{ fontSize: 28 }}>📷</span>
+                      <span>Haz clic para subir una foto</span>
+                      <span className="photo-upload__hint">JPG, PNG — máx. 5MB</span>
+                    </div>
+                  )}
+                </div>
+                <input ref={fileRef} type="file" accept="image/*" style={{ display: "none" }} onChange={handlePhoto} />
+                {photoPreview && (
+                  <button className="photo-upload__remove" onClick={() => { setPhotoPreview(null); setFormData(p => ({ ...p, photo: null })); }}>
+                    ✕ Quitar foto
+                  </button>
+                )}
+              </div>
+
               <button className="exp-form__btn"
                 onClick={handleSubmit}
-                disabled={!formData.city || !formData.text.trim()}>
+                disabled={!formData.city || !formData.text.trim() || !formData.stars}>
                 Compartir experiencia →
               </button>
+              {!formData.stars && formData.city && (
+                <p style={{ fontSize: 12, color: "var(--color-muted)", marginTop: 8, textAlign: "center" }}>
+                  Selecciona una puntuación para continuar
+                </p>
+              )}
             </div>
           )}
         </div>
@@ -393,29 +472,6 @@ export default function HomePage() {
             )}
           </div>
         )}
-      </section>
-
-      {/* HOW ERASMUS WORKS */}
-      <section className="section" style={{ background: "linear-gradient(180deg, var(--color-surface) 0%, #fff 100%)" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 48 }}>
-            <SectionLabel color="var(--color-primary)">¿Cómo funciona?</SectionLabel>
-            <h2 className="section__title" style={{ marginBottom: 14 }}>El Erasmus en 4 pasos.</h2>
-            <p style={{ fontSize: "clamp(15px,2vw,17px)", color: "var(--color-slate-light)", maxWidth: 460, margin: "0 auto", lineHeight: 1.6 }}>
-              Más sencillo de lo que parece. Cada año más de 2,4 millones de estudiantes lo hacen.
-            </p>
-          </div>
-          <div className="exp-grid">
-            {HOW_IT_WORKS.map((item, i) => <HowCard key={item.step} item={item} index={i} />)}
-          </div>
-
-          <div className="how-note">
-            <span style={{ fontSize: 28 }}>💡</span>
-            <p style={{ fontSize: 14, color: "var(--color-slate)", lineHeight: 1.6, flex: 1 }}>
-              <strong>¿Cuánto cuesta?</strong> El Erasmus no es gratis, pero la beca cubre gran parte. Pagas tu universidad de origen (no la de destino) y recibes entre 250–500€/mes de la UE según el país al que vayas.
-            </p>
-          </div>
-        </div>
       </section>
 
       {/* COMMUNITY */}

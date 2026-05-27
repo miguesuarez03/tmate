@@ -12,8 +12,36 @@ export function Logo({ dark = false, onClick }) {
   );
 }
 
+const MENU_ITEMS = [
+  {
+    icon: "🗺️",
+    label: "Explorar destinos",
+    desc: "Todas las ciudades Erasmus con scores y guías",
+    action: "explore",
+  },
+  {
+    icon: "⚖️",
+    label: "Comparativa de favoritos",
+    desc: "Compara tus ciudades favoritas lado a lado",
+    action: "compare",
+  },
+  {
+    icon: "📋",
+    label: "Erasmus en 5 pasos",
+    desc: "Todo el proceso explicado paso a paso",
+    action: "steps",
+  },
+  {
+    icon: "⭐",
+    label: "Cuéntanos tu experiencia",
+    desc: "Comparte tu Erasmus y ayuda a otros estudiantes",
+    action: "share",
+  },
+];
+
 export function Navbar({ transparent = false }) {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,27 +50,98 @@ export function Navbar({ transparent = false }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const isDark = transparent && !scrolled;
+  // Close menu on route change or scroll
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
+  const isDark = transparent && !scrolled && !menuOpen;
   const linkColor = isDark ? "rgba(255,255,255,0.82)" : "var(--color-slate)";
 
+  const handleMenuAction = (action) => {
+    setMenuOpen(false);
+    setTimeout(() => {
+      if (action === "explore") {
+        navigate("/");
+        setTimeout(() => {
+          const el = document.querySelector(".section");
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      } else if (action === "compare") {
+        navigate("/");
+      } else if (action === "steps") {
+        navigate("/proceso");
+      } else if (action === "share") {
+        navigate("/");
+        setTimeout(() => {
+          const el = document.querySelector(".exp-form-section");
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    }, 50);
+  };
+
   return (
-    <nav className={`navbar ${scrolled || !transparent ? "navbar--scrolled" : ""}`}>
-      {/* Logo always goes home */}
-      <Logo dark={!isDark} onClick={() => navigate("/")} />
+    <>
+      <nav className={`navbar ${scrolled || !transparent || menuOpen ? "navbar--scrolled" : ""}`}>
+        <Logo dark={!isDark} onClick={() => { setMenuOpen(false); navigate("/"); }} />
 
-      <div className="navbar__links">
-        {["Explorar", "Comunidad"].map((item) => (
-          <button key={item} className="navbar__link" style={{ color: linkColor }}>{item}</button>
-        ))}
-        <button className="navbar__cta">Registro gratis</button>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <button className="navbar__cta" style={{ marginRight: 4 }}>Registro gratis</button>
+        </div>
+
+        <button
+          className={`navbar__hamburger${menuOpen ? " navbar__hamburger--open" : ""}`}
+          aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+          onClick={() => setMenuOpen((v) => !v)}
+        >
+          <span style={{ background: isDark ? "#fff" : "var(--color-dark)" }} />
+          <span style={{ background: isDark ? "#fff" : "var(--color-dark)" }} />
+          <span style={{ background: isDark ? "#fff" : "var(--color-dark)" }} />
+        </button>
+      </nav>
+
+      {/* Overlay */}
+      {menuOpen && (
+        <div className="nav-overlay" onClick={() => setMenuOpen(false)} />
+      )}
+
+      {/* Drawer */}
+      <div className={`nav-drawer${menuOpen ? " nav-drawer--open" : ""}`}>
+        <div className="nav-drawer__header">
+          <span className="nav-drawer__title">Menú</span>
+          <button className="nav-drawer__close" onClick={() => setMenuOpen(false)} aria-label="Cerrar">✕</button>
+        </div>
+
+        <nav className="nav-drawer__items">
+          {MENU_ITEMS.map((item) => (
+            <button
+              key={item.action}
+              className="nav-drawer__item"
+              onClick={() => handleMenuAction(item.action)}
+            >
+              <span className="nav-drawer__item-icon">{item.icon}</span>
+              <div className="nav-drawer__item-text">
+                <span className="nav-drawer__item-label">{item.label}</span>
+                <span className="nav-drawer__item-desc">{item.desc}</span>
+              </div>
+              <span className="nav-drawer__item-arrow">›</span>
+            </button>
+          ))}
+        </nav>
+
+        <div className="nav-drawer__footer">
+          <button className="navbar__cta" style={{ width: "100%", padding: "12px 20px", fontSize: 15 }}>
+            Registro gratis — es gratis 🎉
+          </button>
+        </div>
       </div>
-
-      <button className="navbar__hamburger" aria-label="Menu">
-        {[0, 1, 2].map((i) => (
-          <span key={i} style={{ background: isDark ? "#fff" : "var(--color-dark)" }} />
-        ))}
-      </button>
-    </nav>
+    </>
   );
 }
 

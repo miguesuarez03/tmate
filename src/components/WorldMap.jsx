@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import {
   ComposableMap,
   Geographies,
@@ -11,44 +11,54 @@ import styles from "./WorldMap.module.css";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
-// ─── CITIES ───────────────────────────────────────────────────────────────────
+// ─── CITIES con scores por categoría ─────────────────────────────────────────
 const CITIES = [
-  { slug: "bolonia",   name: "Bolonia",   country: "Italia",       coords: [11.34, 44.49], cost: "600–900€",   score: 7.8, img: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=300&q=70" },
-  { slug: "milan",     name: "Milán",     country: "Italia",       coords: [9.19,  45.46], cost: "750–1.100€", score: 7.5, img: "https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?w=300&q=70" },
-  { slug: "roma",      name: "Roma",      country: "Italia",       coords: [12.49, 41.90], cost: "650–950€",   score: 8.0, img: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=300&q=70" },
-  { slug: "turin",     name: "Turín",     country: "Italia",       coords: [7.68,  45.07], cost: "500–750€",   score: 7.2, img: "https://images.unsplash.com/photo-1562883676-8c7feb83f09b?w=300&q=70" },
-  { slug: "cracovia",  name: "Cracovia",  country: "Polonia",      coords: [19.94, 50.06], cost: "350–550€",   score: 8.5, img: "https://images.unsplash.com/photo-1534430480872-3498386e7856?w=300&q=70" },
-  { slug: "varsovia",  name: "Varsovia",  country: "Polonia",      coords: [21.01, 52.23], cost: "450–700€",   score: 7.8, img: "https://images.unsplash.com/photo-1519197924294-4ba991a11128?w=300&q=70" },
-  { slug: "budapest",  name: "Budapest",  country: "Hungría",      coords: [19.04, 47.50], cost: "380–600€",   score: 8.3, img: "https://images.unsplash.com/photo-1541849546-216549ae216d?w=300&q=70" },
-  { slug: "praga",     name: "Praga",     country: "Rep. Checa",   coords: [14.42, 50.08], cost: "450–700€",   score: 8.1, img: "https://images.unsplash.com/photo-1519677100203-a0e668c92439?w=300&q=70" },
-  { slug: "la-haya",   name: "La Haya",   country: "Países Bajos", coords: [4.30,  52.07], cost: "700–1.000€", score: 7.5, img: "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?w=300&q=70" },
-  { slug: "rotterdam", name: "Rotterdam", country: "Países Bajos", coords: [4.48,  51.92], cost: "700–1.000€", score: 7.6, img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&q=70" },
-  { slug: "munich",    name: "Múnich",    country: "Alemania",     coords: [11.58, 48.14], cost: "800–1.100€", score: 7.9, img: "https://images.unsplash.com/photo-1595867818082-083862f3d630?w=300&q=70" },
-  { slug: "berlin",    name: "Berlín",    country: "Alemania",     coords: [13.40, 52.52], cost: "600–900€",   score: 8.2, img: "https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?w=300&q=70" },
-  { slug: "lisboa",    name: "Lisboa",    country: "Portugal",     coords: [-9.14, 38.71], cost: "550–850€",   score: 8.7, img: "https://images.unsplash.com/photo-1548707309-dcebeab9ea9b?w=300&q=70" },
-  { slug: "oporto",    name: "Oporto",    country: "Portugal",     coords: [-8.61, 41.15], cost: "450–700€",   score: 8.4, img: "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=300&q=70" },
-  { slug: "paris",     name: "París",     country: "Francia",      coords: [2.35,  48.85], cost: "800–1.200€", score: 8.0, img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=300&q=70" },
-  { slug: "londres",   name: "Londres",   country: "Reino Unido",  coords: [-0.12, 51.51], cost: "950–1.400€", score: 7.4, img: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=300&q=70" },
-  { slug: "amsterdam", name: "Ámsterdam", country: "Países Bajos", coords: [4.90,  52.37], cost: "750–1.100€", score: 8.0, img: "https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=300&q=70" },
-  { slug: "viena",     name: "Viena",     country: "Austria",      coords: [16.37, 48.21], cost: "650–950€",   score: 8.2, img: "https://images.unsplash.com/photo-1516550893923-42d28e5677af?w=300&q=70" },
-  { slug: "rosenheim", name: "Rosenheim", country: "Alemania",     coords: [12.12, 47.85], cost: "550–800€",   score: 6.8, img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&q=70" },
-  { slug: "bruselas",  name: "Bruselas",  country: "Bélgica",      coords: [4.35,  50.85], cost: "600–900€",   score: 7.7, img: "https://images.unsplash.com/photo-1559113202-c916b8e44373?w=300&q=70" },
+  { slug: "bolonia",   name: "Bolonia",   country: "Italia",       flag: "🇮🇹", coords: [11.34, 44.49], cost: "600–900€",   score: 7.8, fiesta: 8, cultura: 9, economia: 7, dinero: 6 },
+  { slug: "milan",     name: "Milán",     country: "Italia",       flag: "🇮🇹", coords: [9.19,  45.46], cost: "750–1.100€", score: 7.5, fiesta: 7, cultura: 9, economia: 5, dinero: 5 },
+  { slug: "roma",      name: "Roma",      country: "Italia",       flag: "🇮🇹", coords: [12.49, 41.90], cost: "650–950€",   score: 8.0, fiesta: 7, cultura: 10, economia: 6, dinero: 6 },
+  { slug: "turin",     name: "Turín",     country: "Italia",       flag: "🇮🇹", coords: [7.68,  45.07], cost: "500–750€",   score: 7.2, fiesta: 6, cultura: 8, economia: 8, dinero: 7 },
+  { slug: "cracovia",  name: "Cracovia",  country: "Polonia",      flag: "🇵🇱", coords: [19.94, 50.06], cost: "350–550€",   score: 8.5, fiesta: 9, cultura: 8, economia: 10, dinero: 9 },
+  { slug: "varsovia",  name: "Varsovia",  country: "Polonia",      flag: "🇵🇱", coords: [21.01, 52.23], cost: "450–700€",   score: 7.8, fiesta: 8, cultura: 7, economia: 9, dinero: 8 },
+  { slug: "budapest",  name: "Budapest",  country: "Hungría",      flag: "🇭🇺", coords: [19.04, 47.50], cost: "380–600€",   score: 8.3, fiesta: 9, cultura: 8, economia: 9, dinero: 9 },
+  { slug: "praga",     name: "Praga",     country: "Rep. Checa",   flag: "🇨🇿", coords: [14.42, 50.08], cost: "450–700€",   score: 8.1, fiesta: 9, cultura: 9, economia: 9, dinero: 8 },
+  { slug: "la-haya",   name: "La Haya",   country: "Países Bajos", flag: "🇳🇱", coords: [4.30,  52.07], cost: "700–1.000€", score: 7.5, fiesta: 6, cultura: 8, economia: 5, dinero: 5 },
+  { slug: "rotterdam", name: "Rotterdam", country: "Países Bajos", flag: "🇳🇱", coords: [4.48,  51.92], cost: "700–1.000€", score: 7.6, fiesta: 7, cultura: 7, economia: 5, dinero: 5 },
+  { slug: "munich",    name: "Múnich",    country: "Alemania",     flag: "🇩🇪", coords: [11.58, 48.14], cost: "800–1.100€", score: 7.9, fiesta: 8, cultura: 8, economia: 4, dinero: 5 },
+  { slug: "berlin",    name: "Berlín",    country: "Alemania",     flag: "🇩🇪", coords: [13.40, 52.52], cost: "600–900€",   score: 8.2, fiesta: 10, cultura: 9, economia: 7, dinero: 7 },
+  { slug: "lisboa",    name: "Lisboa",    country: "Portugal",     flag: "🇵🇹", coords: [-9.14, 38.71], cost: "550–850€",   score: 8.7, fiesta: 9, cultura: 9, economia: 8, dinero: 7 },
+  { slug: "oporto",    name: "Oporto",    country: "Portugal",     flag: "🇵🇹", coords: [-8.61, 41.15], cost: "450–700€",   score: 8.4, fiesta: 8, cultura: 8, economia: 9, dinero: 8 },
+  { slug: "paris",     name: "París",     country: "Francia",      flag: "🇫🇷", coords: [2.35,  48.85], cost: "800–1.200€", score: 8.0, fiesta: 8, cultura: 10, economia: 4, dinero: 5 },
+  { slug: "londres",   name: "Londres",   country: "Reino Unido",  flag: "🇬🇧", coords: [-0.12, 51.51], cost: "950–1.400€", score: 7.4, fiesta: 8, cultura: 10, economia: 3, dinero: 4 },
+  { slug: "amsterdam", name: "Ámsterdam", country: "Países Bajos", flag: "🇳🇱", coords: [4.90,  52.37], cost: "750–1.100€", score: 8.0, fiesta: 9, cultura: 8, economia: 5, dinero: 5 },
+  { slug: "viena",     name: "Viena",     country: "Austria",      flag: "🇦🇹", coords: [16.37, 48.21], cost: "650–950€",   score: 8.2, fiesta: 7, cultura: 10, economia: 6, dinero: 6 },
+  { slug: "rosenheim", name: "Rosenheim", country: "Alemania",     flag: "🇩🇪", coords: [12.12, 47.85], cost: "550–800€",   score: 6.8, fiesta: 5, cultura: 6, economia: 7, dinero: 7 },
+  { slug: "bruselas",  name: "Bruselas",  country: "Bélgica",      flag: "🇧🇪", coords: [4.35,  50.85], cost: "600–900€",   score: 7.7, fiesta: 7, cultura: 8, economia: 6, dinero: 6 },
 ];
 
-// ─── COUNTRY LABELS ───────────────────────────────────────────────────────────
-const COUNTRIES = [
-  { flag: "🇮🇹", name: "Italia",       coords: [12.5,  42.8] },
-  { flag: "🇩🇪", name: "Alemania",     coords: [10.4,  51.5] },
-  { flag: "🇵🇱", name: "Polonia",      coords: [19.8,  52.5] },
-  { flag: "🇵🇹", name: "Portugal",     coords: [-8.2,  39.6] },
-  { flag: "🇫🇷", name: "Francia",      coords: [2.5,   46.8] },
-  { flag: "🇬🇧", name: "Reino Unido",  coords: [-2.0,  53.0] },
-  { flag: "🇳🇱", name: "P. Bajos",     coords: [5.2,   52.6] },
-  { flag: "🇭🇺", name: "Hungría",      coords: [19.2,  47.2] },
-  { flag: "🇨🇿", name: "Rep. Checa",   coords: [15.5,  49.9] },
-  { flag: "🇦🇹", name: "Austria",      coords: [14.2,  47.6] },
-  { flag: "🇧🇪", name: "Bélgica",      coords: [4.6,   50.6] },
+// ─── PAÍSES con coordenadas para zoom ─────────────────────────────────────────
+const COUNTRY_ZOOM = {
+  "Todos":         { coords: [13, 50],   zoom: 2.2 },
+  "Italia":        { coords: [12.5, 42], zoom: 3.0 },
+  "Alemania":      { coords: [10.5, 51], zoom: 3.2 },
+  "Polonia":       { coords: [20, 52],   zoom: 3.5 },
+  "Portugal":      { coords: [-8.5, 39], zoom: 3.8 },
+  "Francia":       { coords: [2.5, 46],  zoom: 3.2 },
+  "Reino Unido":   { coords: [-1, 52],   zoom: 3.5 },
+  "Países Bajos":  { coords: [5, 52.3],  zoom: 4.5 },
+  "Hungría":       { coords: [19, 47],   zoom: 4.5 },
+  "Rep. Checa":    { coords: [15.5, 50], zoom: 4.5 },
+  "Austria":       { coords: [14, 47.5], zoom: 4.5 },
+  "Bélgica":       { coords: [4.5, 50.5],zoom: 5.5 },
+};
+
+// ─── FILTROS DE VIBE ──────────────────────────────────────────────────────────
+const VIBE_FILTERS = [
+  { key: "fiesta",   label: "Fiesta",   icon: "🎉", desc: "Vida nocturna" },
+  { key: "cultura",  label: "Cultura",  icon: "🏛️", desc: "Arte & historia" },
+  { key: "barato",   label: "Barato",   icon: "💸", desc: "Coste de vida bajo" },
 ];
+
+const ALL_COUNTRIES = ["Todos", ...Array.from(new Set(CITIES.map(c => c.country))).sort()];
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
 function scoreColor(score) {
@@ -57,7 +67,6 @@ function scoreColor(score) {
   if (score >= 7)   return "#3b82f6";
   return "#f59e0b";
 }
-
 function scoreLabel(score) {
   if (score >= 8.5) return "Excelente";
   if (score >= 8)   return "Muy bueno";
@@ -71,15 +80,21 @@ function CityPopup({ city, onClose, navigate }) {
     <div className={styles.popup} onClick={e => e.stopPropagation()}>
       <button className={styles.popupClose} onClick={onClose} aria-label="Cerrar">✕</button>
       <div className={styles.popupImg}>
-        <img src={city.img} alt={city.name} loading="lazy" />
+        <img src={`https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=300&q=70`} alt={city.name} loading="lazy" />
         <div className={styles.popupImgOverlay} />
         <div className={styles.popupScore} style={{ color: scoreColor(city.score) }}>
           {city.score}<span>/10</span>
         </div>
+        <span className={styles.popupFlag}>{city.flag}</span>
       </div>
       <div className={styles.popupBody}>
         <h3 className={styles.popupName}>{city.name}</h3>
         <p className={styles.popupCountry}>{city.country}</p>
+        <div className={styles.popupVibes}>
+          <span className={styles.popupVibe}>🎉 {city.fiesta}/10</span>
+          <span className={styles.popupVibe}>🏛️ {city.cultura}/10</span>
+          <span className={styles.popupVibe}>💸 {city.economia}/10</span>
+        </div>
         <div className={styles.popupTags}>
           <span className={styles.popupTag}>💶 {city.cost}/mes</span>
           <span className={styles.popupTagScore} style={{
@@ -101,21 +116,40 @@ function CityPopup({ city, onClose, navigate }) {
 // ─── MAIN ─────────────────────────────────────────────────────────────────────
 export default function WorldMap() {
   const navigate = useNavigate();
-  const [selected, setSelected]     = useState(null);
-  const [tooltip, setTooltip]       = useState(null); // { city, x, y }
-  const [position, setPosition]     = useState({ coordinates: [13, 50], zoom: 2.2 });
-  const containerRef                = useRef(null);
+  const [selected, setSelected]   = useState(null);
+  const [tooltip, setTooltip]     = useState(null);
+  const [position, setPosition]   = useState({ coordinates: [13, 50], zoom: 2.2 });
+  const zoom = position.zoom;
+  const [country, setCountry]     = useState("Todos");
+  const [vibeFilter, setVibeFilter] = useState(null); // null | "fiesta"|"cultura"|"economia"|"dinero"
+  const containerRef              = useRef(null);
 
   const handleMoveEnd = useCallback(pos => setPosition(pos), []);
+
+  // Zoom al país al seleccionar
+  useEffect(() => {
+    const target = COUNTRY_ZOOM[country] || COUNTRY_ZOOM["Todos"];
+    setPosition({ coordinates: target.coords, zoom: target.zoom });
+    setSelected(null);
+    setTooltip(null);
+  }, [country]);
+
+  // Filtrar ciudades según país y vibe
+  const visibleCities = CITIES.filter(c => {
+    if (country !== "Todos" && c.country !== country) return false;
+    if (vibeFilter) {
+      const val = vibeFilter === "barato"
+        ? Math.round((c.economia + c.dinero) / 2)
+        : c[vibeFilter];
+      if (val < 7) return false;
+    }
+    return true;
+  });
 
   const handlePinEnter = useCallback((city, e) => {
     const rect = containerRef.current?.getBoundingClientRect();
     if (!rect) return;
-    setTooltip({
-      city,
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
+    setTooltip({ city, x: e.clientX - rect.left, y: e.clientY - rect.top });
   }, []);
 
   const handlePinLeave = useCallback(() => setTooltip(null), []);
@@ -131,10 +165,58 @@ export default function WorldMap() {
       <div className={styles.mapHeader}>
         <p className={styles.mapEyebrow}>Explora destinos</p>
         <h2 className={styles.mapTitle}>Encuentra tu ciudad Erasmus</h2>
-        <p className={styles.mapSub}>Pasa el cursor sobre un pin para ver detalles · Haz clic para abrir la guía completa</p>
+        <p className={styles.mapSub}>Filtra por país o por lo que más te importa · Haz clic en un pin para ver la guía</p>
       </div>
 
       <div className={styles.mapContainer} ref={containerRef}>
+
+        {/* ── FILTRO FLOTANTE ENCIMA DEL MAPA ── */}
+        <div className={styles.mapFilters} onClick={e => e.stopPropagation()}>
+
+          {/* Filtro por país */}
+          <div className={styles.countryFilter}>
+            <span className={styles.filterLabel}>🌍 País</span>
+            <select
+              className={styles.countrySelect}
+              value={country}
+              onChange={e => setCountry(e.target.value)}
+            >
+              {ALL_COUNTRIES.map(c => (
+                <option key={c} value={c}>{c}</option>
+              ))}
+            </select>
+          </div>
+
+          {/* Separador */}
+          <div className={styles.filterDivider} />
+
+          {/* Filtros de vibe */}
+          <div className={styles.vibeFilters}>
+            {VIBE_FILTERS.map(f => (
+              <button
+                key={f.key}
+                className={`${styles.vibeBtn} ${vibeFilter === f.key ? styles.vibeBtnActive : ""}`}
+                onClick={() => setVibeFilter(v => v === f.key ? null : f.key)}
+                title={f.desc}
+              >
+                <span>{f.icon}</span>
+                <span className={styles.vibeBtnLabel}>{f.label}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Contador de pins visibles */}
+          {(country !== "Todos" || vibeFilter) && (
+            <div className={styles.filterResult}>
+              <span>{visibleCities.length} ciudad{visibleCities.length !== 1 ? "es" : ""}</span>
+              <button className={styles.filterReset} onClick={() => { setCountry("Todos"); setVibeFilter(null); }}>
+                ✕ Limpiar
+              </button>
+            </div>
+          )}
+        </div>
+
+        {/* ── MAPA ── */}
         <ComposableMap
           projection="geoMercator"
           projectionConfig={{ scale: 800 }}
@@ -147,7 +229,6 @@ export default function WorldMap() {
             minZoom={1}
             maxZoom={14}
           >
-            {/* ── Countries ── */}
             <Geographies geography={GEO_URL}>
               {({ geographies }) =>
                 geographies.map(geo => (
@@ -164,103 +245,95 @@ export default function WorldMap() {
               }
             </Geographies>
 
-            {/* ── Country labels (flag + name) ── */}
-            {COUNTRIES.map(c => (
-              <Marker key={c.name} coordinates={c.coords}>
-                <text
-                  textAnchor="middle"
-                  y={-6}
-                  fontSize={7}
-                  fill="#6b8a9e"
-                  fontFamily="DM Sans, sans-serif"
-                  fontWeight="400"
-                  style={{ pointerEvents: "none", userSelect: "none" }}
-                >
-                  {c.flag}
-                </text>
-                <text
-                  textAnchor="middle"
-                  y={4}
-                  fontSize={4.5}
-                  fill="#7a9aae"
-                  fontFamily="DM Sans, sans-serif"
-                  fontWeight="400"
-                  letterSpacing="0.3"
-                  style={{ pointerEvents: "none", userSelect: "none" }}
-                >
-                  {c.name.toUpperCase()}
-                </text>
-              </Marker>
-            ))}
-
-            {/* ── City pins ── */}
+            {/* Pins de ciudades */}
             {CITIES.map(city => {
+              const visible = visibleCities.some(c => c.slug === city.slug);
               const isSelected = selected?.slug === city.slug;
-              const color = scoreColor(city.score);
+              const color = visible ? scoreColor(city.score) : "#ccc";
+              const base = 1 / zoom;
+              const r = isSelected ? base * 7 : (visible ? base * 4 : base * 2.5);
+
               return (
                 <Marker
                   key={city.slug}
                   coordinates={city.coords}
-                  onClick={e => handlePinClick(city, e)}
-                  onMouseEnter={e => handlePinEnter(city, e)}
-                  onMouseLeave={handlePinLeave}
-                  style={{ cursor: "pointer" }}
+                  onClick={visible ? e => handlePinClick(city, e) : undefined}
+                  onMouseEnter={visible ? e => handlePinEnter(city, e) : undefined}
+                  onMouseLeave={visible ? handlePinLeave : undefined}
+                  style={{ cursor: visible ? "pointer" : "default" }}
                 >
-                  {/* Outer glow — CSS animated, no SVG animation to avoid ghost rings */}
+                  {/* Anillo exterior */}
                   <circle
-                    r={isSelected ? 9 : 6}
-                    fill={color + "25"}
-                    stroke={color}
-                    strokeWidth={isSelected ? 1.5 : 1}
-                    style={{ transition: "r 0.2s ease" }}
+                    r={r + 2}
+                    fill={color + "20"}
+                    stroke={visible ? color : "transparent"}
+                    strokeWidth={isSelected ? 1.5 : 0.8}
+                    style={{ transition: "all 0.2s ease" }}
                   />
-                  {/* Inner dot */}
+                  {/* Punto central */}
                   <circle
-                    r={isSelected ? 4.5 : 3}
+                    r={r / 2}
                     fill={color}
-                    style={{ transition: "r 0.2s ease" }}
+                    opacity={visible ? 1 : 0.3}
+                    style={{ transition: "all 0.2s ease" }}
                   />
+                  {/* Emoji de bandera para ciudades seleccionadas o en zoom alto */}
+                  {isSelected && (
+                    <text
+                      textAnchor="middle"
+                      y={-10}
+                      fontSize={10}
+                      style={{ pointerEvents: "none", userSelect: "none" }}
+                    >
+                      {city.flag}
+                    </text>
+                  )}
                 </Marker>
               );
             })}
           </ZoomableGroup>
         </ComposableMap>
 
-        {/* ── Hover tooltip (fuera del SVG → no hay ghost rings) ── */}
+        {/* Tooltip hover */}
         {tooltip && !selected && (
           <div
             className={styles.tooltip}
-            style={{
-              left: tooltip.x,
-              top: tooltip.y,
-              transform: "translate(-50%, calc(-100% - 16px))",
-            }}
+            style={{ left: tooltip.x, top: tooltip.y, transform: "translate(-50%, calc(-100% - 16px))" }}
             onMouseEnter={() => setTooltip(null)}
           >
-            <img src={tooltip.city.img} alt={tooltip.city.name} className={styles.tooltipImg} />
             <div className={styles.tooltipBody}>
-              <span className={styles.tooltipName}>{tooltip.city.name}</span>
+              <span className={styles.tooltipFlag}>{tooltip.city.flag}</span>
+              <div>
+                <span className={styles.tooltipName}>{tooltip.city.name}</span>
+                <span className={styles.tooltipCountry}>{tooltip.city.country}</span>
+              </div>
               <span className={styles.tooltipScore} style={{ color: scoreColor(tooltip.city.score) }}>
                 {tooltip.city.score}/10
               </span>
             </div>
+            <div className={styles.tooltipVibes}>
+              <span>🎉 {tooltip.city.fiesta}</span>
+              <span>🏛️ {tooltip.city.cultura}</span>
+              <span>💸 {tooltip.city.economia}</span>
+              <span>💰 {tooltip.city.dinero}</span>
+            </div>
           </div>
         )}
 
-        {/* ── City popup ── */}
+        {/* Popup ciudad */}
         {selected && (
           <CityPopup city={selected} onClose={() => setSelected(null)} navigate={navigate} />
         )}
 
-        {/* ── Controls ── */}
+        {/* Controles zoom */}
         <div className={styles.zoomControls}>
           <button className={styles.zoomBtn} onClick={() => setPosition(p => ({ ...p, zoom: Math.min(p.zoom * 1.4, 14) }))} aria-label="Acercar">+</button>
           <button className={styles.zoomBtn} onClick={() => setPosition(p => ({ ...p, zoom: Math.max(p.zoom / 1.4, 1) }))} aria-label="Alejar">−</button>
         </div>
 
         <div className={styles.cityCount}>
-          <span className={styles.cityCountDot} />
-          {CITIES.length} destinos disponibles
+          <span className={styles.cityCountDot} style={{ background: vibeFilter ? "#f59e0b" : "#00bfa5" }} />
+          {visibleCities.length} de {CITIES.length} destinos
         </div>
       </div>
     </div>
