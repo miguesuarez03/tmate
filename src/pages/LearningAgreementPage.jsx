@@ -2,90 +2,233 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { useSEO } from "../hooks/useSEO";
+import styles from "./LearningAgreementPage.module.css";
 
-const LA_TIPS = [
+/* ─── DATA ──────────────────────────────────────────────────────────────── */
+
+const FIRMAS = [
   {
-    icon: "🏛️",
-    title: "Consulta el histórico de convalidaciones de tu uni",
-    content: `Es lo primero que debes hacer. Casi seguro que alguien de tu universidad ya se fue de Erasmus a tu destino antes que tú, y las universidades guardan registro de qué asignaturas se han convalidado.
-
-Contacta con tu ORI o tu coordinador de grado y pídeles el histórico. Es la información más valiosa que puedes tener y muy poca gente la pide.`,
+    id: "tu",
+    icon: "🎓",
+    label: "Tú",
+    desc: "El estudiante",
+    detail: "Eres la primera firma. Tú propones las asignaturas, justificas las equivalencias y eres responsable de que el documento esté completo y correcto antes de enviarlo.",
+    color: "#0EA5E9",
+    step: "1ª firma",
   },
   {
-    icon: "👥",
-    title: "Habla con Erasmus que ya estuvieron ahí",
-    content: `Busca en redes a estudiantes de tu universidad que ya hayan ido a tu destino. Pregúntales:
-
-· Qué asignaturas cogieron y cuáles les convalidaron
-· Cuáles eran las más llevaderas o más interesantes
-· Qué nivel de exigencia había en cada una
-· Si tuvieron problemas con alguna convalidación y cómo lo resolvieron
-
-Esta información de primera mano vale oro y no la encontrarás en ningún sitio oficial.`,
+    id: "origen",
+    icon: "🏫",
+    label: "Tu universidad",
+    desc: "Coordinador de grado",
+    detail: "Tu coordinador académico revisa que las asignaturas que propones son equivalentes a las de tu plan de estudios. Puede pedirte cambios o justificaciones adicionales.",
+    color: "#8B5CF6",
+    step: "2ª firma",
   },
   {
-    icon: "📚",
-    title: "Cómo elegir bien las asignaturas",
-    content: `A la hora de elegir, ten en cuenta:
-
-✅ Que tengan equivalente claro en tu plan de estudios
-✅ Que el nivel de idioma requerido sea el que tú tienes
-✅ Que los horarios sean compatibles entre sí
-✅ Que la carga de trabajo sea razonable — recuerda que también quieres vivir el Erasmus
-⚠️ Evita asignaturas con examen único sin evaluación continua si no dominas el idioma al 100%
-⚠️ No te sobrecarges — es mejor aprobar 5 asignaturas bien que suspender 8`,
-  },
-  {
-    icon: "🌐",
-    title: "El OLA — Online Learning Agreement",
-    content: `La mayoría de universidades europeas ya usan el sistema digital OLA (Online Learning Agreement), accesible desde la plataforma Erasmus Without Paper.
-
-Ventajas del OLA:
-· Las firmas son digitales — no necesitas imprimir ni escanear nada
-· Puedes hacer cambios más fácilmente si algo falla al llegar
-· Tu universidad de origen y la de destino lo ven en tiempo real
-
-Créate la cuenta antes de que te lo pidan y familiarízate con la plataforma. Muchos estudiantes pierden tiempo por no haberla abierto antes.`,
-  },
-  {
-    icon: "✏️",
-    title: "Cambios durante la estancia",
-    content: `Al llegar a destino tienes un plazo (normalmente las primeras 4-5 semanas) para modificar el Learning Agreement si algo no cuadra — un horario incompatible, una asignatura cancelada, o simplemente que quieres cambiar algo.
-
-Esto se llama "Changes to the Learning Agreement" y también se tramita en el OLA.
-
-Importante: fuera de ese plazo no puedes hacer cambios. Si te quedas con asignaturas que no puedes seguir, el problema es tuyo. Actúa rápido si ves que algo no funciona.`,
-  },
-  {
-    icon: "🤖",
-    title: "Usa la IA para argumentar equivalencias",
-    content: `Si tienes dudas sobre si una asignatura de destino es equivalente a una de tu carrera, las herramientas de IA pueden ayudarte a construir el argumento.
-
-Coge el programa oficial de la asignatura de destino y el de la asignatura de tu uni que quieres convalidar, y pídele a la IA que compare contenidos y redacte una justificación de equivalencia.
-
-No es magia — pero te ahorra mucho tiempo y suele convencer al coordinador si la equivalencia es razonable.`,
+    id: "destino",
+    icon: "🌍",
+    label: "Universidad destino",
+    desc: "Coordinador Erasmus",
+    detail: "La universidad de destino confirma que las asignaturas que pides están disponibles, tienen plazas y que cumples los requisitos para cursarlas.",
+    color: "#10B981",
+    step: "3ª firma",
   },
 ];
 
-function LATip({ tip }) {
+const TIPS = [
+  {
+    icon: "🏛️",
+    color: "#0EA5E9",
+    title: "Consulta el histórico de tu uni",
+    short: "La info más valiosa y la que casi nadie pide",
+    content: "Casi seguro que alguien de tu universidad ya se fue de Erasmus a tu destino antes. Las universidades guardan registro de qué asignaturas se han convalidado.\n\nContacta con tu ORI o coordinador de grado y pídeles el histórico. Es oro puro y muy poca gente lo pide.",
+    tag: "Primero de todo",
+  },
+  {
+    icon: "👥",
+    color: "#14B8A6",
+    title: "Habla con Erasmus anteriores",
+    short: "Primera mano, no encontrarás esto en ningún sitio oficial",
+    content: "Busca en redes a estudiantes de tu uni que ya hayan ido a tu destino. Pregúntales:\n· Qué asignaturas cogieron y cuáles les convalidaron\n· Cuáles eran las más llevaderas\n· Qué nivel de exigencia había\n· Si tuvieron problemas con alguna convalidación",
+    tag: "Comunidad",
+  },
+  {
+    icon: "📚",
+    color: "#8B5CF6",
+    title: "Cómo elegir las asignaturas",
+    short: "No te sobrecarges — también quieres vivir el Erasmus",
+    content: "✅ Que tengan equivalente claro en tu plan\n✅ Que el nivel de idioma sea el tuyo\n✅ Que los horarios sean compatibles\n✅ Carga de trabajo razonable\n⚠️ Evita exámenes únicos sin evaluación continua si no dominas el idioma\n⚠️ Mejor aprobar 5 bien que suspender 8",
+    tag: "Estrategia",
+  },
+  {
+    icon: "🌐",
+    color: "#F59E0B",
+    title: "El OLA — firma todo digital",
+    short: "Sin imprimir, sin escanear, todo online desde la UE",
+    content: "La mayoría de universidades ya usan el OLA (Online Learning Agreement), accesible desde la plataforma Erasmus Without Paper.\n\n· Firmas digitales — nada de papel\n· Cambios más fáciles si algo falla al llegar\n· Tu uni de origen y destino lo ven en tiempo real\n\nCréate la cuenta antes de que te lo pidan.",
+    tag: "Plataforma",
+  },
+  {
+    icon: "✏️",
+    color: "#EC4899",
+    title: "Cambios durante la estancia",
+    short: "Tienes 4-5 semanas al llegar — úsalas bien",
+    content: "Al llegar tienes un plazo (normalmente las primeras 4-5 semanas) para modificar el LA si algo no cuadra — horario incompatible, asignatura cancelada, o lo que sea.\n\nImportante: fuera de ese plazo no puedes cambiar nada. Si ves que algo no funciona, actúa rápido.",
+    tag: "Cambios",
+  },
+  {
+    icon: "🤖",
+    color: "#6366F1",
+    title: "Usa IA para argumentar equivalencias",
+    short: "El truco que más tiempo ahorra en todo el proceso",
+    content: "Coge el programa oficial de la asignatura de destino y el de la asignatura de tu uni, y pídele a una IA que compare contenidos y redacte la justificación de equivalencia.\n\nNo es magia — pero suele convencer al coordinador si la equivalencia es razonable, y te ahorra horas.",
+    tag: "Herramienta",
+  },
+];
+
+const CHECKLIST_ITEMS = [
+  { id: "historico", text: "He consultado el histórico de convalidaciones de mi universidad" },
+  { id: "contacto", text: "He hablado con algún Erasmus que ya estuvo en mi destino" },
+  { id: "asignaturas", text: "He elegido las asignaturas con equivalente claro en mi plan" },
+  { id: "coordinador", text: "He consultado con mi coordinador de grado antes de enviarlo" },
+  { id: "ola", text: "Me he creado cuenta en la plataforma OLA (Erasmus Without Paper)" },
+  { id: "firmado", text: "El LA está firmado por las 3 partes antes de irme" },
+  { id: "cambios", text: "Sé que tengo 4-5 semanas al llegar para hacer cambios si hace falta" },
+];
+
+/* ─── COMPONENTS ─────────────────────────────────────────────────────────── */
+
+function FirmasDiagram() {
+  const [active, setActive] = useState(null);
+  const activeData = FIRMAS.find(f => f.id === active);
+
+  return (
+    <div className={styles.firmasWrap}>
+      <div className={styles.firmasRow}>
+        {FIRMAS.map((firma, i) => (
+          <div key={firma.id} className={styles.firmaCol}>
+            {i > 0 && (
+              <div className={styles.firmaArrow}>
+                <div className={styles.firmaArrowLine} />
+                <span className={styles.firmaArrowTip}>→</span>
+              </div>
+            )}
+            <button
+              className={`${styles.firmaCard} ${active === firma.id ? styles.firmaCardActive : ""}`}
+              style={{ "--firma-color": firma.color }}
+              onClick={() => setActive(v => v === firma.id ? null : firma.id)}
+            >
+              <span className={styles.firmaStep}>{firma.step}</span>
+              <span className={styles.firmaIcon}>{firma.icon}</span>
+              <span className={styles.firmaLabel}>{firma.label}</span>
+              <span className={styles.firmaDesc}>{firma.desc}</span>
+            </button>
+          </div>
+        ))}
+      </div>
+
+      {activeData && (
+        <div
+          className={styles.firmaDetail}
+          style={{ borderColor: activeData.color, background: activeData.color + "0d" }}
+        >
+          <span className={styles.firmaDetailIcon}>{activeData.icon}</span>
+          <div>
+            <strong className={styles.firmaDetailTitle} style={{ color: activeData.color }}>
+              {activeData.label} — {activeData.step}
+            </strong>
+            <p className={styles.firmaDetailText}>{activeData.detail}</p>
+          </div>
+        </div>
+      )}
+
+      {!active && (
+        <p className={styles.firmaHint}>Toca cualquier parte para ver qué hace cada uno</p>
+      )}
+    </div>
+  );
+}
+
+function TipCard({ tip }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className={`la-tip ${open ? "la-tip--open" : ""}`}>
-      <button className="la-tip__header" onClick={() => setOpen((v) => !v)}>
-        <span className="la-tip__icon">{tip.icon}</span>
-        <span className="la-tip__title">{tip.title}</span>
-        <span className="la-tip__chevron">{open ? "▲" : "▼"}</span>
+    <div
+      className={`${styles.tipCard} ${open ? styles.tipCardOpen : ""}`}
+      style={{ "--tip-color": tip.color }}
+    >
+      <button className={styles.tipHeader} onClick={() => setOpen(v => !v)}>
+        <div className={styles.tipHeaderLeft}>
+          <span className={styles.tipIcon} style={{ background: tip.color + "18", color: tip.color }}>
+            {tip.icon}
+          </span>
+          <div className={styles.tipHeaderText}>
+            <div className={styles.tipTag} style={{ color: tip.color }}>{tip.tag}</div>
+            <div className={styles.tipTitle}>{tip.title}</div>
+            {!open && <div className={styles.tipShort}>{tip.short}</div>}
+          </div>
+        </div>
+        <span className={styles.tipChevron} style={{ color: tip.color }}>
+          {open ? "▲" : "▼"}
+        </span>
       </button>
       {open && (
-        <div className="la-tip__body">
-          <p style={{ whiteSpace: "pre-line", lineHeight: 1.7, color: "var(--color-slate)", fontSize: 15 }}>
-            {tip.content}
-          </p>
+        <div className={styles.tipBody}>
+          <p style={{ whiteSpace: "pre-line" }}>{tip.content}</p>
         </div>
       )}
     </div>
   );
 }
+
+function Checklist() {
+  const [checked, setChecked] = useState({});
+  const total = CHECKLIST_ITEMS.length;
+  const done = Object.values(checked).filter(Boolean).length;
+  const pct = Math.round((done / total) * 100);
+
+  return (
+    <div className={styles.checklist}>
+      <div className={styles.checklistHeader}>
+        <div>
+          <h3 className={styles.checklistTitle}>¿Tienes todo listo?</h3>
+          <p className={styles.checklistSub}>Marca lo que ya has hecho</p>
+        </div>
+        <div className={styles.checklistProgress}>
+          <div className={styles.checklistPct}>{pct}%</div>
+          <div className={styles.checklistBar}>
+            <div
+              className={styles.checklistFill}
+              style={{ width: `${pct}%`, background: pct === 100 ? "#10B981" : "#0EA5E9" }}
+            />
+          </div>
+          <div className={styles.checklistCount}>{done}/{total}</div>
+        </div>
+      </div>
+      <div className={styles.checklistItems}>
+        {CHECKLIST_ITEMS.map(item => (
+          <button
+            key={item.id}
+            className={`${styles.checklistItem} ${checked[item.id] ? styles.checklistItemDone : ""}`}
+            onClick={() => setChecked(v => ({ ...v, [item.id]: !v[item.id] }))}
+          >
+            <span className={styles.checklistBox}>
+              {checked[item.id] ? "✓" : ""}
+            </span>
+            <span className={styles.checklistText}>{item.text}</span>
+          </button>
+        ))}
+      </div>
+      {done === total && (
+        <div className={styles.checklistDone}>
+          🎉 ¡Todo listo! Tu Learning Agreement está preparado.
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ─── PAGE ───────────────────────────────────────────────────────────────── */
 
 export default function LearningAgreementPage() {
   const navigate = useNavigate();
@@ -96,86 +239,87 @@ export default function LearningAgreementPage() {
   });
 
   return (
-    <div className="proceso-page">
+    <div className={styles.page}>
       <Navbar />
 
-      {/* Hero */}
-      <section className="proceso-hero" style={{ "--hero-accent": "#10B981" }}>
-        <div className="proceso-hero__bg" />
-        <div className="proceso-hero__content">
-          <button className="proceso-back" onClick={() => navigate("/proceso")}>
-            ← Volver a ¿Cómo funciona el Erasmus?
+      {/* ── HERO ── */}
+      <section className={styles.hero}>
+        <div className={styles.heroBg} />
+        <div className={styles.heroContent}>
+          <button className={styles.backBtn} onClick={() => navigate("/proceso")}>
+            ← Volver al proceso
           </button>
           <SectionLabel color="#10B981">Documento clave</SectionLabel>
-          <h1 className="proceso-hero__title">
+          <h1 className={styles.heroTitle}>
             Tu Learning<br />
-            <span className="proceso-hero__title-accent" style={{ color: "#10B981" }}>Agreement</span>
+            <span className={styles.heroAccent}>Agreement</span>
           </h1>
-          <p className="proceso-hero__subtitle">
-            El contrato académico que define qué estudias y qué te convalidan.
-            El documento que más dolores de cabeza da — y el que mejor puedes preparar.
+          <p className={styles.heroSub}>
+            El contrato que define qué estudias y qué te convalidan.
+            El documento que más agobia — y el que mejor puedes preparar si sabes cómo.
           </p>
-          <div className="proceso-hero__stats">
-            <div className="proceso-hero__stat">
-              <span className="proceso-hero__stat-val">3</span>
-              <span className="proceso-hero__stat-label">Firmas necesarias</span>
+          <div className={styles.heroStats}>
+            <div className={styles.heroStat}>
+              <span className={styles.heroStatVal}>3</span>
+              <span className={styles.heroStatLabel}>Firmas necesarias</span>
             </div>
-            <div className="proceso-hero__stat">
-              <span className="proceso-hero__stat-val">OLA</span>
-              <span className="proceso-hero__stat-label">Sistema digital UE</span>
+            <div className={styles.heroStatDiv} />
+            <div className={styles.heroStat}>
+              <span className={styles.heroStatVal}>OLA</span>
+              <span className={styles.heroStatLabel}>100% digital en la UE</span>
             </div>
-            <div className="proceso-hero__stat">
-              <span className="proceso-hero__stat-val">4–5</span>
-              <span className="proceso-hero__stat-label">Semanas para cambios</span>
+            <div className={styles.heroStatDiv} />
+            <div className={styles.heroStat}>
+              <span className={styles.heroStatVal}>4–5</span>
+              <span className={styles.heroStatLabel}>Semanas para cambios</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Qué es */}
-      <section className="proceso-main" style={{ paddingBottom: 0 }}>
-        <div style={{ maxWidth: 760, margin: "0 auto", padding: "0 var(--section-px) 48px" }}>
+      {/* ── QUÉ ES: DIAGRAMA ── */}
+      <section className={styles.section}>
+        <div className={styles.sectionInner}>
           <SectionLabel color="#10B981">Qué es exactamente</SectionLabel>
-          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 900, color: "var(--color-dark)", marginBottom: 16, letterSpacing: "-0.5px" }}>
-            Un contrato entre tres partes
-          </h2>
-          <p style={{ fontSize: 16, color: "var(--color-slate)", lineHeight: 1.75, marginBottom: 16 }}>
-            El Learning Agreement (LA) es el documento que dice qué asignaturas vas a cursar en la universidad de destino y cómo se van a reconocer en tu universidad de origen cuando vuelvas.
+          <h2 className={styles.sectionTitle}>Un contrato entre tres partes</h2>
+          <p className={styles.sectionText}>
+            El LA dice qué asignaturas cursas en destino y cómo se reconocen cuando vuelves.
+            Necesita la firma de los tres antes de irte — sin alguna, no es válido.
           </p>
-          <p style={{ fontSize: 16, color: "var(--color-slate)", lineHeight: 1.75, marginBottom: 16 }}>
-            Tiene que estar firmado por <strong>tres partes</strong> antes de irte: tú, tu coordinador en la universidad de origen, y la universidad de destino. Sin las tres firmas no es válido.
-          </p>
-          <p style={{ fontSize: 16, color: "var(--color-slate)", lineHeight: 1.75 }}>
-            Si las asignaturas no están bien elegidas o la equivalencia no está bien justificada, tu universidad puede negarse a convalidarlas cuando vuelvas. Por eso merece la pena prepararlo bien.
-          </p>
+          <FirmasDiagram />
         </div>
       </section>
 
-      {/* Tips acordeón */}
-      <section style={{ background: "var(--color-surface)", padding: "56px var(--section-px)" }}>
-        <div style={{ maxWidth: 760, margin: "0 auto" }}>
+      {/* ── 6 CLAVES ── */}
+      <section className={styles.sectionAlt}>
+        <div className={styles.sectionInner}>
           <SectionLabel color="#10B981">Cómo hacerlo bien</SectionLabel>
-          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 900, color: "var(--color-dark)", marginBottom: 8, letterSpacing: "-0.5px" }}>
-            6 claves para que te convaliden todo
-          </h2>
-          <p style={{ fontSize: 15, color: "var(--color-muted)", marginBottom: 32 }}>
+          <h2 className={styles.sectionTitle}>6 claves para que te convaliden todo</h2>
+          <p className={styles.sectionText}>
             Con la estrategia correcta, el Learning Agreement deja de ser un dolor de cabeza.
           </p>
-          <div className="la-tips-list">
-            {LA_TIPS.map((tip, i) => (
-              <LATip key={i} tip={tip} />
+          <div className={styles.tipsGrid}>
+            {TIPS.map((tip, i) => (
+              <TipCard key={i} tip={tip} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="proceso-cta">
-        <h2 className="proceso-cta__title">¿Quieres ver el proceso completo?</h2>
-        <p className="proceso-cta__subtitle">
-          El Learning Agreement es solo uno de los 8 pasos del Erasmus. Repasa todo el proceso para no perderte nada.
+      {/* ── CHECKLIST ── */}
+      <section className={styles.section}>
+        <div className={styles.sectionInner} style={{ maxWidth: 640 }}>
+          <Checklist />
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className={styles.cta}>
+        <h2 className={styles.ctaTitle}>¿Quieres repasar el proceso completo?</h2>
+        <p className={styles.ctaSub}>
+          El Learning Agreement es solo uno de los 8 pasos. Que no se te escape ninguno.
         </p>
-        <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+        <div className={styles.ctaBtns}>
           <button className="btn-primary" onClick={() => navigate("/proceso")}>
             Ver todos los pasos →
           </button>
