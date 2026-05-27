@@ -127,15 +127,8 @@ Esta información de primera mano vale oro y no la encontrarás en ningún sitio
   },
   {
     icon: "🌐",
-    title: "Regístrate en TMate y encuentra convalidaciones",
-    content: `En TMate estamos construyendo una base de datos de convalidaciones compartidas por estudiantes como tú. Podrás:
-
-• Buscar convalidaciones de tu universidad a tu destino
-• Ver experiencias con asignaturas concretas
-• Contactar directamente con estudiantes que ya pasaron por ello
-
-Próximamente disponible — regístrate ya para ser de los primeros en acceder.`,
-    cta: true,
+    title: "Busca convalidaciones de otros estudiantes",
+    content: `Pregunta en grupos de estudiantes de tu universidad, en redes sociales o en foros de Erasmus. Es muy probable que alguien ya haya hecho exactamente el mismo camino que tú y esté dispuesto a compartir su experiencia.`,
   },
   {
     icon: "🤖",
@@ -193,11 +186,7 @@ function LATip({ tip, index }) {
           <p style={{ whiteSpace: "pre-line", lineHeight: 1.7, color: "var(--color-slate)", fontSize: 15 }}>
             {tip.content}
           </p>
-          {tip.cta && (
-            <button className="navbar__cta" style={{ marginTop: 16 }}>
-              Regístrate gratis →
-            </button>
-          )}
+
         </div>
       )}
     </div>

@@ -73,7 +73,7 @@ export function Navbar({ transparent = false }) {
           if (el) el.scrollIntoView({ behavior: "smooth" });
         }, 100);
       } else if (action === "compare") {
-        navigate("/");
+        navigate("/comparar");
       } else if (action === "steps") {
         navigate("/proceso");
       } else if (action === "share") {
@@ -90,10 +90,6 @@ export function Navbar({ transparent = false }) {
     <>
       <nav className={`navbar ${scrolled || !transparent || menuOpen ? "navbar--scrolled" : ""}`}>
         <Logo dark={!isDark} onClick={() => { setMenuOpen(false); navigate("/"); }} />
-
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <button className="navbar__cta" style={{ marginRight: 4 }}>Registro gratis</button>
-        </div>
 
         <button
           className={`navbar__hamburger${menuOpen ? " navbar__hamburger--open" : ""}`}
@@ -135,11 +131,7 @@ export function Navbar({ transparent = false }) {
           ))}
         </nav>
 
-        <div className="nav-drawer__footer">
-          <button className="navbar__cta" style={{ width: "100%", padding: "12px 20px", fontSize: 15 }}>
-            Registro gratis — es gratis 🎉
-          </button>
-        </div>
+
       </div>
     </>
   );

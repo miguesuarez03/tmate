@@ -37,7 +37,7 @@ const CITIES = [
 
 // ─── PAÍSES con coordenadas para zoom ─────────────────────────────────────────
 const COUNTRY_ZOOM = {
-  "Todos":         { coords: [13, 50],   zoom: 2.2 },
+  "Todos":         { coords: [13, 50],   zoom: 1.4 },
   "Italia":        { coords: [12.5, 42], zoom: 3.0 },
   "Alemania":      { coords: [10.5, 51], zoom: 3.2 },
   "Polonia":       { coords: [20, 52],   zoom: 3.5 },
@@ -118,7 +118,7 @@ export default function WorldMap() {
   const navigate = useNavigate();
   const [selected, setSelected]   = useState(null);
   const [tooltip, setTooltip]     = useState(null);
-  const [position, setPosition]   = useState({ coordinates: [13, 50], zoom: 2.2 });
+  const [position, setPosition]   = useState({ coordinates: [13, 50], zoom: 1.4 });
   const zoom = position.zoom;
   const [country, setCountry]     = useState("Todos");
   const [vibeFilter, setVibeFilter] = useState(null); // null | "fiesta"|"cultura"|"economia"|"dinero"
