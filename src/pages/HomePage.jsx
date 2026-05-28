@@ -133,6 +133,68 @@ function GlobeSection() {
   return <WorldMap />;
 }
 
+const FAQS = [
+  {
+    q: "¿Es gratis usar TMate?",
+    a: "Sí, completamente gratis. Puedes explorar todos los destinos, comparar ciudades y usar el generador de Learning Agreement sin pagar nada.",
+  },
+  {
+    q: "¿Qué es el Learning Agreement y para qué sirve?",
+    a: "Es el documento académico que recoge las asignaturas que cursarás en el extranjero y cómo se reconocerán en tu universidad de origen. Sin él, tu plaza Erasmus no queda confirmada. En TMate puedes generarlo paso a paso.",
+  },
+  {
+    q: "¿Cuántas ciudades tenéis?",
+    a: "Actualmente contamos con 20 destinos Erasmus con datos reales: scores de vida nocturna, coste de vida, transporte, seguridad y mucho más. Seguimos añadiendo ciudades.",
+  },
+  {
+    q: "¿Cómo funcionan los scores de las ciudades?",
+    a: "Cada ciudad tiene puntuaciones del 1 al 10 en categorías clave: coste de vida, vida nocturna, transporte, clima, idioma y ambiente universitario. Son datos reales combinados con experiencias de estudiantes.",
+  },
+  {
+    q: "¿Puedo comparar varias ciudades a la vez?",
+    a: "Sí. El comparador de TMate te permite poner varias ciudades lado a lado y ver todas sus métricas de golpe. Es la forma más rápida de decidirte.",
+  },
+  {
+    q: "¿Por dónde empiezo si acabo de confirmar mi plaza?",
+    a: "Lo primero es explorar tu destino para saber qué esperar. Después, tramita el Learning Agreement cuanto antes — es lo más urgente y lo que más se suele dejar para el final.",
+  },
+];
+
+function FAQSection() {
+  const [openIdx, setOpenIdx] = useState(null);
+
+  return (
+    <section className="faq-section">
+      <div className="faq-inner">
+        <div className="faq-header">
+          <SectionLabel color="var(--color-primary)">Preguntas frecuentes</SectionLabel>
+          <h2 className="section__title">Todo lo que necesitas saber.</h2>
+          <p className="faq-subtitle">
+            Las dudas más habituales antes de empezar tu Erasmus, resueltas.
+          </p>
+        </div>
+        <div className="faq-list">
+          {FAQS.map((item, i) => (
+            <div
+              key={i}
+              className={`faq-item${openIdx === i ? " faq-item--open" : ""}`}
+              onClick={() => setOpenIdx(openIdx === i ? null : i)}
+            >
+              <div className="faq-item__question">
+                <span>{item.q}</span>
+                <span className="faq-item__icon">{openIdx === i ? "−" : "+"}</span>
+              </div>
+              {openIdx === i && (
+                <div className="faq-item__answer">{item.a}</div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function StarRating({ value, onChange }) {
   const [hovered, setHovered] = useState(0);
   return (
@@ -476,6 +538,9 @@ export default function HomePage() {
 
       {/* COMMUNITY */}
       <CommunitySection />
+
+      {/* FAQ */}
+      <FAQSection />
 
       {/* CTA */}
       <section className="cta">

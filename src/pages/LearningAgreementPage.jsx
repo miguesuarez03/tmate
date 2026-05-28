@@ -73,8 +73,8 @@ const TIPS = [
     icon: "✏️",
     color: "#EC4899",
     title: "Cambios durante la estancia",
-    short: "Tienes 4-5 semanas al llegar — úsalas bien",
-    content: "Al llegar tienes un plazo (normalmente las primeras 4-5 semanas) para modificar el LA si algo no cuadra — horario incompatible, asignatura cancelada, o lo que sea.\n\nImportante: fuera de ese plazo no puedes cambiar nada. Si ves que algo no funciona, actúa rápido.",
+    short: "El plazo varía mucho según tu universidad — infórmate antes",
+    content: "Al llegar tienes un plazo para modificar el LA si algo no cuadra — horario incompatible, asignatura cancelada, o lo que sea. Pero ese plazo depende muchísimo de cada universidad: tanto la de destino como la tuya propia marcan sus propias reglas, y pueden ser muy distintas.\n\nAlgunas dan pocas semanas, otras son más flexibles. No des por hecho ningún número concreto.\n\nImportante: infórmate de ese plazo con antelación, tanto en tu ORI como en la universidad de destino. Fuera de ese plazo no puedes cambiar nada, así que si algo no funciona al llegar, actúa cuanto antes.",
     tag: "Cambios",
   },
   {
@@ -112,7 +112,7 @@ const CHECKLIST_ITEMS = [
   { id: "ola", text: "Me he creado cuenta en la plataforma OLA (Erasmus Without Paper)" },
   { id: "firmado", text: "El LA está firmado por las 3 partes antes de irme" },
   { id: "correos", text: "Tengo activadas las cuentas de correo de ambas universidades y las reviso regularmente" },
-  { id: "cambios", text: "Sé que tengo 4-5 semanas al llegar para hacer cambios si hace falta" },
+  { id: "cambios", text: "He consultado cuánto tiempo tengo para hacer cambios al llegar (varía según universidad)" },
 ];
 
 /* ─── COMPONENTS ─────────────────────────────────────────────────────────── */
@@ -292,8 +292,8 @@ export default function LearningAgreementPage() {
             </div>
             <div className={styles.heroStatDiv} />
             <div className={styles.heroStat}>
-              <span className={styles.heroStatVal}>4–5</span>
-              <span className={styles.heroStatLabel}>Semanas para cambios</span>
+              <span className={styles.heroStatVal}>⏱️</span>
+              <span className={styles.heroStatLabel}>Plazo de cambios según uni</span>
             </div>
           </div>
         </div>
