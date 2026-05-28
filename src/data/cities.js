@@ -1,583 +1,299 @@
-export const CITIES = [
-  {
-    slug: "bolonia",
-    erasmusStudents: "~6.000",
-    name: "Bolonia",
-    nameEn: "Bologna",
-    country: "Italia",
-    emoji: "🇮🇹",
-    region: "Europa del Sur",
-    tag: "Ciudad universitaria",
-    phrase: "La universidad más antigua del mundo sigue de fiesta",
-    costDetail: "600–900€/mes",
-    vibe: "Intelectual & Gastronómica",
-    erasmus: 96,
-    weather: "Cálido continental",
-    language: "Italiano",
-    students: "100.000+",
-    img: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80",
-    heroImg: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=1400&q=80",
-    description: "Bolonia es la capital universitaria de Italia. Con la universidad más antigua del mundo (1088), una escena gastronómica legendaria y una vida nocturna vibrante, es el destino perfecto para Erasmus.",
-    highlights: ["Universidad más antigua del mundo (1088)", "La roja — pórticos Patrimonio UNESCO", "Cuna de la pasta boloñesa auténtica", "Vida nocturna estudiantil brutal"],
-    universities: ["Università di Bologna", "Unibo – Sede Forlì", "Accademia di Belle Arti"],
-    neighborhoods: [
-      { name: "Centro Storico", vibe: "Turístico & animado", price: "€€€" },
-      { name: "Bolognina", vibe: "Estudiantil & moderno", price: "€€" },
-      { name: "San Donato", vibe: "Tranquilo & local", price: "€" },
-    ],
-    tips: ["Bus TPER por 1,30€ — pase mensual a 35€", "Los pórticos te salvan de la lluvia y el calor", "Mercado Quadrilatero: comer bien por 5€"],
-    experiences: ["erasmus", "internship"],
-  },
-  {
-    slug: "milan",
-    erasmusStudents: "~5.500",
-    name: "Milán",
-    nameEn: "Milan",
-    country: "Italia",
-    emoji: "🇮🇹",
-    region: "Europa del Sur",
-    tag: "Moda & Diseño",
-    phrase: "El aperitivo más famoso de Europa cuesta 3€",
-    costDetail: "750–1.100€/mes",
-    vibe: "Cosmopolita & Ambiciosa",
-    erasmus: 88,
-    weather: "Continental húmedo",
-    language: "Italiano",
-    students: "180.000+",
-    img: "https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?w=1400&q=80",
-    heroImg: "https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?w=1400&q=80",
-    description: "Capital mundial de la moda y el diseño. Milán es la ciudad más ambiciosa de Italia, perfecta para internships en moda, finanzas y tecnología. El aperitivo gratuito con la bebida es institución.",
-    highlights: ["Capital mundial del diseño y la moda", "Aperitivo: bebida + buffet gratis", "El Duomo — icónico", "Hub fintech y startups en crecimiento"],
-    universities: ["Politecnico di Milano", "Università degli Studi di Milano", "Bocconi", "NABA"],
-    neighborhoods: [
-      { name: "Navigli", vibe: "Artístico & nocturno", price: "€€" },
-      { name: "Isola", vibe: "Hipster & local", price: "€€" },
-      { name: "Città Studi", vibe: "Estudiantil", price: "€€" },
-    ],
-    tips: ["Tarjeta ATM: metro + tranvía + bus ilimitado", "Aperitivo 18–21h — comes gratis con la bebida", "Museos gratis primer martes de mes"],
-    experiences: ["internship", "erasmus"],
-  },
-  {
-    slug: "roma",
-    erasmusStudents: "~7.000",
-    name: "Roma",
-    nameEn: "Rome",
-    country: "Italia",
-    emoji: "🇮🇹",
-    region: "Europa del Sur",
-    tag: "Historia viva",
-    phrase: "3.000 años de historia y el mejor carbonara del mundo",
-    costDetail: "650–950€/mes",
-    vibe: "Histórica & Pasional",
-    erasmus: 92,
-    weather: "Mediterráneo",
-    language: "Italiano",
-    students: "200.000+",
-    img: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=1400&q=80",
-    heroImg: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=1400&q=80",
-    description: "La Ciudad Eterna. Vivir en Roma es caminar entre 3.000 años de historia mientras comes la mejor pasta del mundo. Una experiencia que marca para siempre.",
-    highlights: ["Coliseo, Foro Romano, Vaticano a pie", "Gastronomía romana auténtica e infinita", "La universidad más grande de Europa (Sapienza)", "Vida social muy intensa y apasionada"],
-    universities: ["Sapienza — la más grande de Europa", "LUISS", "Roma Tre", "Università Cattolica"],
-    neighborhoods: [
-      { name: "Trastevere", vibe: "Bohemio & turístico", price: "€€€" },
-      { name: "Pigneto", vibe: "Alternativo & local", price: "€€" },
-      { name: "Nomentano", vibe: "Estudiantil & tranquilo", price: "€" },
-    ],
-    tips: ["CityPass para transporte ilimitado", "Fuentes de agua gratuitas por toda la ciudad", "Noches de museo gratis varios días al año"],
-    experiences: ["erasmus", "volunteering"],
-  },
-  {
-    slug: "turin",
-    erasmusStudents: "~3.500",
-    name: "Turín",
-    nameEn: "Turin",
-    country: "Italia",
-    emoji: "🇮🇹",
-    region: "Europa del Sur",
-    tag: "Gema oculta",
-    phrase: "La ciudad que nadie menciona... y todos repiten",
-    costDetail: "500–750€/mes",
-    vibe: "Industrial & Cultural",
-    erasmus: 84,
-    weather: "Continental",
-    language: "Italiano",
-    students: "90.000+",
-    img: "https://images.unsplash.com/photo-1562883676-8c7feb83f09b?w=1400&q=80",
-    heroImg: "https://images.unsplash.com/photo-1562883676-8c7feb83f09b?w=1400&q=80",
-    description: "La joya escondida de Italia. Turín es asequible, intelectual y con una escena cultural que sorprende a todos. Cuna del cine italiano, del vermut y del chocolate más bueno del país.",
-    highlights: ["La más barata de las grandes ciudades italianas", "Cuna del cine italiano y del vermut", "Cerca de los Alpes — ski en invierno", "Museo Egizio: el 2º más importante del mundo"],
-    universities: ["Università degli Studi di Torino", "Politecnico di Torino"],
-    neighborhoods: [
-      { name: "San Salvario", vibe: "Multicultural & animado", price: "€€" },
-      { name: "Vanchiglia", vibe: "Estudiantil & artístico", price: "€" },
-      { name: "Crocetta", vibe: "Residencial & tranquilo", price: "€€" },
-    ],
-    tips: ["Tren a Milán: 10€, 45 minutos", "Bicimia — bicis compartidas muy útiles", "Mercato di Porta Palazzo: el más grande de Europa"],
-    experiences: ["erasmus", "internship"],
-  },
-  {
-    slug: "cracovia",
-    erasmusStudents: "~8.000",
-    name: "Cracovia",
-    nameEn: "Krakow",
-    country: "Polonia",
-    emoji: "🇵🇱",
-    region: "Europa del Este",
-    tag: "La más barata",
-    phrase: "Cerveza a 2€, historia Patrimonio UNESCO",
-    costDetail: "350–550€/mes",
-    vibe: "Medieval & Festiva",
-    erasmus: 93,
-    weather: "Continental frío",
-    language: "Polaco / Inglés",
-    students: "150.000+",
-    img: "https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1400&q=80",
-    heroImg: "https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1400&q=80",
-    description: "El secreto mejor guardado del Erasmus europeo. Ciudad medieval perfectamente conservada, costes bajísimos, vida nocturna legendaria y una comunidad internacional enorme. Con 350€/mes vives bien.",
-    highlights: ["La ciudad más barata de Europa occidental", "Casco histórico Patrimonio UNESCO completo", "Vida nocturna en Rynek y Kazimierz", "Auschwitz a 1h — visita necesaria"],
-    universities: ["Jagiellonian University", "AGH University", "Cracow University of Economics"],
-    neighborhoods: [
-      { name: "Kazimierz", vibe: "Judío & bohemio", price: "€€" },
-      { name: "Podgórze", vibe: "Alternativo & emergente", price: "€" },
-      { name: "Krowodrza", vibe: "Estudiantil & tranquilo", price: "€" },
-    ],
-    tips: ["Con 350–400€/mes vives muy bien", "Tram conecta todo perfectamente", "Rynek Główny: plaza medieval más grande de Europa"],
-    experiences: ["erasmus", "work-travel"],
-  },
-  {
-    slug: "varsovia",
-    erasmusStudents: "~6.000",
-    name: "Varsovia",
-    nameEn: "Warsaw",
-    country: "Polonia",
-    emoji: "🇵🇱",
-    region: "Europa del Este",
-    tag: "Startup Hub",
-    phrase: "La ciudad que resurgió de sus cenizas más fuerte",
-    costDetail: "450–700€/mes",
-    vibe: "Moderna & Resiliente",
-    erasmus: 82,
-    weather: "Continental frío",
-    language: "Polaco / Inglés",
-    students: "250.000+",
-    img: "https://images.unsplash.com/photo-1519197924294-4ba991a11128?w=1400&q=80",
-    heroImg: "https://images.unsplash.com/photo-1519197924294-4ba991a11128?w=1400&q=80",
-    description: "Varsovia renació de sus cenizas y hoy es el motor de Europa del Este. Hub de startups, talento tech y una juventud con hambre de futuro. Más barata que cualquier capital occidental.",
-    highlights: ["Motor económico de Europa del Este", "Hub fintech y startups europeas", "Centro histórico reconstruido — UNESCO", "Metro moderno y rapidísimo"],
-    universities: ["University of Warsaw", "Warsaw School of Economics", "Warsaw University of Technology"],
-    neighborhoods: [
-      { name: "Praga-Północ", vibe: "Alternativo & artístico", price: "€" },
-      { name: "Śródmieście", vibe: "Central & cosmopolita", price: "€€€" },
-      { name: "Mokotów", vibe: "Residencial & verde", price: "€€" },
-    ],
-    tips: ["Metro moderno y barato — pase mensual 22€", "Hala Koszyki — mercado foodie top", "Muchas multinacionales con prácticas en inglés"],
-    experiences: ["internship", "erasmus"],
-  },
-  {
-    slug: "budapest",
-    erasmusStudents: "~7.500",
-    name: "Budapest",
-    nameEn: "Budapest",
-    country: "Hungría",
-    emoji: "🇭🇺",
-    region: "Europa Central",
-    tag: "Ruin bars",
-    phrase: "Baños termales de día, ruin bars de noche",
-    costDetail: "380–600€/mes",
-    vibe: "Mágica & Bohemia",
-    erasmus: 91,
-    weather: "Continental",
-    language: "Húngaro / Inglés",
-    students: "120.000+",
-    img: "https://images.unsplash.com/photo-1541849546-216549ae216d?w=1400&q=80",
-    heroImg: "https://images.unsplash.com/photo-1541849546-216549ae216d?w=1400&q=80",
-    description: "Budapest es la ciudad más fotogénica de Europa. Bañada por el Danubio, con baños termales por 15€, ruin bars únicos en el mundo y una arquitectura que quita el aliento.",
-    highlights: ["Ruin bars — experiencia única en el mundo", "Baños termales por 15€", "Parlamento más bonito de Europa", "Comida húngara brutal y barata"],
-    universities: ["Corvinus University", "Budapest University of Technology", "ELTE"],
-    neighborhoods: [
-      { name: "District VII", vibe: "Ruin bars & turístico", price: "€€" },
-      { name: "District VIII", vibe: "Estudiantil & auténtico", price: "€" },
-      { name: "Buda Hills", vibe: "Tranquilo & verde", price: "€€" },
-    ],
-    tips: ["Pase mensual transporte: 15€", "Széchenyi Baths — imprescindible", "Mercado Central Hall: desayunos baratos"],
-    experiences: ["erasmus", "work-travel"],
-  },
-  {
-    slug: "praga",
-    erasmusStudents: "~9.000",
-    name: "Praga",
-    nameEn: "Prague",
-    country: "República Checa",
-    emoji: "🇨🇿",
-    region: "Europa Central",
-    tag: "Joya medieval",
-    phrase: "La más fotogénica de Europa. Cerveza más barata que el agua",
-    costDetail: "450–700€/mes",
-    vibe: "Histórica & Vibrante",
-    erasmus: 89,
-    weather: "Continental",
-    language: "Checo / Inglés",
-    students: "130.000+",
-    img: "https://images.unsplash.com/photo-1519677100203-a0e668c92439?w=1400&q=80",
-    heroImg: "https://images.unsplash.com/photo-1519677100203-a0e668c92439?w=1400&q=80",
-    description: "Praga parece sacada de un cuento. La ciudad más bella de Europa central con cerveza a 1€, una escena cultural increíble y una de las comunidades Erasmus más grandes del continente.",
-    highlights: ["La ciudad más fotogénica de Europa Central", "Cerveza más barata que el agua — 1€ el litro", "100+ museos y galerías", "Escena musical underground brutal"],
-    universities: ["Charles University", "Czech Technical University", "Prague University of Economics"],
-    neighborhoods: [
-      { name: "Žižkov", vibe: "Alternativo & local", price: "€€" },
-      { name: "Vinohrady", vibe: "Cosmopolita & bonito", price: "€€€" },
-      { name: "Nusle", vibe: "Tranquilo & barato", price: "€" },
-    ],
-    tips: ["Pase transporte 30 días: 20€", "Evita restaurantes del centro histórico", "Náplavka riverside: noches de verano épicas"],
-    experiences: ["erasmus", "work-travel"],
-  },
-  {
-    slug: "la-haya",
-    erasmusStudents: "~2.500",
-    name: "La Haya",
-    nameEn: "The Hague",
-    country: "Países Bajos",
-    emoji: "🇳🇱",
-    region: "Europa del Norte",
-    tag: "Capital diplomática",
-    phrase: "La capital diplomática del mundo en bici",
-    costDetail: "700–1.000€/mes",
-    vibe: "Internacional & Elegante",
-    erasmus: 80,
-    weather: "Oceánico",
-    language: "Neerlandés / Inglés",
-    students: "60.000+",
-    img: "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?w=1400&q=80",
-    heroImg: "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?w=1400&q=80",
-    description: "La capital diplomática del mundo. Sede de la ONU, el Tribunal Internacional y decenas de ONGs. Ideal para derecho, relaciones internacionales y política. A 15 minutos del mar.",
-    highlights: ["Sede de organismos internacionales ONU y TIJ", "A 15 minutos del mar del Norte", "100+ organizaciones internacionales", "Ciudad muy segura y bien organizada"],
-    universities: ["Leiden University", "The Hague University of Applied Sciences"],
-    neighborhoods: [
-      { name: "Centrum", vibe: "Central & animado", price: "€€€" },
-      { name: "Scheveningen", vibe: "Playa & tranquilo", price: "€€€" },
-      { name: "Laak", vibe: "Asequible & multicultural", price: "€€" },
-    ],
-    tips: ["Alquila bici desde el primer día — esencial", "OV-chipkaart para transporte público", "Haagse Markt: el mercado más barato de Holanda"],
-    experiences: ["internship", "erasmus"],
-  },
-  {
-    slug: "rotterdam",
-    erasmusStudents: "~3.000",
-    name: "Rotterdam",
-    nameEn: "Rotterdam",
-    country: "Países Bajos",
-    emoji: "🇳🇱",
-    region: "Europa del Norte",
-    tag: "Arquitectura radical",
-    phrase: "La ciudad que se destruyó y se reinventó más bonita",
-    costDetail: "700–1.000€/mes",
-    vibe: "Futurista & Multicultural",
-    erasmus: 83,
-    weather: "Oceánico",
-    language: "Neerlandés / Inglés",
-    students: "70.000+",
-    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80",
-    heroImg: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80",
-    description: "Rotterdam es la ciudad más cool de Holanda. Destruida en la WWII, fue reconstruida como laboratorio de arquitectura. Hoy es el mayor puerto de Europa y una ciudad brutalmente moderna.",
-    highlights: ["Arquitectura más radical de Europa", "Mayor puerto de Europa", "Cube Houses — icónicas", "Escena gastronómica diversísima"],
-    universities: ["Erasmus University Rotterdam", "Rotterdam University of Applied Sciences"],
-    neighborhoods: [
-      { name: "Delfshaven", vibe: "Histórico & bohemio", price: "€€" },
-      { name: "Kralingen", vibe: "Estudiantil & verde", price: "€€" },
-      { name: "Centrum", vibe: "Central & vibrante", price: "€€€" },
-    ],
-    tips: ["RET day card: 8,50€ para un día completo", "Markthal — mercado cubierto espectacular", "A 1h de Ámsterdam en tren"],
-    experiences: ["erasmus", "internship"],
-  },
-  {
-    slug: "munich",
-    erasmusStudents: "~4.500",
-    name: "Múnich",
-    nameEn: "Munich",
-    country: "Alemania",
-    emoji: "🇩🇪",
-    region: "Europa Central",
-    tag: "Oktoberfest",
-    phrase: "Los Alpes están a una hora. El Oktoberfest también",
-    costDetail: "800–1.100€/mes",
-    vibe: "Ordenada & Festiva",
-    erasmus: 87,
-    weather: "Continental húmedo",
-    language: "Alemán / Inglés",
-    students: "120.000+",
-    img: "https://images.unsplash.com/photo-1595867818082-083862f3d630?w=1400&q=80",
-    heroImg: "https://images.unsplash.com/photo-1595867818082-083862f3d630?w=1400&q=80",
-    description: "Múnich es la capital de Baviera y una de las ciudades con mejor calidad de vida de Alemania. BMW, Siemens, Oktoberfest y los Alpes a 1 hora. Cara pero con becas y WGs es viable.",
-    highlights: ["A 1h de los Alpes — ski en invierno", "Oktoberfest — la fiesta más grande del mundo", "BMW, Siemens, Allianz — prácticas top", "Calidad de vida top de Alemania"],
-    universities: ["Ludwig Maximilian University (LMU)", "Technical University of Munich (TUM)", "Munich University of Applied Sciences"],
-    neighborhoods: [
-      { name: "Schwabing", vibe: "Artístico & estudiantil", price: "€€€" },
-      { name: "Maxvorstadt", vibe: "Universidad & museos", price: "€€€" },
-      { name: "Sendling", vibe: "Local & tranquilo", price: "€€" },
-    ],
-    tips: ["Isarcard mensual: 57€ — transporte ilimitado", "English Garden: playa urbana en verano", "WG (pisos compartidos): la opción más asequible"],
-    experiences: ["erasmus", "internship"],
-  },
-  {
-    slug: "berlin",
-    erasmusStudents: "~8.000",
-    name: "Berlín",
-    nameEn: "Berlin",
-    country: "Alemania",
-    emoji: "🇩🇪",
-    region: "Europa Central",
-    tag: "Arte & Libertad",
-    phrase: "La ciudad que no te juzga y nunca cierra",
-    costDetail: "600–900€/mes",
-    vibe: "Alternativa & Creativa",
-    erasmus: 90,
-    weather: "Continental",
-    language: "Alemán / Inglés",
-    students: "170.000+",
-    img: "https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?w=1400&q=80",
-    heroImg: "https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?w=1400&q=80",
-    description: "Berlín es la capital de la libertad creativa en Europa. La más tolerante, la más alternativa y el hub de startups más grande del continente. El techno nació aquí. La historia también.",
-    highlights: ["Capital europea del techno y la música electrónica", "Hub de startups más grande de Europa", "Historia palpable en cada esquina", "La más tolerante y libre de Europa"],
-    universities: ["Freie Universität Berlin", "Humboldt-Universität", "TU Berlin", "Beuth Hochschule"],
-    neighborhoods: [
-      { name: "Neukölln", vibe: "Multicultural & alternativo", price: "€€" },
-      { name: "Prenzlauer Berg", vibe: "Familiar & bohemio", price: "€€€" },
-      { name: "Kreuzberg", vibe: "Artístico & rebelde", price: "€€" },
-    ],
-    tips: ["Deutschlandticket: 49€/mes — tren por toda Alemania", "Mercado de pulgas Mauerpark los domingos", "Museos gratis para menores de 18"],
-    experiences: ["erasmus", "internship", "work-travel"],
-  },
-  {
-    slug: "lisboa",
-    erasmusStudents: "~9.500",
-    name: "Lisboa",
-    nameEn: "Lisbon",
-    country: "Portugal",
-    emoji: "🇵🇹",
-    region: "Europa del Sur",
-    tag: "Trending 🔥",
-    phrase: "Donde el sol da todo el año y el fado suena en las calles",
-    costDetail: "550–850€/mes",
-    vibe: "Auténtica & Solar",
-    erasmus: 94,
-    weather: "Mediterráneo",
-    language: "Portugués / Inglés",
-    students: "100.000+",
-    img: "https://images.unsplash.com/photo-1548707309-dcebeab9ea9b?w=1400&q=80",
-    heroImg: "https://images.unsplash.com/photo-1548707309-dcebeab9ea9b?w=1400&q=80",
-    description: "Lisboa está en su momento dorado. 300 días de sol, surf a 30 minutos, fado en las calles y la comunidad de jóvenes internacionales más vibrante de Europa del Sur.",
-    highlights: ["300 días de sol al año", "Surf en Ericeira a 40 minutos", "Pastéis de nata y gastronomía brutal", "Hub de nómadas y startups emergente"],
-    universities: ["Universidade de Lisboa", "NOVA University Lisbon", "ISCTE", "Universidade Católica"],
-    neighborhoods: [
-      { name: "Mouraria", vibe: "Auténtico & multicultural", price: "€€" },
-      { name: "Intendente", vibe: "Emergente & artístico", price: "€" },
-      { name: "Belém", vibe: "Histórico & turístico", price: "€€€" },
-    ],
-    tips: ["Navegante mensual: 40€ — metro + tram + bus + ferry", "Pastéis de Belém — obligatorio", "Cascais y Sintra a 40 minutos en tren"],
-    experiences: ["erasmus", "work-travel", "internship"],
-  },
-  {
-    slug: "oporto",
-    erasmusStudents: "~5.000",
-    name: "Oporto",
-    nameEn: "Porto",
-    country: "Portugal",
-    emoji: "🇵🇹",
-    region: "Europa del Sur",
-    tag: "Fotogénica",
-    phrase: "El secreto mejor guardado de Portugal",
-    costDetail: "450–700€/mes",
-    vibe: "Romántica & Artesanal",
-    erasmus: 88,
-    weather: "Oceánico",
-    language: "Portugués / Inglés",
-    students: "70.000+",
-    img: "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=1400&q=80",
-    heroImg: "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=1400&q=80",
-    description: "Oporto es la ciudad más romántica de Europa. Azulejos, vino do Porto, el río Duero y una comunidad Erasmus que enamora. Más barata y auténtica que Lisboa, igual de bonita.",
-    highlights: ["La ciudad más fotogénica de Portugal", "Vino do Porto — experiencia única", "Playa a 30 minutos", "Más barata y auténtica que Lisboa"],
-    universities: ["Universidade do Porto", "Universidade Católica Portuguesa", "ISCAP"],
-    neighborhoods: [
-      { name: "Bonfim", vibe: "Emergente & artístico", price: "€" },
-      { name: "Baixa", vibe: "Histórico & céntrico", price: "€€" },
-      { name: "Foz do Douro", vibe: "Playa & tranquilo", price: "€€€" },
-    ],
-    tips: ["Andante: pase transporte mensual a 30€", "Francesinha — plato local obligatorio", "Mercado do Bolhão renovado y espectacular"],
-    experiences: ["erasmus", "work-travel"],
-  },
-  {
-    slug: "paris",
-    erasmusStudents: "~12.000",
-    name: "París",
-    nameEn: "Paris",
-    country: "Francia",
-    emoji: "🇫🇷",
-    region: "Europa del Oeste",
-    tag: "La ciudad luz",
-    phrase: "Sí, es tan bonita como en las fotos",
-    costDetail: "800–1.200€/mes",
-    vibe: "Romántica & Cultural",
-    erasmus: 91,
-    weather: "Oceánico suave",
-    language: "Francés / Inglés",
-    students: "350.000+",
-    img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1400&q=80",
-    heroImg: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1400&q=80",
-    description: "París sigue siendo París. Cara sí, pero con becas Erasmus y residencias universitarias CROUS es muy viable. La ciudad más icónica del mundo con la escena académica y cultural más densa de Europa.",
-    highlights: ["La ciudad más icónica del mundo", "Museos de clase mundial — muchos gratis", "Moda, gastronomía y arte de primer nivel", "Residencias CROUS asequibles"],
-    universities: ["Sorbonne", "Sciences Po", "HEC Paris", "Université Paris-Dauphine"],
-    neighborhoods: [
-      { name: "Latin Quarter", vibe: "Estudiantil & histórico", price: "€€€" },
-      { name: "Belleville", vibe: "Multicultural & auténtico", price: "€€" },
-      { name: "Montmartre", vibe: "Artístico & romántico", price: "€€€" },
-    ],
-    tips: ["Navigo mensual: 86€ — transporte ilimitado", "CROUS residencias universitarias muy asequibles", "Vélib' bicis por toda la ciudad"],
-    experiences: ["erasmus", "internship"],
-  },
-  {
-    slug: "londres",
-    erasmusStudents: "~3.000",
-    name: "Londres",
-    nameEn: "London",
-    country: "Reino Unido",
-    emoji: "🇬🇧",
-    region: "Europa del Norte",
-    tag: "Capital global",
-    phrase: "Tu inglés nunca será el mismo después de esto",
-    costDetail: "950–1.400€/mes",
-    vibe: "Cosmopolita & Ambiciosa",
-    erasmus: 78,
-    weather: "Oceánico lluvioso",
-    language: "Inglés",
-    students: "400.000+",
-    img: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1400&q=80",
-    heroImg: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1400&q=80",
-    description: "Londres es la capital del mundo. La más cara de Europa pero donde más contactos se hacen, el inglés se perfecciona en semanas y las oportunidades de internship no tienen rival.",
-    highlights: ["La mejor ciudad del mundo para internships", "Inglés nativo en pocas semanas", "Diversidad cultural extrema", "Museos de clase mundial — entrada gratuita"],
-    universities: ["UCL", "King's College London", "LSE", "Imperial College", "Queen Mary"],
-    neighborhoods: [
-      { name: "Hackney", vibe: "Artístico & multicultural", price: "€€€" },
-      { name: "Stratford", vibe: "Asequible & bien conectado", price: "€€" },
-      { name: "Brixton", vibe: "Vibrante & cultural", price: "€€€" },
-    ],
-    tips: ["Oyster Card — esencial para el transporte", "Museos y galerías nacionales completamente gratis", "House share — la forma más asequible de vivir"],
-    experiences: ["internship", "work-travel", "erasmus"],
-  },
-  {
-    slug: "amsterdam",
-    erasmusStudents: "~6.000",
-    name: "Ámsterdam",
-    nameEn: "Amsterdam",
-    country: "Países Bajos",
-    emoji: "🇳🇱",
-    region: "Europa del Norte",
-    tag: "Nómada favorita",
-    phrase: "Todo el mundo habla inglés. Todo el mundo va en bici",
-    costDetail: "750–1.100€/mes",
-    vibe: "Liberal & Creativa",
-    erasmus: 92,
-    weather: "Oceánico",
-    language: "Neerlandés / Inglés",
-    students: "80.000+",
-    img: "https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=1400&q=80",
-    heroImg: "https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=1400&q=80",
-    description: "Ámsterdam es la ciudad más liberal y abierta de Europa. Todo el mundo habla inglés, hay 800.000 bicis, canales Patrimonio UNESCO y un mercado tech muy potente.",
-    highlights: ["Todo el mundo habla inglés perfectamente", "Red de canales Patrimonio UNESCO", "Rijksmuseum, Van Gogh, Anne Frank", "Hub tecnológico y creativo europeo"],
-    universities: ["University of Amsterdam (UvA)", "Vrije Universiteit Amsterdam", "Amsterdam University of Applied Sciences"],
-    neighborhoods: [
-      { name: "De Pijp", vibe: "Trendy & cosmopolita", price: "€€€" },
-      { name: "Noord", vibe: "Artístico & emergente", price: "€€" },
-      { name: "Oost", vibe: "Multicultural & local", price: "€€" },
-    ],
-    tips: ["OV-chipkaart para tram y metro", "Compra una bici de segunda mano — es esencial", "Albert Heijn para compra económica"],
-    experiences: ["erasmus", "internship", "work-travel"],
-  },
-  {
-    slug: "viena",
-    erasmusStudents: "~5.500",
-    name: "Viena",
-    nameEn: "Vienna",
-    country: "Austria",
-    emoji: "🇦🇹",
-    region: "Europa Central",
-    tag: "Calidad de vida #1",
-    phrase: "La ciudad con mejor calidad de vida del mundo, 10 años seguidos",
-    costDetail: "650–950€/mes",
-    vibe: "Imperial & Refinada",
-    erasmus: 88,
-    weather: "Continental",
-    language: "Alemán / Inglés",
-    students: "110.000+",
-    img: "https://images.unsplash.com/photo-1516550893923-42d28e5677af?w=1400&q=80",
-    heroImg: "https://images.unsplash.com/photo-1516550893923-42d28e5677af?w=1400&q=80",
-    description: "Viena es la ciudad con mejor calidad de vida del mundo según The Economist — 10 años consecutivos. Clásica, elegante, segura y con una oferta cultural que no tiene rival en Europa.",
-    highlights: ["#1 calidad de vida del mundo 10 años seguidos", "Ópera y música clásica accesibles", "Kaffeehäuser — cultura del café única", "Transporte público perfecto"],
-    universities: ["University of Vienna", "Vienna University of Technology", "WU Vienna"],
-    neighborhoods: [
-      { name: "Neubau", vibe: "Artístico & de moda", price: "€€€" },
-      { name: "Favoriten", vibe: "Multicultural & asequible", price: "€€" },
-      { name: "Josefstadt", vibe: "Tranquilo & intelectual", price: "€€€" },
-    ],
-    tips: ["Wiener Linien: 1€/día con bono mensual", "Ópera: entradas de pie desde 3€", "Naschmarkt — el mejor mercado de la ciudad"],
-    experiences: ["erasmus", "internship"],
-  },
-  {
-    slug: "rosenheim",
-    erasmusStudents: "~400",
-    name: "Rosenheim",
-    nameEn: "Rosenheim",
-    country: "Alemania",
-    emoji: "🇩🇪",
-    region: "Europa Central",
-    tag: "Pueblo & Naturaleza",
-    phrase: "Los Alpes a 30 minutos, Múnich a una hora",
-    costDetail: "550–800€/mes",
-    vibe: "Tranquila & Natural",
-    erasmus: 68,
-    weather: "Alpino",
-    language: "Alemán",
-    students: "8.000+",
-    img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1400&q=80",
-    heroImg: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1400&q=80",
-    description: "Rosenheim es la puerta a los Alpes bávaros. Una ciudad tranquila y asequible a 60km de Múnich, perfecta para quien quiere una experiencia alemana auténtica lejos del turismo masivo.",
-    highlights: ["A 60km de Múnich en 40 minutos de tren", "Puerta a los Alpes — ski, senderismo, lagos", "Ciudad pequeña — integración total garantizada", "Ambiente bávaro 100% auténtico"],
-    universities: ["Technische Hochschule Rosenheim"],
-    neighborhoods: [
-      { name: "Innenstadt", vibe: "Centro histórico tranquilo", price: "€€" },
-      { name: "Aicherpark", vibe: "Residencial & verde", price: "€€" },
-    ],
-    tips: ["Deutschlandticket (49€) conecta con toda Alemania", "Chiemsee a 20 minutos — el mar de Baviera", "Mercado de Navidad de los más bonitos del país"],
-    experiences: ["erasmus"],
-  },
-  {
-    slug: "bruselas",
-    erasmusStudents: "~4.500",
-    name: "Bruselas",
-    nameEn: "Brussels",
-    country: "Bélgica",
-    emoji: "🇧🇪",
-    region: "Europa del Oeste",
-    tag: "Capital de Europa",
-    phrase: "La sede de la UE tiene el mejor chocolate del mundo",
-    costDetail: "600–900€/mes",
-    vibe: "Internacional & Política",
-    erasmus: 85,
-    weather: "Oceánico",
-    language: "Francés / Neerlandés / Inglés",
-    students: "70.000+",
-    img: "https://images.unsplash.com/photo-1559113202-c916b8e44373?w=1400&q=80",
-    heroImg: "https://images.unsplash.com/photo-1559113202-c916b8e44373?w=1400&q=80",
-    description: "Bruselas es el corazón político de Europa. Sede de la UE y la OTAN, ideal para política, derecho europeo y prácticas en instituciones internacionales. Más auténtica de lo que parece.",
-    highlights: ["Capital de la UE y la OTAN", "Chocolate y cervezas belgas únicos en el mundo", "Arquitectura Art Nouveau impresionante", "Prácticas remuneradas en instituciones europeas"],
-    universities: ["Université Libre de Bruxelles (ULB)", "VUB", "KU Leuven (campus BXL)", "Vesalius College"],
-    neighborhoods: [
-      { name: "Ixelles", vibe: "Estudiantil & animado", price: "€€" },
-      { name: "Molenbeek", vibe: "Multicultural & asequible", price: "€" },
-      { name: "Uccle", vibe: "Residencial & tranquilo", price: "€€€" },
-    ],
-    tips: ["STIB mensual: 50€ — transporte completo", "Schuman Traineeship: prácticas remuneradas en la UE", "Moules-frites y gaufres — obligatorio"],
-    experiences: ["internship", "erasmus"],
-  },
-];
+// ─────────────────────────────────────────────────────────────────────────────
+// TMATE — Core utilities library
+// Todas las operaciones sobre ciudades viven aquí.
+// Añadir features nuevas = añadir funciones aquí, no tocar páginas.
+// ─────────────────────────────────────────────────────────────────────────────
 
-export const getCityBySlug = (slug) => CITIES.find((c) => c.slug === slug);
+import { CITIES } from '../data/cities';
+import { CITY_INSIGHTS, DEFAULT_INSIGHTS } from '../data/insights';
+import { getFinalScore } from '../data/cityBaseScores';
+
+/** @typedef {import('../types').City} City */
+/** @typedef {import('../types').CityFilters} CityFilters */
+/** @typedef {import('../types').CitySortKey} CitySortKey */
+/** @typedef {import('../types').CityInsights} CityInsights */
+
+// ─── LOOKUP ───────────────────────────────────────────────────────────────────
+
+/** Devuelve una ciudad por slug. Lanza si no existe y throwIfMissing=true. */
+export function getCityBySlug(slug, throwIfMissing = false) {
+  const city = CITIES.find(c => c.slug === slug);
+  if (!city && throwIfMissing) throw new Error(`City not found: "${slug}"`);
+  return city ?? null;
+}
+
+/** Devuelve insights de una ciudad. Siempre devuelve un objeto válido. */
+export function getCityInsights(slug) {
+  const city = getCityBySlug(slug);
+  const raw  = CITY_INSIGHTS[slug];
+  return raw ? raw : DEFAULT_INSIGHTS(city);
+}
+
+/**
+ * Score global de una ciudad.
+ * Combina el score base investigado (50%) con la media de valoraciones
+ * de usuarios (50%) cuando existan. Si no hay valoraciones, devuelve
+ * el score base directamente.
+ * Esta es la única función que calcula scores — se usa en toda la web.
+ */
+export function getOverallScore(slug, userRatings = null) {
+  // userRatings: array de números 0-10 aportados por usuarios, o null
+  const userAvg = userRatings && userRatings.length > 0
+    ? parseFloat((userRatings.reduce((a, b) => a + b, 0) / userRatings.length).toFixed(1))
+    : null;
+  return getFinalScore(slug, userAvg);
+}
+
+// ─── FILTROS ──────────────────────────────────────────────────────────────────
+
+/**
+ * Filtra y ordena ciudades.
+ * @param {CityFilters} filters
+ * @param {CitySortKey} sortKey
+ * @returns {City[]}
+ */
+export function filterCities(filters = {}, sortKey = 'name') {
+  let result = [...CITIES];
+
+  // Filtro por región
+  if (filters.region && filters.region !== 'Todos') {
+    result = result.filter(c => c.region === filters.region);
+  }
+
+  // Filtro por búsqueda de texto
+  if (filters.query && filters.query.trim()) {
+    const q = filters.query.trim().toLowerCase();
+    result = result.filter(c =>
+      c.name.toLowerCase().includes(q)    ||
+      c.nameEn.toLowerCase().includes(q)  ||
+      c.country.toLowerCase().includes(q) ||
+      c.tag.toLowerCase().includes(q)     ||
+      c.phrase.toLowerCase().includes(q)
+    );
+  }
+
+  // Filtro por tipos de experiencia
+  if (filters.experiences?.length) {
+    result = result.filter(c =>
+      filters.experiences.some(exp => c.experiences.includes(exp))
+    );
+  }
+
+  // Filtro por score mínimo Erasmus
+  if (filters.minErasmusScore != null) {
+    result = result.filter(c => c.erasmus >= filters.minErasmusScore);
+  }
+
+  // Ordenación
+  return sortCities(result, sortKey);
+}
+
+/**
+ * Ordena un array de ciudades por criterio.
+ * @param {City[]} cities
+ * @param {CitySortKey} key
+ * @returns {City[]}
+ */
+export function sortCities(cities, key = 'name') {
+  const sorted = [...cities];
+
+  switch (key) {
+    case 'name':
+      return sorted.sort((a, b) => a.name.localeCompare(b.name, 'es'));
+
+    case 'erasmus':
+      return sorted.sort((a, b) => b.erasmus - a.erasmus);
+
+    case 'overall':
+      return sorted.sort((a, b) => getOverallScore(b.slug) - getOverallScore(a.slug));
+
+    case 'cost_asc': {
+      // Extrae el primer número del rango "600–900€/mes"
+      const minCost = c => parseInt(c.costDetail.replace(/[^\d]/g, '').slice(0, 3) || '999');
+      return sorted.sort((a, b) => minCost(a) - minCost(b));
+    }
+
+    case 'cost_desc': {
+      const minCost = c => parseInt(c.costDetail.replace(/[^\d]/g, '').slice(0, 3) || '999');
+      return sorted.sort((a, b) => minCost(b) - minCost(a));
+    }
+
+    default:
+      return sorted;
+  }
+}
+
+// ─── RANKINGS ─────────────────────────────────────────────────────────────────
+
+/**
+ * Devuelve todas las ciudades rankeadas por overallScore.
+ * Listo para una página /rankings futura.
+ * @returns {Array<City & { rank: number, overallScore: number }>}
+ */
+export function getRankedCities() {
+  return CITIES
+    .map(city => ({
+      ...city,
+      overallScore: getOverallScore(city.slug),
+    }))
+    .sort((a, b) => b.overallScore - a.overallScore)
+    .map((city, i) => ({ ...city, rank: i + 1 }));
+}
+
+/**
+ * Top N ciudades por score Erasmus.
+ * @param {number} n
+ * @returns {City[]}
+ */
+export function getTopCities(n = 5) {
+  return [...CITIES]
+    .sort((a, b) => b.erasmus - a.erasmus)
+    .slice(0, n);
+}
+
+// ─── REGIÓN ───────────────────────────────────────────────────────────────────
+
+/** Devuelve las regiones únicas disponibles (+ "Todos"). */
+export function getRegions() {
+  const regions = Array.from(new Set(CITIES.map(c => c.region))).sort();
+  return ['Todos', ...regions];
+}
+
+/** Ciudades de la misma región, excluyendo la actual. */
+export function getCitiesByRegion(region, excludeSlug = null) {
+  return CITIES.filter(c => c.region === region && c.slug !== excludeSlug);
+}
+
+// ─── CIUDADES RELACIONADAS ────────────────────────────────────────────────────
+
+/**
+ * Ciudades relacionadas con una ciudad dada.
+ * Prioriza mismo país, luego misma región.
+ * @param {City} city
+ * @param {number} limit
+ * @returns {City[]}
+ */
+export function getRelatedCities(city, limit = 3) {
+  const sameCountry = CITIES.filter(
+    c => c.country === city.country && c.slug !== city.slug
+  );
+  if (sameCountry.length >= limit) return sameCountry.slice(0, limit);
+
+  const sameRegion = CITIES.filter(
+    c => c.region === city.region && c.slug !== city.slug && c.country !== city.country
+  );
+  return [...sameCountry, ...sameRegion].slice(0, limit);
+}
+
+// ─── FAVORITOS ────────────────────────────────────────────────────────────────
+// Persistencia en localStorage. Preparado para conectar a un backend futuro.
+
+const FAVORITES_KEY = 'tmate:favorites';
+
+export function getFavorites() {
+  try {
+    return JSON.parse(localStorage.getItem(FAVORITES_KEY) || '[]');
+  } catch {
+    return [];
+  }
+}
+
+export function toggleFavorite(slug) {
+  const favs = getFavorites();
+  const next = favs.includes(slug)
+    ? favs.filter(s => s !== slug)
+    : [...favs, slug];
+  localStorage.setItem(FAVORITES_KEY, JSON.stringify(next));
+  return next;
+}
+
+export function isFavorite(slug) {
+  return getFavorites().includes(slug);
+}
+
+export function getFavoriteCities() {
+  const slugs = getFavorites();
+  return slugs.map(s => getCityBySlug(s)).filter(Boolean);
+}
+
+// ─── COMPARATIVA ─────────────────────────────────────────────────────────────
+// Preparado para la feature /compare?cities=berlin,lisboa
+
+const COMPARE_KEY = 'tmate:compare';
+const MAX_COMPARE = 3;
+
+export function getCompareCities() {
+  try {
+    return JSON.parse(sessionStorage.getItem(COMPARE_KEY) || '[]');
+  } catch {
+    return [];
+  }
+}
+
+export function toggleCompare(slug) {
+  const current = getCompareCities();
+  const next = current.includes(slug)
+    ? current.filter(s => s !== slug)
+    : current.length < MAX_COMPARE
+      ? [...current, slug]
+      : current; // silently ignore if at max
+  sessionStorage.setItem(COMPARE_KEY, JSON.stringify(next));
+  return next;
+}
+
+export function clearCompare() {
+  sessionStorage.removeItem(COMPARE_KEY);
+}
+
+// ─── SEO HELPERS ─────────────────────────────────────────────────────────────
+
+/**
+ * Genera meta tags para una ciudad.
+ * Usar en un futuro hook useSEO() o con react-helmet.
+ * @param {City} city
+ * @param {number} overallScore
+ */
+export function getCityMeta(city, overallScore) {
+  return {
+    title: `${city.name} Erasmus — Guía completa ${city.country} | TMate`,
+    description: `Todo sobre el Erasmus en ${city.name}: coste de vida ${city.costDetail}, scores reales, barrios, universidades y tips de estudiantes. Puntuación TMate: ${overallScore}/10.`,
+    keywords: `Erasmus ${city.name}, ${city.nameEn} Erasmus, estudiar en ${city.country}, ${city.tag}`,
+    ogImage: city.heroImg,
+  };
+}
+
+/**
+ * Genera meta tags para la homepage.
+ */
+export function getHomeMeta() {
+  return {
+    title: 'TMate — Descubre tu próximo Erasmus',
+    description: `La guía definitiva para elegir tu ciudad Erasmus. ${CITIES.length} destinos con scores reales, opiniones de estudiantes y guías locales. Gratis siempre.`,
+    keywords: 'Erasmus ciudades, mejores destinos Erasmus, guía Erasmus Europa, TMate',
+  };
+}
+
+// ─── UTILS ────────────────────────────────────────────────────────────────────
+
+/** Parsea el coste mínimo mensual de un string tipo "600–900€/mes". */
+export function parseMinCost(costDetail) {
+  const match = costDetail.match(/\d+/);
+  return match ? parseInt(match[0]) : 0;
+}
+
+/** Parsea el coste máximo mensual. */
+export function parseMaxCost(costDetail) {
+  const matches = costDetail.match(/\d+/g);
+  return matches ? parseInt(matches[matches.length - 1]) : 0;
+}
+
+/** Formatea un score de 0-10 con color semántico. */
+export function getScoreLevel(score) {
+  if (score >= 8.5) return { label: 'Excelente', color: '#22C55E' };
+  if (score >= 7)   return { label: 'Bueno',     color: '#0EA5E9' };
+  if (score >= 5.5) return { label: 'Regular',   color: '#F59E0B' };
+  return               { label: 'Difícil',   color: '#EF4444' };
+}
+
+/** Total de ciudades. */
+export const CITY_COUNT = CITIES.length;

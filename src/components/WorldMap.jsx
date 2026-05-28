@@ -8,32 +8,35 @@ import {
 } from "react-simple-maps";
 import { useNavigate } from "react-router-dom";
 import styles from "./WorldMap.module.css";
+import { getOverallScore } from "../lib/cities";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
-// ─── CITIES con scores por categoría ─────────────────────────────────────────
+// ─── CITIES del mapa — coords y datos estáticos ──────────────────────────────
+// El score se calcula dinámicamente con getOverallScore() para mantener
+// consistencia con la página de detalle de cada ciudad.
 const CITIES = [
-  { slug: "bolonia",   name: "Bolonia",   country: "Italia",       flag: "🇮🇹", coords: [11.34, 44.49], cost: "600–900€",   score: 7.8, fiesta: 8, cultura: 9, economia: 7, dinero: 6 },
-  { slug: "milan",     name: "Milán",     country: "Italia",       flag: "🇮🇹", coords: [9.19,  45.46], cost: "750–1.100€", score: 7.5, fiesta: 7, cultura: 9, economia: 5, dinero: 5 },
-  { slug: "roma",      name: "Roma",      country: "Italia",       flag: "🇮🇹", coords: [12.49, 41.90], cost: "650–950€",   score: 8.0, fiesta: 7, cultura: 10, economia: 6, dinero: 6 },
-  { slug: "turin",     name: "Turín",     country: "Italia",       flag: "🇮🇹", coords: [7.68,  45.07], cost: "500–750€",   score: 7.2, fiesta: 6, cultura: 8, economia: 8, dinero: 7 },
-  { slug: "cracovia",  name: "Cracovia",  country: "Polonia",      flag: "🇵🇱", coords: [19.94, 50.06], cost: "350–550€",   score: 8.5, fiesta: 9, cultura: 8, economia: 10, dinero: 9 },
-  { slug: "varsovia",  name: "Varsovia",  country: "Polonia",      flag: "🇵🇱", coords: [21.01, 52.23], cost: "450–700€",   score: 7.8, fiesta: 8, cultura: 7, economia: 9, dinero: 8 },
-  { slug: "budapest",  name: "Budapest",  country: "Hungría",      flag: "🇭🇺", coords: [19.04, 47.50], cost: "380–600€",   score: 8.3, fiesta: 9, cultura: 8, economia: 9, dinero: 9 },
-  { slug: "praga",     name: "Praga",     country: "Rep. Checa",   flag: "🇨🇿", coords: [14.42, 50.08], cost: "450–700€",   score: 8.1, fiesta: 9, cultura: 9, economia: 9, dinero: 8 },
-  { slug: "la-haya",   name: "La Haya",   country: "Países Bajos", flag: "🇳🇱", coords: [4.30,  52.07], cost: "700–1.000€", score: 7.5, fiesta: 6, cultura: 8, economia: 5, dinero: 5 },
-  { slug: "rotterdam", name: "Rotterdam", country: "Países Bajos", flag: "🇳🇱", coords: [4.48,  51.92], cost: "700–1.000€", score: 7.6, fiesta: 7, cultura: 7, economia: 5, dinero: 5 },
-  { slug: "munich",    name: "Múnich",    country: "Alemania",     flag: "🇩🇪", coords: [11.58, 48.14], cost: "800–1.100€", score: 7.9, fiesta: 8, cultura: 8, economia: 4, dinero: 5 },
-  { slug: "berlin",    name: "Berlín",    country: "Alemania",     flag: "🇩🇪", coords: [13.40, 52.52], cost: "600–900€",   score: 8.2, fiesta: 10, cultura: 9, economia: 7, dinero: 7 },
-  { slug: "lisboa",    name: "Lisboa",    country: "Portugal",     flag: "🇵🇹", coords: [-9.14, 38.71], cost: "550–850€",   score: 8.7, fiesta: 9, cultura: 9, economia: 8, dinero: 7 },
-  { slug: "oporto",    name: "Oporto",    country: "Portugal",     flag: "🇵🇹", coords: [-8.61, 41.15], cost: "450–700€",   score: 8.4, fiesta: 8, cultura: 8, economia: 9, dinero: 8 },
-  { slug: "paris",     name: "París",     country: "Francia",      flag: "🇫🇷", coords: [2.35,  48.85], cost: "800–1.200€", score: 8.0, fiesta: 8, cultura: 10, economia: 4, dinero: 5 },
-  { slug: "londres",   name: "Londres",   country: "Reino Unido",  flag: "🇬🇧", coords: [-0.12, 51.51], cost: "950–1.400€", score: 7.4, fiesta: 8, cultura: 10, economia: 3, dinero: 4 },
-  { slug: "amsterdam", name: "Ámsterdam", country: "Países Bajos", flag: "🇳🇱", coords: [4.90,  52.37], cost: "750–1.100€", score: 8.0, fiesta: 9, cultura: 8, economia: 5, dinero: 5 },
-  { slug: "viena",     name: "Viena",     country: "Austria",      flag: "🇦🇹", coords: [16.37, 48.21], cost: "650–950€",   score: 8.2, fiesta: 7, cultura: 10, economia: 6, dinero: 6 },
-  { slug: "rosenheim", name: "Rosenheim", country: "Alemania",     flag: "🇩🇪", coords: [12.12, 47.85], cost: "550–800€",   score: 6.8, fiesta: 5, cultura: 6, economia: 7, dinero: 7 },
-  { slug: "bruselas",  name: "Bruselas",  country: "Bélgica",      flag: "🇧🇪", coords: [4.35,  50.85], cost: "600–900€",   score: 7.7, fiesta: 7, cultura: 8, economia: 6, dinero: 6 },
-];
+  { slug: "bolonia",   name: "Bolonia",   country: "Italia",       flag: "🇮🇹", coords: [11.34, 44.49], cost: "600–900€"   },
+  { slug: "milan",     name: "Milán",     country: "Italia",       flag: "🇮🇹", coords: [9.19,  45.46], cost: "750–1.100€" },
+  { slug: "roma",      name: "Roma",      country: "Italia",       flag: "🇮🇹", coords: [12.49, 41.90], cost: "650–950€"   },
+  { slug: "turin",     name: "Turín",     country: "Italia",       flag: "🇮🇹", coords: [7.68,  45.07], cost: "500–750€"   },
+  { slug: "cracovia",  name: "Cracovia",  country: "Polonia",      flag: "🇵🇱", coords: [19.94, 50.06], cost: "350–550€"   },
+  { slug: "varsovia",  name: "Varsovia",  country: "Polonia",      flag: "🇵🇱", coords: [21.01, 52.23], cost: "450–700€"   },
+  { slug: "budapest",  name: "Budapest",  country: "Hungría",      flag: "🇭🇺", coords: [19.04, 47.50], cost: "380–600€"   },
+  { slug: "praga",     name: "Praga",     country: "Rep. Checa",   flag: "🇨🇿", coords: [14.42, 50.08], cost: "450–700€"   },
+  { slug: "la-haya",   name: "La Haya",   country: "Países Bajos", flag: "🇳🇱", coords: [4.30,  52.07], cost: "700–1.000€" },
+  { slug: "rotterdam", name: "Rotterdam", country: "Países Bajos", flag: "🇳🇱", coords: [4.48,  51.92], cost: "700–1.000€" },
+  { slug: "munich",    name: "Múnich",    country: "Alemania",     flag: "🇩🇪", coords: [11.58, 48.14], cost: "800–1.100€" },
+  { slug: "berlin",    name: "Berlín",    country: "Alemania",     flag: "🇩🇪", coords: [13.40, 52.52], cost: "600–900€"   },
+  { slug: "lisboa",    name: "Lisboa",    country: "Portugal",     flag: "🇵🇹", coords: [-9.14, 38.71], cost: "550–850€"   },
+  { slug: "oporto",    name: "Oporto",    country: "Portugal",     flag: "🇵🇹", coords: [-8.61, 41.15], cost: "450–700€"   },
+  { slug: "paris",     name: "París",     country: "Francia",      flag: "🇫🇷", coords: [2.35,  48.85], cost: "800–1.200€" },
+  { slug: "londres",   name: "Londres",   country: "Reino Unido",  flag: "🇬🇧", coords: [-0.12, 51.51], cost: "950–1.400€" },
+  { slug: "amsterdam", name: "Ámsterdam", country: "Países Bajos", flag: "🇳🇱", coords: [4.90,  52.37], cost: "750–1.100€" },
+  { slug: "viena",     name: "Viena",     country: "Austria",      flag: "🇦🇹", coords: [16.37, 48.21], cost: "650–950€"   },
+  { slug: "rosenheim", name: "Rosenheim", country: "Alemania",     flag: "🇩🇪", coords: [12.12, 47.85], cost: "550–800€"   },
+  { slug: "bruselas",  name: "Bruselas",  country: "Bélgica",      flag: "🇧🇪", coords: [4.35,  50.85], cost: "600–900€"   },
+].map(city => ({ ...city, score: getOverallScore(city.slug) }))
 
 // ─── PAÍSES con coordenadas para zoom ─────────────────────────────────────────
 const COUNTRY_ZOOM = {
