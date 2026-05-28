@@ -453,20 +453,23 @@
   position: relative; height: 24px;
   background: var(--color-surface);
   border-radius: var(--radius-full);
-  overflow: hidden;
   display: flex; align-items: center;
+  overflow: visible;
 }
 .scoreBarFill {
   position: absolute; left: 0; top: 0; bottom: 0;
   border-radius: var(--radius-full);
   transition: width 0.7s var(--ease-smooth);
+  min-width: 4px;
 }
 .scoreBarNum {
   position: relative; z-index: 1;
   font-family: var(--font-display);
   font-size: 13px; font-weight: 900;
-  margin-left: 10px;
+  margin-left: auto;
+  padding-right: 8px;
   transition: color 0.3s;
+  flex-shrink: 0;
 }
 
 /* ─── BAR (legacy, kept for safety) ─────────────────────────────────────── */
