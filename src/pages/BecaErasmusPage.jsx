@@ -19,6 +19,38 @@ const GROUP3 = [
   "Polonia", "Rumanía", "Serbia", "Turquía",
 ];
 
+// Travel aid table (official EU Erasmus+ 2024-2025 rates)
+const TRAVEL_AID = [
+  { range: "10 – 99 km",      standard: 28,   eco: 56   },
+  { range: "100 – 499 km",    standard: 211,  eco: 285  },
+  { range: "500 – 1.999 km",  standard: 309,  eco: 417  },
+  { range: "2.000 – 2.999 km",standard: 395,  eco: 535  },
+  { range: "3.000 – 3.999 km",standard: 580,  eco: 785  },
+  { range: "4.000 – 7.999 km",standard: 1188, eco: 1188 },
+  { range: "8.000 km o más",  standard: 1735, eco: 1735 },
+];
+
+// Approximate distance from Spain to typical destinations (for calculator guidance)
+const COUNTRY_DISTANCE = {
+  "Alemania": "500 – 1.999 km", "Austria": "500 – 1.999 km",
+  "Bélgica": "500 – 1.999 km", "Dinamarca": "500 – 1.999 km",
+  "Finlandia": "2.000 – 2.999 km", "Francia": "100 – 499 km",
+  "Irlanda": "500 – 1.999 km", "Islandia": "2.000 – 2.999 km",
+  "Italia": "500 – 1.999 km", "Liechtenstein": "500 – 1.999 km",
+  "Luxemburgo": "500 – 1.999 km", "Noruega": "2.000 – 2.999 km",
+  "Países Bajos": "500 – 1.999 km", "Suecia": "2.000 – 2.999 km",
+  "Chipre": "2.000 – 2.999 km", "Chequia": "500 – 1.999 km",
+  "Eslovaquia": "500 – 1.999 km", "Eslovenia": "500 – 1.999 km",
+  "España": "100 – 499 km", "Estonia": "2.000 – 2.999 km",
+  "Grecia": "500 – 1.999 km", "Letonia": "2.000 – 2.999 km",
+  "Malta": "500 – 1.999 km", "Portugal": "100 – 499 km",
+  "Bulgaria": "2.000 – 2.999 km", "Croacia": "500 – 1.999 km",
+  "Hungría": "500 – 1.999 km", "Lituania": "2.000 – 2.999 km",
+  "Macedonia del Norte": "500 – 1.999 km", "Polonia": "500 – 1.999 km",
+  "Rumanía": "2.000 – 2.999 km", "Serbia": "500 – 1.999 km",
+  "Turquía": "2.000 – 2.999 km",
+};
+
 const COMPAT_BECAS = [
   { icon: "📚", name: "Beca MEC", desc: "Compatible al 100%. Puedes cobrar ambas a la vez." },
   { icon: "🏛️", name: "Ayudas autonómicas", desc: "Andalucía, Madrid, Cataluña y otras CCAA ofrecen complementos propios." },
@@ -61,21 +93,31 @@ function Calculator() {
   const [country, setCountry] = useState("Alemania");
   const [months, setMonths] = useState(5);
   const [menosOport, setMenosOport] = useState(false);
-  const [greenTravel, setGreenTravel] = useState(false);
+  const [distanceRange, setDistanceRange] = useState("500 – 1.999 km");
+  const [eco, setEco] = useState(false);
   const [mec, setMec] = useState(false);
   const [aut, setAut] = useState(false);
   const [autAmount, setAutAmount] = useState(150);
+
+  // Auto-suggest distance when country changes
+  const handleCountryChange = (c) => {
+    setCountry(c);
+    if (COUNTRY_DISTANCE[c]) setDistanceRange(COUNTRY_DISTANCE[c]);
+  };
 
   const group = GROUP1.includes(country) ? 1 : GROUP2.includes(country) ? 2 : 3;
   const baseRate = group === 1 ? 350 : group === 2 ? 300 : 250;
   const complemento = menosOport ? 250 : 0;
   const monthly = baseRate + complemento;
   const erasmusTotal = monthly * months;
-  const greenBonus = greenTravel ? 50 : 0; // approximate flat extra
-  const mecEstimate = mec ? 600 : 0; // rough annual estimate
+
+  const travelRow = TRAVEL_AID.find(r => r.range === distanceRange) || TRAVEL_AID[2];
+  const travelBonus = eco ? travelRow.eco : travelRow.standard;
+
+  const mecEstimate = mec ? 600 : 0;
   const autEstimate = aut ? autAmount * months : 0;
 
-  const total = erasmusTotal + greenBonus + mecEstimate + autEstimate;
+  const total = erasmusTotal + travelBonus + mecEstimate + autEstimate;
 
   return (
     <div className="beca-calc">
@@ -90,7 +132,7 @@ function Calculator() {
             <select
               className="beca-calc__select"
               value={country}
-              onChange={(e) => setCountry(e.target.value)}
+              onChange={(e) => handleCountryChange(e.target.value)}
             >
               <optgroup label="Grupo 1 — Coste alto (350€/mes)">
                 {GROUP1.map((c) => <option key={c}>{c}</option>)}
@@ -117,15 +159,30 @@ function Calculator() {
           </div>
 
           <div className="beca-calc__field">
-            <label className="beca-calc__label">Complementos adicionales</label>
+            <label className="beca-calc__label">✈️ Ayuda de viaje — distancia aproximada</label>
+            <select
+              className="beca-calc__select"
+              value={distanceRange}
+              onChange={(e) => setDistanceRange(e.target.value)}
+            >
+              {TRAVEL_AID.map(r => (
+                <option key={r.range} value={r.range}>
+                  {r.range} — {eco ? r.eco : r.standard}€
+                </option>
+              ))}
+            </select>
+            <label className="beca-calc__check" style={{ marginTop: 8 }}>
+              <input type="checkbox" checked={eco} onChange={(e) => setEco(e.target.checked)} />
+              <span>🌿 Viaje ecológico (tren/bus/coche compartido) — importes más altos</span>
+            </label>
+          </div>
+
+          <div className="beca-calc__field">
+            <label className="beca-calc__label">Otros complementos</label>
             <div className="beca-calc__checks">
               <label className="beca-calc__check">
                 <input type="checkbox" checked={menosOport} onChange={(e) => setMenosOport(e.target.checked)} />
                 <span>Complemento de menos oportunidades (+250€/mes)</span>
-              </label>
-              <label className="beca-calc__check">
-                <input type="checkbox" checked={greenTravel} onChange={(e) => setGreenTravel(e.target.checked)} />
-                <span>Green Travel (transporte sostenible)</span>
               </label>
               <label className="beca-calc__check">
                 <input type="checkbox" checked={mec} onChange={(e) => setMec(e.target.checked)} />
@@ -169,12 +226,10 @@ function Calculator() {
                 <span className="beca-calc__result-val">+250€ × {months} = <strong>+{250 * months}€</strong></span>
               </div>
             )}
-            {greenTravel && (
-              <div className="beca-calc__result-group">
-                <span className="beca-calc__result-label">Green Travel</span>
-                <span className="beca-calc__result-val"><strong>+~50€</strong> (estimado)</span>
-              </div>
-            )}
+            <div className="beca-calc__result-group">
+              <span className="beca-calc__result-label">Ayuda de viaje ({distanceRange}){eco ? " 🌿" : ""}</span>
+              <span className="beca-calc__result-val"><strong>+{travelBonus}€</strong> (pago único)</span>
+            </div>
             {mec && (
               <div className="beca-calc__result-group">
                 <span className="beca-calc__result-label">Beca MEC</span>
@@ -238,6 +293,7 @@ export default function BecaErasmusPage() {
       {/* ── HERO ── */}
       <section className="proceso-hero">
         <div className="proceso-hero__bg" />
+        <div className="proceso-hero__img proceso-hero__img--beca" />
         <div className="proceso-hero__content">
           <button className="proceso-back" onClick={() => navigate("/")}>
             ← Volver al inicio
@@ -384,14 +440,37 @@ export default function BecaErasmusPage() {
             <div className="beca-extra-card">
               <div className="beca-extra-card__icon">🌿</div>
               <h3 className="beca-extra-card__title">Ayuda de viaje + Green Travel</h3>
-              <div className="beca-extra-card__amount">Variable por distancia</div>
+              <div className="beca-extra-card__amount">28€ – 1.735€</div>
               <p className="beca-extra-card__desc">
-                Todos los estudiantes Erasmus reciben una ayuda para el desplazamiento. La cuantía depende de la distancia entre tu universidad de origen y la de destino.
+                Desde 2024-25, <strong>todos los estudiantes Erasmus</strong> reciben una ayuda única de desplazamiento. La cuantía depende de la distancia entre tu universidad de origen y la de destino, calculada con la herramienta oficial de la Comisión Europea.
               </p>
               <p className="beca-extra-card__desc">
-                Además, si viajas en <strong>tren, autobús o coche compartido</strong>, puedes optar a ayudas adicionales dentro del programa <strong>Green Travel</strong>.
+                Si viajas en <strong>tren, autobús o coche compartido</strong> (Green Travel), los importes son más altos. No necesitas aportar facturas.
               </p>
             </div>
+          </div>
+
+          {/* Travel aid full table */}
+          <div className="beca-travel-table-wrap">
+            <h3 className="beca-travel-table__title">Tabla completa de ayuda de viaje (2024–2025)</h3>
+            <p className="beca-travel-table__subtitle">Pago único al inicio de la estancia. La distancia la calcula tu universidad con la <strong>calculadora oficial de la UE</strong>.</p>
+            <div className="beca-travel-table">
+              <div className="beca-travel-table__header">
+                <span>Distancia</span>
+                <span>Viaje estándar</span>
+                <span>🌿 Viaje ecológico</span>
+              </div>
+              {TRAVEL_AID.map((row) => (
+                <div key={row.range} className="beca-travel-table__row">
+                  <span className="beca-travel-table__range">{row.range}</span>
+                  <span className="beca-travel-table__val">{row.standard}€</span>
+                  <span className="beca-travel-table__val beca-travel-table__val--eco">{row.eco}€</span>
+                </div>
+              ))}
+            </div>
+            <p className="beca-travel-table__note">
+              🇪🇺 Fuente: tarifas oficiales Erasmus+ KA131 2024-2025 (SEPIE / Comisión Europea). A partir de 4.000 km el importe es el mismo independientemente del tipo de transporte.
+            </p>
           </div>
         </section>
 

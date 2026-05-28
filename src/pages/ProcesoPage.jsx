@@ -300,6 +300,7 @@ export default function ProcesoPage() {
       {/* Hero */}
       <section className="proceso-hero">
         <div className="proceso-hero__bg" />
+        <div className="proceso-hero__img proceso-hero__img--proceso" />
         <div className="proceso-hero__content">
           <button className="proceso-back" onClick={() => navigate("/")}>
             ← Volver al inicio

@@ -245,6 +245,7 @@ export default function LearningAgreementPage() {
       {/* ── HERO ── */}
       <section className={styles.hero}>
         <div className={styles.heroBg} />
+        <div className={styles.heroImg} />
         <div className={styles.heroContent}>
           <button className={styles.backBtn} onClick={() => navigate("/proceso")}>
             ← Volver al proceso
