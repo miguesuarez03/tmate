@@ -21,7 +21,7 @@ const MENU_ITEMS = [
   },
   {
     icon: "⚖️",
-    label: "Comparativa de favoritos",
+    label: "Comparativa de destinos",
     desc: "Compara tus ciudades favoritas lado a lado",
     action: "compare",
   },
