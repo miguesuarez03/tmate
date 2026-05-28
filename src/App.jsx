@@ -4,6 +4,7 @@ import CityDetailPage from "./pages/CityDetailPage";
 import ProcesoPage from "./pages/ProcesoPage";
 import ComparePage from "./pages/ComparePage";
 import LearningAgreementPage from "./pages/LearningAgreementPage";
+import BecaErasmusPage from "./pages/BecaErasmusPage";
 import "./styles/global.css";
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/proceso" element={<ProcesoPage />} />
         <Route path="/comparar" element={<ComparePage />} />
         <Route path="/learning-agreement" element={<LearningAgreementPage />} />
+        <Route path="/beca-erasmus" element={<BecaErasmusPage />} />
       </Routes>
     </BrowserRouter>
   );

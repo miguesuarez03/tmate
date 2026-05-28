@@ -1470,3 +1470,310 @@ a { text-decoration: none; color: inherit; }
   background: #059669;
   transform: translateY(-1px);
 }
+
+/* ─── BECA ERASMUS PAGE ──────────────────────────────────────────────────── */
+.beca-page { min-height: 100vh; background: #fff; }
+.beca-body { max-width: 1100px; margin: 0 auto; }
+
+.beca-section {
+  padding: 64px var(--section-px);
+}
+.beca-section--dark {
+  background: var(--gradient-dark);
+  max-width: none;
+}
+.beca-section--light {
+  background: var(--color-surface);
+  max-width: none;
+}
+.beca-section__title {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 800;
+  color: var(--color-dark);
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+  margin-top: 8px;
+}
+.beca-section__title--light { color: #fff; }
+.beca-section__subtitle {
+  font-size: 16px;
+  color: var(--color-slate);
+  max-width: 600px;
+  margin-bottom: 40px;
+  line-height: 1.65;
+}
+.beca-section__subtitle--light { color: rgba(255,255,255,0.7); }
+
+/* Intro */
+.beca-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 32px;
+  align-items: start;
+}
+@media (max-width: 768px) { .beca-intro-grid { grid-template-columns: 1fr; } }
+.beca-intro-text p {
+  font-size: 16px;
+  color: var(--color-slate);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.beca-intro-text strong { color: var(--color-dark); }
+.beca-intro-callout {
+  background: #F0FDF9;
+  border: 2px solid #10B981;
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.beca-intro-callout__icon { font-size: 24px; flex-shrink: 0; }
+.beca-intro-callout p { font-size: 15px; color: #065F46; line-height: 1.65; margin: 0; }
+.beca-intro-callout strong { color: #064E3B; }
+
+/* Groups */
+.beca-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1100px; margin: 0 auto; }
+@media (max-width: 900px) { .beca-groups { grid-template-columns: 1fr; } }
+
+.beca-group {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+.beca-group--1 .beca-group__header { background: rgba(14,165,233,0.25); border-bottom: 1px solid rgba(14,165,233,0.3); }
+.beca-group--2 .beca-group__header { background: rgba(20,184,166,0.25); border-bottom: 1px solid rgba(20,184,166,0.3); }
+.beca-group--3 .beca-group__header { background: rgba(139,92,246,0.25); border-bottom: 1px solid rgba(139,92,246,0.3); }
+
+.beca-group__header {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.beca-group__badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+.beca-group__label { font-size: 14px; color: rgba(255,255,255,0.85); font-weight: 500; }
+.beca-group__amount {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+  margin-top: 4px;
+}
+.beca-group__amount span { font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.6); }
+.beca-group__countries {
+  padding: 16px 24px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.beca-group__country {
+  background: rgba(255,255,255,0.1);
+  border-radius: var(--radius-full);
+  padding: 4px 12px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.78);
+  font-weight: 500;
+}
+
+/* Extras */
+.beca-extras-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+@media (max-width: 900px) { .beca-extras-grid { grid-template-columns: 1fr; } }
+.beca-extra-card {
+  background: #fff;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: var(--shadow-sm);
+}
+.beca-extra-card__icon { font-size: 32px; }
+.beca-extra-card__title { font-size: 17px; font-weight: 700; color: var(--color-dark); margin: 0; line-height: 1.3; }
+.beca-extra-card__amount {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 900;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.beca-extra-card__desc { font-size: 14px; color: var(--color-slate); line-height: 1.65; margin: 0; }
+.beca-extra-card__examples { font-size: 13px; color: var(--color-slate); line-height: 2; }
+.beca-extra-card__examples strong { color: var(--color-dark); }
+.beca-extra-card__examples ul { list-style: none; padding: 0; margin: 4px 0 0; }
+.beca-extra-card__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.beca-extra-card__list li { font-size: 13px; color: var(--color-slate); padding-left: 16px; position: relative; }
+.beca-extra-card__list li::before { content: "·"; position: absolute; left: 4px; color: var(--color-primary); }
+
+/* Calculator */
+.beca-calc {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.beca-calc__title {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 800;
+  color: var(--color-dark);
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+.beca-calc__subtitle { font-size: 14px; color: var(--color-muted); margin-bottom: 32px; }
+.beca-calc__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+@media (max-width: 768px) { .beca-calc__grid { grid-template-columns: 1fr; } }
+
+.beca-calc__inputs { display: flex; flex-direction: column; gap: 24px; }
+.beca-calc__field { display: flex; flex-direction: column; gap: 8px; }
+.beca-calc__label { font-size: 13px; font-weight: 600; color: var(--color-slate); }
+.beca-calc__select {
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border);
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-dark);
+  background: #fff;
+  appearance: auto;
+  cursor: pointer;
+}
+.beca-calc__slider-row { display: flex; align-items: center; gap: 12px; }
+.beca-calc__slider { flex: 1; accent-color: var(--color-primary); }
+.beca-calc__slider-val {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--color-primary);
+  min-width: 72px;
+  text-align: right;
+}
+.beca-calc__checks { display: flex; flex-direction: column; gap: 10px; }
+.beca-calc__check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--color-slate);
+  line-height: 1.4;
+}
+.beca-calc__check input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin-top: 1px;
+  accent-color: var(--color-primary);
+  flex-shrink: 0;
+}
+.beca-calc__sub-field { padding-left: 26px; display: flex; flex-direction: column; gap: 6px; }
+
+.beca-calc__result-card {
+  background: #fff;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: var(--shadow-md);
+}
+.beca-calc__result-group { display: flex; flex-direction: column; gap: 2px; }
+.beca-calc__result-label { font-size: 12px; color: var(--color-muted); font-weight: 500; }
+.beca-calc__result-val { font-size: 14px; color: var(--color-slate); }
+.beca-calc__result-val strong { color: var(--color-dark); font-weight: 700; }
+.beca-calc__divider { border: none; border-top: 2px solid var(--color-border); margin: 4px 0; }
+.beca-calc__total { display: flex; flex-direction: column; gap: 4px; }
+.beca-calc__total-label { font-size: 13px; font-weight: 600; color: var(--color-slate); }
+.beca-calc__total-val {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 900;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  line-height: 1.1;
+}
+.beca-calc__total-monthly { font-size: 13px; color: var(--color-muted); }
+.beca-calc__disclaimer {
+  font-size: 12px;
+  color: var(--color-muted);
+  line-height: 1.5;
+  padding: 10px 14px;
+  background: #FEF3C7;
+  border-radius: var(--radius-sm);
+  margin: 0;
+}
+
+/* Compat */
+.beca-compat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 40px; }
+@media (max-width: 600px) { .beca-compat-grid { grid-template-columns: 1fr; } }
+.beca-compat-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: #fff;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+.beca-compat-card__icon { font-size: 24px; flex-shrink: 0; }
+.beca-compat-card__name { font-size: 15px; font-weight: 700; color: var(--color-dark); display: block; margin-bottom: 4px; }
+.beca-compat-card__desc { font-size: 13px; color: var(--color-slate); margin: 0; line-height: 1.55; }
+
+.beca-ccaa-section { margin-top: 40px; }
+.beca-ccaa-section__title { font-size: 18px; font-weight: 700; color: var(--color-dark); margin-bottom: 8px; }
+.beca-ccaa-section__desc { font-size: 14px; color: var(--color-slate); margin-bottom: 16px; line-height: 1.65; }
+.beca-ccaa-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.beca-ccaa-pill {
+  background: #EFF6FF;
+  border: 1.5px solid #BFDBFE;
+  border-radius: var(--radius-full);
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1D4ED8;
+}
+
+/* FAQ */
+.beca-faq { display: flex; flex-direction: column; gap: 8px; max-width: 760px; }
+.beca-faq-item {
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #fff;
+}
+.beca-faq-item--open { border-color: var(--color-primary); }
+.beca-faq-item__q {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-dark);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+.beca-faq-item__q:hover { background: var(--color-surface); }
+.beca-faq-item__arrow { font-size: 11px; color: var(--color-muted); flex-shrink: 0; }
+.beca-faq-item__a {
+  padding: 0 20px 18px;
+  font-size: 14px;
+  color: var(--color-slate);
+  line-height: 1.7;
+  margin: 0;
+}

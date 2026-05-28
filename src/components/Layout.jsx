@@ -32,6 +32,12 @@ const MENU_ITEMS = [
     action: "steps",
   },
   {
+    icon: "💶",
+    label: "Beca Erasmus+",
+    desc: "Cuánto cobras, complementos y calculadora de ayudas",
+    action: "beca",
+  },
+  {
     icon: "📝",
     label: "Tu Learning Agreement",
     desc: "Cómo preparar el contrato académico y conseguir las convalidaciones",
@@ -81,6 +87,8 @@ export function Navbar({ transparent = false }) {
         navigate("/comparar");
       } else if (action === "steps") {
         navigate("/proceso");
+      } else if (action === "beca") {
+        navigate("/beca-erasmus");
       } else if (action === "la") {
         navigate("/learning-agreement");
       } else if (action === "share") {
