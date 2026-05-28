@@ -85,15 +85,33 @@ const TIPS = [
     content: "Coge el programa oficial de la asignatura de destino y el de la asignatura de tu uni, y pídele a una IA que compare contenidos y redacte la justificación de equivalencia.\n\nNo es magia — pero suele convencer al coordinador si la equivalencia es razonable, y te ahorra horas.",
     tag: "Herramienta",
   },
+  {
+    icon: "⚠️",
+    color: "#F97316",
+    title: "Los horarios los sabrás al llegar (o antes)",
+    short: "Una realidad que muy pocos te cuentan antes de firmar",
+    content: "Cuando haces el Learning Agreement, normalmente no conoces los horarios de las asignaturas. Esto significa que puede haber solapamientos que no detectas hasta que llegas.\n\nPor eso, al acordarlo con tu tutor Erasmus en tu universidad, pídele que también valide un listado de asignaturas alternativas. Así, si al llegar una asignatura te coincide en horario, está cancelada o no hay plazas, tienes ya aprobadas las sustituciones sin volver a empezar el proceso.\n\nEn muchas universidades la matrícula funciona por orden de llegada (first come, first served): fijan una hora y el que antes entra en la plataforma se matricula. Si no llegas a tiempo, puedes quedarte sin plaza en alguna clase.\n\nTener un plan B acordado de antemano te ahorra mucho estrés.",
+    tag: "Importante",
+  },
+  {
+    icon: "📬",
+    color: "#0EA5E9",
+    title: "Atentos a los correos de ambas universidades",
+    short: "Plazos, documentos, instrucciones — todo llega por email",
+    content: "Durante todo el proceso Erasmus, tanto tu universidad de origen como la de destino te enviarán correos con plazos, instrucciones y documentos importantes.\n\nRevisar el correo a diario es fundamental:\n· Plazos de entrega del LA que se cierran sin aviso\n· Instrucciones de matrícula y acceso a plataformas\n· Cambios de última hora en asignaturas o aulas\n· Notificaciones de firmas pendientes en el OLA\n\nRevisa también la carpeta de spam — algunos correos institucionales cuelan ahí. Y si tienes cuenta de tu uni de destino, actívala cuanto antes.",
+    tag: "Comunicación",
+  },
 ];
 
 const CHECKLIST_ITEMS = [
   { id: "historico", text: "He consultado el histórico de convalidaciones de mi universidad" },
   { id: "contacto", text: "He hablado con algún Erasmus que ya estuvo en mi destino" },
   { id: "asignaturas", text: "He elegido las asignaturas con equivalente claro en mi plan" },
+  { id: "alternativas", text: "He acordado con mi tutor Erasmus asignaturas alternativas (por si algo falla: horarios, plazas, cancelaciones)" },
   { id: "coordinador", text: "He consultado con mi coordinador de grado antes de enviarlo" },
   { id: "ola", text: "Me he creado cuenta en la plataforma OLA (Erasmus Without Paper)" },
   { id: "firmado", text: "El LA está firmado por las 3 partes antes de irme" },
+  { id: "correos", text: "Tengo activadas las cuentas de correo de ambas universidades y las reviso regularmente" },
   { id: "cambios", text: "Sé que tengo 4-5 semanas al llegar para hacer cambios si hace falta" },
 ];
 
@@ -298,7 +316,7 @@ export default function LearningAgreementPage() {
       <section className={styles.sectionAlt}>
         <div className={styles.sectionInner}>
           <SectionLabel color="#10B981">Cómo hacerlo bien</SectionLabel>
-          <h2 className={styles.sectionTitle}>6 claves para que te convaliden todo</h2>
+          <h2 className={styles.sectionTitle}>Claves para que te convaliden todo</h2>
           <p className={styles.sectionText}>
             Con la estrategia correcta, el Learning Agreement deja de ser un dolor de cabeza.
           </p>
