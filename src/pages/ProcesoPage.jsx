@@ -302,7 +302,7 @@ export default function ProcesoPage() {
         <div className="proceso-hero__bg" />
         <div
           className="proceso-hero__img"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=70')", backgroundPosition: "center 40%" }}
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1600&q=70')", backgroundPosition: "center 40%" }}
         />
         <div className="proceso-hero__content">
           <button className="proceso-back" onClick={() => navigate("/")}>
