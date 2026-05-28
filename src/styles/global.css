@@ -102,8 +102,26 @@ a { text-decoration: none; color: inherit; }
 .navbar__cta:hover { opacity: 0.9; transform: translateY(-1px); }
 .navbar__hamburger {
   display: flex; flex-direction: column; gap: 5px;
-  background: none; border: none; padding: 6px 0 6px 6px; cursor: pointer;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius-sm);
+  padding: 10px 11px;
+  cursor: pointer;
   margin-left: auto;
+  margin-right: -8px;
+  backdrop-filter: blur(8px);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+.navbar--scrolled .navbar__hamburger {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+.navbar__hamburger:hover {
+  background: rgba(255,255,255,0.22);
+  border-color: rgba(255,255,255,0.35);
+}
+.navbar--scrolled .navbar__hamburger:hover {
+  background: var(--color-border);
 }
 .navbar__hamburger span {
   display: block; width: 22px; height: 2px;
