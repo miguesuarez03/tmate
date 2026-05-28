@@ -53,7 +53,7 @@ export default function CityDetailPage() {
       <div className="cdp-divider" />
 
       {/* 4. Weather — right after insights */}
-      <WeatherTimeline cityName={city.name} />
+      <WeatherTimeline cityName={city.name} citySlug={slug} />
 
       <div className="cdp-divider" />
 
