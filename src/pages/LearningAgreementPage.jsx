@@ -245,7 +245,10 @@ export default function LearningAgreementPage() {
       {/* ── HERO ── */}
       <section className={styles.hero}>
         <div className={styles.heroBg} />
-        <div className={styles.heroImg} />
+        <div
+          className={styles.heroImg}
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1600&q=70')", backgroundPosition: "center 40%" }}
+        />
         <div className={styles.heroContent}>
           <button className={styles.backBtn} onClick={() => navigate("/proceso")}>
             ← Volver al proceso

@@ -300,7 +300,10 @@ export default function ProcesoPage() {
       {/* Hero */}
       <section className="proceso-hero">
         <div className="proceso-hero__bg" />
-        <div className="proceso-hero__img proceso-hero__img--proceso" />
+        <div
+          className="proceso-hero__img"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=70')", backgroundPosition: "center 40%" }}
+        />
         <div className="proceso-hero__content">
           <button className="proceso-back" onClick={() => navigate("/")}>
             ← Volver al inicio
