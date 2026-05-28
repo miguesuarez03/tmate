@@ -28,12 +28,44 @@ export function getCityInsights(slug) {
   return raw ? raw : DEFAULT_INSIGHTS(city);
 }
 
-/** Score global calculado (media de todos los scores de insights). */
-export function getOverallScore(slug) {
-  const insights = getCityInsights(slug);
-  if (!insights.scores.length) return 0;
-  const sum = insights.scores.reduce((acc, s) => acc + s.score, 0);
-  return parseFloat((sum / insights.scores.length).toFixed(1));
+// ─── BASE SCORES por ciudad (investigados) ───────────────────────────────────
+const CITY_BASE_SCORES = {
+  bolonia:   { coste:6.5, fiesta:9.0, extranjeros:8.5, transporte:8.0, piso:5.0, erasmus_community:9.0, seguridad:8.5, clima:7.0, calidad_vida:8.5, internships:7.0 },
+  milan:     { coste:4.5, fiesta:7.5, extranjeros:7.5, transporte:8.5, piso:4.0, erasmus_community:8.5, seguridad:7.5, clima:6.5, calidad_vida:7.5, internships:9.5 },
+  roma:      { coste:5.5, fiesta:7.5, extranjeros:7.5, transporte:6.5, piso:5.0, erasmus_community:8.5, seguridad:7.0, clima:8.5, calidad_vida:8.0, internships:7.5 },
+  turin:     { coste:7.5, fiesta:6.5, extranjeros:7.5, transporte:7.5, piso:7.0, erasmus_community:7.5, seguridad:8.0, clima:6.5, calidad_vida:8.0, internships:7.5 },
+  cracovia:  { coste:9.5, fiesta:9.5, extranjeros:8.5, transporte:8.5, piso:8.5, erasmus_community:9.5, seguridad:8.5, clima:6.5, calidad_vida:8.5, internships:6.5 },
+  varsovia:  { coste:8.5, fiesta:8.0, extranjeros:7.5, transporte:8.5, piso:7.5, erasmus_community:8.0, seguridad:8.0, clima:5.5, calidad_vida:8.0, internships:7.5 },
+  budapest:  { coste:9.0, fiesta:9.5, extranjeros:8.0, transporte:8.5, piso:8.0, erasmus_community:9.0, seguridad:7.5, clima:7.0, calidad_vida:8.5, internships:6.5 },
+  praga:     { coste:8.0, fiesta:9.0, extranjeros:7.5, transporte:9.0, piso:7.0, erasmus_community:9.0, seguridad:8.5, clima:6.5, calidad_vida:8.5, internships:7.0 },
+  "la-haya": { coste:5.0, fiesta:6.5, extranjeros:9.0, transporte:8.5, piso:5.0, erasmus_community:7.5, seguridad:8.0, clima:5.5, calidad_vida:8.0, internships:8.5 },
+  rotterdam: { coste:5.0, fiesta:7.0, extranjeros:9.0, transporte:8.5, piso:5.5, erasmus_community:7.5, seguridad:7.0, clima:5.5, calidad_vida:7.5, internships:8.0 },
+  munich:    { coste:4.0, fiesta:8.0, extranjeros:7.5, transporte:9.0, piso:3.5, erasmus_community:8.0, seguridad:9.5, clima:6.5, calidad_vida:8.5, internships:9.0 },
+  berlin:    { coste:6.5, fiesta:10.0,extranjeros:9.5, transporte:9.0, piso:5.5, erasmus_community:9.0, seguridad:7.5, clima:5.5, calidad_vida:8.5, internships:9.0 },
+  lisboa:    { coste:5.5, fiesta:8.5, extranjeros:9.5, transporte:7.5, piso:4.0, erasmus_community:8.5, seguridad:8.5, clima:9.0, calidad_vida:8.0, internships:7.5 },
+  oporto:    { coste:7.0, fiesta:8.5, extranjeros:9.5, transporte:7.0, piso:6.5, erasmus_community:9.5, seguridad:9.0, clima:8.0, calidad_vida:8.5, internships:7.0 },
+  paris:     { coste:3.5, fiesta:8.0, extranjeros:7.0, transporte:9.5, piso:3.0, erasmus_community:8.5, seguridad:7.0, clima:7.0, calidad_vida:8.0, internships:9.0 },
+  londres:   { coste:2.5, fiesta:8.5, extranjeros:9.5, transporte:8.5, piso:2.5, erasmus_community:8.5, seguridad:7.0, clima:5.0, calidad_vida:7.5, internships:9.5 },
+  amsterdam: { coste:4.5, fiesta:9.0, extranjeros:9.5, transporte:9.0, piso:3.5, erasmus_community:8.5, seguridad:7.5, clima:5.5, calidad_vida:8.0, internships:8.5 },
+  viena:     { coste:5.5, fiesta:7.5, extranjeros:7.5, transporte:9.5, piso:6.0, erasmus_community:8.0, seguridad:9.5, clima:6.5, calidad_vida:9.0, internships:7.5 },
+  rosenheim: { coste:6.0, fiesta:5.0, extranjeros:6.5, transporte:7.0, piso:6.5, erasmus_community:5.5, seguridad:9.5, clima:6.5, calidad_vida:8.0, internships:7.0 },
+  bruselas:  { coste:5.5, fiesta:7.0, extranjeros:8.5, transporte:8.0, piso:6.0, erasmus_community:7.5, seguridad:6.5, clima:5.5, calidad_vida:7.5, internships:8.5 },
+};
+
+/**
+ * Score global de una ciudad.
+ * Combina el score base investigado (50%) con la media de valoraciones
+ * de usuarios (50%) cuando existan. Si no hay valoraciones, devuelve
+ * el score base directamente. Es la única función que calcula scores.
+ */
+export function getOverallScore(slug, userRatings = null) {
+  const cats = CITY_BASE_SCORES[slug];
+  const base = cats
+    ? parseFloat((Object.values(cats).reduce((s, v) => s + v, 0) / Object.values(cats).length).toFixed(1))
+    : 7.0;
+  if (!userRatings || userRatings.length === 0) return base;
+  const userAvg = parseFloat((userRatings.reduce((a, b) => a + b, 0) / userRatings.length).toFixed(1));
+  return parseFloat(((base + userAvg) / 2).toFixed(1));
 }
 
 // ─── FILTROS ──────────────────────────────────────────────────────────────────
