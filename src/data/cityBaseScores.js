@@ -26,15 +26,13 @@
 export const CITY_BASE_SCORES = {
   bolonia: {
     coste: 6.5,
-    fiesta: 9.0,
-    extranjeros: 8.5,
-    transporte: 8.0,
-    piso: 5.0,
-    erasmus_community: 9.0,
+    alojamiento: 5.0,
+    vida_social: 9.2,
+    integracion: 8.5,
+    movilidad: 8.0,
+    estilo_vida: 8.0,
+    empleo: 7.0,
     seguridad: 8.5,
-    clima: 7.0,
-    calidad_vida: 8.5,
-    internships: 7.0,
   },
   milan: {
     coste: 4.5,

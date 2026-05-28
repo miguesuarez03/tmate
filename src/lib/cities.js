@@ -30,7 +30,7 @@ export function getCityInsights(slug) {
 
 // ─── BASE SCORES por ciudad (investigados) ───────────────────────────────────
 const CITY_BASE_SCORES = {
-  bolonia:   { coste:6.5, fiesta:9.0, extranjeros:8.5, transporte:8.0, piso:5.0, erasmus_community:9.0, seguridad:8.5, clima:7.0, calidad_vida:8.5, internships:7.0 },
+  bolonia:   { coste:6.5, alojamiento:5.0, vida_social:9.2, integracion:8.5, movilidad:8.0, estilo_vida:8.0, empleo:7.0, seguridad:8.5 },
   milan:     { coste:4.5, fiesta:7.5, extranjeros:7.5, transporte:8.5, piso:4.0, erasmus_community:8.5, seguridad:7.5, clima:6.5, calidad_vida:7.5, internships:9.5 },
   roma:      { coste:5.5, fiesta:7.5, extranjeros:7.5, transporte:6.5, piso:5.0, erasmus_community:8.5, seguridad:7.0, clima:8.5, calidad_vida:8.0, internships:7.5 },
   turin:     { coste:7.5, fiesta:6.5, extranjeros:7.5, transporte:7.5, piso:7.0, erasmus_community:7.5, seguridad:8.0, clima:6.5, calidad_vida:8.0, internships:7.5 },
