@@ -92,7 +92,6 @@ const FAQ = [
 /* ─── CALCULATOR ─────────────────────────────────────────────────────────── */
 
 function Calculator() {
-  const [country, setCountry] = useState("Alemania");
   const [months, setMonths] = useState(5);
   const [menosOport, setMenosOport] = useState(false);
   const [distanceRange, setDistanceRange] = useState("500 – 1.999 km");
@@ -101,19 +100,28 @@ function Calculator() {
   const [aut, setAut] = useState(false);
   const [autAmount, setAutAmount] = useState(150);
 
-  // Calculadora de distancia (punto 12)
+  // Calculadora de distancia — ahora al principio
   const [originCity, setOriginCity] = useState("");
   const [destinationSlug, setDestinationSlug] = useState("");
-  const [calcStatus, setCalcStatus] = useState("idle"); // idle | loading | done | error
+  const [calcStatus, setCalcStatus] = useState("idle");
   const [calcError, setCalcError] = useState("");
   const [calcKm, setCalcKm] = useState(null);
 
-  // Auto-suggest distance when country changes
-  const handleCountryChange = (c) => {
-    setCountry(c);
-    if (COUNTRY_DISTANCE[c]) setDistanceRange(COUNTRY_DISTANCE[c]);
+  // País se deduce de la ciudad de destino seleccionada
+  const destCity = CITIES.find(c => c.slug === destinationSlug);
+  const country = destCity?.country || "";
+
+  // Actualizar distanceRange sugerida cuando cambia el país
+  const suggestedRange = country && COUNTRY_DISTANCE[country] ? COUNTRY_DISTANCE[country] : distanceRange;
+
+  const handleDestinationChange = (slug) => {
+    setDestinationSlug(slug);
     setCalcStatus("idle");
     setCalcKm(null);
+    const city = CITIES.find(c => c.slug === slug);
+    if (city?.country && COUNTRY_DISTANCE[city.country]) {
+      setDistanceRange(COUNTRY_DISTANCE[city.country]);
+    }
   };
 
   const handleCalcDistance = async () => {
@@ -135,11 +143,11 @@ function Calculator() {
     }
   };
 
-  const group = GROUP1.includes(country) ? 1 : GROUP2.includes(country) ? 2 : 3;
-  const baseRate = group === 1 ? 350 : group === 2 ? 300 : 250;
+  const group = GROUP1.includes(country) ? 1 : GROUP2.includes(country) ? 2 : GROUP3.includes(country) ? 3 : null;
+  const baseRate = group === 1 ? 350 : group === 2 ? 300 : group === 3 ? 250 : null;
   const complemento = menosOport ? 250 : 0;
-  const monthly = baseRate + complemento;
-  const erasmusTotal = monthly * months;
+  const monthly = baseRate !== null ? baseRate + complemento : null;
+  const erasmusTotal = monthly !== null ? monthly * months : null;
 
   const travelRow = TRAVEL_AID.find(r => r.range === distanceRange) || TRAVEL_AID[2];
   const travelBonus = eco ? travelRow.eco : travelRow.standard;
@@ -147,7 +155,7 @@ function Calculator() {
   const mecEstimate = mec ? 600 : 0;
   const autEstimate = aut ? autAmount * months : 0;
 
-  const total = erasmusTotal + travelBonus + mecEstimate + autEstimate;
+  const total = erasmusTotal !== null ? erasmusTotal + travelBonus + mecEstimate + autEstimate : null;
 
   return (
     <div className="beca-calc">
@@ -157,23 +165,60 @@ function Calculator() {
       <div className="beca-calc__grid">
         {/* Left: inputs */}
         <div className="beca-calc__inputs">
-          <div className="beca-calc__field">
-            <label className="beca-calc__label">País de destino</label>
-            <select
-              className="beca-calc__select"
-              value={country}
-              onChange={(e) => handleCountryChange(e.target.value)}
-            >
-              <optgroup label="Grupo 1 — Coste alto (350€/mes)">
-                {GROUP1.map((c) => <option key={c}>{c}</option>)}
-              </optgroup>
-              <optgroup label="Grupo 2 — Coste medio (300€/mes)">
-                {GROUP2.map((c) => <option key={c}>{c}</option>)}
-              </optgroup>
-              <optgroup label="Grupo 3 — Coste bajo (250€/mes)">
-                {GROUP3.map((c) => <option key={c}>{c}</option>)}
-              </optgroup>
-            </select>
+
+          {/* PRIMERO: selección de ciudades */}
+          <div className="beca-calc__field beca-calc__field--highlight">
+            <label className="beca-calc__label">📍 De dónde sales → adónde vas</label>
+            <div className="beca-distance-calc">
+              <div className="beca-distance-calc__row">
+                <input
+                  type="text"
+                  className="beca-calc__select"
+                  placeholder="Tu ciudad de origen (ej. Sevilla)"
+                  value={originCity}
+                  onChange={(e) => { setOriginCity(e.target.value); setCalcStatus("idle"); }}
+                />
+                <select
+                  className="beca-calc__select"
+                  value={destinationSlug}
+                  onChange={(e) => handleDestinationChange(e.target.value)}
+                >
+                  <option value="">Ciudad de destino…</option>
+                  {CITIES.map(c => (
+                    <option key={c.slug} value={c.slug}>{c.emoji} {c.name} — {c.country}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* País detectado automáticamente */}
+              {destCity && (
+                <div className="beca-country-detected">
+                  <span className="beca-country-detected__flag">{destCity.emoji}</span>
+                  <span>
+                    País detectado: <strong>{country}</strong>
+                    {group && <span className="beca-country-group"> · Grupo {group} — {baseRate}€/mes base</span>}
+                  </span>
+                </div>
+              )}
+
+              <button
+                type="button"
+                className="beca-distance-calc__btn"
+                onClick={handleCalcDistance}
+                disabled={!originCity.trim() || !destinationSlug || calcStatus === "loading"}
+              >
+                {calcStatus === "loading" ? "Calculando…" : "📍 Calcular distancia"}
+              </button>
+
+              {calcStatus === "done" && calcKm != null && (
+                <p className="beca-distance-calc__result">
+                  ✅ <strong>{calcKm.toLocaleString("es-ES")} km</strong> → banda <strong>{distanceRange}</strong> aplicada automáticamente.
+                </p>
+              )}
+              {calcStatus === "error" && (
+                <p className="beca-distance-calc__error">⚠️ {calcError}</p>
+              )}
+            </div>
           </div>
 
           <div className="beca-calc__field">
@@ -189,55 +234,11 @@ function Calculator() {
           </div>
 
           <div className="beca-calc__field">
-            <label className="beca-calc__label">✈️ Ayuda de viaje — distancia aproximada</label>
-
-            <div className="beca-distance-calc">
-              <p className="beca-distance-calc__hint">
-                Calcula la distancia exacta entre tu ciudad y tu destino (línea recta) y rellenamos la banda automáticamente.
-              </p>
-              <div className="beca-distance-calc__row">
-                <input
-                  type="text"
-                  className="beca-calc__select"
-                  placeholder="Tu ciudad de origen (ej. Sevilla)"
-                  value={originCity}
-                  onChange={(e) => { setOriginCity(e.target.value); setCalcStatus("idle"); }}
-                />
-                <select
-                  className="beca-calc__select"
-                  value={destinationSlug}
-                  onChange={(e) => { setDestinationSlug(e.target.value); setCalcStatus("idle"); }}
-                >
-                  <option value="">Tu ciudad de destino…</option>
-                  {CITIES.map(c => (
-                    <option key={c.slug} value={c.slug}>{c.name}</option>
-                  ))}
-                </select>
-              </div>
-              <button
-                type="button"
-                className="beca-distance-calc__btn"
-                onClick={handleCalcDistance}
-                disabled={!originCity.trim() || !destinationSlug || calcStatus === "loading"}
-              >
-                {calcStatus === "loading" ? "Calculando…" : "📍 Calcular distancia"}
-              </button>
-
-              {calcStatus === "done" && calcKm != null && (
-                <p className="beca-distance-calc__result">
-                  ✅ Distancia aproximada: <strong>{calcKm.toLocaleString("es-ES")} km</strong> → banda <strong>{distanceRange}</strong> aplicada abajo automáticamente.
-                </p>
-              )}
-              {calcStatus === "error" && (
-                <p className="beca-distance-calc__error">⚠️ {calcError}</p>
-              )}
-            </div>
-
+            <label className="beca-calc__label">✈️ Ayuda de viaje — banda de distancia</label>
             <select
               className="beca-calc__select"
               value={distanceRange}
               onChange={(e) => setDistanceRange(e.target.value)}
-              style={{ marginTop: 10 }}
             >
               {TRAVEL_AID.map(r => (
                 <option key={r.range} value={r.range}>
@@ -246,7 +247,7 @@ function Calculator() {
               ))}
             </select>
             <p className="beca-distance-calc__hint" style={{ marginTop: 4 }}>
-              También puedes elegir la banda manualmente si lo prefieres — la calculadora de arriba es solo una ayuda.
+              Usa la calculadora de arriba para que se rellene sola, o elige manualmente.
             </p>
             <label className="beca-calc__check" style={{ marginTop: 8 }}>
               <input type="checkbox" checked={eco} onChange={(e) => setEco(e.target.checked)} />
@@ -289,48 +290,53 @@ function Calculator() {
         {/* Right: result */}
         <div className="beca-calc__result">
           <div className="beca-calc__result-card">
-            <div className="beca-calc__result-group">
-              <span className="beca-calc__result-label">País</span>
-              <span className="beca-calc__result-val">{country} — Grupo {group}</span>
-            </div>
-            <div className="beca-calc__result-group">
-              <span className="beca-calc__result-label">Erasmus base ({months} meses)</span>
-              <span className="beca-calc__result-val">{baseRate}€ × {months} = <strong>{baseRate * months}€</strong></span>
-            </div>
-            {menosOport && (
-              <div className="beca-calc__result-group">
-                <span className="beca-calc__result-label">Complemento menos oportunidades</span>
-                <span className="beca-calc__result-val">+250€ × {months} = <strong>+{250 * months}€</strong></span>
-              </div>
+            {!destCity ? (
+              <p className="beca-calc__result-placeholder">
+                Selecciona tu ciudad de destino para ver la estimación.
+              </p>
+            ) : (
+              <>
+                <div className="beca-calc__result-group">
+                  <span className="beca-calc__result-label">Destino</span>
+                  <span className="beca-calc__result-val">{destCity.emoji} {destCity.name} — {country} (Grupo {group})</span>
+                </div>
+                <div className="beca-calc__result-group">
+                  <span className="beca-calc__result-label">Erasmus base ({months} meses)</span>
+                  <span className="beca-calc__result-val">{baseRate}€ × {months} = <strong>{baseRate * months}€</strong></span>
+                </div>
+                {menosOport && (
+                  <div className="beca-calc__result-group">
+                    <span className="beca-calc__result-label">Complemento menos oportunidades</span>
+                    <span className="beca-calc__result-val">+250€ × {months} = <strong>+{250 * months}€</strong></span>
+                  </div>
+                )}
+                <div className="beca-calc__result-group">
+                  <span className="beca-calc__result-label">Ayuda de viaje ({distanceRange}){eco ? " 🌿" : ""}</span>
+                  <span className="beca-calc__result-val"><strong>+{travelBonus}€</strong> (pago único)</span>
+                </div>
+                {mec && (
+                  <div className="beca-calc__result-group">
+                    <span className="beca-calc__result-label">Beca MEC</span>
+                    <span className="beca-calc__result-val"><strong>+~600€</strong> (estimado anual)</span>
+                  </div>
+                )}
+                {aut && (
+                  <div className="beca-calc__result-group">
+                    <span className="beca-calc__result-label">Ayuda autonómica</span>
+                    <span className="beca-calc__result-val">{autAmount}€ × {months} = <strong>+{autEstimate}€</strong></span>
+                  </div>
+                )}
+                <div className="beca-calc__divider" />
+                <div className="beca-calc__total">
+                  <span className="beca-calc__total-label">Total estimado</span>
+                  <span className="beca-calc__total-val">{total.toLocaleString("es-ES")}€</span>
+                  <span className="beca-calc__total-monthly">({Math.round(total / months).toLocaleString("es-ES")}€/mes de media)</span>
+                </div>
+                <p className="beca-calc__disclaimer">
+                  ⚠️ Estimación orientativa. Los importes reales los confirma tu universidad y pueden variar según convocatoria y comunidad autónoma.
+                </p>
+              </>
             )}
-            <div className="beca-calc__result-group">
-              <span className="beca-calc__result-label">Ayuda de viaje ({distanceRange}){eco ? " 🌿" : ""}</span>
-              <span className="beca-calc__result-val"><strong>+{travelBonus}€</strong> (pago único)</span>
-            </div>
-            {mec && (
-              <div className="beca-calc__result-group">
-                <span className="beca-calc__result-label">Beca MEC</span>
-                <span className="beca-calc__result-val"><strong>+~600€</strong> (estimado anual)</span>
-              </div>
-            )}
-            {aut && (
-              <div className="beca-calc__result-group">
-                <span className="beca-calc__result-label">Ayuda autonómica</span>
-                <span className="beca-calc__result-val">{autAmount}€ × {months} = <strong>+{autEstimate}€</strong></span>
-              </div>
-            )}
-
-            <div className="beca-calc__divider" />
-
-            <div className="beca-calc__total">
-              <span className="beca-calc__total-label">Total estimado</span>
-              <span className="beca-calc__total-val">{total.toLocaleString("es-ES")}€</span>
-              <span className="beca-calc__total-monthly">({Math.round(total / months).toLocaleString("es-ES")}€/mes de media)</span>
-            </div>
-
-            <p className="beca-calc__disclaimer">
-              ⚠️ Estimación orientativa. Los importes reales los confirma tu universidad y pueden variar según convocatoria y comunidad autónoma.
-            </p>
           </div>
         </div>
       </div>

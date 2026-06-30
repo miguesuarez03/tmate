@@ -259,13 +259,15 @@ function StepDetail({ step }) {
       {/* Languages table for step 01 */}
       {step.languages && (
         <div className="proceso-langs">
-          <h4 className="proceso-langs__title">Certificados más comunes por idioma</h4>
+          <h4 className="proceso-langs__title">Idiomas y certificados habituales</h4>
+          <p className="proceso-langs__disclaimer">
+            Cada universidad fija sus propios requisitos de idioma — consulta siempre con tu ORI o coordinador antes de dar nada por hecho.
+          </p>
           <div className="proceso-langs__grid">
             {step.languages.map((l) => (
               <div key={l.lang} className="proceso-lang-card">
                 <span className="proceso-lang-card__lang">{l.lang}</span>
                 <span className="proceso-lang-card__cert">{l.cert}</span>
-                <span className="proceso-lang-card__note">{l.note}</span>
               </div>
             ))}
           </div>
@@ -318,56 +320,55 @@ function StepDetail({ step }) {
   );
 }
 
-/* ─── MOBILE STORIES VIEW ───────────────────────────────────────────────── */
+/* ─── MOBILE STORIES VIEW ───────────────────────────────────────── */
 function MobileStories({ steps, navigate }) {
   const [active, setActive] = useState(0);
   const touchStartX = useRef(null);
+  const touchStartY = useRef(null);
   const step = steps[active];
 
-  function goNext() {
-    setActive((i) => Math.min(i + 1, steps.length - 1));
-  }
-  function goPrev() {
-    setActive((i) => Math.max(i - 1, 0));
-  }
+  function goNext() { setActive((i) => Math.min(i + 1, steps.length - 1)); }
+  function goPrev() { setActive((i) => Math.max(i - 1, 0)); }
 
   function handleTouchStart(e) {
     touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
   }
   function handleTouchEnd(e) {
     if (touchStartX.current === null) return;
-    const deltaX = e.changedTouches[0].clientX - touchStartX.current;
-    const THRESHOLD = 40;
-    if (deltaX < -THRESHOLD) goNext();
-    else if (deltaX > THRESHOLD) goPrev();
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    const dy = Math.abs(e.changedTouches[0].clientY - touchStartY.current);
+    if (dy > 30) { touchStartX.current = null; return; } // ignore vertical scrolls
+    if (dx < -40) goNext();
+    else if (dx > 40) goPrev();
     touchStartX.current = null;
   }
 
   return (
     <div className="proceso-stories">
-      <div className="proceso-stories__progress">
+      {/* Progress dots */}
+      <div className="proceso-stories__dots">
         {steps.map((s, i) => (
-          <div key={s.num} className="proceso-stories__segment">
-            <div
-              className="proceso-stories__segment-fill"
-              style={{
-                width: i < active ? "100%" : i === active ? "100%" : "0%",
-                background: i <= active ? s.color : "var(--color-border)",
-              }}
-            />
-          </div>
+          <button
+            key={s.num}
+            type="button"
+            className={`proceso-stories__dot ${i === active ? "proceso-stories__dot--active" : i < active ? "proceso-stories__dot--done" : ""}`}
+            style={i === active || i < active ? { "--dot-color": s.color } : {}}
+            onClick={() => setActive(i)}
+            aria-label={`Ir al paso ${i + 1}: ${s.tag}`}
+          />
         ))}
       </div>
 
+      {/* Card */}
       <div
         className="proceso-stories__card"
         style={{ "--step-color": step.color }}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        <button className="proceso-back" onClick={() => navigate("/")} style={{ alignSelf: "flex-start" }}>
-          ← Inicio
-        </button>
+        {/* Top bar with color */}
+        <div className="proceso-stories__top-bar" style={{ background: step.color }} />
 
         <div className="proceso-stories__header">
           <span className="proceso-stories__num">{step.num}</span>
@@ -377,7 +378,7 @@ function MobileStories({ steps, navigate }) {
         </div>
 
         <h2 className="proceso-stories__title">
-          <span style={{ marginRight: 10 }}>{step.emoji}</span>
+          <span style={{ marginRight: 8 }}>{step.emoji}</span>
           {step.title}
         </h2>
 
@@ -396,24 +397,34 @@ function MobileStories({ steps, navigate }) {
             Guía del Learning Agreement →
           </button>
         )}
-
-        <div className="proceso-stories__nav">
-          <button
-            className="proceso-stories__nav-zone proceso-stories__nav-zone--prev"
-            onClick={goPrev}
-            disabled={active === 0}
-            aria-label="Paso anterior"
-          />
-          <button
-            className="proceso-stories__nav-zone proceso-stories__nav-zone--next"
-            onClick={goNext}
-            disabled={active === steps.length - 1}
-            aria-label="Paso siguiente"
-          />
-        </div>
       </div>
 
-      <div className="proceso-stories__counter">{active + 1} / {steps.length}</div>
+      {/* Navigation buttons */}
+      <div className="proceso-stories__nav-bar">
+        <button
+          type="button"
+          className="proceso-stories__nav-btn proceso-stories__nav-btn--prev"
+          onClick={goPrev}
+          disabled={active === 0}
+        >
+          ← Anterior
+        </button>
+        <span className="proceso-stories__counter">{active + 1} / {steps.length}</span>
+        <button
+          type="button"
+          className="proceso-stories__nav-btn proceso-stories__nav-btn--next"
+          onClick={goNext}
+          disabled={active === steps.length - 1}
+          style={{ color: step.color, borderColor: step.color }}
+        >
+          Siguiente →
+        </button>
+      </div>
+
+      {/* Swipe hint solo en primer paso */}
+      {active === 0 && (
+        <p className="proceso-stories__swipe-hint">← Desliza para navegar →</p>
+      )}
     </div>
   );
 }

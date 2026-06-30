@@ -315,6 +315,10 @@
 }
 .cityCard:nth-child(2) { animation-delay: 0.07s; }
 .cityCard:nth-child(3) { animation-delay: 0.14s; }
+.cityCardWinner {
+  box-shadow: 0 0 0 2.5px #FBBF24, var(--shadow-lg);
+  transform: translateY(-2px) scale(1.015);
+}
 
 .cityCardHero {
   position: relative; min-height: 220px;
@@ -359,6 +363,12 @@
   padding: 4px 10px; border-radius: var(--radius-full);
   white-space: nowrap;
 }
+.cityCardTagBest {
+  background: #FBBF24;
+  border-color: #FBBF24;
+  color: #422006;
+  font-weight: 800;
+}
 .cityCardPhrase {
   font-size: 11.5px; color: rgba(255,255,255,0.85); font-style: italic;
   margin: 0; flex-basis: 100%;
@@ -369,8 +379,17 @@
   display: flex; align-items: center; gap: 8px;
   padding: 14px 20px;
   border-bottom: 1px solid var(--color-border);
+  position: relative;
 }
-.crownIcon { font-size: 18px; }
+.crownIcon {
+  font-size: 18px;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.6));
+  animation: crownPulse 2.2s ease-in-out infinite;
+}
+@keyframes crownPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
 .overallNumber {
   font-family: var(--font-display);
   font-size: 36px; font-weight: 900;
@@ -378,11 +397,14 @@
 }
 .overallLabel { font-size: 14px; color: rgba(255,255,255,0.65); font-weight: 500; }
 .bestLabel {
-  font-size: 11px; font-weight: 700;
-  background: rgba(255,255,255,0.2);
+  font-size: 11px; font-weight: 800;
+  background: #fff;
   border-radius: var(--radius-full);
-  padding: 3px 10px; color: #fff;
+  padding: 4px 11px; color: var(--color-dark);
   margin-left: auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 .quickStats {
@@ -412,7 +434,7 @@
 .versusGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  gap: 12px;
 }
 @media (max-width: 720px) { .versusGrid { grid-template-columns: 1fr; } }
 
@@ -420,50 +442,139 @@
   background: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
-  padding: 20px;
+  overflow: hidden;
   box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s;
 }
-.versusCardHeader {
-  display: flex; align-items: center; gap: 8px;
-  margin-bottom: 14px;
-}
-.versusCardIcon { font-size: 18px; }
-.versusCardLabel { font-weight: 700; color: var(--color-dark); font-size: 14px; }
+.versusCard:hover { box-shadow: var(--shadow-md); }
 
-.versusCardRows {
+.versusCardHeader {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 16px;
+  width: 100%; background: none; border: none;
+  cursor: pointer; text-align: left; font: inherit;
+  transition: background 0.15s;
+}
+.versusCardHeader:hover { background: var(--color-surface); }
+
+.versusCardHeaderLeft {
+  display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0;
+}
+.versusCardIcon { font-size: 17px; flex-shrink: 0; }
+.versusCardLabel { font-weight: 700; color: var(--color-dark); font-size: 13px; }
+
+/* Mini vertical bars */
+.versusMiniBars {
+  display: flex; align-items: flex-end; gap: 5px;
+  flex-shrink: 0;
+}
+.versusMiniBarWrap {
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+}
+.versusMiniBar {
+  width: 12px; height: 36px;
+  background: var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex; align-items: flex-end;
+}
+.versusMiniBarFill {
+  width: 100%;
+  border-radius: 4px;
+  transition: height 0.5s var(--ease-smooth);
+}
+.versusMiniScore {
+  font-family: var(--font-display);
+  font-size: 10px; font-weight: 800;
+}
+
+.versusChevron {
+  font-size: 20px; color: var(--color-muted);
+  flex-shrink: 0; line-height: 1;
+  transition: transform 0.2s ease;
+  display: inline-block;
+  transform: rotate(90deg);
+}
+.versusChevronOpen { transform: rotate(-90deg); }
+
+/* Expanded detail */
+.versusDetail {
+  border-top: 1px solid var(--color-border);
+  padding: 14px 14px 16px;
+  animation: versusSlideIn 0.2s var(--ease-smooth);
+}
+@keyframes versusSlideIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.versusDetailCols {
   display: grid;
   grid-template-columns: repeat(var(--vc-cols, 2), 1fr);
-  gap: 12px;
+  gap: 10px;
 }
+
 .versusCol {
   border-radius: var(--radius-lg);
-  padding: 12px;
+  padding: 10px 11px;
   background: var(--color-surface);
   border: 1px solid transparent;
   transition: border-color 0.2s, background 0.2s;
 }
 .versusColWinner {
-  background: color-mix(in srgb, var(--accent) 8%, var(--color-white));
-  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  background: color-mix(in srgb, var(--accent) 9%, var(--color-white));
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
 }
 .versusColHead {
   display: flex; align-items: center; justify-content: space-between;
-  gap: 6px; margin-bottom: 4px;
+  gap: 6px; margin-bottom: 2px;
 }
 .versusColName {
-  font-size: 12px; font-weight: 800;
+  font-size: 11px; font-weight: 800;
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
-.versusTrophy { font-size: 14px; flex-shrink: 0; }
+.versusTrophy { font-size: 13px; flex-shrink: 0; }
 .versusColScore {
   font-family: var(--font-display);
-  font-size: 22px; font-weight: 900;
+  font-size: 19px; font-weight: 900;
   color: var(--color-dark); line-height: 1;
-  display: block; margin-bottom: 6px;
+  display: block;
+}
+.versusColBar {
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--color-border);
+  overflow: hidden;
+  margin: 6px 0;
+}
+.versusColBarFill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.6s var(--ease-smooth);
 }
 .versusColPhrase {
-  font-size: 12px; line-height: 1.4;
+  font-size: 11px; line-height: 1.35;
   color: var(--color-slate); margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 540px) {
+  .versusCard { border-radius: var(--radius-lg); }
+  .versusCardHeader { padding: 12px 14px; }
+  .versusDetail { padding: 12px 12px 14px; }
+  .versusDetailCols { grid-template-columns: 1fr; gap: 8px; }
+  .versusCol {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center; column-gap: 9px;
+    padding: 8px 10px;
+  }
+  .versusColHead { margin-bottom: 0; grid-column: 1; }
+  .versusColScore { grid-column: 3; font-size: 15px; }
+  .versusColBar { grid-column: 2; margin: 0; }
+  .versusColPhrase { display: none; }
 }
 
 /* ─── FEATURES ───────────────────────────────────────────────────────────── */

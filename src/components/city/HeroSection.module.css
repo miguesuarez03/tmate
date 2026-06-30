@@ -4,7 +4,9 @@
 
 .hero {
   position: relative;
-  min-height: 100svh;
+  height: 100svh;
+  min-height: 640px;
+  max-height: 980px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -37,19 +39,20 @@
   position: relative; z-index: 1;
   display: grid;
   grid-template-columns: 1fr 320px;
-  gap: 2.5rem;
+  gap: 2rem;
   align-items: flex-end;
   max-width: 1320px;
   margin: 0 auto;
   width: 100%;
-  padding: 120px var(--section-px) 5vh;
-  min-height: 100svh;
+  height: 100%;
+  padding: 96px var(--section-px) 4vh;
 }
 
 /* ── Left ── */
 .heroLeft {
-  display: flex; flex-direction: column; gap: 1.4rem;
+  display: flex; flex-direction: column; gap: 1.1rem;
   animation: fadeUp 0.9s var(--ease-smooth) 0.1s both;
+  min-height: 0;
 }
 
 @keyframes fadeUp {
@@ -68,10 +71,10 @@
 
 .heroTitle {
   font-family: var(--font-display);
-  font-size: clamp(4.5rem, 12vw, 9.5rem);
+  font-size: clamp(3.2rem, 8vw, 6.8rem);
   font-weight: 800;
   color: #fff;
-  line-height: 0.9;
+  line-height: 0.92;
   letter-spacing: -0.03em;
   margin: 0;
   text-shadow: 0 4px 40px rgba(0,0,0,0.3);
@@ -113,14 +116,14 @@
 .heroActions { display: flex; gap: 0.85rem; flex-wrap: wrap; align-items: center; }
 
 .heroBigLinks {
-  display: flex; flex-direction: column; gap: 0.8rem;
-  margin-top: 1.5rem;
+  display: flex; flex-direction: column; gap: 0.6rem;
+  margin-top: 1rem;
   max-width: 480px;
 }
 
 .heroBigLink {
   display: flex; align-items: center; gap: 1rem;
-  padding: 1rem 1.2rem;
+  padding: 0.8rem 1.1rem;
   border-radius: var(--radius-lg, 16px);
   background: rgba(255,255,255,0.1);
   border: 1.5px solid color-mix(in srgb, var(--big-color, #fff) 45%, transparent);
@@ -213,9 +216,9 @@ a.heroBigLink:hover {
   -webkit-backdrop-filter: blur(32px) saturate(160%);
   border: 1px solid rgba(255,255,255,0.14);
   border-radius: var(--radius-xl);
-  padding: 1.75rem;
-  display: flex; flex-direction: column; gap: 1.25rem;
-  align-self: flex-end; margin-bottom: 2rem;
+  padding: 1.4rem;
+  display: flex; flex-direction: column; gap: 1rem;
+  align-self: flex-end; margin-bottom: 0;
   box-shadow: 0 0 0 1px rgba(255,255,255,0.04) inset, 0 32px 80px rgba(0,0,0,0.5);
   animation: cardIn 1s var(--ease-smooth) 0.35s both;
 }
@@ -336,8 +339,9 @@ a.heroBigLink:hover {
 
 /* ── Responsive ── */
 @media (max-width: 920px) {
-  .heroInner { grid-template-columns: 1fr; padding-bottom: 2rem; }
+  .hero { height: auto; min-height: 100svh; max-height: none; }
+  .heroInner { grid-template-columns: 1fr; padding-bottom: 2rem; height: auto; }
   .heroCard { width: 100%; margin-bottom: 0; align-self: auto; }
-  .heroTitle { font-size: clamp(3.5rem, 16vw, 6rem); }
+  .heroTitle { font-size: clamp(3rem, 14vw, 5.5rem); }
   .heroScrollHint { display: none; }
 }

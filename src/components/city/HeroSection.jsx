@@ -49,7 +49,7 @@ function scoreLabel(score) {
 }
 
 // ─── SCORE RING ───────────────────────────────────────────────────────────────
-function ScoreRing({ score, size = 110 }) {
+function ScoreRing({ score, size = 96 }) {
   const [animated, setAnimated] = useState(false);
   const r = 44;
   const circ = 2 * Math.PI * r;

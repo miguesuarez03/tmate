@@ -228,11 +228,120 @@ function StarRating({ value, onChange }) {
   );
 }
 
+function TestimonialCard({ t, onClick, compact }) {
+  return (
+    <button
+      type="button"
+      className={`community-card${compact ? " community-card--compact" : ""}`}
+      onClick={onClick}
+    >
+      <div className="community-card__img">
+        <img src={t.photo} alt={t.city} loading="lazy" />
+        <div className="community-card__img-overlay" />
+        <div className="community-card__city-badge">
+          <span>{t.flag}</span>
+          <span>{t.city}</span>
+        </div>
+        <div className="community-card__stars">
+          {[1,2,3,4,5].map(n => (
+            <span key={n} className={n <= t.stars ? "star--on" : "star--off"}>★</span>
+          ))}
+        </div>
+      </div>
+      <div className="community-card__body">
+        <div className="community-card__author">
+          <div className="community-card__avatar" style={{ background: t.color }}>
+            {t.avatar}
+          </div>
+          <div>
+            <p className="community-card__name">{t.name}</p>
+            <p className="community-card__meta">{t.flag} Erasmus en {t.city}</p>
+          </div>
+          <span className="community-card__quote">"</span>
+        </div>
+        <p className="community-card__text community-card__text--clamp">{t.text}</p>
+      </div>
+    </button>
+  );
+}
+
+function AllTestimonialsModal({ onClose, onSelect }) {
+  const [cityFilter, setCityFilter] = useState("Todas");
+  const [starFilter, setStarFilter] = useState(0);
+
+  const cities = ["Todas", ...Array.from(new Set(TESTIMONIALS.map(t => t.city)))];
+
+  const filtered = TESTIMONIALS.filter(t => {
+    const cityOk = cityFilter === "Todas" || t.city === cityFilter;
+    const starOk = starFilter === 0 || t.stars >= starFilter;
+    return cityOk && starOk;
+  });
+
+  return (
+    <div className="all-testimonials-overlay" onClick={onClose}>
+      <div className="all-testimonials-modal" onClick={e => e.stopPropagation()}>
+        <div className="all-testimonials-modal__header">
+          <h3>Todas las opiniones</h3>
+          <button type="button" className="all-testimonials-modal__close" onClick={onClose} aria-label="Cerrar">✕</button>
+        </div>
+
+        <div className="all-testimonials-modal__filters">
+          <div className="at-filter-group">
+            <span className="at-filter-group__label">Destino</span>
+            <div className="at-filter-pills">
+              {cities.map(c => (
+                <button
+                  key={c}
+                  type="button"
+                  className={`at-filter-pill${cityFilter === c ? " at-filter-pill--active" : ""}`}
+                  onClick={() => setCityFilter(c)}
+                >
+                  {c}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="at-filter-group">
+            <span className="at-filter-group__label">Estrellas</span>
+            <div className="at-filter-pills">
+              {[0,5,4,3].map(s => (
+                <button
+                  key={s}
+                  type="button"
+                  className={`at-filter-pill${starFilter === s ? " at-filter-pill--active" : ""}`}
+                  onClick={() => setStarFilter(s)}
+                >
+                  {s === 0 ? "Todas" : `${s}★ y más`}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="all-testimonials-modal__count">
+          {filtered.length} {filtered.length === 1 ? "opinión" : "opiniones"}
+        </div>
+
+        <div className="all-testimonials-modal__grid">
+          {filtered.length === 0 ? (
+            <p className="all-testimonials-modal__empty">No hay opiniones con estos filtros.</p>
+          ) : (
+            filtered.map((t, i) => (
+              <TestimonialCard key={i} t={t} onClick={() => onSelect(t)} compact />
+            ))
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function CommunitySection() {
   const [formData, setFormData] = useState({ name: "", anon: false, city: "", text: "", stars: 0, photo: null });
   const [submitted, setSubmitted] = useState(false);
   const [photoPreview, setPhotoPreview] = useState(null);
   const [activeTestimonial, setActiveTestimonial] = useState(null);
+  const [showAllModal, setShowAllModal] = useState(false);
   const fileRef = useRef(null);
 
   const handlePhoto = (e) => {
@@ -262,47 +371,25 @@ function CommunitySection() {
         </p>
       </div>
 
-      {/* Tarjetas mixtas: opinión + foto unidos */}
-      <div className="community-cards">
-        {TESTIMONIALS.map((t, i) => (
-          <button
-            key={i}
-            type="button"
-            className="community-card"
-            onClick={() => setActiveTestimonial(t)}
-          >
-            {/* Foto del destino */}
-            <div className="community-card__img">
-              <img src={t.photo} alt={t.city} loading="lazy" />
-              <div className="community-card__img-overlay" />
-              <div className="community-card__city-badge">
-                <span>{t.flag}</span>
-                <span>{t.city}</span>
-              </div>
-              {/* Estrellas sobre la foto */}
-              <div className="community-card__stars">
-                {[1,2,3,4,5].map(n => (
-                  <span key={n} className={n <= t.stars ? "star--on" : "star--off"}>★</span>
-                ))}
-              </div>
-            </div>
-            {/* Opinión */}
-            <div className="community-card__body">
-              <div className="community-card__author">
-                <div className="community-card__avatar" style={{ background: t.color }}>
-                  {t.avatar}
-                </div>
-                <div>
-                  <p className="community-card__name">{t.name}</p>
-                  <p className="community-card__meta">{t.flag} Erasmus en {t.city}</p>
-                </div>
-                <span className="community-card__quote">"</span>
-              </div>
-              <p className="community-card__text community-card__text--clamp">{t.text}</p>
-            </div>
-          </button>
+      {/* Línea horizontal de tarjetas + acceso a ver todas */}
+      <div className="community-cards-row">
+        {TESTIMONIALS.slice(0, 5).map((t, i) => (
+          <TestimonialCard key={i} t={t} onClick={() => setActiveTestimonial(t)} />
         ))}
       </div>
+      <div className="community-cards-more">
+        <button type="button" className="community-cards-more__btn" onClick={() => setShowAllModal(true)}>
+          Ver más opiniones →
+        </button>
+      </div>
+
+      {/* Modal con todas las opiniones + filtros */}
+      {showAllModal && (
+        <AllTestimonialsModal
+          onClose={() => setShowAllModal(false)}
+          onSelect={(t) => { setShowAllModal(false); setActiveTestimonial(t); }}
+        />
+      )}
 
       {/* Modal de testimonio completo */}
       {activeTestimonial && (
@@ -500,7 +587,7 @@ export default function HomePage() {
   // SEO dinámico
   useSEO({ isHome: true });
 
-  const INITIAL_COUNT = 8;
+  const INITIAL_COUNT = 6;
   const displayedCities = showAll ? filtered : filtered.slice(0, INITIAL_COUNT);
 
   return (
@@ -573,13 +660,13 @@ export default function HomePage() {
                 Limpiar filtros
               </button>
             )}
-            <span className="section__count">{totalCount} ciudades</span>
+            <span className="section__count">{totalCount} ciudad{totalCount !== 1 ? 'es' : ''}</span>
           </div>
         </div>
         <div className="filters">
           {regions.map((r) => (
-            <button key={r} className={`filter-pill${region === r ? " filter-pill--active" : ""}`}
-              onClick={() => { setRegion(r); setShowAll(false); }}>
+            <button key={r} className={`filter-pill${(region || 'Todos') === r ? " filter-pill--active" : ""}`}
+              onClick={() => { setRegion(r === 'Todos' ? null : r); setShowAll(false); }}>
               {r}
             </button>
           ))}

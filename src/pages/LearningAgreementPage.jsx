@@ -127,22 +127,20 @@ function FirmasDiagram() {
       <div className={styles.firmasRow}>
         {FIRMAS.map((firma, i) => (
           <div key={firma.id} className={styles.firmaCol}>
-            {i > 0 && (
-              <div className={styles.firmaArrow}>
-                <div className={styles.firmaArrowLine} />
-                <span className={styles.firmaArrowTip}>→</span>
-              </div>
-            )}
             <button
               className={`${styles.firmaCard} ${active === firma.id ? styles.firmaCardActive : ""}`}
               style={{ "--firma-color": firma.color }}
               onClick={() => setActive(v => v === firma.id ? null : firma.id)}
             >
-              <span className={styles.firmaStep}>{firma.step}</span>
+              <span className={styles.firmaBadge}>{i + 1}</span>
               <span className={styles.firmaIcon}>{firma.icon}</span>
               <span className={styles.firmaLabel}>{firma.label}</span>
               <span className={styles.firmaDesc}>{firma.desc}</span>
+              <span className={styles.firmaCheck}>✓ Debe firmar</span>
             </button>
+            {i < FIRMAS.length - 1 && (
+              <span className={styles.firmaPlus} aria-hidden="true">+</span>
+            )}
           </div>
         ))}
       </div>
@@ -155,7 +153,7 @@ function FirmasDiagram() {
           <span className={styles.firmaDetailIcon}>{activeData.icon}</span>
           <div>
             <strong className={styles.firmaDetailTitle} style={{ color: activeData.color }}>
-              {activeData.label} — {activeData.step}
+              {activeData.label}
             </strong>
             <p className={styles.firmaDetailText}>{activeData.detail}</p>
           </div>
@@ -163,7 +161,7 @@ function FirmasDiagram() {
       )}
 
       {!active && (
-        <p className={styles.firmaHint}>Toca cualquier parte para ver qué hace cada uno</p>
+        <p className={styles.firmaHint}>Las 3 firmas son sobre el mismo documento, no pasos consecutivos. Toca cada parte para ver qué hace.</p>
       )}
     </div>
   );
@@ -171,12 +169,16 @@ function FirmasDiagram() {
 
 function TipCard({ tip }) {
   const [open, setOpen] = useState(false);
+
   return (
-    <div
-      className={`${styles.tipCard} ${open ? styles.tipCardOpen : ""}`}
-      style={{ "--tip-color": tip.color }}
-    >
-      <button className={styles.tipHeader} onClick={() => setOpen(v => !v)}>
+    <>
+      {/* Tarjeta siempre visible — click abre modal */}
+      <button
+        type="button"
+        className={styles.tipCard}
+        style={{ "--tip-color": tip.color }}
+        onClick={() => setOpen(true)}
+      >
         <div className={styles.tipHeaderLeft}>
           <span className={styles.tipIcon} style={{ background: tip.color + "18", color: tip.color }}>
             {tip.icon}
@@ -184,19 +186,46 @@ function TipCard({ tip }) {
           <div className={styles.tipHeaderText}>
             <div className={styles.tipTag} style={{ color: tip.color }}>{tip.tag}</div>
             <div className={styles.tipTitle}>{tip.title}</div>
-            {!open && <div className={styles.tipShort}>{tip.short}</div>}
+            <div className={styles.tipShort}>{tip.short}</div>
           </div>
         </div>
-        <span className={styles.tipChevron} style={{ color: tip.color }}>
-          {open ? "▲" : "▼"}
-        </span>
+        <span className={styles.tipChevron} style={{ color: tip.color }}>→</span>
       </button>
+
+      {/* Modal popup */}
       {open && (
-        <div className={styles.tipBody}>
-          <p style={{ whiteSpace: "pre-line" }}>{tip.content}</p>
+        <div className={styles.tipModalOverlay} onClick={() => setOpen(false)}>
+          <div
+            className={styles.tipModal}
+            style={{ "--tip-color": tip.color }}
+            onClick={e => e.stopPropagation()}
+          >
+            <div className={styles.tipModalHeader} style={{ borderColor: tip.color + "40" }}>
+              <div className={styles.tipHeaderLeft}>
+                <span className={styles.tipIcon} style={{ background: tip.color + "18", color: tip.color }}>
+                  {tip.icon}
+                </span>
+                <div className={styles.tipHeaderText}>
+                  <div className={styles.tipTag} style={{ color: tip.color }}>{tip.tag}</div>
+                  <div className={styles.tipTitle}>{tip.title}</div>
+                </div>
+              </div>
+              <button
+                type="button"
+                className={styles.tipModalClose}
+                onClick={() => setOpen(false)}
+                aria-label="Cerrar"
+              >
+                ✕
+              </button>
+            </div>
+            <div className={styles.tipModalBody}>
+              <p style={{ whiteSpace: "pre-line" }}>{tip.content}</p>
+            </div>
+          </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 

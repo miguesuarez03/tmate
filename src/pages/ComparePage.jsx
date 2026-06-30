@@ -31,35 +31,79 @@ function getScoreMap(slug) {
 
 /* ─── Versus Card (per category) ───────────────────────────────────────── */
 function VersusCard({ categoryMeta, rows }) {
+  const [open, setOpen] = useState(false);
   const maxScore = Math.max(...rows.map((r) => r.score));
   const winners = rows.filter((r) => r.score === maxScore);
   const isTie = winners.length > 1;
+  const winnerCity = !isTie ? rows.find(r => r.score === maxScore) : null;
 
   return (
     <div className={styles.versusCard}>
-      <div className={styles.versusCardHeader}>
-        <span className={styles.versusCardIcon}>{categoryMeta.icon}</span>
-        <span className={styles.versusCardLabel}>{categoryMeta.label}</span>
-      </div>
-      <div className={styles.versusCardRows} style={{ "--vc-cols": rows.length }}>
-        {rows.map((r) => {
-          const isWinner = !isTie && r.score === maxScore;
-          return (
-            <div key={r.city.slug}
-              className={`${styles.versusCol} ${isWinner ? styles.versusColWinner : ""}`}
-              style={{ "--accent": r.color }}>
-              <div className={styles.versusColHead}>
-                <span className={styles.versusColName} style={{ color: r.color }}>{r.city.name}</span>
-                {isWinner && <span className={styles.versusTrophy} title="Gana en esta categoría">🏆</span>}
+      {/* Header — siempre visible, clickable */}
+      <button
+        type="button"
+        className={styles.versusCardHeader}
+        onClick={() => setOpen(o => !o)}
+        aria-expanded={open}
+      >
+        <div className={styles.versusCardHeaderLeft}>
+          <span className={styles.versusCardIcon}>{categoryMeta.icon}</span>
+          <span className={styles.versusCardLabel}>{categoryMeta.label}</span>
+        </div>
+
+        {/* Mini barras verticales — siempre visibles */}
+        <div className={styles.versusMiniBars}>
+          {rows.map((r) => {
+            const isW = !isTie && r.score === maxScore;
+            return (
+              <div key={r.city.slug} className={styles.versusMiniBarWrap}>
+                <div className={styles.versusMiniBar}>
+                  <div
+                    className={styles.versusMiniBarFill}
+                    style={{ height: `${(r.score / 10) * 100}%`, background: r.color, opacity: isW ? 1 : 0.5 }}
+                  />
+                </div>
+                <span className={styles.versusMiniScore} style={{ color: isW ? r.color : "var(--color-muted)" }}>
+                  {r.score.toFixed(1)}
+                </span>
               </div>
-              <span className={styles.versusColScore} style={isWinner ? { color: r.color } : {}}>
-                {r.score.toFixed(1)}
-              </span>
-              {r.phrase && <p className={styles.versusColPhrase}>{r.phrase}</p>}
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+
+        <span className={`${styles.versusChevron} ${open ? styles.versusChevronOpen : ""}`}>›</span>
+      </button>
+
+      {/* Detalle expandible */}
+      {open && (
+        <div className={styles.versusDetail}>
+          <div className={styles.versusDetailCols} style={{ "--vc-cols": rows.length }}>
+            {rows.map((r) => {
+              const isWinner = !isTie && r.score === maxScore;
+              return (
+                <div key={r.city.slug}
+                  className={`${styles.versusCol} ${isWinner ? styles.versusColWinner : ""}`}
+                  style={{ "--accent": r.color }}>
+                  <div className={styles.versusColHead}>
+                    <span className={styles.versusColName} style={{ color: r.color }}>{r.city.name}</span>
+                    {isWinner && <span className={styles.versusTrophy}>🏆</span>}
+                  </div>
+                  <span className={styles.versusColScore} style={isWinner ? { color: r.color } : {}}>
+                    {r.score.toFixed(1)}
+                  </span>
+                  <div className={styles.versusColBar}>
+                    <div
+                      className={styles.versusColBarFill}
+                      style={{ width: `${Math.min(100, (r.score / 10) * 100)}%`, background: r.color }}
+                    />
+                  </div>
+                  {r.phrase && <p className={styles.versusColPhrase}>{r.phrase}</p>}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -169,7 +213,7 @@ export default function ComparePage() {
                 const bestScoreObj = scoreMaps[i][bestCategory];
 
                 return (
-                  <div key={city.slug} className={styles.cityCard} style={{ "--accent": COL_COLORS[i] }}>
+                  <div key={city.slug} className={`${styles.cityCard}${isTop ? ` ${styles.cityCardWinner}` : ""}`} style={{ "--accent": COL_COLORS[i] }}>
                     <div className={styles.cityCardHero} style={{ backgroundImage: `url(${city.img})` }}>
                       <div className={styles.cityCardOverlay} style={{ background: `linear-gradient(to top, ${COL_COLORS[i]}cc 0%, rgba(0,0,0,0.2) 60%)` }} />
                       <div className={styles.cityCardTop}>
@@ -181,7 +225,7 @@ export default function ComparePage() {
                         <span className={styles.cityCardCountry}>{city.country}</span>
                       </div>
                       <div className={styles.cityCardBadges}>
-                        {isTop && <span className={styles.cityCardTag}>👑 Mejor puntuación</span>}
+                        {isTop && <span className={`${styles.cityCardTag} ${styles.cityCardTagBest}`}>👑 Mejor puntuación</span>}
                         {isCheapest && <span className={styles.cityCardTag}>💶 Más económica</span>}
                         {bestScoreObj && (
                           <span className={styles.cityCardTag}>
