@@ -23,6 +23,18 @@
   gap: 1rem;
 }
 
+/* Large card (01) — ocupa columna 1, filas 1-2 */
+.cardLarge {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  min-height: 440px;
+}
+
+/* Tarjeta 04 — ocupa las 2 columnas de la derecha en la fila 2 */
+.card:nth-child(4) {
+  grid-column: 2 / 4;
+}
+
 /* Card base */
 .card {
   position: relative;
@@ -125,12 +137,6 @@
   align-self: flex-start;
 }
 
-/* Large card */
-.cardLarge {
-  grid-row: 1 / 3;
-  min-height: 440px;
-}
-
 /* Photo background */
 .cardImg {
   position: absolute; inset: 0;
@@ -176,6 +182,7 @@
 @media (max-width: 860px) {
   .grid { grid-template-columns: 1fr 1fr; }
   .cardLarge { grid-row: auto; grid-column: 1 / 3; }
+  .card:nth-child(4) { grid-column: auto; }
 }
 
 @media (max-width: 540px) {
@@ -186,6 +193,7 @@
   }
   .card { min-height: 150px; border-radius: var(--radius-lg, 14px); }
   .cardLarge { grid-row: auto; grid-column: auto; min-height: 150px; }
+  .card:nth-child(4) { grid-column: auto; }
   .cardContent { padding: 0.9rem 0.9rem; gap: 0.25rem; }
   .cardNum { font-size: 0.62rem; }
   .cardText { font-size: 0.85rem; }
