@@ -10,7 +10,7 @@
 .hero {
   position: relative;
   background: var(--gradient-hero);
-  padding: 120px var(--section-px) 80px;
+  padding: 96px var(--section-px) 40px;
   overflow: hidden;
 }
 .heroBg {

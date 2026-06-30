@@ -10,7 +10,7 @@
 .selectorHero {
   position: relative;
   background: var(--gradient-hero);
-  padding: 120px var(--section-px) 64px;
+  padding: 96px var(--section-px) 40px;
   overflow: hidden;
 }
 .selectorHeroBg {
@@ -317,8 +317,9 @@
 .cityCard:nth-child(3) { animation-delay: 0.14s; }
 
 .cityCardHero {
-  position: relative; height: 200px;
+  position: relative; min-height: 220px;
   background-size: cover; background-position: center;
+  display: flex; flex-direction: column; justify-content: flex-end;
 }
 .cityCardOverlay { position: absolute; inset: 0; }
 .cityCardTop {
@@ -337,14 +338,32 @@
   transition: background 0.15s;
 }
 .removeBtn:hover { background: rgba(255,255,255,0.4); }
-.cityCardInfo { position: absolute; bottom: 16px; left: 18px; }
+.cityCardInfo { position: relative; padding: 0 18px; margin-bottom: 8px; }
 .cityCardName {
   font-family: var(--font-display);
-  font-size: 26px; font-weight: 900;
+  font-size: 24px; font-weight: 900;
   color: #fff; letter-spacing: -0.5px;
   text-shadow: 0 2px 12px rgba(0,0,0,0.4);
 }
 .cityCardCountry { font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 500; }
+
+.cityCardBadges {
+  position: relative; padding: 0 18px 14px;
+  display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+}
+.cityCardTag {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: rgba(255,255,255,0.16); backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff; font-size: 11px; font-weight: 700;
+  padding: 4px 10px; border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+.cityCardPhrase {
+  font-size: 11.5px; color: rgba(255,255,255,0.85); font-style: italic;
+  margin: 0; flex-basis: 100%;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
 
 .overallBadge {
   display: flex; align-items: center; gap: 8px;
@@ -388,111 +407,64 @@
 }
 .cityLinkBtn:hover { opacity: 1; background: color-mix(in srgb, currentColor 6%, transparent); }
 
-/* ─── ANALYSIS GRID (radar + scores) ────────────────────────────────────── */
-.analysisGrid {
+/* ─── VERSUS CARDS (per category) ───────────────────────────────────────── */
+.versusSection {}
+.versusGrid {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 24px;
-  align-items: start;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
 }
-@media (max-width: 860px) { .analysisGrid { grid-template-columns: 1fr; } }
+@media (max-width: 720px) { .versusGrid { grid-template-columns: 1fr; } }
 
-.radarCard {
+.versusCard {
   background: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
-  padding: 24px;
-  box-shadow: var(--shadow-sm);
-  display: flex; flex-direction: column; align-items: center;
-}
-.radar { width: 100%; max-width: 220px; }
-.radarLegend {
-  display: flex; flex-wrap: wrap; gap: 10px;
-  justify-content: center; margin-top: 16px;
-}
-.radarLegendItem {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 12px; font-weight: 600; color: var(--color-slate);
-}
-.radarDot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-
-/* ─── SCORES CARD ─────────────────────────────────────────────────────────── */
-.scoresCard {
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  padding: 24px;
+  padding: 20px;
   box-shadow: var(--shadow-sm);
 }
-.scoreGroup {
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--color-border);
-}
-.scoreGroup:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-.scoreGroupHeader {
+.versusCardHeader {
   display: flex; align-items: center; gap: 8px;
-  margin-bottom: 10px;
-  font-size: 13px;
+  margin-bottom: 14px;
 }
-.scoreGroupName { font-weight: 700; color: var(--color-dark); }
-.scoreBarRow {
-  display: grid;
-  grid-template-columns: 90px 1fr;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 6px;
-}
-.scoreBarRow:last-child { margin-bottom: 0; }
-.scoreBarCityName {
-  font-size: 12px; font-weight: 700;
-  text-align: right; white-space: nowrap;
-  overflow: hidden; text-overflow: ellipsis;
-}
-.scoreBarTrack {
-  position: relative; height: 24px;
-  background: var(--color-surface);
-  border-radius: var(--radius-full);
-  display: flex; align-items: center;
-  overflow: visible;
-}
-.scoreBarFill {
-  position: absolute; left: 0; top: 0; bottom: 0;
-  border-radius: var(--radius-full);
-  transition: width 0.7s var(--ease-smooth);
-  min-width: 4px;
-}
-.scoreBarNum {
-  position: relative; z-index: 1;
-  font-family: var(--font-display);
-  font-size: 13px; font-weight: 900;
-  margin-left: auto;
-  padding-right: 8px;
-  transition: color 0.3s;
-  flex-shrink: 0;
-}
+.versusCardIcon { font-size: 18px; }
+.versusCardLabel { font-weight: 700; color: var(--color-dark); font-size: 14px; }
 
-/* ─── BAR (legacy, kept for safety) ─────────────────────────────────────── */
-.barRow { display: flex; flex-direction: column; gap: 4px; margin-bottom: 8px; }
-.barMeta { display: flex; align-items: center; gap: 6px; }
-.barIcon { font-size: 14px; }
-.barName { font-size: 12px; font-weight: 600; color: var(--color-slate); }
-.barTrack {
-  position: relative; height: 28px;
-  background: var(--color-surface); border-radius: var(--radius-full);
-  overflow: hidden; display: flex; align-items: center;
+.versusCardRows {
+  display: grid;
+  grid-template-columns: repeat(var(--vc-cols, 2), 1fr);
+  gap: 12px;
 }
-.barFill {
-  position: absolute; left: 0; top: 0; bottom: 0;
-  border-radius: var(--radius-full); opacity: 0.3;
-  transition: width 0.6s var(--ease-smooth);
+.versusCol {
+  border-radius: var(--radius-lg);
+  padding: 12px;
+  background: var(--color-surface);
+  border: 1px solid transparent;
+  transition: border-color 0.2s, background 0.2s;
 }
-.barNum {
-  font-family: var(--font-display); font-size: 14px;
-  font-weight: 900; color: var(--color-dark);
-  position: relative; z-index: 1; margin-left: 10px;
+.versusColWinner {
+  background: color-mix(in srgb, var(--accent) 8%, var(--color-white));
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
 }
-.barNumBest { }
+.versusColHead {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 6px; margin-bottom: 4px;
+}
+.versusColName {
+  font-size: 12px; font-weight: 800;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.versusTrophy { font-size: 14px; flex-shrink: 0; }
+.versusColScore {
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 900;
+  color: var(--color-dark); line-height: 1;
+  display: block; margin-bottom: 6px;
+}
+.versusColPhrase {
+  font-size: 12px; line-height: 1.4;
+  color: var(--color-slate); margin: 0;
+}
 
 /* ─── FEATURES ───────────────────────────────────────────────────────────── */
 .featuresSection {}
@@ -535,75 +507,10 @@
   color: var(--color-muted); font-weight: 800;
 }
 
-/* ─── VERDICT ─────────────────────────────────────────────────────────────── */
-.verdictSection {}
-.verdictGrid {
-  display: grid;
-  grid-template-columns: repeat(var(--cols, 2), 1fr);
-  gap: 20px;
-}
-.verdictCard {
-  background: var(--color-white);
-  border: 2px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  padding: 32px 24px 24px;
-  position: relative; text-align: center;
-  transition: transform 0.2s var(--ease-spring);
-  animation: fadeUp 0.45s var(--ease-smooth) both;
-  display: flex; flex-direction: column; align-items: center; gap: 10px;
-}
-.verdictCard:nth-child(2) { animation-delay: 0.07s; }
-.verdictCard:nth-child(3) { animation-delay: 0.14s; }
-.verdictCardTop {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(14,165,233,0.18);
-}
-.verdictBadge {
-  position: absolute; top: -16px; left: 50%;
-  transform: translateX(-50%);
-  color: #fff; font-size: 12px; font-weight: 700;
-  padding: 5px 18px; border-radius: var(--radius-full);
-  white-space: nowrap; box-shadow: var(--shadow-brand);
-}
-.verdictEmoji { font-size: 36px; margin-top: 8px; }
-.verdictCity {
-  font-family: var(--font-display);
-  font-size: 20px; font-weight: 800; color: var(--color-dark);
-}
-.verdictScore {
-  font-family: var(--font-display);
-  font-size: 56px; font-weight: 900; line-height: 1;
-}
-.verdictTags {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 6px;
-}
-.verdictTag {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
-  padding: 4px 12px; font-size: 12px; font-weight: 600; color: var(--color-slate);
-}
-.verdictPhrase {
-  font-size: 13px; color: var(--color-muted);
-  font-style: italic; line-height: 1.5;
-}
-.verdictBtn {
-  color: #fff; border: none;
-  border-radius: var(--radius-full);
-  padding: 11px 24px; font-family: var(--font-body);
-  font-size: 14px; font-weight: 700; margin-top: 4px;
-  transition: transform 0.2s var(--ease-spring), box-shadow 0.2s;
-}
-.verdictBtn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-brand);
-}
-
 /* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .cityCards, .featuresGrid, .verdictGrid { grid-template-columns: 1fr; }
+  .cityCards, .featuresGrid { grid-template-columns: 1fr; }
   .selectionBar { flex-direction: column; align-items: stretch; }
   .compareBtn { text-align: center; }
   .cityGrid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
-  .scoreBarRow { grid-template-columns: 70px 1fr; }
 }

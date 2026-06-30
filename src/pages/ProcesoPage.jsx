@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { useSEO } from "../hooks/useSEO";
@@ -22,6 +22,13 @@ Factores que realmente importan:
 
 Visita la Oficina de Relaciones Internacionales (ORI) de tu facultad cuanto antes. Ellos tienen la lista de universidades con las que hay acuerdo, los requisitos concretos de cada plaza y los plazos exactos. Mucha gente llega tarde por no ir a informarse a tiempo.`,
     note: "Usa TMate para comparar ciudades con scores reales de estudiantes que ya estuvieron ahí. Es exactamente para esto.",
+    shortContent: [
+      "Elige bien: no es solo una ciudad bonita, es donde vas a vivir meses.",
+      "Tu nota media decide el orden de adjudicación de plazas.",
+      "Comprueba el idioma exigido y si necesitas certificado.",
+      "Mira qué asignaturas puedes convalidar de verdad.",
+      "Visita tu ORI cuanto antes — tienen plazos y requisitos exactos.",
+    ],
     languages: [
       { lang: "Inglés", cert: "Cambridge B2 / IELTS / TOEFL", note: "El más solicitado, vale para casi todos los países" },
       { lang: "Alemán", cert: "Goethe B1/B2", note: "Obligatorio para Alemania y Austria" },
@@ -44,6 +51,13 @@ Visita la Oficina de Relaciones Internacionales (ORI) de tu facultad cuanto ante
 
 Una vez enviada la solicitud, toca esperar. La resolución suele tardar entre 2 y 6 semanas.`,
     tip: "💡 Ordena las preferencias con cabeza. No pongas una ciudad de número 1 solo porque suena bien — compara scores reales en TMate antes de decidir.",
+    shortContent: [
+      "Tu uni abre el plazo entre octubre y febrero.",
+      "Ordena tus destinos por preferencia (3–5 opciones).",
+      "Adjunta expediente, certificado de idioma y carta de motivación.",
+      "La resolución tarda entre 2 y 6 semanas.",
+      "⚠️ Empieza a mirar piso y vuelos ya, aunque no sepas si te aceptan.",
+    ],
     urgencyAlert: {
       title: "⚠️ Empieza a mirar pisos y vuelos ahora mismo — aunque todavía no sepas si te aceptan",
       body: "Los alojamientos cerca de universidades con mucha demanda Erasmus se van en semanas. Cuando tengas la confirmación puede ser demasiado tarde para encontrar algo decente a buen precio.\n\nNadie va a avisarte ni a gestionarlo por ti — es tu responsabilidad buscar, reservar y pagar. Cuanto antes empieces a mirar, más opciones y mejores precios encontrarás. Empieza ya a explorar grupos de Facebook de la ciudad, plataformas locales y residencias universitarias.",
@@ -65,6 +79,12 @@ Una vez enviada la solicitud, toca esperar. La resolución suele tardar entre 2 
 · En algunos casos puedes cambiar tu orden de preferencias
 
 Lo más importante: mantén el contacto con tu ORI y responde rápido si te ofrecen una plaza de lista de espera. Los plazos son muy cortos.`,
+    shortContent: [
+      "✅ Aceptado: pasa directo al paso 4.",
+      "⏳ Lista de espera: algunas unis permiten esperar a que salga plaza.",
+      "Otras cierran el proceso para esta convocatoria.",
+      "Mantén contacto con tu ORI y responde rápido a cualquier oferta.",
+    ],
   },
   {
     num: "04",
@@ -81,6 +101,12 @@ Lo más importante: mantén el contacto con tu ORI y responde rápido si te ofre
 Sobre la beca: las cantidades varían según el país de destino y la universidad, pero en general rondan los 300–500€/mes. Lo importante es saber que el primer pago puede tardar semanas o incluso meses en llegar — planifica tener un colchón económico para los primeros meses. Nadie te lo adelanta.
 
 Mientras tanto, si aún no has empezado a buscar piso y vuelos, hazlo ahora sin falta.`,
+    shortContent: [
+      "Tu uni comunica tu nominación a la universidad de destino.",
+      "Te envía documentos a firmar (acuerdo bilateral, carta de compromiso).",
+      "Empieza la gestión de la beca Erasmus+ (300–500€/mes aprox).",
+      "El primer pago puede tardar — ten un colchón económico.",
+    ],
   },
   {
     num: "05",
@@ -100,6 +126,12 @@ Normalmente incluye:
 Créate la cuenta en su plataforma cuanto antes y sube la documentación sin esperar al último día. Las universidades extranjeras no suelen dar segundas oportunidades con los plazos.`,
     tip: "💡 En esta fase también arranca el Learning Agreement — el contrato académico que define qué asignaturas cursarás y cómo se convalidarán. Tenemos una guía completa para hacerlo bien.",
     laLink: true,
+    shortContent: [
+      "La universidad de destino te manda un email oficial clave.",
+      "Regístrate en su plataforma y sube documentación pronto.",
+      "Apunta bien todas las fechas límite — son estrictas.",
+      "Aquí arranca también el Learning Agreement.",
+    ],
   },
   {
     num: "06",
@@ -120,6 +152,13 @@ Créate la cuenta en su plataforma cuanto antes y sube la documentación sin esp
 📄 Firma electrónica / DNI electrónico — algunas universidades de destino requieren firma digital para sus trámites. Si necesitas activarla, hazlo con tiempo porque el proceso puede tardar.
 
 📁 Copia de todos tus documentos — guárdalos en la nube (Google Drive, iCloud). DNI/pasaporte, seguro, matrícula, Learning Agreement, datos bancarios. Si pierdes algo allí, lo agradecerás.`,
+    shortContent: [
+      "🏠 Piso — búscalo ya, los buenos vuelan semanas antes.",
+      "✈️ Vuelos — cuanto antes reserves, más barato.",
+      "🩺 Tarjeta Sanitaria Europea — gratis, pídela con 15 días.",
+      "🛡️ Seguro complementario — muchas unis lo exigen.",
+      "📁 Sube todos tus documentos a la nube por si acaso.",
+    ],
   },
   {
     num: "07",
@@ -136,6 +175,12 @@ Créate la cuenta en su plataforma cuanto antes y sube la documentación sin esp
 📝 Cambios en el Learning Agreement — si al llegar ves que alguna asignatura no te encaja o tiene conflicto de horario, hay un plazo (normalmente las primeras semanas) para modificarlo. Fuera de ese plazo no puedes cambiar nada.
 
 🏦 Cuenta bancaria local — en algunos países conviene abrirla para evitar comisiones. Pregunta a otros Erasmus qué banco usan allí.`,
+    shortContent: [
+      "📋 Certificado de llegada — sin él no cobras la beca. Consíguelo ya.",
+      "🎓 Ve a la orientación Erasmus, te explican todo.",
+      "📝 Hay un plazo corto para cambiar el Learning Agreement.",
+      "🏦 Plantéate abrir cuenta bancaria local si conviene.",
+    ],
   },
   {
     num: "08",
@@ -152,6 +197,12 @@ Créate la cuenta en su plataforma cuanto antes y sube la documentación sin esp
 📄 Informe final Erasmus — tu universidad de origen también puede pedirte una memoria o informe de la estancia. Consulta con tu ORI qué formato exigen.
 
 🎓 Convalidaciones — entrega toda la documentación a tu coordinador de grado para que tramiten las convalidaciones. El certificado de notas de la universidad de destino es el documento clave. El proceso puede tardar un par de meses en reflejarse en tu expediente — es normal.`,
+    shortContent: [
+      "📋 Certificado de salida — obligatorio para cerrar la beca.",
+      "📊 Rellena la encuesta de la UE, es obligatoria.",
+      "📄 Puede que tu uni te pida un informe final.",
+      "🎓 Entrega la documentación para tramitar convalidaciones.",
+    ],
   },
 ];
 
@@ -274,6 +325,106 @@ function StepDetail({ step }) {
   );
 }
 
+/* ─── MOBILE STORIES VIEW ───────────────────────────────────────────────── */
+function MobileStories({ steps, navigate }) {
+  const [active, setActive] = useState(0);
+  const touchStartX = useRef(null);
+  const step = steps[active];
+
+  function goNext() {
+    setActive((i) => Math.min(i + 1, steps.length - 1));
+  }
+  function goPrev() {
+    setActive((i) => Math.max(i - 1, 0));
+  }
+
+  function handleTouchStart(e) {
+    touchStartX.current = e.touches[0].clientX;
+  }
+  function handleTouchEnd(e) {
+    if (touchStartX.current === null) return;
+    const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+    const THRESHOLD = 40;
+    if (deltaX < -THRESHOLD) goNext();
+    else if (deltaX > THRESHOLD) goPrev();
+    touchStartX.current = null;
+  }
+
+  return (
+    <div className="proceso-stories">
+      <div className="proceso-stories__progress">
+        {steps.map((s, i) => (
+          <div key={s.num} className="proceso-stories__segment">
+            <div
+              className="proceso-stories__segment-fill"
+              style={{
+                width: i < active ? "100%" : i === active ? "100%" : "0%",
+                background: i <= active ? s.color : "var(--color-border)",
+              }}
+            />
+          </div>
+        ))}
+      </div>
+
+      <div
+        className="proceso-stories__card"
+        style={{ "--step-color": step.color }}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
+        <button className="proceso-back" onClick={() => navigate("/")} style={{ alignSelf: "flex-start" }}>
+          ← Inicio
+        </button>
+
+        <div className="proceso-stories__header">
+          <span className="proceso-stories__num">{step.num}</span>
+          <div className="proceso-stories__tag" style={{ background: step.color + "22", color: step.color }}>
+            {step.tag}
+          </div>
+        </div>
+
+        <h2 className="proceso-stories__title">
+          <span style={{ marginRight: 10 }}>{step.emoji}</span>
+          {step.title}
+        </h2>
+
+        <ul className="proceso-stories__list">
+          {(step.shortContent || []).map((line, i) => (
+            <li key={i}>{line}</li>
+          ))}
+        </ul>
+
+        {step.laLink && (
+          <button
+            className="proceso-la-callout__btn"
+            style={{ marginTop: 8 }}
+            onClick={() => navigate("/learning-agreement")}
+          >
+            Guía del Learning Agreement →
+          </button>
+        )}
+
+        <div className="proceso-stories__nav">
+          <button
+            className="proceso-stories__nav-zone proceso-stories__nav-zone--prev"
+            onClick={goPrev}
+            disabled={active === 0}
+            aria-label="Paso anterior"
+          />
+          <button
+            className="proceso-stories__nav-zone proceso-stories__nav-zone--next"
+            onClick={goNext}
+            disabled={active === steps.length - 1}
+            aria-label="Paso siguiente"
+          />
+        </div>
+      </div>
+
+      <div className="proceso-stories__counter">{active + 1} / {steps.length}</div>
+    </div>
+  );
+}
+
 /* ─── PAGE ───────────────────────────────────────────────────────────────── */
 
 export default function ProcesoPage() {
@@ -334,8 +485,8 @@ export default function ProcesoPage() {
         </div>
       </section>
 
-      {/* Main content */}
-      <section className="proceso-main">
+      {/* Main content — desktop (sidebar + detail) */}
+      <section className="proceso-main proceso-main--desktop-only">
         <div className="proceso-main__inner">
 
           {/* Step selector sidebar */}
@@ -397,6 +548,11 @@ export default function ProcesoPage() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Main content — mobile (stories format) */}
+      <section className="proceso-main--mobile-only">
+        <MobileStories steps={STEPS} navigate={navigate} />
       </section>
 
       {/* CTA */}

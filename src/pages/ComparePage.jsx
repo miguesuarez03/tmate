@@ -2,20 +2,20 @@ import { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { CITIES } from "../data/cities";
 import { getCityInsights, getOverallScore, parseMinCost } from "../lib/cities";
+import { getComparePhrase } from "../data/comparePhrases";
 import { Navbar, Footer } from "../components/Layout";
 import styles from "./ComparePage.module.css";
 
 const SCORE_IDS = [
-  "coste", "fiesta", "extranjeros", "transporte",
-  "piso", "erasmus_community", "seguridad", "clima",
-  "calidad_vida", "internships",
+  "coste", "alojamiento", "vida_social", "integracion",
+  "movilidad", "estilo_vida", "empleo", "seguridad",
 ];
 
-const COL_COLORS = ["#0EA5E9", "#8B5CF6", "#F59E0B"];
+const COL_COLORS = ["#0EA5E9", "#F59E0B", "#8B5CF6"];
 const COL_GRADIENTS = [
   "linear-gradient(135deg,#0EA5E9,#14B8A6)",
-  "linear-gradient(135deg,#8B5CF6,#EC4899)",
   "linear-gradient(135deg,#F59E0B,#EF4444)",
+  "linear-gradient(135deg,#8B5CF6,#EC4899)",
 ];
 
 function getScoreMap(slug) {
@@ -28,113 +28,39 @@ function getScoreMap(slug) {
   return map;
 }
 
-/* ─── Animated Score Bar ───────────────────────────────────────────────── */
-function ScoreBar({ score, max = 10, color, best, label, icon }) {
-  const [width, setWidth] = useState(0);
-  useEffect(() => {
-    const t = setTimeout(() => setWidth((score / max) * 100), 80);
-    return () => clearTimeout(t);
-  }, [score, max]);
+
+/* ─── Versus Card (per category) ───────────────────────────────────────── */
+function VersusCard({ categoryMeta, rows }) {
+  const maxScore = Math.max(...rows.map((r) => r.score));
+  const winners = rows.filter((r) => r.score === maxScore);
+  const isTie = winners.length > 1;
 
   return (
-    <div className={styles.barRow}>
-      <div className={styles.barMeta}>
-        <span className={styles.barIcon}>{icon}</span>
-        <span className={styles.barName}>{label}</span>
+    <div className={styles.versusCard}>
+      <div className={styles.versusCardHeader}>
+        <span className={styles.versusCardIcon}>{categoryMeta.icon}</span>
+        <span className={styles.versusCardLabel}>{categoryMeta.label}</span>
       </div>
-      <div className={styles.barTrack}>
-        <div
-          className={styles.barFill}
-          style={{
-            width: `${width}%`,
-            background: color,
-            boxShadow: best ? `0 0 10px ${color}80` : "none",
-          }}
-        />
-        <span className={`${styles.barNum} ${best ? styles.barNumBest : ""}`}
-          style={best ? { color } : {}}>
-          {score.toFixed(1)}
-        </span>
+      <div className={styles.versusCardRows} style={{ "--vc-cols": rows.length }}>
+        {rows.map((r) => {
+          const isWinner = !isTie && r.score === maxScore;
+          return (
+            <div key={r.city.slug}
+              className={`${styles.versusCol} ${isWinner ? styles.versusColWinner : ""}`}
+              style={{ "--accent": r.color }}>
+              <div className={styles.versusColHead}>
+                <span className={styles.versusColName} style={{ color: r.color }}>{r.city.name}</span>
+                {isWinner && <span className={styles.versusTrophy} title="Gana en esta categoría">🏆</span>}
+              </div>
+              <span className={styles.versusColScore} style={isWinner ? { color: r.color } : {}}>
+                {r.score.toFixed(1)}
+              </span>
+              {r.phrase && <p className={styles.versusColPhrase}>{r.phrase}</p>}
+            </div>
+          );
+        })}
       </div>
     </div>
-  );
-}
-
-/* ─── Radar Chart (SVG) ─────────────────────────────────────────────────── */
-function RadarChart({ cities, scoreMaps }) {
-  const SIZE = 200;
-  const CENTER = SIZE / 2;
-  const R = 80;
-  const LABELS = [
-    { id: "coste", label: "Coste" },
-    { id: "fiesta", label: "Fiesta" },
-    { id: "clima", label: "Clima" },
-    { id: "seguridad", label: "Seguridad" },
-    { id: "transporte", label: "Transporte" },
-    { id: "erasmus_community", label: "Erasmus" },
-  ];
-  const N = LABELS.length;
-
-  function toXY(angle, r) {
-    return [
-      CENTER + r * Math.cos(angle - Math.PI / 2),
-      CENTER + r * Math.sin(angle - Math.PI / 2),
-    ];
-  }
-
-  const rings = [0.25, 0.5, 0.75, 1];
-
-  return (
-    <svg viewBox={`0 0 ${SIZE} ${SIZE}`} className={styles.radar}>
-      {/* Grid rings */}
-      {rings.map((ring) => (
-        <polygon
-          key={ring}
-          points={LABELS.map((_, i) => {
-            const [x, y] = toXY((2 * Math.PI * i) / N, R * ring);
-            return `${x},${y}`;
-          }).join(" ")}
-          fill="none"
-          stroke="rgba(148,163,184,0.2)"
-          strokeWidth="1"
-        />
-      ))}
-      {/* Spokes */}
-      {LABELS.map((_, i) => {
-        const [x, y] = toXY((2 * Math.PI * i) / N, R);
-        return <line key={i} x1={CENTER} y1={CENTER} x2={x} y2={y} stroke="rgba(148,163,184,0.2)" strokeWidth="1" />;
-      })}
-      {/* Data polygons */}
-      {cities.map((city, ci) => {
-        const points = LABELS.map((l, i) => {
-          const score = scoreMaps[ci][l.id]?.score ?? 0;
-          const [x, y] = toXY((2 * Math.PI * i) / N, R * (score / 10));
-          return `${x},${y}`;
-        }).join(" ");
-        return (
-          <g key={city.slug}>
-            <polygon
-              points={points}
-              fill={COL_COLORS[ci]}
-              fillOpacity="0.15"
-              stroke={COL_COLORS[ci]}
-              strokeWidth="2"
-              strokeLinejoin="round"
-            />
-          </g>
-        );
-      })}
-      {/* Labels */}
-      {LABELS.map((l, i) => {
-        const [x, y] = toXY((2 * Math.PI * i) / N, R + 16);
-        return (
-          <text key={l.id} x={x} y={y} textAnchor="middle" dominantBaseline="middle"
-            fontSize="9" fill="var(--color-slate)" fontFamily="var(--font-body)" fontWeight="600">
-            {l.label}
-          </text>
-        );
-      })}
-    </svg>
   );
 }
 
@@ -202,101 +128,87 @@ export default function ComparePage() {
 
             {/* City header cards */}
             <div className={styles.cityCards} style={{ "--cols": selectedCities.length }}>
-              {selectedCities.map((city, i) => (
-                <div key={city.slug} className={styles.cityCard} style={{ "--accent": COL_COLORS[i] }}>
-                  <div className={styles.cityCardHero} style={{ backgroundImage: `url(${city.img})` }}>
-                    <div className={styles.cityCardOverlay} style={{ background: `linear-gradient(to top, ${COL_COLORS[i]}cc 0%, rgba(0,0,0,0.2) 60%)` }} />
-                    <div className={styles.cityCardTop}>
-                      <span className={styles.cityEmoji}>{city.emoji}</span>
-                      <button className={styles.removeBtn} onClick={() => remove(city.slug)}>✕</button>
+              {selectedCities.map((city, i) => {
+                const isTop = maxIdx === i;
+                const isCheapest = parseMinCost(city.costDetail) === Math.min(...selectedCities.map((c) => parseMinCost(c.costDetail)));
+                const bestCategory = SCORE_IDS.reduce((best, id) => {
+                  const s = scoreMaps[i][id]?.score ?? 0;
+                  const bs = scoreMaps[i][best]?.score ?? 0;
+                  return s > bs ? id : best;
+                }, SCORE_IDS[0]);
+                const bestScoreObj = scoreMaps[i][bestCategory];
+
+                return (
+                  <div key={city.slug} className={styles.cityCard} style={{ "--accent": COL_COLORS[i] }}>
+                    <div className={styles.cityCardHero} style={{ backgroundImage: `url(${city.img})` }}>
+                      <div className={styles.cityCardOverlay} style={{ background: `linear-gradient(to top, ${COL_COLORS[i]}cc 0%, rgba(0,0,0,0.2) 60%)` }} />
+                      <div className={styles.cityCardTop}>
+                        <span className={styles.cityEmoji}>{city.emoji}</span>
+                        <button className={styles.removeBtn} onClick={() => remove(city.slug)}>✕</button>
+                      </div>
+                      <div className={styles.cityCardInfo}>
+                        <h2 className={styles.cityCardName}>{city.name}</h2>
+                        <span className={styles.cityCardCountry}>{city.country}</span>
+                      </div>
+                      <div className={styles.cityCardBadges}>
+                        {isTop && <span className={styles.cityCardTag}>👑 Mejor puntuación</span>}
+                        {isCheapest && <span className={styles.cityCardTag}>💶 Más económica</span>}
+                        {bestScoreObj && (
+                          <span className={styles.cityCardTag}>
+                            {bestScoreObj.icon} Destaca en {bestScoreObj.label}
+                          </span>
+                        )}
+                        {city.phrase && <p className={styles.cityCardPhrase}>"{city.phrase}"</p>}
+                      </div>
                     </div>
-                    <div className={styles.cityCardInfo}>
-                      <h2 className={styles.cityCardName}>{city.name}</h2>
-                      <span className={styles.cityCardCountry}>{city.country}</span>
+
+                    {/* Score badge */}
+                    <div className={styles.overallBadge} style={{ background: COL_GRADIENTS[i] }}>
+                      {maxIdx === i && <span className={styles.crownIcon}>👑</span>}
+                      <span className={styles.overallNumber}>{overallScores[i].toFixed(1)}</span>
+                      <span className={styles.overallLabel}>/ 10</span>
+                      {maxIdx === i && <span className={styles.bestLabel}>Mejor puntuación</span>}
                     </div>
-                  </div>
 
-                  {/* Score badge */}
-                  <div className={styles.overallBadge} style={{ background: COL_GRADIENTS[i] }}>
-                    {maxIdx === i && <span className={styles.crownIcon}>👑</span>}
-                    <span className={styles.overallNumber}>{overallScores[i].toFixed(1)}</span>
-                    <span className={styles.overallLabel}>/ 10</span>
-                    {maxIdx === i && <span className={styles.bestLabel}>Mejor puntuación</span>}
-                  </div>
+                    {/* Quick stats */}
+                    <div className={styles.quickStats}>
+                      <div className={styles.stat}><span>💶</span><span>{city.costDetail}</span></div>
+                      <div className={styles.stat}><span>🎓</span><span>{city.erasmusStudents} Erasmus</span></div>
+                      <div className={styles.stat}><span>🌤️</span><span>{city.weather}</span></div>
+                      <div className={styles.stat}><span>🗣️</span><span>{city.language}</span></div>
+                    </div>
 
-                  {/* Quick stats */}
-                  <div className={styles.quickStats}>
-                    <div className={styles.stat}><span>💶</span><span>{city.costDetail}</span></div>
-                    <div className={styles.stat}><span>🎓</span><span>{city.erasmusStudents} Erasmus</span></div>
-                    <div className={styles.stat}><span>🌤️</span><span>{city.weather}</span></div>
-                    <div className={styles.stat}><span>🗣️</span><span>{city.language}</span></div>
+                    <button className={styles.cityLinkBtn} style={{ borderColor: COL_COLORS[i], color: COL_COLORS[i] }}
+                      onClick={() => navigate(`/city/${city.slug}`)}>
+                      Ver guía completa →
+                    </button>
                   </div>
-
-                  <button className={styles.cityLinkBtn} style={{ borderColor: COL_COLORS[i], color: COL_COLORS[i] }}
-                    onClick={() => navigate(`/city/${city.slug}`)}>
-                    Ver guía completa →
-                  </button>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
-            {/* Radar + scores side by side */}
-            <div className={styles.analysisGrid}>
-
-              {/* Radar chart */}
-              <div className={styles.radarCard}>
-                <h3 className={styles.sectionTitle}>Vista general</h3>
-                <RadarChart cities={selectedCities} scoreMaps={scoreMaps} />
-                <div className={styles.radarLegend}>
-                  {selectedCities.map((city, i) => (
-                    <div key={city.slug} className={styles.radarLegendItem}>
-                      <span className={styles.radarDot} style={{ background: COL_COLORS[i] }} />
-                      <span>{city.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Score bars */}
-              <div className={styles.scoresCard}>
-                <h3 className={styles.sectionTitle}>Puntuaciones detalladas</h3>
+            {/* Versus cards per category */}
+            <div className={styles.versusSection}>
+              <h3 className={styles.sectionTitle}>Puntuaciones detalladas</h3>
+              <div className={styles.versusGrid}>
                 {SCORE_IDS.map((id) => {
                   const rows = selectedCities.map((city, i) => ({
-                    city, scoreObj: scoreMaps[i][id], color: COL_COLORS[i],
+                    city,
+                    color: COL_COLORS[i],
+                    score: scoreMaps[i][id]?.score ?? 0,
+                    phrase: getComparePhrase(city.slug, id),
                   }));
-                  const scores = rows.map((r) => r.scoreObj?.score ?? 0);
-                  const maxScore = Math.max(...scores);
-                  const firstRow = rows[0].scoreObj;
-                  if (!firstRow) return null;
+                  const firstScoreObj = selectedCities
+                    .map((_, i) => scoreMaps[i][id])
+                    .find(Boolean);
+                  if (!firstScoreObj) return null;
 
                   return (
-                    <div key={id} className={styles.scoreGroup}>
-                      <div className={styles.scoreGroupHeader}>
-                        <span>{firstRow.icon}</span>
-                        <span className={styles.scoreGroupName}>{firstRow.label}</span>
-                      </div>
-                      {rows.map(({ city, scoreObj, color }) => (
-                        <div key={city.slug} className={styles.scoreBarRow}>
-                          <span className={styles.scoreBarCityName}
-                            style={{ color }}>
-                            {city.name}
-                          </span>
-                          <div className={styles.scoreBarTrack}>
-                            <div className={styles.scoreBarFill}
-                              style={{
-                                width: `${((scoreObj?.score ?? 0) / 10) * 100}%`,
-                                background: color,
-                                opacity: scoreObj?.score === maxScore ? 1 : 0.45,
-                              }}
-                            />
-                            <span className={styles.scoreBarNum}
-                              style={{ color: scoreObj?.score === maxScore ? color : "var(--color-slate)" }}>
-                              {(scoreObj?.score ?? 0).toFixed(1)}
-                            </span>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+                    <VersusCard
+                      key={id}
+                      categoryMeta={{ icon: firstScoreObj.icon, label: firstScoreObj.label }}
+                      rows={rows}
+                    />
                   );
                 })}
               </div>
@@ -340,56 +252,6 @@ export default function ComparePage() {
                     </div>
                   </div>
                 ))}
-              </div>
-            </div>
-
-            {/* Verdict */}
-            <div className={styles.verdictSection}>
-              <h3 className={styles.sectionTitle}>¿Cuál te conviene más?</h3>
-              <div className={styles.verdictGrid} style={{ "--cols": selectedCities.length }}>
-                {selectedCities.map((city, i) => {
-                  const overall = overallScores[i];
-                  const isTop = maxIdx === i;
-                  const isCheapest = parseMinCost(city.costDetail) === Math.min(...selectedCities.map((c) => parseMinCost(c.costDetail)));
-                  const bestCategory = SCORE_IDS.reduce((best, id) => {
-                    const s = scoreMaps[i][id]?.score ?? 0;
-                    const bs = scoreMaps[i][best]?.score ?? 0;
-                    return s > bs ? id : best;
-                  }, SCORE_IDS[0]);
-                  const bestScoreObj = scoreMaps[i][bestCategory];
-
-                  return (
-                    <div key={city.slug}
-                      className={`${styles.verdictCard} ${isTop ? styles.verdictCardTop : ""}`}
-                      style={{ borderColor: isTop ? COL_COLORS[i] : "var(--color-border)", "--accent": COL_COLORS[i] }}>
-                      {isTop && (
-                        <div className={styles.verdictBadge} style={{ background: COL_GRADIENTS[i] }}>
-                          👑 Mejor puntuación general
-                        </div>
-                      )}
-                      <div className={styles.verdictEmoji}>{city.emoji}</div>
-                      <div className={styles.verdictCity}>{city.name}</div>
-                      <div className={styles.verdictScore} style={{ WebkitTextFillColor: "transparent",
-                        backgroundImage: COL_GRADIENTS[i], WebkitBackgroundClip: "text", backgroundClip: "text" }}>
-                        {overall.toFixed(1)}
-                      </div>
-                      <div className={styles.verdictTags}>
-                        {isCheapest && <span className={styles.verdictTag}>💶 Más económica</span>}
-                        {bestScoreObj && (
-                          <span className={styles.verdictTag}>
-                            {bestScoreObj.icon} Destaca en {bestScoreObj.label}
-                          </span>
-                        )}
-                      </div>
-                      <p className={styles.verdictPhrase}>"{city.phrase}"</p>
-                      <button className={styles.verdictBtn}
-                        style={{ background: COL_GRADIENTS[i] }}
-                        onClick={() => navigate(`/city/${city.slug}`)}>
-                        Ver guía →
-                      </button>
-                    </div>
-                  );
-                })}
               </div>
             </div>
 

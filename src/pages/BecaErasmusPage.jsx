@@ -328,6 +328,11 @@ export default function BecaErasmusPage() {
 
       <div className="beca-body">
 
+        {/* ── CALCULADORA ── */}
+        <section className="beca-section beca-section--light">
+          <Calculator />
+        </section>
+
         {/* ── ¿QUÉ ES? ── */}
         <section className="beca-section">
           <SectionLabel>Qué es</SectionLabel>
@@ -475,11 +480,6 @@ export default function BecaErasmusPage() {
               🇪🇺 Fuente: tarifas oficiales Erasmus+ KA131 2024-2025 (SEPIE / Comisión Europea). A partir de 4.000 km el importe es el mismo independientemente del tipo de transporte.
             </p>
           </div>
-        </section>
-
-        {/* ── CALCULADORA ── */}
-        <section className="beca-section beca-section--light">
-          <Calculator />
         </section>
 
         {/* ── COMPATIBILIDAD ── */}

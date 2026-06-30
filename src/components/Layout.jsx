@@ -51,30 +51,8 @@ const MENU_ITEMS = [
   },
 ];
 
-export function Navbar({ transparent = false }) {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => { document.body.style.overflow = ""; };
-  }, [menuOpen]);
-
-  const isDark = transparent && !scrolled && !menuOpen;
-  const linkColor = isDark ? "rgba(255,255,255,0.82)" : "var(--color-slate)";
-
-  const handleMenuAction = (action) => {
+function useMenuAction(navigate, setMenuOpen) {
+  return (action) => {
     setMenuOpen(false);
     setTimeout(() => {
       if (action === "explore") {
@@ -100,23 +78,14 @@ export function Navbar({ transparent = false }) {
       }
     }, 50);
   };
+}
+
+function NavMenuDrawer({ menuOpen, setMenuOpen }) {
+  const navigate = useNavigate();
+  const handleMenuAction = useMenuAction(navigate, setMenuOpen);
 
   return (
     <>
-      <nav className={`navbar ${scrolled || !transparent || menuOpen ? "navbar--scrolled" : ""}`}>
-        <Logo dark={!isDark} onClick={() => { setMenuOpen(false); navigate("/"); }} />
-
-        <button
-          className={`navbar__hamburger${menuOpen ? " navbar__hamburger--open" : ""}`}
-          aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
-          onClick={() => setMenuOpen((v) => !v)}
-        >
-          <span style={{ background: isDark ? "#fff" : "var(--color-dark)" }} />
-          <span style={{ background: isDark ? "#fff" : "var(--color-dark)" }} />
-          <span style={{ background: isDark ? "#fff" : "var(--color-dark)" }} />
-        </button>
-      </nav>
-
       {menuOpen && (
         <div className="nav-overlay" onClick={() => setMenuOpen(false)} />
       )}
@@ -148,23 +117,89 @@ export function Navbar({ transparent = false }) {
   );
 }
 
+export function HamburgerButton({ menuOpen, setMenuOpen, isDark }) {
+  return (
+    <button
+      className={`navbar__hamburger${menuOpen ? " navbar__hamburger--open" : ""}`}
+      aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+      onClick={() => setMenuOpen((v) => !v)}
+    >
+      <span style={{ background: isDark ? "#fff" : "var(--color-dark)" }} />
+      <span style={{ background: isDark ? "#fff" : "var(--color-dark)" }} />
+      <span style={{ background: isDark ? "#fff" : "var(--color-dark)" }} />
+    </button>
+  );
+}
+
+export function Navbar({ transparent = false }) {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
+  const isDark = transparent && !scrolled && !menuOpen;
+
+  return (
+    <>
+      <nav className={`navbar ${scrolled || !transparent || menuOpen ? "navbar--scrolled" : ""}`}>
+        <Logo dark={!isDark} onClick={() => { setMenuOpen(false); navigate("/"); }} />
+        <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={isDark} />
+      </nav>
+
+      <NavMenuDrawer menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+    </>
+  );
+}
+
 export function NavbarCity({ cityName, overall }) {
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
   return (
-    <nav className="navbar navbar--scrolled" style={{ position: "fixed", zIndex: 1000 }}>
-      <Logo dark onClick={() => navigate("/")} />
-      <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 13, fontFamily: "var(--font-body)", color: "var(--color-muted)" }}>
-        <span style={{ cursor: "pointer", color: "var(--color-primary)" }} onClick={() => navigate("/")}>Inicio</span>
-        <span>›</span>
-        <span style={{ color: "var(--color-dark)", fontWeight: 600 }}>{cityName}</span>
-      </div>
-      {overall && (
-        <div style={{ display: "flex", alignItems: "center", gap: 8, background: "var(--gradient-brand)", borderRadius: "var(--radius-full)", padding: "6px 18px" }}>
-          <span style={{ fontFamily: "var(--font-display)", fontSize: 22, fontWeight: 900, color: "#fff", lineHeight: 1 }}>{overall}</span>
-          <span style={{ fontSize: 12, color: "rgba(255,255,255,0.75)", fontWeight: 500 }}>/ 10</span>
+    <>
+      <nav className="navbar navbar--scrolled" style={{ position: "fixed", zIndex: 1000 }}>
+        <Logo dark onClick={() => navigate("/")} />
+        <div className="navbar__city-breadcrumb">
+          <span style={{ cursor: "pointer", color: "var(--color-primary)" }} onClick={() => navigate("/")}>Inicio</span>
+          <span>›</span>
+          <span style={{ color: "var(--color-dark)", fontWeight: 600 }}>{cityName}</span>
         </div>
-      )}
-    </nav>
+        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          {overall && (
+            <div style={{ display: "flex", alignItems: "center", gap: 8, background: "var(--gradient-brand)", borderRadius: "var(--radius-full)", padding: "6px 18px" }}>
+              <span style={{ fontFamily: "var(--font-display)", fontSize: 22, fontWeight: 900, color: "#fff", lineHeight: 1 }}>{overall}</span>
+              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.75)", fontWeight: 500 }}>/ 10</span>
+            </div>
+          )}
+          <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={false} />
+        </div>
+      </nav>
+
+      <NavMenuDrawer menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+    </>
   );
 }
 
