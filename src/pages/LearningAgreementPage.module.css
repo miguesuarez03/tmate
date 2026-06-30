@@ -244,21 +244,25 @@
   background: var(--color-white);
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: 16px 18px;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.tipCard:hover, .tipCardOpen {
+  border-color: var(--tip-color);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+.tipHeader {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 18px 20px;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 14px;
-  width: 100%;
-  font: inherit;
-  text-align: left;
+  gap: 16px;
+  font-family: var(--font-body);
   cursor: pointer;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-}
-.tipCard:hover {
-  border-color: var(--tip-color);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-  transform: translateY(-2px);
+  text-align: left;
 }
 .tipHeaderLeft {
   display: flex;
@@ -296,17 +300,23 @@
   margin-top: 3px;
 }
 .tipChevron {
-  font-size: 16px;
+  font-size: 11px;
   flex-shrink: 0;
-  margin-top: 4px;
-  color: var(--tip-color);
-  opacity: 0.7;
-  transition: opacity 0.2s;
+  margin-top: 6px;
+  transition: transform 0.2s;
 }
-.tipCard:hover .tipChevron { opacity: 1; }
+.tipBody {
+  padding: 16px 20px 20px 74px;
+  font-size: 14px;
+  color: var(--color-slate);
+  line-height: 1.7;
+  border-top: 1px solid var(--color-border);
+  animation: fadeUp 0.25s var(--ease-smooth) both;
+}
+.tipBody p { margin: 0; }
 
-/* ── TIP MODAL ── */
-.tipModalOverlay {
+/* ── FIRMA MODAL ── */
+.firmaModalOverlay {
   position: fixed; inset: 0; z-index: 1200;
   background: rgba(15,23,42,0.65);
   backdrop-filter: blur(5px);
@@ -316,45 +326,41 @@
 }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-.tipModal {
+.firmaModal {
   background: var(--color-white);
   border-radius: var(--radius-xl);
-  max-width: 540px;
+  max-width: 460px;
   width: 100%;
-  max-height: 82vh;
-  overflow-y: auto;
+  overflow: hidden;
   box-shadow: 0 32px 80px rgba(0,0,0,0.3);
-  animation: tipPopIn 0.25s var(--ease-spring) both;
-  border-top: 4px solid var(--tip-color);
+  animation: firmaPopIn 0.25s var(--ease-spring) both;
+  border-top: 4px solid var(--firma-color);
 }
-@keyframes tipPopIn {
+@keyframes firmaPopIn {
   from { opacity: 0; transform: scale(0.93) translateY(10px); }
   to   { opacity: 1; transform: scale(1) translateY(0); }
 }
-.tipModalHeader {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 14px;
-  padding: 20px 20px 16px;
+.firmaModalHeader {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 14px; padding: 20px 20px 16px;
   border-bottom: 1px solid var(--color-border);
 }
-.tipModalClose {
+.firmaModalLeft {
+  display: flex; align-items: center; gap: 14px; flex: 1;
+}
+.firmaModalClose {
   width: 30px; height: 30px; border-radius: 50%;
   background: var(--color-surface);
   border: none; cursor: pointer; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
   font-size: 13px; color: var(--color-dark);
-  margin-top: 2px;
 }
-.tipModalClose:hover { background: var(--color-border); }
-.tipModalBody {
+.firmaModalClose:hover { background: var(--color-border); }
+.firmaModalBody {
   padding: 20px 22px 26px;
-  font-size: 14px;
-  color: var(--color-slate);
-  line-height: 1.75;
+  font-size: 14px; color: var(--color-slate); line-height: 1.75;
 }
-.tipModalBody p { margin: 0; }
+.firmaModalBody p { margin: 0; }
 
 /* ── CHECKLIST ── */
 .checklist {
@@ -365,110 +371,100 @@
   box-shadow: var(--shadow-sm);
 }
 .checklistHeader {
-  padding: 24px 24px 20px;
+  padding: 18px 20px 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 16px;
   border-bottom: 1px solid var(--color-border);
-  flex-wrap: wrap;
+}
+.checklistHeaderLeft {
+  flex: 1; display: flex; flex-direction: column; gap: 8px;
 }
 .checklistTitle {
   font-family: var(--font-display);
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 800;
   color: var(--color-dark);
-  margin-bottom: 4px;
-}
-.checklistSub {
-  font-size: 13px;
-  color: var(--color-muted);
-}
-.checklistProgress {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 6px;
-  min-width: 120px;
-}
-.checklistPct {
-  font-family: var(--font-display);
-  font-size: 28px;
-  font-weight: 900;
-  color: var(--color-dark);
-  line-height: 1;
+  margin: 0;
 }
 .checklistBar {
-  width: 120px;
-  height: 6px;
+  height: 5px;
   background: var(--color-border);
   border-radius: var(--radius-full);
   overflow: hidden;
+  width: 100%;
 }
 .checklistFill {
   height: 100%;
   border-radius: var(--radius-full);
   transition: width 0.4s var(--ease-smooth);
 }
+.checklistPctWrap {
+  display: flex; flex-direction: column; align-items: flex-end; gap: 2px; flex-shrink: 0;
+}
+.checklistPct {
+  font-family: var(--font-display);
+  font-size: 24px; font-weight: 900; line-height: 1;
+}
 .checklistCount {
-  font-size: 12px;
-  color: var(--color-muted);
-  font-weight: 600;
+  font-size: 11px; color: var(--color-muted); font-weight: 600;
 }
-.checklistItems {
-  display: flex;
-  flex-direction: column;
+
+/* Grid de pills */
+.checklistGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 14px 16px 16px;
 }
-.checklistItem {
+.checklistPill {
   display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px 24px;
-  border: none;
-  border-bottom: 1px solid var(--color-border);
-  background: none;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
   font-family: var(--font-body);
   cursor: pointer;
   text-align: left;
-  transition: background 0.15s;
+  transition: all 0.15s;
 }
-.checklistItem:last-child { border-bottom: none; }
-.checklistItem:hover { background: var(--color-surface); }
-.checklistItemDone { background: #f0fdf9; }
-.checklistItemDone:hover { background: #e8faf4; }
-.checklistBox {
-  width: 22px;
-  height: 22px;
-  border: 2px solid var(--color-border);
-  border-radius: 6px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  font-weight: 800;
-  color: #10B981;
-  transition: border-color 0.2s, background 0.2s;
+.checklistPill:hover {
+  border-color: #0EA5E9;
+  background: #f0f9ff;
 }
-.checklistItemDone .checklistBox {
+.checklistPillDone {
+  background: #f0fdf9;
   border-color: #10B981;
-  background: #10B981;
-  color: #fff;
 }
-.checklistText {
-  font-size: 14px;
-  color: var(--color-slate);
+.checklistPillDone:hover { background: #e8faf4; }
+.checklistPillIcon {
+  font-size: 15px;
+  flex-shrink: 0;
+  line-height: 1.3;
+  color: #10B981;
+  font-weight: 800;
+}
+.checklistPill:not(.checklistPillDone) .checklistPillIcon {
+  color: var(--color-muted);
+}
+.checklistPillText {
+  font-size: 12px;
   line-height: 1.4;
+  color: var(--color-slate);
 }
-.checklistItemDone .checklistText {
+.checklistPillDone .checklistPillText {
   color: var(--color-muted);
   text-decoration: line-through;
 }
+
 .checklistDone {
-  padding: 16px 24px;
+  padding: 12px 20px;
   background: #f0fdf9;
   border-top: 1px solid #10B98133;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   color: #065f46;
   text-align: center;
@@ -505,23 +501,12 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 640px) {
-  .firmaPlus {
-    display: none;
-  }
-  .firmasRow {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
+  .firmaPlus { display: none; }
+  .firmasRow { display: flex; flex-direction: column; gap: 12px; }
   .tipModal { max-height: 90vh; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
   .tipModalOverlay { align-items: flex-end; padding: 0; }
-  .checklistHeader {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .checklistProgress {
-    align-items: flex-start;
-  }
+  .checklistGrid { grid-template-columns: 1fr; }
+  .checklistHeader { flex-wrap: wrap; }
   .checklistBar { width: 100%; }
 }
 

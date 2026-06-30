@@ -2080,6 +2080,35 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* Distance calculator (punto 12) */
+/* ─── SEARCHABLE INPUT ───────────────────────────────────────────────────── */
+.beca-searchable {
+  position: relative;
+  flex: 1;
+}
+.beca-searchable__dropdown {
+  position: absolute; top: calc(100% + 4px); left: 0; right: 0;
+  background: #fff;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  z-index: 200;
+  overflow: hidden;
+  max-height: 260px;
+  overflow-y: auto;
+}
+.beca-searchable__option {
+  display: flex; align-items: center; gap: 8px;
+  width: 100%; padding: 9px 12px;
+  background: none; border: none;
+  font-family: var(--font-body); font-size: 13px;
+  cursor: pointer; text-align: left;
+  transition: background 0.12s;
+}
+.beca-searchable__option:hover { background: var(--color-surface); }
+.beca-searchable__emoji { font-size: 15px; flex-shrink: 0; }
+.beca-searchable__label { font-weight: 600; color: var(--color-dark); flex: 1; }
+.beca-searchable__sublabel { font-size: 11px; color: var(--color-muted); }
+
 .beca-distance-calc {
   background: var(--color-bg-soft, #F8FAFC);
   border: 1.5px dashed var(--color-border);

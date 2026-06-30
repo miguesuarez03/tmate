@@ -128,9 +128,9 @@ function FirmasDiagram() {
         {FIRMAS.map((firma, i) => (
           <div key={firma.id} className={styles.firmaCol}>
             <button
-              className={`${styles.firmaCard} ${active === firma.id ? styles.firmaCardActive : ""}`}
+              className={styles.firmaCard}
               style={{ "--firma-color": firma.color }}
-              onClick={() => setActive(v => v === firma.id ? null : firma.id)}
+              onClick={() => setActive(firma.id)}
             >
               <span className={styles.firmaBadge}>{i + 1}</span>
               <span className={styles.firmaIcon}>{firma.icon}</span>
@@ -145,23 +145,37 @@ function FirmasDiagram() {
         ))}
       </div>
 
+      <p className={styles.firmaHint}>Las 3 firmas son sobre el mismo documento, no pasos consecutivos. Toca cada parte para ver qué hace.</p>
+
+      {/* Modal popup */}
       {activeData && (
-        <div
-          className={styles.firmaDetail}
-          style={{ borderColor: activeData.color, background: activeData.color + "0d" }}
-        >
-          <span className={styles.firmaDetailIcon}>{activeData.icon}</span>
-          <div>
-            <strong className={styles.firmaDetailTitle} style={{ color: activeData.color }}>
-              {activeData.label}
-            </strong>
-            <p className={styles.firmaDetailText}>{activeData.detail}</p>
+        <div className={styles.firmaModalOverlay} onClick={() => setActive(null)}>
+          <div
+            className={styles.firmaModal}
+            style={{ "--firma-color": activeData.color }}
+            onClick={e => e.stopPropagation()}
+          >
+            <div className={styles.firmaModalHeader}>
+              <div className={styles.firmaModalLeft}>
+                <span className={styles.firmaIcon} style={{ fontSize: 28 }}>{activeData.icon}</span>
+                <div>
+                  <span className={styles.firmaStep} style={{ color: activeData.color }}>{activeData.step}</span>
+                  <p className={styles.firmaLabel} style={{ margin: 0 }}>{activeData.label}</p>
+                  <p className={styles.firmaDesc} style={{ margin: 0 }}>{activeData.desc}</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                className={styles.firmaModalClose}
+                onClick={() => setActive(null)}
+                aria-label="Cerrar"
+              >✕</button>
+            </div>
+            <div className={styles.firmaModalBody}>
+              <p>{activeData.detail}</p>
+            </div>
           </div>
         </div>
-      )}
-
-      {!active && (
-        <p className={styles.firmaHint}>Las 3 firmas son sobre el mismo documento, no pasos consecutivos. Toca cada parte para ver qué hace.</p>
       )}
     </div>
   );
@@ -169,16 +183,12 @@ function FirmasDiagram() {
 
 function TipCard({ tip }) {
   const [open, setOpen] = useState(false);
-
   return (
-    <>
-      {/* Tarjeta siempre visible — click abre modal */}
-      <button
-        type="button"
-        className={styles.tipCard}
-        style={{ "--tip-color": tip.color }}
-        onClick={() => setOpen(true)}
-      >
+    <div
+      className={`${styles.tipCard} ${open ? styles.tipCardOpen : ""}`}
+      style={{ "--tip-color": tip.color }}
+    >
+      <button className={styles.tipHeader} onClick={() => setOpen(v => !v)}>
         <div className={styles.tipHeaderLeft}>
           <span className={styles.tipIcon} style={{ background: tip.color + "18", color: tip.color }}>
             {tip.icon}
@@ -186,46 +196,19 @@ function TipCard({ tip }) {
           <div className={styles.tipHeaderText}>
             <div className={styles.tipTag} style={{ color: tip.color }}>{tip.tag}</div>
             <div className={styles.tipTitle}>{tip.title}</div>
-            <div className={styles.tipShort}>{tip.short}</div>
+            {!open && <div className={styles.tipShort}>{tip.short}</div>}
           </div>
         </div>
-        <span className={styles.tipChevron} style={{ color: tip.color }}>→</span>
+        <span className={styles.tipChevron} style={{ color: tip.color }}>
+          {open ? "▲" : "▼"}
+        </span>
       </button>
-
-      {/* Modal popup */}
       {open && (
-        <div className={styles.tipModalOverlay} onClick={() => setOpen(false)}>
-          <div
-            className={styles.tipModal}
-            style={{ "--tip-color": tip.color }}
-            onClick={e => e.stopPropagation()}
-          >
-            <div className={styles.tipModalHeader} style={{ borderColor: tip.color + "40" }}>
-              <div className={styles.tipHeaderLeft}>
-                <span className={styles.tipIcon} style={{ background: tip.color + "18", color: tip.color }}>
-                  {tip.icon}
-                </span>
-                <div className={styles.tipHeaderText}>
-                  <div className={styles.tipTag} style={{ color: tip.color }}>{tip.tag}</div>
-                  <div className={styles.tipTitle}>{tip.title}</div>
-                </div>
-              </div>
-              <button
-                type="button"
-                className={styles.tipModalClose}
-                onClick={() => setOpen(false)}
-                aria-label="Cerrar"
-              >
-                ✕
-              </button>
-            </div>
-            <div className={styles.tipModalBody}>
-              <p style={{ whiteSpace: "pre-line" }}>{tip.content}</p>
-            </div>
-          </div>
+        <div className={styles.tipBody}>
+          <p style={{ whiteSpace: "pre-line" }}>{tip.content}</p>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
@@ -234,40 +217,49 @@ function Checklist() {
   const total = CHECKLIST_ITEMS.length;
   const done = Object.values(checked).filter(Boolean).length;
   const pct = Math.round((done / total) * 100);
+  const color = pct === 100 ? "#10B981" : "#0EA5E9";
+
+  const ICONS = {
+    historico: "🏛️", contacto: "👥", asignaturas: "📚",
+    alternativas: "🔄", coordinador: "🤝", ola: "💻",
+    firmado: "✅", correos: "📬", cambios: "⏱️",
+  };
 
   return (
     <div className={styles.checklist}>
+      {/* Header compacto con progreso integrado */}
       <div className={styles.checklistHeader}>
-        <div>
+        <div className={styles.checklistHeaderLeft}>
           <h3 className={styles.checklistTitle}>¿Tienes todo listo?</h3>
-          <p className={styles.checklistSub}>Marca lo que ya has hecho</p>
-        </div>
-        <div className={styles.checklistProgress}>
-          <div className={styles.checklistPct}>{pct}%</div>
           <div className={styles.checklistBar}>
-            <div
-              className={styles.checklistFill}
-              style={{ width: `${pct}%`, background: pct === 100 ? "#10B981" : "#0EA5E9" }}
-            />
+            <div className={styles.checklistFill} style={{ width: `${pct}%`, background: color }} />
           </div>
-          <div className={styles.checklistCount}>{done}/{total}</div>
+        </div>
+        <div className={styles.checklistPctWrap}>
+          <span className={styles.checklistPct} style={{ color }}>{pct}%</span>
+          <span className={styles.checklistCount}>{done}/{total}</span>
         </div>
       </div>
-      <div className={styles.checklistItems}>
-        {CHECKLIST_ITEMS.map(item => (
-          <button
-            key={item.id}
-            className={`${styles.checklistItem} ${checked[item.id] ? styles.checklistItemDone : ""}`}
-            onClick={() => setChecked(v => ({ ...v, [item.id]: !v[item.id] }))}
-          >
-            <span className={styles.checklistBox}>
-              {checked[item.id] ? "✓" : ""}
-            </span>
-            <span className={styles.checklistText}>{item.text}</span>
-          </button>
-        ))}
+
+      {/* Grid de pills */}
+      <div className={styles.checklistGrid}>
+        {CHECKLIST_ITEMS.map(item => {
+          const isDone = checked[item.id];
+          return (
+            <button
+              key={item.id}
+              type="button"
+              className={`${styles.checklistPill} ${isDone ? styles.checklistPillDone : ""}`}
+              onClick={() => setChecked(v => ({ ...v, [item.id]: !v[item.id] }))}
+            >
+              <span className={styles.checklistPillIcon}>{isDone ? "✓" : (ICONS[item.id] || "○")}</span>
+              <span className={styles.checklistPillText}>{item.text}</span>
+            </button>
+          );
+        })}
       </div>
-      {done === total && (
+
+      {pct === 100 && (
         <div className={styles.checklistDone}>
           🎉 ¡Todo listo! Tu Learning Agreement está preparado.
         </div>

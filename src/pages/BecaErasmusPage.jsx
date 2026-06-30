@@ -1,9 +1,100 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { useSEO } from "../hooks/useSEO";
 import { CITY_COORDS, haversineDistanceKm, distanceToRange, geocodeCity } from "../lib/cityCoords";
 import { CITIES } from "../data/cities";
+
+/* ─── SEARCHABLE INPUT ───────────────────────────────────────────────────── */
+function SearchableInput({ value, onChange, options, placeholder, onSelect }) {
+  const [query, setQuery] = useState(value || "");
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+
+  // Filtrar opciones por query
+  const filtered = options.filter(o =>
+    o.label.toLowerCase().includes(query.toLowerCase()) ||
+    (o.sublabel && o.sublabel.toLowerCase().includes(query.toLowerCase()))
+  ).slice(0, 8);
+
+  useEffect(() => {
+    function handleClick(e) {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  function handleInput(e) {
+    setQuery(e.target.value);
+    onChange(e.target.value);
+    setOpen(true);
+  }
+
+  function handleSelect(opt) {
+    setQuery(opt.label);
+    onChange(opt.label);
+    onSelect(opt);
+    setOpen(false);
+  }
+
+  return (
+    <div className="beca-searchable" ref={ref}>
+      <input
+        type="text"
+        className="beca-calc__select"
+        placeholder={placeholder}
+        value={query}
+        onChange={handleInput}
+        onFocus={() => setOpen(true)}
+        autoComplete="off"
+      />
+      {open && filtered.length > 0 && (
+        <div className="beca-searchable__dropdown">
+          {filtered.map(opt => (
+            <button
+              key={opt.value}
+              type="button"
+              className="beca-searchable__option"
+              onMouseDown={() => handleSelect(opt)}
+            >
+              {opt.emoji && <span className="beca-searchable__emoji">{opt.emoji}</span>}
+              <span className="beca-searchable__label">{opt.label}</span>
+              {opt.sublabel && <span className="beca-searchable__sublabel">{opt.sublabel}</span>}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ─── CIUDADES DE ORIGEN (España + principales europeas) ─────────────────── */
+const ORIGIN_CITIES = [
+  { value: "sevilla", label: "Sevilla", sublabel: "España", emoji: "🇪🇸" },
+  { value: "madrid", label: "Madrid", sublabel: "España", emoji: "🇪🇸" },
+  { value: "barcelona", label: "Barcelona", sublabel: "España", emoji: "🇪🇸" },
+  { value: "valencia", label: "Valencia", sublabel: "España", emoji: "🇪🇸" },
+  { value: "bilbao", label: "Bilbao", sublabel: "España", emoji: "🇪🇸" },
+  { value: "granada", label: "Granada", sublabel: "España", emoji: "🇪🇸" },
+  { value: "malaga", label: "Málaga", sublabel: "España", emoji: "🇪🇸" },
+  { value: "zaragoza", label: "Zaragoza", sublabel: "España", emoji: "🇪🇸" },
+  { value: "murcia", label: "Murcia", sublabel: "España", emoji: "🇪🇸" },
+  { value: "alicante", label: "Alicante", sublabel: "España", emoji: "🇪🇸" },
+  { value: "cordoba", label: "Córdoba", sublabel: "España", emoji: "🇪🇸" },
+  { value: "valladolid", label: "Valladolid", sublabel: "España", emoji: "🇪🇸" },
+  { value: "salamanca", label: "Salamanca", sublabel: "España", emoji: "🇪🇸" },
+  { value: "santander", label: "Santander", sublabel: "España", emoji: "🇪🇸" },
+  { value: "pamplona", label: "Pamplona", sublabel: "España", emoji: "🇪🇸" },
+  { value: "cadiz", label: "Cádiz", sublabel: "España", emoji: "🇪🇸" },
+  { value: "jerez", label: "Jerez de la Frontera", sublabel: "España", emoji: "🇪🇸" },
+  { value: "huelva", label: "Huelva", sublabel: "España", emoji: "🇪🇸" },
+  { value: "almeria", label: "Almería", sublabel: "España", emoji: "🇪🇸" },
+  { value: "oviedo", label: "Oviedo", sublabel: "España", emoji: "🇪🇸" },
+  { value: "gijon", label: "Gijón", sublabel: "España", emoji: "🇪🇸" },
+  { value: "coruña", label: "A Coruña", sublabel: "España", emoji: "🇪🇸" },
+  { value: "vigo", label: "Vigo", sublabel: "España", emoji: "🇪🇸" },
+];
 
 /* ─── DATA ──────────────────────────────────────────────────────────────── */
 
@@ -171,23 +262,20 @@ function Calculator() {
             <label className="beca-calc__label">📍 De dónde sales → adónde vas</label>
             <div className="beca-distance-calc">
               <div className="beca-distance-calc__row">
-                <input
-                  type="text"
-                  className="beca-calc__select"
-                  placeholder="Tu ciudad de origen (ej. Sevilla)"
+                <SearchableInput
                   value={originCity}
-                  onChange={(e) => { setOriginCity(e.target.value); setCalcStatus("idle"); }}
+                  onChange={(v) => { setOriginCity(v); setCalcStatus("idle"); }}
+                  onSelect={(opt) => { setOriginCity(opt.label); setCalcStatus("idle"); }}
+                  options={ORIGIN_CITIES}
+                  placeholder="Ciudad de origen (ej. Sevilla)"
                 />
-                <select
-                  className="beca-calc__select"
-                  value={destinationSlug}
-                  onChange={(e) => handleDestinationChange(e.target.value)}
-                >
-                  <option value="">Ciudad de destino…</option>
-                  {CITIES.map(c => (
-                    <option key={c.slug} value={c.slug}>{c.emoji} {c.name} — {c.country}</option>
-                  ))}
-                </select>
+                <SearchableInput
+                  value={destCity?.name || ""}
+                  onChange={() => {}}
+                  onSelect={(opt) => handleDestinationChange(opt.value)}
+                  options={CITIES.map(c => ({ value: c.slug, label: c.name, sublabel: c.country, emoji: c.emoji }))}
+                  placeholder="Ciudad de destino…"
+                />
               </div>
 
               {/* País detectado automáticamente */}

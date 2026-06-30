@@ -587,7 +587,7 @@ export default function HomePage() {
   // SEO dinámico
   useSEO({ isHome: true });
 
-  const INITIAL_COUNT = 6;
+  const INITIAL_COUNT = 4;
   const displayedCities = showAll ? filtered : filtered.slice(0, INITIAL_COUNT);
 
   return (
