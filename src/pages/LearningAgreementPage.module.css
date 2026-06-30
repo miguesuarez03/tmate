@@ -474,3 +474,171 @@
   }
   .checklistBar { width: 100%; }
 }
+
+/* ─── WIZARD LEARNING AGREEMENT ──────────────────────────────────────────── */
+
+.wizard { display: flex; flex-direction: column; gap: 24px; margin-top: 28px; }
+
+.wizardProgress {
+  display: flex; align-items: center; justify-content: center;
+}
+
+.wizardProgressStep { display: flex; align-items: center; }
+
+.wizardDot {
+  width: 30px; height: 30px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700;
+  background: #fff; border: 2px solid var(--color-border);
+  color: var(--color-muted);
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.wizardDotActive {
+  border-color: #10B981; color: #10B981;
+  box-shadow: 0 0 0 4px rgba(16,185,129,0.12);
+}
+
+.wizardDotDone {
+  background: #10B981; border-color: #10B981; color: #fff;
+}
+
+.wizardLine {
+  width: 28px; height: 2px; background: var(--color-border);
+  margin: 0 4px;
+}
+
+.wizardLineDone { background: #10B981; }
+
+.wizardCard {
+  border-radius: var(--radius-xl);
+  border: 1.5px solid var(--color-border);
+  background: #fff;
+  padding: 28px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+}
+
+.wizardCardHeader {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 22px;
+}
+
+.wizardCardEmoji { font-size: 30px; flex-shrink: 0; }
+
+.wizardCardStep {
+  font-size: 12px; font-weight: 700; color: #10B981;
+  text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 2px;
+}
+
+.wizardCardTitle {
+  font-family: var(--font-display); font-size: 20px; font-weight: 800;
+  color: var(--color-dark); margin: 0;
+}
+
+.wizardCardBody {
+  display: flex; flex-direction: column; gap: 18px;
+}
+
+.wizardLabel {
+  display: flex; flex-direction: column; gap: 6px;
+  font-size: 13px; font-weight: 700; color: var(--color-dark);
+}
+
+.wizardHint {
+  font-size: 12px; font-weight: 400; color: var(--color-muted);
+}
+
+.wizardInput, .wizardTextarea {
+  font-family: var(--font-body); font-size: 15px; font-weight: 500;
+  color: var(--color-dark);
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border);
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.wizardInput:focus, .wizardTextarea:focus { border-color: #10B981; }
+
+.wizardTextarea { resize: vertical; line-height: 1.5; }
+
+.wizardSummary {
+  background: rgba(16,185,129,0.06);
+  border: 1px solid rgba(16,185,129,0.25);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  font-size: 13px; color: var(--color-slate);
+  display: flex; flex-direction: column; gap: 4px;
+}
+
+.wizardSummaryTitle {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.06em; color: #10B981; margin: 0 0 4px;
+}
+
+.wizardCardFooter {
+  display: flex; justify-content: space-between; gap: 12px;
+  margin-top: 24px;
+}
+
+.wizardBackBtn {
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border);
+  background: #fff; color: var(--color-slate);
+  font-weight: 700; font-size: 14px;
+  cursor: pointer;
+}
+
+.wizardBackBtn:disabled { opacity: 0.4; cursor: default; }
+
+.wizardNextBtn {
+  padding: 12px 22px;
+  border-radius: var(--radius-md);
+  border: none;
+  background: #10B981; color: #fff;
+  font-weight: 700; font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.wizardNextBtn:hover:not(:disabled) { background: #0d9d6e; transform: translateY(-1px); }
+.wizardNextBtn:disabled { opacity: 0.4; cursor: default; }
+
+.wizardDone {
+  text-align: center;
+  padding: 40px 28px;
+  border-radius: var(--radius-xl);
+  border: 1.5px solid rgba(16,185,129,0.3);
+  background: rgba(16,185,129,0.06);
+  margin-top: 28px;
+}
+
+.wizardDoneIcon { font-size: 44px; display: block; margin-bottom: 14px; }
+
+.wizardDoneTitle {
+  font-family: var(--font-display); font-size: 20px; font-weight: 800;
+  color: var(--color-dark); margin: 0 0 10px;
+}
+
+.wizardDoneText {
+  font-size: 14px; color: var(--color-slate); line-height: 1.6;
+  max-width: 440px; margin: 0 auto 20px;
+}
+
+.wizardRestartBtn {
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid #10B981;
+  background: #fff; color: #10B981;
+  font-weight: 700; font-size: 13px;
+  cursor: pointer;
+}
+
+@media (max-width: 540px) {
+  .wizardCard { padding: 20px; }
+  .wizardCardFooter { flex-direction: column-reverse; }
+  .wizardBackBtn, .wizardNextBtn { width: 100%; text-align: center; }
+}

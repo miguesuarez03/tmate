@@ -112,31 +112,68 @@
 /* ── Actions ── */
 .heroActions { display: flex; gap: 0.85rem; flex-wrap: wrap; align-items: center; }
 
-.heroQuickLinks {
-  display: flex; gap: 0.65rem; flex-wrap: wrap;
-  margin-top: 0.85rem;
+.heroBigLinks {
+  display: flex; flex-direction: column; gap: 0.8rem;
+  margin-top: 1.5rem;
+  max-width: 480px;
 }
 
-.heroQuickLink {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  padding: 0.5rem 0.9rem;
-  border-radius: var(--radius-full, 999px);
-  background: rgba(255,255,255,0.08);
-  border: 1px solid color-mix(in srgb, var(--quick-color, #fff) 35%, transparent);
-  color: #fff;
-  font-family: var(--font-body);
-  font-size: 0.82rem; font-weight: 600;
+.heroBigLink {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius-lg, 16px);
+  background: rgba(255,255,255,0.1);
+  border: 1.5px solid color-mix(in srgb, var(--big-color, #fff) 45%, transparent);
+  backdrop-filter: blur(8px);
   text-decoration: none;
-  backdrop-filter: blur(6px);
-  transition: background 0.2s, transform 0.2s;
+  color: #fff;
+  transition: background 0.22s, transform 0.22s, border-color 0.22s;
+  cursor: pointer;
 }
 
-a.heroQuickLink:hover {
-  background: color-mix(in srgb, var(--quick-color, #fff) 20%, rgba(255,255,255,0.08));
-  transform: translateY(-2px);
+a.heroBigLink:hover {
+  background: color-mix(in srgb, var(--big-color, #fff) 22%, rgba(255,255,255,0.1));
+  transform: translateY(-3px);
+  border-color: var(--big-color, #fff);
 }
 
-.heroQuickLink svg { color: var(--quick-color, #fff); flex-shrink: 0; }
+.heroBigLinkIcon {
+  width: 48px; height: 48px; border-radius: 14px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: color-mix(in srgb, var(--big-color, #fff) 22%, transparent);
+  color: var(--big-color, #fff);
+}
+
+.heroBigLinkText { display: flex; flex-direction: column; gap: 0.18rem; flex: 1; min-width: 0; }
+
+.heroBigLinkTitle {
+  font-family: var(--font-display); font-size: 1.02rem; font-weight: 800; color: #fff;
+}
+
+.heroBigLinkSub {
+  font-family: var(--font-body); font-size: 0.82rem; color: rgba(255,255,255,0.7);
+}
+
+.heroBigLinkArrow {
+  font-size: 1.3rem; color: var(--big-color, #fff); flex-shrink: 0;
+}
+
+.heroBigLinkBadge {
+  flex-shrink: 0;
+  font-family: var(--font-body); font-size: 0.7rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-full, 999px);
+  background: color-mix(in srgb, var(--big-color, #fff) 25%, transparent);
+  color: var(--big-color, #fff);
+}
+
+@media (max-width: 640px) {
+  .heroBigLinks { max-width: 100%; }
+  .heroBigLinkIcon { width: 42px; height: 42px; }
+  .heroBigLinkTitle { font-size: 0.95rem; }
+  .heroBigLinkSub { font-size: 0.78rem; }
+}
 
 .heroCta {
   display: flex; align-items: center; gap: 0.5rem;

@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { useSEO } from "../hooks/useSEO";
+import { CITY_COORDS, haversineDistanceKm, distanceToRange, geocodeCity } from "../lib/cityCoords";
+import { CITIES } from "../data/cities";
 
 /* ─── DATA ──────────────────────────────────────────────────────────────── */
 
@@ -99,10 +101,38 @@ function Calculator() {
   const [aut, setAut] = useState(false);
   const [autAmount, setAutAmount] = useState(150);
 
+  // Calculadora de distancia (punto 12)
+  const [originCity, setOriginCity] = useState("");
+  const [destinationSlug, setDestinationSlug] = useState("");
+  const [calcStatus, setCalcStatus] = useState("idle"); // idle | loading | done | error
+  const [calcError, setCalcError] = useState("");
+  const [calcKm, setCalcKm] = useState(null);
+
   // Auto-suggest distance when country changes
   const handleCountryChange = (c) => {
     setCountry(c);
     if (COUNTRY_DISTANCE[c]) setDistanceRange(COUNTRY_DISTANCE[c]);
+    setCalcStatus("idle");
+    setCalcKm(null);
+  };
+
+  const handleCalcDistance = async () => {
+    if (!originCity.trim() || !destinationSlug) return;
+    setCalcStatus("loading");
+    setCalcError("");
+    try {
+      const destCoords = CITY_COORDS[destinationSlug];
+      if (!destCoords) throw new Error("No tenemos coordenadas de esa ciudad de destino todavía.");
+      const { coords: originCoords } = await geocodeCity(originCity);
+      const km = haversineDistanceKm(originCoords, destCoords);
+      const range = distanceToRange(km);
+      setCalcKm(Math.round(km));
+      setDistanceRange(range);
+      setCalcStatus("done");
+    } catch (err) {
+      setCalcError(err.message || "Algo ha fallado calculando la distancia. Inténtalo de nuevo.");
+      setCalcStatus("error");
+    }
   };
 
   const group = GROUP1.includes(country) ? 1 : GROUP2.includes(country) ? 2 : 3;
@@ -160,10 +190,54 @@ function Calculator() {
 
           <div className="beca-calc__field">
             <label className="beca-calc__label">✈️ Ayuda de viaje — distancia aproximada</label>
+
+            <div className="beca-distance-calc">
+              <p className="beca-distance-calc__hint">
+                Calcula la distancia exacta entre tu ciudad y tu destino (línea recta) y rellenamos la banda automáticamente.
+              </p>
+              <div className="beca-distance-calc__row">
+                <input
+                  type="text"
+                  className="beca-calc__select"
+                  placeholder="Tu ciudad de origen (ej. Sevilla)"
+                  value={originCity}
+                  onChange={(e) => { setOriginCity(e.target.value); setCalcStatus("idle"); }}
+                />
+                <select
+                  className="beca-calc__select"
+                  value={destinationSlug}
+                  onChange={(e) => { setDestinationSlug(e.target.value); setCalcStatus("idle"); }}
+                >
+                  <option value="">Tu ciudad de destino…</option>
+                  {CITIES.map(c => (
+                    <option key={c.slug} value={c.slug}>{c.name}</option>
+                  ))}
+                </select>
+              </div>
+              <button
+                type="button"
+                className="beca-distance-calc__btn"
+                onClick={handleCalcDistance}
+                disabled={!originCity.trim() || !destinationSlug || calcStatus === "loading"}
+              >
+                {calcStatus === "loading" ? "Calculando…" : "📍 Calcular distancia"}
+              </button>
+
+              {calcStatus === "done" && calcKm != null && (
+                <p className="beca-distance-calc__result">
+                  ✅ Distancia aproximada: <strong>{calcKm.toLocaleString("es-ES")} km</strong> → banda <strong>{distanceRange}</strong> aplicada abajo automáticamente.
+                </p>
+              )}
+              {calcStatus === "error" && (
+                <p className="beca-distance-calc__error">⚠️ {calcError}</p>
+              )}
+            </div>
+
             <select
               className="beca-calc__select"
               value={distanceRange}
               onChange={(e) => setDistanceRange(e.target.value)}
+              style={{ marginTop: 10 }}
             >
               {TRAVEL_AID.map(r => (
                 <option key={r.range} value={r.range}>
@@ -171,6 +245,9 @@ function Calculator() {
                 </option>
               ))}
             </select>
+            <p className="beca-distance-calc__hint" style={{ marginTop: 4 }}>
+              También puedes elegir la banda manualmente si lo prefieres — la calculadora de arriba es solo una ayuda.
+            </p>
             <label className="beca-calc__check" style={{ marginTop: 8 }}>
               <input type="checkbox" checked={eco} onChange={(e) => setEco(e.target.checked)} />
               <span>🌿 Viaje ecológico (tren/bus/coche compartido) — importes más altos</span>

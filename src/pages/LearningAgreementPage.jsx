@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { useSEO } from "../hooks/useSEO";
+import { CITIES } from "../data/cities";
 import styles from "./LearningAgreementPage.module.css";
 
 /* ─── DATA ──────────────────────────────────────────────────────────────── */
@@ -246,6 +247,292 @@ function Checklist() {
   );
 }
 
+const WIZARD_LANGUAGES = ["Inglés", "Alemán", "Francés", "Italiano", "Portugués", "Neerlandés", "Polaco", "Húngaro", "Checo", "Otro"];
+
+const WIZARD_STEPS = [
+  { id: "origen", title: "Tu universidad", emoji: "🏫" },
+  { id: "destino", title: "Universidad de destino", emoji: "🌍" },
+  { id: "asignaturas", title: "Asignaturas a convalidar", emoji: "📚" },
+  { id: "creditos", title: "Créditos e idioma", emoji: "🎓" },
+  { id: "contacto", title: "Tus datos de contacto", emoji: "✉️" },
+];
+
+/* ─── WIZARD LEARNING AGREEMENT ─────────────────────────────────────────── */
+
+function LAWizard() {
+  const [step, setStep] = useState(0);
+  const [sent, setSent] = useState(false);
+  const [data, setData] = useState({
+    universidadOrigen: "",
+    gradoOrigen: "",
+    ciudadDestino: "",
+    universidadDestino: "",
+    asignaturas: "",
+    creditos: "",
+    idioma: "",
+    nombre: "",
+    email: "",
+  });
+
+  const total = WIZARD_STEPS.length;
+  const isLast = step === total - 1;
+  const current = WIZARD_STEPS[step];
+
+  const update = (field, value) => setData(d => ({ ...d, [field]: value }));
+
+  const destinoCity = CITIES.find(c => c.slug === data.ciudadDestino);
+  const universidadesDestino = destinoCity?.universities ?? [];
+
+  const canContinue = () => {
+    switch (current.id) {
+      case "origen":      return data.universidadOrigen.trim() && data.gradoOrigen.trim();
+      case "destino":     return data.ciudadDestino && data.universidadDestino;
+      case "asignaturas": return data.asignaturas.trim().length > 0;
+      case "creditos":    return data.creditos.trim() && data.idioma;
+      case "contacto":    return data.nombre.trim() && /\S+@\S+\.\S+/.test(data.email);
+      default:            return true;
+    }
+  };
+
+  const handleNext = () => {
+    if (!canContinue()) return;
+    if (isLast) {
+      sendEmail();
+    } else {
+      setStep(s => s + 1);
+    }
+  };
+
+  const sendEmail = () => {
+    const subject = encodeURIComponent(`Learning Agreement — ${data.nombre} (${destinoCity?.name || data.ciudadDestino})`);
+    const body = encodeURIComponent(
+`Solicitud de propuesta de equivalencias — TMate Learning Agreement
+
+UNIVERSIDAD DE ORIGEN
+Universidad: ${data.universidadOrigen}
+Grado: ${data.gradoOrigen}
+
+UNIVERSIDAD DE DESTINO
+Ciudad: ${destinoCity?.name || data.ciudadDestino}
+Universidad: ${data.universidadDestino}
+
+ASIGNATURAS PENDIENTES DE CONVALIDAR
+${data.asignaturas}
+
+CRÉDITOS NECESARIOS
+${data.creditos} ECTS
+
+IDIOMA DE LAS ASIGNATURAS
+${data.idioma}
+
+CONTACTO
+Nombre: ${data.nombre}
+Email: ${data.email}
+`
+    );
+    window.location.href = `mailto:hola@tmate.app?subject=${subject}&body=${body}`;
+    setSent(true);
+  };
+
+  const handleBack = () => setStep(s => Math.max(0, s - 1));
+
+  if (sent) {
+    return (
+      <div className={styles.wizardDone}>
+        <span className={styles.wizardDoneIcon}>📬</span>
+        <h3 className={styles.wizardDoneTitle}>Se ha abierto tu cliente de correo</h3>
+        <p className={styles.wizardDoneText}>
+          Revisa que el email se haya generado bien y envíalo. En cuanto lo recibamos, te preparamos una
+          propuesta de equivalencias y te respondemos al correo que nos has dado.
+        </p>
+        <button
+          className={styles.wizardRestartBtn}
+          onClick={() => { setSent(false); setStep(0); }}
+        >
+          Hacer otra solicitud
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className={styles.wizard}>
+      {/* progreso */}
+      <div className={styles.wizardProgress}>
+        {WIZARD_STEPS.map((s, i) => (
+          <div key={s.id} className={styles.wizardProgressStep}>
+            <div className={`${styles.wizardDot} ${i < step ? styles.wizardDotDone : ""} ${i === step ? styles.wizardDotActive : ""}`}>
+              {i < step ? "✓" : i + 1}
+            </div>
+            {i < total - 1 && <div className={`${styles.wizardLine} ${i < step ? styles.wizardLineDone : ""}`} />}
+          </div>
+        ))}
+      </div>
+
+      <div className={styles.wizardCard}>
+        <div className={styles.wizardCardHeader}>
+          <span className={styles.wizardCardEmoji}>{current.emoji}</span>
+          <div>
+            <p className={styles.wizardCardStep}>Paso {step + 1} de {total}</p>
+            <h3 className={styles.wizardCardTitle}>{current.title}</h3>
+          </div>
+        </div>
+
+        <div className={styles.wizardCardBody}>
+          {current.id === "origen" && (
+            <>
+              <label className={styles.wizardLabel}>
+                Universidad de origen
+                <input
+                  className={styles.wizardInput}
+                  type="text"
+                  placeholder="ej. Universidad Loyola Andalucía"
+                  value={data.universidadOrigen}
+                  onChange={e => update("universidadOrigen", e.target.value)}
+                />
+              </label>
+              <label className={styles.wizardLabel}>
+                Grado / titulación
+                <input
+                  className={styles.wizardInput}
+                  type="text"
+                  placeholder="ej. Grado en Ingeniería en Tecnologías Industriales"
+                  value={data.gradoOrigen}
+                  onChange={e => update("gradoOrigen", e.target.value)}
+                />
+              </label>
+            </>
+          )}
+
+          {current.id === "destino" && (
+            <>
+              <label className={styles.wizardLabel}>
+                Ciudad de destino
+                <select
+                  className={styles.wizardInput}
+                  value={data.ciudadDestino}
+                  onChange={e => update("ciudadDestino", e.target.value)}
+                >
+                  <option value="">Selecciona una ciudad…</option>
+                  {CITIES.map(c => (
+                    <option key={c.slug} value={c.slug}>{c.name}</option>
+                  ))}
+                </select>
+              </label>
+              {data.ciudadDestino && (
+                <label className={styles.wizardLabel}>
+                  Universidad de destino
+                  <select
+                    className={styles.wizardInput}
+                    value={data.universidadDestino}
+                    onChange={e => update("universidadDestino", e.target.value)}
+                  >
+                    <option value="">Selecciona una universidad…</option>
+                    {universidadesDestino.map(u => (
+                      <option key={u} value={u}>{u}</option>
+                    ))}
+                  </select>
+                </label>
+              )}
+            </>
+          )}
+
+          {current.id === "asignaturas" && (
+            <label className={styles.wizardLabel}>
+              Asignaturas pendientes de convalidar
+              <span className={styles.wizardHint}>Una por línea, con el nombre tal y como aparece en tu plan de estudios.</span>
+              <textarea
+                className={styles.wizardTextarea}
+                rows={6}
+                placeholder={"ej.\nCálculo II\nMecánica de Fluidos\nElectrotecnia"}
+                value={data.asignaturas}
+                onChange={e => update("asignaturas", e.target.value)}
+              />
+            </label>
+          )}
+
+          {current.id === "creditos" && (
+            <>
+              <label className={styles.wizardLabel}>
+                Créditos ECTS necesarios
+                <input
+                  className={styles.wizardInput}
+                  type="text"
+                  inputMode="numeric"
+                  placeholder="ej. 30"
+                  value={data.creditos}
+                  onChange={e => update("creditos", e.target.value)}
+                />
+              </label>
+              <label className={styles.wizardLabel}>
+                Idioma de las asignaturas
+                <select
+                  className={styles.wizardInput}
+                  value={data.idioma}
+                  onChange={e => update("idioma", e.target.value)}
+                >
+                  <option value="">Selecciona un idioma…</option>
+                  {WIZARD_LANGUAGES.map(l => (
+                    <option key={l} value={l}>{l}</option>
+                  ))}
+                </select>
+              </label>
+            </>
+          )}
+
+          {current.id === "contacto" && (
+            <>
+              <label className={styles.wizardLabel}>
+                Nombre completo
+                <input
+                  className={styles.wizardInput}
+                  type="text"
+                  placeholder="Tu nombre"
+                  value={data.nombre}
+                  onChange={e => update("nombre", e.target.value)}
+                />
+              </label>
+              <label className={styles.wizardLabel}>
+                Email
+                <input
+                  className={styles.wizardInput}
+                  type="email"
+                  placeholder="tucorreo@uni.es"
+                  value={data.email}
+                  onChange={e => update("email", e.target.value)}
+                />
+              </label>
+              <div className={styles.wizardSummary}>
+                <p className={styles.wizardSummaryTitle}>Resumen de tu solicitud</p>
+                <p><strong>Origen:</strong> {data.universidadOrigen || "—"} ({data.gradoOrigen || "—"})</p>
+                <p><strong>Destino:</strong> {data.universidadDestino || "—"}, {destinoCity?.name || "—"}</p>
+                <p><strong>Créditos:</strong> {data.creditos || "—"} ECTS · <strong>Idioma:</strong> {data.idioma || "—"}</p>
+              </div>
+            </>
+          )}
+        </div>
+
+        <div className={styles.wizardCardFooter}>
+          <button
+            className={styles.wizardBackBtn}
+            onClick={handleBack}
+            disabled={step === 0}
+          >
+            ← Atrás
+          </button>
+          <button
+            className={styles.wizardNextBtn}
+            onClick={handleNext}
+            disabled={!canContinue()}
+          >
+            {isLast ? "Enviar solicitud 📩" : "Continuar →"}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ─── PAGE ───────────────────────────────────────────────────────────────── */
 
 export default function LearningAgreementPage() {
@@ -332,6 +619,20 @@ export default function LearningAgreementPage() {
       <section className={styles.section}>
         <div className={styles.sectionInner} style={{ maxWidth: 640 }}>
           <Checklist />
+        </div>
+      </section>
+
+      {/* ── WIZARD: PROPUESTA DE EQUIVALENCIAS ── */}
+      <section className={styles.section} id="wizard-la">
+        <div className={styles.sectionInner} style={{ maxWidth: 640 }}>
+          <SectionLabel color="#10B981">Herramienta</SectionLabel>
+          <h2 className={styles.sectionTitle}>Pide tu propuesta de equivalencias</h2>
+          <p className={styles.sectionText}>
+            Rellena estos datos en menos de 2 minutos y te ayudamos a plantear las equivalencias de tu Learning
+            Agreement. Lo revisamos a mano y te respondemos por email — más rápido y claro que rellenar un
+            formulario largo de una sola página.
+          </p>
+          <LAWizard />
         </div>
       </section>
 
