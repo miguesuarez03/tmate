@@ -30,28 +30,23 @@ function getScoreMap(slug) {
 
 
 /* ─── Versus Card (per category) ───────────────────────────────────────── */
-function VersusCard({ categoryMeta, rows }) {
-  const [open, setOpen] = useState(false);
+function VersusCard({ categoryMeta, rows, open, onToggle }) {
   const maxScore = Math.max(...rows.map((r) => r.score));
   const winners = rows.filter((r) => r.score === maxScore);
   const isTie = winners.length > 1;
-  const winnerCity = !isTie ? rows.find(r => r.score === maxScore) : null;
 
   return (
     <div className={styles.versusCard}>
-      {/* Header — siempre visible, clickable */}
       <button
         type="button"
         className={styles.versusCardHeader}
-        onClick={() => setOpen(o => !o)}
+        onClick={onToggle}
         aria-expanded={open}
       >
         <div className={styles.versusCardHeaderLeft}>
           <span className={styles.versusCardIcon}>{categoryMeta.icon}</span>
           <span className={styles.versusCardLabel}>{categoryMeta.label}</span>
         </div>
-
-        {/* Mini barras verticales — siempre visibles */}
         <div className={styles.versusMiniBars}>
           {rows.map((r) => {
             const isW = !isTie && r.score === maxScore;
@@ -70,11 +65,9 @@ function VersusCard({ categoryMeta, rows }) {
             );
           })}
         </div>
-
         <span className={`${styles.versusChevron} ${open ? styles.versusChevronOpen : ""}`}>›</span>
       </button>
 
-      {/* Detalle expandible */}
       {open && (
         <div className={styles.versusDetail}>
           <div className={styles.versusDetailCols} style={{ "--vc-cols": rows.length }}>
@@ -104,6 +97,45 @@ function VersusCard({ categoryMeta, rows }) {
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+/* ─── Versus Grid — gestiona qué fila está abierta ─────────────────────── */
+function VersusGrid({ scoreIds, selectedCities, scoreMaps }) {
+  const [openRow, setOpenRow] = useState(null);
+
+  const cards = scoreIds.map((id) => {
+    const rows = selectedCities.map((city, i) => ({
+      city,
+      color: COL_COLORS[i],
+      score: scoreMaps[i][id]?.score ?? 0,
+      phrase: getComparePhrase(city.slug, id),
+    }));
+    const firstScoreObj = selectedCities.map((_, i) => scoreMaps[i][id]).find(Boolean);
+    if (!firstScoreObj) return null;
+    return { id, rows, categoryMeta: { icon: firstScoreObj.icon, label: firstScoreObj.label } };
+  }).filter(Boolean);
+
+  // Agrupar en filas de 2
+  function getRow(idx) { return Math.floor(idx / 2); }
+
+  function handleToggle(idx) {
+    const row = getRow(idx);
+    setOpenRow(prev => prev === row ? null : row);
+  }
+
+  return (
+    <div className={styles.versusGrid}>
+      {cards.map((card, idx) => (
+        <VersusCard
+          key={card.id}
+          categoryMeta={card.categoryMeta}
+          rows={card.rows}
+          open={openRow === getRow(idx)}
+          onToggle={() => handleToggle(idx)}
+        />
+      ))}
     </div>
   );
 }
@@ -264,28 +296,7 @@ export default function ComparePage() {
             {/* Versus cards per category */}
             <div className={styles.versusSection}>
               <h3 className={styles.sectionTitle}>Puntuaciones detalladas</h3>
-              <div className={styles.versusGrid}>
-                {SCORE_IDS.map((id) => {
-                  const rows = selectedCities.map((city, i) => ({
-                    city,
-                    color: COL_COLORS[i],
-                    score: scoreMaps[i][id]?.score ?? 0,
-                    phrase: getComparePhrase(city.slug, id),
-                  }));
-                  const firstScoreObj = selectedCities
-                    .map((_, i) => scoreMaps[i][id])
-                    .find(Boolean);
-                  if (!firstScoreObj) return null;
-
-                  return (
-                    <VersusCard
-                      key={id}
-                      categoryMeta={{ icon: firstScoreObj.icon, label: firstScoreObj.label }}
-                      rows={rows}
-                    />
-                  );
-                })}
-              </div>
+              <VersusGrid scoreIds={SCORE_IDS} selectedCities={selectedCities} scoreMaps={scoreMaps} />
             </div>
 
             {/* Features */}

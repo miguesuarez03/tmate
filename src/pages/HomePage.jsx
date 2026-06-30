@@ -121,6 +121,12 @@ function AnimatedWord() {
   );
 }
 
+const VIBE_FILTERS = [
+  { key: "fiesta",  label: "Fiesta",   icon: "🎉", tags: ["Ciudad universitaria", "Ruin bars", "Oktoberfest", "Arte & Libertad", "Trending 🔥"] },
+  { key: "cultura", label: "Cultura",  icon: "🏛️", tags: ["Historia viva", "Joya medieval", "Capital diplomática", "Arquitectura radical", "La ciudad luz", "Capital global", "Capital de Europa", "Fotogénica", "Calidad de vida #1"] },
+  { key: "barato",  label: "Barato",   icon: "💸", tags: ["La más barata", "Pueblo & Naturaleza", "Gema oculta"] },
+];
+
 const CITY_PILLS = [
   { name: "Bolonia",   code: "BOL", flag: "🇮🇹", slug: "bolonia"   },
   { name: "Berlín",    code: "BER", flag: "🇩🇪", slug: "berlin"    },
@@ -574,15 +580,21 @@ export default function HomePage() {
     }, { replace: true });
   };
 
-  // Hook de filtros dinámico — preparado para filtros avanzados futuros
+  // Hook de filtros dinámico
   const {
     region, setRegion,
-    cities: filtered,
-    regions,
-    totalCount,
+    cities: hookCities,
+    totalCount: hookTotal,
     hasActiveFilters,
     resetFilters,
   } = useCityFilter({ initialSort: 'erasmus' });
+
+  // Filtro de vibe (se aplica encima del hook, que ya ignora región cuando es un vibe key)
+  const activeVibe = VIBE_FILTERS.find(f => f.key === region);
+  const filtered = activeVibe
+    ? hookCities.filter(c => activeVibe.tags.includes(c.tag))
+    : hookCities;
+  const totalCount = filtered.length;
 
   // SEO dinámico
   useSEO({ isHome: true });
@@ -664,10 +676,13 @@ export default function HomePage() {
           </div>
         </div>
         <div className="filters">
-          {regions.map((r) => (
-            <button key={r} className={`filter-pill${(region || 'Todos') === r ? " filter-pill--active" : ""}`}
-              onClick={() => { setRegion(r === 'Todos' ? null : r); setShowAll(false); }}>
-              {r}
+          {VIBE_FILTERS.map((f) => (
+            <button
+              key={f.key}
+              className={`filter-pill${(region || 'Todos') === f.key ? " filter-pill--active" : ""}`}
+              onClick={() => { setRegion((region || 'Todos') === f.key ? null : f.key); setShowAll(false); }}
+            >
+              {f.icon} {f.label}
             </button>
           ))}
         </div>
