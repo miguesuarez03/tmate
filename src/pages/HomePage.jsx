@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, lazy, Suspense } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { CITIES } from "../data/cities";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import SearchBar from "../components/SearchBar";
@@ -7,7 +7,10 @@ import CityCard from "../components/CityCard";
 import { useCityFilter } from "../hooks/useCityFilter";
 import { useSEO } from "../hooks/useSEO";
 
-import WorldMap from "../components/WorldMap";
+// WorldMap arrastra react-simple-maps + d3 (pesado). Se carga bajo demanda
+// para no engordar el bundle inicial — el globo está más abajo en la página,
+// así que no afecta a lo primero que ve el usuario.
+const WorldMap = lazy(() => import("../components/WorldMap"));
 
 const HERO_WORDS = [
   { word: "Erasmus.", gender: "m" },
@@ -130,7 +133,11 @@ const CITY_PILLS = [
 ];
 
 function GlobeSection() {
-  return <WorldMap />;
+  return (
+    <Suspense fallback={<div style={{ minHeight: 560 }} aria-hidden="true" />}>
+      <WorldMap />
+    </Suspense>
+  );
 }
 
 const FAQS = [
@@ -465,7 +472,20 @@ function CommunitySection() {
 
 export default function HomePage() {
   const navigate = useNavigate();
-  const [showAll, setShowAll] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  // "Mostrar más" también vive en la URL (?ver=todo): si entras a una ciudad
+  // y vuelves atrás, sigues viendo la lista expandida tal y como la dejaste,
+  // en vez de que se colapse de vuelta a las 8 primeras.
+  const showAll = searchParams.get("ver") === "todo";
+  const setShowAll = (next) => {
+    setSearchParams((prev) => {
+      const params = new URLSearchParams(prev);
+      const value = typeof next === "function" ? next(showAll) : next;
+      if (value) params.set("ver", "todo");
+      else params.delete("ver");
+      return params;
+    }, { replace: true });
+  };
 
   // Hook de filtros dinámico — preparado para filtros avanzados futuros
   const {

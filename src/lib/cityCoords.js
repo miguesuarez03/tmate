@@ -64,15 +64,34 @@ export function distanceToRange(km) {
  * Geocodifica una ciudad de origen (texto libre) a coordenadas [lng, lat]
  * usando Nominatim (OpenStreetMap), que es gratuito y no requiere API key.
  * Lanza un error legible si no se encuentra la ciudad.
+ *
+ * Nota técnica: los navegadores no permiten establecer manualmente la
+ * cabecera User-Agent en fetch() (la gestiona el propio navegador), así que
+ * en su lugar respetamos la política de uso de Nominatim limitando peticiones
+ * mediante un caché en memoria — evita golpear su API si el usuario repite la
+ * búsqueda con el mismo texto (ej. pulsa el botón varias veces sin querer).
  */
+const geocodeCache = new Map();
+
 export async function geocodeCity(query) {
+  const key = query.trim().toLowerCase();
+  if (geocodeCache.has(key)) return geocodeCache.get(key);
+
   const url = `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(query)}`;
-  const res = await fetch(url, {
-    headers: { "Accept-Language": "es" },
-  });
+  let res;
+  try {
+    res = await fetch(url, { headers: { "Accept-Language": "es" } });
+  } catch {
+    throw new Error("No se ha podido contactar con el servicio de geocodificación. Comprueba tu conexión e inténtalo de nuevo.");
+  }
+  if (res.status === 429) {
+    throw new Error("El servicio de geocodificación está saturado ahora mismo. Espera unos segundos e inténtalo de nuevo.");
+  }
   if (!res.ok) throw new Error("No se ha podido contactar con el servicio de geocodificación.");
   const data = await res.json();
   if (!data.length) throw new Error("No se ha encontrado esa ciudad. Prueba a escribirla de otra forma (ej. añade el país).");
   const { lon, lat, display_name } = data[0];
-  return { coords: [parseFloat(lon), parseFloat(lat)], label: display_name };
+  const result = { coords: [parseFloat(lon), parseFloat(lat)], label: display_name };
+  geocodeCache.set(key, result);
+  return result;
 }

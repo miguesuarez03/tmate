@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { CITIES } from "../data/cities";
 import { getCityInsights, getOverallScore, parseMinCost } from "../lib/cities";
 import { getComparePhrase } from "../data/comparePhrases";
@@ -67,9 +67,39 @@ function VersusCard({ categoryMeta, rows }) {
 /* ─── Main Component ────────────────────────────────────────────────────── */
 export default function ComparePage() {
   const navigate = useNavigate();
-  const [selected, setSelected] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Selección y vista viven en la URL (?cities=bolonia,berlin&view=compare):
+  // así, si entras a la guía de una ciudad desde la comparativa y vuelves
+  // atrás, sigues exactamente donde estabas — selección y vista incluidas.
+  // También hace que la comparativa se pueda compartir por enlace.
+  const citiesParam = searchParams.get("cities") || "";
+  const selected = useMemo(
+    () => citiesParam.split(",").map((s) => s.trim()).filter(Boolean),
+    [citiesParam]
+  );
+  const comparing = searchParams.get("view") === "compare";
+
+  const setSelected = (next) => {
+    setSearchParams((prev) => {
+      const params = new URLSearchParams(prev);
+      const value = typeof next === "function" ? next(selected) : next;
+      if (value.length) params.set("cities", value.join(","));
+      else { params.delete("cities"); params.delete("view"); }
+      return params;
+    }, { replace: true });
+  };
+  const setComparing = (next) => {
+    setSearchParams((prev) => {
+      const params = new URLSearchParams(prev);
+      const value = typeof next === "function" ? next(comparing) : next;
+      if (value) params.set("view", "compare");
+      else params.delete("view");
+      return params;
+    }, { replace: true });
+  };
+
   const [search, setSearch] = useState("");
-  const [comparing, setComparing] = useState(false);
 
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim();

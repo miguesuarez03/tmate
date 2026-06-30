@@ -20,7 +20,9 @@ src/
 │   ├── CityCard.jsx      ← Card de ciudad para el grid
 │   ├── SearchBar.jsx     ← Buscador con autocomplete
 │   ├── ScoreCard.jsx     ← Dashboard de scores expandible
-│   └── Globe3D.jsx       ← Globo interactivo Three.js
+│   ├── WorldMap.jsx      ← Mapa interactivo (react-simple-maps), carga lazy
+│   ├── ScrollRestoration.jsx ← Restaura el scroll al navegar atrás/adelante
+│   └── RouteLoader.jsx   ← Indicador de carga entre páginas (code-splitting)
 ├── pages/
 │   ├── HomePage.jsx      ← Página principal
 │   └── CityDetailPage.jsx ← Página de detalle por ciudad (/city/:slug)
@@ -69,7 +71,7 @@ Copia el bloque de cualquier ciudad existente y modifica el contenido:
 **Eso es todo.** La ciudad aparecerá automáticamente en:
 - El grid de la homepage
 - El buscador con autocomplete
-- El globo interactivo (si añades las coordenadas en `Globe3D.jsx`)
+- El mapa interactivo (si añades las coordenadas en `WorldMap.jsx`)
 - Los filtros por región
 - Los rankings (calculados automáticamente)
 

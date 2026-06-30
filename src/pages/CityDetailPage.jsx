@@ -21,8 +21,11 @@ export default function CityDetailPage() {
 
   useEffect(() => {
     if (!city) navigate("/", { replace: true });
-    window.scrollTo(0, 0);
-  }, [slug]);
+    // Nota: el scroll (subir arriba al entrar / restaurar al volver atrás)
+    // lo gestiona <ScrollRestoration /> de forma global, así que aquí no
+    // forzamos window.scrollTo — si lo hiciéramos, pisaríamos la posición
+    // restaurada al pulsar "atrás" desde el navegador.
+  }, [slug, city, navigate]);
 
   useEffect(() => {
     if (!city) return;
