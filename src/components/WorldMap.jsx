@@ -8,7 +8,7 @@ import {
 } from "react-simple-maps";
 import { useNavigate } from "react-router-dom";
 import styles from "./WorldMap.module.css";
-import { getOverallScore } from "../lib/cities";
+import { getOverallScore, CITY_BASE_SCORES } from "../lib/cities";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
@@ -36,7 +36,14 @@ const CITIES = [
   { slug: "viena",     name: "Viena",     country: "Austria",      flag: "🇦🇹", coords: [16.37, 48.21], cost: "650–950€"   },
   { slug: "rosenheim", name: "Rosenheim", country: "Alemania",     flag: "🇩🇪", coords: [12.12, 47.85], cost: "550–800€"   },
   { slug: "bruselas",  name: "Bruselas",  country: "Bélgica",      flag: "🇧🇪", coords: [4.35,  50.85], cost: "600–900€"   },
-].map(city => ({ ...city, score: getOverallScore(city.slug) }))
+].map(city => ({
+  ...city,
+  score: getOverallScore(city.slug),
+  fiesta: CITY_BASE_SCORES[city.slug]?.vida_social ?? 7,
+  cultura: CITY_BASE_SCORES[city.slug]?.estilo_vida ?? 7,
+  economia: CITY_BASE_SCORES[city.slug]?.coste ?? 7,
+  dinero: CITY_BASE_SCORES[city.slug]?.coste ?? 7,
+}))
 
 // ─── PAÍSES con coordenadas para zoom ─────────────────────────────────────────
 const COUNTRY_ZOOM = {

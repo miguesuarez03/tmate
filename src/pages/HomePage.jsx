@@ -225,6 +225,7 @@ function CommunitySection() {
   const [formData, setFormData] = useState({ name: "", anon: false, city: "", text: "", stars: 0, photo: null });
   const [submitted, setSubmitted] = useState(false);
   const [photoPreview, setPhotoPreview] = useState(null);
+  const [activeTestimonial, setActiveTestimonial] = useState(null);
   const fileRef = useRef(null);
 
   const handlePhoto = (e) => {
@@ -257,7 +258,12 @@ function CommunitySection() {
       {/* Tarjetas mixtas: opinión + foto unidos */}
       <div className="community-cards">
         {TESTIMONIALS.map((t, i) => (
-          <div key={i} className="community-card">
+          <button
+            key={i}
+            type="button"
+            className="community-card"
+            onClick={() => setActiveTestimonial(t)}
+          >
             {/* Foto del destino */}
             <div className="community-card__img">
               <img src={t.photo} alt={t.city} loading="lazy" />
@@ -285,11 +291,52 @@ function CommunitySection() {
                 </div>
                 <span className="community-card__quote">"</span>
               </div>
-              <p className="community-card__text">{t.text}</p>
+              <p className="community-card__text community-card__text--clamp">{t.text}</p>
             </div>
-          </div>
+          </button>
         ))}
       </div>
+
+      {/* Modal de testimonio completo */}
+      {activeTestimonial && (
+        <div className="testimonial-modal-overlay" onClick={() => setActiveTestimonial(null)}>
+          <div className="testimonial-modal" onClick={e => e.stopPropagation()}>
+            <button
+              type="button"
+              className="testimonial-modal__close"
+              onClick={() => setActiveTestimonial(null)}
+              aria-label="Cerrar"
+            >
+              ✕
+            </button>
+            <div className="testimonial-modal__img">
+              <img src={activeTestimonial.photo} alt={activeTestimonial.city} />
+              <div className="community-card__img-overlay" />
+              <div className="community-card__city-badge">
+                <span>{activeTestimonial.flag}</span>
+                <span>{activeTestimonial.city}</span>
+              </div>
+            </div>
+            <div className="testimonial-modal__body">
+              <div className="community-card__stars" style={{ position: "static", marginBottom: 10 }}>
+                {[1,2,3,4,5].map(n => (
+                  <span key={n} className={n <= activeTestimonial.stars ? "star--on" : "star--off"}>★</span>
+                ))}
+              </div>
+              <div className="community-card__author" style={{ marginBottom: 16 }}>
+                <div className="community-card__avatar" style={{ background: activeTestimonial.color }}>
+                  {activeTestimonial.avatar}
+                </div>
+                <div>
+                  <p className="community-card__name">{activeTestimonial.name}</p>
+                  <p className="community-card__meta">{activeTestimonial.flag} Erasmus en {activeTestimonial.city}</p>
+                </div>
+              </div>
+              <p className="testimonial-modal__text">{activeTestimonial.text}</p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Social links */}
       <div className="social-placeholder">

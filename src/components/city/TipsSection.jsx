@@ -1,12 +1,12 @@
 import styles from "./TipsSection.module.css";
 
 const TIP_COLORS = [
-  { bg: "#0F172A", accent: "#00BFA5", icon: "💡" },
-  { bg: "#1A1035", accent: "#A855F7", icon: "🗺️" },
-  { bg: "#0C1F12", accent: "#22C55E", icon: "💸" },
-  { bg: "#1F0F0A", accent: "#F97316", icon: "🏠" },
-  { bg: "#0A1520", accent: "#0EA5E9", icon: "🚲" },
-  { bg: "#1A0F1A", accent: "#EC4899", icon: "🎉" },
+  { bg: "#DBEAFE", accent: "#2563EB", text: "#0F172A", icon: "💡" },
+  { bg: "#EDE4FF", accent: "#9333EA", text: "#0F172A", icon: "🗺️" },
+  { bg: "#D7F7E0", accent: "#16A34A", text: "#0F172A", icon: "💸" },
+  { bg: "#FFE4D6", accent: "#EA580C", text: "#0F172A", icon: "🏠" },
+  { bg: "#D6F1FF", accent: "#0284C7", text: "#0F172A", icon: "🚲" },
+  { bg: "#FDE0F0", accent: "#DB2777", text: "#0F172A", icon: "🎉" },
 ];
 
 export default function TipsSection({ tips = [], cityName }) {
@@ -27,7 +27,7 @@ export default function TipsSection({ tips = [], cityName }) {
               <div
                 key={i}
                 className={styles.card}
-                style={{ "--card-bg": theme.bg, "--card-accent": theme.accent }}
+                style={{ "--card-bg": theme.bg, "--card-accent": theme.accent, "--card-text": theme.text }}
               >
                 <div className={styles.cardTop}>
                   <span className={styles.cardIcon}>{theme.icon}</span>

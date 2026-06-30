@@ -34,6 +34,8 @@
   display: flex; align-items: center; gap: 1.25rem;
   transition: border-color 0.22s, box-shadow 0.22s, transform 0.22s var(--ease-spring);
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 
 .uniCard:hover {

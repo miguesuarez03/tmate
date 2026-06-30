@@ -12,15 +12,14 @@ const STEPS = [
     title: "Elige tu destino",
     color: "#0EA5E9",
     tag: "Preparación",
-    content: `Antes de solicitar nada, tómate tiempo en serio para elegir bien. No es solo elegir una ciudad bonita — es elegir dónde vas a vivir varios meses.
+    content: `Tómate en serio la elección — no vas a vivir solo en una ciudad bonita, vas a vivir allí varios meses. Lo que de verdad importa:
 
-Factores que realmente importan:
-· Tu nota media y créditos superados — en la mayoría de universidades determinan el orden de adjudicación de plazas
-· El idioma — comprueba qué nivel exigen y si tienes certificado o necesitas sacártelo
-· Las asignaturas disponibles — que puedas convalidar lo que necesitas en tu carrera
-· El coste real de vida — no solo el alquiler, también comida, transporte y ocio
+· Tu nota media y créditos — suelen decidir el orden de adjudicación de plazas
+· El idioma exigido — comprueba si necesitas certificado
+· Las asignaturas disponibles para convalidar
+· El coste real de vida: alquiler, comida, transporte y ocio
 
-Visita la Oficina de Relaciones Internacionales (ORI) de tu facultad cuanto antes. Ellos tienen la lista de universidades con las que hay acuerdo, los requisitos concretos de cada plaza y los plazos exactos. Mucha gente llega tarde por no ir a informarse a tiempo.`,
+Visita cuanto antes la ORI de tu facultad: tienen el listado de universidades con convenio, requisitos y plazos exactos. Llegar tarde a informarte es el error más común.`,
     note: "Usa TMate para comparar ciudades con scores reales de estudiantes que ya estuvieron ahí. Es exactamente para esto.",
     shortContent: [
       "Elige bien: no es solo una ciudad bonita, es donde vas a vivir meses.",
@@ -30,11 +29,11 @@ Visita la Oficina de Relaciones Internacionales (ORI) de tu facultad cuanto ante
       "Visita tu ORI cuanto antes — tienen plazos y requisitos exactos.",
     ],
     languages: [
-      { lang: "Inglés", cert: "Cambridge B2 / IELTS / TOEFL", note: "El más solicitado, vale para casi todos los países" },
-      { lang: "Alemán", cert: "Goethe B1/B2", note: "Obligatorio para Alemania y Austria" },
-      { lang: "Francés", cert: "DELF B1/B2", note: "Francia, Bélgica y partes de Suiza" },
-      { lang: "Italiano", cert: "CELI / CILS B1", note: "Italia — muchos programas aceptan sin certificado" },
-      { lang: "Portugués", cert: "CAPLE B1", note: "Portugal — nivel relativamente accesible" },
+      { lang: "Inglés", cert: "Cambridge B2 / IELTS / TOEFL", note: "Vale para casi todos los países" },
+      { lang: "Alemán", cert: "Goethe B1/B2", note: "Obligatorio en Alemania y Austria" },
+      { lang: "Francés", cert: "DELF B1/B2", note: "Francia, Bélgica y parte de Suiza" },
+      { lang: "Italiano", cert: "CELI / CILS B1", note: "Muchos programas no lo exigen" },
+      { lang: "Portugués", cert: "CAPLE B1", note: "Nivel relativamente accesible" },
     ],
   },
   {
@@ -43,13 +42,13 @@ Visita la Oficina de Relaciones Internacionales (ORI) de tu facultad cuanto ante
     title: "Solicita en tu universidad",
     color: "#14B8A6",
     tag: "Solicitud",
-    content: `Tu universidad abrirá un plazo oficial (normalmente entre octubre y febrero para el curso siguiente). En ese período debes:
+    content: `Tu universidad abre un plazo oficial (normalmente entre octubre y febrero) en el que debes:
 
-· Entrar en la plataforma interna de movilidad de tu uni
-· Ordenar tus destinos por preferencia (suelen pedirse entre 3 y 5 opciones)
-· Adjuntar la documentación: expediente académico, certificado de idioma y carta de motivación
+· Entrar en la plataforma interna de movilidad
+· Ordenar tus destinos por preferencia (suele pedirse entre 3 y 5)
+· Adjuntar expediente, certificado de idioma y carta de motivación
 
-Una vez enviada la solicitud, toca esperar. La resolución suele tardar entre 2 y 6 semanas.`,
+Después toca esperar: la resolución suele tardar entre 2 y 6 semanas.`,
     tip: "💡 Ordena las preferencias con cabeza. No pongas una ciudad de número 1 solo porque suena bien — compara scores reales en TMate antes de decidir.",
     shortContent: [
       "Tu uni abre el plazo entre octubre y febrero.",
@@ -59,8 +58,8 @@ Una vez enviada la solicitud, toca esperar. La resolución suele tardar entre 2 
       "⚠️ Empieza a mirar piso y vuelos ya, aunque no sepas si te aceptan.",
     ],
     urgencyAlert: {
-      title: "⚠️ Empieza a mirar pisos y vuelos ahora mismo — aunque todavía no sepas si te aceptan",
-      body: "Los alojamientos cerca de universidades con mucha demanda Erasmus se van en semanas. Cuando tengas la confirmación puede ser demasiado tarde para encontrar algo decente a buen precio.\n\nNadie va a avisarte ni a gestionarlo por ti — es tu responsabilidad buscar, reservar y pagar. Cuanto antes empieces a mirar, más opciones y mejores precios encontrarás. Empieza ya a explorar grupos de Facebook de la ciudad, plataformas locales y residencias universitarias.",
+      title: "⚠️ Empieza a mirar pisos y vuelos ahora — aunque todavía no sepas si te aceptan",
+      body: "Los alojamientos cerca de universidades con mucha demanda Erasmus se van en semanas. Cuando llegue la confirmación puede ser tarde para encontrar algo decente.\n\nEs tu responsabilidad buscar, reservar y pagar; nadie te lo gestiona. Cuanto antes empieces, más opciones y mejores precios. Explora ya grupos de Facebook de la ciudad, plataformas locales y residencias universitarias.",
     },
   },
   {
@@ -69,16 +68,13 @@ Una vez enviada la solicitud, toca esperar. La resolución suele tardar entre 2 
     title: "Resolución: aceptado o lista de espera",
     color: "#8B5CF6",
     tag: "Resolución",
-    content: `Llega el email con la resolución. Hay dos escenarios:
+    content: `Llega el email con la resolución. Dos escenarios:
 
-✅ Te han aceptado en uno de tus destinos — pasa directamente al paso 4.
+✅ Aceptado en uno de tus destinos — pasa directo al paso 4.
 
-⏳ Estás en lista de espera — no todo está perdido:
-· Algunas universidades permiten esperar activamente a que salga una plaza
-· Otras cierran el proceso y tendrás que solicitar en la siguiente convocatoria
-· En algunos casos puedes cambiar tu orden de preferencias
+⏳ Lista de espera — no todo está perdido: algunas universidades permiten esperar a que salga plaza, otras cierran el proceso para esta convocatoria, y en algunos casos puedes cambiar tu orden de preferencias.
 
-Lo más importante: mantén el contacto con tu ORI y responde rápido si te ofrecen una plaza de lista de espera. Los plazos son muy cortos.`,
+Lo importante: mantén contacto con tu ORI y responde rápido si te ofrecen plaza. Los plazos son muy cortos.`,
     shortContent: [
       "✅ Aceptado: pasa directo al paso 4.",
       "⏳ Lista de espera: algunas unis permiten esperar a que salga plaza.",
@@ -92,15 +88,15 @@ Lo más importante: mantén el contacto con tu ORI y responde rápido si te ofre
     title: "Acepta la plaza formalmente",
     color: "#F59E0B",
     tag: "Aceptación",
-    content: `Una vez aceptas tu plaza, tu universidad de origen hace su parte:
+    content: `Al aceptar tu plaza, tu universidad de origen:
 
 · Comunica oficialmente tu nominación a la universidad de destino
 · Te envía documentación a firmar (acuerdo bilateral, carta de compromiso)
-· Empieza a gestionar la beca Erasmus+ en tu nombre
+· Empieza a gestionar tu beca Erasmus+
 
-Sobre la beca: las cantidades varían según el país de destino y la universidad, pero en general rondan los 300–500€/mes. Lo importante es saber que el primer pago puede tardar semanas o incluso meses en llegar — planifica tener un colchón económico para los primeros meses. Nadie te lo adelanta.
+La beca ronda los 300–500€/mes según país y universidad, pero el primer pago puede tardar semanas o meses — ten un colchón económico para los primeros meses, porque nadie lo adelanta.
 
-Mientras tanto, si aún no has empezado a buscar piso y vuelos, hazlo ahora sin falta.`,
+Si aún no has buscado piso ni vuelos, hazlo ahora sin falta.`,
     shortContent: [
       "Tu uni comunica tu nominación a la universidad de destino.",
       "Te envía documentos a firmar (acuerdo bilateral, carta de compromiso).",
@@ -114,17 +110,14 @@ Mientras tanto, si aún no has empezado a buscar piso y vuelos, hazlo ahora sin 
     title: "La universidad de destino te contacta",
     color: "#EC4899",
     tag: "Nominación",
-    content: `La universidad de destino recibe tu nominación y te manda un email oficial. Este email es muy importante — léelo con atención y apunta todas las fechas.
+    content: `La universidad de destino recibe tu nominación y te manda un email oficial — léelo con atención y apunta todas las fechas. Suele incluir:
 
-Normalmente incluye:
-· Instrucciones para registrarte en su plataforma propia
-· Lista de documentación que debes subir
-· Fechas límite para cada trámite (suelen ser más estrictas de lo que parece)
-· Información sobre la matrícula en destino
-· Detalles de la orientación para Erasmus
+· Instrucciones para registrarte en su plataforma
+· Documentación a subir y fechas límite (más estrictas de lo que parece)
+· Información sobre matrícula y orientación Erasmus
 
-Créate la cuenta en su plataforma cuanto antes y sube la documentación sin esperar al último día. Las universidades extranjeras no suelen dar segundas oportunidades con los plazos.`,
-    tip: "💡 En esta fase también arranca el Learning Agreement — el contrato académico que define qué asignaturas cursarás y cómo se convalidarán. Tenemos una guía completa para hacerlo bien.",
+Crea la cuenta cuanto antes y sube la documentación sin esperar al último día: las universidades extranjeras no suelen dar segundas oportunidades.`,
+    tip: "💡 En esta fase arranca también el Learning Agreement — el contrato académico de tus asignaturas. Tenemos una guía completa para hacerlo bien.",
     laLink: true,
     shortContent: [
       "La universidad de destino te manda un email oficial clave.",
@@ -141,17 +134,17 @@ Créate la cuenta en su plataforma cuanto antes y sube la documentación sin esp
     tag: "Pre-partida",
     content: `Esta fase tiene más papeleo del que parece. Organízate con tiempo:
 
-🏠 Piso — si todavía no tienes, es urgente. Busca en grupos de Facebook de estudiantes de la ciudad, en la web de la propia universidad (algunas tienen residencias para Erasmus) y pregunta en foros o a gente que ya estuvo allí. Los mejores pisos se van semanas antes de que empiece el curso.
+🏠 Piso — si no lo tienes, es urgente. Busca en grupos de Facebook de la ciudad, en la web de la universidad (algunas ofrecen residencias Erasmus) y pregunta a quien ya estuvo allí. Los mejores pisos vuelan semanas antes del curso.
 
-✈️ Vuelos — reserva con antelación. Cuanto antes, más barato. Y recuerda que la beca puede no haber llegado todavía cuando tengas que pagar.
+✈️ Vuelos — reserva con antelación, cuanto antes más barato. La beca puede no haber llegado aún cuando toque pagar.
 
-🩺 Tarjeta Sanitaria Europea (TSE) — es gratuita y cubre atención médica básica en cualquier país de la UE. Pídela en la Seguridad Social con al menos 15 días de antelación antes de irte. Es obligatoria.
+🩺 Tarjeta Sanitaria Europea (TSE) — gratuita, cubre atención médica básica en la UE. Pídela en la Seguridad Social con al menos 15 días de antelación. Es obligatoria.
 
-🛡️ Seguro complementario — muchas universidades lo exigen además de la TSE. Cubre lo que la TSE no cubre (repatriación, gastos extras). Es barato y no es opcional si tu uni lo pide.
+🛡️ Seguro complementario — muchas universidades lo exigen además de la TSE, para cubrir repatriación y gastos extra. Es barato y no opcional si tu uni lo pide.
 
-📄 Firma electrónica / DNI electrónico — algunas universidades de destino requieren firma digital para sus trámites. Si necesitas activarla, hazlo con tiempo porque el proceso puede tardar.
+📄 Firma electrónica — algunas universidades la requieren para sus trámites. Actívala con tiempo si la necesitas.
 
-📁 Copia de todos tus documentos — guárdalos en la nube (Google Drive, iCloud). DNI/pasaporte, seguro, matrícula, Learning Agreement, datos bancarios. Si pierdes algo allí, lo agradecerás.`,
+📁 Documentos en la nube — DNI/pasaporte, seguro, matrícula, Learning Agreement, datos bancarios. Lo agradecerás si pierdes algo allí.`,
     shortContent: [
       "🏠 Piso — búscalo ya, los buenos vuelan semanas antes.",
       "✈️ Vuelos — cuanto antes reserves, más barato.",
@@ -166,15 +159,15 @@ Créate la cuenta en su plataforma cuanto antes y sube la documentación sin esp
     title: "Llegada y primeros días",
     color: "#F97316",
     tag: "Llegada",
-    content: `Ya estás ahí. Pero aún quedan trámites importantes:
+    content: `Ya estás ahí, pero quedan trámites importantes:
 
-📋 Certificado de llegada — uno de los documentos más críticos de todo el proceso. Lo firma el coordinador Erasmus de tu universidad de destino y lo tienes que enviar a tu ORI en España. Sin este certificado, no cobras la beca. Consíguelo en los primeros días y mándalo cuanto antes.
+📋 Certificado de llegada — uno de los documentos más críticos. Lo firma tu coordinador Erasmus de destino y debes enviarlo a tu ORI en España; sin él no cobras la beca. Consíguelo en los primeros días.
 
-🎓 Orientación Erasmus — casi todas las universidades organizan una sesión de bienvenida en los primeros días. Ve sin falta: te explican cómo funciona todo, conoces a otros Erasmus y resuelves dudas.
+🎓 Orientación Erasmus — casi todas las universidades hacen una sesión de bienvenida los primeros días. Ve sin falta: te lo explican todo y conoces a otros Erasmus.
 
-📝 Cambios en el Learning Agreement — si al llegar ves que alguna asignatura no te encaja o tiene conflicto de horario, hay un plazo (normalmente las primeras semanas) para modificarlo. Fuera de ese plazo no puedes cambiar nada.
+📝 Cambios en el Learning Agreement — si alguna asignatura no encaja, hay un plazo corto (primeras semanas) para modificarlo.
 
-🏦 Cuenta bancaria local — en algunos países conviene abrirla para evitar comisiones. Pregunta a otros Erasmus qué banco usan allí.`,
+🏦 Cuenta bancaria local — en algunos países conviene abrirla para evitar comisiones.`,
     shortContent: [
       "📋 Certificado de llegada — sin él no cobras la beca. Consíguelo ya.",
       "🎓 Ve a la orientación Erasmus, te explican todo.",
@@ -188,15 +181,15 @@ Créate la cuenta en su plataforma cuanto antes y sube la documentación sin esp
     title: "Vuelta y cierre",
     color: "#6366F1",
     tag: "Fin de estancia",
-    content: `El Erasmus no termina cuando coges el avión de vuelta. Aún quedan cosas por hacer:
+    content: `El Erasmus no termina al coger el avión de vuelta. Queda por hacer:
 
-📋 Certificado de salida — igual que el de llegada, lo firma la universidad de destino. Es obligatorio para cerrar la beca. No te vayas sin él.
+📋 Certificado de salida — lo firma la universidad de destino, igual que el de llegada. Obligatorio para cerrar la beca: no te vayas sin él.
 
-📊 Encuesta obligatoria de la UE — recibirás un email de la Comisión Europea pidiendo que rellenes una encuesta sobre tu experiencia. Es obligatoria para haber recibido la beca. No la ignores.
+📊 Encuesta de la UE — la Comisión Europea te la envía por email; es obligatoria para haber recibido la beca.
 
-📄 Informe final Erasmus — tu universidad de origen también puede pedirte una memoria o informe de la estancia. Consulta con tu ORI qué formato exigen.
+📄 Informe final — tu universidad de origen puede pedirte una memoria de la estancia; consulta el formato con tu ORI.
 
-🎓 Convalidaciones — entrega toda la documentación a tu coordinador de grado para que tramiten las convalidaciones. El certificado de notas de la universidad de destino es el documento clave. El proceso puede tardar un par de meses en reflejarse en tu expediente — es normal.`,
+🎓 Convalidaciones — entrega la documentación a tu coordinador de grado. El certificado de notas de destino es el documento clave; puede tardar un par de meses en reflejarse, es normal.`,
     shortContent: [
       "📋 Certificado de salida — obligatorio para cerrar la beca.",
       "📊 Rellena la encuesta de la UE, es obligatoria.",

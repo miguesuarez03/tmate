@@ -48,7 +48,7 @@ export default function CityDetailPage() {
       <div className="cdp-divider" />
 
       {/* 3. Insight dashboard */}
-      <InsightDashboard scores={insights?.scores ?? []} overallScore={overallScore} />
+      <InsightDashboard scores={insights?.scores ?? []} overallScore={overallScore} citySlug={slug} cityName={city.name} />
 
       <div className="cdp-divider" />
 

@@ -1398,20 +1398,27 @@ a { text-decoration: none; color: inherit; }
 /* ─── COMMUNITY CARDS (Fase 4) ───────────────────────────────────────────── */
 .community-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
   max-width: 1280px;
   margin: 0 auto 48px;
   padding: 0 var(--section-px);
 }
 
 .community-card {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--color-border);
   background: #fff;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  cursor: pointer;
+  padding: 0;
 }
 .community-card:hover {
   transform: translateY(-3px);
@@ -1420,7 +1427,7 @@ a { text-decoration: none; color: inherit; }
 
 .community-card__img {
   position: relative;
-  height: 200px;
+  height: 140px;
   overflow: hidden;
 }
 .community-card__img img {
@@ -1454,32 +1461,107 @@ a { text-decoration: none; color: inherit; }
 .star--off { color: rgba(255,255,255,0.35); font-size: 14px; }
 
 .community-card__body {
-  padding: 16px;
+  padding: 12px 14px;
 }
 
 .community-card__author {
   display: flex; align-items: center; gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 .community-card__avatar {
-  width: 36px; height: 36px; border-radius: 50%;
+  width: 32px; height: 32px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-weight: 800; font-size: 14px; color: #0F172A;
+  font-weight: 800; font-size: 13px; color: #0F172A;
   flex-shrink: 0;
 }
 .community-card__name {
-  font-weight: 700; font-size: 14px; color: var(--color-dark); margin: 0;
+  font-weight: 700; font-size: 13px; color: var(--color-dark); margin: 0;
 }
 .community-card__meta {
-  font-size: 12px; color: var(--color-muted); margin: 0;
+  font-size: 11px; color: var(--color-muted); margin: 0;
 }
 .community-card__quote {
-  font-size: 32px; color: var(--color-border);
+  font-size: 28px; color: var(--color-border);
   font-family: Georgia, serif; line-height: 1;
   margin-left: auto; align-self: flex-start;
 }
 .community-card__text {
-  font-size: 14px; line-height: 1.65; color: var(--color-slate);
+  font-size: 13px; line-height: 1.55; color: var(--color-slate);
+  margin: 0;
+}
+.community-card__text--clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 540px) {
+  .community-cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .community-card__img { height: 90px; }
+  .community-card__body { padding: 10px 10px; }
+  .community-card__avatar { width: 26px; height: 26px; font-size: 11px; }
+  .community-card__name { font-size: 12px; }
+  .community-card__meta { font-size: 10px; }
+  .community-card__quote { display: none; }
+  .community-card__text--clamp { font-size: 12px; -webkit-line-clamp: 2; }
+}
+
+/* ─── TESTIMONIAL MODAL ──────────────────────────────────────────────────── */
+.testimonial-modal-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  animation: testimonialFadeIn 0.2s ease;
+}
+@keyframes testimonialFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.testimonial-modal {
+  background: #fff;
+  border-radius: var(--radius-xl, 20px);
+  max-width: 480px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+  animation: testimonialPopIn 0.25s var(--ease-spring, ease);
+}
+@keyframes testimonialPopIn {
+  from { opacity: 0; transform: scale(0.94) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.testimonial-modal__close {
+  position: absolute; top: 14px; right: 14px; z-index: 2;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: var(--color-dark);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.testimonial-modal__close:hover { background: #fff; }
+
+.testimonial-modal__img {
+  position: relative;
+  height: 220px;
+}
+.testimonial-modal__img img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+
+.testimonial-modal__body {
+  padding: 22px 24px 26px;
+}
+
+.testimonial-modal__text {
+  font-size: 15px; line-height: 1.7; color: var(--color-slate);
   margin: 0;
 }
 

@@ -57,6 +57,31 @@
   position: sticky; top: 80px;
 }
 
+.quickAccessBox {
+  margin-top: 0.6rem;
+  padding: 0.9rem 0.95rem;
+  border-radius: var(--radius-md);
+  border: 1.5px dashed var(--color-border);
+  display: flex; flex-direction: column; gap: 0.5rem;
+}
+
+.quickAccessTitle {
+  font-family: var(--font-body); font-size: 0.7rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-muted);
+  margin: 0;
+}
+
+.quickAccessItem {
+  display: flex; align-items: center; gap: 0.55rem;
+  font-family: var(--font-body); font-size: 0.85rem; font-weight: 600;
+  color: var(--color-dark);
+  text-decoration: none;
+}
+
+.quickAccessItem svg { color: var(--qa-color, var(--color-muted)); flex-shrink: 0; }
+
+a.quickAccessItem:hover { color: var(--qa-color, var(--color-primary)); }
+
 .metricPill {
   display: flex; align-items: center; gap: 0.7rem;
   padding: 0.75rem 0.9rem;

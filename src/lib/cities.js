@@ -29,7 +29,7 @@ export function getCityInsights(slug) {
 }
 
 // ─── BASE SCORES por ciudad (investigados) ───────────────────────────────────
-const CITY_BASE_SCORES = {
+export const CITY_BASE_SCORES = {
   bolonia:   { coste:6.5, alojamiento:5.0, vida_social:9.2, integracion:8.5, movilidad:8.0, estilo_vida:8.0, empleo:7.0, seguridad:8.5 },
   milan:     { coste:4.5, alojamiento:4.0, vida_social:8.0, integracion:7.5, movilidad:8.5, estilo_vida:7.0, empleo:9.5, seguridad:7.5 },
   roma:      { coste:5.5, alojamiento:5.0, vida_social:8.0, integracion:7.5, movilidad:6.5, estilo_vida:8.3, empleo:7.5, seguridad:7.0 },

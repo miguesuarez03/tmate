@@ -112,6 +112,32 @@
 /* ── Actions ── */
 .heroActions { display: flex; gap: 0.85rem; flex-wrap: wrap; align-items: center; }
 
+.heroQuickLinks {
+  display: flex; gap: 0.65rem; flex-wrap: wrap;
+  margin-top: 0.85rem;
+}
+
+.heroQuickLink {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-full, 999px);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid color-mix(in srgb, var(--quick-color, #fff) 35%, transparent);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.82rem; font-weight: 600;
+  text-decoration: none;
+  backdrop-filter: blur(6px);
+  transition: background 0.2s, transform 0.2s;
+}
+
+a.heroQuickLink:hover {
+  background: color-mix(in srgb, var(--quick-color, #fff) 20%, rgba(255,255,255,0.08));
+  transform: translateY(-2px);
+}
+
+.heroQuickLink svg { color: var(--quick-color, #fff); flex-shrink: 0; }
+
 .heroCta {
   display: flex; align-items: center; gap: 0.5rem;
   background: #fff; color: #0a0f1e;
