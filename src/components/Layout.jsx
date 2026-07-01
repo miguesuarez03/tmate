@@ -20,6 +20,12 @@ const MENU_ITEMS = [
     action: "explore",
   },
   {
+    icon: "🧭",
+    label: "City Match",
+    desc: "Responde 8 preguntas y descubre tu ciudad ideal",
+    action: "match",
+  },
+  {
     icon: "⚖️",
     label: "Comparativa de destinos",
     desc: "Compara tus ciudades favoritas lado a lado",
@@ -63,6 +69,8 @@ function useMenuAction(navigate, setMenuOpen) {
         }, 100);
       } else if (action === "compare") {
         navigate("/comparar");
+      } else if (action === "match") {
+        navigate("/city-match");
       } else if (action === "steps") {
         navigate("/proceso");
       } else if (action === "beca") {

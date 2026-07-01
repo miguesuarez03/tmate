@@ -15,6 +15,7 @@ const ProcesoPage           = lazy(() => import("./pages/ProcesoPage"));
 const ComparePage           = lazy(() => import("./pages/ComparePage"));
 const LearningAgreementPage = lazy(() => import("./pages/LearningAgreementPage"));
 const BecaErasmusPage       = lazy(() => import("./pages/BecaErasmusPage"));
+const CityMatchPage         = lazy(() => import("./pages/CityMatchPage"));
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="/comparar" element={<ComparePage />} />
           <Route path="/learning-agreement" element={<LearningAgreementPage />} />
           <Route path="/beca-erasmus" element={<BecaErasmusPage />} />
+          <Route path="/city-match" element={<CityMatchPage />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

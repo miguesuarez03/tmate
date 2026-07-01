@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { useSEO } from "../hooks/useSEO";
 import { CITY_COORDS, haversineDistanceKm, distanceToRange, geocodeCity } from "../lib/cityCoords";
+import { getCityInsights, parseMinCost, parseMaxCost } from "../lib/cities";
 import { CITIES } from "../data/cities";
 
 /* ─── SEARCHABLE INPUT ───────────────────────────────────────────────────── */
@@ -144,6 +145,15 @@ const COUNTRY_DISTANCE = {
   "Turquía": "2.000 – 2.999 km",
 };
 
+// Iconos para las subcategorías de coste de vida (mismas etiquetas que
+// usa CityDetailPage/InsightDashboard bajo la categoría "coste").
+const EXPENSE_ICONS = {
+  "Alojamiento": "🏠",
+  "Comida y supermercados": "🍽️",
+  "Transporte": "🚌",
+  "Ocio y gastos diarios": "🎉",
+};
+
 const COMPAT_BECAS = [
   { icon: "📚", name: "Beca MEC", desc: "Compatible al 100%. Puedes cobrar ambas a la vez." },
   { icon: "🏛️", name: "Ayudas autonómicas", desc: "Andalucía, Madrid, Cataluña y otras CCAA ofrecen complementos propios." },
@@ -247,6 +257,36 @@ function Calculator() {
   const autEstimate = aut ? autAmount * months : 0;
 
   const total = erasmusTotal !== null ? erasmusTotal + travelBonus + mecEstimate + autEstimate : null;
+
+  // ── Coste de vida y aportación del estudiante ──────────────────────────
+  // El total (rango) de costDetail es el dato investigado y ya usado en
+  // toda la app. El reparto por categoría se calcula a partir del peso
+  // relativo de las subcategorías de coste (mismas que en la ficha de
+  // ciudad) — es una estimación, no un dato investigado categoría a
+  // categoría, y así se explica en el propio texto.
+  const costMin = destCity ? parseMinCost(destCity.costDetail) : 0;
+  const costMax = destCity ? parseMaxCost(destCity.costDetail) : 0;
+  const costMid = destCity ? Math.round((costMin + costMax) / 2) : 0;
+
+  const costeSubcats = destCity
+    ? getCityInsights(destCity.slug).scores.find((s) => s.id === "coste")?.subcategories || []
+    : [];
+
+  const expenseBreakdown = costeSubcats.length
+    ? (() => {
+        const weights = costeSubcats.map((s) => (10 - s.score) + 1);
+        const sumW = weights.reduce((a, b) => a + b, 0);
+        return costeSubcats.map((s, i) => ({
+          label: s.label,
+          desc: s.desc,
+          amount: Math.round((weights[i] / sumW) * costMid),
+        }));
+      })()
+    : [];
+
+  const mecMonthly = mec ? Math.round(mecEstimate / months) : 0;
+  const monthlyIncome = (monthly || 0) + (aut ? autAmount : 0) + mecMonthly;
+  const gap = costMid - monthlyIncome;
 
   return (
     <div className="beca-calc">
@@ -428,6 +468,57 @@ function Calculator() {
           </div>
         </div>
       </div>
+
+      {/* ── Coste de vida y cuánto te falta poner ── */}
+      {destCity && expenseBreakdown.length > 0 && (
+        <div className="beca-expenses">
+          <h3 className="beca-expenses__title">💸 Coste de vida estimado en {destCity.name}</h3>
+          <p className="beca-expenses__subtitle">
+            Reparto calculado a partir del coste total investigado ({costMin}–{costMax}€/mes) y el peso relativo de cada categoría en esta ciudad.
+          </p>
+
+          <div className="beca-expenses__grid">
+            {expenseBreakdown.map((e) => (
+              <div key={e.label} className="beca-expenses__item">
+                <div className="beca-expenses__item-head">
+                  <span className="beca-expenses__item-label">{EXPENSE_ICONS[e.label] || "💰"} {e.label}</span>
+                  <span className="beca-expenses__item-amount">~{e.amount}€/mes</span>
+                </div>
+                <p className="beca-expenses__item-desc">{e.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="beca-expenses__summary">
+            <div className="beca-expenses__summary-row">
+              <span>Coste mensual estimado</span>
+              <strong>{costMid}€/mes</strong>
+            </div>
+            <div className="beca-expenses__summary-row">
+              <span>Tu beca + ayudas mensuales</span>
+              <strong>{monthlyIncome}€/mes</strong>
+            </div>
+            <hr className="beca-calc__divider" />
+            <div className={`beca-expenses__gap ${gap > 0 ? "beca-expenses__gap--negative" : "beca-expenses__gap--positive"}`}>
+              {gap > 0 ? (
+                <>
+                  <span>💳 Tendrás que aportar de tu bolsillo</span>
+                  <strong>~{gap}€/mes</strong>
+                </>
+              ) : (
+                <>
+                  <span>✅ Tu beca cubre el coste de vida estimado</span>
+                  <strong>+{Math.abs(gap)}€/mes de margen</strong>
+                </>
+              )}
+            </div>
+          </div>
+
+          <p className="beca-calc__disclaimer" style={{ marginTop: 16 }}>
+            ⚠️ El total ({costMin}–{costMax}€) es el rango investigado para {destCity.name}. El reparto entre alojamiento, comida, transporte y ocio es una estimación calculada, no un dato investigado categoría a categoría — usa las descripciones de arriba (con precios reales) para ajustarlo a tu caso concreto.
+          </p>
+        </div>
+      )}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { CITIES } from "../data/cities";
-import { getCityInsights, getOverallScore, parseMinCost } from "../lib/cities";
+import { getScoreMap, getOverallScore, parseMinCost } from "../lib/cities";
 import { getComparePhrase } from "../data/comparePhrases";
 import { Navbar, Footer } from "../components/Layout";
 import styles from "./ComparePage.module.css";
@@ -17,16 +17,6 @@ const COL_GRADIENTS = [
   "linear-gradient(135deg,#F59E0B,#EF4444)",
   "linear-gradient(135deg,#8B5CF6,#EC4899)",
 ];
-
-function getScoreMap(slug) {
-  const insights = getCityInsights(slug);
-  const map = {};
-  SCORE_IDS.forEach((id) => {
-    const s = insights.scores.find((s) => s.id === id);
-    map[id] = s ?? null;
-  });
-  return map;
-}
 
 // ─── Radar comparativo ──────────────────────────────────────────────────
 const RADAR_SHORT = {
