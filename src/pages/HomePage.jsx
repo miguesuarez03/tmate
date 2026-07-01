@@ -1,11 +1,13 @@
-import { useState, useEffect, useRef, lazy, Suspense } from "react";
+import { useState, useEffect, useRef, useMemo, lazy, Suspense } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { CITIES } from "../data/cities";
+import { getScoreMap, getOverallScore } from "../lib/cities";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import SearchBar from "../components/SearchBar";
 import CityCard from "../components/CityCard";
 import { useCityFilter } from "../hooks/useCityFilter";
 import { useSEO } from "../hooks/useSEO";
+import { getWebsiteJsonLd } from "../lib/seo";
 
 // WorldMap arrastra react-simple-maps + d3 (pesado). Se carga bajo demanda
 // para no engordar el bundle inicial — el globo está más abajo en la página,
@@ -229,6 +231,10 @@ const FAQS = [
     q: "¿Por dónde empiezo si acabo de confirmar mi plaza?",
     a: "Lo primero es explorar tu destino para saber qué esperar. Después, tramita el Learning Agreement cuanto antes — es lo más urgente y lo que más se suele dejar para el final.",
   },
+  {
+    q: "¿De dónde salen los datos y cuándo se actualizan?",
+    a: "Los importes de beca y ayuda de viaje se basan en las tarifas oficiales SEPIE / Comisión Europea. El resto de datos (coste de vida, transporte, ambiente) combinan investigación propia por ciudad con experiencias de estudiantes Erasmus. En cada ficha de ciudad y en el comparador puedes abrir 'Cómo calculamos estos datos' para ver el detalle y la fecha de la última revisión.",
+  },
 ];
 
 function FAQSection() {
@@ -397,6 +403,77 @@ function AllTestimonialsModal({ onClose, onSelect }) {
         </div>
       </div>
     </div>
+  );
+}
+
+// Fase 8 — Rankings: 100% basado en los mismos scores que ya se muestran
+// en cada ficha de ciudad y en el comparador. No se inventa ningún dato
+// nuevo para esta sección, solo se reordena lo que ya existe.
+const RANKING_CATEGORIES = [
+  { id: "overall", label: "General", icon: "🏆" },
+  { id: "coste", label: "Más económicas", icon: "💶" },
+  { id: "vida_social", label: "Vida social", icon: "🎉" },
+  { id: "seguridad", label: "Seguridad", icon: "🛡️" },
+  { id: "empleo", label: "Salidas profesionales", icon: "🎓" },
+];
+
+function RankingsSection() {
+  const [active, setActive] = useState("overall");
+  const navigate = useNavigate();
+
+  const ranked = useMemo(() => {
+    return CITIES
+      .map((city) => ({
+        city,
+        score: active === "overall" ? getOverallScore(city.slug) : (getScoreMap(city.slug)[active]?.score ?? 0),
+      }))
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 6);
+  }, [active]);
+
+  return (
+    <section className="rankings-section">
+      <div className="rankings-inner">
+        <div className="rankings-header">
+          <SectionLabel color="var(--color-teal)">Rankings</SectionLabel>
+          <h2 className="section__title">Las ciudades mejor valoradas.</h2>
+          <p className="rankings-subtitle">
+            Basado en los mismos scores que ves en cada ficha de ciudad y en el comparador.
+          </p>
+        </div>
+
+        <div className="rankings-tabs">
+          {RANKING_CATEGORIES.map((c) => (
+            <button
+              key={c.id}
+              type="button"
+              className={`rankings-tab${active === c.id ? " rankings-tab--active" : ""}`}
+              onClick={() => setActive(c.id)}
+            >
+              {c.icon} {c.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="rankings-list">
+          {ranked.map((r, i) => (
+            <button
+              key={r.city.slug}
+              type="button"
+              className="rankings-row"
+              onClick={() => navigate(`/city/${r.city.slug}`)}
+            >
+              <span className="rankings-row__pos">{i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : `#${i + 1}`}</span>
+              <span className="rankings-row__city">{r.city.emoji} {r.city.name}<span className="rankings-row__country">{r.city.country}</span></span>
+              <div className="rankings-row__bar">
+                <div className="rankings-row__bar-fill" style={{ width: `${(r.score / 10) * 100}%` }} />
+              </div>
+              <span className="rankings-row__score">{r.score.toFixed(1)}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -674,7 +751,7 @@ export default function HomePage() {
   const totalCount = filtered.length;
 
   // SEO dinámico
-  useSEO({ isHome: true });
+  useSEO({ isHome: true, jsonLd: getWebsiteJsonLd() });
 
   const INITIAL_COUNT = 4;
   const displayedCities = showAll ? filtered : filtered.slice(0, INITIAL_COUNT);
@@ -784,6 +861,9 @@ export default function HomePage() {
           </div>
         )}
       </section>
+
+      {/* RANKINGS */}
+      <RankingsSection />
 
       {/* COMMUNITY */}
       <CommunitySection />

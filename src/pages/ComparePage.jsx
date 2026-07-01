@@ -4,6 +4,8 @@ import { CITIES } from "../data/cities";
 import { getScoreMap, getOverallScore, parseMinCost } from "../lib/cities";
 import { getComparePhrase } from "../data/comparePhrases";
 import { Navbar, Footer } from "../components/Layout";
+import MethodologyNote from "../components/MethodologyNote";
+import { useSEO } from "../hooks/useSEO";
 import styles from "./ComparePage.module.css";
 
 const SCORE_IDS = [
@@ -262,6 +264,11 @@ export default function ComparePage() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
+  useSEO({
+    title: "Comparador de ciudades Erasmus — Pon tus destinos lado a lado | TMate",
+    description: "Compara hasta 3 ciudades Erasmus a la vez: coste de vida, vida social, seguridad, empleo y más. Radar comparativo, diferencias destacadas y resumen automático.",
+  });
+
   // Selección y vista viven en la URL (?cities=bolonia,berlin&view=compare):
   // así, si entras a la guía de una ciudad desde la comparativa y vuelves
   // atrás, sigues exactamente donde estabas — selección y vista incluidas.
@@ -464,6 +471,11 @@ export default function ComparePage() {
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* Metodología y fuentes */}
+            <div className="trust-note-wrap" style={{ padding: 0 }}>
+              <MethodologyNote compact />
             </div>
 
             {/* Features */}

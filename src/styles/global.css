@@ -1,6 +1,6 @@
-/* ─── GOOGLE FONTS ───────────────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;0,800;0,900;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
-
+/* Google Fonts (Fraunces + DM Sans) se cargan como <link> en index.html,
+   no como @import aquí — @import retrasa el descubrimiento de la fuente
+   hasta que el navegador parsea este archivo entero primero. */
 /* ─── DESIGN TOKENS ──────────────────────────────────────────────────────── */
 :root {
   --color-primary: #0EA5E9;
@@ -2539,4 +2539,83 @@ a { text-decoration: none; color: inherit; }
   .faq-item__question {
     font-size: 15px;
   }
+}
+
+/* ─── TRUST NOTE (metodología y fuentes) ─────────────────────────────────── */
+.trust-note-wrap { padding: 8px var(--section-px) 40px; }
+.trust-note {
+  max-width: 900px; margin: 0 auto;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+.trust-note--compact { max-width: 100%; }
+.trust-note__toggle {
+  width: 100%; display: flex; justify-content: space-between; align-items: center;
+  background: none; border: none; cursor: pointer;
+  padding: 14px 20px; font-size: 14px; font-weight: 700; color: var(--color-slate);
+  min-height: 44px; font-family: var(--font-body);
+}
+.trust-note__arrow { font-size: 11px; color: var(--color-muted); }
+.trust-note__body { padding: 0 20px 18px; }
+.trust-note__list { margin: 0 0 12px; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+.trust-note__list li { font-size: 13px; color: var(--color-slate-light); line-height: 1.6; }
+.trust-note__updated { font-size: 12.5px; color: var(--color-muted); margin: 0 0 6px; }
+.trust-note__feedback { font-size: 12.5px; color: var(--color-muted); margin: 0; }
+.trust-note__feedback a { color: var(--color-primary); font-weight: 600; }
+
+/* ─── RANKINGS ───────────────────────────────────────────────────────────── */
+.rankings-section {
+  padding: var(--section-py) var(--section-px);
+  background: #fff;
+}
+.rankings-inner { max-width: 760px; margin: 0 auto; }
+.rankings-header { text-align: center; margin-bottom: 32px; }
+.rankings-subtitle {
+  font-size: clamp(15px, 2vw, 17px); color: var(--color-slate-light);
+  line-height: 1.6; margin-top: 12px;
+}
+
+.rankings-tabs {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+  margin-bottom: 28px;
+}
+.rankings-tab {
+  border-radius: var(--radius-full); padding: 8px 16px;
+  font-size: 13px; font-weight: 600; border: 1.5px solid var(--color-border);
+  background: transparent; color: var(--color-slate-light);
+  transition: all var(--transition-fast); min-height: 40px;
+}
+.rankings-tab:hover { border-color: var(--color-teal); color: var(--color-teal); }
+.rankings-tab--active { background: #0F172A; border-color: #14B8A6; color: #fff; font-weight: 700; }
+
+.rankings-list { display: flex; flex-direction: column; gap: 10px; }
+.rankings-row {
+  display: grid; grid-template-columns: 32px 1fr 100px 44px;
+  align-items: center; gap: 14px; width: 100%; text-align: left;
+  background: var(--color-surface); border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg); padding: 14px 16px;
+  transition: all 0.2s ease; min-height: 44px;
+}
+.rankings-row:hover { border-color: var(--color-primary); background: #fff; box-shadow: var(--shadow-sm); }
+.rankings-row__pos { font-size: 18px; text-align: center; }
+.rankings-row__city {
+  font-size: 14.5px; font-weight: 700; color: var(--color-dark);
+  display: flex; align-items: baseline; gap: 8px; min-width: 0;
+}
+.rankings-row__country { font-size: 12px; font-weight: 500; color: var(--color-muted); }
+.rankings-row__bar {
+  height: 6px; background: var(--color-border); border-radius: var(--radius-full); overflow: hidden;
+}
+.rankings-row__bar-fill { height: 100%; background: var(--gradient-brand); border-radius: var(--radius-full); }
+.rankings-row__score {
+  font-family: var(--font-display); font-weight: 800; font-size: 15px;
+  color: var(--color-primary); text-align: right;
+}
+
+@media (max-width: 560px) {
+  .rankings-row { grid-template-columns: 26px 1fr 44px; }
+  .rankings-row__bar { display: none; }
+  .rankings-row__city { flex-direction: column; align-items: flex-start; gap: 0; }
 }

@@ -1,67 +1,97 @@
 import { useEffect } from 'react';
 import { getCityMeta, getHomeMeta } from '../lib/cities';
+import { SITE_URL, SITE_NAME } from '../lib/seo';
+
+const DEFAULT_TITLE = 'TMate — Descubre tu próximo Erasmus';
+
+function setMeta(attr, key, content) {
+  if (!content) return;
+  let el = document.querySelector(`meta[${attr}="${key}"]`);
+  if (!el) {
+    el = document.createElement('meta');
+    el.setAttribute(attr, key);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('content', content);
+}
+
+function setCanonical(href) {
+  let el = document.querySelector('link[rel="canonical"]');
+  if (!el) {
+    el = document.createElement('link');
+    el.setAttribute('rel', 'canonical');
+    document.head.appendChild(el);
+  }
+  el.setAttribute('href', href);
+}
+
+function setJsonLd(data) {
+  let el = document.querySelector('script[data-tmate-jsonld]');
+  if (!data) {
+    if (el) el.remove();
+    return;
+  }
+  if (!el) {
+    el = document.createElement('script');
+    el.type = 'application/ld+json';
+    el.setAttribute('data-tmate-jsonld', 'true');
+    document.head.appendChild(el);
+  }
+  el.textContent = JSON.stringify(data);
+}
 
 /**
  * useSEO
- * Actualiza <title> y meta description dinámicamente.
- * Sin dependencias extra — nativo del DOM.
+ * Actualiza title, meta description, canonical, Open Graph, Twitter Card
+ * y JSON-LD dinámicamente. Sin dependencias extra — nativo del DOM.
  *
- * @param {{ city?: object, overallScore?: number, isHome?: boolean }} options
+ * Dos formas de usarlo:
+ *  - useSEO({ isHome: true })                      → metadatos de home
+ *  - useSEO({ city, overallScore })                 → metadatos de ficha de ciudad
+ *  - useSEO({ title, description, path, jsonLd })   → cualquier otra página
  */
-export function useSEO({ city = null, overallScore = 0, isHome = false } = {}) {
+export function useSEO({ city = null, overallScore = 0, isHome = false, title, description, path, jsonLd } = {}) {
   useEffect(() => {
     const meta = isHome
       ? getHomeMeta()
       : city
         ? getCityMeta(city, overallScore)
-        : null;
+        : (title || description)
+          ? { title, description }
+          : null;
 
     if (!meta) return;
 
-    // Title
-    document.title = meta.title;
+    const finalTitle = meta.title || DEFAULT_TITLE;
+    const url = `${SITE_URL}${path ?? window.location.pathname}`;
 
-    // Meta description
-    let descEl = document.querySelector('meta[name="description"]');
-    if (!descEl) {
-      descEl = document.createElement('meta');
-      descEl.setAttribute('name', 'description');
-      document.head.appendChild(descEl);
-    }
-    descEl.setAttribute('content', meta.description);
+    document.title = finalTitle;
+    setMeta('name', 'description', meta.description);
+    setCanonical(url);
 
-    // OG title
-    let ogTitle = document.querySelector('meta[property="og:title"]');
-    if (!ogTitle) {
-      ogTitle = document.createElement('meta');
-      ogTitle.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitle);
-    }
-    ogTitle.setAttribute('content', meta.title);
+    // Open Graph
+    setMeta('property', 'og:title', finalTitle);
+    setMeta('property', 'og:description', meta.description);
+    setMeta('property', 'og:url', url);
+    setMeta('property', 'og:site_name', SITE_NAME);
+    setMeta('property', 'og:type', city ? 'article' : 'website');
+    if (meta.ogImage) setMeta('property', 'og:image', meta.ogImage);
 
-    // OG description
-    let ogDesc = document.querySelector('meta[property="og:description"]');
-    if (!ogDesc) {
-      ogDesc = document.createElement('meta');
-      ogDesc.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDesc);
-    }
-    ogDesc.setAttribute('content', meta.description);
+    // Twitter Card
+    setMeta('name', 'twitter:card', meta.ogImage ? 'summary_large_image' : 'summary');
+    setMeta('name', 'twitter:title', finalTitle);
+    setMeta('name', 'twitter:description', meta.description);
+    if (meta.ogImage) setMeta('name', 'twitter:image', meta.ogImage);
 
-    // OG image (solo en páginas de ciudad)
-    if (meta.ogImage) {
-      let ogImg = document.querySelector('meta[property="og:image"]');
-      if (!ogImg) {
-        ogImg = document.createElement('meta');
-        ogImg.setAttribute('property', 'og:image');
-        document.head.appendChild(ogImg);
-      }
-      ogImg.setAttribute('content', meta.ogImage);
-    }
+    // JSON-LD (datos estructurados) — opcional, lo decide cada página
+    setJsonLd(jsonLd || null);
 
     return () => {
-      // Restaurar title por defecto al desmontar
-      document.title = 'TMate — Descubre tu próximo Erasmus';
+      // Restaurar valores por defecto al desmontar, para que la siguiente
+      // página no herede metadatos de la anterior si tarda en montar.
+      document.title = DEFAULT_TITLE;
+      setJsonLd(null);
     };
-  }, [city, overallScore, isHome]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [city, overallScore, isHome, title, description, path, jsonLd]);
 }

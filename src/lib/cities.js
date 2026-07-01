@@ -68,6 +68,25 @@ export function getOverallScore(slug, userRatings = null) {
   return parseFloat(((base + userAvg) / 2).toFixed(1));
 }
 
+const SCORE_CATEGORY_IDS = [
+  "coste", "alojamiento", "vida_social", "integracion",
+  "movilidad", "estilo_vida", "empleo", "seguridad",
+];
+
+/**
+ * Devuelve un mapa { [categoriaId]: scoreObj } para una ciudad, usando los
+ * insights reales. Se usa en el comparador y en City Match — vive aquí para
+ * no duplicar la misma lógica en varias páginas.
+ */
+export function getScoreMap(slug) {
+  const insights = getCityInsights(slug);
+  const map = {};
+  SCORE_CATEGORY_IDS.forEach((id) => {
+    map[id] = insights.scores.find((s) => s.id === id) ?? null;
+  });
+  return map;
+}
+
 // ─── FILTROS ──────────────────────────────────────────────────────────────────
 
 /**
@@ -301,14 +320,14 @@ export function getHomeMeta() {
 
 /** Parsea el coste mínimo mensual de un string tipo "600–900€/mes". */
 export function parseMinCost(costDetail) {
-  const match = costDetail.match(/\d+/);
-  return match ? parseInt(match[0]) : 0;
+  const match = costDetail.match(/\d{1,3}(?:\.\d{3})*/);
+  return match ? parseInt(match[0].replace(/\./g, ""), 10) : 0;
 }
 
 /** Parsea el coste máximo mensual. */
 export function parseMaxCost(costDetail) {
-  const matches = costDetail.match(/\d+/g);
-  return matches ? parseInt(matches[matches.length - 1]) : 0;
+  const matches = costDetail.match(/\d{1,3}(?:\.\d{3})*/g);
+  return matches ? parseInt(matches[matches.length - 1].replace(/\./g, ""), 10) : 0;
 }
 
 /** Formatea un score de 0-10 con color semántico. */

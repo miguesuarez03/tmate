@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { useSEO } from "../hooks/useSEO";
@@ -212,8 +212,30 @@ function TipCard({ tip }) {
   );
 }
 
+// El checklist se usa a lo largo de semanas (no es un formulario de una
+// sola sesión), así que el progreso se guarda en localStorage para que no
+// se pierda al recargar la página o volver otro día.
+const CHECKLIST_STORAGE_KEY = "tmate_la_checklist";
+
 function Checklist() {
-  const [checked, setChecked] = useState({});
+  const [checked, setChecked] = useState(() => {
+    try {
+      const saved = localStorage.getItem(CHECKLIST_STORAGE_KEY);
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(CHECKLIST_STORAGE_KEY, JSON.stringify(checked));
+    } catch {
+      // localStorage no disponible (modo privado, etc.) — se pierde el
+      // progreso al recargar, pero la checklist sigue funcionando.
+    }
+  }, [checked]);
+
   const total = CHECKLIST_ITEMS.length;
   const done = Object.values(checked).filter(Boolean).length;
   const pct = Math.round((done / total) * 100);
@@ -280,20 +302,72 @@ const WIZARD_STEPS = [
 
 /* ─── WIZARD LEARNING AGREEMENT ─────────────────────────────────────────── */
 
+// El borrador del wizard se guarda en localStorage: es un formulario de 5
+// pasos y perder todo por recargar la página o salir sin querer sería
+// bastante frustrante.
+const WIZARD_STORAGE_KEY = "tmate_la_wizard_draft";
+const WIZARD_DEFAULTS = {
+  universidadOrigen: "",
+  gradoOrigen: "",
+  ciudadDestino: "",
+  universidadDestino: "",
+  asignaturas: "",
+  creditos: "",
+  idioma: "",
+  nombre: "",
+  email: "",
+};
+
+function buildEmailContent(data, destinoCity) {
+  const subject = `Learning Agreement — ${data.nombre} (${destinoCity?.name || data.ciudadDestino})`;
+  const body =
+`Solicitud de propuesta de equivalencias — TMate Learning Agreement
+
+UNIVERSIDAD DE ORIGEN
+Universidad: ${data.universidadOrigen}
+Grado: ${data.gradoOrigen}
+
+UNIVERSIDAD DE DESTINO
+Ciudad: ${destinoCity?.name || data.ciudadDestino}
+Universidad: ${data.universidadDestino}
+
+ASIGNATURAS PENDIENTES DE CONVALIDAR
+${data.asignaturas}
+
+CRÉDITOS NECESARIOS
+${data.creditos} ECTS
+
+IDIOMA DE LAS ASIGNATURAS
+${data.idioma}
+
+CONTACTO
+Nombre: ${data.nombre}
+Email: ${data.email}
+`;
+  return { subject, body };
+}
+
 function LAWizard() {
   const [step, setStep] = useState(0);
   const [sent, setSent] = useState(false);
-  const [data, setData] = useState({
-    universidadOrigen: "",
-    gradoOrigen: "",
-    ciudadDestino: "",
-    universidadDestino: "",
-    asignaturas: "",
-    creditos: "",
-    idioma: "",
-    nombre: "",
-    email: "",
+  const [copied, setCopied] = useState(false);
+  const [data, setData] = useState(() => {
+    try {
+      const saved = localStorage.getItem(WIZARD_STORAGE_KEY);
+      return saved ? { ...WIZARD_DEFAULTS, ...JSON.parse(saved) } : { ...WIZARD_DEFAULTS };
+    } catch {
+      return { ...WIZARD_DEFAULTS };
+    }
   });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(WIZARD_STORAGE_KEY, JSON.stringify(data));
+    } catch {
+      // localStorage no disponible — el borrador no se guarda, pero el
+      // wizard sigue funcionando con normalidad en esta sesión.
+    }
+  }, [data]);
 
   const total = WIZARD_STEPS.length;
   const isLast = step === total - 1;
@@ -325,34 +399,26 @@ function LAWizard() {
   };
 
   const sendEmail = () => {
-    const subject = encodeURIComponent(`Learning Agreement — ${data.nombre} (${destinoCity?.name || data.ciudadDestino})`);
-    const body = encodeURIComponent(
-`Solicitud de propuesta de equivalencias — TMate Learning Agreement
-
-UNIVERSIDAD DE ORIGEN
-Universidad: ${data.universidadOrigen}
-Grado: ${data.gradoOrigen}
-
-UNIVERSIDAD DE DESTINO
-Ciudad: ${destinoCity?.name || data.ciudadDestino}
-Universidad: ${data.universidadDestino}
-
-ASIGNATURAS PENDIENTES DE CONVALIDAR
-${data.asignaturas}
-
-CRÉDITOS NECESARIOS
-${data.creditos} ECTS
-
-IDIOMA DE LAS ASIGNATURAS
-${data.idioma}
-
-CONTACTO
-Nombre: ${data.nombre}
-Email: ${data.email}
-`
-    );
-    window.location.href = `mailto:hola@tmate.app?subject=${subject}&body=${body}`;
+    const { subject, body } = buildEmailContent(data, destinoCity);
+    window.location.href = `mailto:hola@tmate.app?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSent(true);
+    try {
+      localStorage.removeItem(WIZARD_STORAGE_KEY);
+    } catch {
+      // nada que limpiar si localStorage no está disponible
+    }
+  };
+
+  const handleCopy = async () => {
+    const { subject, body } = buildEmailContent(data, destinoCity);
+    const text = `Para: hola@tmate.app\nAsunto: ${subject}\n\n${body}`;
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // clipboard no disponible — el botón simplemente no confirma la copia
+    }
   };
 
   const handleBack = () => setStep(s => Math.max(0, s - 1));
@@ -366,12 +432,21 @@ Email: ${data.email}
           Revisa que el email se haya generado bien y envíalo. En cuanto lo recibamos, te preparamos una
           propuesta de equivalencias y te respondemos al correo que nos has dado.
         </p>
-        <button
-          className={styles.wizardRestartBtn}
-          onClick={() => { setSent(false); setStep(0); }}
-        >
-          Hacer otra solicitud
-        </button>
+        <p className={styles.wizardDoneText}>
+          Si no se ha abierto ningún programa de correo (pasa en algunos móviles), copia el texto y envíalo
+          tú mismo a <strong>hola@tmate.app</strong>.
+        </p>
+        <div className={styles.wizardDoneActions}>
+          <button className={styles.wizardCopyBtn} onClick={handleCopy}>
+            {copied ? "✓ Copiado" : "📋 Copiar texto del email"}
+          </button>
+          <button
+            className={styles.wizardRestartBtn}
+            onClick={() => { setSent(false); setStep(0); }}
+          >
+            Hacer otra solicitud
+          </button>
+        </div>
       </div>
     );
   }

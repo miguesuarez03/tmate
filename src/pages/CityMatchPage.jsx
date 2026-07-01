@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { CITIES } from "../data/cities";
 import { getScoreMap, getOverallScore } from "../lib/cities";
+import { useSEO } from "../hooks/useSEO";
 import { Navbar, Footer } from "../components/Layout";
 import styles from "./CityMatchPage.module.css";
 
@@ -243,6 +244,11 @@ export default function CityMatchPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState({});
+
+  useSEO({
+    title: "City Match — Encuentra tu ciudad Erasmus ideal | TMate",
+    description: "Responde 8 preguntas sobre presupuesto, clima, idioma y estilo de vida, y descubre qué ciudades Erasmus encajan mejor contigo.",
+  });
 
   // Si la URL trae respuestas guardadas (?r=valor-valor-...), restaura
   // directamente la pantalla de resultados — permite compartir/guardar enlace.
