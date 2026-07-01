@@ -618,9 +618,112 @@
   color: var(--color-muted); font-weight: 800;
 }
 
+
+/* ─── RESUMEN AUTOMÁTICO ─────────────────────────────────────────────────── */
+.summarySection {}
+.summaryCard {
+  background: linear-gradient(135deg, rgba(14,165,233,0.05), rgba(20,184,166,0.05));
+  border: 1.5px solid rgba(14,165,233,0.15);
+  border-radius: var(--radius-xl);
+  padding: 24px 28px;
+}
+.summaryList {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.summaryList li {
+  font-size: 14.5px; line-height: 1.6; color: var(--color-slate);
+  padding-left: 2px;
+}
+
+/* ─── RADAR COMPARATIVO ──────────────────────────────────────────────────── */
+.radarSection {}
+.radarWrap {
+  display: flex; flex-direction: column; align-items: center; gap: 18px;
+  background: #fff; border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-xl); padding: 28px 20px;
+}
+.radarSvg { width: 100%; max-width: 380px; height: auto; }
+.radarRing { fill: none; stroke: var(--color-border); stroke-width: 1; }
+.radarAxis { stroke: var(--color-border); stroke-width: 1; }
+.radarPolygon { transition: opacity 0.2s ease; }
+.radarLabelIcon { font-size: 13px; }
+.radarLabelText {
+  font-size: 9px; font-weight: 700; fill: var(--color-slate-light);
+  text-transform: uppercase; letter-spacing: 0.03em;
+}
+.radarLegend { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; }
+.radarLegendItem {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 13px; font-weight: 600; color: var(--color-slate);
+}
+.radarLegendDot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+/* ─── DIFERENCIAS MÁS DESTACADAS ─────────────────────────────────────────── */
+.diffSection {}
+.diffList { display: flex; flex-direction: column; gap: 14px; }
+.diffRow {
+  background: #fff; border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg); padding: 16px 20px;
+}
+.diffRowHead {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 14px; font-weight: 700; color: var(--color-dark);
+  margin-bottom: 12px;
+}
+.diffGap {
+  font-size: 12px; font-weight: 700; color: var(--color-primary);
+  background: rgba(14,165,233,0.08); padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+.diffBars { display: flex; flex-direction: column; gap: 8px; }
+.diffBarItem {
+  display: grid; grid-template-columns: 110px 1fr 34px;
+  align-items: center; gap: 10px;
+}
+.diffBarLabel {
+  font-size: 12.5px; font-weight: 600;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.diffBarTrack {
+  height: 8px; background: var(--color-surface);
+  border-radius: var(--radius-full); overflow: hidden;
+}
+.diffBarFill { height: 100%; border-radius: var(--radius-full); transition: width 0.3s var(--ease-spring); }
+.diffBarScore { font-size: 12.5px; font-weight: 700; color: var(--color-dark); text-align: right; }
+
+/* ─── PUNTOS FUERTES Y A TENER EN CUENTA ──────────────────────────────────── */
+.prosConsSection {}
+.prosConsGrid {
+  display: grid; grid-template-columns: repeat(var(--cols, 2), 1fr); gap: 20px;
+}
+.prosConsCol {
+  background: #fff; border: 1.5px solid var(--color-border);
+  border-top: 3px solid; border-radius: var(--radius-lg);
+  padding: 18px 20px;
+}
+.prosConsHead {
+  font-family: var(--font-display); font-weight: 800; font-size: 15px;
+  margin-bottom: 14px;
+}
+.prosConsBlock { margin-bottom: 14px; }
+.prosConsBlock:last-child { margin-bottom: 0; }
+.prosConsLabel {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.04em; color: var(--color-muted);
+  display: block; margin-bottom: 6px;
+}
+.prosConsList {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 6px;
+  font-size: 13px; color: var(--color-slate);
+}
+
 /* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .cityCards, .featuresGrid { grid-template-columns: 1fr; }
+  .cityCards, .featuresGrid, .prosConsGrid { grid-template-columns: 1fr; }
+  .diffBarItem { grid-template-columns: 78px 1fr 30px; gap: 6px; }
+  .radarSvg { max-width: 300px; }
   .selectionBar { flex-direction: column; align-items: stretch; }
   .compareBtn { text-align: center; }
   .cityGrid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }

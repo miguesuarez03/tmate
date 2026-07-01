@@ -92,8 +92,8 @@
 }
 
 .modalClose {
-  position: absolute; top: 14px; right: 14px; z-index: 2;
-  width: 32px; height: 32px; border-radius: 50%;
+  position: absolute; top: 10px; right: 10px; z-index: 2;
+  width: 44px; height: 44px; border-radius: 50%;
   background: rgba(255,255,255,0.85);
   border: none; cursor: pointer;
   display: flex; align-items: center; justify-content: center;

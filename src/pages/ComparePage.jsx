@@ -28,6 +28,133 @@ function getScoreMap(slug) {
   return map;
 }
 
+// ─── Radar comparativo ──────────────────────────────────────────────────
+const RADAR_SHORT = {
+  coste: "Coste",
+  alojamiento: "Alojam.",
+  vida_social: "V. social",
+  integracion: "Integración",
+  movilidad: "Movilidad",
+  estilo_vida: "Estilo",
+  empleo: "Empleo",
+  seguridad: "Seguridad",
+};
+
+function polar(cx, cy, r, angle) {
+  return { x: cx + r * Math.cos(angle), y: cy + r * Math.sin(angle) };
+}
+
+function RadarChart({ scoreIds, selectedCities, scoreMaps }) {
+  const size = 320;
+  const cx = size / 2;
+  const cy = size / 2;
+  const maxR = size / 2 - 54;
+  const n = scoreIds.length;
+  const angleFor = (i) => (Math.PI * 2 * i) / n - Math.PI / 2;
+
+  const ringPoints = (frac) =>
+    scoreIds.map((_, i) => { const p = polar(cx, cy, maxR * frac, angleFor(i)); return `${p.x},${p.y}`; }).join(" ");
+
+  return (
+    <div className={styles.radarWrap}>
+      <svg viewBox={`0 0 ${size} ${size}`} className={styles.radarSvg}>
+        {[0.25, 0.5, 0.75, 1].map((f) => (
+          <polygon key={f} points={ringPoints(f)} className={styles.radarRing} />
+        ))}
+        {scoreIds.map((id, i) => {
+          const p = polar(cx, cy, maxR, angleFor(i));
+          return <line key={id} x1={cx} y1={cy} x2={p.x} y2={p.y} className={styles.radarAxis} />;
+        })}
+        {selectedCities.map((city, ci) => {
+          const pts = scoreIds.map((id, i) => {
+            const val = scoreMaps[ci][id]?.score ?? 0;
+            const p = polar(cx, cy, maxR * (val / 10), angleFor(i));
+            return `${p.x},${p.y}`;
+          }).join(" ");
+          return (
+            <polygon key={city.slug} points={pts}
+              fill={COL_COLORS[ci]} fillOpacity="0.14"
+              stroke={COL_COLORS[ci]} strokeWidth="2.5" className={styles.radarPolygon} />
+          );
+        })}
+        {scoreIds.map((id, i) => {
+          const p = polar(cx, cy, maxR + 30, angleFor(i));
+          const firstScoreObj = selectedCities.map((_, ci) => scoreMaps[ci][id]).find(Boolean);
+          return (
+            <g key={id}>
+              <text x={p.x} y={p.y - 6} textAnchor="middle" className={styles.radarLabelIcon}>
+                {firstScoreObj?.icon}
+              </text>
+              <text x={p.x} y={p.y + 10} textAnchor="middle" className={styles.radarLabelText}>
+                {RADAR_SHORT[id]}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+      <div className={styles.radarLegend}>
+        {selectedCities.map((city, i) => (
+          <div key={city.slug} className={styles.radarLegendItem}>
+            <span className={styles.radarLegendDot} style={{ background: COL_COLORS[i] }} />
+            <span>{city.emoji} {city.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ─── Resumen automático ─────────────────────────────────────────────────
+function buildAutoSummary(selectedCities, overallScores, scoreMaps) {
+  const maxIdx = overallScores.indexOf(Math.max(...overallScores));
+  const cheapestIdx = selectedCities.reduce((best, c, i) =>
+    parseMinCost(c.costDetail) < parseMinCost(selectedCities[best].costDetail) ? i : best, 0);
+
+  const lines = [
+    `🏆 ${selectedCities[maxIdx].emoji} ${selectedCities[maxIdx].name} tiene la puntuación global más alta (${overallScores[maxIdx].toFixed(1)}/10).`,
+  ];
+
+  if (cheapestIdx !== maxIdx) {
+    lines.push(`💶 Si el presupuesto manda, ${selectedCities[cheapestIdx].emoji} ${selectedCities[cheapestIdx].name} es la opción más económica.`);
+  }
+
+  selectedCities.forEach((city, i) => {
+    const bestId = SCORE_IDS.reduce((best, id) => {
+      const s = scoreMaps[i][id]?.score ?? 0;
+      const bs = scoreMaps[i][best]?.score ?? 0;
+      return s > bs ? id : best;
+    }, SCORE_IDS[0]);
+    const scoreObj = scoreMaps[i][bestId];
+    if (scoreObj) {
+      lines.push(`${scoreObj.icon} ${city.emoji} ${city.name} destaca especialmente en ${scoreObj.label.toLowerCase()} (${scoreObj.score.toFixed(1)}/10).`);
+    }
+  });
+
+  return lines;
+}
+
+// ─── Diferencias más destacadas ─────────────────────────────────────────
+function buildTopDifferences(scoreIds, selectedCities, scoreMaps, limit = 3) {
+  return scoreIds
+    .map((id) => {
+      const rows = selectedCities.map((city, i) => ({ city, color: COL_COLORS[i], scoreObj: scoreMaps[i][id] }));
+      const scores = rows.map((r) => r.scoreObj?.score ?? 0);
+      const gap = Math.max(...scores) - Math.min(...scores);
+      const winnerIdx = scores.indexOf(Math.max(...scores));
+      const meta = rows.map((r) => r.scoreObj).find(Boolean);
+      return { id, gap, rows, winnerIdx, meta };
+    })
+    .filter((d) => d.meta && d.gap > 0)
+    .sort((a, b) => b.gap - a.gap)
+    .slice(0, limit);
+}
+
+// ─── Ventajas y a tener en cuenta ────────────────────────────────────────
+function buildProsCons(scoreMap) {
+  const entries = SCORE_IDS.map((id) => scoreMap[id]).filter(Boolean).sort((a, b) => b.score - a.score);
+  return { pros: entries.slice(0, 2), cons: entries.slice(-2).reverse() };
+}
+
 
 /* ─── Versus Card (per category) ───────────────────────────────────────── */
 function VersusCard({ categoryMeta, rows, open, onToggle }) {
@@ -293,10 +420,60 @@ export default function ComparePage() {
               })}
             </div>
 
+            {/* Resumen automático */}
+            <div className={styles.summarySection}>
+              <h3 className={styles.sectionTitle}>Resumen rápido</h3>
+              <div className={styles.summaryCard}>
+                <ul className={styles.summaryList}>
+                  {buildAutoSummary(selectedCities, overallScores, scoreMaps).map((line, i) => (
+                    <li key={i}>{line}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Radar comparativo */}
+            <div className={styles.radarSection}>
+              <h3 className={styles.sectionTitle}>Vista de conjunto</h3>
+              <RadarChart scoreIds={SCORE_IDS} selectedCities={selectedCities} scoreMaps={scoreMaps} />
+            </div>
+
             {/* Versus cards per category */}
             <div className={styles.versusSection}>
               <h3 className={styles.sectionTitle}>Puntuaciones detalladas</h3>
               <VersusGrid scoreIds={SCORE_IDS} selectedCities={selectedCities} scoreMaps={scoreMaps} />
+            </div>
+
+            {/* Diferencias más destacadas */}
+            <div className={styles.diffSection}>
+              <h3 className={styles.sectionTitle}>Diferencias más destacadas</h3>
+              <div className={styles.diffList}>
+                {buildTopDifferences(SCORE_IDS, selectedCities, scoreMaps).map((d) => (
+                  <div key={d.id} className={styles.diffRow}>
+                    <div className={styles.diffRowHead}>
+                      <span>{d.meta.icon} {d.meta.label}</span>
+                      <span className={styles.diffGap}>Δ {d.gap.toFixed(1)} pts</span>
+                    </div>
+                    <div className={styles.diffBars}>
+                      {d.rows.map((r, i) => {
+                        const score = r.scoreObj?.score ?? 0;
+                        const isWinner = i === d.winnerIdx;
+                        return (
+                          <div key={r.city.slug} className={styles.diffBarItem}>
+                            <span className={styles.diffBarLabel} style={{ color: isWinner ? r.color : "var(--color-slate-light)" }}>
+                              {r.city.emoji} {r.city.name}
+                            </span>
+                            <div className={styles.diffBarTrack}>
+                              <div className={styles.diffBarFill} style={{ width: `${(score / 10) * 100}%`, background: r.color, opacity: isWinner ? 1 : 0.45 }} />
+                            </div>
+                            <span className={styles.diffBarScore}>{score.toFixed(1)}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Features */}
@@ -337,6 +514,33 @@ export default function ComparePage() {
                     </div>
                   </div>
                 ))}
+              </div>
+            </div>
+
+            {/* Ventajas y a tener en cuenta */}
+            <div className={styles.prosConsSection}>
+              <h3 className={styles.sectionTitle}>Puntos fuertes y a tener en cuenta</h3>
+              <div className={styles.prosConsGrid} style={{ "--cols": selectedCities.length }}>
+                {selectedCities.map((city, i) => {
+                  const { pros, cons } = buildProsCons(scoreMaps[i]);
+                  return (
+                    <div key={city.slug} className={styles.prosConsCol} style={{ borderTopColor: COL_COLORS[i] }}>
+                      <div className={styles.prosConsHead} style={{ color: COL_COLORS[i] }}>{city.emoji} {city.name}</div>
+                      <div className={styles.prosConsBlock}>
+                        <span className={styles.prosConsLabel}>✅ Puntos fuertes</span>
+                        <ul className={styles.prosConsList}>
+                          {pros.map((p) => <li key={p.id}>{p.icon} {p.label} — {p.score.toFixed(1)}/10</li>)}
+                        </ul>
+                      </div>
+                      <div className={styles.prosConsBlock}>
+                        <span className={styles.prosConsLabel}>⚠️ A tener en cuenta</span>
+                        <ul className={styles.prosConsList}>
+                          {cons.map((c) => <li key={c.id}>{c.icon} {c.label} — {c.score.toFixed(1)}/10</li>)}
+                        </ul>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
