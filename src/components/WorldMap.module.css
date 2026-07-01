@@ -12,7 +12,7 @@
 .mapHeader { margin-bottom: 1.5rem; }
 
 .mapEyebrow {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--font-body);
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -21,16 +21,16 @@
 }
 
 .mapTitle {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-display);
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 800;
-  color: #0a0a0f;
+  color: var(--color-dark);
   margin: 0 0 0.4rem;
   line-height: 1.15;
 }
 
 .mapSub {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 0.9rem;
   color: #888;
   margin: 0;
@@ -83,10 +83,10 @@
 }
 
 .countrySelect {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
   font-weight: 600;
-  color: #0a0a0f;
+  color: var(--color-dark);
   background: transparent;
   border: none;
   outline: none;
@@ -121,7 +121,7 @@
   color: #555;
   cursor: pointer;
   transition: all 0.18s ease;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   white-space: nowrap;
 }
 
@@ -131,9 +131,9 @@
 }
 
 .vibeBtnActive {
-  background: #0a0a0f;
+  background: var(--color-dark);
   color: #fff;
-  border-color: #0a0a0f;
+  border-color: var(--color-dark);
 }
 
 .vibeBtnLabel {
@@ -187,10 +187,10 @@
 .tooltipFlag { font-size: 20px; flex-shrink: 0; }
 
 .tooltipName {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
   font-weight: 700;
-  color: #0a0a0f;
+  color: var(--color-dark);
   display: block;
 }
 
@@ -201,7 +201,7 @@
 }
 
 .tooltipScore {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-display);
   font-size: 15px;
   font-weight: 800;
   white-space: nowrap;
@@ -213,7 +213,7 @@
   gap: 10px;
   font-size: 11px;
   color: #777;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-weight: 600;
   border-top: 1px solid #f0f0f0;
   padding-top: 8px;
@@ -261,10 +261,10 @@
 }
 .popupScore {
   position: absolute; bottom: 0.6rem; left: 0.8rem;
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-display);
   font-size: 1.5rem; font-weight: 900; line-height: 1;
 }
-.popupScore span { font-size: 0.72rem; opacity: 0.8; font-family: 'DM Sans', sans-serif; }
+.popupScore span { font-size: 0.72rem; opacity: 0.8; font-family: var(--font-body); }
 
 .popupFlag {
   position: absolute; top: 0.6rem; left: 0.8rem;
@@ -274,10 +274,10 @@
 .popupBody { padding: 0.9rem 1rem 1rem; }
 
 .popupName {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.15rem; font-weight: 800; color: #0a0a0f; margin: 0 0 0.1rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem; font-weight: 800; color: var(--color-dark); margin: 0 0 0.1rem;
 }
-.popupCountry { font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: #888; margin: 0 0 0.5rem; }
+.popupCountry { font-family: var(--font-body); font-size: 0.75rem; color: #888; margin: 0 0 0.5rem; }
 
 .popupVibes {
   display: flex; gap: 6px; margin-bottom: 0.6rem; flex-wrap: wrap;
@@ -285,26 +285,26 @@
 .popupVibe {
   font-size: 11px; font-weight: 600; color: #555;
   background: #f4f4f8; border-radius: 100px;
-  padding: 3px 8px; font-family: 'DM Sans', sans-serif;
+  padding: 3px 8px; font-family: var(--font-body);
 }
 
 .popupTags { display: flex; gap: 0.4rem; margin-bottom: 0.85rem; flex-wrap: wrap; }
 .popupTag {
-  font-family: 'DM Sans', sans-serif; font-size: 0.72rem; font-weight: 600;
+  font-family: var(--font-body); font-size: 0.72rem; font-weight: 600;
   background: #f4f4f8; color: #555; border: 1px solid #e8e8ee;
   border-radius: 100px; padding: 0.22rem 0.6rem;
 }
 .popupTagScore {
-  font-family: 'DM Sans', sans-serif; font-size: 0.72rem; font-weight: 700;
+  font-family: var(--font-body); font-size: 0.72rem; font-weight: 700;
   border: 1px solid; border-radius: 100px; padding: 0.22rem 0.6rem;
 }
 .popupCta {
-  width: 100%; background: #0a0a0f; color: #fff; border: none;
+  width: 100%; background: var(--color-dark); color: #fff; border: none;
   border-radius: 100px; padding: 0.7rem;
-  font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 700;
+  font-family: var(--font-body); font-size: 0.85rem; font-weight: 700;
   cursor: pointer; transition: background 0.2s ease, transform 0.2s ease;
 }
-.popupCta:hover { background: #00bfa5; transform: translateY(-1px); }
+.popupCta:hover { background: var(--color-teal); transform: translateY(-1px); }
 
 /* ─── Zoom controls ──────────────────────────────────────────────────────── */
 .zoomControls {
@@ -326,7 +326,7 @@
   display: flex; align-items: center; gap: 0.5rem;
   background: #fff; border: 1.5px solid #d0dce6;
   border-radius: 100px; padding: 0.35rem 0.85rem;
-  font-family: 'DM Sans', sans-serif; font-size: 0.78rem; color: #555;
+  font-family: var(--font-body); font-size: 0.78rem; color: #555;
   box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
 .cityCountDot {

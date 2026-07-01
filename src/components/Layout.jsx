@@ -70,11 +70,7 @@ function useMenuAction(navigate, setMenuOpen) {
       } else if (action === "la") {
         navigate("/learning-agreement");
       } else if (action === "share") {
-        navigate("/");
-        setTimeout(() => {
-          const el = document.querySelector(".exp-form-section");
-          if (el) el.scrollIntoView({ behavior: "smooth" });
-        }, 100);
+        navigate("/?accion=compartir");
       }
     }, 50);
   };

@@ -31,6 +31,64 @@ const STATS = [
 
 const TRENDING = ["Bolonia", "Lisboa", "Berlín", "Praga", "Viena"];
 
+// Fase 1 — Home: los 3 accesos principales que responden a la intención
+// más habitual de un estudiante que llega por primera vez.
+const QUICK_ACCESS = [
+  {
+    icon: "🧭",
+    title: "Encontrar tu ciudad",
+    desc: "Compara datos reales y descubre tu destino ideal",
+    action: "explore",
+  },
+  {
+    icon: "⚖️",
+    title: "Comparar ciudades",
+    desc: "Pon dos o más destinos lado a lado",
+    action: "compare",
+  },
+  {
+    icon: "💶",
+    title: "Calcular tu beca",
+    desc: "Cuánto vas a cobrar y cuánto necesitas para vivir",
+    action: "beca",
+  },
+];
+
+function QuickAccessSection() {
+  const navigate = useNavigate();
+
+  const handleClick = (action) => {
+    if (action === "explore") {
+      const el = document.querySelector(".section");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    } else if (action === "compare") {
+      navigate("/comparar");
+    } else if (action === "beca") {
+      navigate("/beca-erasmus");
+    }
+  };
+
+  return (
+    <section className="quick-access">
+      <div className="quick-access__grid">
+        {QUICK_ACCESS.map((item) => (
+          <button
+            key={item.action}
+            type="button"
+            className="quick-access__card"
+            onClick={() => handleClick(item.action)}
+          >
+            <span className="quick-access__icon">{item.icon}</span>
+            <span className="quick-access__title">{item.title}</span>
+            <span className="quick-access__desc">{item.desc}</span>
+            <span className="quick-access__arrow">→</span>
+          </button>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 const TESTIMONIALS = [
   {
     name: "Lucía M.",
@@ -343,12 +401,27 @@ function AllTestimonialsModal({ onClose, onSelect }) {
 }
 
 function CommunitySection() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [formData, setFormData] = useState({ name: "", anon: false, city: "", text: "", stars: 0, photo: null });
   const [submitted, setSubmitted] = useState(false);
   const [photoPreview, setPhotoPreview] = useState(null);
   const [activeTestimonial, setActiveTestimonial] = useState(null);
   const [showAllModal, setShowAllModal] = useState(false);
+  const [showExpModal, setShowExpModal] = useState(false);
   const fileRef = useRef(null);
+
+  // El hamburger menu enlaza aquí con ?accion=compartir para abrir
+  // el modal directamente, en vez de depender de un scroll a una sección fija.
+  useEffect(() => {
+    if (searchParams.get("accion") === "compartir") {
+      setShowExpModal(true);
+      setSearchParams((prev) => {
+        const params = new URLSearchParams(prev);
+        params.delete("accion");
+        return params;
+      }, { replace: true });
+    }
+  }, [searchParams, setSearchParams]);
 
   const handlePhoto = (e) => {
     const file = e.target.files[0];
@@ -362,7 +435,7 @@ function CommunitySection() {
   const handleSubmit = () => {
     if (!formData.city || !formData.text.trim() || !formData.stars) return;
     setSubmitted(true);
-    setTimeout(() => { setSubmitted(false); setPhotoPreview(null); }, 4000);
+    setTimeout(() => { setSubmitted(false); setPhotoPreview(null); setShowExpModal(false); }, 2400);
     setFormData({ name: "", anon: false, city: "", text: "", stars: 0, photo: null });
   };
 
@@ -438,127 +511,131 @@ function CommunitySection() {
         </div>
       )}
 
-      {/* Social links */}
-      <div className="social-placeholder">
-        <p className="social-placeholder__label">Síguenos — Próximamente</p>
-        <div className="social-icons">
-          {[
-            { icon: "📸", label: "Instagram", handle: "@tmate_erasmus" },
-            { icon: "🎵", label: "TikTok", handle: "@tmate" },
-            { icon: "💬", label: "Discord", handle: "TMate Community" },
-          ].map(s => (
-            <div key={s.label} className="social-icon-card">
-              <span style={{ fontSize: 28 }}>{s.icon}</span>
-              <span className="social-icon-card__label">{s.label}</span>
-              <span className="social-icon-card__handle">{s.handle}</span>
-              <span className="social-icon-card__badge">Próximamente</span>
-            </div>
-          ))}
+      {/* CTA para compartir experiencia (abre modal) */}
+      <div className="exp-prompt">
+        <span className="exp-prompt__icon">✍️</span>
+        <div className="exp-prompt__text">
+          <h3 className="exp-prompt__title">¿Ya hiciste tu Erasmus?</h3>
+          <p className="exp-prompt__desc">Cuéntanos tu experiencia y ayuda a miles de estudiantes a decidir.</p>
         </div>
+        <button type="button" className="exp-prompt__btn" onClick={() => setShowExpModal(true)}>
+          Compartir mi experiencia →
+        </button>
       </div>
 
-      {/* Experience form */}
-      <div className="exp-form-section">
-        <div className="exp-form-card">
-          <div className="exp-form-header">
-            <span style={{ fontSize: 36 }}>✍️</span>
-            <div>
-              <h3 className="exp-form-title">Cuéntanos tu experiencia</h3>
-              <p className="exp-form-subtitle">Tu historia y tus fotos pueden ayudar a miles de estudiantes.</p>
-            </div>
-          </div>
+      {/* Modal del formulario de experiencia */}
+      {showExpModal && (
+        <div className="exp-modal-overlay" onClick={() => setShowExpModal(false)}>
+          <div className="exp-modal" onClick={e => e.stopPropagation()}>
+            <button
+              type="button"
+              className="exp-modal__close"
+              onClick={() => setShowExpModal(false)}
+              aria-label="Cerrar"
+            >
+              ✕
+            </button>
 
-          {submitted ? (
-            <div className="exp-form-success">
-              <span style={{ fontSize: 40 }}>🎉</span>
-              <p style={{ fontWeight: 700, fontSize: 18, color: "var(--color-dark)" }}>¡Gracias por compartir!</p>
-              <p style={{ color: "var(--color-slate-light)", fontSize: 14 }}>Tu experiencia estará disponible pronto en la comunidad.</p>
-            </div>
-          ) : (
-            <div className="exp-form">
-              {/* Paso 1: Destino */}
-              <div className="exp-form__field">
-                <label className="exp-form__label">Ciudad Erasmus *</label>
-                <select className="exp-form__input exp-form__select"
-                  value={formData.city}
-                  onChange={e => setFormData(p => ({ ...p, city: e.target.value }))}>
-                  <option value="">Selecciona tu ciudad</option>
-                  {CITIES.map(c => (
-                    <option key={c.slug} value={c.name}>{c.emoji} {c.name} — {c.country}</option>
-                  ))}
-                </select>
+            <div className="exp-form-header">
+              <span style={{ fontSize: 36 }}>✍️</span>
+              <div>
+                <h3 className="exp-form-title">Cuéntanos tu experiencia</h3>
+                <p className="exp-form-subtitle">Tu historia y tus fotos pueden ayudar a miles de estudiantes.</p>
               </div>
+            </div>
 
-              {/* Paso 2: Estrellas */}
-              <div className="exp-form__field">
-                <label className="exp-form__label">¿Cómo fue tu experiencia? *</label>
-                <StarRating value={formData.stars} onChange={stars => setFormData(p => ({ ...p, stars }))} />
+            {submitted ? (
+              <div className="exp-form-success">
+                <span style={{ fontSize: 40 }}>🎉</span>
+                <p style={{ fontWeight: 700, fontSize: 18, color: "var(--color-dark)" }}>¡Gracias por compartir!</p>
+                <p style={{ color: "var(--color-slate-light)", fontSize: 14 }}>Tu experiencia estará disponible pronto en la comunidad.</p>
               </div>
-
-              {/* Paso 3: Nombre */}
-              <div className="exp-form__row">
+            ) : (
+              <div className="exp-form">
+                {/* Paso 1: Destino */}
                 <div className="exp-form__field">
-                  <label className="exp-form__label">Tu nombre (opcional)</label>
-                  <input className="exp-form__input" placeholder="Nombre o alias"
-                    value={formData.name}
-                    onChange={e => setFormData(p => ({ ...p, name: e.target.value }))} />
+                  <label className="exp-form__label">Ciudad Erasmus *</label>
+                  <select className="exp-form__input exp-form__select"
+                    value={formData.city}
+                    onChange={e => setFormData(p => ({ ...p, city: e.target.value }))}>
+                    <option value="">Selecciona tu ciudad</option>
+                    {CITIES.map(c => (
+                      <option key={c.slug} value={c.name}>{c.emoji} {c.name} — {c.country}</option>
+                    ))}
+                  </select>
                 </div>
-                <div className="exp-form__field exp-form__field--checkbox">
-                  <label className="exp-form__checkbox-label">
-                    <input type="checkbox" checked={formData.anon}
-                      onChange={e => setFormData(p => ({ ...p, anon: e.target.checked }))} />
-                    <span>Publicar en anonimato</span>
-                  </label>
+
+                {/* Paso 2: Estrellas */}
+                <div className="exp-form__field">
+                  <label className="exp-form__label">¿Cómo fue tu experiencia? *</label>
+                  <StarRating value={formData.stars} onChange={stars => setFormData(p => ({ ...p, stars }))} />
                 </div>
-              </div>
 
-              {/* Paso 4: Texto */}
-              <div className="exp-form__field">
-                <label className="exp-form__label">Tu experiencia *</label>
-                <textarea className="exp-form__textarea"
-                  placeholder="¿Qué te cambió? ¿Qué consejo le darías a alguien que va a tu ciudad? Sé honesto/a."
-                  rows={5}
-                  value={formData.text}
-                  onChange={e => setFormData(p => ({ ...p, text: e.target.value }))} />
-                <span className="exp-form__char">{formData.text.length}/600 caracteres</span>
-              </div>
+                {/* Paso 3: Nombre */}
+                <div className="exp-form__row">
+                  <div className="exp-form__field">
+                    <label className="exp-form__label">Tu nombre (opcional)</label>
+                    <input className="exp-form__input" placeholder="Nombre o alias"
+                      value={formData.name}
+                      onChange={e => setFormData(p => ({ ...p, name: e.target.value }))} />
+                  </div>
+                  <div className="exp-form__field exp-form__field--checkbox">
+                    <label className="exp-form__checkbox-label">
+                      <input type="checkbox" checked={formData.anon}
+                        onChange={e => setFormData(p => ({ ...p, anon: e.target.checked }))} />
+                      <span>Publicar en anonimato</span>
+                    </label>
+                  </div>
+                </div>
 
-              {/* Paso 5: Foto */}
-              <div className="exp-form__field">
-                <label className="exp-form__label">Sube una foto tuya del Erasmus (opcional)</label>
-                <div className="photo-upload" onClick={() => fileRef.current?.click()}>
-                  {photoPreview ? (
-                    <img src={photoPreview} alt="Preview" className="photo-upload__preview" />
-                  ) : (
-                    <div className="photo-upload__placeholder">
-                      <span style={{ fontSize: 28 }}>📷</span>
-                      <span>Haz clic para subir una foto</span>
-                      <span className="photo-upload__hint">JPG, PNG — máx. 5MB</span>
-                    </div>
+                {/* Paso 4: Texto */}
+                <div className="exp-form__field">
+                  <label className="exp-form__label">Tu experiencia *</label>
+                  <textarea className="exp-form__textarea"
+                    placeholder="¿Qué te cambió? ¿Qué consejo le darías a alguien que va a tu ciudad? Sé honesto/a."
+                    rows={5}
+                    value={formData.text}
+                    onChange={e => setFormData(p => ({ ...p, text: e.target.value }))} />
+                  <span className="exp-form__char">{formData.text.length}/600 caracteres</span>
+                </div>
+
+                {/* Paso 5: Foto */}
+                <div className="exp-form__field">
+                  <label className="exp-form__label">Sube una foto tuya del Erasmus (opcional)</label>
+                  <div className="photo-upload" onClick={() => fileRef.current?.click()}>
+                    {photoPreview ? (
+                      <img src={photoPreview} alt="Preview" className="photo-upload__preview" />
+                    ) : (
+                      <div className="photo-upload__placeholder">
+                        <span style={{ fontSize: 28 }}>📷</span>
+                        <span>Haz clic para subir una foto</span>
+                        <span className="photo-upload__hint">JPG, PNG — máx. 5MB</span>
+                      </div>
+                    )}
+                  </div>
+                  <input ref={fileRef} type="file" accept="image/*" style={{ display: "none" }} onChange={handlePhoto} />
+                  {photoPreview && (
+                    <button className="photo-upload__remove" onClick={() => { setPhotoPreview(null); setFormData(p => ({ ...p, photo: null })); }}>
+                      ✕ Quitar foto
+                    </button>
                   )}
                 </div>
-                <input ref={fileRef} type="file" accept="image/*" style={{ display: "none" }} onChange={handlePhoto} />
-                {photoPreview && (
-                  <button className="photo-upload__remove" onClick={() => { setPhotoPreview(null); setFormData(p => ({ ...p, photo: null })); }}>
-                    ✕ Quitar foto
-                  </button>
+
+                <button className="exp-form__btn"
+                  onClick={handleSubmit}
+                  disabled={!formData.city || !formData.text.trim() || !formData.stars}>
+                  Compartir experiencia →
+                </button>
+                {!formData.stars && formData.city && (
+                  <p style={{ fontSize: 12, color: "var(--color-muted)", marginTop: 8, textAlign: "center" }}>
+                    Selecciona una puntuación para continuar
+                  </p>
                 )}
               </div>
-
-              <button className="exp-form__btn"
-                onClick={handleSubmit}
-                disabled={!formData.city || !formData.text.trim() || !formData.stars}>
-                Compartir experiencia →
-              </button>
-              {!formData.stars && formData.city && (
-                <p style={{ fontSize: 12, color: "var(--color-muted)", marginTop: 8, textAlign: "center" }}>
-                  Selecciona una puntuación para continuar
-                </p>
-              )}
-            </div>
-          )}
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }
@@ -654,6 +731,9 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* ACCESOS PRINCIPALES */}
+      <QuickAccessSection />
 
       {/* GLOBE */}
       <GlobeSection />

@@ -188,6 +188,45 @@ a { text-decoration: none; color: inherit; }
 .hero__stat-val { font-family: var(--font-display); font-size: clamp(18px, 2.5vw, 22px); font-weight: 700; color: #fff; display: block; }
 .hero__stat-label { font-size: 11px; color: rgba(255,255,255,0.42); letter-spacing: 0.5px; text-transform: uppercase; }
 
+/* ─── QUICK ACCESS (3 accesos principales) ──────────────────────────────── */
+.quick-access {
+  max-width: 1280px; margin: 0 auto;
+  padding: 40px var(--section-px) 0;
+}
+.quick-access__grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.quick-access__card {
+  background: #fff; border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-xl); padding: 24px;
+  display: flex; flex-direction: column; align-items: flex-start;
+  text-align: left; box-shadow: var(--shadow-sm);
+  transition: all 0.25s var(--ease-spring);
+  position: relative; min-height: 44px;
+}
+.quick-access__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(14,165,233,0.3);
+}
+.quick-access__icon { font-size: 26px; margin-bottom: 10px; }
+.quick-access__title {
+  font-family: var(--font-display); font-weight: 800; font-size: 17px;
+  color: var(--color-dark); margin-bottom: 4px;
+}
+.quick-access__desc { font-size: 13px; color: var(--color-slate-light); line-height: 1.5; padding-right: 20px; }
+.quick-access__arrow {
+  position: absolute; top: 24px; right: 22px;
+  font-size: 16px; color: var(--color-muted);
+  transition: transform 0.25s var(--ease-spring), color 0.25s;
+}
+.quick-access__card:hover .quick-access__arrow { transform: translateX(3px); color: var(--color-primary); }
+
+@media (max-width: 900px) {
+  .quick-access__grid { grid-template-columns: 1fr; }
+}
+
 /* ─── SEARCH BAR ─────────────────────────────────────────────────────────── */
 .search-bar { position: relative; width: 100%; max-width: 560px; z-index: 10; }
 .search-bar__inner {
@@ -782,56 +821,69 @@ a { text-decoration: none; color: inherit; }
 }
 .gallery-item:hover .gallery-item__overlay { opacity: 1; }
 
-/* ─── SOCIAL PLACEHOLDER ─────────────────────────────────────────────────── */
-.social-placeholder {
+/* ─── EXPERIENCE PROMPT (CTA compacto que abre el modal) ────────────────── */
+.exp-prompt {
   max-width: 1280px; margin: 0 auto 64px;
-  padding: 40px; background: var(--color-surface);
-  border-radius: var(--radius-xl);
-  border: 1.5px solid var(--color-border);
-  text-align: center;
-}
-.social-placeholder__label {
-  font-size: 13px; font-weight: 700; color: var(--color-muted);
-  letter-spacing: 1px; text-transform: uppercase; margin-bottom: 24px;
-}
-.social-icons {
-  display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;
-}
-.social-icon-card {
-  display: flex; flex-direction: column; align-items: center; gap: 6px;
-  padding: 24px 32px; background: #fff;
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  min-width: 160px;
-  transition: all 0.25s var(--ease-spring);
-}
-.social-icon-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-  border-color: rgba(14,165,233,0.25);
-}
-.social-icon-card__label { font-size: 15px; font-weight: 700; color: var(--color-dark); }
-.social-icon-card__handle { font-size: 12px; color: var(--color-muted); }
-.social-icon-card__badge {
-  font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
-  background: rgba(20,184,166,0.1); color: var(--color-teal);
-  border: 1px solid rgba(20,184,166,0.25);
-  border-radius: var(--radius-full); padding: 2px 10px;
-}
-
-/* ─── EXPERIENCE FORM ─────────────────────────────────────────────────────── */
-.exp-form-section {
-  max-width: 1280px; margin: 0 auto;
-}
-.exp-form-card {
   background: linear-gradient(135deg, rgba(14,165,233,0.04), rgba(20,184,166,0.04));
   border: 1.5px solid rgba(14,165,233,0.15);
   border-radius: var(--radius-xl);
-  padding: clamp(28px, 4vw, 48px);
+  padding: 28px clamp(20px, 4vw, 40px);
+  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
 }
-.exp-form-header {
-  display: flex; align-items: flex-start; gap: 20px; margin-bottom: 32px;
+.exp-prompt__icon { font-size: 34px; flex-shrink: 0; }
+.exp-prompt__text { flex: 1; min-width: 200px; }
+.exp-prompt__title {
+  font-family: var(--font-display); font-size: clamp(17px, 2vw, 20px);
+  font-weight: 800; color: var(--color-dark); margin-bottom: 4px;
 }
+.exp-prompt__desc { font-size: 13.5px; color: var(--color-slate-light); }
+.exp-prompt__btn {
+  background: var(--gradient-brand); color: #fff; border: none;
+  border-radius: var(--radius-full); padding: 13px 26px; white-space: nowrap;
+  font-size: 14px; font-weight: 700; font-family: var(--font-body);
+  transition: all 0.25s var(--ease-spring); flex-shrink: 0; min-height: 44px;
+}
+.exp-prompt__btn:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: var(--shadow-brand); }
+
+@media (max-width: 640px) {
+  .exp-prompt { flex-direction: column; text-align: center; padding: 24px 20px; }
+  .exp-prompt__btn { width: 100%; }
+}
+
+/* ─── EXPERIENCE MODAL ───────────────────────────────────────────────────── */
+.exp-modal-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px; overflow-y: auto;
+  animation: testimonialFadeIn 0.2s ease;
+}
+.exp-modal {
+  background: #fff;
+  border-radius: var(--radius-xl, 20px);
+  max-width: 640px; width: 100%;
+  max-height: 90vh; overflow-y: auto;
+  position: relative;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+  animation: testimonialPopIn 0.25s var(--ease-spring, ease);
+  padding: clamp(24px, 4vw, 40px);
+}
+.exp-modal__close {
+  position: absolute; top: 16px; right: 16px; z-index: 2;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--color-surface); border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: var(--color-dark);
+}
+.exp-modal__close:hover { background: var(--color-border); }
+
+@media (max-width: 480px) {
+  .exp-modal { padding: 60px 18px 24px; }
+}
+
+/* ─── EXPERIENCE FORM ─────────────────────────────────────────────────────── */
+.exp-form-header { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 32px; }
 .exp-form-title {
   font-family: var(--font-display); font-size: clamp(20px, 2.5vw, 28px);
   font-weight: 800; color: var(--color-dark); margin-bottom: 6px;
@@ -920,9 +972,9 @@ a { text-decoration: none; color: inherit; }
   /* Gallery */
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 
-  /* Social */
-  .social-icons { gap: 12px; }
-  .social-icon-card { min-width: 130px; padding: 18px 20px; }
+  /* Quick access */
+  .quick-access__grid { gap: 12px; }
+  .quick-access__card { padding: 20px; }
 
   /* Form */
   .exp-form__row { grid-template-columns: 1fr; }
@@ -937,10 +989,7 @@ a { text-decoration: none; color: inherit; }
 @media (max-width: 480px) {
   .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
   .globe-wrap { height: 260px; }
-  .social-icons { flex-direction: column; align-items: center; }
-  .social-icon-card { width: 100%; max-width: 280px; }
   .testimonial-card { padding: 18px; }
-  .exp-form-card { padding: 20px; }
   .how-note { flex-direction: column; }
 }
 
