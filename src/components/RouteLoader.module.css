@@ -13,7 +13,7 @@
 .bar {
   height: 100%;
   width: 40%;
-  background: var(--gradient-brand, linear-gradient(90deg, #0ea5e9, #14b8a6));
+  background: var(--gradient-brand, linear-gradient(90deg, #0C2340, #0F3460));
   animation: tmate-route-loading 0.9s ease-in-out infinite;
   border-radius: 0 4px 4px 0;
 }

@@ -15,7 +15,7 @@
 .eyebrow {
   font-family: var(--font-body); font-size: 0.75rem;
   text-transform: uppercase; letter-spacing: 0.12em;
-  color: var(--color-teal); margin: 0 0 0.4rem; font-weight: 600;
+  color: var(--color-link); margin: 0 0 0.4rem; font-weight: 600;
 }
 
 .title {
@@ -145,7 +145,7 @@ a.quickAccessItem:hover { color: var(--qa-color, var(--color-primary)); }
 
 .detailHero {
   padding: 1.75rem;
-  background: color-mix(in srgb, var(--detail-color, #0EA5E9) 4%, white);
+  background: color-mix(in srgb, var(--detail-color, var(--color-link)) 4%, white);
   border-bottom: 1.5px solid var(--color-border);
 }
 

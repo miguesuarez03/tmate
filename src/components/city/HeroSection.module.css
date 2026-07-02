@@ -306,7 +306,7 @@ a.heroBigLink:hover {
 /* ── Card CTA ── */
 .heroCardCta {
   width: 100%;
-  background: var(--cta-color, #00BFA5);
+  background: var(--cta-color, var(--color-link));
   color: #fff; border: none;
   border-radius: var(--radius-full);
   padding: 0.85rem;

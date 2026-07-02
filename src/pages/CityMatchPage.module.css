@@ -7,13 +7,13 @@
 
 .badge {
   display: inline-block;
-  background: rgba(20,184,166,0.18);
-  border: 1px solid rgba(20,184,166,0.4);
+  background: rgba(2,132,199,0.18);
+  border: 1px solid rgba(2,132,199,0.4);
   border-radius: var(--radius-full);
   padding: 6px 16px;
   font-size: 13px;
   font-weight: 700;
-  color: #5EEAD4;
+  color: #7DD3FC;
   margin-bottom: 16px;
 }
 
@@ -106,7 +106,7 @@
   position: absolute; inset: 0;
   background:
     radial-gradient(ellipse at 20% 50%, rgba(14,165,233,0.2) 0%, transparent 55%),
-    radial-gradient(ellipse at 80% 20%, rgba(20,184,166,0.15) 0%, transparent 50%);
+    radial-gradient(ellipse at 80% 20%, rgba(2,132,199,0.15) 0%, transparent 50%);
 }
 .resultsHeroContent { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; }
 .resultsTitle {
@@ -122,12 +122,12 @@
 .resultsActions { display: flex; gap: 12px; flex-wrap: wrap; }
 
 .primaryBtn {
-  background: var(--gradient-brand); color: #fff; border: none;
+  background: var(--color-accent); color: var(--color-primary); border: none;
   border-radius: var(--radius-full); padding: 12px 26px;
   font-size: 14px; font-weight: 700; font-family: var(--font-body);
   transition: all 0.25s var(--ease-spring); min-height: 44px;
 }
-.primaryBtn:hover { opacity: 0.92; transform: translateY(-2px); box-shadow: var(--shadow-brand); }
+.primaryBtn:hover { filter: brightness(0.94); transform: translateY(-2px); }
 
 .secondaryBtn {
   background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
