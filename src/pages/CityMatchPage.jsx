@@ -62,6 +62,7 @@ function bucketSimilarity(a, b) {
 const DIMENSIONS = {
   presupuesto: {
     icon: Euro,
+    color: "#22C55E",
     reason: "se ajusta a tu presupuesto",
     similarity: (city, scoreMap, value) => {
       if (value === "alto") return 1;
@@ -72,6 +73,7 @@ const DIMENSIONS = {
   },
   clima: {
     icon: CloudSun,
+    color: "#0EA5E9",
     reason: "tiene el clima que buscas",
     similarity: (city, _sm, value) => {
       const bucket = WEATHER_BUCKET[city.weather] ?? 1;
@@ -81,6 +83,7 @@ const DIMENSIONS = {
   },
   idioma: {
     icon: Languages,
+    color: "#14B8A6",
     reason: "encaja con tu idioma preferido",
     similarity: (city, _sm, value) => {
       if (value === "flexible") return 1;
@@ -89,6 +92,7 @@ const DIMENSIONS = {
   },
   fiesta: {
     icon: PartyPopper,
+    color: "#EC4899",
     reason: "tiene el nivel de vida social que buscas",
     similarity: (city, scoreMap, value) => {
       const target = { tranquila: 5, equilibrada: 7.5, intensa: 9.5 }[value];
@@ -98,6 +102,7 @@ const DIMENSIONS = {
   },
   tamano: {
     icon: Building2,
+    color: "#8B5CF6",
     reason: "tiene el tamaño de ciudad que encaja contigo",
     similarity: (city, _sm, value) => {
       const bucket = bucketStudents(city.students);
@@ -107,6 +112,7 @@ const DIMENSIONS = {
   },
   naturaleza: {
     icon: Trees,
+    color: "#22C55E",
     reason: "ofrece el contacto con naturaleza que valoras",
     similarity: (city, _sm, value) => {
       const bucket = natureLevel(city);
@@ -116,6 +122,7 @@ const DIMENSIONS = {
   },
   universidad: {
     icon: GraduationCap,
+    color: "#F97316",
     reason: "tiene buena proyección académica y laboral",
     similarity: (city, scoreMap, value) => {
       if (value === "secundario") return 1;
@@ -126,6 +133,7 @@ const DIMENSIONS = {
   },
   estilo: {
     icon: Sparkles,
+    color: "#FFB020",
     reason: "tiene una calidad de vida diaria muy alta",
     similarity: (city, scoreMap, value) => {
       if (value === "no-prioridad") return 1;
@@ -233,7 +241,7 @@ function computeMatch(city, answers) {
     const value = answers[q.id];
     const dim = DIMENSIONS[q.id];
     const sim = value ? dim.similarity(city, scoreMap, value) : 0.5;
-    return { id: q.id, sim, icon: dim.icon, reason: dim.reason };
+    return { id: q.id, sim, icon: dim.icon, color: dim.color, reason: dim.reason };
   });
   const avg = results.reduce((a, r) => a + r.sim, 0) / results.length;
   return { city, percent: Math.round(avg * 100), results };
@@ -358,7 +366,7 @@ export default function CityMatchPage() {
 
                     <ul className={styles.reasonList}>
                       {bestReasons.map((r) => (
-                        <li key={r.id}><r.icon size={15} strokeWidth={1.75} className={styles.reasonIcon} /> {m.city.name} {r.reason}</li>
+                        <li key={r.id}><r.icon size={15} strokeWidth={1.75} className={styles.reasonIcon} color={r.color} /> {m.city.name} {r.reason}</li>
                       ))}
                       {weakest.sim < 0.4 && (
                         <li className={styles.reasonCaveat}><weakest.icon size={15} strokeWidth={1.75} className={styles.reasonIcon} /> Ten en cuenta: aquí es donde menos encaja con lo que buscas</li>

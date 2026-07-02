@@ -42,18 +42,21 @@ const TRENDING = ["Bolonia", "Lisboa", "Berlín", "Praga", "Viena"];
 const QUICK_ACCESS = [
   {
     icon: Compass,
+    color: "#0EA5E9",
     title: "Encontrar tu ciudad",
     desc: "Compara datos reales y descubre tu destino ideal",
     action: "explore",
   },
   {
     icon: Scale,
+    color: "#EC4899",
     title: "Comparar ciudades",
     desc: "Pon dos o más destinos lado a lado",
     action: "compare",
   },
   {
     icon: Euro,
+    color: "#22C55E",
     title: "Calcular tu beca",
     desc: "Cuánto vas a cobrar y cuánto necesitas para vivir",
     action: "beca",
@@ -84,7 +87,7 @@ function QuickAccessSection() {
             className="quick-access__card"
             onClick={() => handleClick(item.action)}
           >
-            <span className="quick-access__icon"><item.icon size={24} strokeWidth={1.75} /></span>
+            <span className="quick-access__icon" style={{ color: item.color }}><item.icon size={24} strokeWidth={1.75} /></span>
             <span className="quick-access__title">{item.title}</span>
             <span className="quick-access__desc">{item.desc}</span>
             <span className="quick-access__arrow">→</span>
@@ -186,9 +189,9 @@ function AnimatedWord() {
 }
 
 const VIBE_FILTERS = [
-  { key: "fiesta",  label: "Fiesta",   icon: PartyPopper, tags: ["Ciudad universitaria", "Ruin bars", "Oktoberfest", "Arte & Libertad", "Trending 🔥"] },
-  { key: "cultura", label: "Cultura",  icon: Landmark, tags: ["Historia viva", "Joya medieval", "Capital diplomática", "Arquitectura radical", "La ciudad luz", "Capital global", "Capital de Europa", "Fotogénica", "Calidad de vida #1"] },
-  { key: "barato",  label: "Barato",   icon: Coins, tags: ["La más barata", "Pueblo & Naturaleza", "Gema oculta"] },
+  { key: "fiesta",  label: "Fiesta",   icon: PartyPopper, color: "#EC4899", tags: ["Ciudad universitaria", "Ruin bars", "Oktoberfest", "Arte & Libertad", "Trending 🔥"] },
+  { key: "cultura", label: "Cultura",  icon: Landmark, color: "#8B5CF6", tags: ["Historia viva", "Joya medieval", "Capital diplomática", "Arquitectura radical", "La ciudad luz", "Capital global", "Capital de Europa", "Fotogénica", "Calidad de vida #1"] },
+  { key: "barato",  label: "Barato",   icon: Coins, color: "#22C55E", tags: ["La más barata", "Pueblo & Naturaleza", "Gema oculta"] },
 ];
 
 const CITY_PILLS = [
@@ -414,11 +417,11 @@ function AllTestimonialsModal({ onClose, onSelect }) {
 // en cada ficha de ciudad y en el comparador. No se inventa ningún dato
 // nuevo para esta sección, solo se reordena lo que ya existe.
 const RANKING_CATEGORIES = [
-  { id: "overall", label: "General", icon: Trophy },
-  { id: "coste", label: "Más económicas", icon: Euro },
-  { id: "vida_social", label: "Vida social", icon: PartyPopper },
-  { id: "seguridad", label: "Seguridad", icon: ShieldCheck },
-  { id: "empleo", label: "Salidas profesionales", icon: GraduationCap },
+  { id: "overall", label: "General", icon: Trophy, color: "#FFB020" },
+  { id: "coste", label: "Más económicas", icon: Euro, color: "#22C55E" },
+  { id: "vida_social", label: "Vida social", icon: PartyPopper, color: "#EC4899" },
+  { id: "seguridad", label: "Seguridad", icon: ShieldCheck, color: "#0EA5E9" },
+  { id: "empleo", label: "Salidas profesionales", icon: GraduationCap, color: "#8B5CF6" },
 ];
 
 function RankingsSection() {
@@ -454,7 +457,7 @@ function RankingsSection() {
               className={`rankings-tab${active === c.id ? " rankings-tab--active" : ""}`}
               onClick={() => setActive(c.id)}
             >
-              <c.icon size={15} strokeWidth={1.75} /> {c.label}
+              <c.icon size={15} strokeWidth={1.75} color={active === c.id ? "#fff" : c.color} /> {c.label}
             </button>
           ))}
         </div>
@@ -847,7 +850,7 @@ export default function HomePage() {
               className={`filter-pill${(region || 'Todos') === f.key ? " filter-pill--active" : ""}`}
               onClick={() => { setRegion((region || 'Todos') === f.key ? null : f.key); setShowAll(false); }}
             >
-              <f.icon size={15} strokeWidth={1.75} /> {f.label}
+              <f.icon size={15} strokeWidth={1.75} color={(region || 'Todos') === f.key ? "#fff" : f.color} /> {f.label}
             </button>
           ))}
         </div>

@@ -406,10 +406,10 @@ export default function ComparePage() {
 
                     {/* Quick stats */}
                     <div className={styles.quickStats}>
-                      <div className={styles.stat}><Euro size={16} strokeWidth={1.75} /><span>{city.costDetail}</span></div>
-                      <div className={styles.stat}><GraduationCap size={16} strokeWidth={1.75} /><span>{city.erasmusStudents} Erasmus</span></div>
-                      <div className={styles.stat}><CloudSun size={16} strokeWidth={1.75} /><span>{city.weather}</span></div>
-                      <div className={styles.stat}><Languages size={16} strokeWidth={1.75} /><span>{city.language}</span></div>
+                      <div className={styles.stat}><Euro size={16} strokeWidth={1.75} color="#22C55E" /><span>{city.costDetail}</span></div>
+                      <div className={styles.stat}><GraduationCap size={16} strokeWidth={1.75} color="#F97316" /><span>{city.erasmusStudents} Erasmus</span></div>
+                      <div className={styles.stat}><CloudSun size={16} strokeWidth={1.75} color="#0EA5E9" /><span>{city.weather}</span></div>
+                      <div className={styles.stat}><Languages size={16} strokeWidth={1.75} color="#14B8A6" /><span>{city.language}</span></div>
                     </div>
 
                     <button className={styles.cityLinkBtn} style={{ borderColor: COL_COLORS[i], color: COL_COLORS[i] }}
@@ -536,13 +536,13 @@ export default function ComparePage() {
                     <div key={city.slug} className={styles.prosConsCol} style={{ borderTopColor: COL_COLORS[i] }}>
                       <div className={styles.prosConsHead} style={{ color: COL_COLORS[i] }}>{city.emoji} {city.name}</div>
                       <div className={styles.prosConsBlock}>
-                        <span className={styles.prosConsLabel}><CheckCircle2 size={16} strokeWidth={1.75} /> Puntos fuertes</span>
+                        <span className={styles.prosConsLabel}><CheckCircle2 size={16} strokeWidth={1.75} color="#22C55E" /> Puntos fuertes</span>
                         <ul className={styles.prosConsList}>
                           {pros.map((p) => <li key={p.id}>{p.icon} {p.label} — {p.score.toFixed(1)}/10</li>)}
                         </ul>
                       </div>
                       <div className={styles.prosConsBlock}>
-                        <span className={styles.prosConsLabel}><AlertTriangle size={16} strokeWidth={1.75} /> A tener en cuenta</span>
+                        <span className={styles.prosConsLabel}><AlertTriangle size={16} strokeWidth={1.75} color="#F97316" /> A tener en cuenta</span>
                         <ul className={styles.prosConsList}>
                           {cons.map((c) => <li key={c.id}>{c.icon} {c.label} — {c.score.toFixed(1)}/10</li>)}
                         </ul>

@@ -158,12 +158,18 @@ const EXPENSE_ICONS = {
   "Transporte": Bus,
   "Ocio y gastos diarios": PartyPopper,
 };
+const EXPENSE_COLORS = {
+  "Alojamiento": "#0EA5E9",
+  "Comida y supermercados": "#F97316",
+  "Transporte": "#8B5CF6",
+  "Ocio y gastos diarios": "#EC4899",
+};
 
 const COMPAT_BECAS = [
-  { icon: BookOpen, name: "Beca MEC", desc: "Compatible al 100%. Puedes cobrar ambas a la vez." },
-  { icon: Landmark, name: "Ayudas autonómicas", desc: "Andalucía, Madrid, Cataluña y otras CCAA ofrecen complementos propios." },
-  { icon: GraduationCap, name: "Becas de tu universidad", desc: "Muchas universidades tienen sus propios fondos de movilidad." },
-  { icon: Banknote, name: "Becas privadas", desc: "Ejemplo: Banco Santander u otras entidades privadas." },
+  { icon: BookOpen, color: "#0EA5E9", name: "Beca MEC", desc: "Compatible al 100%. Puedes cobrar ambas a la vez." },
+  { icon: Landmark, color: "#8B5CF6", name: "Ayudas autonómicas", desc: "Andalucía, Madrid, Cataluña y otras CCAA ofrecen complementos propios." },
+  { icon: GraduationCap, color: "#EC4899", name: "Becas de tu universidad", desc: "Muchas universidades tienen sus propios fondos de movilidad." },
+  { icon: Banknote, color: "#22C55E", name: "Becas privadas", desc: "Ejemplo: Banco Santander u otras entidades privadas." },
 ];
 
 const CCAA_LIST = [
@@ -487,7 +493,7 @@ function Calculator() {
               <div key={e.label} className="beca-expenses__item">
                 <div className="beca-expenses__item-head">
                   <span className="beca-expenses__item-label">
-                    {(() => { const Icon = EXPENSE_ICONS[e.label] || Wallet; return <Icon size={16} strokeWidth={1.75} />; })()} {e.label}
+                    {(() => { const Icon = EXPENSE_ICONS[e.label] || Wallet; return <Icon size={16} strokeWidth={1.75} color={EXPENSE_COLORS[e.label] || "#0284C7"} />; })()} {e.label}
                   </span>
                   <span className="beca-expenses__item-amount">~{e.amount}€/mes</span>
                 </div>
@@ -680,7 +686,7 @@ export default function BecaErasmusPage() {
           <div className="beca-extras-grid">
             {/* Menos oportunidades */}
             <div className="beca-extra-card">
-              <div className="beca-extra-card__icon"><HeartHandshake size={26} strokeWidth={1.75} /></div>
+              <div className="beca-extra-card__icon" style={{ color: "#EC4899" }}><HeartHandshake size={26} strokeWidth={1.75} /></div>
               <h3 className="beca-extra-card__title">Complemento de menos oportunidades</h3>
               <div className="beca-extra-card__amount">+250€/mes</div>
               <p className="beca-extra-card__desc">
@@ -698,7 +704,7 @@ export default function BecaErasmusPage() {
 
             {/* Discapacidad */}
             <div className="beca-extra-card">
-              <div className="beca-extra-card__icon"><Accessibility size={26} strokeWidth={1.75} /></div>
+              <div className="beca-extra-card__icon" style={{ color: "#0EA5E9" }}><Accessibility size={26} strokeWidth={1.75} /></div>
               <h3 className="beca-extra-card__title">Ayudas para estudiantes con discapacidad</h3>
               <div className="beca-extra-card__amount">Según costes reales</div>
               <p className="beca-extra-card__desc">
@@ -715,7 +721,7 @@ export default function BecaErasmusPage() {
 
             {/* Green Travel */}
             <div className="beca-extra-card">
-              <div className="beca-extra-card__icon"><Leaf size={26} strokeWidth={1.75} /></div>
+              <div className="beca-extra-card__icon" style={{ color: "#22C55E" }}><Leaf size={26} strokeWidth={1.75} /></div>
               <h3 className="beca-extra-card__title">Ayuda de viaje + Green Travel</h3>
               <div className="beca-extra-card__amount">28€ – 1.735€</div>
               <p className="beca-extra-card__desc">
@@ -762,7 +768,7 @@ export default function BecaErasmusPage() {
           <div className="beca-compat-grid">
             {COMPAT_BECAS.map((b) => (
               <div key={b.name} className="beca-compat-card">
-                <span className="beca-compat-card__icon"><b.icon size={22} strokeWidth={1.75} /></span>
+                <span className="beca-compat-card__icon" style={{ color: b.color }}><b.icon size={22} strokeWidth={1.75} /></span>
                 <div>
                   <strong className="beca-compat-card__name">{b.name}</strong>
                   <p className="beca-compat-card__desc">{b.desc}</p>

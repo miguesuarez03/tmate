@@ -32,42 +32,49 @@ export function Logo({ dark = false, onClick }) {
 const MENU_ITEMS = [
   {
     icon: Map,
+    color: "#0EA5E9",
     label: "Explorar destinos",
     desc: "Todas las ciudades Erasmus con scores y guías",
     action: "explore",
   },
   {
     icon: Compass,
+    color: "#8B5CF6",
     label: "City Match",
     desc: "Responde 8 preguntas y descubre tu ciudad ideal",
     action: "match",
   },
   {
     icon: Scale,
+    color: "#EC4899",
     label: "Comparativa de destinos",
     desc: "Compara tus ciudades favoritas lado a lado",
     action: "compare",
   },
   {
     icon: HelpCircle,
+    color: "#F97316",
     label: "¿Cómo funciona el Erasmus?",
     desc: "Todo el proceso explicado sin rodeos, paso a paso",
     action: "steps",
   },
   {
     icon: Euro,
+    color: "#22C55E",
     label: "Beca Erasmus+",
     desc: "Cuánto cobras, complementos y calculadora de ayudas",
     action: "beca",
   },
   {
     icon: FileText,
+    color: "#14B8A6",
     label: "Tu Learning Agreement",
     desc: "Cómo preparar el contrato académico y conseguir las convalidaciones",
     action: "la",
   },
   {
     icon: Star,
+    color: "#FFB020",
     label: "Cuéntanos tu experiencia",
     desc: "Comparte tu Erasmus y ayuda a otros estudiantes",
     action: "share",
@@ -126,8 +133,8 @@ function NavMenuDrawer({ menuOpen, setMenuOpen }) {
               className="nav-drawer__item"
               onClick={() => handleMenuAction(item.action)}
             >
-              <span className="nav-drawer__item-icon">
-                <item.icon size={20} strokeWidth={1.75} color="var(--color-primary)" />
+              <span className="nav-drawer__item-icon" style={{ background: item.color + "18" }}>
+                <item.icon size={20} strokeWidth={1.75} color={item.color} />
               </span>
               <div className="nav-drawer__item-text">
                 <span className="nav-drawer__item-label">{item.label}</span>
