@@ -28,7 +28,7 @@
   max-width: 640px;
 }
 .selectorBadge {
-  display: inline-block;
+  display: inline-flex; align-items: center; gap: 6px;
   background: rgba(2,132,199,0.18);
   border: 1px solid rgba(2,132,199,0.4);
   border-radius: var(--radius-full);
@@ -131,7 +131,8 @@
 }
 .searchIcon {
   position: absolute; left: 18px; top: 50%;
-  transform: translateY(-50%); font-size: 16px; pointer-events: none;
+  transform: translateY(-50%); display: flex; pointer-events: none;
+  color: var(--color-muted);
 }
 .searchInput {
   width: 100%;
@@ -199,9 +200,8 @@
 .tileCheck {
   position: absolute; top: 10px; right: 10px;
   width: 26px; height: 26px; border-radius: 50%;
-  color: #fff; font-size: 13px; display: flex;
+  color: #fff; display: flex;
   align-items: center; justify-content: center;
-  font-weight: 800;
   animation: bounceIn 0.3s var(--ease-spring) both;
 }
 @keyframes bounceIn {
@@ -231,7 +231,7 @@
 .empty {
   text-align: center; padding: 60px 20px; color: var(--color-muted);
 }
-.empty span { font-size: 40px; display: block; margin-bottom: 12px; }
+.empty span { display: flex; justify-content: center; margin-bottom: 12px; color: var(--color-muted); }
 .empty p { font-size: 15px; margin-bottom: 16px; }
 .empty button {
   background: none; border: 1.5px solid var(--color-border);
@@ -382,7 +382,7 @@
   position: relative;
 }
 .crownIcon {
-  font-size: 18px;
+  display: inline-flex; color: #FBBF24;
   filter: drop-shadow(0 0 6px rgba(255,255,255,0.6));
   animation: crownPulse 2.2s ease-in-out infinite;
 }
@@ -532,7 +532,7 @@
   font-size: 11px; font-weight: 800;
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
-.versusTrophy { font-size: 13px; flex-shrink: 0; }
+.versusTrophy { display: inline-flex; color: #FBBF24; flex-shrink: 0; }
 .versusColScore {
   font-family: var(--font-display);
   font-size: 19px; font-weight: 900;
@@ -634,6 +634,10 @@
 .summaryList li {
   font-size: 14.5px; line-height: 1.6; color: var(--color-slate);
   padding-left: 2px;
+  display: flex; align-items: flex-start; gap: 8px;
+}
+.summaryIcon {
+  flex-shrink: 0; margin-top: 2px; color: var(--color-link);
 }
 
 /* ─── RADAR COMPARATIVO ──────────────────────────────────────────────────── */
@@ -711,7 +715,7 @@
 .prosConsLabel {
   font-size: 11px; font-weight: 700; text-transform: uppercase;
   letter-spacing: 0.04em; color: var(--color-muted);
-  display: block; margin-bottom: 6px;
+  display: inline-flex; align-items: center; gap: 5px; margin-bottom: 6px;
 }
 .prosConsList {
   list-style: none; padding: 0; margin: 0;

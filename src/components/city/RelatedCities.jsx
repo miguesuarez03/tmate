@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { Compass } from "lucide-react";
 import styles from "./RelatedCities.module.css";
 
 function scoreColor(s) {
@@ -46,7 +47,7 @@ export default function RelatedCities({ relatedCities = [], currentCity }) {
       <div className={styles.conv}>
         <div className={styles.convInner}>
           <div className={styles.convLeft}>
-            <span className={styles.convEmoji}>🌍</span>
+            <span className={styles.convEmoji}><Compass size={28} strokeWidth={1.75} /></span>
             <div>
               <h2 className={styles.convTitle}>¿Esta es tu ciudad?</h2>
               <p className={styles.convSub}>Compara con otros destinos y toma la mejor decisión para tu Erasmus</p>

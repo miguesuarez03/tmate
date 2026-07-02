@@ -1,12 +1,13 @@
+import { Lightbulb, Map, Banknote, Home, Bike, PartyPopper } from "lucide-react";
 import styles from "./TipsSection.module.css";
 
 const TIP_COLORS = [
-  { bg: "#DBEAFE", accent: "#2563EB", text: "#0F172A", icon: "💡" },
-  { bg: "#EDE4FF", accent: "#9333EA", text: "#0F172A", icon: "🗺️" },
-  { bg: "#D7F7E0", accent: "#16A34A", text: "#0F172A", icon: "💸" },
-  { bg: "#FFE4D6", accent: "#EA580C", text: "#0F172A", icon: "🏠" },
-  { bg: "#D6F1FF", accent: "#0284C7", text: "#0F172A", icon: "🚲" },
-  { bg: "#FDE0F0", accent: "#DB2777", text: "#0F172A", icon: "🎉" },
+  { bg: "#DBEAFE", accent: "#2563EB", text: "#0F172A", icon: Lightbulb },
+  { bg: "#EDE4FF", accent: "#9333EA", text: "#0F172A", icon: Map },
+  { bg: "#D7F7E0", accent: "#16A34A", text: "#0F172A", icon: Banknote },
+  { bg: "#FFE4D6", accent: "#EA580C", text: "#0F172A", icon: Home },
+  { bg: "#D6F1FF", accent: "#0284C7", text: "#0F172A", icon: Bike },
+  { bg: "#FDE0F0", accent: "#DB2777", text: "#0F172A", icon: PartyPopper },
 ];
 
 export default function TipsSection({ tips = [], cityName }) {
@@ -30,7 +31,9 @@ export default function TipsSection({ tips = [], cityName }) {
                 style={{ "--card-bg": theme.bg, "--card-accent": theme.accent, "--card-text": theme.text }}
               >
                 <div className={styles.cardTop}>
-                  <span className={styles.cardIcon}>{theme.icon}</span>
+                  <span className={styles.cardIcon} style={{ color: theme.accent }}>
+                    <theme.icon size={22} strokeWidth={1.75} />
+                  </span>
                   <span className={styles.cardNum}>0{i + 1}</span>
                 </div>
                 <p className={styles.cardText}>{tip}</p>

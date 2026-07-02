@@ -74,7 +74,7 @@
   font-size: 32px;
   font-weight: 900;
   color: #fff;
-  display: block;
+  display: flex; align-items: center; justify-content: center;
   line-height: 1;
 }
 .heroStatLabel {
@@ -182,7 +182,7 @@
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
-.firmaIcon { font-size: 30px; margin: 6px 0 2px; }
+.firmaIcon { display: flex; align-items: center; justify-content: center; color: var(--firma-color); margin: 6px 0 2px; }
 .firmaLabel {
   font-size: 15px;
   font-weight: 700;
@@ -193,6 +193,7 @@
   color: var(--color-muted);
 }
 .firmaCheck {
+  display: inline-flex; align-items: center; gap: 3px;
   margin-top: 8px;
   font-size: 10.5px;
   font-weight: 700;
@@ -277,9 +278,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
   flex-shrink: 0;
 }
+.tipLineOk, .tipLineWarn { display: flex; align-items: flex-start; gap: 6px; }
+.tipLineOk svg { color: #16A34A; flex-shrink: 0; margin-top: 2px; }
+.tipLineWarn svg { color: #F59E0B; flex-shrink: 0; margin-top: 2px; }
 .tipHeaderText { flex: 1; }
 .tipTag {
   font-size: 11px;
@@ -445,11 +448,9 @@
 }
 .checklistPillDone:hover { background: #e8faf4; }
 .checklistPillIcon {
-  font-size: 15px;
+  display: flex;
   flex-shrink: 0;
-  line-height: 1.3;
   color: var(--color-success);
-  font-weight: 800;
 }
 .checklistPill:not(.checklistPillDone) .checklistPillIcon {
   color: var(--color-muted);
@@ -465,6 +466,7 @@
 }
 
 .checklistDone {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
   padding: 12px 20px;
   background: #f0fdf9;
   border-top: 1px solid rgba(5,150,105,0.2);
@@ -563,7 +565,7 @@
   margin-bottom: 22px;
 }
 
-.wizardCardEmoji { font-size: 30px; flex-shrink: 0; }
+.wizardCardEmoji { display: flex; color: var(--color-primary); flex-shrink: 0; }
 
 .wizardCardStep {
   font-size: 12px; font-weight: 700; color: var(--color-success);
@@ -634,6 +636,7 @@
 .wizardBackBtn:disabled { opacity: 0.4; cursor: default; }
 
 .wizardNextBtn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
   padding: 12px 22px;
   border-radius: var(--radius-md);
   border: none;
@@ -655,7 +658,7 @@
   margin-top: 28px;
 }
 
-.wizardDoneIcon { font-size: 44px; display: block; margin-bottom: 14px; }
+.wizardDoneIcon { display: flex; justify-content: center; color: var(--color-primary); margin-bottom: 14px; }
 
 .wizardDoneTitle {
   font-family: var(--font-display); font-size: 20px; font-weight: 800;
@@ -672,6 +675,7 @@
 }
 
 .wizardCopyBtn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
   padding: 10px 20px;
   border-radius: var(--radius-md);
   border: 1.5px solid var(--color-border);

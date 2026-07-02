@@ -1,5 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import {
+  Home, UtensilsCrossed, Bus, PartyPopper, BookOpen, Landmark,
+  GraduationCap, Banknote, Calculator as CalculatorIcon, MapPin, CheckCircle2, AlertTriangle,
+  Plane, Leaf, CreditCard, Lightbulb, HeartHandshake, Accessibility, Wallet,
+} from "lucide-react";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { useSEO } from "../hooks/useSEO";
 import { CITY_COORDS, haversineDistanceKm, distanceToRange, geocodeCity } from "../lib/cityCoords";
@@ -148,17 +153,17 @@ const COUNTRY_DISTANCE = {
 // Iconos para las subcategorías de coste de vida (mismas etiquetas que
 // usa CityDetailPage/InsightDashboard bajo la categoría "coste").
 const EXPENSE_ICONS = {
-  "Alojamiento": "🏠",
-  "Comida y supermercados": "🍽️",
-  "Transporte": "🚌",
-  "Ocio y gastos diarios": "🎉",
+  "Alojamiento": Home,
+  "Comida y supermercados": UtensilsCrossed,
+  "Transporte": Bus,
+  "Ocio y gastos diarios": PartyPopper,
 };
 
 const COMPAT_BECAS = [
-  { icon: "📚", name: "Beca MEC", desc: "Compatible al 100%. Puedes cobrar ambas a la vez." },
-  { icon: "🏛️", name: "Ayudas autonómicas", desc: "Andalucía, Madrid, Cataluña y otras CCAA ofrecen complementos propios." },
-  { icon: "🎓", name: "Becas de tu universidad", desc: "Muchas universidades tienen sus propios fondos de movilidad." },
-  { icon: "🏦", name: "Becas privadas", desc: "Ejemplo: Banco Santander u otras entidades privadas." },
+  { icon: BookOpen, name: "Beca MEC", desc: "Compatible al 100%. Puedes cobrar ambas a la vez." },
+  { icon: Landmark, name: "Ayudas autonómicas", desc: "Andalucía, Madrid, Cataluña y otras CCAA ofrecen complementos propios." },
+  { icon: GraduationCap, name: "Becas de tu universidad", desc: "Muchas universidades tienen sus propios fondos de movilidad." },
+  { icon: Banknote, name: "Becas privadas", desc: "Ejemplo: Banco Santander u otras entidades privadas." },
 ];
 
 const CCAA_LIST = [
@@ -290,7 +295,7 @@ function Calculator() {
 
   return (
     <div className="beca-calc">
-      <h3 className="beca-calc__title">🧮 Calcula cuánto podrías cobrar</h3>
+      <h3 className="beca-calc__title"><CalculatorIcon size={20} strokeWidth={1.75} /> Calcula cuánto podrías cobrar</h3>
       <p className="beca-calc__subtitle">Estimación orientativa — las cuantías exactas las confirma tu universidad</p>
 
       <div className="beca-calc__grid">
@@ -299,7 +304,7 @@ function Calculator() {
 
           {/* PRIMERO: selección de ciudades */}
           <div className="beca-calc__field beca-calc__field--highlight">
-            <label className="beca-calc__label">📍 De dónde sales → adónde vas</label>
+            <label className="beca-calc__label"><MapPin size={14} strokeWidth={1.75} /> De dónde sales → adónde vas</label>
             <div className="beca-distance-calc">
               <div className="beca-distance-calc__row">
                 <SearchableInput
@@ -335,16 +340,16 @@ function Calculator() {
                 onClick={handleCalcDistance}
                 disabled={!originCity.trim() || !destinationSlug || calcStatus === "loading"}
               >
-                {calcStatus === "loading" ? "Calculando…" : "📍 Calcular distancia"}
+                {calcStatus === "loading" ? "Calculando…" : <><MapPin size={14} strokeWidth={1.75} /> Calcular distancia</>}
               </button>
 
               {calcStatus === "done" && calcKm != null && (
                 <p className="beca-distance-calc__result">
-                  ✅ <strong>{calcKm.toLocaleString("es-ES")} km</strong> → banda <strong>{distanceRange}</strong> aplicada automáticamente.
+                  <CheckCircle2 size={14} strokeWidth={1.75} /> <strong>{calcKm.toLocaleString("es-ES")} km</strong> → banda <strong>{distanceRange}</strong> aplicada automáticamente.
                 </p>
               )}
               {calcStatus === "error" && (
-                <p className="beca-distance-calc__error">⚠️ {calcError}</p>
+                <p className="beca-distance-calc__error"><AlertTriangle size={14} strokeWidth={1.75} /> {calcError}</p>
               )}
             </div>
           </div>
@@ -362,7 +367,7 @@ function Calculator() {
           </div>
 
           <div className="beca-calc__field">
-            <label className="beca-calc__label">✈️ Ayuda de viaje — banda de distancia</label>
+            <label className="beca-calc__label"><Plane size={14} strokeWidth={1.75} /> Ayuda de viaje — banda de distancia</label>
             <select
               className="beca-calc__select"
               value={distanceRange}
@@ -379,7 +384,7 @@ function Calculator() {
             </p>
             <label className="beca-calc__check" style={{ marginTop: 8 }}>
               <input type="checkbox" checked={eco} onChange={(e) => setEco(e.target.checked)} />
-              <span>🌿 Viaje ecológico (tren/bus/coche compartido) — importes más altos</span>
+              <span><Leaf size={14} strokeWidth={1.75} /> Viaje ecológico (tren/bus/coche compartido) — importes más altos</span>
             </label>
           </div>
 
@@ -439,7 +444,7 @@ function Calculator() {
                   </div>
                 )}
                 <div className="beca-calc__result-group">
-                  <span className="beca-calc__result-label">Ayuda de viaje ({distanceRange}){eco ? " 🌿" : ""}</span>
+                  <span className="beca-calc__result-label">Ayuda de viaje ({distanceRange}){eco ? <> <Leaf size={12} strokeWidth={1.75} style={{ display: "inline", verticalAlign: "-2px" }} /></> : ""}</span>
                   <span className="beca-calc__result-val"><strong>+{travelBonus}€</strong> (pago único)</span>
                 </div>
                 {mec && (
@@ -461,7 +466,7 @@ function Calculator() {
                   <span className="beca-calc__total-monthly">({Math.round(total / months).toLocaleString("es-ES")}€/mes de media)</span>
                 </div>
                 <p className="beca-calc__disclaimer">
-                  ⚠️ Estimación orientativa. Los importes reales los confirma tu universidad y pueden variar según convocatoria y comunidad autónoma.
+                  <AlertTriangle size={13} strokeWidth={1.75} /> Estimación orientativa. Los importes reales los confirma tu universidad y pueden variar según convocatoria y comunidad autónoma.
                 </p>
               </>
             )}
@@ -472,7 +477,7 @@ function Calculator() {
       {/* ── Coste de vida y cuánto te falta poner ── */}
       {destCity && expenseBreakdown.length > 0 && (
         <div className="beca-expenses">
-          <h3 className="beca-expenses__title">💸 Coste de vida estimado en {destCity.name}</h3>
+          <h3 className="beca-expenses__title"><Wallet size={18} strokeWidth={1.75} /> Coste de vida estimado en {destCity.name}</h3>
           <p className="beca-expenses__subtitle">
             Reparto calculado a partir del coste total investigado ({costMin}–{costMax}€/mes) y el peso relativo de cada categoría en esta ciudad.
           </p>
@@ -481,7 +486,9 @@ function Calculator() {
             {expenseBreakdown.map((e) => (
               <div key={e.label} className="beca-expenses__item">
                 <div className="beca-expenses__item-head">
-                  <span className="beca-expenses__item-label">{EXPENSE_ICONS[e.label] || "💰"} {e.label}</span>
+                  <span className="beca-expenses__item-label">
+                    {(() => { const Icon = EXPENSE_ICONS[e.label] || Wallet; return <Icon size={16} strokeWidth={1.75} />; })()} {e.label}
+                  </span>
                   <span className="beca-expenses__item-amount">~{e.amount}€/mes</span>
                 </div>
                 <p className="beca-expenses__item-desc">{e.desc}</p>
@@ -502,12 +509,12 @@ function Calculator() {
             <div className={`beca-expenses__gap ${gap > 0 ? "beca-expenses__gap--negative" : "beca-expenses__gap--positive"}`}>
               {gap > 0 ? (
                 <>
-                  <span>💳 Tendrás que aportar de tu bolsillo</span>
+                  <span><CreditCard size={16} strokeWidth={1.75} /> Tendrás que aportar de tu bolsillo</span>
                   <strong>~{gap}€/mes</strong>
                 </>
               ) : (
                 <>
-                  <span>✅ Tu beca cubre el coste de vida estimado</span>
+                  <span><CheckCircle2 size={16} strokeWidth={1.75} /> Tu beca cubre el coste de vida estimado</span>
                   <strong>+{Math.abs(gap)}€/mes de margen</strong>
                 </>
               )}
@@ -515,7 +522,7 @@ function Calculator() {
           </div>
 
           <p className="beca-calc__disclaimer" style={{ marginTop: 16 }}>
-            ⚠️ El total ({costMin}–{costMax}€) es el rango investigado para {destCity.name}. El reparto entre alojamiento, comida, transporte y ocio es una estimación calculada, no un dato investigado categoría a categoría — usa las descripciones de arriba (con precios reales) para ajustarlo a tu caso concreto.
+            <AlertTriangle size={13} strokeWidth={1.75} /> El total ({costMin}–{costMax}€) es el rango investigado para {destCity.name}. El reparto entre alojamiento, comida, transporte y ocio es una estimación calculada, no un dato investigado categoría a categoría — usa las descripciones de arriba (con precios reales) para ajustarlo a tu caso concreto.
           </p>
         </div>
       )}
@@ -612,7 +619,7 @@ export default function BecaErasmusPage() {
               </p>
             </div>
             <div className="beca-intro-callout">
-              <span className="beca-intro-callout__icon">💡</span>
+              <span className="beca-intro-callout__icon"><Lightbulb size={22} strokeWidth={1.75} /></span>
               <p>La beca <strong>no tienes que devolverla</strong> si cumples las condiciones. Es una ayuda, no un préstamo.</p>
             </div>
           </div>
@@ -673,7 +680,7 @@ export default function BecaErasmusPage() {
           <div className="beca-extras-grid">
             {/* Menos oportunidades */}
             <div className="beca-extra-card">
-              <div className="beca-extra-card__icon">💚</div>
+              <div className="beca-extra-card__icon"><HeartHandshake size={26} strokeWidth={1.75} /></div>
               <h3 className="beca-extra-card__title">Complemento de menos oportunidades</h3>
               <div className="beca-extra-card__amount">+250€/mes</div>
               <p className="beca-extra-card__desc">
@@ -691,7 +698,7 @@ export default function BecaErasmusPage() {
 
             {/* Discapacidad */}
             <div className="beca-extra-card">
-              <div className="beca-extra-card__icon">♿</div>
+              <div className="beca-extra-card__icon"><Accessibility size={26} strokeWidth={1.75} /></div>
               <h3 className="beca-extra-card__title">Ayudas para estudiantes con discapacidad</h3>
               <div className="beca-extra-card__amount">Según costes reales</div>
               <p className="beca-extra-card__desc">
@@ -708,7 +715,7 @@ export default function BecaErasmusPage() {
 
             {/* Green Travel */}
             <div className="beca-extra-card">
-              <div className="beca-extra-card__icon">🌿</div>
+              <div className="beca-extra-card__icon"><Leaf size={26} strokeWidth={1.75} /></div>
               <h3 className="beca-extra-card__title">Ayuda de viaje + Green Travel</h3>
               <div className="beca-extra-card__amount">28€ – 1.735€</div>
               <p className="beca-extra-card__desc">
@@ -728,7 +735,7 @@ export default function BecaErasmusPage() {
               <div className="beca-travel-table__header">
                 <span>Distancia</span>
                 <span>Viaje estándar</span>
-                <span>🌿 Viaje ecológico</span>
+                <span><Leaf size={13} strokeWidth={1.75} /> Viaje ecológico</span>
               </div>
               {TRAVEL_AID.map((row) => (
                 <div key={row.range} className="beca-travel-table__row">
@@ -755,7 +762,7 @@ export default function BecaErasmusPage() {
           <div className="beca-compat-grid">
             {COMPAT_BECAS.map((b) => (
               <div key={b.name} className="beca-compat-card">
-                <span className="beca-compat-card__icon">{b.icon}</span>
+                <span className="beca-compat-card__icon"><b.icon size={22} strokeWidth={1.75} /></span>
                 <div>
                   <strong className="beca-compat-card__name">{b.name}</strong>
                   <p className="beca-compat-card__desc">{b.desc}</p>

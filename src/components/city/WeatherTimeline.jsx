@@ -1,3 +1,4 @@
+import { Sparkles } from "lucide-react";
 import styles from "./WeatherTimeline.module.css";
 import { CITY_SEASONS } from "../../data/weatherSeasons";
 
@@ -21,7 +22,7 @@ export default function WeatherTimeline({ cityName, citySlug }) {
       <div className={styles.grid}>
         {seasons.map(s => (
           <div key={s.id} className={`${styles.card} ${s.highlight ? styles.cardHighlight : ""}`} style={{ "--sbg": s.bg, "--sacc": s.accent, "--slight": s.light }}>
-            {s.highlight && <div className={styles.bestBadge} style={{ background: s.accent }}>✨ Mejor época</div>}
+            {s.highlight && <div className={styles.bestBadge} style={{ background: s.accent }}><Sparkles size={13} strokeWidth={1.75} /> Mejor época</div>}
             <div className={styles.cardTop}>
               <span className={styles.cardEmoji}>{s.emoji}</span>
               <div>

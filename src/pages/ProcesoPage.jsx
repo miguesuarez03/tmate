@@ -1,14 +1,77 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import {
+  Search, ClipboardList, Mail, CheckCircle2, Landmark as LandmarkIcon, Briefcase, PartyPopper, Home,
+  Lightbulb, PenLine, Hourglass, Plane, Stethoscope, ShieldCheck, FileText, FolderOpen,
+  GraduationCap, BarChart3,
+} from "lucide-react";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { useSEO } from "../hooks/useSEO";
+
+/* ─── Prefijos de emoji → icono Lucide, usados en content/shortContent ──── */
+const PREFIX_ICONS = [
+  ["✅ ", CheckCircle2],
+  ["⏳ ", Hourglass],
+  ["⚠️ ", ShieldCheck],
+  ["💡 ", Lightbulb],
+  ["🏠 ", Home],
+  ["✈️ ", Plane],
+  ["🩺 ", Stethoscope],
+  ["🛡️ ", ShieldCheck],
+  ["📄 ", FileText],
+  ["📁 ", FolderOpen],
+  ["📋 ", ClipboardList],
+  ["🎓 ", GraduationCap],
+  ["📝 ", PenLine],
+  ["🏦 ", LandmarkIcon],
+  ["📊 ", BarChart3],
+];
+
+function findPrefixIcon(line) {
+  return PREFIX_ICONS.find(([prefix]) => line.startsWith(prefix));
+}
+
+// Renderiza texto largo (content / urgencyAlert.body) línea a línea,
+// sustituyendo los prefijos de emoji por iconos Lucide.
+function IconText({ text, as: Tag = "p", className }) {
+  return (
+    <>
+      {text.split("\n").map((line, i) => {
+        const match = findPrefixIcon(line);
+        if (match) {
+          const [prefix, Icon] = match;
+          return (
+            <Tag key={i} className={className}>
+              <Icon size={15} strokeWidth={1.75} style={{ display: "inline", verticalAlign: "-2px", marginRight: 4 }} />
+              {line.slice(prefix.length)}
+            </Tag>
+          );
+        }
+        return line ? <Tag key={i} className={className}>{line}</Tag> : <br key={i} />;
+      })}
+    </>
+  );
+}
+
+// Renderiza una línea corta (shortContent), sustituyendo el prefijo si existe.
+function IconLine({ line }) {
+  const match = findPrefixIcon(line);
+  if (!match) return <>{line}</>;
+  const [prefix, Icon] = match;
+  return (
+    <>
+      <Icon size={14} strokeWidth={1.75} style={{ display: "inline", verticalAlign: "-2px", marginRight: 4 }} />
+      {line.slice(prefix.length)}
+    </>
+  );
+}
 
 /* ─── DATA ──────────────────────────────────────────────────────────────── */
 
 const STEPS = [
   {
     num: "01",
-    emoji: "🔍",
+    emoji: Search,
     title: "Elige tu destino",
     color: "#0EA5E9",
     tag: "Preparación",
@@ -38,7 +101,7 @@ Visita cuanto antes la ORI de tu facultad: tienen el listado de universidades co
   },
   {
     num: "02",
-    emoji: "📋",
+    emoji: ClipboardList,
     title: "Solicita en tu universidad",
     color: "#14B8A6",
     tag: "Solicitud",
@@ -64,7 +127,7 @@ Después toca esperar: la resolución suele tardar entre 2 y 6 semanas.`,
   },
   {
     num: "03",
-    emoji: "✉️",
+    emoji: Mail,
     title: "Resolución: aceptado o lista de espera",
     color: "#8B5CF6",
     tag: "Resolución",
@@ -84,7 +147,7 @@ Lo importante: mantén contacto con tu ORI y responde rápido si te ofrecen plaz
   },
   {
     num: "04",
-    emoji: "✅",
+    emoji: CheckCircle2,
     title: "Acepta la plaza formalmente",
     color: "#F59E0B",
     tag: "Aceptación",
@@ -106,7 +169,7 @@ Si aún no has buscado piso ni vuelos, hazlo ahora sin falta.`,
   },
   {
     num: "05",
-    emoji: "🏛️",
+    emoji: LandmarkIcon,
     title: "La universidad de destino te contacta",
     color: "#EC4899",
     tag: "Nominación",
@@ -128,7 +191,7 @@ Crea la cuenta cuanto antes y sube la documentación sin esperar al último día
   },
   {
     num: "06",
-    emoji: "🧳",
+    emoji: Briefcase,
     title: "Prepara la partida",
     color: "#10B981",
     tag: "Pre-partida",
@@ -155,7 +218,7 @@ Crea la cuenta cuanto antes y sube la documentación sin esperar al último día
   },
   {
     num: "07",
-    emoji: "🎉",
+    emoji: PartyPopper,
     title: "Llegada y primeros días",
     color: "#F97316",
     tag: "Llegada",
@@ -177,7 +240,7 @@ Crea la cuenta cuanto antes y sube la documentación sin esperar al último día
   },
   {
     num: "08",
-    emoji: "🏠",
+    emoji: Home,
     title: "Vuelta y cierre",
     color: "#6366F1",
     tag: "Fin de estancia",
@@ -228,7 +291,7 @@ function StepCard({ step, isActive, onClick }) {
       style={{ "--step-color": step.color }}
     >
       <span className="proceso-step-pill__num">{step.num}</span>
-      <span className="proceso-step-pill__emoji">{step.emoji}</span>
+      <span className="proceso-step-pill__emoji"><step.emoji size={18} strokeWidth={1.75} /></span>
       <span className="proceso-step-pill__label">{step.tag}</span>
     </button>
   );
@@ -248,13 +311,13 @@ function StepDetail({ step }) {
       </div>
 
       <h2 className="proceso-detail__title">
-        <span style={{ marginRight: 12 }}>{step.emoji}</span>
+        <span style={{ marginRight: 12, display: "inline-flex", verticalAlign: "-6px" }}><step.emoji size={30} strokeWidth={1.75} color={step.color} /></span>
         {step.title}
       </h2>
 
-      <p className="proceso-detail__content" style={{ whiteSpace: "pre-line" }}>
-        {step.content}
-      </p>
+      <div className="proceso-detail__content">
+        <IconText text={step.content} />
+      </div>
 
       {/* Languages table for step 01 */}
       {step.languages && (
@@ -277,7 +340,7 @@ function StepDetail({ step }) {
       {/* Note box */}
       {step.note && (
         <div className="proceso-note">
-          <span style={{ fontSize: 20 }}>💡</span>
+          <span style={{ display: "flex", color: step.color }}><Lightbulb size={20} strokeWidth={1.75} /></span>
           <p>{step.note}</p>
         </div>
       )}
@@ -285,14 +348,14 @@ function StepDetail({ step }) {
       {/* Tip box */}
       {step.tip && !step.laLink && (
         <div className="proceso-tip">
-          <p>{step.tip}</p>
+          <p><IconLine line={step.tip} /></p>
         </div>
       )}
 
       {/* LA link tip */}
       {step.laLink && (
         <div className="proceso-la-callout">
-          <div className="proceso-la-callout__icon">📝</div>
+          <div className="proceso-la-callout__icon"><PenLine size={22} strokeWidth={1.75} /></div>
           <div className="proceso-la-callout__body">
             <p className="proceso-la-callout__text">
               En esta fase arranca el <strong>Learning Agreement</strong> — el contrato académico más importante de todo el proceso. Define qué asignaturas cursarás y cómo se convalidarán.
@@ -310,10 +373,10 @@ function StepDetail({ step }) {
       {/* Urgency alert for step 02 */}
       {step.urgencyAlert && (
         <div className="proceso-urgency">
-          <div className="proceso-urgency__title">{step.urgencyAlert.title}</div>
-          <p className="proceso-urgency__body" style={{ whiteSpace: "pre-line" }}>
-            {step.urgencyAlert.body}
-          </p>
+          <div className="proceso-urgency__title"><IconLine line={step.urgencyAlert.title} /></div>
+          <div className="proceso-urgency__body">
+            <IconText text={step.urgencyAlert.body} />
+          </div>
         </div>
       )}
     </div>
@@ -378,13 +441,13 @@ function MobileStories({ steps, navigate }) {
         </div>
 
         <h2 className="proceso-stories__title">
-          <span style={{ marginRight: 8 }}>{step.emoji}</span>
+          <span style={{ marginRight: 8, display: "inline-flex", verticalAlign: "-4px" }}><step.emoji size={22} strokeWidth={1.75} color={step.color} /></span>
           {step.title}
         </h2>
 
         <ul className="proceso-stories__list">
           {(step.shortContent || []).map((line, i) => (
-            <li key={i}>{line}</li>
+            <li key={i}><IconLine line={line} /></li>
           ))}
         </ul>
 

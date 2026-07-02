@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { Euro, CloudSun, Languages, PartyPopper, Building2, Trees, GraduationCap, Sparkles, Compass, Medal } from "lucide-react";
 import { CITIES } from "../data/cities";
 import { getScoreMap, getOverallScore } from "../lib/cities";
 import { useSEO } from "../hooks/useSEO";
@@ -60,7 +61,7 @@ function bucketSimilarity(a, b) {
 /* ─── Dimensiones: cada una resuelve una pregunta contra datos reales ────── */
 const DIMENSIONS = {
   presupuesto: {
-    icon: "💶",
+    icon: Euro,
     reason: "se ajusta a tu presupuesto",
     similarity: (city, scoreMap, value) => {
       if (value === "alto") return 1;
@@ -70,7 +71,7 @@ const DIMENSIONS = {
     },
   },
   clima: {
-    icon: "🌤️",
+    icon: CloudSun,
     reason: "tiene el clima que buscas",
     similarity: (city, _sm, value) => {
       const bucket = WEATHER_BUCKET[city.weather] ?? 1;
@@ -79,7 +80,7 @@ const DIMENSIONS = {
     },
   },
   idioma: {
-    icon: "🗣️",
+    icon: Languages,
     reason: "encaja con tu idioma preferido",
     similarity: (city, _sm, value) => {
       if (value === "flexible") return 1;
@@ -87,7 +88,7 @@ const DIMENSIONS = {
     },
   },
   fiesta: {
-    icon: "🎉",
+    icon: PartyPopper,
     reason: "tiene el nivel de vida social que buscas",
     similarity: (city, scoreMap, value) => {
       const target = { tranquila: 5, equilibrada: 7.5, intensa: 9.5 }[value];
@@ -96,7 +97,7 @@ const DIMENSIONS = {
     },
   },
   tamano: {
-    icon: "🏙️",
+    icon: Building2,
     reason: "tiene el tamaño de ciudad que encaja contigo",
     similarity: (city, _sm, value) => {
       const bucket = bucketStudents(city.students);
@@ -105,7 +106,7 @@ const DIMENSIONS = {
     },
   },
   naturaleza: {
-    icon: "🌳",
+    icon: Trees,
     reason: "ofrece el contacto con naturaleza que valoras",
     similarity: (city, _sm, value) => {
       const bucket = natureLevel(city);
@@ -114,7 +115,7 @@ const DIMENSIONS = {
     },
   },
   universidad: {
-    icon: "🎓",
+    icon: GraduationCap,
     reason: "tiene buena proyección académica y laboral",
     similarity: (city, scoreMap, value) => {
       if (value === "secundario") return 1;
@@ -124,7 +125,7 @@ const DIMENSIONS = {
     },
   },
   estilo: {
-    icon: "✨",
+    icon: Sparkles,
     reason: "tiene una calidad de vida diaria muy alta",
     similarity: (city, scoreMap, value) => {
       if (value === "no-prioridad") return 1;
@@ -305,7 +306,7 @@ export default function CityMatchPage() {
           <div className={styles.resultsHero}>
             <div className={styles.resultsHeroBg} />
             <div className={styles.resultsHeroContent}>
-              <span className={styles.badge}>🧭 Tu City Match</span>
+              <span className={styles.badge}><Compass size={14} strokeWidth={1.75} /> Tu City Match</span>
               <h1 className={styles.resultsTitle}>Estas son tus ciudades ideales</h1>
               <p className={styles.resultsSubtitle}>
                 Calculado a partir de tus 8 respuestas y los datos reales de cada destino.
@@ -329,7 +330,11 @@ export default function CityMatchPage() {
 
               return (
                 <div key={m.city.slug} className={`${styles.resultCard}${i === 0 ? ` ${styles.resultCardTop}` : ""}`}>
-                  <div className={styles.resultRank}>{i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : `#${i + 1}`}</div>
+                  <div className={styles.resultRank}>
+                    {i < 3
+                      ? <Medal size={20} strokeWidth={1.75} color={i === 0 ? "#FFB020" : i === 1 ? "#B4B8C0" : "#C97B4A"} />
+                      : `#${i + 1}`}
+                  </div>
 
                   <div className={styles.resultImg} style={{ backgroundImage: `url(${m.city.img})` }}>
                     <div className={styles.resultImgOverlay} />
@@ -353,10 +358,10 @@ export default function CityMatchPage() {
 
                     <ul className={styles.reasonList}>
                       {bestReasons.map((r) => (
-                        <li key={r.id}>{r.icon} {m.city.name} {r.reason}</li>
+                        <li key={r.id}><r.icon size={15} strokeWidth={1.75} className={styles.reasonIcon} /> {m.city.name} {r.reason}</li>
                       ))}
                       {weakest.sim < 0.4 && (
-                        <li className={styles.reasonCaveat}>{weakest.icon} Ten en cuenta: aquí es donde menos encaja con lo que buscas</li>
+                        <li className={styles.reasonCaveat}><weakest.icon size={15} strokeWidth={1.75} className={styles.reasonIcon} /> Ten en cuenta: aquí es donde menos encaja con lo que buscas</li>
                       )}
                     </ul>
 

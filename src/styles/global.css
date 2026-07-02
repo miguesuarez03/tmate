@@ -82,10 +82,7 @@ a { text-decoration: none; color: inherit; }
   text-decoration: none; cursor: pointer;
 }
 .navbar__logo-icon {
-  width: 32px; height: 32px; border-radius: 9px;
-  background: var(--color-primary); display: flex;
-  align-items: center; justify-content: center;
-  font-size: 17px; flex-shrink: 0;
+  width: 26px; height: 24px; flex-shrink: 0; display: block;
 }
 .navbar__logo-text {
   font-family: var(--font-display); font-weight: 800;
@@ -215,7 +212,7 @@ a { text-decoration: none; color: inherit; }
   box-shadow: var(--shadow-md);
   border-color: rgba(14,165,233,0.3);
 }
-.quick-access__icon { font-size: 26px; margin-bottom: 10px; }
+.quick-access__icon { display: flex; color: var(--color-primary); margin-bottom: 10px; }
 .quick-access__title {
   font-family: var(--font-display); font-weight: 800; font-size: 17px;
   color: var(--color-dark); margin-bottom: 4px;
@@ -243,7 +240,7 @@ a { text-decoration: none; color: inherit; }
   box-shadow: 0 0 0 3px rgba(2,132,199,0.35), var(--shadow-lg);
   border-color: rgba(2,132,199,0.55);
 }
-.search-bar__icon { font-size: 19px; margin-right: 10px; flex-shrink: 0; }
+.search-bar__icon { display: flex; color: var(--color-muted); margin-right: 10px; flex-shrink: 0; }
 .search-bar__input {
   flex: 1; border: none; outline: none; font-size: 16px;
   font-family: var(--font-body); font-weight: 500;
@@ -301,6 +298,7 @@ a { text-decoration: none; color: inherit; }
   .filter-pill { flex-shrink: 0; }
 }
 .filter-pill {
+  display: inline-flex; align-items: center; gap: 6px;
   border-radius: var(--radius-full); padding: 7px 18px;
   font-size: 13px; font-weight: 600; border: 1.5px solid var(--color-border);
   background: transparent; color: var(--color-slate-light);
@@ -842,7 +840,7 @@ a { text-decoration: none; color: inherit; }
   padding: 28px clamp(20px, 4vw, 40px);
   display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
 }
-.exp-prompt__icon { font-size: 34px; flex-shrink: 0; }
+.exp-prompt__icon { display: flex; color: var(--color-primary); flex-shrink: 0; }
 .exp-prompt__text { flex: 1; min-width: 200px; }
 .exp-prompt__title {
   font-family: var(--font-display); font-size: clamp(17px, 2vw, 20px);
@@ -1071,7 +1069,7 @@ a { text-decoration: none; color: inherit; }
 .nav-drawer__item:hover { background: var(--color-surface); }
 
 .nav-drawer__item-icon {
-  font-size: 22px; flex-shrink: 0;
+  flex-shrink: 0;
   width: 44px; height: 44px;
   background: var(--color-surface);
   border-radius: var(--radius-sm);
@@ -1189,7 +1187,7 @@ a { text-decoration: none; color: inherit; }
   font-family: var(--font-display); font-size: 11px;
   font-weight: 800; color: var(--step-color); opacity: 0.7;
 }
-.proceso-step-pill__emoji { font-size: 18px; }
+.proceso-step-pill__emoji { display: flex; color: var(--step-color); }
 .proceso-step-pill__label {
   font-size: 13px; font-weight: 600; color: var(--color-dark); flex: 1;
 }
@@ -1262,6 +1260,8 @@ a { text-decoration: none; color: inherit; }
   font-size: 15px; line-height: 1.75; color: var(--color-slate);
   margin-bottom: 24px;
 }
+.proceso-detail__content p { margin: 0 0 12px; }
+.proceso-detail__content p:last-child { margin-bottom: 0; }
 
 /* Languages grid */
 .proceso-langs { margin: 18px 0; }
@@ -1303,6 +1303,7 @@ a { text-decoration: none; color: inherit; }
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   padding: 14px 16px; margin-top: 20px;
 }
+.proceso-tip svg { color: var(--color-primary); }
 .proceso-tip p { font-size: 14px; color: var(--color-slate); line-height: 1.6; margin: 0; }
 
 /* Learning Agreement section */
@@ -1606,8 +1607,8 @@ a { text-decoration: none; color: inherit; }
   position: absolute; bottom: 10px; right: 12px;
   display: flex; gap: 2px;
 }
-.star--on  { color: #FBBF24; font-size: 14px; }
-.star--off { color: rgba(255,255,255,0.35); font-size: 14px; }
+.star--on  { color: #FBBF24; }
+.star--off { color: rgba(255,255,255,0.35); }
 
 .community-card__body {
   padding: 12px 14px;
@@ -1810,7 +1811,7 @@ a { text-decoration: none; color: inherit; }
 }
 .star-rating__star {
   background: none; border: none; cursor: pointer;
-  font-size: 28px; color: #D1D5DB; padding: 8px;
+  display: flex; color: #D1D5DB; padding: 8px;
   transition: color 0.15s ease, transform 0.15s ease;
   line-height: 1;
 }
@@ -1846,6 +1847,7 @@ a { text-decoration: none; color: inherit; }
   width: 100%; max-height: 200px; object-fit: cover; display: block;
 }
 .photo-upload__remove {
+  display: inline-flex; align-items: center; gap: 4px;
   background: none; border: none; font-size: 12px;
   color: var(--color-error); cursor: pointer; margin-top: 6px;
   font-weight: 600;
@@ -1873,6 +1875,8 @@ a { text-decoration: none; color: inherit; }
   line-height: 1.7;
   margin: 0;
 }
+.proceso-urgency__body p { margin: 0 0 10px; }
+.proceso-urgency__body p:last-child { margin-bottom: 0; }
 
 /* ─── PROCESO: LA CALLOUT ────────────────────────────────────────────────── */
 .proceso-la-callout {
@@ -1886,7 +1890,8 @@ a { text-decoration: none; color: inherit; }
   align-items: flex-start;
 }
 .proceso-la-callout__icon {
-  font-size: 28px;
+  display: flex;
+  color: var(--color-success);
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -1979,7 +1984,7 @@ a { text-decoration: none; color: inherit; }
   gap: 12px;
   align-items: flex-start;
 }
-.beca-intro-callout__icon { font-size: 24px; flex-shrink: 0; }
+.beca-intro-callout__icon { display: flex; color: var(--color-primary); flex-shrink: 0; }
 .beca-intro-callout p { font-size: 15px; color: #065F46; line-height: 1.65; margin: 0; }
 .beca-intro-callout strong { color: #064E3B; }
 
@@ -2048,7 +2053,7 @@ a { text-decoration: none; color: inherit; }
   gap: 12px;
   box-shadow: var(--shadow-sm);
 }
-.beca-extra-card__icon { font-size: 32px; }
+.beca-extra-card__icon { display: flex; color: var(--color-primary); }
 .beca-extra-card__title { font-size: 17px; font-weight: 700; color: var(--color-dark); margin: 0; line-height: 1.3; }
 .beca-extra-card__amount {
   font-family: var(--font-display);
@@ -2071,6 +2076,7 @@ a { text-decoration: none; color: inherit; }
   margin: 0 auto;
 }
 .beca-calc__title {
+  display: flex; align-items: center; gap: 8px;
   font-family: var(--font-display);
   font-size: clamp(22px, 3vw, 32px);
   font-weight: 800;
@@ -2106,7 +2112,7 @@ a { text-decoration: none; color: inherit; }
   text-align: center; padding: 32px 16px;
   color: var(--color-muted); font-size: 14px; line-height: 1.6;
 }
-.beca-calc__label { font-size: 13px; font-weight: 600; color: var(--color-slate); }
+.beca-calc__label { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 600; color: var(--color-slate); }
 .beca-calc__select {
   padding: 10px 14px;
   border-radius: var(--radius-md);
@@ -2138,6 +2144,7 @@ a { text-decoration: none; color: inherit; }
   color: var(--color-slate);
   line-height: 1.4;
 }
+.beca-calc__check span { display: inline-flex; align-items: center; gap: 5px; }
 
 /* Distance calculator (punto 12) */
 /* ─── SEARCHABLE INPUT ───────────────────────────────────────────────────── */
@@ -2194,6 +2201,7 @@ a { text-decoration: none; color: inherit; }
   .beca-distance-calc__row { grid-template-columns: 1fr; }
 }
 .beca-distance-calc__btn {
+  display: inline-flex; align-items: center; gap: 5px;
   align-self: flex-start;
   padding: 9px 16px;
   border-radius: var(--radius-md);
@@ -2208,6 +2216,7 @@ a { text-decoration: none; color: inherit; }
 .beca-distance-calc__btn:hover:not(:disabled) { transform: translateY(-1px); }
 .beca-distance-calc__btn:disabled { opacity: 0.45; cursor: default; }
 .beca-distance-calc__result {
+  display: flex; align-items: center; gap: 5px; flex-wrap: wrap;
   font-size: 13.5px;
   color: var(--color-dark);
   background: rgba(34,197,94,0.08);
@@ -2217,6 +2226,7 @@ a { text-decoration: none; color: inherit; }
   margin: 0;
 }
 .beca-distance-calc__error {
+  display: flex; align-items: center; gap: 5px;
   font-size: 13.5px;
   color: #B91C1C;
   background: rgba(239,68,68,0.08);
@@ -2261,6 +2271,7 @@ a { text-decoration: none; color: inherit; }
 }
 .beca-calc__total-monthly { font-size: 13px; color: var(--color-muted); }
 .beca-calc__disclaimer {
+  display: flex; align-items: flex-start; gap: 6px;
   font-size: 12px;
   color: var(--color-muted);
   line-height: 1.5;
@@ -2269,6 +2280,7 @@ a { text-decoration: none; color: inherit; }
   border-radius: var(--radius-sm);
   margin: 0;
 }
+.beca-calc__disclaimer svg { flex-shrink: 0; margin-top: 2px; }
 
 /* ─── COSTE DE VIDA Y APORTACIÓN DEL ESTUDIANTE ─────────────────────────── */
 .beca-expenses {
@@ -2276,6 +2288,7 @@ a { text-decoration: none; color: inherit; }
   padding-top: 32px; border-top: 1.5px solid var(--color-border);
 }
 .beca-expenses__title {
+  display: flex; align-items: center; gap: 8px;
   font-family: var(--font-display); font-weight: 800;
   font-size: clamp(19px, 2.5vw, 24px); color: var(--color-dark);
   letter-spacing: -0.3px; margin-bottom: 6px;
@@ -2296,7 +2309,7 @@ a { text-decoration: none; color: inherit; }
   display: flex; justify-content: space-between; align-items: center;
   margin-bottom: 4px; gap: 8px;
 }
-.beca-expenses__item-label { font-size: 14px; font-weight: 700; color: var(--color-dark); }
+.beca-expenses__item-label { display: inline-flex; align-items: center; gap: 5px; font-size: 14px; font-weight: 700; color: var(--color-dark); }
 .beca-expenses__item-amount {
   font-family: var(--font-display); font-weight: 800; font-size: 15px;
   color: var(--color-primary); white-space: nowrap;
@@ -2316,6 +2329,7 @@ a { text-decoration: none; color: inherit; }
   display: flex; justify-content: space-between; align-items: center;
   font-size: 14.5px; font-weight: 700; padding-top: 8px;
 }
+.beca-expenses__gap span { display: inline-flex; align-items: center; gap: 5px; }
 .beca-expenses__gap strong { font-family: var(--font-display); font-size: 20px; }
 .beca-expenses__gap--negative { color: #DC2626; }
 .beca-expenses__gap--positive { color: #16A34A; }
@@ -2333,7 +2347,7 @@ a { text-decoration: none; color: inherit; }
   padding: 20px;
   box-shadow: var(--shadow-sm);
 }
-.beca-compat-card__icon { font-size: 24px; flex-shrink: 0; }
+.beca-compat-card__icon { display: flex; color: var(--color-primary); flex-shrink: 0; }
 .beca-compat-card__name { font-size: 15px; font-weight: 700; color: var(--color-dark); display: block; margin-bottom: 4px; }
 .beca-compat-card__desc { font-size: 13px; color: var(--color-slate); margin: 0; line-height: 1.55; }
 
@@ -2426,6 +2440,7 @@ a { text-decoration: none; color: inherit; }
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
+.beca-travel-table__header span { display: inline-flex; align-items: center; gap: 4px; }
 .beca-travel-table__row {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -2568,6 +2583,7 @@ a { text-decoration: none; color: inherit; }
   padding: 14px 20px; font-size: 14px; font-weight: 700; color: var(--color-slate);
   min-height: 44px; font-family: var(--font-body);
 }
+.trust-note__toggle > span:first-child { display: inline-flex; align-items: center; gap: 6px; }
 .trust-note__arrow { font-size: 11px; color: var(--color-muted); }
 .trust-note__body { padding: 0 20px 18px; }
 .trust-note__list { margin: 0 0 12px; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
@@ -2593,6 +2609,7 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 28px;
 }
 .rankings-tab {
+  display: inline-flex; align-items: center; gap: 6px;
   border-radius: var(--radius-full); padding: 8px 16px;
   font-size: 13px; font-weight: 600; border: 1.5px solid var(--color-border);
   background: transparent; color: var(--color-slate-light);
@@ -2610,7 +2627,7 @@ a { text-decoration: none; color: inherit; }
   transition: all 0.2s ease; min-height: 44px;
 }
 .rankings-row:hover { border-color: var(--color-primary); background: #fff; box-shadow: var(--shadow-sm); }
-.rankings-row__pos { font-size: 18px; text-align: center; }
+.rankings-row__pos { display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: var(--color-muted); }
 .rankings-row__city {
   font-size: 14.5px; font-weight: 700; color: var(--color-dark);
   display: flex; align-items: baseline; gap: 8px; min-width: 0;

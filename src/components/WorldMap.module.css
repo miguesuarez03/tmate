@@ -70,6 +70,7 @@
 }
 
 .filterLabel {
+  display: inline-flex; align-items: center; gap: 4px;
   font-size: 12px;
   font-weight: 600;
   color: #666;
@@ -151,6 +152,7 @@
 }
 
 .filterReset {
+  display: inline-flex; align-items: center; gap: 3px;
   background: none;
   border: none;
   font-size: 11px;
@@ -218,6 +220,7 @@
   border-top: 1px solid #f0f0f0;
   padding-top: 8px;
 }
+.tooltipVibes span { display: inline-flex; align-items: center; gap: 3px; }
 
 /* ─── Popup ──────────────────────────────────────────────────────────────── */
 .popup {
@@ -283,6 +286,7 @@
   display: flex; gap: 6px; margin-bottom: 0.6rem; flex-wrap: wrap;
 }
 .popupVibe {
+  display: inline-flex; align-items: center; gap: 4px;
   font-size: 11px; font-weight: 600; color: #555;
   background: #f4f4f8; border-radius: 100px;
   padding: 3px 8px; font-family: var(--font-body);
@@ -290,6 +294,7 @@
 
 .popupTags { display: flex; gap: 0.4rem; margin-bottom: 0.85rem; flex-wrap: wrap; }
 .popupTag {
+  display: inline-flex; align-items: center; gap: 4px;
   font-family: var(--font-body); font-size: 0.72rem; font-weight: 600;
   background: #f4f4f8; color: #555; border: 1px solid #e8e8ee;
   border-radius: 100px; padding: 0.22rem 0.6rem;
@@ -300,7 +305,7 @@
 }
 .popupCta {
   width: 100%; background: var(--color-dark); color: #fff; border: none;
-  border-radius: 100px; padding: 0.7rem;
+  border-radius: 100px; padding: 0.85rem 0.7rem; min-height: 44px;
   font-family: var(--font-body); font-size: 0.85rem; font-weight: 700;
   cursor: pointer; transition: background 0.2s ease, transform 0.2s ease;
 }

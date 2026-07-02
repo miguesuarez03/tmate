@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { X } from "lucide-react";
 import styles from "./BentoHighlights.module.css";
 
 // Generic Unsplash photos for cards 2-4
@@ -68,7 +69,7 @@ export default function BentoHighlights({ highlights = [], cityName, cityImg }) 
               onClick={handleClose}
               aria-label="Cerrar"
             >
-              ✕
+              <X size={18} strokeWidth={1.75} />
             </button>
             <div className={styles.modalImg}>
               {activePhoto && <img src={activePhoto} alt={activeItem} />}

@@ -1,5 +1,9 @@
 import { useState, useMemo, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import {
+  Trophy, Crown, Euro, GraduationCap, CloudSun, Languages,
+  CheckCircle2, AlertTriangle, Scale, Search, X, Check,
+} from "lucide-react";
 import { CITIES } from "../data/cities";
 import { getScoreMap, getOverallScore, parseMinCost } from "../lib/cities";
 import { getComparePhrase } from "../data/comparePhrases";
@@ -103,11 +107,11 @@ function buildAutoSummary(selectedCities, overallScores, scoreMaps) {
     parseMinCost(c.costDetail) < parseMinCost(selectedCities[best].costDetail) ? i : best, 0);
 
   const lines = [
-    `🏆 ${selectedCities[maxIdx].emoji} ${selectedCities[maxIdx].name} tiene la puntuación global más alta (${overallScores[maxIdx].toFixed(1)}/10).`,
+    { icon: Trophy, text: `${selectedCities[maxIdx].emoji} ${selectedCities[maxIdx].name} tiene la puntuación global más alta (${overallScores[maxIdx].toFixed(1)}/10).` },
   ];
 
   if (cheapestIdx !== maxIdx) {
-    lines.push(`💶 Si el presupuesto manda, ${selectedCities[cheapestIdx].emoji} ${selectedCities[cheapestIdx].name} es la opción más económica.`);
+    lines.push({ icon: Euro, text: `Si el presupuesto manda, ${selectedCities[cheapestIdx].emoji} ${selectedCities[cheapestIdx].name} es la opción más económica.` });
   }
 
   selectedCities.forEach((city, i) => {
@@ -118,7 +122,7 @@ function buildAutoSummary(selectedCities, overallScores, scoreMaps) {
     }, SCORE_IDS[0]);
     const scoreObj = scoreMaps[i][bestId];
     if (scoreObj) {
-      lines.push(`${scoreObj.icon} ${city.emoji} ${city.name} destaca especialmente en ${scoreObj.label.toLowerCase()} (${scoreObj.score.toFixed(1)}/10).`);
+      lines.push({ icon: null, text: `${scoreObj.icon} ${city.emoji} ${city.name} destaca especialmente en ${scoreObj.label.toLowerCase()} (${scoreObj.score.toFixed(1)}/10).` });
     }
   });
 
@@ -198,7 +202,7 @@ function VersusCard({ categoryMeta, rows, open, onToggle }) {
                   style={{ "--accent": r.color }}>
                   <div className={styles.versusColHead}>
                     <span className={styles.versusColName} style={{ color: r.color }}>{r.city.name}</span>
-                    {isWinner && <span className={styles.versusTrophy}>🏆</span>}
+                    {isWinner && <span className={styles.versusTrophy}><Trophy size={16} strokeWidth={1.75} /></span>}
                   </div>
                   <span className={styles.versusColScore} style={isWinner ? { color: r.color } : {}}>
                     {r.score.toFixed(1)}
@@ -374,15 +378,15 @@ export default function ComparePage() {
                       <div className={styles.cityCardOverlay} style={{ background: `linear-gradient(to top, ${COL_COLORS[i]}cc 0%, rgba(0,0,0,0.2) 60%)` }} />
                       <div className={styles.cityCardTop}>
                         <span className={styles.cityEmoji}>{city.emoji}</span>
-                        <button className={styles.removeBtn} onClick={() => remove(city.slug)}>✕</button>
+                        <button className={styles.removeBtn} onClick={() => remove(city.slug)}><X size={16} strokeWidth={1.75} /></button>
                       </div>
                       <div className={styles.cityCardInfo}>
                         <h2 className={styles.cityCardName}>{city.name}</h2>
                         <span className={styles.cityCardCountry}>{city.country}</span>
                       </div>
                       <div className={styles.cityCardBadges}>
-                        {isTop && <span className={`${styles.cityCardTag} ${styles.cityCardTagBest}`}>👑 Mejor puntuación</span>}
-                        {isCheapest && <span className={styles.cityCardTag}>💶 Más económica</span>}
+                        {isTop && <span className={`${styles.cityCardTag} ${styles.cityCardTagBest}`}><Crown size={14} strokeWidth={1.75} /> Mejor puntuación</span>}
+                        {isCheapest && <span className={styles.cityCardTag}><Euro size={14} strokeWidth={1.75} /> Más económica</span>}
                         {bestScoreObj && (
                           <span className={styles.cityCardTag}>
                             {bestScoreObj.icon} Destaca en {bestScoreObj.label}
@@ -394,7 +398,7 @@ export default function ComparePage() {
 
                     {/* Score badge */}
                     <div className={styles.overallBadge} style={{ background: COL_GRADIENTS[i] }}>
-                      {maxIdx === i && <span className={styles.crownIcon}>👑</span>}
+                      {maxIdx === i && <span className={styles.crownIcon}><Crown size={16} strokeWidth={1.75} /></span>}
                       <span className={styles.overallNumber}>{overallScores[i].toFixed(1)}</span>
                       <span className={styles.overallLabel}>/ 10</span>
                       {maxIdx === i && <span className={styles.bestLabel}>Mejor puntuación</span>}
@@ -402,10 +406,10 @@ export default function ComparePage() {
 
                     {/* Quick stats */}
                     <div className={styles.quickStats}>
-                      <div className={styles.stat}><span>💶</span><span>{city.costDetail}</span></div>
-                      <div className={styles.stat}><span>🎓</span><span>{city.erasmusStudents} Erasmus</span></div>
-                      <div className={styles.stat}><span>🌤️</span><span>{city.weather}</span></div>
-                      <div className={styles.stat}><span>🗣️</span><span>{city.language}</span></div>
+                      <div className={styles.stat}><Euro size={16} strokeWidth={1.75} /><span>{city.costDetail}</span></div>
+                      <div className={styles.stat}><GraduationCap size={16} strokeWidth={1.75} /><span>{city.erasmusStudents} Erasmus</span></div>
+                      <div className={styles.stat}><CloudSun size={16} strokeWidth={1.75} /><span>{city.weather}</span></div>
+                      <div className={styles.stat}><Languages size={16} strokeWidth={1.75} /><span>{city.language}</span></div>
                     </div>
 
                     <button className={styles.cityLinkBtn} style={{ borderColor: COL_COLORS[i], color: COL_COLORS[i] }}
@@ -423,7 +427,10 @@ export default function ComparePage() {
               <div className={styles.summaryCard}>
                 <ul className={styles.summaryList}>
                   {buildAutoSummary(selectedCities, overallScores, scoreMaps).map((line, i) => (
-                    <li key={i}>{line}</li>
+                    <li key={i}>
+                      {line.icon && <line.icon size={16} strokeWidth={1.75} className={styles.summaryIcon} />}
+                      {line.text}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -529,13 +536,13 @@ export default function ComparePage() {
                     <div key={city.slug} className={styles.prosConsCol} style={{ borderTopColor: COL_COLORS[i] }}>
                       <div className={styles.prosConsHead} style={{ color: COL_COLORS[i] }}>{city.emoji} {city.name}</div>
                       <div className={styles.prosConsBlock}>
-                        <span className={styles.prosConsLabel}>✅ Puntos fuertes</span>
+                        <span className={styles.prosConsLabel}><CheckCircle2 size={16} strokeWidth={1.75} /> Puntos fuertes</span>
                         <ul className={styles.prosConsList}>
                           {pros.map((p) => <li key={p.id}>{p.icon} {p.label} — {p.score.toFixed(1)}/10</li>)}
                         </ul>
                       </div>
                       <div className={styles.prosConsBlock}>
-                        <span className={styles.prosConsLabel}>⚠️ A tener en cuenta</span>
+                        <span className={styles.prosConsLabel}><AlertTriangle size={16} strokeWidth={1.75} /> A tener en cuenta</span>
                         <ul className={styles.prosConsList}>
                           {cons.map((c) => <li key={c.id}>{c.icon} {c.label} — {c.score.toFixed(1)}/10</li>)}
                         </ul>
@@ -562,7 +569,7 @@ export default function ComparePage() {
       <div className={styles.selectorHero}>
         <div className={styles.selectorHeroBg} />
         <div className={styles.selectorHeroContent}>
-          <span className={styles.selectorBadge}>⚖️ Comparativa</span>
+          <span className={styles.selectorBadge}><Scale size={14} strokeWidth={1.75} /> Comparativa</span>
           <h1 className={styles.selectorTitle}>Comparativa de destinos</h1>
           <p className={styles.selectorSub}>
             Elige 2 o 3 ciudades y compara sus puntuaciones, coste de vida, vibe y mucho más — lado a lado.
@@ -579,7 +586,7 @@ export default function ComparePage() {
               {selectedCities.map((city, i) => (
                 <div key={city.slug} className={styles.pill} style={{ "--pill-color": COL_COLORS[i] }}>
                   <span>{city.emoji} {city.name}</span>
-                  <button className={styles.pillRemove} onClick={() => remove(city.slug)}>✕</button>
+                  <button className={styles.pillRemove} onClick={() => remove(city.slug)}><X size={14} strokeWidth={1.75} /></button>
                 </div>
               ))}
               {selected.length < 3 && (
@@ -598,12 +605,12 @@ export default function ComparePage() {
 
         {/* Search */}
         <div className={styles.searchWrap}>
-          <span className={styles.searchIcon}>🔍</span>
+          <span className={styles.searchIcon}><Search size={18} strokeWidth={1.75} /></span>
           <input className={styles.searchInput} type="text"
             placeholder="Busca por ciudad, país o tag…"
             value={search} onChange={(e) => setSearch(e.target.value)} />
           {search && (
-            <button className={styles.searchClear} onClick={() => setSearch("")}>✕</button>
+            <button className={styles.searchClear} onClick={() => setSearch("")}><X size={16} strokeWidth={1.75} /></button>
           )}
         </div>
 
@@ -628,7 +635,7 @@ export default function ComparePage() {
                 <div className={styles.tileImg} style={{ backgroundImage: `url(${city.img})` }}>
                   <div className={styles.tileOverlay} />
                   {isSelected && (
-                    <div className={styles.tileCheck} style={{ background: COL_COLORS[selIdx] }}>✓</div>
+                    <div className={styles.tileCheck} style={{ background: COL_COLORS[selIdx] }}><Check size={14} strokeWidth={2.25} color="#fff" /></div>
                   )}
                   <div className={styles.tileScore}>{overall.toFixed(1)}</div>
                 </div>
@@ -645,7 +652,7 @@ export default function ComparePage() {
 
         {filtered.length === 0 && (
           <div className={styles.empty}>
-            <span>🔍</span>
+            <span><Search size={28} strokeWidth={1.5} /></span>
             <p>No hay ciudades que coincidan con "{search}"</p>
             <button onClick={() => setSearch("")}>Ver todas</button>
           </div>

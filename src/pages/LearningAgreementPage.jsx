@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import {
+  GraduationCap, School, Globe2, Landmark, Users, BookOpen, Globe,
+  PenLine, Bot, AlertTriangle, Mail, CheckCircle2, RefreshCw, Handshake,
+  Laptop, Timer, Check, PartyPopper, Copy, X, Send, Circle,
+} from "lucide-react";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { useSEO } from "../hooks/useSEO";
 import { CITIES } from "../data/cities";
@@ -10,7 +15,7 @@ import styles from "./LearningAgreementPage.module.css";
 const FIRMAS = [
   {
     id: "tu",
-    icon: "🎓",
+    icon: GraduationCap,
     label: "Tú",
     desc: "El estudiante",
     detail: "Eres la primera firma. Tú propones las asignaturas, justificas las equivalencias y eres responsable de que el documento esté completo y correcto antes de enviarlo.",
@@ -19,7 +24,7 @@ const FIRMAS = [
   },
   {
     id: "origen",
-    icon: "🏫",
+    icon: School,
     label: "Tu universidad",
     desc: "Coordinador de grado",
     detail: "Tu coordinador académico revisa que las asignaturas que propones son equivalentes a las de tu plan de estudios. Puede pedirte cambios o justificaciones adicionales.",
@@ -28,7 +33,7 @@ const FIRMAS = [
   },
   {
     id: "destino",
-    icon: "🌍",
+    icon: Globe2,
     label: "Universidad destino",
     desc: "Coordinador Erasmus",
     detail: "La universidad de destino confirma que las asignaturas que pides están disponibles, tienen plazas y que cumples los requisitos para cursarlas.",
@@ -39,7 +44,7 @@ const FIRMAS = [
 
 const TIPS = [
   {
-    icon: "🏛️",
+    icon: Landmark,
     color: "#0EA5E9",
     title: "Consulta el histórico de tu uni",
     short: "La info más valiosa y la que casi nadie pide",
@@ -47,7 +52,7 @@ const TIPS = [
     tag: "Primero de todo",
   },
   {
-    icon: "👥",
+    icon: Users,
     color: "#14B8A6",
     title: "Habla con Erasmus anteriores",
     short: "Primera mano, no encontrarás esto en ningún sitio oficial",
@@ -55,7 +60,7 @@ const TIPS = [
     tag: "Comunidad",
   },
   {
-    icon: "📚",
+    icon: BookOpen,
     color: "#8B5CF6",
     title: "Cómo elegir las asignaturas",
     short: "No te sobrecarges — también quieres vivir el Erasmus",
@@ -63,7 +68,7 @@ const TIPS = [
     tag: "Estrategia",
   },
   {
-    icon: "🌐",
+    icon: Globe,
     color: "#F59E0B",
     title: "El OLA — firma todo digital",
     short: "Sin imprimir, sin escanear, todo online desde la UE",
@@ -71,7 +76,7 @@ const TIPS = [
     tag: "Plataforma",
   },
   {
-    icon: "✏️",
+    icon: PenLine,
     color: "#EC4899",
     title: "Cambios durante la estancia",
     short: "El plazo varía mucho según tu universidad — infórmate antes",
@@ -79,7 +84,7 @@ const TIPS = [
     tag: "Cambios",
   },
   {
-    icon: "🤖",
+    icon: Bot,
     color: "#6366F1",
     title: "Usa IA para argumentar equivalencias",
     short: "El truco que más tiempo ahorra en todo el proceso",
@@ -87,7 +92,7 @@ const TIPS = [
     tag: "Herramienta",
   },
   {
-    icon: "⚠️",
+    icon: AlertTriangle,
     color: "#F97316",
     title: "Los horarios los sabrás al llegar (o antes)",
     short: "Una realidad que muy pocos te cuentan antes de firmar",
@@ -95,7 +100,7 @@ const TIPS = [
     tag: "Importante",
   },
   {
-    icon: "📬",
+    icon: Mail,
     color: "#0EA5E9",
     title: "Atentos a los correos de ambas universidades",
     short: "Plazos, documentos, instrucciones — todo llega por email",
@@ -133,10 +138,10 @@ function FirmasDiagram() {
               onClick={() => setActive(firma.id)}
             >
               <span className={styles.firmaBadge}>{i + 1}</span>
-              <span className={styles.firmaIcon}>{firma.icon}</span>
+              <span className={styles.firmaIcon}><firma.icon size={26} strokeWidth={1.75} /></span>
               <span className={styles.firmaLabel}>{firma.label}</span>
               <span className={styles.firmaDesc}>{firma.desc}</span>
-              <span className={styles.firmaCheck}>✓ Debe firmar</span>
+              <span className={styles.firmaCheck}><Check size={13} strokeWidth={2} /> Debe firmar</span>
             </button>
             {i < FIRMAS.length - 1 && (
               <span className={styles.firmaPlus} aria-hidden="true">+</span>
@@ -157,7 +162,7 @@ function FirmasDiagram() {
           >
             <div className={styles.firmaModalHeader}>
               <div className={styles.firmaModalLeft}>
-                <span className={styles.firmaIcon} style={{ fontSize: 28 }}>{activeData.icon}</span>
+                <span className={styles.firmaIcon} style={{ fontSize: 28 }}><activeData.icon size={28} strokeWidth={1.75} /></span>
                 <div>
                   <span className={styles.firmaStep} style={{ color: activeData.color }}>{activeData.step}</span>
                   <p className={styles.firmaLabel} style={{ margin: 0 }}>{activeData.label}</p>
@@ -169,7 +174,9 @@ function FirmasDiagram() {
                 className={styles.firmaModalClose}
                 onClick={() => setActive(null)}
                 aria-label="Cerrar"
-              >✕</button>
+              >
+                <X size={18} strokeWidth={1.75} />
+              </button>
             </div>
             <div className={styles.firmaModalBody}>
               <p>{activeData.detail}</p>
@@ -191,7 +198,7 @@ function TipCard({ tip }) {
       <button className={styles.tipHeader} onClick={() => setOpen(v => !v)}>
         <div className={styles.tipHeaderLeft}>
           <span className={styles.tipIcon} style={{ background: tip.color + "18", color: tip.color }}>
-            {tip.icon}
+            <tip.icon size={20} strokeWidth={1.75} />
           </span>
           <div className={styles.tipHeaderText}>
             <div className={styles.tipTag} style={{ color: tip.color }}>{tip.tag}</div>
@@ -205,7 +212,15 @@ function TipCard({ tip }) {
       </button>
       {open && (
         <div className={styles.tipBody}>
-          <p style={{ whiteSpace: "pre-line" }}>{tip.content}</p>
+          {tip.content.split("\n").map((line, i) => {
+            if (line.startsWith("✅ ")) {
+              return <p key={i} className={styles.tipLineOk}><CheckCircle2 size={15} strokeWidth={1.75} /> {line.slice("✅ ".length)}</p>;
+            }
+            if (line.startsWith("⚠️ ")) {
+              return <p key={i} className={styles.tipLineWarn}><AlertTriangle size={15} strokeWidth={1.75} /> {line.slice("⚠️ ".length)}</p>;
+            }
+            return line ? <p key={i}>{line}</p> : <br key={i} />;
+          })}
         </div>
       )}
     </div>
@@ -242,9 +257,9 @@ function Checklist() {
   const color = pct === 100 ? "#10B981" : "#0EA5E9";
 
   const ICONS = {
-    historico: "🏛️", contacto: "👥", asignaturas: "📚",
-    alternativas: "🔄", coordinador: "🤝", ola: "💻",
-    firmado: "✅", correos: "📬", cambios: "⏱️",
+    historico: Landmark, contacto: Users, asignaturas: BookOpen,
+    alternativas: RefreshCw, coordinador: Handshake, ola: Laptop,
+    firmado: CheckCircle2, correos: Mail, cambios: Timer,
   };
 
   return (
@@ -274,7 +289,9 @@ function Checklist() {
               className={`${styles.checklistPill} ${isDone ? styles.checklistPillDone : ""}`}
               onClick={() => setChecked(v => ({ ...v, [item.id]: !v[item.id] }))}
             >
-              <span className={styles.checklistPillIcon}>{isDone ? "✓" : (ICONS[item.id] || "○")}</span>
+              <span className={styles.checklistPillIcon}>
+                {(() => { const Icon = isDone ? Check : (ICONS[item.id] || Circle); return <Icon size={16} strokeWidth={1.75} />; })()}
+              </span>
               <span className={styles.checklistPillText}>{item.text}</span>
             </button>
           );
@@ -283,7 +300,7 @@ function Checklist() {
 
       {pct === 100 && (
         <div className={styles.checklistDone}>
-          🎉 ¡Todo listo! Tu Learning Agreement está preparado.
+          <PartyPopper size={16} strokeWidth={1.75} /> ¡Todo listo! Tu Learning Agreement está preparado.
         </div>
       )}
     </div>
@@ -293,11 +310,11 @@ function Checklist() {
 const WIZARD_LANGUAGES = ["Inglés", "Alemán", "Francés", "Italiano", "Portugués", "Neerlandés", "Polaco", "Húngaro", "Checo", "Otro"];
 
 const WIZARD_STEPS = [
-  { id: "origen", title: "Tu universidad", emoji: "🏫" },
-  { id: "destino", title: "Universidad de destino", emoji: "🌍" },
-  { id: "asignaturas", title: "Asignaturas a convalidar", emoji: "📚" },
-  { id: "creditos", title: "Créditos e idioma", emoji: "🎓" },
-  { id: "contacto", title: "Tus datos de contacto", emoji: "✉️" },
+  { id: "origen", title: "Tu universidad", emoji: School },
+  { id: "destino", title: "Universidad de destino", emoji: Globe2 },
+  { id: "asignaturas", title: "Asignaturas a convalidar", emoji: BookOpen },
+  { id: "creditos", title: "Créditos e idioma", emoji: GraduationCap },
+  { id: "contacto", title: "Tus datos de contacto", emoji: Mail },
 ];
 
 /* ─── WIZARD LEARNING AGREEMENT ─────────────────────────────────────────── */
@@ -426,7 +443,7 @@ function LAWizard() {
   if (sent) {
     return (
       <div className={styles.wizardDone}>
-        <span className={styles.wizardDoneIcon}>📬</span>
+        <span className={styles.wizardDoneIcon}><Mail size={32} strokeWidth={1.75} /></span>
         <h3 className={styles.wizardDoneTitle}>Se ha abierto tu cliente de correo</h3>
         <p className={styles.wizardDoneText}>
           Revisa que el email se haya generado bien y envíalo. En cuanto lo recibamos, te preparamos una
@@ -438,7 +455,7 @@ function LAWizard() {
         </p>
         <div className={styles.wizardDoneActions}>
           <button className={styles.wizardCopyBtn} onClick={handleCopy}>
-            {copied ? "✓ Copiado" : "📋 Copiar texto del email"}
+            {copied ? <><Check size={14} strokeWidth={1.75} /> Copiado</> : <><Copy size={14} strokeWidth={1.75} /> Copiar texto del email</>}
           </button>
           <button
             className={styles.wizardRestartBtn}
@@ -458,7 +475,7 @@ function LAWizard() {
         {WIZARD_STEPS.map((s, i) => (
           <div key={s.id} className={styles.wizardProgressStep}>
             <div className={`${styles.wizardDot} ${i < step ? styles.wizardDotDone : ""} ${i === step ? styles.wizardDotActive : ""}`}>
-              {i < step ? "✓" : i + 1}
+              {i < step ? <Check size={14} strokeWidth={2} /> : i + 1}
             </div>
             {i < total - 1 && <div className={`${styles.wizardLine} ${i < step ? styles.wizardLineDone : ""}`} />}
           </div>
@@ -467,7 +484,7 @@ function LAWizard() {
 
       <div className={styles.wizardCard}>
         <div className={styles.wizardCardHeader}>
-          <span className={styles.wizardCardEmoji}>{current.emoji}</span>
+          <span className={styles.wizardCardEmoji}><current.emoji size={26} strokeWidth={1.75} /></span>
           <div>
             <p className={styles.wizardCardStep}>Paso {step + 1} de {total}</p>
             <h3 className={styles.wizardCardTitle}>{current.title}</h3>
@@ -621,7 +638,7 @@ function LAWizard() {
             onClick={handleNext}
             disabled={!canContinue()}
           >
-            {isLast ? "Enviar solicitud 📩" : "Continuar →"}
+            {isLast ? <>Enviar solicitud <Send size={15} strokeWidth={1.75} /></> : "Continuar →"}
           </button>
         </div>
       </div>
@@ -675,7 +692,7 @@ export default function LearningAgreementPage() {
             </div>
             <div className={styles.heroStatDiv} />
             <div className={styles.heroStat}>
-              <span className={styles.heroStatVal}>⏱️</span>
+              <span className={styles.heroStatVal}><Timer size={22} strokeWidth={1.75} /></span>
               <span className={styles.heroStatLabel}>Plazo de cambios según uni</span>
             </div>
           </div>

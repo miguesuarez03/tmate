@@ -1,10 +1,27 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Map, Compass, Scale, HelpCircle, Euro, FileText, Star, X } from "lucide-react";
+
+function LogoMark({ dark = false }) {
+  const fill = dark ? "var(--color-primary)" : "#fff";
+  return (
+    <svg
+      className="navbar__logo-icon"
+      viewBox="0 0 40 40"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <polygon points="4,13 18,9.5 18,16.5" fill={fill} />
+      <polygon points="36,13 22,9.5 22,16.5" fill={fill} />
+      <polygon points="16,13 24,13 24,29 20,37 16,29" fill={fill} />
+    </svg>
+  );
+}
 
 export function Logo({ dark = false, onClick }) {
   return (
     <div className="navbar__logo" onClick={onClick} role="button" tabIndex={0} aria-label="Ir al inicio">
-      <div className="navbar__logo-icon">🌍</div>
+      <LogoMark dark={dark} />
       <span className="navbar__logo-text" style={{ color: dark ? "var(--color-dark)" : "#fff" }}>
         TMate
       </span>
@@ -14,43 +31,43 @@ export function Logo({ dark = false, onClick }) {
 
 const MENU_ITEMS = [
   {
-    icon: "🗺️",
+    icon: Map,
     label: "Explorar destinos",
     desc: "Todas las ciudades Erasmus con scores y guías",
     action: "explore",
   },
   {
-    icon: "🧭",
+    icon: Compass,
     label: "City Match",
     desc: "Responde 8 preguntas y descubre tu ciudad ideal",
     action: "match",
   },
   {
-    icon: "⚖️",
+    icon: Scale,
     label: "Comparativa de destinos",
     desc: "Compara tus ciudades favoritas lado a lado",
     action: "compare",
   },
   {
-    icon: "❓",
+    icon: HelpCircle,
     label: "¿Cómo funciona el Erasmus?",
     desc: "Todo el proceso explicado sin rodeos, paso a paso",
     action: "steps",
   },
   {
-    icon: "💶",
+    icon: Euro,
     label: "Beca Erasmus+",
     desc: "Cuánto cobras, complementos y calculadora de ayudas",
     action: "beca",
   },
   {
-    icon: "📝",
+    icon: FileText,
     label: "Tu Learning Agreement",
     desc: "Cómo preparar el contrato académico y conseguir las convalidaciones",
     action: "la",
   },
   {
-    icon: "⭐",
+    icon: Star,
     label: "Cuéntanos tu experiencia",
     desc: "Comparte tu Erasmus y ayuda a otros estudiantes",
     action: "share",
@@ -97,7 +114,9 @@ function NavMenuDrawer({ menuOpen, setMenuOpen }) {
       <div className={`nav-drawer${menuOpen ? " nav-drawer--open" : ""}`}>
         <div className="nav-drawer__header">
           <span className="nav-drawer__title">Menú</span>
-          <button className="nav-drawer__close" onClick={() => setMenuOpen(false)} aria-label="Cerrar">✕</button>
+          <button className="nav-drawer__close" onClick={() => setMenuOpen(false)} aria-label="Cerrar">
+            <X size={20} strokeWidth={1.75} />
+          </button>
         </div>
 
         <nav className="nav-drawer__items">
@@ -107,7 +126,9 @@ function NavMenuDrawer({ menuOpen, setMenuOpen }) {
               className="nav-drawer__item"
               onClick={() => handleMenuAction(item.action)}
             >
-              <span className="nav-drawer__item-icon">{item.icon}</span>
+              <span className="nav-drawer__item-icon">
+                <item.icon size={20} strokeWidth={1.75} color="var(--color-primary)" />
+              </span>
               <div className="nav-drawer__item-text">
                 <span className="nav-drawer__item-label">{item.label}</span>
                 <span className="nav-drawer__item-desc">{item.desc}</span>

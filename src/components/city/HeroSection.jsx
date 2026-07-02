@@ -1,20 +1,21 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Globe2, PartyPopper, Coins, Sun, Bike, ShieldCheck, UtensilsCrossed, Palette, Laptop2, Waves, Euro } from "lucide-react";
 import styles from "./HeroSection.module.css";
 import { getCityWhatsappGroup } from "../../data/cityWhatsappGroups";
 
 // ─── MOOD TAGS CONFIG ─────────────────────────────────────────────────────────
 const MOOD_ICONS = {
-  erasmus: { icon: "🌍", label: "Top Erasmus" },
-  fiesta:  { icon: "🎉", label: "Gran vida social" },
-  barato:  { icon: "💸", label: "Asequible" },
-  sol:     { icon: "☀️", label: "Mucho sol" },
-  bici:    { icon: "🚲", label: "Ciclable" },
-  seguro:  { icon: "🛡️", label: "Segura" },
-  foodie:  { icon: "🍝", label: "Gastronómica" },
-  arte:    { icon: "🎨", label: "Cultural" },
-  tech:    { icon: "💻", label: "Tech & startups" },
-  playa:   { icon: "🏖️", label: "Cerca del mar" },
+  erasmus: { icon: Globe2, label: "Top Erasmus" },
+  fiesta:  { icon: PartyPopper, label: "Gran vida social" },
+  barato:  { icon: Coins, label: "Asequible" },
+  sol:     { icon: Sun, label: "Mucho sol" },
+  bici:    { icon: Bike, label: "Ciclable" },
+  seguro:  { icon: ShieldCheck, label: "Segura" },
+  foodie:  { icon: UtensilsCrossed, label: "Gastronómica" },
+  arte:    { icon: Palette, label: "Cultural" },
+  tech:    { icon: Laptop2, label: "Tech & startups" },
+  playa:   { icon: Waves, label: "Cerca del mar" },
 };
 
 function getMoodTags(city) {
@@ -121,7 +122,7 @@ export default function HeroSection({ city, overallScore, insights }) {
           <div className={styles.heroMoodTags}>
             {moodTags.map((tag, i) => (
               <span key={i} className={styles.heroMoodTag}>
-                <span>{tag.icon}</span>
+                <tag.icon size={14} strokeWidth={1.75} />
                 <span>{tag.label}</span>
               </span>
             ))}
@@ -206,7 +207,7 @@ export default function HeroSection({ city, overallScore, insights }) {
 
           <div className={styles.heroStats}>
             <div className={styles.heroStat}>
-              <span className={styles.heroStatIcon}>💶</span>
+              <span className={styles.heroStatIcon}><Euro size={20} strokeWidth={1.75} /></span>
               <div>
                 <p className={styles.heroStatVal}>{city.costDetail}</p>
                 <p className={styles.heroStatKey}>presupuesto/mes</p>
@@ -214,7 +215,7 @@ export default function HeroSection({ city, overallScore, insights }) {
             </div>
             <div className={styles.heroStatDiv} />
             <div className={styles.heroStat}>
-              <span className={styles.heroStatIcon}>🌍</span>
+              <span className={styles.heroStatIcon}><Globe2 size={20} strokeWidth={1.75} /></span>
               <div>
                 <p className={styles.heroStatVal}>{city.erasmusStudents}</p>
                 <p className={styles.heroStatKey}>estudiantes Erasmus/año</p>

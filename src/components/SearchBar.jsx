@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { Search, MapPin } from "lucide-react";
 import { CITIES } from "../data/cities";
 
 const ALL_NAMES = CITIES.map((c) => c.name);
@@ -47,7 +48,7 @@ export default function SearchBar({ light = false }) {
   return (
     <div className="search-bar">
       <div className={`search-bar__inner${focused ? " search-bar__inner--focused" : ""}`}>
-        <span className="search-bar__icon">🔍</span>
+        <span className="search-bar__icon"><Search size={18} strokeWidth={1.75} /></span>
         <input
           ref={inputRef}
           className="search-bar__input"
@@ -74,7 +75,7 @@ export default function SearchBar({ light = false }) {
                 className="search-bar__item"
                 onMouseDown={() => handleSelect(name)}
               >
-                <span style={{ fontSize: 16 }}>📍</span>
+                <span style={{ display: "flex", color: "var(--color-link)" }}><MapPin size={16} strokeWidth={1.75} /></span>
                 <span className="search-bar__city">{name}</span>
                 {city && (
                   <span className="search-bar__country">

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { BarChart3, Clock } from "lucide-react";
 
 // Actualiza esto cuando revises o refresques los datos de las ciudades.
 export const DATA_LAST_REVIEWED = "enero de 2026";
@@ -15,7 +16,7 @@ export default function MethodologyNote({ compact = false }) {
   return (
     <div className={`trust-note${compact ? " trust-note--compact" : ""}`}>
       <button type="button" className="trust-note__toggle" onClick={() => setOpen((o) => !o)}>
-        <span>📊 Cómo calculamos estos datos</span>
+        <span><BarChart3 size={16} strokeWidth={1.75} /> Cómo calculamos estos datos</span>
         <span className="trust-note__arrow">{open ? "▲" : "▼"}</span>
       </button>
       {open && (
@@ -26,7 +27,8 @@ export default function MethodologyNote({ compact = false }) {
             <li>Las distancias entre ciudades se calculan con coordenadas reales y geocodificación (OpenStreetMap / Nominatim).</li>
           </ul>
           <p className="trust-note__updated">
-            🕓 Contenido revisado en <strong>{DATA_LAST_REVIEWED}</strong>. Los precios y condiciones reales pueden variar según convocatoria — confírmalos siempre con tu universidad.
+            <Clock size={14} strokeWidth={1.75} style={{ verticalAlign: "-2px", marginRight: 4 }} />
+            Contenido revisado en <strong>{DATA_LAST_REVIEWED}</strong>. Los precios y condiciones reales pueden variar según convocatoria — confírmalos siempre con tu universidad.
           </p>
           <p className="trust-note__feedback">
             ¿Ves algo desactualizado o que no cuadra?{" "}

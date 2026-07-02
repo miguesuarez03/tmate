@@ -7,6 +7,7 @@ import {
   ZoomableGroup,
 } from "react-simple-maps";
 import { useNavigate } from "react-router-dom";
+import { PartyPopper, Landmark, Coins, Euro, Globe2, X, Wallet } from "lucide-react";
 import styles from "./WorldMap.module.css";
 import { getOverallScore, CITY_BASE_SCORES } from "../lib/cities";
 
@@ -78,9 +79,9 @@ const COUNTRY_LABELS = [
 
 // ─── FILTROS DE VIBE ──────────────────────────────────────────────────────────
 const VIBE_FILTERS = [
-  { key: "fiesta",   label: "Fiesta",   icon: "🎉", desc: "Vida nocturna" },
-  { key: "cultura",  label: "Cultura",  icon: "🏛️", desc: "Arte & historia" },
-  { key: "barato",   label: "Barato",   icon: "💸", desc: "Coste de vida bajo" },
+  { key: "fiesta",   label: "Fiesta",   icon: PartyPopper, desc: "Vida nocturna" },
+  { key: "cultura",  label: "Cultura",  icon: Landmark, desc: "Arte & historia" },
+  { key: "barato",   label: "Barato",   icon: Coins, desc: "Coste de vida bajo" },
 ];
 
 const ALL_COUNTRIES = ["Todos", ...Array.from(new Set(CITIES.map(c => c.country))).sort()];
@@ -103,7 +104,7 @@ function scoreLabel(score) {
 function CityPopup({ city, onClose, navigate }) {
   return (
     <div className={styles.popup} onClick={e => e.stopPropagation()}>
-      <button className={styles.popupClose} onClick={onClose} aria-label="Cerrar">✕</button>
+      <button className={styles.popupClose} onClick={onClose} aria-label="Cerrar"><X size={16} strokeWidth={1.75} /></button>
       <div className={styles.popupImg}>
         <img src={`https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=300&q=70`} alt={city.name} loading="lazy" />
         <div className={styles.popupImgOverlay} />
@@ -116,12 +117,12 @@ function CityPopup({ city, onClose, navigate }) {
         <h3 className={styles.popupName}>{city.name}</h3>
         <p className={styles.popupCountry}>{city.country}</p>
         <div className={styles.popupVibes}>
-          <span className={styles.popupVibe}>🎉 {city.fiesta}/10</span>
-          <span className={styles.popupVibe}>🏛️ {city.cultura}/10</span>
-          <span className={styles.popupVibe}>💸 {city.economia}/10</span>
+          <span className={styles.popupVibe}><PartyPopper size={14} strokeWidth={1.75} /> {city.fiesta}/10</span>
+          <span className={styles.popupVibe}><Landmark size={14} strokeWidth={1.75} /> {city.cultura}/10</span>
+          <span className={styles.popupVibe}><Coins size={14} strokeWidth={1.75} /> {city.economia}/10</span>
         </div>
         <div className={styles.popupTags}>
-          <span className={styles.popupTag}>💶 {city.cost}/mes</span>
+          <span className={styles.popupTag}><Euro size={13} strokeWidth={1.75} /> {city.cost}/mes</span>
           <span className={styles.popupTagScore} style={{
             color: scoreColor(city.score),
             borderColor: scoreColor(city.score) + "55",
@@ -200,7 +201,7 @@ export default function WorldMap() {
 
           {/* Filtro por país */}
           <div className={styles.countryFilter}>
-            <span className={styles.filterLabel}>🌍 País</span>
+            <span className={styles.filterLabel}><Globe2 size={14} strokeWidth={1.75} /> País</span>
             <select
               className={styles.countrySelect}
               value={country}
@@ -224,7 +225,7 @@ export default function WorldMap() {
                 onClick={() => setVibeFilter(v => v === f.key ? null : f.key)}
                 title={f.desc}
               >
-                <span>{f.icon}</span>
+                <span><f.icon size={15} strokeWidth={1.75} /></span>
                 <span className={styles.vibeBtnLabel}>{f.label}</span>
               </button>
             ))}
@@ -235,7 +236,7 @@ export default function WorldMap() {
             <div className={styles.filterResult}>
               <span>{visibleCities.length} ciudad{visibleCities.length !== 1 ? "es" : ""}</span>
               <button className={styles.filterReset} onClick={() => { setCountry("Todos"); setVibeFilter(null); }}>
-                ✕ Limpiar
+                <X size={13} strokeWidth={1.75} /> Limpiar
               </button>
             </div>
           )}
@@ -367,10 +368,10 @@ export default function WorldMap() {
               </span>
             </div>
             <div className={styles.tooltipVibes}>
-              <span>🎉 {tooltip.city.fiesta}</span>
-              <span>🏛️ {tooltip.city.cultura}</span>
-              <span>💸 {tooltip.city.economia}</span>
-              <span>💰 {tooltip.city.dinero}</span>
+              <span><PartyPopper size={12} strokeWidth={1.75} /> {tooltip.city.fiesta}</span>
+              <span><Landmark size={12} strokeWidth={1.75} /> {tooltip.city.cultura}</span>
+              <span><Coins size={12} strokeWidth={1.75} /> {tooltip.city.economia}</span>
+              <span><Wallet size={12} strokeWidth={1.75} /> {tooltip.city.dinero}</span>
             </div>
           </div>
         )}

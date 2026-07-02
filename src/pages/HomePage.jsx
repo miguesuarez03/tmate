@@ -1,5 +1,9 @@
 import { useState, useEffect, useRef, useMemo, lazy, Suspense } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import {
+  Compass, Scale, Euro, PartyPopper, Landmark, Coins, Star, X,
+  Trophy, ShieldCheck, GraduationCap, Medal, PenLine, Camera,
+} from "lucide-react";
 import { CITIES } from "../data/cities";
 import { getScoreMap, getOverallScore } from "../lib/cities";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
@@ -37,19 +41,19 @@ const TRENDING = ["Bolonia", "Lisboa", "Berlín", "Praga", "Viena"];
 // más habitual de un estudiante que llega por primera vez.
 const QUICK_ACCESS = [
   {
-    icon: "🧭",
+    icon: Compass,
     title: "Encontrar tu ciudad",
     desc: "Compara datos reales y descubre tu destino ideal",
     action: "explore",
   },
   {
-    icon: "⚖️",
+    icon: Scale,
     title: "Comparar ciudades",
     desc: "Pon dos o más destinos lado a lado",
     action: "compare",
   },
   {
-    icon: "💶",
+    icon: Euro,
     title: "Calcular tu beca",
     desc: "Cuánto vas a cobrar y cuánto necesitas para vivir",
     action: "beca",
@@ -80,7 +84,7 @@ function QuickAccessSection() {
             className="quick-access__card"
             onClick={() => handleClick(item.action)}
           >
-            <span className="quick-access__icon">{item.icon}</span>
+            <span className="quick-access__icon"><item.icon size={24} strokeWidth={1.75} /></span>
             <span className="quick-access__title">{item.title}</span>
             <span className="quick-access__desc">{item.desc}</span>
             <span className="quick-access__arrow">→</span>
@@ -182,9 +186,9 @@ function AnimatedWord() {
 }
 
 const VIBE_FILTERS = [
-  { key: "fiesta",  label: "Fiesta",   icon: "🎉", tags: ["Ciudad universitaria", "Ruin bars", "Oktoberfest", "Arte & Libertad", "Trending 🔥"] },
-  { key: "cultura", label: "Cultura",  icon: "🏛️", tags: ["Historia viva", "Joya medieval", "Capital diplomática", "Arquitectura radical", "La ciudad luz", "Capital global", "Capital de Europa", "Fotogénica", "Calidad de vida #1"] },
-  { key: "barato",  label: "Barato",   icon: "💸", tags: ["La más barata", "Pueblo & Naturaleza", "Gema oculta"] },
+  { key: "fiesta",  label: "Fiesta",   icon: PartyPopper, tags: ["Ciudad universitaria", "Ruin bars", "Oktoberfest", "Arte & Libertad", "Trending 🔥"] },
+  { key: "cultura", label: "Cultura",  icon: Landmark, tags: ["Historia viva", "Joya medieval", "Capital diplomática", "Arquitectura radical", "La ciudad luz", "Capital global", "Capital de Europa", "Fotogénica", "Calidad de vida #1"] },
+  { key: "barato",  label: "Barato",   icon: Coins, tags: ["La más barata", "Pueblo & Naturaleza", "Gema oculta"] },
 ];
 
 const CITY_PILLS = [
@@ -286,7 +290,7 @@ function StarRating({ value, onChange }) {
           onClick={() => onChange(n)}
           aria-label={`${n} estrellas`}
         >
-          ★
+          <Star size={22} strokeWidth={1.75} fill={n <= (hovered || value) ? "currentColor" : "none"} />
         </button>
       ))}
       {value > 0 && (
@@ -314,7 +318,7 @@ function TestimonialCard({ t, onClick, compact }) {
         </div>
         <div className="community-card__stars">
           {[1,2,3,4,5].map(n => (
-            <span key={n} className={n <= t.stars ? "star--on" : "star--off"}>★</span>
+            <Star key={n} size={13} strokeWidth={1.75} className={n <= t.stars ? "star--on" : "star--off"} fill={n <= t.stars ? "currentColor" : "none"} />
           ))}
         </div>
       </div>
@@ -352,7 +356,7 @@ function AllTestimonialsModal({ onClose, onSelect }) {
       <div className="all-testimonials-modal" onClick={e => e.stopPropagation()}>
         <div className="all-testimonials-modal__header">
           <h3>Todas las opiniones</h3>
-          <button type="button" className="all-testimonials-modal__close" onClick={onClose} aria-label="Cerrar">✕</button>
+          <button type="button" className="all-testimonials-modal__close" onClick={onClose} aria-label="Cerrar"><X size={18} strokeWidth={1.75} /></button>
         </div>
 
         <div className="all-testimonials-modal__filters">
@@ -381,7 +385,7 @@ function AllTestimonialsModal({ onClose, onSelect }) {
                   className={`at-filter-pill${starFilter === s ? " at-filter-pill--active" : ""}`}
                   onClick={() => setStarFilter(s)}
                 >
-                  {s === 0 ? "Todas" : `${s}★ y más`}
+                  {s === 0 ? "Todas" : <>{s}<Star size={11} strokeWidth={1.75} fill="currentColor" style={{ verticalAlign: "-1px", margin: "0 2px" }} /> y más</>}
                 </button>
               ))}
             </div>
@@ -410,11 +414,11 @@ function AllTestimonialsModal({ onClose, onSelect }) {
 // en cada ficha de ciudad y en el comparador. No se inventa ningún dato
 // nuevo para esta sección, solo se reordena lo que ya existe.
 const RANKING_CATEGORIES = [
-  { id: "overall", label: "General", icon: "🏆" },
-  { id: "coste", label: "Más económicas", icon: "💶" },
-  { id: "vida_social", label: "Vida social", icon: "🎉" },
-  { id: "seguridad", label: "Seguridad", icon: "🛡️" },
-  { id: "empleo", label: "Salidas profesionales", icon: "🎓" },
+  { id: "overall", label: "General", icon: Trophy },
+  { id: "coste", label: "Más económicas", icon: Euro },
+  { id: "vida_social", label: "Vida social", icon: PartyPopper },
+  { id: "seguridad", label: "Seguridad", icon: ShieldCheck },
+  { id: "empleo", label: "Salidas profesionales", icon: GraduationCap },
 ];
 
 function RankingsSection() {
@@ -450,7 +454,7 @@ function RankingsSection() {
               className={`rankings-tab${active === c.id ? " rankings-tab--active" : ""}`}
               onClick={() => setActive(c.id)}
             >
-              {c.icon} {c.label}
+              <c.icon size={15} strokeWidth={1.75} /> {c.label}
             </button>
           ))}
         </div>
@@ -463,7 +467,11 @@ function RankingsSection() {
               className="rankings-row"
               onClick={() => navigate(`/city/${r.city.slug}`)}
             >
-              <span className="rankings-row__pos">{i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : `#${i + 1}`}</span>
+              <span className="rankings-row__pos">
+                {i < 3
+                  ? <Medal size={18} strokeWidth={1.75} color={i === 0 ? "#FFB020" : i === 1 ? "#B4B8C0" : "#C97B4A"} />
+                  : `#${i + 1}`}
+              </span>
               <span className="rankings-row__city">{r.city.emoji} {r.city.name}<span className="rankings-row__country">{r.city.country}</span></span>
               <div className="rankings-row__bar">
                 <div className="rankings-row__bar-fill" style={{ width: `${(r.score / 10) * 100}%` }} />
@@ -557,7 +565,7 @@ function CommunitySection() {
               onClick={() => setActiveTestimonial(null)}
               aria-label="Cerrar"
             >
-              ✕
+              <X size={18} strokeWidth={1.75} />
             </button>
             <div className="testimonial-modal__img">
               <img src={activeTestimonial.photo} alt={activeTestimonial.city} />
@@ -570,7 +578,7 @@ function CommunitySection() {
             <div className="testimonial-modal__body">
               <div className="community-card__stars" style={{ position: "static", marginBottom: 10 }}>
                 {[1,2,3,4,5].map(n => (
-                  <span key={n} className={n <= activeTestimonial.stars ? "star--on" : "star--off"}>★</span>
+                  <Star key={n} size={16} strokeWidth={1.75} className={n <= activeTestimonial.stars ? "star--on" : "star--off"} fill={n <= activeTestimonial.stars ? "currentColor" : "none"} />
                 ))}
               </div>
               <div className="community-card__author" style={{ marginBottom: 16 }}>
@@ -590,7 +598,7 @@ function CommunitySection() {
 
       {/* CTA para compartir experiencia (abre modal) */}
       <div className="exp-prompt">
-        <span className="exp-prompt__icon">✍️</span>
+        <span className="exp-prompt__icon"><PenLine size={26} strokeWidth={1.75} /></span>
         <div className="exp-prompt__text">
           <h3 className="exp-prompt__title">¿Ya hiciste tu Erasmus?</h3>
           <p className="exp-prompt__desc">Cuéntanos tu experiencia y ayuda a miles de estudiantes a decidir.</p>
@@ -610,11 +618,11 @@ function CommunitySection() {
               onClick={() => setShowExpModal(false)}
               aria-label="Cerrar"
             >
-              ✕
+              <X size={18} strokeWidth={1.75} />
             </button>
 
             <div className="exp-form-header">
-              <span style={{ fontSize: 36 }}>✍️</span>
+              <span style={{ display: "flex", color: "var(--color-primary)" }}><PenLine size={32} strokeWidth={1.75} /></span>
               <div>
                 <h3 className="exp-form-title">Cuéntanos tu experiencia</h3>
                 <p className="exp-form-subtitle">Tu historia y tus fotos pueden ayudar a miles de estudiantes.</p>
@@ -623,7 +631,7 @@ function CommunitySection() {
 
             {submitted ? (
               <div className="exp-form-success">
-                <span style={{ fontSize: 40 }}>🎉</span>
+                <span style={{ display: "flex", justifyContent: "center", color: "var(--color-accent)" }}><PartyPopper size={40} strokeWidth={1.75} /></span>
                 <p style={{ fontWeight: 700, fontSize: 18, color: "var(--color-dark)" }}>¡Gracias por compartir!</p>
                 <p style={{ color: "var(--color-slate-light)", fontSize: 14 }}>Tu experiencia estará disponible pronto en la comunidad.</p>
               </div>
@@ -684,7 +692,7 @@ function CommunitySection() {
                       <img src={photoPreview} alt="Preview" className="photo-upload__preview" />
                     ) : (
                       <div className="photo-upload__placeholder">
-                        <span style={{ fontSize: 28 }}>📷</span>
+                        <span style={{ display: "flex", justifyContent: "center", color: "var(--color-muted)" }}><Camera size={28} strokeWidth={1.75} /></span>
                         <span>Haz clic para subir una foto</span>
                         <span className="photo-upload__hint">JPG, PNG — máx. 5MB</span>
                       </div>
@@ -693,7 +701,7 @@ function CommunitySection() {
                   <input ref={fileRef} type="file" accept="image/*" style={{ display: "none" }} onChange={handlePhoto} />
                   {photoPreview && (
                     <button className="photo-upload__remove" onClick={() => { setPhotoPreview(null); setFormData(p => ({ ...p, photo: null })); }}>
-                      ✕ Quitar foto
+                      <X size={13} strokeWidth={1.75} /> Quitar foto
                     </button>
                   )}
                 </div>
@@ -839,7 +847,7 @@ export default function HomePage() {
               className={`filter-pill${(region || 'Todos') === f.key ? " filter-pill--active" : ""}`}
               onClick={() => { setRegion((region || 'Todos') === f.key ? null : f.key); setShowAll(false); }}
             >
-              {f.icon} {f.label}
+              <f.icon size={15} strokeWidth={1.75} /> {f.label}
             </button>
           ))}
         </div>

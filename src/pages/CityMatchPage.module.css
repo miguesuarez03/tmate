@@ -6,7 +6,7 @@
 }
 
 .badge {
-  display: inline-block;
+  display: inline-flex; align-items: center; gap: 6px;
   background: rgba(2,132,199,0.18);
   border: 1px solid rgba(2,132,199,0.4);
   border-radius: var(--radius-full);
@@ -155,7 +155,7 @@
 
 .resultRank {
   display: flex; align-items: center; justify-content: center;
-  font-size: 26px; width: 36px;
+  font-size: 16px; font-weight: 800; color: var(--color-muted); width: 36px;
 }
 
 .resultImg {
@@ -186,8 +186,10 @@
 .matchBarFill { height: 100%; background: var(--gradient-brand); border-radius: var(--radius-full); transition: width 0.4s var(--ease-spring); }
 
 .reasonList { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
-.reasonList li { font-size: 13px; color: var(--color-slate); }
+.reasonList li { font-size: 13px; color: var(--color-slate); display: flex; align-items: flex-start; gap: 6px; }
+.reasonIcon { flex-shrink: 0; margin-top: 1px; color: var(--color-link); }
 .reasonCaveat { color: var(--color-muted); font-style: italic; }
+.reasonCaveat .reasonIcon { color: var(--color-muted); }
 
 .resultBtn {
   align-self: flex-start; margin-top: 4px;
