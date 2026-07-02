@@ -8,7 +8,7 @@ import {
 } from "react-simple-maps";
 import { useNavigate } from "react-router-dom";
 import styles from "./WorldMap.module.css";
-import { getOverallScore, CITY_BASE_SCORES } from "../lib/cities";
+import { getOverallScore, CITY_BASE_SCORES, getCityBySlug } from "../lib/cities";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
@@ -38,6 +38,7 @@ const CITIES = [
   { slug: "bruselas",  name: "Bruselas",  country: "Bélgica",      flag: "🇧🇪", coords: [4.35,  50.85], cost: "600–900€"   },
 ].map(city => ({
   ...city,
+  img: getCityBySlug(city.slug)?.img ?? null,
   score: getOverallScore(city.slug),
   fiesta: CITY_BASE_SCORES[city.slug]?.vida_social ?? 7,
   cultura: CITY_BASE_SCORES[city.slug]?.estilo_vida ?? 7,
@@ -105,7 +106,7 @@ function CityPopup({ city, onClose, navigate }) {
     <div className={styles.popup} onClick={e => e.stopPropagation()}>
       <button className={styles.popupClose} onClick={onClose} aria-label="Cerrar">✕</button>
       <div className={styles.popupImg}>
-        <img src={`https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=300&q=70`} alt={city.name} loading="lazy" />
+        <img src={city.img} alt={`${city.name}, ${city.country}`} loading="lazy" />
         <div className={styles.popupImgOverlay} />
         <div className={styles.popupScore} style={{ color: scoreColor(city.score) }}>
           {city.score}<span>/10</span>
