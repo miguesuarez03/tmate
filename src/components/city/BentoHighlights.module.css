@@ -1,0 +1,201 @@
+/* BentoHighlights v3 — with real photos */
+.bento {
+  padding: var(--section-py) var(--section-px);
+  max-width: 1320px; margin: 0 auto;
+}
+
+.header { margin-bottom: 2.5rem; }
+
+.eyebrow {
+  font-family: var(--font-body); font-size: 0.75rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-teal); margin: 0 0 0.4rem;
+}
+
+.title {
+  font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 800; color: var(--color-dark); margin: 0; line-height: 1.1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+}
+
+/* Large card (01) — ocupa columna 1, filas 1-2 */
+.cardLarge {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  min-height: 440px;
+}
+
+/* Tarjeta 04 — ocupa las 2 columnas de la derecha en la fila 2 */
+.card:nth-child(4) {
+  grid-column: 2 / 4;
+}
+
+/* Card base */
+.card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  min-height: 200px;
+  display: flex;
+  align-items: flex-end;
+  cursor: pointer;
+  transition: transform 0.28s var(--ease-spring), box-shadow 0.28s ease;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  font: inherit;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 24px 56px rgba(0,0,0,0.22);
+}
+
+.cardHint {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.55);
+  margin-top: 2px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* ── MODAL ── */
+.modalOverlay {
+  position: fixed; inset: 0; z-index: 1100;
+  background: rgba(15,23,42,0.7);
+  backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  animation: bentoFadeIn 0.2s ease;
+}
+@keyframes bentoFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal {
+  background: #fff;
+  border-radius: var(--radius-xl, 20px);
+  max-width: 500px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.35);
+  animation: bentoPopIn 0.25s var(--ease-spring, ease);
+}
+@keyframes bentoPopIn {
+  from { opacity: 0; transform: scale(0.93) translateY(10px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modalClose {
+  position: absolute; top: 10px; right: 10px; z-index: 2;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(255,255,255,0.85);
+  border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: #0F172A;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.modalClose:hover { background: #fff; }
+
+.modalImg {
+  position: relative; height: 260px; overflow: hidden;
+}
+.modalImg img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.modalImgContent {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 1.2rem 1.4rem;
+  z-index: 1;
+}
+.modalTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 4vw, 1.6rem);
+  font-weight: 800; color: #fff;
+  margin: 4px 0 0; line-height: 1.2;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+
+.modalBody {
+  padding: 20px 22px 24px;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.modalText {
+  font-family: var(--font-body);
+  font-size: 15px; line-height: 1.65;
+  color: var(--color-slate); margin: 0;
+}
+.modalTag {
+  display: inline-flex;
+  font-size: 12px; font-weight: 700;
+  padding: 5px 12px; border-radius: var(--radius-full);
+  align-self: flex-start;
+}
+
+/* Photo background */
+.cardImg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  transition: transform 0.55s var(--ease-smooth);
+}
+
+.card:hover .cardImg { transform: scale(1.06); }
+
+/* Dark gradient overlay */
+.cardOverlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.08) 100%);
+}
+
+/* Text content */
+.cardContent {
+  position: relative; z-index: 1;
+  padding: 1.5rem 1.6rem;
+  display: flex; flex-direction: column; gap: 0.4rem;
+  width: 100%;
+}
+
+.cardNum {
+  font-family: var(--font-body); font-size: 0.72rem;
+  font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cardText {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  font-weight: 700; color: #fff;
+  margin: 0; line-height: 1.3;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.cardLarge .cardText {
+  font-size: clamp(1.3rem, 2vw, 1.65rem);
+}
+
+@media (max-width: 860px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+  .cardLarge { grid-row: auto; grid-column: 1 / 3; }
+  .card:nth-child(4) { grid-column: auto; }
+}
+
+@media (max-width: 540px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, auto);
+    gap: 0.6rem;
+  }
+  .card { min-height: 150px; border-radius: var(--radius-lg, 14px); }
+  .cardLarge { grid-row: auto; grid-column: auto; min-height: 150px; }
+  .card:nth-child(4) { grid-column: auto; }
+  .cardContent { padding: 0.9rem 0.9rem; gap: 0.25rem; }
+  .cardNum { font-size: 0.62rem; }
+  .cardText { font-size: 0.85rem; }
+  .cardLarge .cardText { font-size: 0.85rem; }
+}

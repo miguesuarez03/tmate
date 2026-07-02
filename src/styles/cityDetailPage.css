@@ -1,0 +1,23 @@
+/* Ensure hero is always the very first thing visible */
+.cdp-root {
+  background: #fff;
+  color: var(--color-slate);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Hero section must start at top-0 behind the fixed navbar */
+.cdp-root > section:first-of-type {
+  margin-top: 0;
+}
+
+.cdp-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-border) 20%, var(--color-border) 80%, transparent);
+  margin: 0 var(--section-px);
+}
+
+.cdp-tips-wrapper {
+  padding: 0;
+}

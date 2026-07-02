@@ -1,0 +1,24 @@
+.wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 2000;
+  overflow: hidden;
+  background: transparent;
+  pointer-events: none;
+}
+
+.bar {
+  height: 100%;
+  width: 40%;
+  background: var(--gradient-brand, linear-gradient(90deg, #0ea5e9, #14b8a6));
+  animation: tmate-route-loading 0.9s ease-in-out infinite;
+  border-radius: 0 4px 4px 0;
+}
+
+@keyframes tmate-route-loading {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(350%); }
+}
