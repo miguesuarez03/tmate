@@ -210,7 +210,12 @@ a { text-decoration: none; color: inherit; }
   box-shadow: var(--shadow-md);
   border-color: rgba(14,165,233,0.3);
 }
-.quick-access__icon { font-size: 26px; margin-bottom: 10px; }
+.quick-access__icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; margin-bottom: 12px;
+  border-radius: 50%; background: rgba(14,165,233,0.08);
+  font-size: 18px; line-height: 1;
+}
 .quick-access__title {
   font-family: var(--font-display); font-weight: 800; font-size: 17px;
   color: var(--color-dark); margin-bottom: 4px;
@@ -1482,10 +1487,13 @@ a { text-decoration: none; color: inherit; }
   opacity: 0.3; cursor: default;
 }
 .proceso-stories__nav-btn--next:not(:disabled) {
-  border-color: currentColor;
+  color: var(--step-color, var(--color-primary));
+  border-color: var(--step-color, var(--color-primary));
 }
-.proceso-stories__nav-btn--next:not(:disabled):hover {
-  background: currentColor;
+.proceso-stories__nav-btn--next:not(:disabled):hover,
+.proceso-stories__nav-btn--next:not(:disabled):active {
+  background: var(--step-color, var(--color-primary));
+  color: #fff;
 }
 
 .proceso-stories__counter {

@@ -415,7 +415,7 @@ function MobileStories({ steps, navigate }) {
           className="proceso-stories__nav-btn proceso-stories__nav-btn--next"
           onClick={goNext}
           disabled={active === steps.length - 1}
-          style={{ color: step.color, borderColor: step.color }}
+          style={{ "--step-color": step.color }}
         >
           Siguiente →
         </button>

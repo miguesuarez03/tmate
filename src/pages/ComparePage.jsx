@@ -96,35 +96,6 @@ function RadarChart({ scoreIds, selectedCities, scoreMaps }) {
   );
 }
 
-// ─── Resumen automático ─────────────────────────────────────────────────
-function buildAutoSummary(selectedCities, overallScores, scoreMaps) {
-  const maxIdx = overallScores.indexOf(Math.max(...overallScores));
-  const cheapestIdx = selectedCities.reduce((best, c, i) =>
-    parseMinCost(c.costDetail) < parseMinCost(selectedCities[best].costDetail) ? i : best, 0);
-
-  const lines = [
-    `🏆 ${selectedCities[maxIdx].emoji} ${selectedCities[maxIdx].name} tiene la puntuación global más alta (${overallScores[maxIdx].toFixed(1)}/10).`,
-  ];
-
-  if (cheapestIdx !== maxIdx) {
-    lines.push(`💶 Si el presupuesto manda, ${selectedCities[cheapestIdx].emoji} ${selectedCities[cheapestIdx].name} es la opción más económica.`);
-  }
-
-  selectedCities.forEach((city, i) => {
-    const bestId = SCORE_IDS.reduce((best, id) => {
-      const s = scoreMaps[i][id]?.score ?? 0;
-      const bs = scoreMaps[i][best]?.score ?? 0;
-      return s > bs ? id : best;
-    }, SCORE_IDS[0]);
-    const scoreObj = scoreMaps[i][bestId];
-    if (scoreObj) {
-      lines.push(`${scoreObj.icon} ${city.emoji} ${city.name} destaca especialmente en ${scoreObj.label.toLowerCase()} (${scoreObj.score.toFixed(1)}/10).`);
-    }
-  });
-
-  return lines;
-}
-
 // ─── Diferencias más destacadas ─────────────────────────────────────────
 function buildTopDifferences(scoreIds, selectedCities, scoreMaps, limit = 3) {
   return scoreIds
@@ -224,6 +195,17 @@ function VersusCard({ categoryMeta, rows, open, onToggle }) {
 function VersusGrid({ scoreIds, selectedCities, scoreMaps }) {
   const [openRow, setOpenRow] = useState(null);
 
+  // En escritorio el grid es de 2 columnas y las tarjetas se abren en pareja
+  // (por fila). En móvil es una sola columna, así que abrir "la fila" abre
+  // dos tarjetas apiladas a la vez y queda raro — ahí abrimos de una en una.
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 721);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
   const cards = scoreIds.map((id) => {
     const rows = selectedCities.map((city, i) => ({
       city,
@@ -236,12 +218,16 @@ function VersusGrid({ scoreIds, selectedCities, scoreMaps }) {
     return { id, rows, categoryMeta: { icon: firstScoreObj.icon, label: firstScoreObj.label } };
   }).filter(Boolean);
 
-  // Agrupar en filas de 2
+  // Agrupar en filas de 2 (solo aplica en escritorio)
   function getRow(idx) { return Math.floor(idx / 2); }
 
   function handleToggle(idx) {
-    const row = getRow(idx);
-    setOpenRow(prev => prev === row ? null : row);
+    if (isMobile) {
+      setOpenRow((prev) => (prev === idx ? null : idx));
+    } else {
+      const row = getRow(idx);
+      setOpenRow((prev) => (prev === row ? null : row));
+    }
   }
 
   return (
@@ -251,7 +237,7 @@ function VersusGrid({ scoreIds, selectedCities, scoreMaps }) {
           key={card.id}
           categoryMeta={card.categoryMeta}
           rows={card.rows}
-          open={openRow === getRow(idx)}
+          open={isMobile ? openRow === idx : openRow === getRow(idx)}
           onToggle={() => handleToggle(idx)}
         />
       ))}
@@ -417,60 +403,76 @@ export default function ComparePage() {
               })}
             </div>
 
-            {/* Resumen automático */}
+            {/* Resumen rápido — puntos fuertes y a tener en cuenta */}
             <div className={styles.summarySection}>
               <h3 className={styles.sectionTitle}>Resumen rápido</h3>
-              <div className={styles.summaryCard}>
-                <ul className={styles.summaryList}>
-                  {buildAutoSummary(selectedCities, overallScores, scoreMaps).map((line, i) => (
-                    <li key={i}>{line}</li>
-                  ))}
-                </ul>
+              <div className={styles.prosConsGrid} style={{ "--cols": selectedCities.length }}>
+                {selectedCities.map((city, i) => {
+                  const { pros, cons } = buildProsCons(scoreMaps[i]);
+                  return (
+                    <div key={city.slug} className={styles.prosConsCol} style={{ borderTopColor: COL_COLORS[i] }}>
+                      <div className={styles.prosConsHead} style={{ color: COL_COLORS[i] }}>{city.emoji} {city.name}</div>
+                      <div className={styles.prosConsBlock}>
+                        <span className={styles.prosConsLabel}>✅ Puntos fuertes</span>
+                        <ul className={styles.prosConsList}>
+                          {pros.map((p) => <li key={p.id}>{p.icon} {p.label} — {p.score.toFixed(1)}/10</li>)}
+                        </ul>
+                      </div>
+                      <div className={styles.prosConsBlock}>
+                        <span className={styles.prosConsLabel}>⚠️ A tener en cuenta</span>
+                        <ul className={styles.prosConsList}>
+                          {cons.map((c) => <li key={c.id}>{c.icon} {c.label} — {c.score.toFixed(1)}/10</li>)}
+                        </ul>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
-            {/* Radar comparativo */}
-            <div className={styles.radarSection}>
-              <h3 className={styles.sectionTitle}>Vista de conjunto</h3>
-              <RadarChart scoreIds={SCORE_IDS} selectedCities={selectedCities} scoreMaps={scoreMaps} />
+            {/* Radar comparativo + Diferencias más destacadas, lado a lado en escritorio */}
+            <div className={styles.overviewSection}>
+              <div className={styles.radarSection}>
+                <h3 className={styles.sectionTitle}>Vista de conjunto</h3>
+                <RadarChart scoreIds={SCORE_IDS} selectedCities={selectedCities} scoreMaps={scoreMaps} />
+              </div>
+
+              <div className={styles.diffSection}>
+                <h3 className={styles.sectionTitle}>Diferencias más destacadas</h3>
+                <div className={styles.diffList}>
+                  {buildTopDifferences(SCORE_IDS, selectedCities, scoreMaps).map((d) => (
+                    <div key={d.id} className={styles.diffRow}>
+                      <div className={styles.diffRowHead}>
+                        <span>{d.meta.icon} {d.meta.label}</span>
+                        <span className={styles.diffGap}>Δ {d.gap.toFixed(1)} pts</span>
+                      </div>
+                      <div className={styles.diffBars}>
+                        {d.rows.map((r, i) => {
+                          const score = r.scoreObj?.score ?? 0;
+                          const isWinner = i === d.winnerIdx;
+                          return (
+                            <div key={r.city.slug} className={styles.diffBarItem}>
+                              <span className={styles.diffBarLabel} style={{ color: isWinner ? r.color : "var(--color-slate-light)" }}>
+                                {r.city.emoji} {r.city.name}
+                              </span>
+                              <div className={styles.diffBarTrack}>
+                                <div className={styles.diffBarFill} style={{ width: `${(score / 10) * 100}%`, background: r.color, opacity: isWinner ? 1 : 0.45 }} />
+                              </div>
+                              <span className={styles.diffBarScore}>{score.toFixed(1)}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Versus cards per category */}
             <div className={styles.versusSection}>
               <h3 className={styles.sectionTitle}>Puntuaciones detalladas</h3>
               <VersusGrid scoreIds={SCORE_IDS} selectedCities={selectedCities} scoreMaps={scoreMaps} />
-            </div>
-
-            {/* Diferencias más destacadas */}
-            <div className={styles.diffSection}>
-              <h3 className={styles.sectionTitle}>Diferencias más destacadas</h3>
-              <div className={styles.diffList}>
-                {buildTopDifferences(SCORE_IDS, selectedCities, scoreMaps).map((d) => (
-                  <div key={d.id} className={styles.diffRow}>
-                    <div className={styles.diffRowHead}>
-                      <span>{d.meta.icon} {d.meta.label}</span>
-                      <span className={styles.diffGap}>Δ {d.gap.toFixed(1)} pts</span>
-                    </div>
-                    <div className={styles.diffBars}>
-                      {d.rows.map((r, i) => {
-                        const score = r.scoreObj?.score ?? 0;
-                        const isWinner = i === d.winnerIdx;
-                        return (
-                          <div key={r.city.slug} className={styles.diffBarItem}>
-                            <span className={styles.diffBarLabel} style={{ color: isWinner ? r.color : "var(--color-slate-light)" }}>
-                              {r.city.emoji} {r.city.name}
-                            </span>
-                            <div className={styles.diffBarTrack}>
-                              <div className={styles.diffBarFill} style={{ width: `${(score / 10) * 100}%`, background: r.color, opacity: isWinner ? 1 : 0.45 }} />
-                            </div>
-                            <span className={styles.diffBarScore}>{score.toFixed(1)}</span>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
 
             {/* Metodología y fuentes */}
@@ -516,33 +518,6 @@ export default function ComparePage() {
                     </div>
                   </div>
                 ))}
-              </div>
-            </div>
-
-            {/* Ventajas y a tener en cuenta */}
-            <div className={styles.prosConsSection}>
-              <h3 className={styles.sectionTitle}>Puntos fuertes y a tener en cuenta</h3>
-              <div className={styles.prosConsGrid} style={{ "--cols": selectedCities.length }}>
-                {selectedCities.map((city, i) => {
-                  const { pros, cons } = buildProsCons(scoreMaps[i]);
-                  return (
-                    <div key={city.slug} className={styles.prosConsCol} style={{ borderTopColor: COL_COLORS[i] }}>
-                      <div className={styles.prosConsHead} style={{ color: COL_COLORS[i] }}>{city.emoji} {city.name}</div>
-                      <div className={styles.prosConsBlock}>
-                        <span className={styles.prosConsLabel}>✅ Puntos fuertes</span>
-                        <ul className={styles.prosConsList}>
-                          {pros.map((p) => <li key={p.id}>{p.icon} {p.label} — {p.score.toFixed(1)}/10</li>)}
-                        </ul>
-                      </div>
-                      <div className={styles.prosConsBlock}>
-                        <span className={styles.prosConsLabel}>⚠️ A tener en cuenta</span>
-                        <ul className={styles.prosConsList}>
-                          {cons.map((c) => <li key={c.id}>{c.icon} {c.label} — {c.score.toFixed(1)}/10</li>)}
-                        </ul>
-                      </div>
-                    </div>
-                  );
-                })}
               </div>
             </div>
 
