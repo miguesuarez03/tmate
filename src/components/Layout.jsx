@@ -1,5 +1,12 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import {
+  IconExplorar,
+  IconCityMatch,
+  IconComparar,
+  IconBeca,
+  IconLearningAgreement,
+} from "./icons";
 
 export function Logo({ dark = false, onClick }) {
   return (
@@ -15,18 +22,21 @@ export function Logo({ dark = false, onClick }) {
 const MENU_ITEMS = [
   {
     icon: "🗺️",
+    Icon: IconExplorar,
     label: "Explorar destinos",
     desc: "Todas las ciudades Erasmus con scores y guías",
     action: "explore",
   },
   {
     icon: "🧭",
+    Icon: IconCityMatch,
     label: "City Match",
     desc: "Responde 8 preguntas y descubre tu ciudad ideal",
     action: "match",
   },
   {
     icon: "⚖️",
+    Icon: IconComparar,
     label: "Comparativa de destinos",
     desc: "Compara tus ciudades favoritas lado a lado",
     action: "compare",
@@ -39,12 +49,14 @@ const MENU_ITEMS = [
   },
   {
     icon: "💶",
+    Icon: IconBeca,
     label: "Beca Erasmus+",
     desc: "Cuánto cobras, complementos y calculadora de ayudas",
     action: "beca",
   },
   {
     icon: "📝",
+    Icon: IconLearningAgreement,
     label: "Tu Learning Agreement",
     desc: "Cómo preparar el contrato académico y conseguir las convalidaciones",
     action: "la",
@@ -107,7 +119,9 @@ function NavMenuDrawer({ menuOpen, setMenuOpen }) {
               className="nav-drawer__item"
               onClick={() => handleMenuAction(item.action)}
             >
-              <span className="nav-drawer__item-icon">{item.icon}</span>
+              <span className={`nav-drawer__item-icon${item.Icon ? " nav-drawer__item-icon--illustrated" : ""}`}>
+                {item.Icon ? <item.Icon size={36} /> : item.icon}
+              </span>
               <div className="nav-drawer__item-text">
                 <span className="nav-drawer__item-label">{item.label}</span>
                 <span className="nav-drawer__item-desc">{item.desc}</span>

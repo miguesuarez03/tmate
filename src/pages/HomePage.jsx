@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { CITIES } from "../data/cities";
 import { getScoreMap, getOverallScore } from "../lib/cities";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
+import { IconCityMatch, IconComparar, IconBeca } from "../components/icons";
 import SearchBar from "../components/SearchBar";
 import CityCard from "../components/CityCard";
 import { useCityFilter } from "../hooks/useCityFilter";
@@ -37,19 +38,19 @@ const TRENDING = ["Bolonia", "Lisboa", "Berlín", "Praga", "Viena"];
 // más habitual de un estudiante que llega por primera vez.
 const QUICK_ACCESS = [
   {
-    icon: "🧭",
+    Icon: IconCityMatch,
     title: "Encontrar tu ciudad",
     desc: "Compara datos reales y descubre tu destino ideal",
     action: "explore",
   },
   {
-    icon: "⚖️",
+    Icon: IconComparar,
     title: "Comparar ciudades",
     desc: "Pon dos o más destinos lado a lado",
     action: "compare",
   },
   {
-    icon: "💶",
+    Icon: IconBeca,
     title: "Calcular tu beca",
     desc: "Cuánto vas a cobrar y cuánto necesitas para vivir",
     action: "beca",
@@ -80,7 +81,9 @@ function QuickAccessSection() {
             className="quick-access__card"
             onClick={() => handleClick(item.action)}
           >
-            <span className="quick-access__icon">{item.icon}</span>
+            <span className="quick-access__icon quick-access__icon--illustrated">
+              <item.Icon size={56} />
+            </span>
             <span className="quick-access__title">{item.title}</span>
             <span className="quick-access__desc">{item.desc}</span>
             <span className="quick-access__arrow">→</span>

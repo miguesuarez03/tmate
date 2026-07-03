@@ -1,0 +1,12 @@
+export { default as IconCityMatch } from "./IconCityMatch";
+export { default as IconExplorar } from "./IconExplorar";
+export { default as IconComparar } from "./IconComparar";
+export { default as IconBeca } from "./IconBeca";
+export { default as IconLearningAgreement } from "./IconLearningAgreement";
+export { default as IconComunidad } from "./IconComunidad";
+export { default as IconSeguridad } from "./IconSeguridad";
+export { default as IconUniversidad } from "./IconUniversidad";
+export { default as IconViajes } from "./IconViajes";
+export { default as IconComida } from "./IconComida";
+export { default as IconIdiomas } from "./IconIdiomas";
+export { default as IconAmigos } from "./IconAmigos";
