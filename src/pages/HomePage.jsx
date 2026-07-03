@@ -431,7 +431,7 @@ function RankingsSection() {
         score: active === "overall" ? getOverallScore(city.slug) : (getScoreMap(city.slug)[active]?.score ?? 0),
       }))
       .sort((a, b) => b.score - a.score)
-      .slice(0, 6);
+      .slice(0, 5);
   }, [active]);
 
   return (

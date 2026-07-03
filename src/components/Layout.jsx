@@ -6,6 +6,8 @@ import {
   IconComparar,
   IconBeca,
   IconLearningAgreement,
+  IconProceso,
+  IconExperiencia,
 } from "./icons";
 
 export function Logo({ dark = false, onClick }) {
@@ -43,6 +45,7 @@ const MENU_ITEMS = [
   },
   {
     icon: "❓",
+    Icon: IconProceso,
     label: "¿Cómo funciona el Erasmus?",
     desc: "Todo el proceso explicado sin rodeos, paso a paso",
     action: "steps",
@@ -63,6 +66,7 @@ const MENU_ITEMS = [
   },
   {
     icon: "⭐",
+    Icon: IconExperiencia,
     label: "Cuéntanos tu experiencia",
     desc: "Comparte tu Erasmus y ayuda a otros estudiantes",
     action: "share",

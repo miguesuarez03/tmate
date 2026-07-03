@@ -37,9 +37,16 @@ export function useCityFilter({ initialRegion = 'Todos', initialSort = 'name' } 
     }, { replace: true });
   }, [setSearchParams]);
 
+  // `region` en la URL también se usa para las vibes (fiesta/cultura/barato),
+  // que no son regiones geográficas reales. Si el valor no es una región
+  // válida, no lo pasamos a filterCities (equivale a "Todos"): así el filtro
+  // de vibe, que se aplica después en HomePage, recibe el listado completo
+  // de ciudades en vez de un array vacío.
+  const geoRegion = regions.includes(region) ? region : 'Todos';
+
   const cities = useMemo(
-    () => filterCities({ region, query, experiences: experiences.length ? experiences : undefined }, sortKey),
-    [region, query, sortKey, experiences]
+    () => filterCities({ region: geoRegion, query, experiences: experiences.length ? experiences : undefined }, sortKey),
+    [geoRegion, query, sortKey, experiences]
   );
 
   const resetFilters = useCallback(() => {

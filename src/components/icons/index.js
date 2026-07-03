@@ -10,3 +10,5 @@ export { default as IconViajes } from "./IconViajes";
 export { default as IconComida } from "./IconComida";
 export { default as IconIdiomas } from "./IconIdiomas";
 export { default as IconAmigos } from "./IconAmigos";
+export { default as IconProceso } from "./IconProceso";
+export { default as IconExperiencia } from "./IconExperiencia";
