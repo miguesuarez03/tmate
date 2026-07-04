@@ -2602,7 +2602,9 @@ a { text-decoration: none; color: inherit; }
   font-size: 13px; font-weight: 600; border: 1.5px solid var(--color-border);
   background: transparent; color: var(--color-slate-light);
   transition: all var(--transition-fast); min-height: 40px;
+  display: inline-flex; align-items: center; gap: 6px;
 }
+.rankings-tab__icon { flex-shrink: 0; }
 .rankings-tab:hover { border-color: var(--color-teal); color: var(--color-teal); }
 .rankings-tab--active { background: #0F172A; border-color: #14B8A6; color: #fff; font-weight: 700; }
 

@@ -12,3 +12,4 @@ export { default as IconIdiomas } from "./IconIdiomas";
 export { default as IconAmigos } from "./IconAmigos";
 export { default as IconProceso } from "./IconProceso";
 export { default as IconExperiencia } from "./IconExperiencia";
+export { default as IconRanking } from "./IconRanking";

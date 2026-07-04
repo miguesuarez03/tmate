@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { CITIES } from "../data/cities";
 import { getScoreMap, getOverallScore } from "../lib/cities";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
-import { IconCityMatch, IconComparar, IconBeca } from "../components/icons";
+import { IconCityMatch, IconComparar, IconBeca, IconRanking, IconComunidad, IconSeguridad, IconUniversidad } from "../components/icons";
 import SearchBar from "../components/SearchBar";
 import CityCard from "../components/CityCard";
 import { useCityFilter } from "../hooks/useCityFilter";
@@ -413,11 +413,11 @@ function AllTestimonialsModal({ onClose, onSelect }) {
 // en cada ficha de ciudad y en el comparador. No se inventa ningún dato
 // nuevo para esta sección, solo se reordena lo que ya existe.
 const RANKING_CATEGORIES = [
-  { id: "overall", label: "General", icon: "🏆" },
-  { id: "coste", label: "Más económicas", icon: "💶" },
-  { id: "vida_social", label: "Vida social", icon: "🎉" },
-  { id: "seguridad", label: "Seguridad", icon: "🛡️" },
-  { id: "empleo", label: "Salidas profesionales", icon: "🎓" },
+  { id: "overall", label: "General", Icon: IconRanking },
+  { id: "coste", label: "Más económicas", Icon: IconBeca },
+  { id: "vida_social", label: "Vida social", Icon: IconComunidad },
+  { id: "seguridad", label: "Seguridad", Icon: IconSeguridad },
+  { id: "empleo", label: "Salidas profesionales", Icon: IconUniversidad },
 ];
 
 function RankingsSection() {
@@ -453,7 +453,7 @@ function RankingsSection() {
               className={`rankings-tab${active === c.id ? " rankings-tab--active" : ""}`}
               onClick={() => setActive(c.id)}
             >
-              {c.icon} {c.label}
+              <c.Icon size={20} className="rankings-tab__icon" /> {c.label}
             </button>
           ))}
         </div>

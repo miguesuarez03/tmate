@@ -41,12 +41,12 @@ style={{ mixBlendMode: "soft-light" }} transform="rotate(-35 48 46)"/>
 </g>
 <circle cx="64" cy="64" r="46" fill="none" stroke="#0D5C6E" strokeOpacity="0.4" strokeWidth="2"/>
 <circle cx="64" cy="64" r="34" fill="none" stroke="#FFFFFF" strokeOpacity="0.55" strokeWidth="1.4"/>
-<circle cx="64" cy="21.5" r="3.2" fill="#FBBF24"/>
+<circle cx="64" cy="21.5" r="3.2" fill="#DC2626"/>
 <circle cx="64" cy="106.5" r="3.2" fill="#FFFFFF" opacity="0.85"/>
 <circle cx="21.5" cy="64" r="3.2" fill="#10B981"/>
 <circle cx="106.5" cy="64" r="3.2" fill="#10B981"/>
-<path d="M64 34 L72 64 L64 70 L56 64 Z" fill="#FBBF24"/>
-<path d="M64 34 L72 64 L64 70 Z" fill="#F59E0B" opacity="0.6"/>
+<path d="M64 34 L72 64 L64 70 L56 64 Z" fill="#DC2626"/>
+<path d="M64 34 L72 64 L64 70 Z" fill="#B91C1C" opacity="0.6"/>
 <path d="M64 94 L56 64 L64 58 L72 64 Z" fill="#E2E8F0"/>
 <path d="M64 94 L56 64 L64 58 Z" fill="#CBD5E1" opacity="0.55"/>
 <circle cx="64" cy="64" r="6.5" fill="#0C2340"/>

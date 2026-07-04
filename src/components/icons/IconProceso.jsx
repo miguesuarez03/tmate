@@ -23,7 +23,7 @@ export default function IconProceso({ size = 56, className = "", ...rest }) {
 <feDropShadow dx="0" dy="4" stdDeviation="3.2" floodColor="#0F172A" floodOpacity="0.20"/>
 </filter>
 <linearGradient id={`qg-${uid}`} x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stopColor="#0EA5E9"/><stop offset="100%" stopColor="#06B6D4"/>
+<stop offset="0%" stopColor="#EF4444"/><stop offset="100%" stopColor="#DC2626"/>
 </linearGradient>
 <linearGradient id={`qs-${uid}`} x1="0" y1="0" x2="1" y2="1">
 <stop offset="0%" stopColor="#0C2340" stopOpacity="0"/>
