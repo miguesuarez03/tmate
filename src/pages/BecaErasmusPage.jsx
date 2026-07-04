@@ -254,10 +254,17 @@ function Calculator() {
   const travelRow = TRAVEL_AID.find(r => r.range === distanceRange) || TRAVEL_AID[2];
   const travelBonus = eco ? travelRow.eco : travelRow.standard;
 
+  // Días de viaje: apoyo individual adicional para cubrir los días de
+  // desplazamiento (ida y vuelta), fuera de los meses de estancia.
+  // No ecológico: hasta 2 días · Ecológico: hasta 6 días.
+  // Se calcula dividiendo la ayuda mensual base entre 30 días.
+  const travelDays = eco ? 6 : 2;
+  const travelDaysAmount = baseRate !== null ? Math.round((baseRate / 30) * travelDays) : 0;
+
   const mecEstimate = mec ? 600 : 0;
   const autEstimate = aut ? autAmount * months : 0;
 
-  const total = erasmusTotal !== null ? erasmusTotal + travelBonus + mecEstimate + autEstimate : null;
+  const total = erasmusTotal !== null ? erasmusTotal + travelBonus + travelDaysAmount + mecEstimate + autEstimate : null;
 
   // ── Coste de vida y aportación del estudiante ──────────────────────────
   // El total (rango) de costDetail es el dato investigado y ya usado en
@@ -386,6 +393,9 @@ function Calculator() {
               <input type="checkbox" checked={eco} onChange={(e) => setEco(e.target.checked)} />
               <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><IconHoja size={18} /> Viaje ecológico (tren/bus/coche compartido) — importes más altos</span>
             </label>
+            <p className="beca-distance-calc__hint" style={{ marginTop: 4 }}>
+              El viaje ecológico también da derecho a más días de "apoyo individual" adicional para cubrir el trayecto (6 días en vez de 2).
+            </p>
           </div>
 
           <div className="beca-calc__field">
@@ -446,6 +456,10 @@ function Calculator() {
                 <div className="beca-calc__result-group">
                   <span className="beca-calc__result-label">Ayuda de viaje ({distanceRange}){eco ? " 🌿" : ""}</span>
                   <span className="beca-calc__result-val"><strong>+{travelBonus}€</strong> (pago único)</span>
+                </div>
+                <div className="beca-calc__result-group">
+                  <span className="beca-calc__result-label">Días de viaje ({travelDays} días, ida y vuelta){eco ? " 🌿" : ""}</span>
+                  <span className="beca-calc__result-val"><strong>+{travelDaysAmount}€</strong> (pago único)</span>
                 </div>
                 {mec && (
                   <div className="beca-calc__result-group">
@@ -723,6 +737,9 @@ export default function BecaErasmusPage() {
               </p>
               <p className="beca-extra-card__desc">
                 Si viajas en <strong>tren, autobús o coche compartido</strong> (Green Travel), los importes son más altos. No necesitas aportar facturas.
+              </p>
+              <p className="beca-extra-card__desc">
+                Además, tienes derecho a <strong>días de viaje pagados</strong>: hasta 2 días extra de ayuda individual (o hasta 6 si viajas de forma ecológica) para cubrir la comida y estancia durante el trayecto de ida y vuelta.
               </p>
             </div>
           </div>
