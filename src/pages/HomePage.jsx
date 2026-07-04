@@ -829,7 +829,7 @@ export default function HomePage() {
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             {hasActiveFilters && (
-              <button onClick={() => { resetFilters(); setShowAll(false); }}
+              <button onClick={resetFilters}
                 style={{ fontSize: 12, color: "var(--color-muted)", textDecoration: "underline", background: "none", border: "none", cursor: "pointer" }}>
                 Limpiar filtros
               </button>
@@ -842,7 +842,7 @@ export default function HomePage() {
             <button
               key={f.key}
               className={`filter-pill${(region || 'Todos') === f.key ? " filter-pill--active" : ""}`}
-              onClick={() => { setRegion((region || 'Todos') === f.key ? null : f.key); setShowAll(false); }}
+              onClick={() => setRegion((region || 'Todos') === f.key ? null : f.key)}
             >
               <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><f.Icon size={18} /> {f.label}</span>
             </button>

@@ -33,6 +33,14 @@ export function useCityFilter({ initialRegion = 'Todos', initialSort = 'name' } 
       } else {
         params.set('region', next);
       }
+      // Importante: esto va en la MISMA llamada a setSearchParams que el
+      // cambio de región (no en un setSearchParams aparte desde HomePage).
+      // React Router calcula cada `setSearchParams` a partir de la URL
+      // previa al clic; si HomePage hiciera un segundo setSearchParams
+      // justo después (p.ej. para resetear "ver"), ese segundo lo haría
+      // desde un snapshot desactualizado y pisaría por completo este
+      // cambio de región, dejando el filtro visualmente sin efecto.
+      params.delete('ver');
       return params;
     }, { replace: true });
   }, [setSearchParams]);
