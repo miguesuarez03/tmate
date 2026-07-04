@@ -43,3 +43,5 @@ export { default as IconGrafica } from "./IconGrafica";
 export { default as IconCorona } from "./IconCorona";
 export { default as IconMedalla } from "./IconMedalla";
 export { default as IconBici } from "./IconBici";
+export { default as IconTransporte } from "./IconTransporte";
+export { default as IconClima } from "./IconClima";
