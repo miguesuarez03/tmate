@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IconGrafica, IconReloj } from "./icons";
 
 // Actualiza esto cuando revises o refresques los datos de las ciudades.
 export const DATA_LAST_REVIEWED = "enero de 2026";
@@ -15,7 +16,7 @@ export default function MethodologyNote({ compact = false }) {
   return (
     <div className={`trust-note${compact ? " trust-note--compact" : ""}`}>
       <button type="button" className="trust-note__toggle" onClick={() => setOpen((o) => !o)}>
-        <span>📊 Cómo calculamos estos datos</span>
+        <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}><IconGrafica size={20} /> Cómo calculamos estos datos</span>
         <span className="trust-note__arrow">{open ? "▲" : "▼"}</span>
       </button>
       {open && (
@@ -25,8 +26,8 @@ export default function MethodologyNote({ compact = false }) {
             <li>Los importes de la beca Erasmus+ y la ayuda de viaje se basan en las tarifas oficiales <strong>SEPIE / Comisión Europea 2024–2025</strong>.</li>
             <li>Las distancias entre ciudades se calculan con coordenadas reales y geocodificación (OpenStreetMap / Nominatim).</li>
           </ul>
-          <p className="trust-note__updated">
-            🕓 Contenido revisado en <strong>{DATA_LAST_REVIEWED}</strong>. Los precios y condiciones reales pueden variar según convocatoria — confírmalos siempre con tu universidad.
+          <p className="trust-note__updated" style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
+            <IconReloj size={16} /> Contenido revisado en <strong>{DATA_LAST_REVIEWED}</strong>. Los precios y condiciones reales pueden variar según convocatoria — confírmalos siempre con tu universidad.
           </p>
           <p className="trust-note__feedback">
             ¿Ves algo desactualizado o que no cuadra?{" "}

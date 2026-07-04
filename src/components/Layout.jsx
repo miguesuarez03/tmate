@@ -13,7 +13,13 @@ import {
 export function Logo({ dark = false, onClick }) {
   return (
     <div className="navbar__logo" onClick={onClick} role="button" tabIndex={0} aria-label="Ir al inicio">
-      <div className="navbar__logo-icon">🌍</div>
+      <div className="navbar__logo-icon">
+        <svg viewBox="0 0 24 24" width="18" height="18" role="img" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" fill="none" stroke="#FFFFFF" strokeWidth="1.8"/>
+          <ellipse cx="12" cy="12" rx="3.6" ry="9" fill="none" stroke="#FFFFFF" strokeWidth="1.4" opacity="0.85"/>
+          <line x1="3" y1="12" x2="21" y2="12" stroke="#FFFFFF" strokeWidth="1.4" opacity="0.85"/>
+        </svg>
+      </div>
       <span className="navbar__logo-text" style={{ color: dark ? "var(--color-dark)" : "#fff" }}>
         TMate
       </span>
@@ -23,49 +29,42 @@ export function Logo({ dark = false, onClick }) {
 
 const MENU_ITEMS = [
   {
-    icon: "🗺️",
     Icon: IconExplorar,
     label: "Explorar destinos",
     desc: "Todas las ciudades Erasmus con scores y guías",
     action: "explore",
   },
   {
-    icon: "🧭",
     Icon: IconCityMatch,
     label: "City Match",
     desc: "Responde 8 preguntas y descubre tu ciudad ideal",
     action: "match",
   },
   {
-    icon: "⚖️",
     Icon: IconComparar,
     label: "Comparativa de destinos",
     desc: "Compara tus ciudades favoritas lado a lado",
     action: "compare",
   },
   {
-    icon: "❓",
     Icon: IconProceso,
     label: "¿Cómo funciona el Erasmus?",
     desc: "Todo el proceso explicado sin rodeos, paso a paso",
     action: "steps",
   },
   {
-    icon: "💶",
     Icon: IconBeca,
     label: "Beca Erasmus+",
     desc: "Cuánto cobras, complementos y calculadora de ayudas",
     action: "beca",
   },
   {
-    icon: "📝",
     Icon: IconLearningAgreement,
     label: "Tu Learning Agreement",
     desc: "Cómo preparar el contrato académico y conseguir las convalidaciones",
     action: "la",
   },
   {
-    icon: "⭐",
     Icon: IconExperiencia,
     label: "Cuéntanos tu experiencia",
     desc: "Comparte tu Erasmus y ayuda a otros estudiantes",

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
+import { IconLupa, IconClipboard, IconSobre, IconCheck, IconEdificio, IconMaleta, IconFiesta, IconCasa, IconBombilla, IconLearningAgreement } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
 
 /* ─── DATA ──────────────────────────────────────────────────────────────── */
@@ -8,7 +9,7 @@ import { useSEO } from "../hooks/useSEO";
 const STEPS = [
   {
     num: "01",
-    emoji: "🔍",
+    Icon: IconLupa,
     title: "Elige tu destino",
     color: "#0EA5E9",
     tag: "Preparación",
@@ -38,7 +39,7 @@ Visita cuanto antes la ORI de tu facultad: tienen el listado de universidades co
   },
   {
     num: "02",
-    emoji: "📋",
+    Icon: IconClipboard,
     title: "Solicita en tu universidad",
     color: "#14B8A6",
     tag: "Solicitud",
@@ -64,7 +65,7 @@ Después toca esperar: la resolución suele tardar entre 2 y 6 semanas.`,
   },
   {
     num: "03",
-    emoji: "✉️",
+    Icon: IconSobre,
     title: "Resolución: aceptado o lista de espera",
     color: "#8B5CF6",
     tag: "Resolución",
@@ -84,7 +85,7 @@ Lo importante: mantén contacto con tu ORI y responde rápido si te ofrecen plaz
   },
   {
     num: "04",
-    emoji: "✅",
+    Icon: IconCheck,
     title: "Acepta la plaza formalmente",
     color: "#F59E0B",
     tag: "Aceptación",
@@ -106,7 +107,7 @@ Si aún no has buscado piso ni vuelos, hazlo ahora sin falta.`,
   },
   {
     num: "05",
-    emoji: "🏛️",
+    Icon: IconEdificio,
     title: "La universidad de destino te contacta",
     color: "#EC4899",
     tag: "Nominación",
@@ -128,7 +129,7 @@ Crea la cuenta cuanto antes y sube la documentación sin esperar al último día
   },
   {
     num: "06",
-    emoji: "🧳",
+    Icon: IconMaleta,
     title: "Prepara la partida",
     color: "#10B981",
     tag: "Pre-partida",
@@ -155,7 +156,7 @@ Crea la cuenta cuanto antes y sube la documentación sin esperar al último día
   },
   {
     num: "07",
-    emoji: "🎉",
+    Icon: IconFiesta,
     title: "Llegada y primeros días",
     color: "#F97316",
     tag: "Llegada",
@@ -177,7 +178,7 @@ Crea la cuenta cuanto antes y sube la documentación sin esperar al último día
   },
   {
     num: "08",
-    emoji: "🏠",
+    Icon: IconCasa,
     title: "Vuelta y cierre",
     color: "#6366F1",
     tag: "Fin de estancia",
@@ -228,7 +229,7 @@ function StepCard({ step, isActive, onClick }) {
       style={{ "--step-color": step.color }}
     >
       <span className="proceso-step-pill__num">{step.num}</span>
-      <span className="proceso-step-pill__emoji">{step.emoji}</span>
+      <span className="proceso-step-pill__emoji"><step.Icon size={24} /></span>
       <span className="proceso-step-pill__label">{step.tag}</span>
     </button>
   );
@@ -248,7 +249,7 @@ function StepDetail({ step }) {
       </div>
 
       <h2 className="proceso-detail__title">
-        <span style={{ marginRight: 12 }}>{step.emoji}</span>
+        <span style={{ marginRight: 12, display: "inline-flex", verticalAlign: "middle" }}><step.Icon size={36} /></span>
         {step.title}
       </h2>
 
@@ -277,7 +278,7 @@ function StepDetail({ step }) {
       {/* Note box */}
       {step.note && (
         <div className="proceso-note">
-          <span style={{ fontSize: 20 }}>💡</span>
+          <span style={{ display: "inline-flex" }}><IconBombilla size={28} /></span>
           <p>{step.note}</p>
         </div>
       )}
@@ -292,7 +293,7 @@ function StepDetail({ step }) {
       {/* LA link tip */}
       {step.laLink && (
         <div className="proceso-la-callout">
-          <div className="proceso-la-callout__icon">📝</div>
+          <div className="proceso-la-callout__icon"><IconLearningAgreement size={32} /></div>
           <div className="proceso-la-callout__body">
             <p className="proceso-la-callout__text">
               En esta fase arranca el <strong>Learning Agreement</strong> — el contrato académico más importante de todo el proceso. Define qué asignaturas cursarás y cómo se convalidarán.
@@ -378,7 +379,7 @@ function MobileStories({ steps, navigate }) {
         </div>
 
         <h2 className="proceso-stories__title">
-          <span style={{ marginRight: 8 }}>{step.emoji}</span>
+          <span style={{ marginRight: 8, display: "inline-flex", verticalAlign: "middle" }}><step.Icon size={30} /></span>
           {step.title}
         </h2>
 

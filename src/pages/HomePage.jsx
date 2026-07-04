@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { CITIES } from "../data/cities";
 import { getScoreMap, getOverallScore } from "../lib/cities";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
-import { IconCityMatch, IconComparar, IconBeca, IconRanking, IconComunidad, IconSeguridad, IconUniversidad } from "../components/icons";
+import { IconCityMatch, IconComparar, IconBeca, IconRanking, IconComunidad, IconSeguridad, IconUniversidad, IconMedalla, IconCamara, IconEdificio, IconFiesta, IconLapiz } from "../components/icons";
 import SearchBar from "../components/SearchBar";
 import CityCard from "../components/CityCard";
 import { useCityFilter } from "../hooks/useCityFilter";
@@ -185,9 +185,9 @@ function AnimatedWord() {
 }
 
 const VIBE_FILTERS = [
-  { key: "fiesta",  label: "Fiesta",   icon: "🎉", tags: ["Ciudad universitaria", "Ruin bars", "Oktoberfest", "Arte & Libertad", "Trending 🔥"] },
-  { key: "cultura", label: "Cultura",  icon: "🏛️", tags: ["Historia viva", "Joya medieval", "Capital diplomática", "Arquitectura radical", "La ciudad luz", "Capital global", "Capital de Europa", "Fotogénica", "Calidad de vida #1"] },
-  { key: "barato",  label: "Barato",   icon: "💸", tags: ["La más barata", "Pueblo & Naturaleza", "Gema oculta"] },
+  { key: "fiesta",  label: "Fiesta",   Icon: IconFiesta, tags: ["Ciudad universitaria", "Ruin bars", "Oktoberfest", "Arte & Libertad", "Trending 🔥"] },
+  { key: "cultura", label: "Cultura",  Icon: IconEdificio, tags: ["Historia viva", "Joya medieval", "Capital diplomática", "Arquitectura radical", "La ciudad luz", "Capital global", "Capital de Europa", "Fotogénica", "Calidad de vida #1"] },
+  { key: "barato",  label: "Barato",   Icon: IconBeca, tags: ["La más barata", "Pueblo & Naturaleza", "Gema oculta"] },
 ];
 
 const CITY_PILLS = [
@@ -466,7 +466,9 @@ function RankingsSection() {
               className="rankings-row"
               onClick={() => navigate(`/city/${r.city.slug}`)}
             >
-              <span className="rankings-row__pos">{i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : `#${i + 1}`}</span>
+              <span className="rankings-row__pos">
+                {i < 3 ? <IconMedalla size={26} tone={i === 0 ? "gold" : i === 1 ? "silver" : "bronze"} /> : `#${i + 1}`}
+              </span>
               <span className="rankings-row__city">{r.city.emoji} {r.city.name}<span className="rankings-row__country">{r.city.country}</span></span>
               <div className="rankings-row__bar">
                 <div className="rankings-row__bar-fill" style={{ width: `${(r.score / 10) * 100}%` }} />
@@ -593,7 +595,7 @@ function CommunitySection() {
 
       {/* CTA para compartir experiencia (abre modal) */}
       <div className="exp-prompt">
-        <span className="exp-prompt__icon">✍️</span>
+        <span className="exp-prompt__icon"><IconLapiz size={36} /></span>
         <div className="exp-prompt__text">
           <h3 className="exp-prompt__title">¿Ya hiciste tu Erasmus?</h3>
           <p className="exp-prompt__desc">Cuéntanos tu experiencia y ayuda a miles de estudiantes a decidir.</p>
@@ -617,7 +619,7 @@ function CommunitySection() {
             </button>
 
             <div className="exp-form-header">
-              <span style={{ fontSize: 36 }}>✍️</span>
+              <span style={{ display: "inline-flex" }}><IconLapiz size={36} /></span>
               <div>
                 <h3 className="exp-form-title">Cuéntanos tu experiencia</h3>
                 <p className="exp-form-subtitle">Tu historia y tus fotos pueden ayudar a miles de estudiantes.</p>
@@ -626,7 +628,7 @@ function CommunitySection() {
 
             {submitted ? (
               <div className="exp-form-success">
-                <span style={{ fontSize: 40 }}>🎉</span>
+                <span style={{ display: "inline-flex" }}><IconFiesta size={44} /></span>
                 <p style={{ fontWeight: 700, fontSize: 18, color: "var(--color-dark)" }}>¡Gracias por compartir!</p>
                 <p style={{ color: "var(--color-slate-light)", fontSize: 14 }}>Tu experiencia estará disponible pronto en la comunidad.</p>
               </div>
@@ -687,7 +689,7 @@ function CommunitySection() {
                       <img src={photoPreview} alt="Preview" className="photo-upload__preview" />
                     ) : (
                       <div className="photo-upload__placeholder">
-                        <span style={{ fontSize: 28 }}>📷</span>
+                        <span style={{ display: "inline-flex" }}><IconCamara size={40} /></span>
                         <span>Haz clic para subir una foto</span>
                         <span className="photo-upload__hint">JPG, PNG — máx. 5MB</span>
                       </div>
@@ -842,7 +844,7 @@ export default function HomePage() {
               className={`filter-pill${(region || 'Todos') === f.key ? " filter-pill--active" : ""}`}
               onClick={() => { setRegion((region || 'Todos') === f.key ? null : f.key); setShowAll(false); }}
             >
-              {f.icon} {f.label}
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><f.Icon size={18} /> {f.label}</span>
             </button>
           ))}
         </div>

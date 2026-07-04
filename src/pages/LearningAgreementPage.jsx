@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
+import { IconUniversidad, IconEdificio, IconGlobo, IconManos, IconAmigos, IconLibros, IconLapiz, IconRobot, IconAlerta, IconSobre, IconCheck, IconCiclo, IconReloj, IconFiesta, IconClipboard } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
 import { CITIES } from "../data/cities";
 import styles from "./LearningAgreementPage.module.css";
@@ -10,7 +11,7 @@ import styles from "./LearningAgreementPage.module.css";
 const FIRMAS = [
   {
     id: "tu",
-    icon: "🎓",
+    Icon: IconUniversidad,
     label: "Tú",
     desc: "El estudiante",
     detail: "Eres la primera firma. Tú propones las asignaturas, justificas las equivalencias y eres responsable de que el documento esté completo y correcto antes de enviarlo.",
@@ -19,7 +20,7 @@ const FIRMAS = [
   },
   {
     id: "origen",
-    icon: "🏫",
+    Icon: IconEdificio,
     label: "Tu universidad",
     desc: "Coordinador de grado",
     detail: "Tu coordinador académico revisa que las asignaturas que propones son equivalentes a las de tu plan de estudios. Puede pedirte cambios o justificaciones adicionales.",
@@ -28,7 +29,7 @@ const FIRMAS = [
   },
   {
     id: "destino",
-    icon: "🌍",
+    Icon: IconGlobo,
     label: "Universidad destino",
     desc: "Coordinador Erasmus",
     detail: "La universidad de destino confirma que las asignaturas que pides están disponibles, tienen plazas y que cumples los requisitos para cursarlas.",
@@ -39,7 +40,7 @@ const FIRMAS = [
 
 const TIPS = [
   {
-    icon: "🏛️",
+    Icon: IconEdificio,
     color: "#0EA5E9",
     title: "Consulta el histórico de tu uni",
     short: "La info más valiosa y la que casi nadie pide",
@@ -47,7 +48,7 @@ const TIPS = [
     tag: "Primero de todo",
   },
   {
-    icon: "👥",
+    Icon: IconAmigos,
     color: "#14B8A6",
     title: "Habla con Erasmus anteriores",
     short: "Primera mano, no encontrarás esto en ningún sitio oficial",
@@ -55,7 +56,7 @@ const TIPS = [
     tag: "Comunidad",
   },
   {
-    icon: "📚",
+    Icon: IconLibros,
     color: "#8B5CF6",
     title: "Cómo elegir las asignaturas",
     short: "No te sobrecarges — también quieres vivir el Erasmus",
@@ -63,7 +64,7 @@ const TIPS = [
     tag: "Estrategia",
   },
   {
-    icon: "🌐",
+    Icon: IconGlobo,
     color: "#F59E0B",
     title: "El OLA — firma todo digital",
     short: "Sin imprimir, sin escanear, todo online desde la UE",
@@ -71,7 +72,7 @@ const TIPS = [
     tag: "Plataforma",
   },
   {
-    icon: "✏️",
+    Icon: IconLapiz,
     color: "#EC4899",
     title: "Cambios durante la estancia",
     short: "El plazo varía mucho según tu universidad — infórmate antes",
@@ -79,7 +80,7 @@ const TIPS = [
     tag: "Cambios",
   },
   {
-    icon: "🤖",
+    Icon: IconRobot,
     color: "#6366F1",
     title: "Usa IA para argumentar equivalencias",
     short: "El truco que más tiempo ahorra en todo el proceso",
@@ -87,7 +88,7 @@ const TIPS = [
     tag: "Herramienta",
   },
   {
-    icon: "⚠️",
+    Icon: IconAlerta,
     color: "#F97316",
     title: "Los horarios los sabrás al llegar (o antes)",
     short: "Una realidad que muy pocos te cuentan antes de firmar",
@@ -95,7 +96,7 @@ const TIPS = [
     tag: "Importante",
   },
   {
-    icon: "📬",
+    Icon: IconSobre,
     color: "#0EA5E9",
     title: "Atentos a los correos de ambas universidades",
     short: "Plazos, documentos, instrucciones — todo llega por email",
@@ -133,7 +134,7 @@ function FirmasDiagram() {
               onClick={() => setActive(firma.id)}
             >
               <span className={styles.firmaBadge}>{i + 1}</span>
-              <span className={styles.firmaIcon}>{firma.icon}</span>
+              <span className={styles.firmaIcon}><firma.Icon size={36} /></span>
               <span className={styles.firmaLabel}>{firma.label}</span>
               <span className={styles.firmaDesc}>{firma.desc}</span>
               <span className={styles.firmaCheck}>✓ Debe firmar</span>
@@ -157,7 +158,7 @@ function FirmasDiagram() {
           >
             <div className={styles.firmaModalHeader}>
               <div className={styles.firmaModalLeft}>
-                <span className={styles.firmaIcon} style={{ fontSize: 28 }}>{activeData.icon}</span>
+                <span className={styles.firmaIcon} style={{ fontSize: 28 }}><activeData.Icon size={40} /></span>
                 <div>
                   <span className={styles.firmaStep} style={{ color: activeData.color }}>{activeData.step}</span>
                   <p className={styles.firmaLabel} style={{ margin: 0 }}>{activeData.label}</p>
@@ -191,7 +192,7 @@ function TipCard({ tip }) {
       <button className={styles.tipHeader} onClick={() => setOpen(v => !v)}>
         <div className={styles.tipHeaderLeft}>
           <span className={styles.tipIcon} style={{ background: tip.color + "18", color: tip.color }}>
-            {tip.icon}
+            <tip.Icon size={32} />
           </span>
           <div className={styles.tipHeaderText}>
             <div className={styles.tipTag} style={{ color: tip.color }}>{tip.tag}</div>
@@ -242,9 +243,9 @@ function Checklist() {
   const color = pct === 100 ? "#10B981" : "#0EA5E9";
 
   const ICONS = {
-    historico: "🏛️", contacto: "👥", asignaturas: "📚",
-    alternativas: "🔄", coordinador: "🤝", ola: "💻",
-    firmado: "✅", correos: "📬", cambios: "⏱️",
+    historico: IconEdificio, contacto: IconAmigos, asignaturas: IconLibros,
+    alternativas: IconCiclo, coordinador: IconManos, ola: IconGlobo,
+    firmado: IconCheck, correos: IconSobre, cambios: IconReloj,
   };
 
   return (
@@ -274,7 +275,9 @@ function Checklist() {
               className={`${styles.checklistPill} ${isDone ? styles.checklistPillDone : ""}`}
               onClick={() => setChecked(v => ({ ...v, [item.id]: !v[item.id] }))}
             >
-              <span className={styles.checklistPillIcon}>{isDone ? "✓" : (ICONS[item.id] || "○")}</span>
+              <span className={styles.checklistPillIcon}>
+                {isDone ? <IconCheck size={20} /> : (ICONS[item.id] ? (() => { const ItemIcon = ICONS[item.id]; return <ItemIcon size={20} />; })() : "○")}
+              </span>
               <span className={styles.checklistPillText}>{item.text}</span>
             </button>
           );
@@ -282,8 +285,8 @@ function Checklist() {
       </div>
 
       {pct === 100 && (
-        <div className={styles.checklistDone}>
-          🎉 ¡Todo listo! Tu Learning Agreement está preparado.
+        <div className={styles.checklistDone} style={{ display: "flex", alignItems: "center", gap: 8, justifyContent: "center" }}>
+          <IconFiesta size={22} /> ¡Todo listo! Tu Learning Agreement está preparado.
         </div>
       )}
     </div>
@@ -293,11 +296,11 @@ function Checklist() {
 const WIZARD_LANGUAGES = ["Inglés", "Alemán", "Francés", "Italiano", "Portugués", "Neerlandés", "Polaco", "Húngaro", "Checo", "Otro"];
 
 const WIZARD_STEPS = [
-  { id: "origen", title: "Tu universidad", emoji: "🏫" },
-  { id: "destino", title: "Universidad de destino", emoji: "🌍" },
-  { id: "asignaturas", title: "Asignaturas a convalidar", emoji: "📚" },
-  { id: "creditos", title: "Créditos e idioma", emoji: "🎓" },
-  { id: "contacto", title: "Tus datos de contacto", emoji: "✉️" },
+  { id: "origen", title: "Tu universidad", Icon: IconEdificio },
+  { id: "destino", title: "Universidad de destino", Icon: IconGlobo },
+  { id: "asignaturas", title: "Asignaturas a convalidar", Icon: IconLibros },
+  { id: "creditos", title: "Créditos e idioma", Icon: IconUniversidad },
+  { id: "contacto", title: "Tus datos de contacto", Icon: IconSobre },
 ];
 
 /* ─── WIZARD LEARNING AGREEMENT ─────────────────────────────────────────── */
@@ -426,7 +429,7 @@ function LAWizard() {
   if (sent) {
     return (
       <div className={styles.wizardDone}>
-        <span className={styles.wizardDoneIcon}>📬</span>
+        <span className={styles.wizardDoneIcon}><IconSobre size={48} /></span>
         <h3 className={styles.wizardDoneTitle}>Se ha abierto tu cliente de correo</h3>
         <p className={styles.wizardDoneText}>
           Revisa que el email se haya generado bien y envíalo. En cuanto lo recibamos, te preparamos una
@@ -437,8 +440,8 @@ function LAWizard() {
           tú mismo a <strong>hola@tmate.app</strong>.
         </p>
         <div className={styles.wizardDoneActions}>
-          <button className={styles.wizardCopyBtn} onClick={handleCopy}>
-            {copied ? "✓ Copiado" : "📋 Copiar texto del email"}
+          <button className={styles.wizardCopyBtn} onClick={handleCopy} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+            {copied ? <><IconCheck size={16} /> Copiado</> : <><IconClipboard size={16} /> Copiar texto del email</>}
           </button>
           <button
             className={styles.wizardRestartBtn}
@@ -467,7 +470,7 @@ function LAWizard() {
 
       <div className={styles.wizardCard}>
         <div className={styles.wizardCardHeader}>
-          <span className={styles.wizardCardEmoji}>{current.emoji}</span>
+          <span className={styles.wizardCardEmoji}><current.Icon size={32} /></span>
           <div>
             <p className={styles.wizardCardStep}>Paso {step + 1} de {total}</p>
             <h3 className={styles.wizardCardTitle}>{current.title}</h3>
@@ -620,8 +623,9 @@ function LAWizard() {
             className={styles.wizardNextBtn}
             onClick={handleNext}
             disabled={!canContinue()}
+            style={{ display: "inline-flex", alignItems: "center", gap: 6, justifyContent: "center" }}
           >
-            {isLast ? "Enviar solicitud 📩" : "Continuar →"}
+            {isLast ? <>Enviar solicitud <IconSobre size={16} /></> : "Continuar →"}
           </button>
         </div>
       </div>
@@ -675,7 +679,7 @@ export default function LearningAgreementPage() {
             </div>
             <div className={styles.heroStatDiv} />
             <div className={styles.heroStat}>
-              <span className={styles.heroStatVal}>⏱️</span>
+              <span className={styles.heroStatVal}><IconReloj size={28} /></span>
               <span className={styles.heroStatLabel}>Plazo de cambios según uni</span>
             </div>
           </div>

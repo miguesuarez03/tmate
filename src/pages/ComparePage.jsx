@@ -4,6 +4,7 @@ import { CITIES } from "../data/cities";
 import { getScoreMap, getOverallScore, parseMinCost } from "../lib/cities";
 import { getComparePhrase } from "../data/comparePhrases";
 import { Navbar, Footer } from "../components/Layout";
+import { IconRanking, IconCorona, IconBeca, IconUniversidad, IconClima, IconIdiomas, IconCheck, IconAlerta, IconComparar, IconLupa } from "../components/icons";
 import MethodologyNote from "../components/MethodologyNote";
 import { useSEO } from "../hooks/useSEO";
 import styles from "./ComparePage.module.css";
@@ -169,7 +170,7 @@ function VersusCard({ categoryMeta, rows, open, onToggle }) {
                   style={{ "--accent": r.color }}>
                   <div className={styles.versusColHead}>
                     <span className={styles.versusColName} style={{ color: r.color }}>{r.city.name}</span>
-                    {isWinner && <span className={styles.versusTrophy}>🏆</span>}
+                    {isWinner && <span className={styles.versusTrophy}><IconRanking size={28} /></span>}
                   </div>
                   <span className={styles.versusColScore} style={isWinner ? { color: r.color } : {}}>
                     {r.score.toFixed(1)}
@@ -367,8 +368,8 @@ export default function ComparePage() {
                         <span className={styles.cityCardCountry}>{city.country}</span>
                       </div>
                       <div className={styles.cityCardBadges}>
-                        {isTop && <span className={`${styles.cityCardTag} ${styles.cityCardTagBest}`}>👑 Mejor puntuación</span>}
-                        {isCheapest && <span className={styles.cityCardTag}>💶 Más económica</span>}
+                        {isTop && <span className={`${styles.cityCardTag} ${styles.cityCardTagBest}`}><IconCorona size={16} /> Mejor puntuación</span>}
+                        {isCheapest && <span className={styles.cityCardTag}><IconBeca size={16} /> Más económica</span>}
                         {bestScoreObj && (
                           <span className={styles.cityCardTag}>
                             {bestScoreObj.icon} Destaca en {bestScoreObj.label}
@@ -380,7 +381,7 @@ export default function ComparePage() {
 
                     {/* Score badge */}
                     <div className={styles.overallBadge} style={{ background: COL_GRADIENTS[i] }}>
-                      {maxIdx === i && <span className={styles.crownIcon}>👑</span>}
+                      {maxIdx === i && <span className={styles.crownIcon}><IconCorona size={20} /></span>}
                       <span className={styles.overallNumber}>{overallScores[i].toFixed(1)}</span>
                       <span className={styles.overallLabel}>/ 10</span>
                       {maxIdx === i && <span className={styles.bestLabel}>Mejor puntuación</span>}
@@ -388,10 +389,10 @@ export default function ComparePage() {
 
                     {/* Quick stats */}
                     <div className={styles.quickStats}>
-                      <div className={styles.stat}><span>💶</span><span>{city.costDetail}</span></div>
-                      <div className={styles.stat}><span>🎓</span><span>{city.erasmusStudents} Erasmus</span></div>
-                      <div className={styles.stat}><span>🌤️</span><span>{city.weather}</span></div>
-                      <div className={styles.stat}><span>🗣️</span><span>{city.language}</span></div>
+                      <div className={styles.stat}><span><IconBeca size={18} /></span><span>{city.costDetail}</span></div>
+                      <div className={styles.stat}><span><IconUniversidad size={18} /></span><span>{city.erasmusStudents} Erasmus</span></div>
+                      <div className={styles.stat}><span><IconClima size={18} /></span><span>{city.weather}</span></div>
+                      <div className={styles.stat}><span><IconIdiomas size={18} /></span><span>{city.language}</span></div>
                     </div>
 
                     <button className={styles.cityLinkBtn} style={{ borderColor: COL_COLORS[i], color: COL_COLORS[i] }}
@@ -413,13 +414,13 @@ export default function ComparePage() {
                     <div key={city.slug} className={styles.prosConsCol} style={{ borderTopColor: COL_COLORS[i] }}>
                       <div className={styles.prosConsHead} style={{ color: COL_COLORS[i] }}>{city.emoji} {city.name}</div>
                       <div className={styles.prosConsBlock}>
-                        <span className={styles.prosConsLabel}>✅ Puntos fuertes</span>
+                        <span className={styles.prosConsLabel} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><IconCheck size={16} /> Puntos fuertes</span>
                         <ul className={styles.prosConsList}>
                           {pros.map((p) => <li key={p.id}>{p.icon} {p.label} — {p.score.toFixed(1)}/10</li>)}
                         </ul>
                       </div>
                       <div className={styles.prosConsBlock}>
-                        <span className={styles.prosConsLabel}>⚠️ A tener en cuenta</span>
+                        <span className={styles.prosConsLabel} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><IconAlerta size={16} /> A tener en cuenta</span>
                         <ul className={styles.prosConsList}>
                           {cons.map((c) => <li key={c.id}>{c.icon} {c.label} — {c.score.toFixed(1)}/10</li>)}
                         </ul>
@@ -537,7 +538,7 @@ export default function ComparePage() {
       <div className={styles.selectorHero}>
         <div className={styles.selectorHeroBg} />
         <div className={styles.selectorHeroContent}>
-          <span className={styles.selectorBadge}>⚖️ Comparativa</span>
+          <span className={styles.selectorBadge} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><IconComparar size={16} /> Comparativa</span>
           <h1 className={styles.selectorTitle}>Comparativa de destinos</h1>
           <p className={styles.selectorSub}>
             Elige 2 o 3 ciudades y compara sus puntuaciones, coste de vida, vibe y mucho más — lado a lado.
@@ -573,7 +574,7 @@ export default function ComparePage() {
 
         {/* Search */}
         <div className={styles.searchWrap}>
-          <span className={styles.searchIcon}>🔍</span>
+          <span className={styles.searchIcon}><IconLupa size={18} /></span>
           <input className={styles.searchInput} type="text"
             placeholder="Busca por ciudad, país o tag…"
             value={search} onChange={(e) => setSearch(e.target.value)} />
@@ -620,7 +621,7 @@ export default function ComparePage() {
 
         {filtered.length === 0 && (
           <div className={styles.empty}>
-            <span>🔍</span>
+            <span><IconLupa size={40} /></span>
             <p>No hay ciudades que coincidan con "{search}"</p>
             <button onClick={() => setSearch("")}>Ver todas</button>
           </div>
