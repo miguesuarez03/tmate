@@ -2,19 +2,20 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./HeroSection.module.css";
 import { getCityWhatsappGroup } from "../../data/cityWhatsappGroups";
+import { IconUniversidad, IconFiesta, IconBeca, IconSol, IconBici, IconSeguridad, IconComida, IconArte, IconLaptop, IconPlaya, IconFuego } from "../icons";
 
 // ─── MOOD TAGS CONFIG ─────────────────────────────────────────────────────────
 const MOOD_ICONS = {
-  erasmus: { icon: "🌍", label: "Top Erasmus" },
-  fiesta:  { icon: "🎉", label: "Gran vida social" },
-  barato:  { icon: "💸", label: "Asequible" },
-  sol:     { icon: "☀️", label: "Mucho sol" },
-  bici:    { icon: "🚲", label: "Ciclable" },
-  seguro:  { icon: "🛡️", label: "Segura" },
-  foodie:  { icon: "🍝", label: "Gastronómica" },
-  arte:    { icon: "🎨", label: "Cultural" },
-  tech:    { icon: "💻", label: "Tech & startups" },
-  playa:   { icon: "🏖️", label: "Cerca del mar" },
+  erasmus: { Icon: IconUniversidad, label: "Top Erasmus" },
+  fiesta:  { Icon: IconFiesta, label: "Gran vida social" },
+  barato:  { Icon: IconBeca, label: "Asequible" },
+  sol:     { Icon: IconSol, label: "Mucho sol" },
+  bici:    { Icon: IconBici, label: "Ciclable" },
+  seguro:  { Icon: IconSeguridad, label: "Segura" },
+  foodie:  { Icon: IconComida, label: "Gastronómica" },
+  arte:    { Icon: IconArte, label: "Cultural" },
+  tech:    { Icon: IconLaptop, label: "Tech & startups" },
+  playa:   { Icon: IconPlaya, label: "Cerca del mar" },
 };
 
 function getMoodTags(city) {
@@ -121,7 +122,7 @@ export default function HeroSection({ city, overallScore, insights }) {
           <div className={styles.heroMoodTags}>
             {moodTags.map((tag, i) => (
               <span key={i} className={styles.heroMoodTag}>
-                <span>{tag.icon}</span>
+                <span style={{ display: "inline-flex" }}><tag.Icon size={18} /></span>
                 <span>{tag.label}</span>
               </span>
             ))}
@@ -197,7 +198,9 @@ export default function HeroSection({ city, overallScore, insights }) {
           <div className={styles.heroCardTop}>
             <div>
               <p className={styles.heroCardCity}>{city.name}</p>
-              <p className={styles.heroCardTag}>{city.tag}</p>
+              <p className={styles.heroCardTag} style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                {city.tag === "Trending" && <IconFuego size={14} />} {city.tag}
+              </p>
             </div>
             <span className={styles.heroCardFlag}>{city.emoji}</span>
           </div>
@@ -206,7 +209,7 @@ export default function HeroSection({ city, overallScore, insights }) {
 
           <div className={styles.heroStats}>
             <div className={styles.heroStat}>
-              <span className={styles.heroStatIcon}>💶</span>
+              <span className={styles.heroStatIcon}><IconBeca size={22} /></span>
               <div>
                 <p className={styles.heroStatVal}>{city.costDetail}</p>
                 <p className={styles.heroStatKey}>presupuesto/mes</p>
@@ -214,7 +217,7 @@ export default function HeroSection({ city, overallScore, insights }) {
             </div>
             <div className={styles.heroStatDiv} />
             <div className={styles.heroStat}>
-              <span className={styles.heroStatIcon}>🌍</span>
+              <span className={styles.heroStatIcon}><IconUniversidad size={22} /></span>
               <div>
                 <p className={styles.heroStatVal}>{city.erasmusStudents}</p>
                 <p className={styles.heroStatKey}>estudiantes Erasmus/año</p>

@@ -185,7 +185,7 @@ function AnimatedWord() {
 }
 
 const VIBE_FILTERS = [
-  { key: "fiesta",  label: "Fiesta",   Icon: IconFiesta, tags: ["Ciudad universitaria", "Ruin bars", "Oktoberfest", "Arte & Libertad", "Trending 🔥"] },
+  { key: "fiesta",  label: "Fiesta",   Icon: IconFiesta, tags: ["Ciudad universitaria", "Ruin bars", "Oktoberfest", "Arte & Libertad", "Trending"] },
   { key: "cultura", label: "Cultura",  Icon: IconEdificio, tags: ["Historia viva", "Joya medieval", "Capital diplomática", "Arquitectura radical", "La ciudad luz", "Capital global", "Capital de Europa", "Fotogénica", "Calidad de vida #1"] },
   { key: "barato",  label: "Barato",   Icon: IconBeca, tags: ["La más barata", "Pueblo & Naturaleza", "Gema oculta"] },
 ];

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./RelatedCities.module.css";
+import { IconComparar } from "../icons";
 
 function scoreColor(s) {
   if (s >= 8.5) return "#22C55E";
@@ -46,7 +47,7 @@ export default function RelatedCities({ relatedCities = [], currentCity }) {
       <div className={styles.conv}>
         <div className={styles.convInner}>
           <div className={styles.convLeft}>
-            <span className={styles.convEmoji}>🌍</span>
+            <span className={styles.convEmoji}><IconComparar size={32} /></span>
             <div>
               <h2 className={styles.convTitle}>¿Esta es tu ciudad?</h2>
               <p className={styles.convSub}>Compara con otros destinos y toma la mejor decisión para tu Erasmus</p>

@@ -9,6 +9,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import styles from "./WorldMap.module.css";
 import { getOverallScore, CITY_BASE_SCORES, getCityBySlug } from "../lib/cities";
+import { IconFiesta, IconEdificio, IconBeca, IconGlobo } from "./icons";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
@@ -79,9 +80,9 @@ const COUNTRY_LABELS = [
 
 // ─── FILTROS DE VIBE ──────────────────────────────────────────────────────────
 const VIBE_FILTERS = [
-  { key: "fiesta",   label: "Fiesta",   icon: "🎉", desc: "Vida nocturna" },
-  { key: "cultura",  label: "Cultura",  icon: "🏛️", desc: "Arte & historia" },
-  { key: "barato",   label: "Barato",   icon: "💸", desc: "Coste de vida bajo" },
+  { key: "fiesta",   label: "Fiesta",   Icon: IconFiesta, desc: "Vida nocturna" },
+  { key: "cultura",  label: "Cultura",  Icon: IconEdificio, desc: "Arte & historia" },
+  { key: "barato",   label: "Barato",   Icon: IconBeca, desc: "Coste de vida bajo" },
 ];
 
 const ALL_COUNTRIES = ["Todos", ...Array.from(new Set(CITIES.map(c => c.country))).sort()];
@@ -117,12 +118,12 @@ function CityPopup({ city, onClose, navigate }) {
         <h3 className={styles.popupName}>{city.name}</h3>
         <p className={styles.popupCountry}>{city.country}</p>
         <div className={styles.popupVibes}>
-          <span className={styles.popupVibe}>🎉 {city.fiesta}/10</span>
-          <span className={styles.popupVibe}>🏛️ {city.cultura}/10</span>
-          <span className={styles.popupVibe}>💸 {city.economia}/10</span>
+          <span className={styles.popupVibe} style={{ display: "inline-flex", alignItems: "center", gap: 4 }}><IconFiesta size={16} /> {city.fiesta}/10</span>
+          <span className={styles.popupVibe} style={{ display: "inline-flex", alignItems: "center", gap: 4 }}><IconEdificio size={16} /> {city.cultura}/10</span>
+          <span className={styles.popupVibe} style={{ display: "inline-flex", alignItems: "center", gap: 4 }}><IconBeca size={16} /> {city.economia}/10</span>
         </div>
         <div className={styles.popupTags}>
-          <span className={styles.popupTag}>💶 {city.cost}/mes</span>
+          <span className={styles.popupTag} style={{ display: "inline-flex", alignItems: "center", gap: 4 }}><IconBeca size={16} /> {city.cost}/mes</span>
           <span className={styles.popupTagScore} style={{
             color: scoreColor(city.score),
             borderColor: scoreColor(city.score) + "55",
@@ -201,7 +202,7 @@ export default function WorldMap() {
 
           {/* Filtro por país */}
           <div className={styles.countryFilter}>
-            <span className={styles.filterLabel}>🌍 País</span>
+            <span className={styles.filterLabel} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><IconGlobo size={18} /> País</span>
             <select
               className={styles.countrySelect}
               value={country}
@@ -225,7 +226,7 @@ export default function WorldMap() {
                 onClick={() => setVibeFilter(v => v === f.key ? null : f.key)}
                 title={f.desc}
               >
-                <span>{f.icon}</span>
+                <span style={{ display: "inline-flex" }}><f.Icon size={18} /></span>
                 <span className={styles.vibeBtnLabel}>{f.label}</span>
               </button>
             ))}
@@ -368,10 +369,10 @@ export default function WorldMap() {
               </span>
             </div>
             <div className={styles.tooltipVibes}>
-              <span>🎉 {tooltip.city.fiesta}</span>
-              <span>🏛️ {tooltip.city.cultura}</span>
-              <span>💸 {tooltip.city.economia}</span>
-              <span>💰 {tooltip.city.dinero}</span>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}><IconFiesta size={14} /> {tooltip.city.fiesta}</span>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}><IconEdificio size={14} /> {tooltip.city.cultura}</span>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}><IconBeca size={14} /> {tooltip.city.economia}</span>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}><IconBeca size={14} /> {tooltip.city.dinero}</span>
             </div>
           </div>
         )}

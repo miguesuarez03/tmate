@@ -355,7 +355,7 @@ export const CITIES = [
     country: "Portugal",
     emoji: "🇵🇹",
     region: "Europa del Sur",
-    tag: "Trending 🔥",
+    tag: "Trending",
     phrase: "Donde el sol da todo el año y el fado suena en las calles",
     costDetail: "550–850€/mes",
     vibe: "Auténtica & Solar",

@@ -5,6 +5,7 @@ import { getScoreMap, getOverallScore, parseMinCost } from "../lib/cities";
 import { getComparePhrase } from "../data/comparePhrases";
 import { Navbar, Footer } from "../components/Layout";
 import { IconRanking, IconCorona, IconBeca, IconUniversidad, IconClima, IconIdiomas, IconCheck, IconAlerta, IconComparar, IconLupa } from "../components/icons";
+import { getCategoryIcon } from "../lib/categoryIcons";
 import MethodologyNote from "../components/MethodologyNote";
 import { useSEO } from "../hooks/useSEO";
 import styles from "./ComparePage.module.css";
@@ -371,8 +372,8 @@ export default function ComparePage() {
                         {isTop && <span className={`${styles.cityCardTag} ${styles.cityCardTagBest}`}><IconCorona size={16} /> Mejor puntuación</span>}
                         {isCheapest && <span className={styles.cityCardTag}><IconBeca size={16} /> Más económica</span>}
                         {bestScoreObj && (
-                          <span className={styles.cityCardTag}>
-                            {bestScoreObj.icon} Destaca en {bestScoreObj.label}
+                          <span className={styles.cityCardTag} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+                            {(() => { const CatIcon = getCategoryIcon(bestScoreObj.id); return <CatIcon size={16} />; })()} Destaca en {bestScoreObj.label}
                           </span>
                         )}
                         {city.phrase && <p className={styles.cityCardPhrase}>"{city.phrase}"</p>}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./InsightDashboard.module.css";
 import { getCityWhatsappGroup } from "../../data/cityWhatsappGroups";
+import { getCategoryIcon } from "../../lib/categoryIcons";
 
 function scoreColor(s) {
   if (s >= 9)   return "#22C55E";
@@ -80,6 +81,7 @@ export default function InsightDashboard({ scores = [], overallScore, citySlug, 
           {scores.map(s => {
             const isActive = s.id === active;
             const c = scoreColor(s.score);
+            const CatIcon = getCategoryIcon(s.id);
             return (
               <button
                 key={s.id}
@@ -87,7 +89,7 @@ export default function InsightDashboard({ scores = [], overallScore, citySlug, 
                 onClick={() => setActive(s.id)}
                 style={isActive ? { "--pill-color": c } : {}}
               >
-                <span className={styles.metricEmoji}>{s.icon}</span>
+                <span className={styles.metricEmoji}><CatIcon size={28} /></span>
                 <div className={styles.metricMeta}>
                   <span className={styles.metricLabel}>{s.label}</span>
                   <div className={styles.metricBar}>
@@ -132,7 +134,7 @@ export default function InsightDashboard({ scores = [], overallScore, citySlug, 
             {/* Score hero */}
             <div className={styles.detailHero} style={{ "--detail-color": color }}>
               <div className={styles.detailScoreRow}>
-                <span className={styles.detailEmoji}>{current.icon}</span>
+                <span className={styles.detailEmoji}>{(() => { const CatIcon = getCategoryIcon(current.id); return <CatIcon size={36} />; })()}</span>
                 <div>
                   <h3 className={styles.detailLabel}>{current.label}</h3>
                   <div className={styles.detailBadge} style={{ background: `${color}20`, color }}>
