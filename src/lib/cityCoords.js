@@ -27,6 +27,22 @@ export const CITY_COORDS = {
   viena:      [16.37, 48.21],
   rosenheim:  [12.12, 47.85],
   bruselas:   [4.35, 50.85],
+  estocolmo:  [18.07, 59.33],
+  copenhague: [12.57, 55.68],
+  helsinki:   [24.94, 60.17],
+  oslo:       [10.75, 59.91],
+  reikiavik:  [-21.94, 64.15],
+  dublin:     [-6.27, 53.35],
+  edimburgo:  [-3.19, 55.95],
+  atenas:     [23.73, 37.98],
+  zagreb:     [15.98, 45.81],
+  liubliana:  [14.51, 46.06],
+  tallin:     [24.75, 59.44],
+  vilna:      [25.28, 54.69],
+  riga:       [24.11, 56.95],
+  bratislava: [17.11, 48.15],
+  bucarest:   [26.10, 44.43],
+  sofia:      [23.32, 42.70],
 };
 
 /**

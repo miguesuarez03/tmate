@@ -31,6 +31,22 @@ export const CITY_WHATSAPP_GROUPS = {
   viena: null,
   rosenheim: null,
   bruselas: null,
+  estocolmo: null,
+  copenhague: null,
+  helsinki: null,
+  oslo: null,
+  reikiavik: null,
+  dublin: null,
+  edimburgo: null,
+  atenas: null,
+  zagreb: null,
+  liubliana: null,
+  tallin: null,
+  vilna: null,
+  riga: null,
+  bratislava: null,
+  bucarest: null,
+  sofia: null,
 };
 
 /** Devuelve el enlace del grupo de WhatsApp de una ciudad, o null si aún no existe. */

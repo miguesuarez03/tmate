@@ -116,6 +116,72 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "VUB": "https://www.vub.be/en/internationalisation-vub/international-relations-what-we-do-how-you-can-reach-us/exchange-erasmus-projects/come-vub-exchange",
   "KU Leuven (campus BXL)": "https://www.kuleuven.be/english/education/student/register/exchange/brussels",
   "Vesalius College": "https://www.vesalius.edu/admissions/exchange-students/",
+
+  // ── Estocolmo ────────────────────────────────────────────────────────────
+  "KTH Royal Institute of Technology": "https://www.kth.se/en/studies/exchange/exchange-studies-at-kth-1.6519",
+  "Stockholms Universitet": "https://www.su.se/english/education/exchange-students",
+  "Stockholm School of Economics (SSE)": "https://www.hhs.se/en/education/study-at-sse/student-exchange/student-exchange/",
+
+  // ── Copenhague ───────────────────────────────────────────────────────────
+  "University of Copenhagen (KU)": "https://studies.ku.dk/study-abroad/exchange/",
+  "Copenhagen Business School (CBS)": "https://www.cbs.dk/en/study-programmes/international-students/exchange-students",
+  "DTU (Technical University of Denmark)": "https://www.dtu.dk/english/education/incoming-students/exchange",
+
+  // ── Helsinki ─────────────────────────────────────────────────────────────
+  "University of Helsinki": "https://www.helsinki.fi/en/admissions-and-education/apply-exchange-and-visiting-studies",
+  "Aalto University": "https://www.aalto.fi/en/international-students/incoming-exchange-students",
+  "Hanken School of Economics": "https://www.hanken.fi/en/students/international-opportunities/incoming-exchange-students",
+
+  // ── Oslo ─────────────────────────────────────────────────────────────────
+  "University of Oslo (UiO)": "https://www.uio.no/english/studies/admission/exchange/",
+  "BI Norwegian Business School": "https://www.bi.no/en/study-at-bi/resources-and-opportunities/exchange/",
+  "OsloMet": "https://www.oslomet.no/en/study/admission/admission-international-exchange-students",
+
+  // ── Reikiavik ────────────────────────────────────────────────────────────
+  "University of Iceland (Háskóli Íslands)": "https://english.hi.is/study/study-abroad/incoming-exchange-students",
+  "Reykjavik University": "https://en.ru.is/studies/exchange-students/1000",
+
+  // ── Dublín ───────────────────────────────────────────────────────────────
+  "Trinity College Dublin (TCD)": "https://www.tcd.ie/global/mobility/inbound/how-to-apply/eu-and-erasmus-exchange/",
+  "University College Dublin (UCD)": "https://www.ucd.ie/global/learningabroad/exchanges/inboundexchange-students/",
+
+  // ── Edimburgo ────────────────────────────────────────────────────────────
+  "University of Edinburgh": "https://edinburgh-global.ed.ac.uk/study-abroad/study-options/european-exchange",
+  "Heriot-Watt University": "https://www.hw.ac.uk/uk/students/studies/exchange/incoming-exchange-students.htm",
+
+  // ── Atenas ───────────────────────────────────────────────────────────────
+  "National and Kapodistrian University of Athens (NKUA)": "https://en.interel.uoa.gr/erasmus_student_mobility",
+  "Athens University of Economics and Business (AUEB)": "https://www.aueb.gr/en/erasmus",
+
+  // ── Zagreb ───────────────────────────────────────────────────────────────
+  "University of Zagreb": "https://www.unizg.hr/homepage/international-exchange/exchange-students/",
+
+  // ── Liubliana ────────────────────────────────────────────────────────────
+  "University of Ljubljana": "https://www.uni-lj.si/en/study/exchanges",
+
+  // ── Tallin ───────────────────────────────────────────────────────────────
+  "Tallinn University of Technology (TalTech)": "https://taltech.ee/en/incoming-students",
+  "Tallinn University (TLU)": "https://www.tlu.ee/en/exchange",
+
+  // ── Vilna ────────────────────────────────────────────────────────────────
+  "Vilnius University (VU)": "https://www.vu.lt/en/studies/exchange-students/how-to-apply",
+  "Vilnius Gediminas Technical University (VILNIUS TECH)": "https://vilniustech.lt/en/international-students/exchange-students/",
+
+  // ── Riga ─────────────────────────────────────────────────────────────────
+  "University of Latvia (LU)": "https://www.lu.lv/en/admissions/exchange-studies/",
+  "Riga Technical University (RTU)": "https://www.rtu.lv/en/internationalization/incoming-exchange/erasmus-europe-students",
+
+  // ── Bratislava ───────────────────────────────────────────────────────────
+  "Comenius University in Bratislava (UK)": "https://uniba.sk/en/international-relations/eninternational-relationserasmus/incoming-students/",
+  "Slovak University of Technology (STU)": "https://www.stuba.sk/english/exchange-students/erasmus.html?page_id=13453",
+
+  // ── Bucarest ─────────────────────────────────────────────────────────────
+  "University of Bucharest (UB)": "https://unibuc.ro/international/programul-erasmus/studenti-erasmus/?lang=en",
+  "National University of Science and Technology POLITEHNICA Bucharest (UPB)": "https://upb.ro/en/erasmus/students/",
+
+  // ── Sofía ────────────────────────────────────────────────────────────────
+  "Sofia University St. Kliment Ohridski": "https://erasmus.uni-sofia.bg/site/income/",
+  "Technical University of Sofia (TU-Sofia)": "https://tu-sofia.bg/erasmus/erasmus",
 };
 
 /**

@@ -3129,6 +3129,2459 @@ export const CITY_INSIGHTS = {
       },
       ],
   },
+  estocolmo: {
+    heroImg: "https://images.unsplash.com/photo-1564924304464-8cee6c450e7a?w=1600&q=85",
+    tagline: "La capital del diseño escandinavo. 14 islas, agua por todas partes y el ecosistema startup más denso de Europa.",
+    atmosphere: "Ordenada, luminosa en verano y profundamente nórdica. Estocolmo huele a canela recién horneada (kanelbulle) y suena al silencio educado del metro más bonito del mundo.",
+    scores: [
+      // 1. COSTE DE VIDA
+      {
+        id: "coste",
+        label: "Coste de vida",
+        icon: "💰",
+        score: 4.2,
+        summary: "Una de las ciudades más caras de esta guía, a la altura de Londres o Ámsterdam. Con 1.000–1.200€/mes se vive con holgura.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 3.0, desc: "Habitaciones desde 500–750€. El coste más alto de la vivienda de toda la guía junto a Londres." },
+          { label: "Comida y supermercados", score: 5.5, desc: "ICA y Coop cubren lo básico, pero comer fuera es caro. Lunch menu del mediodía (100–130 SEK) es la opción lista." },
+          { label: "Transporte", score: 6.5, desc: "SL-kortet mensual ≈930 SEK (~83€). Caro pero cubre metro, bus, tren de cercanías y ferris a las islas." },
+          { label: "Ocio y gastos diarios", score: 4.5, desc: "Una cerveza en bar puede costar 8–9€. Sistema Ölkontroll estricto — el alcohol en tienda solo en Systembolaget." },
+        ],
+        reviews: [
+          { text: "Llegué pensando que sería como cualquier capital europea y el primer mes de compra me hizo recalcular todo el presupuesto.", author: "Diego, Erasmus 2024", flag: "🇪🇸" },
+          { text: "Con la beca máxima y compartiendo piso se puede, pero hay que dejar la vida social cara para ocasiones puntuales.", author: "Elena, Erasmus 2023", flag: "🇮🇹" },
+        ],
+      },
+      // 2. ALOJAMIENTO
+      {
+        id: "alojamiento",
+        label: "Alojamiento",
+        icon: "🏠",
+        score: 2.8,
+        summary: "El mercado más difícil de esta guía junto a Londres. La demanda supera con creces la oferta — hay que moverse con muchísima antelación.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 2.5, desc: "Las colas de SSSB (la bolsa de vivienda estudiantil) se miden en años para pisos permanentes; para Erasmus hay cupos específicos pero limitados." },
+          { label: "Precio", score: 3.0, desc: "500–750€ habitación. Corridor rooms (habitación con cocina/baño compartidos) son la opción más asequible." },
+          { label: "Facilidad de búsqueda", score: 3.0, desc: "SSSB, Bostad Direkt y Blocket Bostad. Regístrate en SSSB en cuanto tengas la carta de admisión, no antes de llegar." },
+          { label: "Residencias universitarias", score: 5.5, desc: "KTH y Stockholms Universitet gestionan cupos de corridor rooms para exchange students — solicítalo el primer día posible." },
+        ],
+        reviews: [
+          { text: "Me registré en SSSB el día que me admitieron, meses antes de llegar. Sin eso no habría encontrado nada a tiempo.", author: "Marcus, Exchange 2023", flag: "🇩🇪" },
+          { text: "Acabé en un corridor room compartiendo cocina con 12 personas. Al principio parece caótico pero acabas haciendo grandes amigos ahí mismo.", author: "Camille, Erasmus 2024", flag: "🇫🇷" },
+        ],
+      },
+      // 3. VIDA SOCIAL Y AMBIENTE
+      {
+        id: "vida_social",
+        label: "Vida social y ambiente",
+        icon: "🎉",
+        score: 7.5,
+        summary: "Reservada al principio — los suecos no hablan con desconocidos por defecto — pero la comunidad internacional y las naciones estudiantiles compensan con creces.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 8.0, desc: "ESN Stockholm organiza sittningar (cenas temáticas con juegos y cánticos), sauna nights y viajes al archipiélago casi cada semana." },
+          { label: "Ambiente internacional", score: 8.0, desc: "Gran mezcla de nacionalidades en KTH y Stockholms Universitet, con eventos pensados específicamente para exchange students." },
+          { label: "Fiesta y vida nocturna", score: 6.5, desc: "Bares y clubs en Södermalm y Stureplan, pero caros y con colas largas los findes. Las fiestas estudiantiles (nations, gasque) son más accesibles." },
+          { label: "Eventos y actividades", score: 8.0, desc: "Saunas junto al agua, patinaje sobre hielo en invierno, baño en el archipiélago en verano — el ocio local pesa tanto como la fiesta." },
+        ],
+        reviews: [
+          { text: "Cuesta un poco romper el hielo con los suecos, pero en cuanto entras en su círculo la amistad es sólida y duradera.", author: "Tomás, Erasmus 2024", flag: "🇵🇹" },
+          { text: "Las sittningar de ESN fueron lo más divertido del semestre — cenas con disfraz, canciones y mucho ambiente.", author: "Greta, Exchange 2023", flag: "🇦🇹" },
+        ],
+      },
+      // 4. INTEGRACIÓN INTERNACIONAL
+      {
+        id: "integracion",
+        label: "Integración internacional",
+        icon: "🌍",
+        score: 7.5,
+        summary: "El inglés es prácticamente un segundo idioma nativo para los suecos, lo que facilita el día a día — aunque integrarse socialmente con locales lleva más tiempo que el idioma.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 9.5, desc: "Nivel de inglés altísimo en toda la población, incluidas las clases universitarias impartidas en inglés sin problema." },
+          { label: "Actitud local", score: 6.5, desc: "Amables pero reservados — el concepto de 'lagom' (ni mucho ni poco) se aplica también al contacto social espontáneo." },
+          { label: "Integración con locales", score: 6.0, desc: "Compartir corridor con suecos o unirte a una nation estudiantil son las vías más rápidas de integración real." },
+          { label: "Facilidad para hacer amigos", score: 7.5, desc: "Fácil con la comunidad internacional desde el primer día; con locales requiere paciencia y contextos compartidos (deporte, fika)." },
+        ],
+        reviews: [
+          { text: "El inglés no es un problema en absoluto. El reto real es pasar de conocidos a amigos con los suecos.", author: "Bruno, Erasmus 2023", flag: "🇧🇷" },
+        ],
+      },
+      // 5. UBICACIÓN Y MOVILIDAD
+      {
+        id: "movilidad",
+        label: "Ubicación y movilidad",
+        icon: "🚆",
+        score: 8.8,
+        summary: "Transporte público excelente y muy puntual. El metro (Tunnelbana) es una atracción en sí mismo por sus estaciones decoradas como cuevas de arte.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 9.0, desc: "Metro, bus, tren de cercanías y ferris integrados en el mismo abono SL. Frecuente, limpio y fiable." },
+          { label: "Ciudad caminable", score: 8.0, desc: "Muy ciclable pese al frío — carriles bici todo el año, incluso con nieve. Bici propia o Lime/Voi de alquiler." },
+          { label: "Conexiones internacionales", score: 8.5, desc: "Arlanda conecta con toda Europa; ferris a Helsinki y las islas Åland son una excursión clásica de fin de semana." },
+          { label: "Escapadas de fin de semana", score: 9.0, desc: "Archipiélago de Estocolmo (30.000 islas) a un ferry de distancia; Uppsala a 40 minutos en tren." },
+        ],
+        reviews: [
+          { text: "El metro de Estocolmo parece un museo de arte subterráneo. Y siempre llega puntual, cosa que no había vivido en ningún otro sitio.", author: "Nadia, Exchange 2024", flag: "🇳🇱" },
+        ],
+      },
+      // 6. ESTILO DE VIDA Y ENTORNO
+      {
+        id: "estilo_vida",
+        label: "Estilo de vida y entorno",
+        icon: "🏔️",
+        score: 8.7,
+        summary: "Calidad de vida excepcional: naturaleza integrada en la ciudad, diseño en cada esquina y un equilibrio vida-trabajo que pocos sitios igualan.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 9.5, desc: "El archipiélago, los bosques dentro de los límites de la ciudad y el agua limpia para bañarse en pleno centro en verano." },
+          { label: "Clima", score: 6.0, desc: "Extremo estacional: veranos de días interminables (18-19h de luz) frente a inviernos con apenas 6 horas de luz y frío seco bajo cero." },
+          { label: "Calidad de vida", score: 9.5, desc: "Diseñada para el bienestar: espacios verdes, transporte fiable, sanidad y educación de primer nivel." },
+          { label: "Autenticidad local", score: 8.5, desc: "El 'lagom' y el 'fika' no son clichés turísticos, son la forma de vida real de la ciudad." },
+          { label: "Estilo de vida", score: 8.5, desc: "Ritmo tranquilo, mucho deporte al aire libre y una cultura del diseño que se respira en cada edificio." },
+        ],
+        reviews: [
+          { text: "En junio salía de clase a las 21h y todavía había luz de sobra para bañarme en el lago Mälaren. Surrealista y maravilloso.", author: "Lucía, Erasmus 2024", flag: "🇪🇸" },
+          { text: "El invierno es duro de verdad, pero la sauna y el mys (la versión sueca del hygge) te hacen quererlo igualmente.", author: "Adam, Exchange 2023", flag: "🇵🇱" },
+        ],
+      },
+      // 7. EMPLEO Y OPORTUNIDADES
+      {
+        id: "empleo",
+        label: "Empleo y oportunidades",
+        icon: "💼",
+        score: 8.7,
+        summary: "El hub tecnológico más importante del norte de Europa. Cuna de Spotify, Klarna, King y decenas de unicornios — ideal para prácticas en tech.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 8.5, desc: "Por habitante, Estocolmo produce más unicornios tecnológicos que ninguna otra ciudad europea salvo Silicon Valley." },
+          { label: "Prácticas", score: 9.0, desc: "Spotify, Klarna, King, Ericsson y un ecosistema enorme de startups abiertas a becarios internacionales en inglés." },
+          { label: "Empresas relevantes", score: 9.0, desc: "KTH y su parque tecnológico conectan directamente a estudiantes de ingeniería con empresas del sector." },
+          { label: "Oportunidades para estudiantes", score: 8.0, desc: "Networking constante vía eventos universitarios, hackathons y el propio KTH Innovation." },
+        ],
+        reviews: [
+          { text: "Hice unas prácticas de verano en una startup fintech gracias a un contacto de la universidad. La escena tech aquí es brutal.", author: "Rafael, Internship 2024", flag: "🇧🇷" },
+        ],
+      },
+      // 8. SEGURIDAD
+      {
+        id: "seguridad",
+        label: "Seguridad",
+        icon: "🛡️",
+        score: 8.8,
+        summary: "Una de las capitales más seguras y ordenadas de Europa, con un índice de criminalidad muy bajo y transporte público seguro a cualquier hora.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja para estándares de capital europea. Zonas universitarias completamente tranquilas." },
+          { label: "Seguridad nocturna", score: 8.5, desc: "El metro funciona con normalidad hasta tarde y las calles están bien iluminadas incluso en invierno." },
+          { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada, limpia y con un civismo generalizado que se nota desde el primer día." },
+        ],
+        reviews: [
+          { text: "Nunca me sentí insegura, ni de noche ni volviendo sola del metro. Rarísimo comparado con otras capitales.", author: "Valentina, Erasmus 2023", flag: "🇦🇷" },
+        ],
+      },
+    ],
+  },
+  copenhague: {
+    heroImg: "https://images.unsplash.com/photo-1764514814372-1997910000c1?w=1600&q=85",
+    tagline: "La ciudad del hygge y las bicis. Diseño nórdico, sostenibilidad real y una de las capitales más felices del mundo.",
+    atmosphere: "Relajada, ciclable y acogedora. Copenhague huele a canela de las panaderías y suena al timbre constante de bicicletas en los carriles bici más transitados de Europa.",
+    scores: [
+      // 1. COSTE DE VIDA
+      {
+        id: "coste",
+        label: "Coste de vida",
+        icon: "💰",
+        score: 4.0,
+        summary: "Una de las capitales más caras de esta guía. Con 1.000–1.300€/mes se vive con comodidad, sin lujos.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 3.2, desc: "Habitaciones desde 550–800€. Especialmente caro en Frederiksberg e Indre By (centro)." },
+          { label: "Comida y supermercados", score: 5.5, desc: "Netto, Rema 1000 y Lidl para el día a día. Comer fuera es caro salvo en food halls como Reffen o Torvehallerne." },
+          { label: "Transporte", score: 6.5, desc: "La bici sustituye al transporte público en el día a día. Rejsekort para trayectos ocasionales en metro/tren/bus." },
+          { label: "Ocio y gastos diarios", score: 4.5, desc: "Cerveza en bar 6–7€. El alcohol en tienda es más asequible que en Suecia o Noruega, sin sistema de monopolio estatal." },
+        ],
+        reviews: [
+          { text: "Es cara, no lo voy a negar, pero al no necesitar transporte público (todo en bici) el gasto mensual se equilibra bastante.", author: "Iker, Erasmus 2024", flag: "🇪🇸" },
+          { text: "Cociné en casa casi todos los días. Comer fuera aquí es un lujo ocasional, no una rutina.", author: "Sofia, Exchange 2023", flag: "🇮🇹" },
+        ],
+      },
+      // 2. ALOJAMIENTO
+      {
+        id: "alojamiento",
+        label: "Alojamiento",
+        icon: "🏠",
+        score: 3.2,
+        summary: "Escasez real de vivienda estudiantil en toda la ciudad. Hay que empezar la búsqueda con muchísima antelación y usar canales oficiales.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 3.0, desc: "La demanda estudiantil supera ampliamente la oferta. Muchos exchange students acaban en colegios mayores fuera del centro." },
+          { label: "Precio", score: 3.5, desc: "550–800€ habitación. Kollegier (residencias) y bofællesskaber (pisos compartidos) son las opciones más razonables." },
+          { label: "Facilidad de búsqueda", score: 3.5, desc: "Housing Foundation Copenhagen gestiona cupos para exchange students — es la vía más fiable, aplica el primer día posible." },
+          { label: "Residencias universitarias", score: 5.0, desc: "KU, CBS y DTU colaboran con Housing Foundation, pero las plazas se agotan rápido, sobre todo para el semestre de otoño." },
+        ],
+        reviews: [
+          { text: "Apliqué a Housing Foundation el mismo día que me admitieron. Aun así, tardé semanas en tener respuesta.", author: "Mateus, Exchange 2024", flag: "🇵🇹" },
+          { text: "Acabé en un kollegium a 25 minutos en bici del centro. No es lo ideal pero en Copenhague 25 minutos en bici no es nada.", author: "Anaïs, Erasmus 2023", flag: "🇫🇷" },
+        ],
+      },
+      // 3. VIDA SOCIAL Y AMBIENTE
+      {
+        id: "vida_social",
+        label: "Vida social y ambiente",
+        icon: "🎉",
+        score: 7.8,
+        summary: "Vida social relajada, muy centrada en el aire libre, la bici y el hygge — reuniones íntimas antes que macrofiestas.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 8.0, desc: "ESN Copenhagen organiza cenas, picnics junto al canal y viajes de fin de semana a Malmö o Lund." },
+          { label: "Ambiente internacional", score: 8.5, desc: "KU, CBS y DTU reciben miles de exchange students cada semestre, con eventos pensados para ellos desde el primer día." },
+          { label: "Fiesta y vida nocturna", score: 6.5, desc: "Vesterbro y Nørrebro concentran los bares; caros pero con ambiente joven. Las fiestas de kollegium son un clásico." },
+          { label: "Eventos y actividades", score: 8.5, desc: "Baño en el puerto en verano, festivales de música, Tivoli Gardens y una vida al aire libre constante en bici." },
+        ],
+        reviews: [
+          { text: "Aquí la vida social pasa más por un picnic junto al canal con una cerveza que por un club. Y se agradece.", author: "Nikos, Erasmus 2024", flag: "🇬🇷" },
+          { text: "El baño en el puerto en pleno centro de una capital europea sigue pareciéndome una locura maravillosa.", author: "Alba, Exchange 2023", flag: "🇪🇸" },
+        ],
+      },
+      // 4. INTEGRACIÓN INTERNACIONAL
+      {
+        id: "integracion",
+        label: "Integración internacional",
+        icon: "🌍",
+        score: 7.8,
+        summary: "Inglés altísimo y cultura muy abierta a estudiantes internacionales, aunque el danés cerrado ('hyggeligt' pero reservado) tarda en abrirse del todo.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 9.5, desc: "Casi toda la población domina el inglés con fluidez nativa, incluidos trámites administrativos y vida diaria." },
+          { label: "Actitud local", score: 7.0, desc: "Amables y educados, pero el círculo social danés se forma desde la infancia — cuesta entrar del todo en poco tiempo." },
+          { label: "Integración con locales", score: 6.5, desc: "Unirte a un kollegium con daneses o a un club deportivo universitario acelera mucho la integración real." },
+          { label: "Facilidad para hacer amigos", score: 8.0, desc: "Muy fácil con la enorme comunidad internacional; con locales requiere iniciativa y paciencia." },
+        ],
+        reviews: [
+          { text: "Con la comunidad internacional hice amigos en la primera semana. Con daneses tardé meses, pero mereció la pena.", author: "Jonas, Erasmus 2023", flag: "🇩🇪" },
+        ],
+      },
+      // 5. UBICACIÓN Y MOVILIDAD
+      {
+        id: "movilidad",
+        label: "Ubicación y movilidad",
+        icon: "🚆",
+        score: 9.2,
+        summary: "La ciudad más ciclable del mundo. Carriles bici propios, semáforos pensados para bicis y una infraestructura que hace innecesario el coche.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Bici como transporte principal", score: 9.8, desc: "Más de 375 km de carriles bici segregados. La bici es más rápida que el coche o el metro en la mayoría de trayectos." },
+          { label: "Transporte público", score: 8.5, desc: "Metro automático 24h, trenes S-tog y buses cubren lo que la bici no alcanza, especialmente en invierno." },
+          { label: "Conexiones internacionales", score: 9.0, desc: "El puente de Öresund conecta en tren directo con Malmö (Suecia) en 35 minutos — una escapada nórdica constante." },
+          { label: "Escapadas de fin de semana", score: 8.5, desc: "Malmö y Lund a un salto de tren; Roskilde y sus fiordos a 30 minutos." },
+        ],
+        reviews: [
+          { text: "Vendí la idea de comprar un abono de transporte a los dos días. La bici te lleva a todos lados más rápido.", author: "Pietro, Erasmus 2024", flag: "🇮🇹" },
+        ],
+      },
+      // 6. ESTILO DE VIDA Y ENTORNO
+      {
+        id: "estilo_vida",
+        label: "Estilo de vida y entorno",
+        icon: "🏔️",
+        score: 8.8,
+        summary: "El hygge no es marketing: calidad de vida altísima, diseño en cada esquina y un equilibrio entre trabajo, estudio y bienestar que se nota desde el primer día.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 8.0, desc: "Canales limpios para bañarse en pleno centro, parques como Frederiksberg Have y la costa a un pedaleo de distancia." },
+          { label: "Clima", score: 6.0, desc: "Veranos suaves y luminosos (16-22°C) frente a inviernos oscuros y húmedos con apenas 7 horas de luz." },
+          { label: "Calidad de vida", score: 9.5, desc: "Dinamarca aparece año tras año entre los países más felices del mundo — y Copenhague concentra buena parte de ese bienestar." },
+          { label: "Autenticidad local", score: 8.5, desc: "El hygge (bienestar cotidiano con velas, café y buena compañía) es una forma de vida real, no un concepto turístico." },
+          { label: "Estilo de vida", score: 8.5, desc: "Ritmo pausado, mucha vida en bici y al aire libre, y un diseño escandinavo presente en cada edificio y mueble." },
+        ],
+        reviews: [
+          { text: "Llegué escéptico con lo del hygge y salí siendo un converso total. Las velas y el café de media tarde cambian el humor de cualquiera.", author: "Thomas, Exchange 2023", flag: "🇧🇪" },
+          { text: "El equilibrio vida-estudio aquí es real. Nadie te mira raro por salir de clase a las 16h a montar en bici.", author: "Carla, Erasmus 2024", flag: "🇪🇸" },
+        ],
+      },
+      // 7. EMPLEO Y OPORTUNIDADES
+      {
+        id: "empleo",
+        label: "Empleo y oportunidades",
+        icon: "💼",
+        score: 8.3,
+        summary: "Fuerte en biotecnología, diseño, sostenibilidad y finanzas, con Malmö y el sur de Suecia a 35 minutos ampliando aún más las oportunidades.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 8.0, desc: "Sede de Novo Nordisk, Maersk, Ørsted y un ecosistema fuerte de cleantech y diseño." },
+          { label: "Prácticas", score: 8.5, desc: "CBS tiene fuertes conexiones con el sector financiero y consultoría; DTU con ingeniería y biotech." },
+          { label: "Empresas relevantes", score: 8.5, desc: "El clúster de ciencias de la vida de Copenhague-Malmö (Medicon Valley) es uno de los más importantes de Europa." },
+          { label: "Oportunidades para estudiantes", score: 8.0, desc: "Networking constante vía DTU Skylab, eventos de CBS y el ecosistema startup de la región de Øresund." },
+        ],
+        reviews: [
+          { text: "Hice prácticas en una empresa de diseño sostenible gracias a un contacto de CBS. El foco en sostenibilidad aquí es real, no de cara a la galería.", author: "Émile, Internship 2024", flag: "🇫🇷" },
+        ],
+      },
+      // 8. SEGURIDAD
+      {
+        id: "seguridad",
+        label: "Seguridad",
+        icon: "🛡️",
+        score: 8.9,
+        summary: "Constantemente entre las ciudades más seguras y felices del mundo. Criminalidad muy baja y ambiente urbano tranquilo a cualquier hora.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 9.0, desc: "Índice de criminalidad muy bajo, incluso en comparación con otras capitales nórdicas." },
+          { label: "Seguridad nocturna", score: 8.5, desc: "Volver en bici de noche por carriles bien iluminados es completamente normal y seguro." },
+          { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada, confiada — los propios daneses dejan carritos de bebé sin vigilancia en la puerta de las cafeterías." },
+        ],
+        reviews: [
+          { text: "Ver carritos de bebé aparcados fuera de un café mientras los padres toman algo dentro me dejó helada. Nivel de confianza que no había visto nunca.", author: "Ana, Erasmus 2023", flag: "🇵🇹" },
+        ],
+      },
+    ],
+  },
+  helsinki: {
+    heroImg: "https://images.unsplash.com/photo-1544096714-18ad573ad07e?w=1600&q=85",
+    tagline: "Diseño nórdico, naturaleza a un paso y sauna como forma de vida. Un Erasmus tranquilo, seguro y distinto al resto de Europa.",
+    atmosphere: "Silenciosa, ordenada y profundamente conectada con la naturaleza. Helsinki huele a bosque de pino y agua salada del Báltico, y suena al vapor de una sauna compartida con desconocidos que en dos horas ya son amigos.",
+    scores: [
+      // 1. COSTE DE VIDA
+      {
+        id: "coste",
+        label: "Coste de vida",
+        icon: "💰",
+        score: 5.5,
+        summary: "Algo más asequible que Estocolmo o Copenhague, aunque sigue siendo una capital nórdica cara. Con 800–1.150€/mes se vive bien.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 5.0, desc: "Habitaciones desde 450–650€. HOAS (residencias estudiantiles) es la opción más asequible con diferencia." },
+          { label: "Comida y supermercados", score: 6.0, desc: "K-Market, S-Market y Lidl para el día a día. Los comedores universitarios (con Kela Card) ofrecen menús completos por 2,95€." },
+          { label: "Transporte", score: 7.0, desc: "Abono HSL mensual ≈65€ para toda la red, incluidos los ferris a Suomenlinna. Descuento estudiantil significativo." },
+          { label: "Ocio y gastos diarios", score: 5.5, desc: "Una cerveza en bar 6-7€, pero la sauna pública (10-15€) es el plan social más habitual y barato en comparación." },
+        ],
+        reviews: [
+          { text: "Comía en el comedor de la universidad casi todos los días por menos de 3€. Con Kela Card el presupuesto de comida baja muchísimo.", author: "Laura, Erasmus 2024", flag: "🇪🇸" },
+          { text: "Más barata que Estocolmo o Copenhague, pero sigue siendo una capital nórdica — el presupuesto hay que cuidarlo igual.", author: "Milan, Exchange 2023", flag: "🇨🇿" },
+        ],
+      },
+      // 2. ALOJAMIENTO
+      {
+        id: "alojamiento",
+        label: "Alojamiento",
+        icon: "🏠",
+        score: 4.5,
+        summary: "Mercado tenso pero más manejable que en Estocolmo. HOAS es la vía casi obligatoria para exchange students.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 4.5, desc: "HOAS gestiona miles de plazas específicas para estudiantes internacionales, aunque hay que solicitarlas con antelación." },
+          { label: "Precio", score: 5.0, desc: "450–650€ habitación en HOAS. El mercado privado es notablemente más caro y competido." },
+          { label: "Facilidad de búsqueda", score: 5.0, desc: "El portal de HOAS es el canal principal — regístrate en cuanto tengas la carta de admisión de tu universidad." },
+          { label: "Residencias universitarias", score: 6.5, desc: "HOAS ofrece habitaciones individuales y compartidas repartidas por toda la ciudad, bien conectadas en transporte." },
+        ],
+        reviews: [
+          { text: "HOAS fue mucho más sencillo que lo que había oído sobre Estocolmo. En un par de meses tenía alojamiento confirmado.", author: "Giulia, Erasmus 2024", flag: "🇮🇹" },
+        ],
+      },
+      // 3. VIDA SOCIAL Y AMBIENTE
+      {
+        id: "vida_social",
+        label: "Vida social y ambiente",
+        icon: "🎉",
+        score: 6.5,
+        summary: "Tranquila pero muy genuina: la sauna, más que el bar, es el verdadero centro social. Comunidad Erasmus pequeña y muy unida.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 7.0, desc: "ESN Helsinki organiza saunas semanales, viajes a Laponia y eventos en el archipiélago — el ambiente es cercano." },
+          { label: "Ambiente internacional", score: 7.5, desc: "Comunidad internacional activa entre University of Helsinki, Aalto y Hanken, con eventos pensados para exchange students." },
+          { label: "Fiesta y vida nocturna", score: 6.0, desc: "Kallio concentra los bares estudiantiles; más tranquila que otras capitales pero con ambiente auténtico." },
+          { label: "Eventos y actividades", score: 7.5, desc: "Vappu (1 de mayo) es la fiesta estudiantil del año; saunas, islas del archipiélago y auroras boreales en invierno." },
+        ],
+        reviews: [
+          { text: "Compartir sauna con gente que acababas de conocer rompe el hielo (literalmente) más rápido que cualquier fiesta.", author: "Kacper, Erasmus 2023", flag: "🇵🇱" },
+          { text: "Vappu es una locura maravillosa — toda la ciudad estudiantil sale a la calle con gorros blancos de graduación.", author: "Noor, Exchange 2024", flag: "🇳🇱" },
+        ],
+      },
+      // 4. INTEGRACIÓN INTERNACIONAL
+      {
+        id: "integracion",
+        label: "Integración internacional",
+        icon: "🌍",
+        score: 7.5,
+        summary: "Inglés muy alto y sistema pensado para estudiantes internacionales. Los finlandeses son reservados pero honestos y fiables una vez conectas.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 9.0, desc: "Nivel de inglés muy alto en toda la población joven; los cursos de Aalto y Hanken están mayoritariamente en inglés." },
+          { label: "Actitud local", score: 6.5, desc: "Reservados y de pocas palabras al principio, pero directos y de fiar — el silencio incómodo no existe en la cultura finlandesa." },
+          { label: "Integración con locales", score: 6.5, desc: "La sauna y los clubes deportivos universitarios son la vía más rápida de romper el hielo con finlandeses." },
+          { label: "Facilidad para hacer amigos", score: 7.5, desc: "Comunidad internacional muy acogedora desde el primer día vía ESN y las universidades." },
+        ],
+        reviews: [
+          { text: "Al principio pensé que los finlandeses eran fríos. Luego entendí que solo hablan cuando tienen algo que decir. Amistades muy sinceras.", author: "Diego, Erasmus 2024", flag: "🇦🇷" },
+        ],
+      },
+      // 5. UBICACIÓN Y MOVILIDAD
+      {
+        id: "movilidad",
+        label: "Ubicación y movilidad",
+        icon: "🚆",
+        score: 8.5,
+        summary: "Transporte público excelente y muy puntual. El archipiélago y Laponia quedan sorprendentemente accesibles.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 9.0, desc: "Metro, tram, bus y ferris integrados en el abono HSL. Puntual y muy fiable incluso en pleno invierno." },
+          { label: "Ciudad caminable", score: 8.0, desc: "Ciudad compacta y muy ciclable; el mal tiempo invernal es lo único que frena el uso de bici en esa época." },
+          { label: "Conexiones internacionales", score: 8.0, desc: "Ferry directo a Tallin (2h) y a Estocolmo (overnight); vuelos baratos a toda Escandinavia y Báltico." },
+          { label: "Escapadas de fin de semana", score: 8.5, desc: "Suomenlinna en ferry de 15 minutos; Tallin como escapada clásica de fin de semana." },
+        ],
+        reviews: [
+          { text: "El ferry a Tallin por 20-30€ ida y vuelta se convirtió en nuestro plan de findes recurrente.", author: "Emma, Exchange 2023", flag: "🇩🇪" },
+        ],
+      },
+      // 6. ESTILO DE VIDA Y ENTORNO
+      {
+        id: "estilo_vida",
+        label: "Estilo de vida y entorno",
+        icon: "🏔️",
+        score: 8.5,
+        summary: "Naturaleza, diseño y sauna en su máxima expresión. Calma nórdica en estado puro para quien busca desconectar del ruido de las grandes capitales.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 9.5, desc: "Bosques dentro de los límites de la ciudad, archipiélago de más de 300 islas y agua limpia para bañarse en verano." },
+          { label: "Clima", score: 5.5, desc: "Veranos de días eternos (hasta 19h de luz) frente a inviernos con apenas 6 horas de luz, frío intenso y nieve garantizada." },
+          { label: "Calidad de vida", score: 9.0, desc: "Finlandia lidera año tras año los rankings de países más felices del mundo — Helsinki concentra buena parte de ese bienestar." },
+          { label: "Autenticidad local", score: 8.5, desc: "La sauna (más de 3.000 en la ciudad) no es un cliché turístico, es una institución social real y cotidiana." },
+          { label: "Estilo de vida", score: 8.0, desc: "Ritmo pausado, diseño funcional en cada rincón (Aalto, Marimekko, Iittala) y un contacto constante con la naturaleza." },
+        ],
+        reviews: [
+          { text: "La sauna semanal se convirtió en mi ritual favorito del Erasmus. Un lujo silencioso que no sabía que necesitaba.", author: "Hugo, Erasmus 2024", flag: "🇫🇷" },
+          { text: "Ver auroras boreales desde las afueras de la ciudad en pleno invierno fue de las experiencias más increíbles de mi vida.", author: "Chiara, Exchange 2023", flag: "🇮🇹" },
+        ],
+      },
+      // 7. EMPLEO Y OPORTUNIDADES
+      {
+        id: "empleo",
+        label: "Empleo y oportunidades",
+        icon: "💼",
+        score: 7.8,
+        summary: "Fuerte ecosistema tecnológico heredado de Nokia, con una escena startup pujante y educación de referencia mundial.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 7.5, desc: "Legado tecnológico de Nokia convertido en un ecosistema activo de startups (Supercell, Wolt) y gaming." },
+          { label: "Prácticas", score: 8.0, desc: "Aalto tiene fuertes conexiones con tecnología y diseño; Hanken con finanzas y consultoría." },
+          { label: "Empresas relevantes", score: 7.5, desc: "Slush, uno de los mayores eventos startup de Europa, se celebra anualmente en Helsinki." },
+          { label: "Oportunidades para estudiantes", score: 8.0, desc: "Ecosistema de innovación muy accesible para estudiantes vía Aalto Ventures Program y eventos universitarios." },
+        ],
+        reviews: [
+          { text: "Asistí a Slush como estudiante y acabé con contactos que me llevaron a unas prácticas de verano en una startup local.", author: "Rodrigo, Internship 2024", flag: "🇧🇷" },
+        ],
+      },
+      // 8. SEGURIDAD
+      {
+        id: "seguridad",
+        label: "Seguridad",
+        icon: "🛡️",
+        score: 9.2,
+        summary: "Una de las ciudades más seguras y con menos corrupción del mundo. Índice de criminalidad prácticamente residual.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 9.5, desc: "Finlandia lidera consistentemente los rankings globales de menor corrupción y mayor confianza institucional." },
+          { label: "Seguridad nocturna", score: 9.0, desc: "Volver de noche caminando o en transporte público es completamente normal, incluso para mujeres solas." },
+          { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada, silenciosa y con un civismo generalizado que sorprende a quien llega de capitales más grandes." },
+        ],
+        reviews: [
+          { text: "Nunca en mi vida me he sentido tan segura como caminando sola de madrugada por Helsinki.", author: "Martina, Erasmus 2023", flag: "🇪🇸" },
+        ],
+      },
+    ],
+  },
+  oslo: {
+    heroImg: "https://images.unsplash.com/photo-1690809092810-dc3e9240191f?w=1600&q=85",
+    tagline: "Fiordos, bosques y esquí urbano. La capital más cara de esta guía, pero también una de las que mejor calidad de vida ofrece.",
+    atmosphere: "Salvaje y sofisticada a la vez. Oslo huele a bosque de pino recién llovido y suena al silencio de Nordmarka roto solo por el crujido de la nieve bajo los esquís.",
+    scores: [
+      // 1. COSTE DE VIDA
+      {
+        id: "coste",
+        label: "Coste de vida",
+        icon: "💰",
+        score: 3.5,
+        summary: "La ciudad más cara de esta guía. Con 1.000–1.350€/mes se vive con comodidad moderada; Noruega no está en la eurozona y el coste se nota en todo.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 4.0, desc: "Habitaciones desde 500–750€. SiO gestiona buena parte de la vivienda estudiantil, la opción más asequible con diferencia." },
+          { label: "Comida y supermercados", score: 3.5, desc: "Kiwi y Rema 1000 son los supermercados más económicos, aun así los precios sorprenden a quien llega de fuera de Escandinavia." },
+          { label: "Transporte", score: 6.5, desc: "Abono Ruter mensual ≈50€, con buen descuento estudiantil, cubre metro, tram, bus y ferris del fiordo." },
+          { label: "Ocio y gastos diarios", score: 3.0, desc: "Una cerveza en bar puede rondar los 9-10€, de las más caras de Europa. El vinmonopolet regula la venta de alcohol fuerte." },
+        ],
+        reviews: [
+          { text: "Es cara de verdad, más que Estocolmo o Copenhague en mi experiencia. Pero la naturaleza gratis compensa buena parte del gasto en ocio.", author: "Sara, Erasmus 2024", flag: "🇮🇹" },
+          { text: "Cociné en casa prácticamente todo el semestre. Salir a comer fuera aquí es un lujo puntual, no una opción habitual.", author: "Tomás, Exchange 2023", flag: "🇪🇸" },
+        ],
+      },
+      // 2. ALOJAMIENTO
+      {
+        id: "alojamiento",
+        label: "Alojamiento",
+        icon: "🏠",
+        score: 3.5,
+        summary: "Mercado ajustado pero manejable gracias a SiO, la organización de bienestar estudiantil que gestiona buena parte de la vivienda universitaria.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 3.5, desc: "SiO tiene cupos priorizados para exchange students, pero la demanda sigue superando la oferta en temporada alta." },
+          { label: "Precio", score: 4.0, desc: "500–750€ habitación en residencias SiO. El mercado privado es notablemente más caro." },
+          { label: "Facilidad de búsqueda", score: 4.5, desc: "SiO es prácticamente el único canal recomendable — solicita en cuanto tengas la carta de admisión." },
+          { label: "Residencias universitarias", score: 5.5, desc: "Kringsjå y Sogn Student Villages son las más habituales para exchange students, con cocina y baño compartidos." },
+        ],
+        reviews: [
+          { text: "Viví en Sogn Student Village y fue de las mejores decisiones. Cocina compartida con gente de toda Europa, ambiente muy internacional.", author: "Louise, Exchange 2024", flag: "🇫🇷" },
+        ],
+      },
+      // 3. VIDA SOCIAL Y AMBIENTE
+      {
+        id: "vida_social",
+        label: "Vida social y ambiente",
+        icon: "🎉",
+        score: 6.8,
+        summary: "Vida social de calidad más que de cantidad: la naturaleza es el plan constante, no el bar. Comunidad Erasmus unida y muy activa al aire libre.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 7.0, desc: "ESN Oslo organiza rutas de senderismo, esquí y viajes a fiordos casi cada fin de semana." },
+          { label: "Ambiente internacional", score: 7.5, desc: "UiO, BI y OsloMet reciben una comunidad internacional grande y activa, con eventos pensados para exchange students." },
+          { label: "Fiesta y vida nocturna", score: 6.0, desc: "Grünerløkka concentra los bares con más ambiente; caros pero con buen ambiente joven." },
+          { label: "Eventos y actividades", score: 7.5, desc: "Esquí de fondo a un tranvía del centro, senderismo en Nordmarka y baño en el fiordo en verano." },
+        ],
+        reviews: [
+          { text: "Cambié salir de fiesta por salir a esquiar de fondo un domingo por la mañana. Nunca pensé que echaría de menos algo así.", author: "Piotr, Erasmus 2023", flag: "🇵🇱" },
+          { text: "La comunidad Erasmus era pequeña pero muy unida. Las rutas de senderismo organizadas por ESN son de lo mejor del semestre.", author: "Camille, Exchange 2024", flag: "🇫🇷" },
+        ],
+      },
+      // 4. INTEGRACIÓN INTERNACIONAL
+      {
+        id: "integracion",
+        label: "Integración internacional",
+        icon: "🌍",
+        score: 7.2,
+        summary: "Inglés altísimo y sistema muy accesible para internacionales. Los noruegos son reservados al principio, pero cercanos y fiables una vez conectas.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 9.0, desc: "Nivel de inglés muy alto en toda la población, especialmente entre los jóvenes universitarios." },
+          { label: "Actitud local", score: 6.0, desc: "Reservados y de pocas palabras al inicio, similar a otros países nórdicos — pero honestos y de fiar." },
+          { label: "Integración con locales", score: 6.5, desc: "Unirte a un buddy group de la universidad o a actividades al aire libre acelera mucho la integración." },
+          { label: "Facilidad para hacer amigos", score: 7.5, desc: "Muy fácil con la comunidad internacional; con locales requiere paciencia y actividades compartidas." },
+        ],
+        reviews: [
+          { text: "El programa de buddy de UiO me ayudó muchísimo a romper el hielo con estudiantes noruegos desde la primera semana.", author: "Elena, Erasmus 2024", flag: "🇬🇷" },
+        ],
+      },
+      // 5. UBICACIÓN Y MOVILIDAD
+      {
+        id: "movilidad",
+        label: "Ubicación y movilidad",
+        icon: "🚆",
+        score: 8.5,
+        summary: "Transporte público excelente y muy bien conectado con la naturaleza — el bosque de Nordmarka está literalmente al final de una línea de metro.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 8.5, desc: "Metro, tram y bus integrados en el abono Ruter. Puntual y fiable incluso con nieve." },
+          { label: "Ciudad caminable", score: 8.0, desc: "Centro compacto y ciclable en las estaciones cálidas; en invierno la bici da paso al transporte público." },
+          { label: "Naturaleza a un trayecto", score: 9.5, desc: "La línea de metro T-bane lleva directamente a Nordmarka — de la ciudad al bosque en 20-30 minutos." },
+          { label: "Escapadas de fin de semana", score: 8.0, desc: "Los fiordos noruegos y Bergen a un vuelo corto o tren panorámico; estaciones de esquí a 1-2 horas." },
+        ],
+        reviews: [
+          { text: "Coger el metro para ir directo al bosque a esquiar de fondo un martes por la tarde fue de lo más surrealista y maravilloso que he vivido.", author: "Ben, Exchange 2023", flag: "🇩🇪" },
+        ],
+      },
+      // 6. ESTILO DE VIDA Y ENTORNO
+      {
+        id: "estilo_vida",
+        label: "Estilo de vida y entorno",
+        icon: "🏔️",
+        score: 9.0,
+        summary: "Naturaleza salvaje integrada en la ciudad como en ningún otro destino de esta guía: fiordo y bosque a la vez, con una calidad de vida excepcional.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 10.0, desc: "Fiordo de Oslo para bañarte en verano y bosque de Nordmarka con 2.600 km de pistas de esquí de fondo en invierno." },
+          { label: "Clima", score: 6.0, desc: "Veranos suaves y luminosos (16-22°C) frente a inviernos fríos y oscuros con nieve prácticamente garantizada." },
+          { label: "Calidad de vida", score: 9.5, desc: "Noruega lidera consistentemente los rankings de renta per cápita y desarrollo humano más altos del mundo." },
+          { label: "Autenticidad local", score: 8.5, desc: "El friluftsliv (vida al aire libre) no es un concepto de marketing — es la forma en que los noruegos viven su tiempo libre." },
+          { label: "Estilo de vida", score: 8.5, desc: "Ritmo pausado, mucho deporte al aire libre y una relación con la naturaleza que impregna toda la cultura." },
+        ],
+        reviews: [
+          { text: "Vivir a 20 minutos en metro de un bosque donde puedes esquiar de fondo gratis cambió mi forma de entender la calidad de vida.", author: "Marta, Erasmus 2024", flag: "🇵🇹" },
+          { text: "El friluftsliv es real. Los noruegos literalmente organizan su semana alrededor de estar al aire libre.", author: "Jonas, Exchange 2023", flag: "🇩🇪" },
+        ],
+      },
+      // 7. EMPLEO Y OPORTUNIDADES
+      {
+        id: "empleo",
+        label: "Empleo y oportunidades",
+        icon: "💼",
+        score: 8.0,
+        summary: "Fuerte en energía, tecnología marina y sector público, en un país con una de las rentas per cápita más altas del mundo.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 7.5, desc: "Sector energético (Equinor) y tecnología marina dominan; también fuerte presencia de fondos soberanos y finanzas." },
+          { label: "Prácticas", score: 8.0, desc: "BI tiene fuertes conexiones con el sector financiero y empresarial noruego." },
+          { label: "Empresas relevantes", score: 8.0, desc: "Equinor, Telenor y un ecosistema tecnológico creciente en torno a energías renovables." },
+          { label: "Oportunidades para estudiantes", score: 8.5, desc: "Salarios estudiantiles altos comparados con el resto de Europa, aunque el coste de vida los absorbe en gran parte." },
+        ],
+        reviews: [
+          { text: "Trabajé unas horas a la semana en un café durante el semestre y el sueldo por hora era muy superior al de mi país.", author: "Andrei, Erasmus 2024", flag: "🇷🇴" },
+        ],
+      },
+      // 8. SEGURIDAD
+      {
+        id: "seguridad",
+        label: "Seguridad",
+        icon: "🛡️",
+        score: 8.8,
+        summary: "Entre los países más seguros y con mejor calidad de vida del mundo. Criminalidad muy baja y confianza institucional altísima.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 9.0, desc: "Noruega aparece consistentemente entre los primeros puestos de los índices globales de paz y seguridad." },
+          { label: "Seguridad nocturna", score: 8.5, desc: "Volver de noche por el centro o en transporte público es completamente normal y seguro." },
+          { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada y tranquila, con un nivel de confianza social muy alto entre sus habitantes." },
+        ],
+        reviews: [
+          { text: "Me sorprendió ver a estudiantes dejando el portátil sin vigilancia en la biblioteca durante horas. Nivel de confianza muy distinto al de mi país.", author: "Clara, Erasmus 2023", flag: "🇪🇸" },
+        ],
+      },
+    ],
+  },
+  reikiavik: {
+    heroImg: "https://images.unsplash.com/photo-1762339863505-17af5c0478b0?w=1600&q=85",
+    tagline: "El Erasmus más extremo y espectacular de Europa: volcanes, géiseres y auroras boreales a la vuelta de la esquina de la capital más pequeña y segura del continente.",
+    atmosphere: "Cruda, espectacular y sorprendentemente acogedora. Reikiavik huele a azufre geotermal en cuanto sales de la ciudad y suena al silencio absoluto de un país con más ovejas que coches en muchas carreteras.",
+    scores: [
+      // 1. COSTE DE VIDA
+      {
+        id: "coste",
+        label: "Coste de vida",
+        icon: "💰",
+        score: 4.0,
+        summary: "Cara y fuera de la eurozona. Con 900–1.300€/mes se vive, pero comer fuera y el ocio nocturno son de los más caros de Europa.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 4.5, desc: "Habitaciones desde 500–750€. Comunidad estudiantil pequeña facilita encontrar piso compartido vía grupos de Facebook." },
+          { label: "Comida y supermercados", score: 4.0, desc: "Bónus y Krónan son los supermercados más económicos. Comer fuera puede triplicar el precio que en el sur de Europa." },
+          { label: "Transporte", score: 5.5, desc: "Strætó (bus urbano) cubre la ciudad con descuento estudiantil; para el Círculo Dorado hace falta coche compartido o tour." },
+          { label: "Ocio y gastos diarios", score: 3.5, desc: "Una cerveza en bar puede rondar los 9-10€. Las piscinas geotermales de barrio, en cambio, son una ganga a 6-8€." },
+        ],
+        reviews: [
+          { text: "El presupuesto de comida fue el mayor shock. Cocinar en casa y compartir coche para las excursiones fue clave para sobrevivir el semestre.", author: "Andrea, Erasmus 2024", flag: "🇮🇹" },
+          { text: "Cara sí, pero la piscina geotermal de mi barrio costaba menos que un café en muchas capitales europeas. Todo es cuestión de elegir bien los gastos.", author: "Kevin, Exchange 2023", flag: "🇩🇪" },
+        ],
+      },
+      // 2. ALOJAMIENTO
+      {
+        id: "alojamiento",
+        label: "Alojamiento",
+        icon: "🏠",
+        score: 4.5,
+        summary: "Comunidad estudiantil pequeña que hace el mercado manejable si te mueves con tiempo, aunque la oferta específica para exchange students es limitada.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 4.0, desc: "Comunidad reducida — la oferta de habitaciones es menor que en capitales grandes, pero también la demanda." },
+          { label: "Precio", score: 4.5, desc: "500–750€ habitación en el centro (101 Reykjavík). Barrios como Hlíðar son algo más asequibles." },
+          { label: "Facilidad de búsqueda", score: 4.5, desc: "Grupos de Facebook de exchange students en Reikiavik y el portal de vivienda de cada universidad son los canales principales." },
+          { label: "Residencias universitarias", score: 5.0, desc: "Ambas universidades tienen convenios con residencias, pero conviene solicitarlas en cuanto llega la admisión — las plazas son limitadas." },
+        ],
+        reviews: [
+          { text: "Con un grupo de Facebook de exchange students encontré piso en tres semanas. La comunidad es pequeña pero se ayuda mucho entre sí.", author: "Julie, Exchange 2024", flag: "🇫🇷" },
+        ],
+      },
+      // 3. VIDA SOCIAL Y AMBIENTE
+      {
+        id: "vida_social",
+        label: "Vida social y ambiente",
+        icon: "🎉",
+        score: 5.8,
+        summary: "Comunidad Erasmus reducida pero muy unida — en una ciudad tan pequeña, todo el mundo acaba conociéndose en pocas semanas.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 6.0, desc: "ESN Iceland organiza excursiones al Círculo Dorado, tours de auroras boreales y noches de piscina geotermal." },
+          { label: "Ambiente internacional", score: 6.5, desc: "Comunidad internacional pequeña pero muy activa entre University of Iceland y Reykjavik University." },
+          { label: "Fiesta y vida nocturna", score: 5.5, desc: "El centro (101 Reykjavík) concentra la vida nocturna, cara pero con ambiente auténtico los findes." },
+          { label: "Eventos y actividades", score: 7.0, desc: "Tours de auroras boreales, excursiones a glaciares y piscinas geotermales son el plan constante, más que el bar." },
+        ],
+        reviews: [
+          { text: "Al ser tan pocos Erasmus acabamos siendo una familia real. Viajamos juntos a ver auroras boreales cada pocas semanas.", author: "Noah, Erasmus 2023", flag: "🇳🇱" },
+          { text: "La vida nocturna del centro es cara pero tiene un ambiente muy genuino, sin el postureo de otras capitales.", author: "Bianca, Exchange 2024", flag: "🇷🇴" },
+        ],
+      },
+      // 4. INTEGRACIÓN INTERNACIONAL
+      {
+        id: "integracion",
+        label: "Integración internacional",
+        icon: "🌍",
+        score: 6.8,
+        summary: "Inglés altísimo e islandeses sorprendentemente cercanos para tratarse de un país nórdico — la comunidad pequeña favorece conexiones reales.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 9.0, desc: "Nivel de inglés muy alto en toda la población joven, especialmente en el entorno universitario." },
+          { label: "Actitud local", score: 6.5, desc: "Más abiertos de lo esperado para ser nórdicos; el tamaño reducido de la ciudad favorece el contacto cercano." },
+          { label: "Integración con locales", score: 6.0, desc: "Las piscinas geotermales de barrio son, sorprendentemente, el mejor sitio para socializar con islandeses." },
+          { label: "Facilidad para hacer amigos", score: 6.5, desc: "Comunidad internacional pequeña pero cercana; con locales lleva algo más de tiempo pero es alcanzable." },
+        ],
+        reviews: [
+          { text: "En la piscina de mi barrio acabé charlando con jubilados islandeses cada semana. Es el verdadero punto de encuentro social aquí.", author: "Rebecca, Exchange 2023", flag: "🇬🇧" },
+        ],
+      },
+      // 5. UBICACIÓN Y MOVILIDAD
+      {
+        id: "movilidad",
+        label: "Ubicación y movilidad",
+        icon: "🚆",
+        score: 6.0,
+        summary: "Strætó cubre bien la propia ciudad, pero explorar la isla exige coche compartido o tours organizados — no hay red ferroviaria en todo el país.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte urbano", score: 6.5, desc: "Strætó (bus) cubre Reikiavik y alrededores con buen descuento estudiantil, aunque la frecuencia baja fuera de horas punta." },
+          { label: "Ciudad caminable", score: 7.5, desc: "El centro (101 Reykjavík) es pequeño y perfectamente caminable o ciclable." },
+          { label: "Excursiones por la isla", score: 5.0, desc: "No hay trenes en Islandia — coche compartido, alquiler o tours organizados son imprescindibles para el Círculo Dorado y más allá." },
+          { label: "Conexiones internacionales", score: 6.0, desc: "El aeropuerto de Keflavík conecta con Europa y EE.UU., pero los vuelos suelen ser más caros que en el continente." },
+        ],
+        reviews: [
+          { text: "Compartir coche con otros Erasmus se convirtió en el plan de cada fin de semana. Sin coche, ver la isla de verdad es muy difícil.", author: "Léa, Erasmus 2024", flag: "🇫🇷" },
+        ],
+      },
+      // 6. ESTILO DE VIDA Y ENTORNO
+      {
+        id: "estilo_vida",
+        label: "Estilo de vida y entorno",
+        icon: "🏔️",
+        score: 9.5,
+        summary: "El entorno más espectacular y extremo de toda esta guía: volcanes, géiseres, glaciares y auroras boreales al alcance de un fin de semana.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 10.0, desc: "Círculo Dorado, glaciares, costas volcánicas y auroras boreales — un paisaje que no se parece a ningún otro destino de Europa." },
+          { label: "Clima", score: 6.5, desc: "Extremo estacional: sol de medianoche en verano frente a apenas 4-5 horas de luz en pleno invierno, con viento constante todo el año." },
+          { label: "Calidad de vida", score: 9.5, desc: "Islandia lidera consistentemente los rankings de igualdad y bienestar social del mundo." },
+          { label: "Autenticidad local", score: 9.0, desc: "Cultura de sagas, piscinas geotermales de barrio y una relación con la naturaleza que define toda la identidad islandesa." },
+          { label: "Estilo de vida", score: 8.5, desc: "Ritmo tranquilo con la naturaleza siempre como protagonista, muy alejado del ajetreo de las grandes capitales." },
+        ],
+        reviews: [
+          { text: "Ver mi primera aurora boreal desde las afueras de la ciudad, sin necesidad de ningún tour, fue el momento que definió todo mi Erasmus.", author: "Sofía, Erasmus 2024", flag: "🇪🇸" },
+          { text: "Bañarme en una piscina geotermal humeante mientras nevaba alrededor es de las experiencias más surrealistas que he vivido nunca.", author: "Matteo, Exchange 2023", flag: "🇮🇹" },
+        ],
+      },
+      // 7. EMPLEO Y OPORTUNIDADES
+      {
+        id: "empleo",
+        label: "Empleo y oportunidades",
+        icon: "💼",
+        score: 6.5,
+        summary: "Mercado laboral pequeño, pero con un turismo en auge y un sector de energía geotérmica puntero a nivel mundial.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 6.0, desc: "Economía pequeña centrada en turismo, pesca y energía renovable — pocas prácticas específicas para exchange students." },
+          { label: "Prácticas", score: 6.5, desc: "Reykjavik University tiene conexiones con energía geotérmica e informática; oportunidades más limitadas que en capitales grandes." },
+          { label: "Empresas relevantes", score: 6.5, desc: "Islandia es referencia mundial en energía 100% renovable (geotérmica e hidroeléctrica), un sector con fuerte proyección." },
+          { label: "Oportunidades para estudiantes", score: 6.5, desc: "El turismo ofrece trabajos estudiantiles a tiempo parcial relativamente accesibles y bien pagados." },
+        ],
+        reviews: [
+          { text: "El mercado es pequeño, pero conseguí un trabajo a tiempo parcial en turismo que me ayudó bastante con el presupuesto.", author: "Oscar, Erasmus 2023", flag: "🇸🇪" },
+        ],
+      },
+      // 8. SEGURIDAD
+      {
+        id: "seguridad",
+        label: "Seguridad",
+        icon: "🛡️",
+        score: 9.8,
+        summary: "La capital más pequeña y consistentemente más segura de Europa. Islandia encabeza año tras año el Índice Global de Paz.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 10.0, desc: "Islandia lleva más de una década siendo el país más pacífico del mundo según el Índice Global de Paz." },
+          { label: "Seguridad nocturna", score: 9.5, desc: "Caminar de noche por cualquier zona de Reikiavik es completamente normal y seguro, sin excepción." },
+          { label: "Ambiente de la ciudad", score: 9.5, desc: "Comunidad pequeña donde el nivel de confianza social es prácticamente absoluto." },
+        ],
+        reviews: [
+          { text: "Nunca cerré la puerta de casa con llave en todo el semestre. Es literalmente ese tipo de sitio.", author: "Freya, Exchange 2024", flag: "🇩🇰" },
+        ],
+      },
+    ],
+  },
+  dublin: {
+    heroImg: "https://images.unsplash.com/photo-1660501772252-d569493dc61f?w=1600&q=85",
+    tagline: "Pubs con música en directo cada noche, la cuna literaria de Joyce y Wilde, y la sede europea de medio Silicon Valley.",
+    atmosphere: "Ruidosa, literaria y profundamente social. Dublín huele a Guinness recién tirada y suena a violín irlandés colándose por la puerta entreabierta de cualquier pub un martes por la noche.",
+    scores: [
+      // 1. COSTE DE VIDA
+      {
+        id: "coste",
+        label: "Coste de vida",
+        icon: "💰",
+        score: 3.8,
+        summary: "Una de las capitales más caras de esta guía. Con 1.000–1.400€/mes se vive con cierta comodidad, sin margen para grandes lujos.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 2.5, desc: "Habitaciones desde 700–1.000€. La crisis de vivienda dublinesa es real y golpea de lleno a los estudiantes internacionales." },
+          { label: "Comida y supermercados", score: 5.0, desc: "Lidl y Aldi salvan el presupuesto. Salir a comer fuera es notablemente caro comparado con el resto de Europa." },
+          { label: "Transporte", score: 6.0, desc: "Leap Card con descuento estudiantil cubre bus, DART y tranvía Luas. Razonable dentro del contexto irlandés." },
+          { label: "Ocio y gastos diarios", score: 3.0, desc: "Una pinta de Guinness ronda los 6-7€, de las más caras de Europa. La vida de pub, aun así, sigue siendo el plan social central." },
+        ],
+        reviews: [
+          { text: "El alojamiento es el gran shock. Llegué sin piso cerrado y tardé semanas en encontrar algo mínimamente razonable de precio.", author: "Martina, Erasmus 2024", flag: "🇮🇹" },
+          { text: "Es cara, sin duda, pero la vida social compensa. Un par de pintas en un pub con música en vivo valen cada euro.", author: "Rui, Exchange 2023", flag: "🇵🇹" },
+        ],
+      },
+      // 2. ALOJAMIENTO
+      {
+        id: "alojamiento",
+        label: "Alojamiento",
+        icon: "🏠",
+        score: 2.5,
+        summary: "Crisis de vivienda severa, de las más difíciles de toda esta guía. Es imprescindible empezar a buscar con muchos meses de antelación.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 2.0, desc: "La demanda supera ampliamente la oferta desde hace años. Muchos exchange students recurren a residencias privadas fuera del centro." },
+          { label: "Precio", score: 2.5, desc: "700–1.000€ habitación. De los precios más altos de toda esta guía en relación al tamaño de la ciudad." },
+          { label: "Facilidad de búsqueda", score: 3.5, desc: "Daft.ie es el portal principal. Las oficinas internacionales de TCD y UCD ofrecen orientación, aunque plazas limitadas." },
+          { label: "Residencias universitarias", score: 4.0, desc: "TCD y UCD tienen residencias propias con cupos para exchange students — solicítalas en cuanto llegue la admisión." },
+        ],
+        reviews: [
+          { text: "Empecé a buscar 5 meses antes y aun así fue estresante. Aquí la búsqueda de piso empieza mucho antes que en cualquier otro destino.", author: "Hannah, Exchange 2024", flag: "🇩🇪" },
+        ],
+      },
+      // 3. VIDA SOCIAL Y AMBIENTE
+      {
+        id: "vida_social",
+        label: "Vida social y ambiente",
+        icon: "🎉",
+        score: 8.5,
+        summary: "El pub con música en directo es el verdadero centro social de la ciudad, no solo un sitio para beber. Vida social intensa desde la primera semana.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 8.5, desc: "TCD y UCD reciben miles de exchange students, con ESN organizando eventos constantes y muy participativos." },
+          { label: "Ambiente internacional", score: 8.5, desc: "Ciudad acostumbrada a recibir estudiantes internacionales desde hace décadas, con infraestructura social muy rodada." },
+          { label: "Fiesta y vida nocturna", score: 8.5, desc: "Temple Bar concentra el ambiente más turístico; los pubs de barrio ofrecen música en vivo auténtica cada noche de la semana." },
+          { label: "Eventos y actividades", score: 8.0, desc: "Sesiones de música tradicional irlandesa, eventos literarios y festivales al aire libre en verano." },
+        ],
+        reviews: [
+          { text: "En Dublín el pub no es un plan de viernes, es un plan de cualquier día. La música en vivo espontánea en cualquier bar es una pasada.", author: "Sofia, Erasmus 2023", flag: "🇬🇷" },
+          { text: "La comunidad Erasmus aquí es enorme y muy activa. Nunca sentí que faltara ambiente ni un solo fin de semana.", author: "Lucas, Exchange 2024", flag: "🇫🇷" },
+        ],
+      },
+      // 4. INTEGRACIÓN INTERNACIONAL
+      {
+        id: "integracion",
+        label: "Integración internacional",
+        icon: "🌍",
+        score: 8.5,
+        summary: "Inglés nativo desde el primer día e irlandeses entre los más abiertos, habladores y acogedores de toda Europa.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 10.0, desc: "Inmersión total en inglés nativo desde el minuto uno, con el irlandés como segunda lengua oficial en menor uso cotidiano." },
+          { label: "Actitud local", score: 9.0, desc: "Los irlandeses tienen fama merecida de ser habladores, cercanos y dispuestos a charlar con cualquiera en el pub." },
+          { label: "Integración con locales", score: 7.5, desc: "El pub es la vía más rápida de integración real — basta con sentarte en la barra y dejarte llevar por la conversación." },
+          { label: "Facilidad para hacer amigos", score: 8.5, desc: "Ciudad muy sociable donde hacer amigos, tanto internacionales como locales, resulta sorprendentemente fácil." },
+        ],
+        reviews: [
+          { text: "Llegué con miedo a mi nivel de inglés y en dos semanas ya charlaba sin parar con desconocidos en cualquier pub. Los irlandeses lo ponen fácil.", author: "Valeria, Erasmus 2024", flag: "🇪🇸" },
+        ],
+      },
+      // 5. UBICACIÓN Y MOVILIDAD
+      {
+        id: "movilidad",
+        label: "Ubicación y movilidad",
+        icon: "🚆",
+        score: 6.5,
+        summary: "El transporte público es mejorable comparado con otras capitales europeas, pero la Leap Card lo hace manejable y la costa queda muy cerca.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 6.0, desc: "Bus, DART (tren de cercanías) y tranvía Luas cubren la ciudad, aunque con menos frecuencia que en otras capitales." },
+          { label: "Ciudad caminable", score: 7.5, desc: "Centro compacto y muy caminable; el DART conecta bien con la costa norte y sur." },
+          { label: "Conexiones nacionales", score: 7.0, desc: "Buses y trenes conectan con Galway, Cork y los Acantilados de Moher en escapadas de fin de semana." },
+          { label: "Conexiones internacionales", score: 7.5, desc: "Vuelos baratos a toda Europa desde el aeropuerto de Dublín, uno de los más conectados de las Islas Británicas." },
+        ],
+        reviews: [
+          { text: "El DART hacia la costa sur (Dalkey, Howth) se convirtió en mi escapada de findes favorita, a menos de 30 minutos del centro.", author: "Ben, Exchange 2023", flag: "🇬🇧" },
+        ],
+      },
+      // 6. ESTILO DE VIDA Y ENTORNO
+      {
+        id: "estilo_vida",
+        label: "Estilo de vida y entorno",
+        icon: "🏔️",
+        score: 7.5,
+        summary: "Literatura, música y una costa espectacular a un trayecto corto de la ciudad. El estilo de vida dublinés gira en torno a lo social.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 7.5, desc: "Costa irlandesa con acantilados y pueblos pesqueros a menos de una hora; Phoenix Park, uno de los parques urbanos más grandes de Europa." },
+          { label: "Clima", score: 5.5, desc: "Oceánico suave y muy lluvioso todo el año, sin extremos de temperatura pero con lluvia constante e impredecible." },
+          { label: "Calidad de vida", score: 7.5, desc: "Buena calidad de vida general, aunque el coste de vivienda es el principal lastre para estudiantes." },
+          { label: "Autenticidad local", score: 8.5, desc: "La tradición literaria y musical irlandesa impregna toda la ciudad, no solo las zonas turísticas." },
+          { label: "Estilo de vida", score: 7.5, desc: "Ritmo social intenso centrado en la conversación, la música y el pub como espacio comunitario real." },
+        ],
+        reviews: [
+          { text: "Visitar la casa de Joyce y luego acabar la noche en un pub con música tradicional resume perfectamente lo que es vivir en Dublín.", author: "Chiara, Erasmus 2024", flag: "🇮🇹" },
+        ],
+      },
+      // 7. EMPLEO Y OPORTUNIDADES
+      {
+        id: "empleo",
+        label: "Empleo y oportunidades",
+        icon: "💼",
+        score: 9.0,
+        summary: "Sede europea de Google, Meta, LinkedIn y buena parte del sector tech mundial, con oportunidades de prácticas muy accesibles en inglés.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 9.0, desc: "Silicon Docks concentra las sedes europeas de las principales tecnológicas del mundo, con alta demanda de perfiles multilingües." },
+          { label: "Prácticas", score: 9.0, desc: "TCD y UCD tienen fuertes conexiones con el sector tech y financiero, con programas de prácticas muy activos." },
+          { label: "Empresas relevantes", score: 9.5, desc: "Google, Meta, LinkedIn, Stripe y Airbnb tienen su sede europea en Dublín." },
+          { label: "Oportunidades para estudiantes", score: 8.5, desc: "Perfil multilingüe muy valorado en el sector tech dublinés, con demanda constante de hablantes de otros idiomas europeos." },
+        ],
+        reviews: [
+          { text: "Conseguí unas prácticas en una tech company gracias a mi combinación de idiomas. Aquí ser hablante de español o italiano es un activo real.", author: "Pablo, Internship 2024", flag: "🇪🇸" },
+        ],
+      },
+      // 8. SEGURIDAD
+      {
+        id: "seguridad",
+        label: "Seguridad",
+        icon: "🛡️",
+        score: 7.8,
+        summary: "Segura en general para estándares europeos, con la precaución habitual de cualquier capital, especialmente en las zonas de más ambiente nocturno.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 8.0, desc: "Segura para estándares de capital europea, con los cuidados normales en cualquier gran ciudad." },
+          { label: "Seguridad nocturna", score: 7.0, desc: "Precaución razonable en Temple Bar y alrededores tarde de noche los fines de semana, como en cualquier zona de fiesta." },
+          { label: "Ambiente de la ciudad", score: 8.0, desc: "Ambiente generalmente tranquilo y acogedor, con la vida social muy volcada en espacios públicos como el pub." },
+        ],
+        reviews: [
+          { text: "Me sentí segura la mayor parte del tiempo, con el cuidado normal los findes en Temple Bar por la afluencia de gente.", author: "Nora, Erasmus 2023", flag: "🇩🇪" },
+        ],
+      },
+    ],
+  },
+  edimburgo: {
+    heroImg: "https://images.unsplash.com/photo-1566037194426-1944346fc8d9?w=1600&q=85",
+    tagline: "Una ciudad de piedra gótica construida sobre volcanes extintos, con el mayor festival de artes del mundo cada agosto.",
+    atmosphere: "Gótica, literaria y espectacular. Edimburgo huele a piedra húmeda tras la lluvia y suena a gaitas callejeras mezcladas con el bullicio de agosto durante el Fringe Festival.",
+    scores: [
+      // 1. COSTE DE VIDA
+      {
+        id: "coste",
+        label: "Coste de vida",
+        icon: "💰",
+        score: 3.8,
+        summary: "Cara, en línea con Dublín. Con 1.000–1.400€/mes se vive con cierta comodidad, especialmente fuera del festival de agosto.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 3.0, desc: "Habitaciones desde 650–950€. Los precios suben notablemente si tu estancia coincide con el Fringe Festival en agosto." },
+          { label: "Comida y supermercados", score: 5.0, desc: "Lidl, Aldi y Tesco cubren el día a día. Comer fuera es caro salvo en food markets puntuales." },
+          { label: "Transporte", score: 6.5, desc: "Abono Lothian Buses o tranvía con descuento estudiantil; el centro es totalmente caminable de todas formas." },
+          { label: "Ocio y gastos diarios", score: 4.0, desc: "Una pinta en pub ronda 5-6£. Los eventos del Fringe suelen tener entradas económicas para estudiantes." },
+        ],
+        reviews: [
+          { text: "Vivir aquí en agosto es caro por el Fringe, pero el resto del año el presupuesto se relaja bastante.", author: "Elin, Exchange 2024", flag: "🇸🇪" },
+          { text: "Cociné en casa la mayor parte del tiempo y usé el increíble catálogo de eventos gratuitos de la universidad para el ocio.", author: "Marc, Erasmus 2023", flag: "🇫🇷" },
+        ],
+      },
+      // 2. ALOJAMIENTO
+      {
+        id: "alojamiento",
+        label: "Alojamiento",
+        icon: "🏠",
+        score: 3.0,
+        summary: "Mercado tenso, especialmente si tu estancia coincide con el Fringe Festival de agosto, cuando la demanda se dispara.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 3.0, desc: "University of Edinburgh garantiza alojamiento a estudiantes de intercambio de año completo si aplicas a tiempo; semestre único, no siempre." },
+          { label: "Precio", score: 3.0, desc: "650–950€ habitación. Old Town y zonas céntricas son notablemente más caras que Marchmont o Leith." },
+          { label: "Facilidad de búsqueda", score: 4.0, desc: "El portal de accommodation.ed.ac.uk es el canal principal — solicita en cuanto tengas la admisión confirmada." },
+          { label: "Residencias universitarias", score: 5.0, desc: "Ambas universidades ofrecen residencias con cupos para exchange students, aunque limitados en semestres únicos." },
+        ],
+        reviews: [
+          { text: "Al ser de año completo tuve alojamiento garantizado por la universidad, lo cual simplificó todo muchísimo.", author: "Ingrid, Exchange 2024", flag: "🇳🇴" },
+        ],
+      },
+      // 3. VIDA SOCIAL Y AMBIENTE
+      {
+        id: "vida_social",
+        label: "Vida social y ambiente",
+        icon: "🎉",
+        score: 8.0,
+        summary: "El pub y el Fringe Festival definen la vida social de la ciudad, con una comunidad internacional muy activa durante todo el año académico.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 8.0, desc: "University of Edinburgh recibe una comunidad internacional muy grande, con sociedades estudiantiles activas todo el año." },
+          { label: "Ambiente internacional", score: 8.0, desc: "Una de cada tres personas de la universidad viene de fuera del Reino Unido — ambiente muy cosmopolita." },
+          { label: "Fiesta y vida nocturna", score: 7.5, desc: "Cowgate y Grassmarket concentran los pubs con más ambiente estudiantil, con ceilidhs (bailes tradicionales) incluidos." },
+          { label: "Eventos y actividades", score: 9.0, desc: "El Fringe Festival en agosto convierte la ciudad entera en escenario, con miles de espectáculos accesibles para estudiantes." },
+        ],
+        reviews: [
+          { text: "Vivir el Fringe desde dentro, como estudiante local, es una experiencia que no se olvida. La ciudad entera respira teatro.", author: "Alessia, Erasmus 2024", flag: "🇮🇹" },
+          { text: "Fui a mi primer ceilidh (baile tradicional escocés) organizado por la universidad y acabé haciendo algunos de mis mejores amigos ahí.", author: "Diego, Exchange 2023", flag: "🇦🇷" },
+        ],
+      },
+      // 4. INTEGRACIÓN INTERNACIONAL
+      {
+        id: "integracion",
+        label: "Integración internacional",
+        icon: "🌍",
+        score: 8.0,
+        summary: "Inglés nativo y escoceses conocidos por ser especialmente cercanos y hospitalarios, incluso más que el resto del Reino Unido.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 10.0, desc: "Inmersión total en inglés nativo, con acento escocés como reto añadido pero muy asequible con el tiempo." },
+          { label: "Actitud local", score: 8.5, desc: "Los escoceses tienen fama merecida de ser más cercanos y menos reservados que el resto del Reino Unido." },
+          { label: "Integración con locales", score: 7.5, desc: "Las sociedades estudiantiles (societies) son la vía más rápida de conectar con estudiantes locales." },
+          { label: "Facilidad para hacer amigos", score: 8.0, desc: "Comunidad internacional enorme facilita amistades desde el primer día, con locales requiriendo algo más de iniciativa." },
+        ],
+        reviews: [
+          { text: "Los escoceses son mucho más abiertos y habladores de lo que esperaba. Se nota la diferencia con otras partes de Reino Unido.", author: "Léna, Erasmus 2024", flag: "🇫🇷" },
+        ],
+      },
+      // 5. UBICACIÓN Y MOVILIDAD
+      {
+        id: "movilidad",
+        label: "Ubicación y movilidad",
+        icon: "🚆",
+        score: 7.5,
+        summary: "Ciudad muy caminable con buses y tranvía para completar el resto, y las Highlands escocesas a un trayecto corto para escapadas.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 7.5, desc: "Lothian Buses y el tranvía conectan bien la ciudad y el aeropuerto, con buen descuento para estudiantes." },
+          { label: "Ciudad caminable", score: 8.5, desc: "El centro histórico es compacto y perfectamente caminable, con Arthur's Seat como mirador natural a pie de ciudad." },
+          { label: "Escapadas de fin de semana", score: 8.5, desc: "Highlands, Loch Ness y la Isla de Skye a pocas horas en coche compartido o tour organizado." },
+          { label: "Conexiones internacionales", score: 7.0, desc: "El aeropuerto de Edimburgo conecta bien con Europa, aunque con menos rutas directas que Londres." },
+        ],
+        reviews: [
+          { text: "Una excursión de fin de semana a las Highlands con otros exchange students fue de lo mejor del semestre — paisajes que no había visto nunca.", author: "Kasper, Exchange 2023", flag: "🇩🇰" },
+        ],
+      },
+      // 6. ESTILO DE VIDA Y ENTORNO
+      {
+        id: "estilo_vida",
+        label: "Estilo de vida y entorno",
+        icon: "🏔️",
+        score: 8.5,
+        summary: "Gótica y literaria, con Arthur's Seat como montaña dentro de la propia ciudad y las Highlands escocesas a un trayecto corto.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 8.5, desc: "Arthur's Seat, un volcán extinto dentro de los límites de la ciudad, ofrece vistas panorámicas a pocos minutos del centro." },
+          { label: "Clima", score: 5.5, desc: "Oceánico fresco y lluvioso todo el año, sin extremos de temperatura pero con viento constante." },
+          { label: "Calidad de vida", score: 8.5, desc: "Casco antiguo Patrimonio de la Humanidad, con una vida cultural intensa durante todo el año." },
+          { label: "Autenticidad local", score: 8.5, desc: "Tradición literaria (cuna de Conan Doyle y J.K. Rowling escribió aquí sus primeros libros) y cultura gaélica muy presente." },
+          { label: "Estilo de vida", score: 8.0, desc: "Ritmo académico serio combinado con una vida cultural y festivalera de primer nivel mundial." },
+        ],
+        reviews: [
+          { text: "Subir a Arthur's Seat al amanecer antes de clase se convirtió en mi ritual favorito del semestre. Ver una ciudad entera desde un volcán es único.", author: "Paula, Erasmus 2024", flag: "🇪🇸" },
+        ],
+      },
+      // 7. EMPLEO Y OPORTUNIDADES
+      {
+        id: "empleo",
+        label: "Empleo y oportunidades",
+        icon: "💼",
+        score: 7.5,
+        summary: "Fuerte en finanzas, ciencia de datos y el sector cultural, con University of Edinburgh entre las mejores universidades del mundo en investigación.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 7.5, desc: "Segundo centro financiero del Reino Unido tras Londres, con fuerte presencia también en ciencia de datos e IA." },
+          { label: "Prácticas", score: 7.5, desc: "University of Edinburgh tiene fuertes conexiones con investigación y tecnología, aunque el visado post-Brexit añade trámites." },
+          { label: "Empresas relevantes", score: 7.5, desc: "Sede de importantes gestoras financieras (Standard Life, Baillie Gifford) y un ecosistema creciente de startups de IA." },
+          { label: "Oportunidades para estudiantes", score: 7.0, desc: "El sector cultural y de eventos ofrece trabajos estudiantiles accesibles, especialmente durante el Fringe Festival." },
+        ],
+        reviews: [
+          { text: "Trabajé como voluntario en el Fringe Festival y acabé con contactos en el sector cultural que no esperaba conseguir de Erasmus.", author: "Tom, Erasmus 2023", flag: "🇩🇪" },
+        ],
+      },
+      // 8. SEGURIDAD
+      {
+        id: "seguridad",
+        label: "Seguridad",
+        icon: "🛡️",
+        score: 8.5,
+        summary: "Una de las capitales más seguras y tranquilas del Reino Unido, con un ambiente estudiantil muy cuidado por la propia universidad.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 8.5, desc: "Índice de criminalidad bajo comparado con otras grandes ciudades del Reino Unido." },
+          { label: "Seguridad nocturna", score: 8.0, desc: "Volver de noche por zonas estudiantiles como Marchmont es generalmente tranquilo y seguro." },
+          { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada y con un fuerte sentido comunitario, especialmente en el entorno universitario." },
+        ],
+        reviews: [
+          { text: "Me sentí muy segura durante todo el semestre, incluso volviendo sola de noche desde la biblioteca.", author: "Greta, Exchange 2024", flag: "🇦🇹" },
+        ],
+      },
+    ],
+  },
+  atenas: {
+    heroImg: "https://images.unsplash.com/photo-1578345536195-d122fa60a195?w=1600&q=85",
+    tagline: "Cuna de la democracia y la filosofía occidental, con la Acrópolis presidiendo el horizonte y playas del Egeo a un tranvía del centro.",
+    atmosphere: "Caótica, cálida y llena de vida. Atenas huele a café frío y souvlaki a la parrilla, y suena a motos zumbando entre ruinas de 2.500 años de antigüedad como si fuera lo más normal del mundo.",
+    scores: [
+      // 1. COSTE DE VIDA
+      {
+        id: "coste",
+        label: "Coste de vida",
+        icon: "💰",
+        score: 8.0,
+        summary: "Una de las capitales más baratas de Europa Occidental. Con 500–800€/mes se vive con comodidad, incluyendo salidas frecuentes.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 250–400€. Los precios han subido con el turismo y los pisos turísticos, pero siguen siendo bajos para Europa Occidental." },
+          { label: "Comida y supermercados", score: 8.5, desc: "Souvlaki callejero por 2-3€, mercados frescos y tabernas económicas por toda la ciudad." },
+          { label: "Transporte", score: 8.0, desc: "Con carné ISIC/ESN el billete baja de 1,40€ a 0,60€. Muy asequible para moverse por toda la ciudad." },
+          { label: "Ocio y gastos diarios", score: 8.5, desc: "Cervezas a 3-4€, entrada a clubs asequible. La vida de terraza mediterránea es barata y constante." },
+        ],
+        reviews: [
+          { text: "Con 600€ al mes vivía muy bien, salía varias veces por semana y todavía ahorraba para viajar por las islas.", author: "Nikolas, Erasmus 2024", flag: "🇩🇪" },
+          { text: "El presupuesto aquí es de los más generosos de toda Europa. Comía fuera casi a diario sin preocuparme por el dinero.", author: "Camille, Exchange 2023", flag: "🇫🇷" },
+        ],
+      },
+      // 2. ALOJAMIENTO
+      {
+        id: "alojamiento",
+        label: "Alojamiento",
+        icon: "🏠",
+        score: 6.5,
+        summary: "Precios contenidos comparados con el resto de Europa, aunque el auge del turismo y los pisos tipo Airbnb ha tensionado algunas zonas.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 6.5, desc: "Oferta razonable, aunque zonas turísticas como Plaka o Koukaki han visto subir precios por los pisos turísticos." },
+          { label: "Precio", score: 7.0, desc: "250–400€ habitación en barrios estudiantiles como Exarchia o Pangrati, de los más bajos de esta guía." },
+          { label: "Facilidad de búsqueda", score: 6.0, desc: "Spitogatos y grupos de Facebook de exchange students son los canales principales de búsqueda." },
+          { label: "Residencias universitarias", score: 5.5, desc: "Oferta limitada de residencias oficiales; la mayoría de exchange students buscan piso compartido por su cuenta." },
+        ],
+        reviews: [
+          { text: "Encontré piso en Pangrati sin demasiado esfuerzo y a un precio que en cualquier otra capital europea sería impensable.", author: "Marco, Erasmus 2023", flag: "🇮🇹" },
+        ],
+      },
+      // 3. VIDA SOCIAL Y AMBIENTE
+      {
+        id: "vida_social",
+        label: "Vida social y ambiente",
+        icon: "🎉",
+        score: 8.5,
+        summary: "Vida nocturna y de terrazas mediterránea, intensa y muy asequible. La comunidad Erasmus es de las más activas de Europa del Sur.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 9.0, desc: "ESN KAPA Athens organiza excursiones a islas, fiestas temáticas y actividades constantes durante todo el semestre." },
+          { label: "Ambiente internacional", score: 8.0, desc: "NKUA y AUEB reciben cientos de exchange students cada semestre, con una comunidad internacional muy unida." },
+          { label: "Fiesta y vida nocturna", score: 8.5, desc: "Gazi y Psiri concentran clubs y bares con ambiente hasta la madrugada, a precios muy asequibles." },
+          { label: "Eventos y actividades", score: 8.5, desc: "Excursiones a islas cercanas (Egina, Hydra) organizadas por ESN son de los planes más populares del semestre." },
+        ],
+        reviews: [
+          { text: "Las excursiones de ESN a las islas los fines de semana fueron de lo mejor de mi Erasmus. Playa por la mañana, fiesta por la noche.", author: "Théo, Erasmus 2024", flag: "🇫🇷" },
+          { text: "La vida nocturna en Gazi no tiene nada que envidiar a otras capitales europeas, y el precio es una fracción.", author: "Sara, Exchange 2023", flag: "🇪🇸" },
+        ],
+      },
+      // 4. INTEGRACIÓN INTERNACIONAL
+      {
+        id: "integracion",
+        label: "Integración internacional",
+        icon: "🌍",
+        score: 7.0,
+        summary: "Griegos hospitalarios y calurosos, aunque el nivel de inglés varía según el barrio y el entorno generacional.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 7.0, desc: "Buen nivel entre jóvenes y en el entorno universitario; más limitado en comercios de barrio o generaciones mayores." },
+          { label: "Actitud local", score: 8.5, desc: "Los griegos tienen fama merecida de hospitalarios — la filoxenía (amor al extranjero) es parte de su cultura." },
+          { label: "Integración con locales", score: 6.5, desc: "Aprender algunas frases básicas de griego abre muchas puertas y acelera notablemente la integración." },
+          { label: "Facilidad para hacer amigos", score: 7.5, desc: "Comunidad internacional muy accesible desde el primer día; con locales requiere algo de iniciativa." },
+        ],
+        reviews: [
+          { text: "En cuanto intenté hablar unas palabras de griego, la actitud de la gente cambió por completo. Son muy cálidos con quien lo intenta.", author: "Julia, Erasmus 2024", flag: "🇵🇱" },
+        ],
+      },
+      // 5. UBICACIÓN Y MOVILIDAD
+      {
+        id: "movilidad",
+        label: "Ubicación y movilidad",
+        icon: "🚆",
+        score: 6.5,
+        summary: "Metro y tranvía cubren bien el centro y llegan hasta las playas del Egeo, aunque la red de superficie puede ser más caótica.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 7.0, desc: "Metro moderno y eficiente en las líneas principales; bus y tranvía completan el resto con menos puntualidad." },
+          { label: "Ciudad caminable", score: 6.0, desc: "El centro histórico es caminable, aunque el tráfico y las aceras irregulares pueden ser un reto." },
+          { label: "Playas a un tranvía", score: 8.5, desc: "El tranvía conecta el centro con Vouliagmeni y otras playas de la Riviera de Atenas en menos de una hora." },
+          { label: "Conexiones internacionales", score: 7.0, desc: "El aeropuerto de Atenas conecta bien con toda Europa; ferris a las islas griegas desde el puerto de El Pireo." },
+        ],
+        reviews: [
+          { text: "Salir de clase e ir directamente a la playa en tranvía sin cambiar de plan fue una de las cosas más surrealistas de mi Erasmus.", author: "Anke, Exchange 2023", flag: "🇩🇪" },
+        ],
+      },
+      // 6. ESTILO DE VIDA Y ENTORNO
+      {
+        id: "estilo_vida",
+        label: "Estilo de vida y entorno",
+        icon: "🏔️",
+        score: 8.5,
+        summary: "Historia antigua, playas cercanas y ritmo mediterráneo auténtico. Vivir entre ruinas de miles de años forma parte del día a día.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 8.0, desc: "Playas del Egeo a un tranvía, monte Licabeto con vistas panorámicas y las islas griegas a un ferry de distancia." },
+          { label: "Clima", score: 8.5, desc: "Mediterráneo con veranos calurosos e inviernos suaves — de los climas más agradecidos de toda esta guía." },
+          { label: "Calidad de vida", score: 8.0, desc: "Ritmo de vida relajado, gastronomía excelente y un coste que permite disfrutar sin grandes preocupaciones económicas." },
+          { label: "Autenticidad local", score: 9.0, desc: "Vivir rodeado de historia de 2.500 años, desde el Ágora hasta el Partenón, sin que resulte nunca artificial." },
+          { label: "Estilo de vida", score: 8.5, desc: "Café largo en terraza, siesta veraniega y vida social que se alarga hasta bien entrada la noche." },
+        ],
+        reviews: [
+          { text: "Ver el atardecer desde el monte Licabeto con toda la ciudad y la Acrópolis iluminada de fondo es algo que no olvidaré nunca.", author: "Valentina, Erasmus 2024", flag: "🇮🇹" },
+          { text: "Vivir a cinco minutos andando de ruinas de 2.500 años y tratarlas como algo normal cambia tu perspectiva de la historia.", author: "Oskar, Exchange 2023", flag: "🇸🇪" },
+        ],
+      },
+      // 7. EMPLEO Y OPORTUNIDADES
+      {
+        id: "empleo",
+        label: "Empleo y oportunidades",
+        icon: "💼",
+        score: 5.5,
+        summary: "Mercado laboral más limitado que en el norte de Europa, aunque el turismo y el sector marítimo ofrecen algunas oportunidades.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 5.5, desc: "Economía centrada en turismo, transporte marítimo y sector público — menos dinámica que otras capitales de esta guía." },
+          { label: "Prácticas", score: 5.5, desc: "AUEB tiene conexiones con el sector financiero y naviero griego, aunque las prácticas para exchange students son limitadas." },
+          { label: "Empresas relevantes", score: 5.5, desc: "Grecia es potencia mundial en transporte marítimo, con importantes navieras con sede en Atenas y El Pireo." },
+          { label: "Oportunidades para estudiantes", score: 5.5, desc: "El turismo ofrece trabajos estudiantiles estacionales, especialmente en temporada alta de verano." },
+        ],
+        reviews: [
+          { text: "El mercado laboral no es el punto fuerte de Atenas, pero para un semestre de experiencia académica y cultural es perfecto.", author: "Fernando, Erasmus 2023", flag: "🇵🇹" },
+        ],
+      },
+      // 8. SEGURIDAD
+      {
+        id: "seguridad",
+        label: "Seguridad",
+        icon: "🛡️",
+        score: 6.5,
+        summary: "Segura en general, con las mismas precauciones que cualquier gran capital, prestando algo más de atención en ciertas zonas del centro por la noche.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 6.5, desc: "Segura para estándares de gran capital europea, con las precauciones normales de cualquier ciudad grande." },
+          { label: "Seguridad nocturna", score: 6.0, desc: "Algunas zonas como Omonia requieren algo más de atención de noche; el resto del centro es tranquilo." },
+          { label: "Ambiente de la ciudad", score: 7.0, desc: "Ambiente generalmente cálido y acogedor, con la vida callejera activa hasta tarde en verano." },
+        ],
+        reviews: [
+          { text: "Me sentí segura en general, evitando simplemente algunas calles de noche que ya me habían recomendado los locales.", author: "Ines, Erasmus 2024", flag: "🇩🇪" },
+        ],
+      },
+    ],
+  },
+  zagreb: {
+    heroImg: "https://images.unsplash.com/photo-1590233216259-d9576426f5e2?w=1600&q=85",
+    tagline: "Elegancia austrohúngara, cultura de café en terraza y la costa adriática a un autobús de distancia.",
+    atmosphere: "Tranquila, elegante y acogedora. Zagreb huele a café recién molido en cualquier terraza de Tkalčićeva y suena al tranvía azul cruzando la Ciudad Baja bajo edificios de fachadas pastel.",
+    scores: [
+      // 1. COSTE DE VIDA
+      {
+        id: "coste",
+        label: "Coste de vida",
+        icon: "💰",
+        score: 7.5,
+        summary: "Uno de los costes de vida más bajos de esta guía. Con 450–700€/mes se vive con comodidad y margen para viajar por la región.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 7.0, desc: "Habitaciones desde 250–380€. Sin la presión de otras capitales, aunque los precios han subido moderadamente en los últimos años." },
+          { label: "Comida y supermercados", score: 8.0, desc: "Mercado Dolac para producto fresco y económico; menús del día en tabernas desde 6-8€." },
+          { label: "Transporte", score: 8.0, desc: "Abono estudiantil de ZET (tranvía y bus) muy asequible, con buena cobertura de toda la ciudad." },
+          { label: "Ocio y gastos diarios", score: 7.5, desc: "Café en terraza por 1,50-2€, cervezas a 2-3€. La cultura de la terraza hace el ocio diario muy barato." },
+        ],
+        reviews: [
+          { text: "Con 500€ al mes vivía perfectamente, incluyendo café diario en terraza y alguna escapada a la costa.", author: "Lena, Erasmus 2024", flag: "🇩🇪" },
+          { text: "El presupuesto aquí me permitió viajar por los Balcanes varios fines de semana sin preocupación económica.", author: "Tomás, Exchange 2023", flag: "🇪🇸" },
+        ],
+      },
+      // 2. ALOJAMIENTO
+      {
+        id: "alojamiento",
+        label: "Alojamiento",
+        icon: "🏠",
+        score: 7.0,
+        summary: "Mercado tranquilo y accesible, sin la presión que sufren otras capitales de esta guía. Búsqueda relativamente sencilla.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 7.0, desc: "Oferta razonable para el tamaño de la comunidad estudiantil, sin escasez severa." },
+          { label: "Precio", score: 7.5, desc: "250–380€ habitación, de los precios más bajos de toda esta guía." },
+          { label: "Facilidad de búsqueda", score: 6.5, desc: "Grupos de Facebook de exchange students y portales locales (Njuškalo) son los canales principales." },
+          { label: "Residencias universitarias", score: 6.0, desc: "University of Zagreb ofrece plazas en varios halls de residencia, con proceso de solicitud dentro de la aplicación de intercambio." },
+        ],
+        reviews: [
+          { text: "Encontré piso en Donji Grad en menos de dos semanas sin apenas estrés. Un cambio total respecto a lo que había oído de otras ciudades.", author: "Paolo, Erasmus 2023", flag: "🇮🇹" },
+        ],
+      },
+      // 3. VIDA SOCIAL Y AMBIENTE
+      {
+        id: "vida_social",
+        label: "Vida social y ambiente",
+        icon: "🎉",
+        score: 7.0,
+        summary: "El café en terraza, más que el club nocturno, define la vida social diaria. Comunidad Erasmus activa aunque más pequeña que en otras capitales.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 7.5, desc: "ESN Zagreb organiza excursiones a la costa, fiestas temáticas y actividades constantes para exchange students." },
+          { label: "Ambiente internacional", score: 7.0, desc: "University of Zagreb recibe cientos de exchange students cada semestre, con Welcome Week bien organizada." },
+          { label: "Fiesta y vida nocturna", score: 6.5, desc: "Tkalčićeva concentra bares y terrazas con ambiente; la escena de clubs es más modesta que en otras capitales." },
+          { label: "Eventos y actividades", score: 7.5, desc: "El mercado navideño de Zagreb ha sido galardonado varias veces como el mejor de Europa." },
+        ],
+        reviews: [
+          { text: "La cultura de café en terraza aquí es sagrada. Pasas horas charlando con un solo café y a nadie le importa.", author: "Nadia, Exchange 2024", flag: "🇳🇱" },
+          { text: "El mercado navideño superó todas mis expectativas. Entiendo perfectamente por qué lo premian año tras año.", author: "Erik, Erasmus 2023", flag: "🇩🇪" },
+        ],
+      },
+      // 4. INTEGRACIÓN INTERNACIONAL
+      {
+        id: "integracion",
+        label: "Integración internacional",
+        icon: "🌍",
+        score: 7.0,
+        summary: "Croatas acogedores y con buen nivel de inglés entre los jóvenes, en una ciudad menos acostumbrada al turismo masivo que otras capitales.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 7.5, desc: "Buen nivel entre estudiantes y jóvenes; algo más limitado fuera del entorno universitario." },
+          { label: "Actitud local", score: 7.5, desc: "Los croatas son hospitalarios y curiosos con los extranjeros, especialmente al ser una ciudad con menos turismo masivo." },
+          { label: "Integración con locales", score: 6.5, desc: "El café en terraza y los eventos universitarios son las vías más naturales de conectar con estudiantes locales." },
+          { label: "Facilidad para hacer amigos", score: 7.0, desc: "Comunidad internacional acogedora desde el primer día, con ESN facilitando bastante el proceso." },
+        ],
+        reviews: [
+          { text: "Al ser menos habitual como destino Erasmus, sentí una curiosidad genuina de los locales hacia nosotros, muy distinta a otras capitales saturadas de turismo.", author: "Clara, Erasmus 2024", flag: "🇫🇷" },
+        ],
+      },
+      // 5. UBICACIÓN Y MOVILIDAD
+      {
+        id: "movilidad",
+        label: "Ubicación y movilidad",
+        icon: "🚆",
+        score: 7.0,
+        summary: "Tranvía y bus cubren bien la ciudad, con la costa adriática y sus islas a un trayecto de autobús para escapadas de fin de semana.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 7.5, desc: "Red de tranvías (ZET) cubre bien el centro y barrios cercanos, con frecuencia razonable." },
+          { label: "Ciudad caminable", score: 7.5, desc: "Centro compacto y muy caminable, con la Ciudad Alta accesible también por funicular histórico." },
+          { label: "Escapadas de fin de semana", score: 8.0, desc: "Split, Zadar y las islas dálmatas a 4-5 horas en autobús — clásico plan de fin de semana largo." },
+          { label: "Conexiones internacionales", score: 6.5, desc: "El aeropuerto de Zagreb conecta con Europa, aunque con menos rutas directas que otras capitales de esta guía." },
+        ],
+        reviews: [
+          { text: "Un fin de semana largo en Split con otros Erasmus fue de lo mejor del semestre — playa de verdad a pocas horas de la universidad.", author: "Mikkel, Exchange 2023", flag: "🇩🇰" },
+        ],
+      },
+      // 6. ESTILO DE VIDA Y ENTORNO
+      {
+        id: "estilo_vida",
+        label: "Estilo de vida y entorno",
+        icon: "🏔️",
+        score: 7.5,
+        summary: "Elegancia austrohúngara en la Ciudad Alta combinada con un ritmo de vida tranquilo y la costa adriática siempre cerca.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 7.0, desc: "Parque Maksimir dentro de la ciudad; montaña Medvednica para senderismo a un tranvía del centro." },
+          { label: "Clima", score: 7.0, desc: "Continental con veranos cálidos e inviernos fríos pero secos, sin extremos severos." },
+          { label: "Calidad de vida", score: 8.0, desc: "Ritmo tranquilo, coste de vida bajo y una ciudad a escala humana fácil de recorrer a pie." },
+          { label: "Autenticidad local", score: 8.5, desc: "La Ciudad Alta conserva su estética austrohúngara intacta, sin la masificación turística de otras capitales." },
+          { label: "Estilo de vida", score: 7.5, desc: "Café en terraza, paseos por la Ciudad Alta y escapadas frecuentes a la costa definen el ritmo de vida." },
+        ],
+        reviews: [
+          { text: "Pasear por la Ciudad Alta al atardecer, con las luces encendiéndose una a una, es de las postales más bonitas que me llevo del Erasmus.", author: "Beatriz, Erasmus 2024", flag: "🇵🇹" },
+        ],
+      },
+      // 7. EMPLEO Y OPORTUNIDADES
+      {
+        id: "empleo",
+        label: "Empleo y oportunidades",
+        icon: "💼",
+        score: 6.0,
+        summary: "Mercado laboral modesto pero en crecimiento, con el sector IT y el turismo como principales motores de oportunidades.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 6.0, desc: "Economía en crecimiento desde la entrada en el euro y Schengen, con IT y turismo como sectores más dinámicos." },
+          { label: "Prácticas", score: 6.0, desc: "University of Zagreb tiene conexiones crecientes con empresas tecnológicas locales, aunque el mercado sigue siendo modesto." },
+          { label: "Empresas relevantes", score: 6.0, desc: "Ecosistema tecnológico incipiente, con Zagreb consolidándose como hub emergente en la región." },
+          { label: "Oportunidades para estudiantes", score: 6.0, desc: "El turismo, en auge tras la entrada en el euro, ofrece trabajos estudiantiles estacionales." },
+        ],
+        reviews: [
+          { text: "El mercado laboral no es el punto fuerte, pero encontré unas prácticas cortas en una startup local gracias a contactos de la universidad.", author: "Ivo, Erasmus 2023", flag: "🇸🇮" },
+        ],
+      },
+      // 8. SEGURIDAD
+      {
+        id: "seguridad",
+        label: "Seguridad",
+        icon: "🛡️",
+        score: 8.0,
+        summary: "Una de las capitales más tranquilas y seguras de Europa Central, con un ambiente urbano relajado y poca criminalidad.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 8.5, desc: "Índice de criminalidad bajo, con un ambiente urbano generalmente tranquilo y confiado." },
+          { label: "Seguridad nocturna", score: 7.5, desc: "Volver de noche por el centro o Tkalčićeva es habitualmente tranquilo y seguro." },
+          { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad ordenada y relajada, sin la masificación turística que genera fricciones en otras capitales." },
+        ],
+        reviews: [
+          { text: "Nunca me sentí insegura ni de día ni de noche. Zagreb tiene un ambiente muy tranquilo comparado con otras capitales europeas.", author: "Marion, Exchange 2024", flag: "🇫🇷" },
+        ],
+      },
+    ],
+  },
+  liubliana: {
+    heroImg: "https://images.unsplash.com/photo-1699870192530-c70781bdea21?w=1600&q=85",
+    tagline: "La capital más verde y peatonal de Europa Central, con un castillo sobre la ciudad y los Alpes Julianos a menos de una hora.",
+    atmosphere: "Serena, verde y a escala humana. Liubliana huele a río limpio y castañas asadas en otoño, y suena al eco tranquilo de pasos sobre adoquines en un centro casi sin coches.",
+    scores: [
+      // 1. COSTE DE VIDA
+      {
+        id: "coste",
+        label: "Coste de vida",
+        icon: "💰",
+        score: 7.0,
+        summary: "Muy asequible, de las capitales más baratas de esta guía. Con 500–750€/mes se vive con comodidad y margen para escapadas.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 280–420€. Mercado pequeño y manejable, sin la tensión de otras capitales." },
+          { label: "Comida y supermercados", score: 7.5, desc: "Mercadillo central (Odprta kuhna los viernes) y supermercados asequibles cubren bien el presupuesto." },
+          { label: "Transporte", score: 8.0, desc: "El centro es peatonal, así que apenas se necesita transporte; LPP tiene abono estudiantil muy económico para el resto." },
+          { label: "Ocio y gastos diarios", score: 7.0, desc: "Café en terraza junto al río por 1,50-2€. Ocio muy asequible comparado con capitales occidentales." },
+        ],
+        reviews: [
+          { text: "Con 550€ al mes vivía con holgura, incluyendo escapadas frecuentes a Bled y los Alpes cercanos.", author: "Sanne, Erasmus 2024", flag: "🇳🇱" },
+          { text: "El presupuesto aquí es de los más generosos de Europa. Ni de lejos gasté lo que gastaban mis amigos en otras capitales.", author: "Rafael, Exchange 2023", flag: "🇵🇹" },
+        ],
+      },
+      // 2. ALOJAMIENTO
+      {
+        id: "alojamiento",
+        label: "Alojamiento",
+        icon: "🏠",
+        score: 7.0,
+        summary: "Mercado pequeño y manejable, sin la presión de otras capitales de esta guía. Búsqueda relativamente sencilla si te mueves con algo de antelación.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 7.0, desc: "Oferta razonable para el tamaño de la comunidad estudiantil, sin escasez severa." },
+          { label: "Precio", score: 7.0, desc: "280–420€ habitación, de los precios más bajos de esta guía." },
+          { label: "Facilidad de búsqueda", score: 6.5, desc: "Grupos de Facebook de exchange students y el portal Nepremicnine.net son los canales principales." },
+          { label: "Residencias universitarias", score: 6.5, desc: "University of Ljubljana ofrece plazas en dormitorios estudiantiles, con proceso dentro de la solicitud de intercambio." },
+        ],
+        reviews: [
+          { text: "Encontré piso compartido cerca del centro en menos de un mes, sin apenas competencia con otros estudiantes.", author: "Milena, Exchange 2024", flag: "🇷🇸" },
+        ],
+      },
+      // 3. VIDA SOCIAL Y AMBIENTE
+      {
+        id: "vida_social",
+        label: "Vida social y ambiente",
+        icon: "🎉",
+        score: 6.5,
+        summary: "Tranquila y de escala pequeña, ideal para comunidades muy unidas. Menos ambiente festivo que otras capitales, pero muy genuino.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 7.0, desc: "ESN Ljubljana organiza excursiones a Bled, Bohinj y los Alpes Julianos con buena participación." },
+          { label: "Ambiente internacional", score: 6.5, desc: "Comunidad internacional más pequeña que en otras capitales de esta guía, pero muy cercana entre sí." },
+          { label: "Fiesta y vida nocturna", score: 6.0, desc: "Metelkova, un antiguo cuartel militar convertido en zona alternativa, concentra buena parte del ambiente nocturno." },
+          { label: "Eventos y actividades", score: 7.0, desc: "Excursiones de día al lago Bled y Bohinj son de los planes más recurrentes y valorados del semestre." },
+        ],
+        reviews: [
+          { text: "La comunidad Erasmus aquí es pequeña pero de las más unidas que he vivido. Acabamos siendo un grupo muy cercano en pocas semanas.", author: "Louis, Erasmus 2023", flag: "🇧🇪" },
+          { text: "Metelkova tiene un ambiente alternativo y underground que no esperaba encontrar en una capital tan tranquila.", author: "Ana, Exchange 2024", flag: "🇪🇸" },
+        ],
+      },
+      // 4. INTEGRACIÓN INTERNACIONAL
+      {
+        id: "integracion",
+        label: "Integración internacional",
+        icon: "🌍",
+        score: 7.0,
+        summary: "Eslovenos amables y discretos, con buen nivel de inglés entre los jóvenes y una actitud abierta hacia los estudiantes internacionales.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 7.5, desc: "Buen nivel entre jóvenes y en el entorno universitario, algo más limitado fuera de él." },
+          { label: "Actitud local", score: 7.5, desc: "Eslovenos discretos pero amables, con una curiosidad genuina hacia los estudiantes internacionales." },
+          { label: "Integración con locales", score: 6.5, desc: "El tamaño reducido de la ciudad facilita encontrarte con las mismas caras y acabar conociendo gente local." },
+          { label: "Facilidad para hacer amigos", score: 7.0, desc: "Comunidad internacional acogedora, con locales requiriendo algo de iniciativa pero muy accesibles." },
+        ],
+        reviews: [
+          { text: "Al ser una ciudad tan pequeña, acabé reconociendo caras por la calle en pocas semanas. Da una sensación de comunidad muy especial.", author: "Fien, Erasmus 2024", flag: "🇧🇪" },
+        ],
+      },
+      // 5. UBICACIÓN Y MOVILIDAD
+      {
+        id: "movilidad",
+        label: "Ubicación y movilidad",
+        icon: "🚆",
+        score: 7.0,
+        summary: "Centro totalmente peatonal y muy caminable, con el lago Bled y los Alpes Julianos a menos de una hora para escapadas constantes.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Ciudad caminable", score: 9.0, desc: "El centro histórico está prácticamente libre de coches — caminar o ir en bici es la forma normal de moverse." },
+          { label: "Transporte público", score: 6.5, desc: "LPP (bus) cubre el resto de la ciudad, aunque apenas se necesita dentro del centro." },
+          { label: "Escapadas de fin de semana", score: 8.5, desc: "Lago Bled a 50 minutos, Bohinj y los Alpes Julianos a poco más — de las escapadas más accesibles de esta guía." },
+          { label: "Conexiones internacionales", score: 6.0, desc: "El aeropuerto de Liubliana tiene menos rutas directas que otras capitales, aunque Venecia y Zagreb quedan cerca en coche." },
+        ],
+        reviews: [
+          { text: "Ir al lago Bled un sábado por la mañana y volver a tiempo para cenar se convirtió en nuestro plan de cabecera.", author: "Iris, Exchange 2023", flag: "🇳🇱" },
+        ],
+      },
+      // 6. ESTILO DE VIDA Y ENTORNO
+      {
+        id: "estilo_vida",
+        label: "Estilo de vida y entorno",
+        icon: "🏔️",
+        score: 9.0,
+        summary: "La capital más verde de Europa Central, a escala humana y con una calidad de vida altísima para quien busca tranquilidad.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 9.5, desc: "Castillo con bosque propio dentro de la ciudad; lago Bled, Bohinj y los Alpes Julianos a un trayecto corto." },
+          { label: "Clima", score: 7.0, desc: "Continental con veranos agradables e inviernos fríos pero manejables, sin extremos severos." },
+          { label: "Calidad de vida", score: 9.0, desc: "Nombrada Capital Verde Europea, con más zonas verdes por habitante que casi cualquier otra capital del continente." },
+          { label: "Autenticidad local", score: 8.5, desc: "Ciudad pequeña sin masificación turística, donde la vida local y la estudiantil se mezclan con naturalidad." },
+          { label: "Estilo de vida", score: 9.0, desc: "Ritmo pausado, mucho contacto con la naturaleza y una ciudad completamente recorrible a pie o en bici." },
+        ],
+        reviews: [
+          { text: "Es probablemente la ciudad más tranquila y verde en la que he vivido. El castillo con su bosque dentro de la ciudad es un lujo diario.", author: "Théo, Erasmus 2024", flag: "🇫🇷" },
+          { text: "Poder ir en bici a todos lados y respirar aire limpio en una capital europea me hizo replantearme cómo debería ser vivir en una ciudad.", author: "Marija, Exchange 2023", flag: "🇧🇬" },
+        ],
+      },
+      // 7. EMPLEO Y OPORTUNIDADES
+      {
+        id: "empleo",
+        label: "Empleo y oportunidades",
+        icon: "💼",
+        score: 6.0,
+        summary: "Mercado laboral pequeño pero con un sector tecnológico en crecimiento y buenas conexiones con la industria centroeuropea.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 6.0, desc: "Economía pequeña pero estable, con un sector IT y de startups en crecimiento constante." },
+          { label: "Prácticas", score: 6.0, desc: "University of Ljubljana tiene conexiones crecientes con empresas tecnológicas locales y regionales." },
+          { label: "Empresas relevantes", score: 6.0, desc: "Ecosistema tecnológico incipiente, con Liubliana consolidándose poco a poco como hub regional." },
+          { label: "Oportunidades para estudiantes", score: 6.0, desc: "El tamaño reducido del mercado limita las oportunidades, pero también la competencia por ellas." },
+        ],
+        reviews: [
+          { text: "El mercado laboral es pequeño, pero encontré unas prácticas cortas en una empresa tecnológica local gracias a la propia universidad.", author: "Karin, Erasmus 2024", flag: "🇩🇪" },
+        ],
+      },
+      // 8. SEGURIDAD
+      {
+        id: "seguridad",
+        label: "Seguridad",
+        icon: "🛡️",
+        score: 9.0,
+        summary: "Una de las capitales más seguras y tranquilas de toda Europa, con un índice de criminalidad prácticamente residual.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 9.5, desc: "Eslovenia aparece consistentemente entre los países más seguros y pacíficos de Europa." },
+          { label: "Seguridad nocturna", score: 8.5, desc: "Caminar de noche por el centro peatonal es completamente normal y seguro, sin excepción." },
+          { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad tranquila y ordenada, con un ritmo pausado que se nota en el ambiente general." },
+        ],
+        reviews: [
+          { text: "Nunca sentí ni la más mínima preocupación por mi seguridad, ni de día ni de noche, en todo el semestre.", author: "Nora, Exchange 2023", flag: "🇩🇰" },
+        ],
+      },
+    ],
+  },
+  tallin: {
+    heroImg: "https://images.unsplash.com/photo-1690310457081-71c3fb276e10?w=1600&q=85",
+    tagline: "Un casco medieval declarado Patrimonio de la Humanidad y la capital más digitalizada de Europa, cuna de Skype.",
+    atmosphere: "Medieval por fuera, digital por dentro. Tallin huele a mazapán y vino especiado en la plaza del ayuntamiento, y suena al murmullo de estudiantes trabajando en portátiles en cafés con wifi gratuito garantizado por ley.",
+    scores: [
+      // 1. COSTE DE VIDA
+      {
+        id: "coste",
+        label: "Coste de vida",
+        icon: "💰",
+        score: 6.5,
+        summary: "Asequible, de las capitales más baratas de esta guía. Con 500–800€/mes se vive con comodidad.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 6.0, desc: "Habitaciones desde 300–450€. Kalamaja y Kristiine ofrecen los precios más razonables cerca del centro." },
+          { label: "Comida y supermercados", score: 7.0, desc: "Rimi, Selver y Maxima cubren el día a día a precios bajos comparados con el resto de Europa Occidental." },
+          { label: "Transporte", score: 8.5, desc: "Transporte público gratuito para residentes registrados en Tallin — una ventaja única en Europa." },
+          { label: "Ocio y gastos diarios", score: 6.5, desc: "Cervezas y salidas asequibles; el mercado navideño de invierno es un plan gratuito y muy popular." },
+        ],
+        reviews: [
+          { text: "El transporte público gratuito una vez te registras como residente es una pasada — nunca pagué un billete en todo el semestre.", author: "Filip, Erasmus 2024", flag: "🇵🇱" },
+          { text: "Con 550€/mes vivía con comodidad, incluyendo salidas frecuentes con otros exchange students.", author: "Elena, Exchange 2023", flag: "🇷🇴" },
+        ],
+      },
+      // 2. ALOJAMIENTO
+      {
+        id: "alojamiento",
+        label: "Alojamiento",
+        icon: "🏠",
+        score: 6.5,
+        summary: "Mercado manejable, con una comunidad estudiantil internacional todavía pequeña que facilita la búsqueda.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 6.5, desc: "Oferta razonable para el tamaño de la comunidad Erasmus, sin la presión de otras capitales europeas." },
+          { label: "Precio", score: 7.0, desc: "300–450€ habitación, de los más bajos de toda esta guía." },
+          { label: "Facilidad de búsqueda", score: 6.0, desc: "Academic Hostel y plataformas locales como City24 son los canales principales de búsqueda." },
+          { label: "Residencias universitarias", score: 6.5, desc: "TalTech y TLU ofrecen alojamiento gestionado (Academic Hostel) para exchange students, por orden de solicitud." },
+        ],
+        reviews: [
+          { text: "Academic Hostel fue muy sencillo de gestionar y el precio, comparado con lo que pagaban mis amigos en otras capitales, era una ganga.", author: "Timo, Exchange 2024", flag: "🇩🇪" },
+        ],
+      },
+      // 3. VIDA SOCIAL Y AMBIENTE
+      {
+        id: "vida_social",
+        label: "Vida social y ambiente",
+        icon: "🎉",
+        score: 6.5,
+        summary: "Comunidad Erasmus reducida pero muy unida, con el barrio de Kalamaja como epicentro social y creativo.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 6.5, desc: "ESN Tallinn organiza eventos regulares con una comunidad internacional pequeña pero muy cercana." },
+          { label: "Ambiente internacional", score: 6.5, desc: "TalTech y TLU reciben estudiantes de más de 90 países, con buen ambiente internacional en el campus." },
+          { label: "Fiesta y vida nocturna", score: 6.5, desc: "Casco antiguo y Telliskivi Creative City concentran bares y ambiente joven a precios razonables." },
+          { label: "Eventos y actividades", score: 7.0, desc: "Mercados navideños, festivales de música y el distrito creativo de Telliskivi ofrecen planes constantes." },
+        ],
+        reviews: [
+          { text: "Al ser pocos Erasmus acabamos siendo un grupo muy unido. Descubrir Telliskivi Creative City con ellos fue de lo mejor del semestre.", author: "Marta, Erasmus 2023", flag: "🇵🇱" },
+        ],
+      },
+      // 4. INTEGRACIÓN INTERNACIONAL
+      {
+        id: "integracion",
+        label: "Integración internacional",
+        icon: "🌍",
+        score: 7.0,
+        summary: "Estonios reservados al principio pero fiables y directos, con un nivel de inglés muy alto entre los jóvenes.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 8.5, desc: "Nivel de inglés muy alto entre la población joven, especialmente en el entorno universitario y tecnológico." },
+          { label: "Actitud local", score: 6.5, desc: "Reservados y de pocas palabras al principio, similar a otros países bálticos y nórdicos, pero fiables." },
+          { label: "Integración con locales", score: 6.5, desc: "Los eventos de TalTech y TLU son la vía más rápida de conectar con estudiantes estonios." },
+          { label: "Facilidad para hacer amigos", score: 7.0, desc: "Comunidad internacional pequeña pero cercana desde el primer día." },
+        ],
+        reviews: [
+          { text: "Los estonios tardan en abrirse, pero cuando lo hacen la amistad es muy genuina y duradera.", author: "Hugo, Exchange 2024", flag: "🇫🇷" },
+        ],
+      },
+      // 5. UBICACIÓN Y MOVILIDAD
+      {
+        id: "movilidad",
+        label: "Ubicación y movilidad",
+        icon: "🚆",
+        score: 7.5,
+        summary: "Transporte público gratuito para residentes y un ferry directo a Helsinki que convierte la escapada nórdica en algo cotidiano.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 8.5, desc: "Gratuito para residentes registrados — tram y bus cubren toda la ciudad sin coste añadido." },
+          { label: "Ciudad caminable", score: 8.0, desc: "El casco antiguo y el centro son totalmente caminables, compactos y bien conectados." },
+          { label: "Conexiones internacionales", score: 7.5, desc: "Ferry a Helsinki en 2 horas; vuelos baratos a los países bálticos y nórdicos." },
+          { label: "Escapadas de fin de semana", score: 7.0, desc: "Helsinki, Riga y el resto de capitales bálticas a un trayecto corto en ferry o bus." },
+        ],
+        reviews: [
+          { text: "Coger el ferry a Helsinki un sábado por la mañana y volver por la noche se convirtió en un plan recurrente y muy asequible.", author: "Ines, Erasmus 2023", flag: "🇩🇪" },
+        ],
+      },
+      // 6. ESTILO DE VIDA Y ENTORNO
+      {
+        id: "estilo_vida",
+        label: "Estilo de vida y entorno",
+        icon: "🏔️",
+        score: 7.5,
+        summary: "Casco medieval Patrimonio de la Humanidad conviviendo con una identidad digital y startup muy fuerte para su tamaño.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 7.0, desc: "Bosques y costa báltica a un trayecto corto; el parque Kadriorg ofrece naturaleza dentro de la propia ciudad." },
+          { label: "Clima", score: 6.0, desc: "Báltico con inviernos fríos y oscuros y veranos suaves de días largos — extremos marcados por estación." },
+          { label: "Calidad de vida", score: 8.0, desc: "Estonia lidera rankings de digitalización y trámites administrativos, lo que se traduce en una vida diaria muy sencilla." },
+          { label: "Autenticidad local", score: 8.5, desc: "El casco medieval mejor conservado del norte de Europa convive de forma natural con startups y coworkings." },
+          { label: "Estilo de vida", score: 7.5, desc: "Ritmo tranquilo, mentalidad digital y una identidad de país pequeño con ambición tecnológica grande." },
+        ],
+        reviews: [
+          { text: "Vivir entre torres medievales y startups tecnológicas al mismo tiempo es una combinación que no había visto en ningún otro destino.", author: "Diego, Erasmus 2024", flag: "🇪🇸" },
+        ],
+      },
+      // 7. EMPLEO Y OPORTUNIDADES
+      {
+        id: "empleo",
+        label: "Empleo y oportunidades",
+        icon: "💼",
+        score: 7.0,
+        summary: "Cuna de Skype y hogar de uno de los ecosistemas startup más densos de Europa en relación a su población.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 7.0, desc: "Estonia tiene más unicornios tecnológicos per cápita que casi cualquier otro país europeo." },
+          { label: "Prácticas", score: 7.0, desc: "TalTech tiene fuertes conexiones con el sector IT; el programa e-Residency atrae startups internacionales." },
+          { label: "Empresas relevantes", score: 7.5, desc: "Skype nació en Tallin, y empresas como Bolt y Wise mantienen fuerte presencia en la ciudad." },
+          { label: "Oportunidades para estudiantes", score: 6.5, desc: "Ecosistema startup accesible para estudiantes de perfil técnico, con eventos y hackathons frecuentes." },
+        ],
+        reviews: [
+          { text: "Asistí a un hackathon organizado por una startup local y acabé con contactos que me llevaron a una entrevista de prácticas.", author: "Léo, Internship 2023", flag: "🇫🇷" },
+        ],
+      },
+      // 8. SEGURIDAD
+      {
+        id: "seguridad",
+        label: "Seguridad",
+        icon: "🛡️",
+        score: 8.5,
+        summary: "Una de las capitales más seguras y tranquilas del Báltico, con un índice de criminalidad muy bajo.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 8.5, desc: "Estonia se sitúa consistentemente entre los países más seguros y con menos corrupción de Europa." },
+          { label: "Seguridad nocturna", score: 8.0, desc: "Volver de noche por el casco antiguo o zonas estudiantiles es tranquilo y seguro." },
+          { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada y con un fuerte sentido cívico, reflejo de su digitalización administrativa." },
+        ],
+        reviews: [
+          { text: "Me sentí completamente segura durante todo el semestre, incluso paseando sola de noche por el casco antiguo.", author: "Alba, Erasmus 2024", flag: "🇪🇸" },
+        ],
+      },
+    ],
+  },
+  vilna: {
+    heroImg: "https://images.unsplash.com/photo-1660562278746-72e961bb9644?w=1600&q=85",
+    tagline: "Uno de los cascos barrocos mejor conservados de Europa, con Užupis, una 'república' bohemia dentro de la propia ciudad.",
+    atmosphere: "Barroca, bohemia y sorprendentemente creativa. Vilna huele a café recién hecho en las cafeterías de Užupis y suena al eco de campanas de iglesias barrocas mezclado con música callejera improvisada.",
+    scores: [
+      // 1. COSTE DE VIDA
+      {
+        id: "coste",
+        label: "Coste de vida",
+        icon: "💰",
+        score: 7.0,
+        summary: "Asequible, de las capitales más baratas de esta guía. Con 500–750€/mes se vive con comodidad.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 280–420€. Užupis y el centro son algo más caros que Žvėrynas." },
+          { label: "Comida y supermercados", score: 7.5, desc: "Maxima, Rimi e IKI cubren el día a día a precios bajos; los mercados locales ofrecen productos frescos económicos." },
+          { label: "Transporte", score: 7.5, desc: "Abono estudiantil de transporte muy económico para una ciudad de tamaño compacto." },
+          { label: "Ocio y gastos diarios", score: 7.0, desc: "Cervezas y salidas asequibles; la escena de café de Užupis es un plan barato y constante." },
+        ],
+        reviews: [
+          { text: "Con 500€ al mes vivía cómodamente, incluyendo salidas frecuentes con el grupo de Erasmus.", author: "Marco, Erasmus 2024", flag: "🇮🇹" },
+          { text: "El presupuesto aquí da para mucho más que en el resto de Europa. Comer fuera casi a diario no era un problema.", author: "Sara, Exchange 2023", flag: "🇪🇸" },
+        ],
+      },
+      // 2. ALOJAMIENTO
+      {
+        id: "alojamiento",
+        label: "Alojamiento",
+        icon: "🏠",
+        score: 7.0,
+        summary: "Mercado manejable con una comunidad Erasmus en crecimiento constante, sin la presión de otras capitales.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 7.0, desc: "Oferta razonable para el tamaño de la comunidad internacional, especialmente fuera del corazón del casco antiguo." },
+          { label: "Precio", score: 7.5, desc: "280–420€ habitación, de los más bajos de toda esta guía." },
+          { label: "Facilidad de búsqueda", score: 6.5, desc: "Aruodas.lt y grupos de Facebook de exchange students son los canales principales de búsqueda." },
+          { label: "Residencias universitarias", score: 6.5, desc: "VU y VILNIUS TECH ofrecen residencias con cupos para exchange students, gestionadas por orden de solicitud." },
+        ],
+        reviews: [
+          { text: "Viví en una residencia de VILNIUS TECH y las cenas internacionales en los pasillos fueron de lo mejor del semestre.", author: "Andrej, Exchange 2023", flag: "🇸🇰" },
+        ],
+      },
+      // 3. VIDA SOCIAL Y AMBIENTE
+      {
+        id: "vida_social",
+        label: "Vida social y ambiente",
+        icon: "🎉",
+        score: 6.8,
+        summary: "Ambiente bohemio y creativo, con Užupis como epicentro cultural de una comunidad Erasmus en crecimiento.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 7.0, desc: "ESN Vilnius organiza eventos regulares con una comunidad internacional cada vez más numerosa." },
+          { label: "Ambiente internacional", score: 6.5, desc: "VU y VILNIUS TECH reciben estudiantes de decenas de países, con buen ambiente en ambos campus." },
+          { label: "Fiesta y vida nocturna", score: 6.5, desc: "Casco antiguo y Užupis concentran bares con ambiente joven y precios muy razonables." },
+          { label: "Eventos y actividades", score: 7.5, desc: "El día de la independencia de la 'República de Užupis' (1 de abril) es un evento único con mucho humor local." },
+        ],
+        reviews: [
+          { text: "Celebrar el día de Užupis con toda su parodia de burocracia y humor fue una de las experiencias más divertidas y originales de mi Erasmus.", author: "Camille, Erasmus 2024", flag: "🇫🇷" },
+        ],
+      },
+      // 4. INTEGRACIÓN INTERNACIONAL
+      {
+        id: "integracion",
+        label: "Integración internacional",
+        icon: "🌍",
+        score: 6.8,
+        summary: "Lituanos cercanos y cálidos una vez conectas, con buen nivel de inglés entre la población joven y universitaria.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 8.0, desc: "Nivel de inglés alto entre jóvenes y en el entorno universitario, aunque menos extendido fuera de él." },
+          { label: "Actitud local", score: 6.5, desc: "Reservados al principio, pero cálidos y hospitalarios una vez se rompe el hielo inicial." },
+          { label: "Integración con locales", score: 6.5, desc: "Los eventos universitarios y las cenas de residencia son la vía más natural de conectar con lituanos." },
+          { label: "Facilidad para hacer amigos", score: 7.0, desc: "Comunidad internacional cercana y en crecimiento, con buen ambiente desde el primer día." },
+        ],
+        reviews: [
+          { text: "Los lituanos parecen fríos al principio, pero en cuanto muestras interés genuino por su cultura se abren por completo.", author: "Noah, Exchange 2024", flag: "🇳🇱" },
+        ],
+      },
+      // 5. UBICACIÓN Y MOVILIDAD
+      {
+        id: "movilidad",
+        label: "Ubicación y movilidad",
+        icon: "🚆",
+        score: 7.0,
+        summary: "Ciudad compacta y caminable, con el castillo del lago de Trakai a una excursión de día muy accesible.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 7.0, desc: "Bus y trolebús cubren bien la ciudad, con buen descuento para estudiantes internacionales." },
+          { label: "Ciudad caminable", score: 8.0, desc: "El casco antiguo barroco es totalmente caminable, compacto y muy bien conservado." },
+          { label: "Escapadas de fin de semana", score: 8.0, desc: "El castillo de Trakai, sobre un lago, está a menos de una hora — una de las excursiones más icónicas de la región." },
+          { label: "Conexiones internacionales", score: 6.5, desc: "Vuelos baratos a las capitales bálticas y nórdicas; menos rutas directas que otras capitales europeas." },
+        ],
+        reviews: [
+          { text: "El castillo de Trakai, con el lago alrededor, fue una de las excursiones más bonitas que hice en todo mi Erasmus.", author: "Julia, Erasmus 2023", flag: "🇩🇪" },
+        ],
+      },
+      // 6. ESTILO DE VIDA Y ENTORNO
+      {
+        id: "estilo_vida",
+        label: "Estilo de vida y entorno",
+        icon: "🏔️",
+        score: 7.8,
+        summary: "Casco barroco Patrimonio de la Humanidad con alma alternativa y creativa, gracias en gran parte a Užupis.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 7.5, desc: "Bosques y lagos bálticos a un trayecto corto; el río Neris y sus orillas ofrecen naturaleza dentro de la propia ciudad." },
+          { label: "Clima", score: 6.0, desc: "Continental húmedo con inviernos fríos y veranos suaves — clima báltico típico con estaciones marcadas." },
+          { label: "Calidad de vida", score: 7.5, desc: "Ciudad tranquila y a escala humana, con un coste de vida que permite disfrutar sin grandes preocupaciones." },
+          { label: "Autenticidad local", score: 8.5, desc: "Užupis, con su constitución propia llena de humor, es de las experiencias urbanas más originales de Europa." },
+          { label: "Estilo de vida", score: 7.5, desc: "Ritmo tranquilo, mucha vida de café y una identidad creativa que se nota especialmente en el barrio bohemio." },
+        ],
+        reviews: [
+          { text: "Vivir cerca de Užupis y su 'constitución' llena de humor (como el derecho a ser feliz o el derecho de un gato a no querer a su dueño) me cambió la forma de ver una ciudad.", author: "Elena, Erasmus 2024", flag: "🇷🇴" },
+        ],
+      },
+      // 7. EMPLEO Y OPORTUNIDADES
+      {
+        id: "empleo",
+        label: "Empleo y oportunidades",
+        icon: "💼",
+        score: 6.5,
+        summary: "Mercado laboral modesto pero con un sector IT en crecimiento sostenido, apoyado por un ecosistema fintech activo.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 6.5, desc: "Vilna se ha consolidado como hub fintech regional, con Revolut y otras fintechs con presencia relevante." },
+          { label: "Prácticas", score: 6.5, desc: "VILNIUS TECH tiene conexiones crecientes con el sector tecnológico local e internacional." },
+          { label: "Empresas relevantes", score: 6.5, desc: "Sector fintech en expansión, con Vilna posicionándose como alternativa a otros hubs bálticos." },
+          { label: "Oportunidades para estudiantes", score: 6.5, desc: "Ecosistema startup accesible, aunque con menos densidad que Tallin o Riga." },
+        ],
+        reviews: [
+          { text: "Hice unas prácticas cortas en una fintech local gracias a un contacto de la universidad — el sector está creciendo rápido.", author: "Tobias, Internship 2023", flag: "🇩🇪" },
+        ],
+      },
+      // 8. SEGURIDAD
+      {
+        id: "seguridad",
+        label: "Seguridad",
+        icon: "🛡️",
+        score: 8.5,
+        summary: "Una de las capitales más seguras y tranquilas del Báltico, con un índice de criminalidad bajo.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 8.5, desc: "Lituania se sitúa entre los países más seguros de Europa del Este, con criminalidad baja." },
+          { label: "Seguridad nocturna", score: 8.0, desc: "Volver de noche por el casco antiguo o Užupis es tranquilo y seguro." },
+          { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada y de ritmo pausado, con un ambiente generalmente relajado." },
+        ],
+        reviews: [
+          { text: "Me sentí segura en todo momento, incluso volviendo sola de noche desde el centro a mi residencia.", author: "Beatriz, Erasmus 2024", flag: "🇵🇹" },
+        ],
+      },
+    ],
+  },
+  riga: {
+    heroImg: "https://images.unsplash.com/photo-1683730796330-06e60e3438d8?w=1600&q=85",
+    tagline: "La mayor colección de arquitectura Art Nouveau de Europa, un casco medieval Patrimonio de la Humanidad y la playa báltica a 30 minutos.",
+    atmosphere: "Elegante y báltica. Riga huele a pan de centeno recién horneado en el Mercado Central y suena al eco de fachadas Art Nouveau que cuentan la historia de una ciudad que fue, durante un tiempo, la capital cultural del Báltico.",
+    scores: [
+      // 1. COSTE DE VIDA
+      {
+        id: "coste",
+        label: "Coste de vida",
+        icon: "💰",
+        score: 7.0,
+        summary: "Asequible, de las capitales más baratas de esta guía. Con 500–750€/mes se vive con comodidad.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 280–420€. El casco antiguo y el barrio Art Nouveau son algo más caros que Āgenskalns." },
+          { label: "Comida y supermercados", score: 7.5, desc: "Rimi y Maxima cubren el día a día; el Mercado Central, en antiguos hangares de zepelines, ofrece producto fresco muy barato." },
+          { label: "Transporte", score: 7.0, desc: "Abono estudiantil de tranvía y bus muy asequible para una ciudad de tamaño manejable." },
+          { label: "Ocio y gastos diarios", score: 7.0, desc: "Cervezas y salidas económicas; el tren a Jurmala (playa báltica) cuesta apenas unos euros." },
+        ],
+        reviews: [
+          { text: "Con 550€ al mes vivía cómodamente, incluyendo escapadas frecuentes a Jurmala en verano.", author: "Karolina, Erasmus 2024", flag: "🇵🇱" },
+          { text: "El Mercado Central es una pasada — producto fresco baratísimo en unos hangares históricos enormes.", author: "Tobias, Exchange 2023", flag: "🇩🇪" },
+        ],
+      },
+      // 2. ALOJAMIENTO
+      {
+        id: "alojamiento",
+        label: "Alojamiento",
+        icon: "🏠",
+        score: 7.0,
+        summary: "Mercado manejable, sin la presión de otras capitales europeas, con una comunidad Erasmus todavía pequeña.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 7.0, desc: "Oferta razonable para el tamaño de la comunidad internacional, especialmente fuera del corazón del Art Nouveau." },
+          { label: "Precio", score: 7.0, desc: "280–420€ habitación, de los más bajos de toda esta guía." },
+          { label: "Facilidad de búsqueda", score: 6.5, desc: "City24.lv y grupos de Facebook de exchange students son los canales principales." },
+          { label: "Residencias universitarias", score: 6.5, desc: "LU y RTU ofrecen residencias con cupos para exchange students, gestionadas por orden de solicitud." },
+        ],
+        reviews: [
+          { text: "Encontré piso en Āgenskalns sin demasiado esfuerzo y a un precio muy razonable para estar a 15 minutos del centro.", author: "Louis, Exchange 2024", flag: "🇫🇷" },
+        ],
+      },
+      // 3. VIDA SOCIAL Y AMBIENTE
+      {
+        id: "vida_social",
+        label: "Vida social y ambiente",
+        icon: "🎉",
+        score: 6.5,
+        summary: "Tranquila pero con una comunidad Erasmus en crecimiento constante, con eventos regulares organizados por ESN.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 6.5, desc: "ESN Riga organiza excursiones a Jurmala y eventos culturales con una comunidad internacional creciente." },
+          { label: "Ambiente internacional", score: 6.5, desc: "LU y RTU reciben estudiantes de decenas de países, con buen ambiente en ambos campus." },
+          { label: "Fiesta y vida nocturna", score: 6.5, desc: "Casco antiguo concentra bares con ambiente estudiantil a precios muy razonables." },
+          { label: "Eventos y actividades", score: 7.0, desc: "Excursiones a Jurmala en verano y mercados navideños en invierno son los planes más populares del semestre." },
+        ],
+        reviews: [
+          { text: "Las excursiones de ESN a Jurmala los fines de semana de verano fueron de lo mejor de mi Erasmus — playa báltica a 30 minutos del centro.", author: "Elena, Erasmus 2023", flag: "🇮🇹" },
+        ],
+      },
+      // 4. INTEGRACIÓN INTERNACIONAL
+      {
+        id: "integracion",
+        label: "Integración internacional",
+        icon: "🌍",
+        score: 6.8,
+        summary: "Letones reservados al principio pero fiables, con buen nivel de inglés entre la población joven y universitaria.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 8.0, desc: "Nivel de inglés alto entre jóvenes y en el entorno universitario, similar al resto de países bálticos." },
+          { label: "Actitud local", score: 6.5, desc: "Reservados y de pocas palabras al principio, pero fiables y honestos una vez conectas." },
+          { label: "Integración con locales", score: 6.5, desc: "Los eventos de LU y RTU son la vía más rápida de conectar con estudiantes letones." },
+          { label: "Facilidad para hacer amigos", score: 7.0, desc: "Comunidad internacional cercana desde el primer día, con locales requiriendo algo más de tiempo." },
+        ],
+        reviews: [
+          { text: "Los letones tardan en abrirse, similar a estonios y lituanos, pero la amistad una vez hecha es muy genuina.", author: "Mateus, Exchange 2024", flag: "🇵🇹" },
+        ],
+      },
+      // 5. UBICACIÓN Y MOVILIDAD
+      {
+        id: "movilidad",
+        label: "Ubicación y movilidad",
+        icon: "🚆",
+        score: 7.0,
+        summary: "Centro caminable y muy bien conectado con Jurmala, la playa báltica de arena fina a solo 30 minutos en tren.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 7.0, desc: "Tranvía, trolebús y bus cubren bien la ciudad, con buen descuento para estudiantes internacionales." },
+          { label: "Ciudad caminable", score: 8.0, desc: "El casco antiguo y el barrio Art Nouveau son totalmente caminables y muy compactos." },
+          { label: "Jurmala a un tren", score: 8.5, desc: "Tren directo a Jurmala en 30 minutos — playa báltica de arena fina, muy popular en verano." },
+          { label: "Conexiones internacionales", score: 6.5, desc: "Vuelos baratos a las capitales bálticas y nórdicas; aeropuerto con buena conectividad regional." },
+        ],
+        reviews: [
+          { text: "Ir a la playa de Jurmala en tren después de clase se convirtió en un plan de verano recurrente y muy fácil.", author: "Nadia, Erasmus 2024", flag: "🇳🇱" },
+        ],
+      },
+      // 6. ESTILO DE VIDA Y ENTORNO
+      {
+        id: "estilo_vida",
+        label: "Estilo de vida y entorno",
+        icon: "🏔️",
+        score: 7.5,
+        summary: "La mayor colección de arquitectura Art Nouveau de Europa conviviendo con un casco medieval Patrimonio de la Humanidad.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 7.0, desc: "Jurmala y sus playas bálticas a 30 minutos; bosques y parques dentro de la propia ciudad." },
+          { label: "Clima", score: 6.0, desc: "Continental húmedo con inviernos fríos y veranos suaves — clima báltico típico marcado por estaciones." },
+          { label: "Calidad de vida", score: 7.5, desc: "Ciudad tranquila y elegante, con un coste de vida que permite disfrutar sin grandes preocupaciones económicas." },
+          { label: "Autenticidad local", score: 8.5, desc: "El barrio de Alberta iela concentra la mayor densidad de arquitectura Art Nouveau de toda Europa." },
+          { label: "Estilo de vida", score: 7.0, desc: "Ritmo tranquilo, mucha vida de café y una identidad báltica elegante que se nota en cada fachada." },
+        ],
+        reviews: [
+          { text: "Pasear por Alberta iela y ver esas fachadas Art Nouveau cada día de camino a clase fue un lujo que no esperaba de un Erasmus.", author: "Giulia, Erasmus 2024", flag: "🇮🇹" },
+        ],
+      },
+      // 7. EMPLEO Y OPORTUNIDADES
+      {
+        id: "empleo",
+        label: "Empleo y oportunidades",
+        icon: "💼",
+        score: 6.5,
+        summary: "Mercado modesto pero con un sector IT y logístico en crecimiento sostenido, apoyado por la posición estratégica báltica de Riga.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 6.5, desc: "Economía centrada en logística, transporte y un sector IT en expansión constante." },
+          { label: "Prácticas", score: 6.5, desc: "RTU tiene conexiones crecientes con el sector tecnológico e industrial báltico." },
+          { label: "Empresas relevantes", score: 6.5, desc: "Riga se posiciona como hub logístico báltico, con un ecosistema IT en crecimiento sostenido." },
+          { label: "Oportunidades para estudiantes", score: 6.5, desc: "Mercado accesible para perfiles técnicos, aunque con menos densidad startup que Tallin." },
+        ],
+        reviews: [
+          { text: "Hice unas prácticas cortas en una empresa logística local gracias a un contacto de la universidad — el sector está en pleno crecimiento.", author: "Emil, Internship 2023", flag: "🇸🇪" },
+        ],
+      },
+      // 8. SEGURIDAD
+      {
+        id: "seguridad",
+        label: "Seguridad",
+        icon: "🛡️",
+        score: 8.0,
+        summary: "Segura y tranquila, en línea con el resto de capitales bálticas, con un índice de criminalidad bajo.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 8.0, desc: "Letonia se sitúa entre los países más seguros de Europa del Este, con criminalidad baja." },
+          { label: "Seguridad nocturna", score: 7.5, desc: "Volver de noche por el casco antiguo o el barrio Art Nouveau es generalmente tranquilo y seguro." },
+          { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad ordenada y elegante, con un ambiente generalmente relajado y cívico." },
+        ],
+        reviews: [
+          { text: "Me sentí segura durante todo el semestre, incluso paseando sola de noche por el casco antiguo.", author: "Marta, Erasmus 2023", flag: "🇵🇱" },
+        ],
+      },
+    ],
+  },
+  bratislava: {
+    heroImg: "https://images.unsplash.com/photo-1665585696602-0259a0d9c32b?w=1600&q=85",
+    tagline: "La única capital del mundo que hace frontera con otras dos capitales — Viena a 1 hora, Budapest a 2,5. La base perfecta para explorar Centroeuropa.",
+    atmosphere: "Compacta, tranquila y sorprendentemente bien situada. Bratislava huele a pretzel recién horneado en el casco antiguo y suena al murmullo del Danubio bajo el castillo, con Austria visible al otro lado del río.",
+    scores: [
+      // 1. COSTE DE VIDA
+      {
+        id: "coste",
+        label: "Coste de vida",
+        icon: "💰",
+        score: 7.0,
+        summary: "Asequible, de las capitales más baratas de Centroeuropa. Con 500–750€/mes se vive con comodidad.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 300–450€. Staré Mesto es algo más caro que Petržalka o Ružinov." },
+          { label: "Comida y supermercados", score: 7.5, desc: "Lidl, Kaufland y Billa cubren el día a día a precios bajos comparados con Viena o Múnich." },
+          { label: "Transporte", score: 7.5, desc: "Abono estudiantil de tranvía y bus muy económico para una ciudad de tamaño compacto." },
+          { label: "Ocio y gastos diarios", score: 7.0, desc: "Cervezas y salidas asequibles; escapadas a Viena son el único gasto extra que sube el presupuesto." },
+        ],
+        reviews: [
+          { text: "Con 550€ al mes vivía cómodamente, incluyendo alguna escapada mensual a Viena en tren.", author: "Filip, Erasmus 2024", flag: "🇵🇱" },
+          { text: "El presupuesto aquí rinde mucho más que en Viena, a solo una hora de distancia. La combinación es perfecta.", author: "Elena, Exchange 2023", flag: "🇷🇴" },
+        ],
+      },
+      // 2. ALOJAMIENTO
+      {
+        id: "alojamiento",
+        label: "Alojamiento",
+        icon: "🏠",
+        score: 6.8,
+        summary: "Mercado manejable, con una comunidad Erasmus grande gracias al tamaño reducido de Eslovaquia y su ubicación estratégica.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 6.5, desc: "Oferta razonable para el tamaño de la comunidad internacional, especialmente en Petržalka y Ružinov." },
+          { label: "Precio", score: 7.0, desc: "300–450€ habitación, de los más bajos de Centroeuropa." },
+          { label: "Facilidad de búsqueda", score: 6.5, desc: "Nehnutelnosti.sk y grupos de Facebook de exchange students son los canales principales." },
+          { label: "Residencias universitarias", score: 6.5, desc: "UK y STU ofrecen residencias con cupos para exchange students, gestionadas por orden de solicitud." },
+        ],
+        reviews: [
+          { text: "Encontré piso en Ružinov sin demasiado esfuerzo y a un precio muy razonable para estar a 15 minutos del centro en tranvía.", author: "Andrej, Exchange 2024", flag: "🇸🇰" },
+        ],
+      },
+      // 3. VIDA SOCIAL Y AMBIENTE
+      {
+        id: "vida_social",
+        label: "Vida social y ambiente",
+        icon: "🎉",
+        score: 7.5,
+        summary: "Compacta pero animada, con miles de Erasmus repartidos por toda Eslovaquia y una comunidad muy activa en Bratislava.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 8.0, desc: "ESN SK coordina 10 secciones por todo el país y organiza viajes y eventos constantes para casi 2.000 Erasmus." },
+          { label: "Ambiente internacional", score: 7.0, desc: "UK y STU reciben una comunidad internacional creciente, con buen ambiente en ambos campus." },
+          { label: "Fiesta y vida nocturna", score: 7.5, desc: "El casco antiguo, tan compacto, concentra toda la vida nocturna a poca distancia caminando." },
+          { label: "Eventos y actividades", score: 7.5, desc: "Escapadas organizadas a Viena, Budapest y los castillos eslovacos son planes constantes de fin de semana." },
+        ],
+        reviews: [
+          { text: "La comunidad Erasmus aquí es enorme para lo pequeña que es la ciudad. Nunca faltó plan ni un solo fin de semana.", author: "Sofia, Erasmus 2023", flag: "🇬🇷" },
+          { text: "El casco antiguo es tan pequeño que te cruzas con la misma gente de Erasmus constantemente — se genera una comunidad muy unida rápido.", author: "Lucas, Exchange 2024", flag: "🇫🇷" },
+        ],
+      },
+      // 4. INTEGRACIÓN INTERNACIONAL
+      {
+        id: "integracion",
+        label: "Integración internacional",
+        icon: "🌍",
+        score: 7.0,
+        summary: "Eslovacos cercanos y hospitalarios, con buen nivel de inglés entre la población joven y universitaria.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 7.5, desc: "Nivel de inglés bueno entre jóvenes y en el entorno universitario, algo menor fuera de él." },
+          { label: "Actitud local", score: 7.5, desc: "Los eslovacos tienen fama de cercanos y hospitalarios, especialmente en un país pequeño y acogedor." },
+          { label: "Integración con locales", score: 6.5, desc: "El curso gratuito de eslovaco para Erasmus+ es una buena vía de integración con locales." },
+          { label: "Facilidad para hacer amigos", score: 7.5, desc: "El sistema de buddy de ESN facilita mucho el contacto inicial con estudiantes locales." },
+        ],
+        reviews: [
+          { text: "Mi buddy de ESN me ayudó desde el primer día con todo, desde el alojamiento hasta hacerme sentir parte de la ciudad enseguida.", author: "Marco, Erasmus 2024", flag: "🇮🇹" },
+        ],
+      },
+      // 5. UBICACIÓN Y MOVILIDAD
+      {
+        id: "movilidad",
+        label: "Ubicación y movilidad",
+        icon: "🚆",
+        score: 8.5,
+        summary: "La mejor base de toda esta guía para explorar Centroeuropa: Viena a 1 hora, Budapest a 2,5, Praga a 4.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Ciudad caminable", score: 9.0, desc: "El casco antiguo se recorre entero caminando en 20 minutos — de las ciudades más compactas de esta guía." },
+          { label: "Transporte público", score: 7.5, desc: "Tranvía y bus cubren bien el resto de la ciudad, con buen descuento estudiantil." },
+          { label: "Viena a 1 hora", score: 9.5, desc: "Tren directo a Viena en apenas 1 hora — muchos Erasmus hacen escapadas de un día entero sin planificación previa." },
+          { label: "Conexiones regionales", score: 8.5, desc: "Budapest a 2,5 horas y Praga a 4 — base perfecta para descubrir Centroeuropa entera durante el semestre." },
+        ],
+        reviews: [
+          { text: "Iba a Viena casi cada dos semanas sin pensarlo demasiado — el tren es rápido, barato y directo desde el centro.", author: "Ben, Exchange 2023", flag: "🇩🇪" },
+        ],
+      },
+      // 6. ESTILO DE VIDA Y ENTORNO
+      {
+        id: "estilo_vida",
+        label: "Estilo de vida y entorno",
+        icon: "🏔️",
+        score: 7.5,
+        summary: "Ciudad pequeña a orillas del Danubio, con un castillo desde el que se ven tres países a la vez y una vida tranquila pero bien conectada.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 7.0, desc: "El Danubio atraviesa la ciudad; los Cárpatos Pequeños ofrecen senderismo y viñedos a un trayecto corto." },
+          { label: "Clima", score: 6.5, desc: "Continental con veranos cálidos e inviernos fríos con nieve ocasional — clima centroeuropeo típico." },
+          { label: "Calidad de vida", score: 7.5, desc: "Ciudad tranquila y a escala humana, con un coste de vida que permite disfrutar sin grandes preocupaciones." },
+          { label: "Autenticidad local", score: 7.5, desc: "Menos turística que Praga o Viena, con un ambiente más local y auténtico en el día a día." },
+          { label: "Estilo de vida", score: 7.5, desc: "Ritmo tranquilo, con la posibilidad constante de escapar a otras capitales sin apenas planificación." },
+        ],
+        reviews: [
+          { text: "Desde el castillo se ven Austria y, en días claros, hasta Hungría. Es una sensación única tener tres países a la vista al mismo tiempo.", author: "Chiara, Erasmus 2024", flag: "🇮🇹" },
+        ],
+      },
+      // 7. EMPLEO Y OPORTUNIDADES
+      {
+        id: "empleo",
+        label: "Empleo y oportunidades",
+        icon: "💼",
+        score: 7.0,
+        summary: "Mercado modesto pero con sede de bancos internacionales y empresas regionales que ofrecen algunas oportunidades a estudiantes.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 7.0, desc: "Sede de importantes bancos internacionales y un sector automotriz fuerte en el resto de Eslovaquia." },
+          { label: "Prácticas", score: 6.5, desc: "STU tiene conexiones con el sector industrial y tecnológico eslovaco." },
+          { label: "Empresas relevantes", score: 7.0, desc: "Presencia de multinacionales atraídas por costes laborales competitivos y proximidad a Viena." },
+          { label: "Oportunidades para estudiantes", score: 7.0, desc: "Mercado accesible para perfiles multilingües, especialmente en servicios compartidos de multinacionales." },
+        ],
+        reviews: [
+          { text: "Conseguí unas prácticas en un centro de servicios de una multinacional gracias a mi perfil multilingüe. Aquí valoran mucho hablar varios idiomas.", author: "Pablo, Internship 2023", flag: "🇪🇸" },
+        ],
+      },
+      // 8. SEGURIDAD
+      {
+        id: "seguridad",
+        label: "Seguridad",
+        icon: "🛡️",
+        score: 8.0,
+        summary: "Capital tranquila y segura, de las más manejables de esta guía por su tamaño reducido y ambiente relajado.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 8.0, desc: "Eslovaquia se sitúa entre los países más seguros de Centroeuropa, con criminalidad baja." },
+          { label: "Seguridad nocturna", score: 7.5, desc: "Volver de noche por el casco antiguo, tan compacto, es tranquilo y seguro." },
+          { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad pequeña y ordenada, con un ambiente generalmente relajado y cívico." },
+        ],
+        reviews: [
+          { text: "Me sentí segura en todo momento, ayudada también por lo pequeño y manejable que es el centro de la ciudad.", author: "Ana, Erasmus 2024", flag: "🇵🇹" },
+        ],
+      },
+    ],
+  },
+  bucarest: {
+    heroImg: "https://images.unsplash.com/photo-1636196435721-e937d2ad9746?w=1600&q=85",
+    tagline: "El 'Pequeño París' del Este, con su propio Arco del Triunfo, arquitectura Belle Époque y el edificio administrativo más pesado del mundo.",
+    atmosphere: "Contrastada y llena de energía. Bucarest huele a mici (albóndigas a la parrilla) en cualquier terraza del Centro Vechi y suena a la mezcla perfecta entre elegancia Belle Époque y el eco monumental del comunismo.",
+    scores: [
+      // 1. COSTE DE VIDA
+      {
+        id: "coste",
+        label: "Coste de vida",
+        icon: "💰",
+        score: 8.5,
+        summary: "La capital más barata de toda esta guía. Con 400–650€/mes se vive muy bien, incluyendo salidas frecuentes.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 7.5, desc: "Habitaciones desde 200–350€, de los precios más bajos de toda Europa para una capital." },
+          { label: "Comida y supermercados", score: 8.5, desc: "Kaufland, Mega Image y Lidl cubren el día a día muy barato; comer fuera también es muy asequible." },
+          { label: "Transporte", score: 8.0, desc: "Abono de metro y bus estudiantil muy económico para una ciudad grande y extensa." },
+          { label: "Ocio y gastos diarios", score: 8.5, desc: "Cervezas a 2-3€, entrada a clubs muy barata. La vida nocturna del Centro Vechi es asequible incluso saliendo a menudo." },
+        ],
+        reviews: [
+          { text: "Con 450€ al mes vivía genial, salía todos los findes y todavía ahorraba para viajar por Rumanía.", author: "Diego, Erasmus 2024", flag: "🇦🇷" },
+          { text: "El presupuesto aquí rinde más que en cualquier otro destino que consideré. Se puede vivir muy bien con poco.", author: "Sara, Exchange 2023", flag: "🇮🇹" },
+        ],
+      },
+      // 2. ALOJAMIENTO
+      {
+        id: "alojamiento",
+        label: "Alojamiento",
+        icon: "🏠",
+        score: 7.5,
+        summary: "Mercado amplio y asequible, sin apenas presión de demanda comparado con otras capitales europeas.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 8.0, desc: "Oferta amplia en toda la ciudad, sin la escasez que sufren otras capitales de esta guía." },
+          { label: "Precio", score: 8.0, desc: "200–350€ habitación, de los más bajos de toda Europa para una capital de este tamaño." },
+          { label: "Facilidad de búsqueda", score: 7.0, desc: "Storia.ro y grupos de Facebook de exchange students son los canales principales de búsqueda." },
+          { label: "Residencias universitarias", score: 6.5, desc: "UB y UPB ofrecen residencias con cupos para exchange students, gestionadas por orden de solicitud." },
+        ],
+        reviews: [
+          { text: "Encontí piso en Cotroceni en pocos días y a un precio que en cualquier capital occidental habría sido impensable.", author: "Lucas, Exchange 2024", flag: "🇫🇷" },
+        ],
+      },
+      // 3. VIDA SOCIAL Y AMBIENTE
+      {
+        id: "vida_social",
+        label: "Vida social y ambiente",
+        icon: "🎉",
+        score: 8.0,
+        summary: "Vida nocturna intensa en el Centro Vechi, considerada de las mejores de Europa del Este, con precios muy asequibles.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 7.5, desc: "UB y UPB reciben una comunidad internacional creciente, con ESN organizando eventos regulares." },
+          { label: "Ambiente internacional", score: 7.0, desc: "Ambiente internacional en aumento, especialmente en UPB gracias a su perfil técnico e ingenieril." },
+          { label: "Fiesta y vida nocturna", score: 9.0, desc: "El Centro Vechi concentra decenas de bares y clubs con ambiente hasta la madrugada a precios muy bajos." },
+          { label: "Eventos y actividades", score: 8.0, desc: "Festivales de música, rooftops en verano y una escena cultural en pleno crecimiento." },
+        ],
+        reviews: [
+          { text: "La vida nocturna del Centro Vechi no tiene nada que envidiar a otras capitales europeas, y el precio es una fracción de lo que pagaba en mi país.", author: "Théo, Erasmus 2023", flag: "🇫🇷" },
+          { text: "Nunca esperé que Bucarest tuviera tanta energía nocturna. Cada noche de la semana hay algo diferente que hacer en el Centro Vechi.", author: "Marta, Exchange 2024", flag: "🇵🇱" },
+        ],
+      },
+      // 4. INTEGRACIÓN INTERNACIONAL
+      {
+        id: "integracion",
+        label: "Integración internacional",
+        icon: "🌍",
+        score: 6.5,
+        summary: "Rumanos hospitalarios y cercanos, con un nivel de inglés que varía notablemente según la generación y la zona de la ciudad.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 7.0, desc: "Buen nivel entre jóvenes y en el entorno universitario, más limitado fuera de ese círculo." },
+          { label: "Actitud local", score: 8.0, desc: "Los rumanos tienen fama merecida de hospitalarios y cálidos con los estudiantes internacionales." },
+          { label: "Integración con locales", score: 6.0, desc: "El idioma latino facilita algo la comprensión para hispanohablantes e italianos." },
+          { label: "Facilidad para hacer amigos", score: 7.0, desc: "Comunidad internacional accesible desde el primer día, con locales muy dispuestos a ayudar." },
+        ],
+        reviews: [
+          { text: "Al ser español, entender rumano básico fue sorprendentemente más fácil de lo esperado por la raíz latina común.", author: "Pablo, Erasmus 2024", flag: "🇪🇸" },
+        ],
+      },
+      // 5. UBICACIÓN Y MOVILIDAD
+      {
+        id: "movilidad",
+        label: "Ubicación y movilidad",
+        icon: "🚆",
+        score: 6.5,
+        summary: "El metro es rápido y barato, imprescindible para moverse por una ciudad grande y extensa como Bucarest.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 7.5, desc: "Metro rápido y muy económico; bus y tranvía completan el resto de la red." },
+          { label: "Ciudad caminable", score: 5.5, desc: "Ciudad extensa donde el metro es casi imprescindible para moverse entre zonas alejadas." },
+          { label: "Conexiones nacionales", score: 6.5, desc: "Trenes y buses conectan con el resto de Rumanía, incluida Transilvania y sus castillos." },
+          { label: "Conexiones internacionales", score: 6.0, desc: "Vuelos baratos a otras capitales del Este; menos rutas directas que capitales occidentales." },
+        ],
+        reviews: [
+          { text: "El metro es rapidísimo y baratísimo. Sin él, moverse por una ciudad tan extensa habría sido mucho más complicado.", author: "Nadia, Exchange 2023", flag: "🇳🇱" },
+        ],
+      },
+      // 6. ESTILO DE VIDA Y ENTORNO
+      {
+        id: "estilo_vida",
+        label: "Estilo de vida y entorno",
+        icon: "🏔️",
+        score: 6.8,
+        summary: "El 'Pequeño París' con contrastes constantes entre arquitectura Belle Époque y monumentalismo comunista.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 6.5, desc: "El parque Herăstrău, junto a un lago, ofrece un respiro verde dentro de la propia ciudad." },
+          { label: "Clima", score: 5.5, desc: "Continental extremo, con veranos calurosos e inviernos fríos con nieve frecuente." },
+          { label: "Calidad de vida", score: 7.0, desc: "El coste de vida bajísimo permite disfrutar de la ciudad sin apenas restricciones económicas." },
+          { label: "Autenticidad local", score: 7.5, desc: "El contraste entre el Arco del Triunfo, la arquitectura Belle Époque y el Palacio del Parlamento define el carácter único de la ciudad." },
+          { label: "Estilo de vida", score: 7.0, desc: "Ritmo intenso, con una vida social muy activa y un coste que permite disfrutar sin grandes preocupaciones." },
+        ],
+        reviews: [
+          { text: "Ver el Arco del Triunfo y minutos después el gigantesco Palacio del Parlamento resume perfectamente los contrastes de esta ciudad.", author: "Giulia, Erasmus 2024", flag: "🇮🇹" },
+        ],
+      },
+      // 7. EMPLEO Y OPORTUNIDADES
+      {
+        id: "empleo",
+        label: "Empleo y oportunidades",
+        icon: "💼",
+        score: 7.0,
+        summary: "Fuerte en IT y outsourcing, con uno de los sectores tecnológicos más grandes y dinámicos de Europa del Este.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 7.5, desc: "Rumanía es uno de los principales hubs de IT y outsourcing tecnológico de Europa del Este." },
+          { label: "Prácticas", score: 7.0, desc: "UPB tiene fuertes conexiones con el sector tecnológico, con muchas multinacionales presentes en Bucarest." },
+          { label: "Empresas relevantes", score: 7.0, desc: "Presencia de grandes tecnológicas internacionales atraídas por talento técnico y costes competitivos." },
+          { label: "Oportunidades para estudiantes", score: 6.5, desc: "Mercado accesible para perfiles técnicos, especialmente en desarrollo de software." },
+        ],
+        reviews: [
+          { text: "Hice unas prácticas en una empresa de software gracias a un contacto de UPB. El sector tech aquí es mucho más grande de lo que esperaba.", author: "Rodrigo, Internship 2024", flag: "🇧🇷" },
+        ],
+      },
+      // 8. SEGURIDAD
+      {
+        id: "seguridad",
+        label: "Seguridad",
+        icon: "🛡️",
+        score: 6.5,
+        summary: "Segura en general, aunque requiere algo más de precaución que otras capitales de esta guía, especialmente en algunas zonas nocturnas.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 6.5, desc: "Segura para estándares de gran capital, con las precauciones normales de cualquier ciudad extensa." },
+          { label: "Seguridad nocturna", score: 6.0, desc: "El Centro Vechi es seguro y muy transitado; conviene algo más de atención en zonas periféricas de noche." },
+          { label: "Ambiente de la ciudad", score: 7.0, desc: "Ambiente generalmente cálido y acogedor, con la vida callejera activa hasta tarde." },
+        ],
+        reviews: [
+          { text: "Me sentí segura la mayor parte del tiempo, con la precaución normal de cualquier gran ciudad al volver de noche.", author: "Valentina, Erasmus 2023", flag: "🇪🇸" },
+        ],
+      },
+    ],
+  },
+  sofia: {
+    heroImg: "https://images.unsplash.com/photo-1753529179550-c6aff1b76e6e?w=1600&q=85",
+    tagline: "Una de las capitales más antiguas de Europa, con más de 7.000 años de historia y pistas de esquí a las puertas de la ciudad.",
+    atmosphere: "Milenaria y sorprendentemente montañosa. Sofía huele a banitsa recién horneada en cualquier panadería y suena al eco ortodoxo de la Catedral Alexander Nevsky, con el monte Vitosha siempre presente al fondo.",
+    scores: [
+      // 1. COSTE DE VIDA
+      {
+        id: "coste",
+        label: "Coste de vida",
+        icon: "💰",
+        score: 8.7,
+        summary: "De las capitales más baratas de toda esta guía. Con 400–600€/mes se vive muy bien.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 7.5, desc: "Habitaciones desde 180–320€, de los precios más bajos de toda Europa para una capital." },
+          { label: "Comida y supermercados", score: 8.5, desc: "Kaufland, Lidl y Billa cubren el día a día muy barato; comer fuera también es muy asequible." },
+          { label: "Transporte", score: 8.5, desc: "Abono de metro y bus estudiantil muy económico, con acceso directo a las pistas de Vitosha." },
+          { label: "Ocio y gastos diarios", score: 8.5, desc: "Cervezas a 2€, entrada a clubs muy barata. El forfait de esquí en Vitosha es de los más baratos de Europa." },
+        ],
+        reviews: [
+          { text: "Con 400€ al mes vivía muy bien, incluyendo esquiar varias veces al mes en Vitosha sin gastar apenas.", author: "Karolina, Erasmus 2024", flag: "🇵🇱" },
+          { text: "El presupuesto aquí es el más generoso de todos los destinos que consideré para mi Erasmus.", author: "Marco, Exchange 2023", flag: "🇮🇹" },
+        ],
+      },
+      // 2. ALOJAMIENTO
+      {
+        id: "alojamiento",
+        label: "Alojamiento",
+        icon: "🏠",
+        score: 7.5,
+        summary: "Mercado amplio y muy asequible, sin apenas presión de demanda comparado con otras capitales europeas.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 8.0, desc: "Oferta amplia en toda la ciudad, especialmente en Studentski grad, la 'ciudad estudiantil'." },
+          { label: "Precio", score: 8.0, desc: "180–320€ habitación, de los más bajos de toda Europa para una capital." },
+          { label: "Facilidad de búsqueda", score: 7.0, desc: "Imot.bg y grupos de Facebook de exchange students son los canales principales." },
+          { label: "Residencias universitarias", score: 6.5, desc: "Sofia University y TU-Sofia ofrecen residencias en Studentski grad, con cupos limitados para exchange students." },
+        ],
+        reviews: [
+          { text: "Encontré piso en Lozenets sin apenas esfuerzo y a un precio que en cualquier otra capital habría sido impensable.", author: "Louis, Exchange 2024", flag: "🇫🇷" },
+        ],
+      },
+      // 3. VIDA SOCIAL Y AMBIENTE
+      {
+        id: "vida_social",
+        label: "Vida social y ambiente",
+        icon: "🎉",
+        score: 6.5,
+        summary: "Comunidad Erasmus pequeña pero muy cercana, con la montaña de Vitosha como plan constante además del ambiente de la ciudad.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 6.5, desc: "ESN Sofia University organiza eventos y excursiones para una comunidad internacional de más de 20 nacionalidades por semestre." },
+          { label: "Ambiente internacional", score: 6.5, desc: "Sofia University y TU-Sofia reciben estudiantes de varios continentes cada semestre." },
+          { label: "Fiesta y vida nocturna", score: 6.5, desc: "El centro concentra bares y clubs con ambiente estudiantil a precios muy bajos." },
+          { label: "Eventos y actividades", score: 7.0, desc: "Excursiones a Vitosha para esquiar o hacer senderismo son de los planes más populares del semestre." },
+        ],
+        reviews: [
+          { text: "Al ser pocos Erasmus acabamos siendo un grupo muy unido. Ir a esquiar juntos a Vitosha varias veces al mes fue de lo mejor del semestre.", author: "Elena, Erasmus 2023", flag: "🇷🇴" },
+        ],
+      },
+      // 4. INTEGRACIÓN INTERNACIONAL
+      {
+        id: "integracion",
+        label: "Integración internacional",
+        icon: "🌍",
+        score: 6.5,
+        summary: "Búlgaros hospitalarios y cercanos, con un nivel de inglés que varía notablemente según la generación.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 6.5, desc: "Buen nivel entre jóvenes y en el entorno universitario, más limitado fuera de ese círculo." },
+          { label: "Actitud local", score: 7.5, desc: "Los búlgaros tienen fama de hospitalarios y cálidos con los estudiantes internacionales, aunque algo reservados al inicio." },
+          { label: "Integración con locales", score: 6.0, desc: "El curso gratuito de búlgaro de Sofia University es una buena vía de integración con locales." },
+          { label: "Facilidad para hacer amigos", score: 7.0, desc: "Comunidad internacional accesible desde el primer día, con locales dispuestos a ayudar." },
+        ],
+        reviews: [
+          { text: "Los búlgaros son mucho más cálidos de lo que esperaba. En cuanto mostré interés por su cultura, la conexión fue inmediata.", author: "Julia, Erasmus 2024", flag: "🇩🇪" },
+        ],
+      },
+      // 5. UBICACIÓN Y MOVILIDAD
+      {
+        id: "movilidad",
+        label: "Ubicación y movilidad",
+        icon: "🚆",
+        score: 7.0,
+        summary: "El monte Vitosha está a solo 30 minutos en transporte público — una de las pocas capitales del mundo donde se puede esquiar el mismo día de clase.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 7.5, desc: "Metro, tram y bus cubren bien la ciudad, con buen descuento estudiantil." },
+          { label: "Ciudad caminable", score: 7.0, desc: "El centro histórico es compacto y caminable, con Vitosha visible desde casi cualquier punto." },
+          { label: "Vitosha a 30 minutos", score: 9.0, desc: "Transporte público directo a las pistas de esquí de Vitosha — único caso de capital europea con esta accesibilidad." },
+          { label: "Conexiones internacionales", score: 6.0, desc: "Vuelos baratos a otras capitales del Este; menos rutas directas que capitales occidentales." },
+        ],
+        reviews: [
+          { text: "Esquié por la mañana en Vitosha y estaba en clase por la tarde el mismo día. No conozco otra capital del mundo donde esto sea posible.", author: "Anke, Exchange 2023", flag: "🇩🇪" },
+        ],
+      },
+      // 6. ESTILO DE VIDA Y ENTORNO
+      {
+        id: "estilo_vida",
+        label: "Estilo de vida y entorno",
+        icon: "🏔️",
+        score: 7.5,
+        summary: "Más de 7.000 años de historia continua conviviendo con una montaña que ofrece esquí, senderismo y naturaleza a las puertas de la ciudad.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 9.0, desc: "El monte Vitosha, con esquí en invierno y senderismo en verano, es un parque natural a 30 minutos del centro." },
+          { label: "Clima", score: 6.0, desc: "Continental con veranos calurosos e inviernos fríos con nieve garantizada en la montaña." },
+          { label: "Calidad de vida", score: 7.5, desc: "El coste de vida bajísimo permite disfrutar de la ciudad y la montaña sin apenas restricciones." },
+          { label: "Autenticidad local", score: 8.5, desc: "Más de 7.000 años de historia continua, entre las capitales más antiguas de Europa, sin artificio turístico." },
+          { label: "Estilo de vida", score: 7.5, desc: "Ritmo tranquilo, con la montaña siempre presente como parte del día a día, incluso entre semana." },
+        ],
+        reviews: [
+          { text: "Vivir en una capital con 7.000 años de historia y tener una estación de esquí a 30 minutos es una combinación que no imaginé posible.", author: "Chiara, Erasmus 2024", flag: "🇮🇹" },
+        ],
+      },
+      // 7. EMPLEO Y OPORTUNIDADES
+      {
+        id: "empleo",
+        label: "Empleo y oportunidades",
+        icon: "💼",
+        score: 6.5,
+        summary: "Sector IT en crecimiento constante, con costes laborales muy competitivos que atraen a empresas tecnológicas internacionales.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 6.5, desc: "Bulgaria se ha consolidado como destino de outsourcing tecnológico, con Sofía como epicentro del sector." },
+          { label: "Prácticas", score: 6.5, desc: "TU-Sofia tiene conexiones crecientes con el sector tecnológico local e internacional." },
+          { label: "Empresas relevantes", score: 6.5, desc: "Presencia de multinacionales tecnológicas atraídas por costes competitivos y talento técnico." },
+          { label: "Oportunidades para estudiantes", score: 6.5, desc: "Mercado accesible para perfiles técnicos, especialmente en desarrollo de software." },
+        ],
+        reviews: [
+          { text: "Hice unas prácticas cortas en una empresa de software gracias a un contacto de TU-Sofia. El sector tech está en pleno crecimiento aquí.", author: "Tobias, Internship 2023", flag: "🇩🇪" },
+        ],
+      },
+      // 8. SEGURIDAD
+      {
+        id: "seguridad",
+        label: "Seguridad",
+        icon: "🛡️",
+        score: 7.0,
+        summary: "Segura en general, con las precauciones normales de cualquier capital europea de este tamaño.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 7.0, desc: "Segura para estándares de capital europea, con criminalidad moderada." },
+          { label: "Seguridad nocturna", score: 6.5, desc: "El centro es tranquilo y transitado; conviene algo más de atención en zonas periféricas de noche." },
+          { label: "Ambiente de la ciudad", score: 7.5, desc: "Ambiente generalmente relajado y cívico, con la montaña como refugio constante." },
+        ],
+        reviews: [
+          { text: "Me sentí segura durante todo el semestre, con la precaución normal de cualquier capital al volver de noche.", author: "Marta, Erasmus 2024", flag: "🇵🇱" },
+        ],
+      },
+    ],
+  },
 };
 
 // Generate default scores for cities without custom data
