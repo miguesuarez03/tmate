@@ -182,6 +182,25 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   // ── Sofía ────────────────────────────────────────────────────────────────
   "Sofia University St. Kliment Ohridski": "https://erasmus.uni-sofia.bg/site/income/",
   "Technical University of Sofia (TU-Sofia)": "https://tu-sofia.bg/erasmus/erasmus",
+
+  // ── Ginebra ──────────────────────────────────────────────────────────────
+  "Université de Genève (UNIGE)": "https://www.unige.ch/dase/en/echange/incoming/",
+  "Graduate Institute of International and Development Studies (IHEID)": "https://www.graduateinstitute.ch/exchange-students",
+  "HEG Genève": "https://www.hesge.ch/heg/en/international/incoming-students",
+
+  // ── Florencia ────────────────────────────────────────────────────────────
+  "Università degli Studi di Firenze": "https://www.unifi.it/changelang-eng/incoming-exchange-students",
+  "Accademia di Belle Arti di Firenze": "https://www.accademia.firenze.it/en/international/erasmus/",
+
+  // ── Hamburgo ─────────────────────────────────────────────────────────────
+  "Universität Hamburg": "https://www.uni-hamburg.de/en/internationales/austausch/incoming.html",
+  "HafenCity Universität (HCU)": "https://www.hcu-hamburg.de/en/international/incoming-students",
+  "Technische Universität Hamburg (TUHH)": "https://www.tuhh.de/alt/tuhh/international/incoming-exchange-students.html",
+
+  // ── Gante ────────────────────────────────────────────────────────────────
+  "Universiteit Gent (UGent)": "https://www.ugent.be/en/facilities/international/exchange",
+  "HOGENT": "https://www.hogent.be/en/international/incoming-exchange-students/",
+  "Artevelde Hogeschool": "https://www.arteveldehogeschool.be/en/international/incoming-exchange-students",
 };
 
 /**

@@ -43,6 +43,10 @@ export const CITY_COORDS = {
   bratislava: [17.11, 48.15],
   bucarest:   [26.10, 44.43],
   sofia:      [23.32, 42.70],
+  ginebra:    [6.14, 46.20],
+  florencia:  [11.26, 43.77],
+  hamburgo:   [9.99, 53.55],
+  gante:      [3.72, 51.05],
 };
 
 /**

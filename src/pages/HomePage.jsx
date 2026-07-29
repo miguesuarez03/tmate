@@ -24,7 +24,7 @@ const HERO_WORDS = [
 ];
 
 const STATS = [
-  { val: "20", label: "Destinos" },
+  { val: String(CITIES.length), label: "Destinos" },
   { val: "2,4M", label: "Erasmus/año" },
   { val: "98%", label: "Satisfacción" },
   { val: "Gratis", label: "Siempre" },
@@ -220,7 +220,7 @@ const FAQS = [
   },
   {
     q: "¿Cuántas ciudades tenéis?",
-    a: "Actualmente contamos con 20 destinos Erasmus con datos reales: scores de vida nocturna, coste de vida, transporte, seguridad y mucho más. Seguimos añadiendo ciudades.",
+    a: `Actualmente contamos con ${CITIES.length} destinos Erasmus con datos reales: scores de vida nocturna, coste de vida, transporte, seguridad y mucho más. Seguimos añadiendo ciudades.`,
   },
   {
     q: "¿Cómo funcionan los scores de las ciudades?",

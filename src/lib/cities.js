@@ -66,6 +66,10 @@ export const CITY_BASE_SCORES = {
   bratislava:{ coste:7.0, alojamiento:6.8, vida_social:7.5, integracion:7.0, movilidad:8.5, estilo_vida:7.5, empleo:7.0, seguridad:8.0 },
   bucarest:  { coste:8.5, alojamiento:7.5, vida_social:8.0, integracion:6.5, movilidad:6.5, estilo_vida:6.8, empleo:7.0, seguridad:6.5 },
   sofia:     { coste:8.7, alojamiento:7.5, vida_social:6.5, integracion:6.5, movilidad:7.0, estilo_vida:7.5, empleo:6.5, seguridad:7.0 },
+  ginebra:   { coste:1.5, alojamiento:2.5, vida_social:6.5, integracion:9.0, movilidad:9.0, estilo_vida:8.5, empleo:8.5, seguridad:9.3 },
+  florencia: { coste:6.0, alojamiento:5.0, vida_social:8.3, integracion:8.0, movilidad:7.5, estilo_vida:9.0, empleo:6.5, seguridad:8.3 },
+  hamburgo:  { coste:5.5, alojamiento:5.0, vida_social:8.0, integracion:8.0, movilidad:8.8, estilo_vida:7.8, empleo:8.3, seguridad:8.3 },
+  gante:     { coste:7.0, alojamiento:6.5, vida_social:8.8, integracion:8.5, movilidad:8.0, estilo_vida:8.3, empleo:7.0, seguridad:8.5 },
 };
 
 /**

@@ -53,6 +53,10 @@ const CITIES = [
   { slug: "bratislava", name: "Bratislava", country: "Eslovaquia", flag: "🇸🇰", coords: [17.11, 48.15], cost: "500–750€" },
   { slug: "bucarest",   name: "Bucarest",   country: "Rumanía",   flag: "🇷🇴", coords: [26.10, 44.43], cost: "400–650€" },
   { slug: "sofia",      name: "Sofía",      country: "Bulgaria",  flag: "🇧🇬", coords: [23.32, 42.70], cost: "400–600€" },
+  { slug: "ginebra",    name: "Ginebra",    country: "Suiza",     flag: "🇨🇭", coords: [6.14, 46.20],  cost: "1.100–1.600€" },
+  { slug: "florencia",  name: "Florencia",  country: "Italia",    flag: "🇮🇹", coords: [11.26, 43.77], cost: "650–950€" },
+  { slug: "hamburgo",   name: "Hamburgo",   country: "Alemania",  flag: "🇩🇪", coords: [9.99, 53.55],  cost: "750–1.050€" },
+  { slug: "gante",      name: "Gante",      country: "Bélgica",   flag: "🇧🇪", coords: [3.72, 51.05],  cost: "600–850€" },
 ].map(city => ({
   ...city,
   img: getCityBySlug(city.slug)?.img ?? null,
@@ -77,6 +81,7 @@ const COUNTRY_ZOOM = {
   "Rep. Checa":    { coords: [15.5, 50], zoom: 4.5 },
   "Austria":       { coords: [14, 47.5], zoom: 4.5 },
   "Bélgica":       { coords: [4.5, 50.5],zoom: 5.5 },
+  "Suiza":         { coords: [8.2, 46.8], zoom: 4.0 },
 };
 
 // ─── ETIQUETAS DE PAÍS ───────────────────────────────────────────────────────
@@ -92,6 +97,7 @@ const COUNTRY_LABELS = [
   { name: "Rep. Checa",  flag: "🇨🇿", coords: [15.5, 49.8] },
   { name: "Austria",     flag: "🇦🇹", coords: [14.0, 47.5] },
   { name: "Bélgica",     flag: "🇧🇪", coords: [4.5,  50.5] },
+  { name: "Suiza",       flag: "🇨🇭", coords: [8.2,  46.8] },
 ];
 
 // ─── FILTROS DE VIBE ──────────────────────────────────────────────────────────
