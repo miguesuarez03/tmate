@@ -70,6 +70,16 @@ export const CITY_BASE_SCORES = {
   florencia: { coste:6.0, alojamiento:5.0, vida_social:8.3, integracion:8.0, movilidad:7.5, estilo_vida:9.0, empleo:6.5, seguridad:8.3 },
   hamburgo:  { coste:5.5, alojamiento:5.0, vida_social:8.0, integracion:8.0, movilidad:8.8, estilo_vida:7.8, empleo:8.3, seguridad:8.3 },
   gante:     { coste:7.0, alojamiento:6.5, vida_social:8.8, integracion:8.5, movilidad:8.0, estilo_vida:8.3, empleo:7.0, seguridad:8.5 },
+  venecia:   { coste:4.0, alojamiento:3.5, vida_social:6.0, integracion:7.0, movilidad:6.5, estilo_vida:9.3, empleo:5.5, seguridad:8.7 },
+  lyon:      { coste:6.5, alojamiento:6.0, vida_social:8.3, integracion:7.8, movilidad:8.8, estilo_vida:8.3, empleo:8.0, seguridad:7.5 },
+  colonia:   { coste:6.3, alojamiento:5.5, vida_social:8.5, integracion:8.0, movilidad:8.7, estilo_vida:7.8, empleo:8.0, seguridad:8.0 },
+  lovaina:   { coste:7.3, alojamiento:6.5, vida_social:9.0, integracion:8.3, movilidad:8.0, estilo_vida:7.5, empleo:7.0, seguridad:8.7 },
+  utrecht:   { coste:4.7, alojamiento:4.0, vida_social:8.3, integracion:8.7, movilidad:9.0, estilo_vida:8.3, empleo:8.0, seguridad:8.5 },
+  lund:      { coste:5.5, alojamiento:5.0, vida_social:8.8, integracion:7.8, movilidad:8.3, estilo_vida:8.0, empleo:7.0, seguridad:8.8 },
+  innsbruck: { coste:5.8, alojamiento:5.5, vida_social:7.0, integracion:7.0, movilidad:7.5, estilo_vida:9.3, empleo:7.3, seguridad:9.3 },
+  split:     { coste:7.3, alojamiento:6.5, vida_social:7.5, integracion:6.8, movilidad:6.5, estilo_vida:8.8, empleo:5.8, seguridad:8.3 },
+  salonica:  { coste:8.5, alojamiento:7.5, vida_social:9.0, integracion:7.0, movilidad:6.8, estilo_vida:8.0, empleo:5.5, seguridad:7.0 },
+  napoles:   { coste:7.5, alojamiento:6.3, vida_social:8.5, integracion:7.0, movilidad:5.8, estilo_vida:8.5, empleo:5.8, seguridad:6.0 },
 };
 
 /**
