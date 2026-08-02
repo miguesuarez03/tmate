@@ -1,6 +1,6 @@
 /* Ensure hero is always the very first thing visible */
 .cdp-root {
-  background: #fff;
+  background: var(--color-white);
   color: var(--color-slate);
   font-family: var(--font-body);
   min-height: 100vh;

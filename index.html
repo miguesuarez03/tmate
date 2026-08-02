@@ -23,6 +23,19 @@
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { -webkit-font-smoothing: antialiased; }
     </style>
+    <!-- Aplica el tema (localStorage > preferencia del sistema) antes del
+         primer paint, para evitar el parpadeo de tema claro→oscuro. -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("tmate-theme");
+          var theme = stored === "light" || stored === "dark"
+            ? stored
+            : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

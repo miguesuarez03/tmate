@@ -57,7 +57,7 @@ export default function ScoreCard({ item, index }) {
   return (
     <div
       className={`score-card${expanded ? " score-card--expanded" : ""}`}
-      style={expanded ? { borderColor: `${item.color}50`, background: `linear-gradient(145deg, ${item.color}07, #fff)`, boxShadow: `0 12px 40px ${item.color}18` } : {}}
+      style={expanded ? { borderColor: `${item.color}50`, background: `linear-gradient(145deg, ${item.color}07, var(--color-white))`, boxShadow: `0 12px 40px ${item.color}18` } : {}}
     >
       <div
         className="score-card__header"

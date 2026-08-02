@@ -9,6 +9,7 @@ import {
   IconProceso,
   IconExperiencia,
 } from "./icons";
+import ThemeToggle, { ThemeToggleRow } from "./ThemeToggle";
 
 export function Logo({ dark = false, onClick }) {
   return (
@@ -133,6 +134,10 @@ function NavMenuDrawer({ menuOpen, setMenuOpen }) {
             </button>
           ))}
         </nav>
+
+        <div className="nav-drawer__footer">
+          <ThemeToggleRow />
+        </div>
       </div>
     </>
   );
@@ -178,7 +183,10 @@ export function Navbar({ transparent = false }) {
     <>
       <nav className={`navbar ${scrolled || !transparent || menuOpen ? "navbar--scrolled" : ""}`}>
         <Logo dark={!isDark} onClick={() => { setMenuOpen(false); navigate("/"); }} />
-        <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={isDark} />
+        <div style={{ display: "flex", alignItems: "center", gap: 8, marginLeft: "auto" }}>
+          <ThemeToggle isDark={isDark} />
+          <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={isDark} />
+        </div>
       </nav>
 
       <NavMenuDrawer menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
@@ -215,6 +223,7 @@ export function NavbarCity({ cityName, overall }) {
               <span style={{ fontSize: 12, color: "rgba(255,255,255,0.75)", fontWeight: 500 }}>/ 10</span>
             </div>
           )}
+          <ThemeToggle isDark={false} />
           <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={false} />
         </div>
       </nav>

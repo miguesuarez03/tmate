@@ -87,20 +87,20 @@ a.quickAccessItem:hover { color: var(--qa-color, var(--color-primary)); }
   padding: 0.75rem 0.9rem;
   border-radius: var(--radius-md);
   border: 1.5px solid var(--color-border);
-  background: #fff; cursor: pointer;
+  background: var(--color-white); cursor: pointer;
   transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
   text-align: left;
 }
 
 .metricPill:hover {
-  border-color: #c8d8e8;
+  border-color: var(--color-border);
   box-shadow: var(--shadow-sm);
   transform: translateX(2px);
 }
 
 .metricPillActive {
   border-color: var(--pill-color, var(--color-primary));
-  background: color-mix(in srgb, var(--pill-color, var(--color-primary)) 6%, white);
+  background: color-mix(in srgb, var(--pill-color, var(--color-primary)) 6%, var(--color-white));
   box-shadow: 0 4px 16px color-mix(in srgb, var(--pill-color, var(--color-primary)) 20%, transparent);
   transform: translateX(4px);
 }
@@ -116,7 +116,7 @@ a.quickAccessItem:hover { color: var(--qa-color, var(--color-primary)); }
 }
 
 .metricBar {
-  height: 3px; background: #f0f0f5; border-radius: 99px; overflow: hidden;
+  height: 3px; background: var(--surface-2); border-radius: 99px; overflow: hidden;
 }
 
 .metricBarFill {
@@ -131,7 +131,7 @@ a.quickAccessItem:hover { color: var(--qa-color, var(--color-primary)); }
 
 /* ── Detail panel ── */
 .detail {
-  background: #fff;
+  background: var(--color-white);
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-xl);
   overflow: hidden;
@@ -145,7 +145,7 @@ a.quickAccessItem:hover { color: var(--qa-color, var(--color-primary)); }
 
 .detailHero {
   padding: 1.75rem;
-  background: color-mix(in srgb, var(--detail-color, #0EA5E9) 4%, white);
+  background: color-mix(in srgb, var(--detail-color, var(--color-primary)) 4%, var(--color-white));
   border-bottom: 1.5px solid var(--color-border);
 }
 
@@ -174,7 +174,7 @@ a.quickAccessItem:hover { color: var(--qa-color, var(--color-primary)); }
 
 /* ── Progress bar ── */
 .barTrack {
-  height: 7px; background: #f0f2f5; border-radius: 99px;
+  height: 7px; background: var(--surface-2); border-radius: 99px;
   overflow: hidden; margin-bottom: 1rem;
 }
 
@@ -227,7 +227,7 @@ a.quickAccessItem:hover { color: var(--qa-color, var(--color-primary)); }
 .reviewsList { display: flex; flex-direction: column; gap: 0.75rem; }
 
 .bubble {
-  background: #fff; border: 1.5px solid var(--color-border);
+  background: var(--color-white); border: 1.5px solid var(--color-border);
   border-radius: var(--radius-lg); padding: 1rem 1.1rem;
   transition: transform 0.22s ease, box-shadow 0.22s ease;
   animation: fadeIn 0.4s var(--ease-smooth);

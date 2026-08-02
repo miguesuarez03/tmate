@@ -315,9 +315,9 @@ export default function WorldMap() {
                     key={geo.rsmKey}
                     geography={geo}
                     style={{
-                      default: { fill: "#dde8f0", stroke: "#b8ccd8", strokeWidth: 0.4, outline: "none" },
-                      hover:   { fill: "#c8dcea", stroke: "#b8ccd8", strokeWidth: 0.4, outline: "none" },
-                      pressed: { fill: "#c8dcea", outline: "none" },
+                      default: { fill: "var(--map-land)", stroke: "var(--map-land-stroke)", strokeWidth: 0.4, outline: "none" },
+                      hover:   { fill: "var(--map-land-hover)", stroke: "var(--map-land-stroke)", strokeWidth: 0.4, outline: "none" },
+                      pressed: { fill: "var(--map-land-hover)", outline: "none" },
                     }}
                   />
                 ))
@@ -343,7 +343,7 @@ export default function WorldMap() {
                     textAnchor="middle"
                     y={emojiSize + 2}
                     fontSize={fontSize}
-                    fill="#6b8fa8"
+                    fill="var(--map-label)"
                     fontFamily="DM Sans, sans-serif"
                     fontWeight="600"
                     style={{ pointerEvents: "none", userSelect: "none" }}
@@ -358,6 +358,9 @@ export default function WorldMap() {
             {CITIES.map(city => {
               const visible = visibleCities.some(c => c.slug === city.slug);
               const isSelected = selected?.slug === city.slug;
+              // Nota: se mantiene como hex literal (no var()) porque más abajo
+              // se concatena con sufijos de alpha ("20"/"55") — un custom
+              // property ahí produciría un valor de color inválido.
               const color = visible ? scoreColor(city.score) : "#ccc";
               const base = 1 / zoom;
               const r = isSelected ? base * 7 : (visible ? base * 4 : base * 2.5);
