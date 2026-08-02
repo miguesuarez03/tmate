@@ -7348,6 +7348,1196 @@ export const CITY_INSIGHTS = {
       },
     ],
   },
+  groningen: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/20100523_Grote_Markt_en_Martinitoren_Groningen_NL.jpg/1920px-20100523_Grote_Markt_en_Martinitoren_Groningen_NL.jpg",
+    tagline: "Uno de cada tres habitantes es estudiante — la ciudad más joven de Europa, sobre dos ruedas.",
+    atmosphere: "Groningen suena a timbres de bicicleta y risas en el Grote Markt cualquier noche entre semana, y huele a stroopwafel recién hecho en el mercado de los sábados frente a la Martinitoren.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 5.8,
+        summary: "Más barata que Ámsterdam o Utrecht, aunque sigue siendo Países Bajos: nada es realmente barato.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 5.0, desc: "Habitación desde 400–550€; el mercado es más accesible que en Ámsterdam gracias al enorme parque de vivienda estudiantil." },
+          { label: "Comida y supermercados", score: 6.5, desc: "Supermercados como Lidl y Aldi mantienen el gasto en comida razonable comparado con el resto de Países Bajos." },
+          { label: "Transporte", score: 7.5, desc: "La bici es gratis una vez comprada — la mayoría de trayectos no necesitan bus ni tren." },
+          { label: "Ocio y gastos diarios", score: 5.5, desc: "Salir de bares en el Grote Markt tiene precios estándar neerlandeses, no especialmente baratos." },
+        ],
+        reviews: [
+          { text: "Comparado con lo que gastaban mis amigos en Ámsterdam, aquí el presupuesto me cundía muchísimo más.", author: "Elena, Erasmus 2024", flag: "🇪🇸" },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 5.5,
+        summary: "Mercado tenso como en todo el país, pero con más oferta específica para estudiantes que otras ciudades neerlandesas.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 5.5, desc: "SSH Studentenhuisvesting gestiona miles de habitaciones específicas para estudiantes internacionales." },
+          { label: "Precio", score: 6.0, desc: "400–550€ de media, sensiblemente por debajo de Ámsterdam, Utrecht o La Haya." },
+          { label: "Facilidad de búsqueda", score: 5.0, desc: "La RUG tiene un servicio de alojamiento garantizado para exchange students que solicitan a tiempo." },
+          { label: "Residencias universitarias", score: 5.5, desc: "Buena oferta de residencias SSH, aunque conviene solicitar en cuanto llega la carta de admisión." },
+        ],
+        reviews: [
+          { text: "Al solicitar la plaza de intercambio ya pude reservar habitación por SSH. Mucho más tranquilo que buscar por mi cuenta.", author: "Bram, Erasmus 2023", flag: "🇧🇪" },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 9.0,
+        summary: "La proporción de estudiantes más alta de Europa se nota en cada esquina: la vida social nunca se detiene.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 9.0, desc: "ESN Groningen es de las asociaciones más activas de Europa, con actividades casi a diario." },
+          { label: "Ambiente internacional", score: 8.5, desc: "La RUG tiene programas de grado enteros en inglés y una proporción internacional altísima." },
+          { label: "Fiesta y vida nocturna", score: 9.0, desc: "El Grote Markt y sus bares llenos entre semana son la postal más repetida del Erasmus en Groningen." },
+          { label: "Eventos y actividades", score: 9.0, desc: "Asociaciones estudiantiles centenarias (Vindicat, entre otras) organizan eventos constantes durante todo el curso." },
+        ],
+        reviews: [
+          { text: "Nunca viví en una ciudad donde salir un martes fuera tan normal como salir un sábado.", author: "Noa, Erasmus 2024", flag: "🇮🇱" },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.5,
+        summary: "Los neerlandeses de Groningen tienen fama de ser de los más abiertos y directos con los internacionales del país.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 9.5, desc: "Prácticamente toda la ciudad, incluidos comercios y administración, funciona en inglés sin problema." },
+          { label: "Actitud local", score: 8.0, desc: "Directos pero cordiales; la enorme proporción de estudiantes hace que lo internacional se sienta normal." },
+          { label: "Integración con locales", score: 7.5, desc: "Más fácil que en ciudades grandes gracias al tamaño compacto y la vida universitaria compartida." },
+          { label: "Facilidad para hacer amigos", score: 9.0, desc: "Con un tercio de la ciudad siendo estudiante, hacer amigos es prácticamente automático." },
+        ],
+        reviews: [
+          { text: "Llegué sin hablar neerlandés y nunca lo necesité para nada del día a día. Todo el mundo cambia a inglés de forma natural.", author: "Diego, Erasmus 2023", flag: "🇦🇷" },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.0,
+        summary: "Ciudad plana y compacta hecha para la bici, con buenas conexiones ferroviarias al resto del país.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 7.0, desc: "Qbuzz cubre lo poco que no llega la bici; la mayoría de estudiantes casi no lo usan." },
+          { label: "Ciudad caminable/ciclable", score: 9.5, desc: "Una de las ciudades más ciclistas del mundo, con infraestructura pensada al detalle para la bici." },
+          { label: "Conexiones internacionales", score: 6.5, desc: "Sin aeropuerto propio grande; Schiphol (Ámsterdam) a unas dos horas en tren." },
+          { label: "Escapadas de fin de semana", score: 8.0, desc: "Ámsterdam a hora y media, y el norte rural neerlandés y la costa del Mar de Frisia muy cerca." },
+        ],
+        reviews: [
+          { text: "En dos semanas ya me movía en bici de forma más natural que en coche en mi ciudad. Aquí todo está pensado para ello.", author: "Sara, Erasmus 2024", flag: "🇮🇹" },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 7.5,
+        summary: "Vida universitaria compacta, verde y relajada, sin las prisas ni el turismo masivo de otras ciudades neerlandesas.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 7.0, desc: "El Noorderplantsoen y los canales del centro ofrecen espacio verde a poca distancia de cualquier punto." },
+          { label: "Clima", score: 6.0, desc: "Oceánico, con viento constante por la cercanía al mar y lluvias frecuentes todo el año." },
+          { label: "Calidad de vida", score: 8.5, desc: "Ciudad pequeña, segura y muy fácil de vivir, con ritmo tranquilo fuera de las noches de fiesta." },
+          { label: "Autenticidad local", score: 7.5, desc: "Sin la masificación turística de Ámsterdam; se vive como una ciudad neerlandesa real." },
+          { label: "Estilo de vida", score: 8.0, desc: "Vida sencilla marcada por la bici, los canales y una comunidad estudiantil que lo domina casi todo." },
+        ],
+        reviews: [
+          { text: "Es la típica ciudad que no está en el radar de nadie hasta que vives ahí, y luego no quieres irte.", author: "Fynn, Erasmus 2023", flag: "🇩🇪" },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.5,
+        summary: "Mercado laboral modesto fuera de la universidad, aunque el norte de Países Bajos tiene un sector energético y agroalimentario relevante.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 6.0, desc: "Ciudad universitaria y administrativa más que industrial; menos oportunidades que en el Randstad." },
+          { label: "Prácticas", score: 6.5, desc: "La RUG tiene buena reputación en ciencias, medicina y IA, con conexiones a empresas regionales." },
+          { label: "Empresas relevantes", score: 6.0, desc: "Sector energético (gas natural, energías renovables) con peso en la región de Groninga." },
+          { label: "Oportunidades para estudiantes", score: 7.5, desc: "Muchos estudiantes compaginan estudios con trabajos a tiempo parcial gracias a la flexibilidad neerlandesa." },
+        ],
+        reviews: [
+          { text: "Encontré un trabajo a tiempo parcial en un café en dos semanas. Aquí es muy normal compaginarlo con clases.", author: "Alice, Erasmus 2024", flag: "🇫🇷" },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.7,
+        summary: "Una de las ciudades más seguras y tranquilas de esta guía, típica de una ciudad universitaria neerlandesa mediana.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja; los robos de bicicleta son el principal quebradero de cabeza." },
+          { label: "Seguridad nocturna", score: 8.5, desc: "Volver caminando o en bici de madrugada por el centro es completamente normal y seguro." },
+          { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, limpia y tranquila fuera del ambiente animado del Grote Markt." },
+        ],
+        reviews: [
+          { text: "Lo único que me robaron en todo el año fue la bici, como a todo el mundo. Aparte de eso, cero problemas.", author: "Martina, Erasmus 2023", flag: "🇪🇸" },
+        ],
+      },
+    ],
+  },
+  coimbra: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Coimbra_e_o_rio_Mondego_%286167200429%29_%28cropped%29.jpg/1920px-Coimbra_e_o_rio_Mondego_%286167200429%29_%28cropped%29.jpg",
+    tagline: "Vive dentro de una universidad Patrimonio de la Humanidad fundada hace más de 700 años.",
+    atmosphere: "Coimbra huele a papel viejo y cera de vela en la Biblioteca Joanina, y suena a fado cantado de capa negra por las callejuelas empinadas de la Alta al caer la tarde.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 9.0,
+        summary: "Una de las ciudades más baratas de toda esta guía, muy por debajo de Lisboa y Oporto.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 8.5, desc: "Habitación en república estudiantil o piso compartido desde 200–300€, de las más bajas de Europa." },
+          { label: "Comida y supermercados", score: 9.0, desc: "Menús de restaurante universitario por 3–4€ y mercados locales muy económicos." },
+          { label: "Transporte", score: 8.5, desc: "Ciudad pequeña y caminable; el abono de bus apenas se necesita fuera de días de lluvia." },
+          { label: "Ocio y gastos diarios", score: 9.0, desc: "Salir de tascas y bares en la Baixa cuesta una fracción de lo que costaría en Lisboa." },
+        ],
+        reviews: [
+          { text: "Con el mismo presupuesto que en mi ciudad, aquí vivía como un rey. Es de las ciudades Erasmus más baratas que existen.", author: "Pablo, Erasmus 2024", flag: "🇪🇸" },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 8.0,
+        summary: "Las repúblicas estudiantiles centenarias hacen de Coimbra un caso único: alojamiento barato con tradición e historia propia.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 8.0, desc: "Docenas de repúblicas centenarias además del mercado normal de pisos compartidos." },
+          { label: "Precio", score: 8.5, desc: "200–300€ de media, de los alquileres más bajos de toda esta guía." },
+          { label: "Facilidad de búsqueda", score: 7.0, desc: "Entrar en una república requiere proceso propio (praxe); para exchange students hay listados en la universidad." },
+          { label: "Residencias universitarias", score: 8.0, desc: "SASUC (Serviços de Ação Social) ofrece residencias asequibles y bien valoradas." },
+        ],
+        reviews: [
+          { text: "Vivir en una república fue la experiencia más auténtica de todo mi Erasmus: tradiciones, cenas comunales y una familia instantánea.", author: "Camille, Erasmus 2023", flag: "🇫🇷" },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 7.5,
+        summary: "Vida estudiantil con tradiciones únicas en Europa, centrada en las repúblicas y la Queima das Fitas.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 7.5, desc: "ESN Coimbra organiza excursiones a Serra da Estrela, Aveiro y la costa cercana." },
+          { label: "Ambiente internacional", score: 6.5, desc: "Comunidad Erasmus más pequeña que en Lisboa u Oporto, lo que favorece grupos muy unidos." },
+          { label: "Fiesta y vida nocturna", score: 7.5, desc: "República crawls y bares de la Baixa concentran la vida nocturna estudiantil." },
+          { label: "Eventos y actividades", score: 8.5, desc: "Queima das Fitas en mayo: una semana entera de conciertos y tradiciones académicas únicas en Europa." },
+        ],
+        reviews: [
+          { text: "La Queima das Fitas es de esas experiencias que no se pueden explicar, solo vivir. Toda la ciudad se convierte en una fiesta universitaria.", author: "Jonas, Erasmus 2024", flag: "🇩🇪" },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
+        summary: "Ciudad pequeña y acogedora, aunque menos rodada en recibir internacionales que Lisboa u Oporto.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 6.0, desc: "Bien hablado entre estudiantes; algo menos en comercios tradicionales del centro." },
+          { label: "Actitud local", score: 8.0, desc: "Los coimbrões tienen fama de cálidos y orgullosos de su tradición académica." },
+          { label: "Integración con locales", score: 7.0, desc: "El tamaño reducido de la ciudad facilita coincidir una y otra vez con la misma gente." },
+          { label: "Facilidad para hacer amigos", score: 7.5, desc: "Las repúblicas y el circuito universitario reducido hacen fácil integrarse rápido." },
+        ],
+        reviews: [
+          { text: "Al ser una ciudad pequeña, en un mes ya me conocía con los dueños de las tascas y con medio grupo de mi facultad.", author: "Lena, Erasmus 2023", flag: "🇦🇹" },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 6.5,
+        summary: "Bien conectada por tren con Lisboa y Oporto, aunque el centro histórico exige piernas por sus cuestas.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 6.5, desc: "SMTUC cubre bus urbano; útil sobre todo para subir la cuesta hacia la Alta." },
+          { label: "Ciudad caminable", score: 6.0, desc: "Todo se recorre a pie, pero las cuestas del centro histórico son exigentes." },
+          { label: "Conexiones internacionales", score: 6.0, desc: "Sin aeropuerto propio; Oporto y Lisboa, ambos con vuelos internacionales, a menos de dos horas." },
+          { label: "Escapadas de fin de semana", score: 7.5, desc: "Serra da Estrela, Aveiro y la costa de Figueira da Foz, todas a poco más de una hora." },
+        ],
+        reviews: [
+          { text: "Las cuestas hacia la universidad al principio matan, pero en un mes ya ni las notaba.", author: "Rui, Erasmus 2024", flag: "🇧🇷" },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.3,
+        summary: "Tradición académica centenaria envuelta en un ambiente relajado a orillas del río Mondego.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 7.5, desc: "El río Mondego y el Parque Verde ofrecen espacio de descanso a un paso del centro histórico." },
+          { label: "Clima", score: 8.0, desc: "Mediterráneo suave, con veranos calurosos e inviernos templados." },
+          { label: "Calidad de vida", score: 8.5, desc: "Ritmo tranquilo y sin masificación turística, salvo puntualmente en verano." },
+          { label: "Autenticidad local", score: 9.0, desc: "Una de las ciudades universitarias con más tradición e identidad propia de toda Europa." },
+          { label: "Estilo de vida", score: 8.5, desc: "Vivir entre siglos de historia académica, con las repúblicas como forma de vida propia." },
+        ],
+        reviews: [
+          { text: "Es la única ciudad donde he sentido que la universidad ES la ciudad, y no al revés.", author: "Valeria, Erasmus 2023", flag: "🇮🇹" },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 5.0,
+        summary: "Mercado laboral limitado, propio de una ciudad mediana portuguesa centrada en la universidad y los servicios.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 4.5, desc: "Pocas oportunidades fuera del sector universitario y de servicios locales." },
+          { label: "Prácticas", score: 5.5, desc: "La Universidade de Coimbra tiene fuerte tradición en derecho, medicina e ingeniería, con conexiones locales." },
+          { label: "Empresas relevantes", score: 4.5, desc: "Sin grandes sedes corporativas; economía centrada en la universidad y el turismo cultural." },
+          { label: "Oportunidades para estudiantes", score: 5.5, desc: "El Instituto Pedro Nunes, parque tecnológico ligado a la universidad, ofrece algunas prácticas en startups locales." },
+        ],
+        reviews: [
+          { text: "No es una ciudad para hacer prácticas ambiciosas, pero para estudiar y vivir la experiencia Erasmus es perfecta.", author: "Katarzyna, Erasmus 2024", flag: "🇵🇱" },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.8,
+        summary: "Una de las ciudades más seguras y tranquilas de esta guía, típica de una ciudad universitaria portuguesa mediana.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja; la vida gira en torno a la universidad y el ambiente es tranquilo." },
+          { label: "Seguridad nocturna", score: 8.5, desc: "Las cuestas del centro histórico están tranquilas incluso de madrugada." },
+          { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad pequeña, ordenada y con fuerte sensación de comunidad universitaria." },
+        ],
+        reviews: [
+          { text: "Nunca me sentí insegura ni una sola vez, ni siquiera volviendo sola de madrugada por las callejuelas de la Alta.", author: "Marion, Erasmus 2023", flag: "🇫🇷" },
+        ],
+      },
+    ],
+  },
+  uppsala: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Uppsala_domkyrka_December_2024_01.jpg/1920px-Uppsala_domkyrka_December_2024_01.jpg",
+    tagline: "La universidad más antigua de Escandinavia y una vida de 'naciones' estudiantiles que no existe en ningún otro lugar.",
+    atmosphere: "Uppsala huele a canela recién horneada (kanelbullar) en cualquier fika, y suena a campanas de catedral gótica mezcladas con el bullicio de las naciones estudiantiles un jueves cualquiera.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 5.5,
+        summary: "Cara como el resto de Suecia, aunque algo más asequible que Estocolmo gracias a su tamaño más manejable.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 4.5, desc: "Habitación desde 450–600€, con una demanda muy alta frente a la oferta disponible." },
+          { label: "Comida y supermercados", score: 5.5, desc: "Supermercados como Lidl y Willys ayudan a mantener el presupuesto bajo control." },
+          { label: "Transporte", score: 6.5, desc: "La bici cubre la mayoría de trayectos; el abono UL sale rentable con descuento de estudiante." },
+          { label: "Ocio y gastos diarios", score: 5.5, desc: "Las naciones ofrecen comida y bebida a precio estudiante, mucho más barato que un bar normal." },
+        ],
+        reviews: [
+          { text: "Comer y beber en las naciones era mucho más barato que salir en la ciudad — aprendí rápido a aprovecharlo.", author: "Marco, Erasmus 2024", flag: "🇮🇹" },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 4.5,
+        summary: "El punto débil de Uppsala: la escasez de vivienda estudiantil sueca se nota también aquí, aunque menos que en Estocolmo.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 4.0, desc: "Uppsala Studentbostäder gestiona colas de espera que a veces superan el año." },
+          { label: "Precio", score: 5.0, desc: "450–600€ de media, algo más asequible que Estocolmo pero aún alto para Erasmus estudiantes con presupuesto ajustado." },
+          { label: "Facilidad de búsqueda", score: 4.0, desc: "Registrarse en la cola de Studentbostäder el mismo día de la admisión es clave para tener opciones." },
+          { label: "Residencias universitarias", score: 5.0, desc: "Existen plazas garantizadas para exchange students a través de la universidad, aunque limitadas." },
+        ],
+        reviews: [
+          { text: "Me apunté a la cola de vivienda el día que me admitieron, meses antes de llegar, y aun así fue justo.", author: "Emma, Erasmus 2023", flag: "🇩🇰" },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 8.8,
+        summary: "Las 'naciones' estudiantiles son el corazón social de la ciudad: cada una con su propio local, fiestas y tradiciones.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 8.5, desc: "ESN Uppsala y las propias naciones organizan actividades constantes para internacionales." },
+          { label: "Ambiente internacional", score: 8.5, desc: "Alta proporción de estudiantes internacionales gracias a la reputación de la universidad." },
+          { label: "Fiesta y vida nocturna", score: 9.0, desc: "Las 13 naciones organizan gasques (cenas de gala) y fiestas temáticas durante todo el año." },
+          { label: "Eventos y actividades", score: 9.0, desc: "Valborg el 30 de abril reúne a decenas de miles de personas en la mayor fiesta de primavera de Suecia." },
+        ],
+        reviews: [
+          { text: "Unirme a una nación fue la mejor decisión del intercambio: cenas de gala, fiestas y amigos para toda la vida.", author: "Iris, Erasmus 2024", flag: "🇳🇱" },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8,
+        summary: "Ciudad universitaria acostumbrada a recibir internacionales desde hace siglos, con suecos abiertos aunque algo reservados al inicio.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 9.5, desc: "Nivel de inglés altísimo en toda la ciudad, sin ninguna barrera para el día a día." },
+          { label: "Actitud local", score: 7.0, desc: "Los suecos son amables pero reservados; las naciones ayudan mucho a romper el hielo." },
+          { label: "Integración con locales", score: 6.5, desc: "Más fácil dentro del entorno de las naciones que en el contexto social general." },
+          { label: "Facilidad para hacer amigos", score: 8.0, desc: "La estructura de naciones facilita conocer gente de forma constante y estructurada." },
+        ],
+        reviews: [
+          { text: "Al principio cuesta romper el hielo con suecos fuera de la universidad, pero dentro de la nación todo fluye solo.", author: "Thiago, Erasmus 2023", flag: "🇵🇹" },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.0,
+        summary: "Ciudad compacta y ciclista, con Estocolmo a un salto de tren que la convierte en base perfecta para explorar Suecia.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 7.5, desc: "UL cubre bus y tren regional con buen descuento de estudiante." },
+          { label: "Ciudad caminable/ciclable", score: 9.0, desc: "Ciudad plana y compacta, pensada para moverse en bici todo el año." },
+          { label: "Conexiones internacionales", score: 7.0, desc: "Aeropuerto de Arlanda a solo 20 minutos, con vuelos a toda Europa." },
+          { label: "Escapadas de fin de semana", score: 8.5, desc: "Estocolmo a 40 minutos en tren; el archipiélago sueco muy accesible en verano." },
+        ],
+        reviews: [
+          { text: "Vivir a 40 minutos de Estocolmo con el precio de Uppsala fue el mejor equilibrio posible.", author: "Hanna, Erasmus 2024", flag: "🇩🇪" },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.0,
+        summary: "Tradición académica sueca, naturaleza cercana y un ritmo de vida pausado marcado por las estaciones extremas.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 8.0, desc: "El río Fyris cruza la ciudad y los bosques suecos empiezan a pocos minutos en bici." },
+          { label: "Clima", score: 5.5, desc: "Inviernos largos y oscuros con nieve; veranos cortos pero con días interminables de luz." },
+          { label: "Calidad de vida", score: 8.5, desc: "Ciudad segura, tranquila y muy bien organizada, típica del modelo sueco." },
+          { label: "Autenticidad local", score: 8.0, desc: "Fuera del circuito de naciones, se vive la Suecia académica real, lejos del turismo." },
+          { label: "Estilo de vida", score: 8.5, desc: "El equilibrio entre tradición centenaria, naturaleza y vida social de naciones es único en Europa." },
+        ],
+        reviews: [
+          { text: "El invierno oscuro pega fuerte al principio, pero la vida de nación y el fika constante lo compensan todo.", author: "Julia, Erasmus 2023", flag: "🇨🇿" },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.5,
+        summary: "Ciudad universitaria y científica con conexiones sólidas en biotecnología y farmacéutica, aunque el mercado local es reducido.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 6.0, desc: "Economía centrada en la universidad, la investigación y el sector salud/biotecnología." },
+          { label: "Prácticas", score: 7.0, desc: "Fuerte tradición en medicina, farmacia y ciencias, con conexiones a empresas como GE Healthcare o Cytiva." },
+          { label: "Empresas relevantes", score: 6.5, desc: "Uppsala BIO agrupa un clúster relevante de empresas de biotecnología en la región." },
+          { label: "Oportunidades para estudiantes", score: 6.5, desc: "El sistema sueco facilita compaginar estudios con trabajos a tiempo parcial." },
+        ],
+        reviews: [
+          { text: "Hice unas prácticas de verano en una empresa de biotech ligada a la universidad. La reputación científica de Uppsala abre puertas.", author: "Aleksander, Internship 2024", flag: "🇵🇱" },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.8,
+        summary: "Una de las ciudades más seguras de esta guía, con la tranquilidad típica de una ciudad universitaria sueca.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja; la vida gira en torno al campus y las naciones." },
+          { label: "Seguridad nocturna", score: 8.5, desc: "Volver a casa de madrugada, incluso en invierno, se siente completamente seguro." },
+          { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada, limpia y con fuerte sensación de comunidad universitaria." },
+        ],
+        reviews: [
+          { text: "Nunca tuve ni el más mínimo susto, ni siquiera volviendo a las tantas de una gasque en pleno invierno.", author: "Chiara, Erasmus 2024", flag: "🇮🇹" },
+        ],
+      },
+    ],
+  },
+  friburgo: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Freiburg_im_Breisgau_M%C3%BCnster.jpg/1920px-Freiburg_im_Breisgau_M%C3%BCnster.jpg",
+    tagline: "La ciudad más soleada de Alemania, con la Selva Negra empezando literalmente al final de la calle.",
+    atmosphere: "Friburgo huele a pino y masa de pretzel recién horneada, y suena al murmullo constante del agua corriendo por los Bächle del centro medieval bajo el sol más frecuente de Alemania.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 5.8,
+        summary: "Más cara que el este de Alemania, pero razonable comparada con Múnich o Friburgo de Suiza (a la que a veces se confunde).",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 5.0, desc: "Habitación desde 450–600€; el mercado está tensionado por ser ciudad pequeña y muy demandada." },
+          { label: "Comida y supermercados", score: 6.5, desc: "Supermercados alemanes estándar (Aldi, Lidl, Rewe) mantienen el gasto en comida controlado." },
+          { label: "Transporte", score: 6.5, desc: "El Deutschlandticket (49€) cubre tranvía y bus por toda la ciudad y buena parte del país." },
+          { label: "Ocio y gastos diarios", score: 6.0, desc: "Salir de bares y biergartens tiene precios estándar del sur de Alemania." },
+        ],
+        reviews: [
+          { text: "No es de las ciudades alemanas más baratas, pero el Deutschlandticket compensa mucho en excursiones.", author: "Inés, Erasmus 2024", flag: "🇪🇸" },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 5.5,
+        summary: "Mercado tenso por ser una ciudad universitaria pequeña con demanda constante y poca oferta nueva.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 5.0, desc: "El Studierendenwerk Freiburg gestiona residencias, aunque la demanda supera ampliamente la oferta." },
+          { label: "Precio", score: 5.5, desc: "450–600€ de media, moderado para el sur de Alemania." },
+          { label: "Facilidad de búsqueda", score: 5.0, desc: "Conviene empezar a buscar con varios meses de antelación, sobre todo antes del semestre de invierno." },
+          { label: "Residencias universitarias", score: 5.5, desc: "Buena calidad, pero con listas de espera habituales para exchange students que llegan tarde." },
+        ],
+        reviews: [
+          { text: "Empecé a buscar piso cuatro meses antes de llegar y aun así fue ajustado. Hay que moverse pronto.", author: "Adam, Erasmus 2023", flag: "🇵🇱" },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 7.8,
+        summary: "Vida universitaria activa con un componente al aire libre muy marcado gracias al clima y la naturaleza cercana.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 8.0, desc: "ESN Freiburg organiza rutas de senderismo, esquí en invierno y salidas a Francia y Suiza." },
+          { label: "Ambiente internacional", score: 7.5, desc: "Universidad con fuerte tradición internacional, sobre todo en ciencias y medioambiente." },
+          { label: "Fiesta y vida nocturna", score: 7.0, desc: "Vida nocturna más tranquila que en ciudades grandes, concentrada en Stühlinger y el centro." },
+          { label: "Eventos y actividades", score: 8.0, desc: "Mercados navideños, el festival de vino local y actividades al aire libre marcan el calendario social." },
+        ],
+        reviews: [
+          { text: "El grupo de Erasmus se organizaba constantemente para ir a esquiar o hacer senderismo los fines de semana. Es un estilo de vida muy activo.", author: "Julien, Erasmus 2024", flag: "🇫🇷" },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
+        summary: "Ciudad acogedora y con buen nivel de inglés en el entorno universitario, aunque el alemán ayuda mucho fuera de él.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 7.0, desc: "Bien hablado en la universidad; algo más limitado en comercios tradicionales." },
+          { label: "Actitud local", score: 7.5, desc: "Friburgueses conocidos por ser de los alemanes más relajados y ecologistas del país." },
+          { label: "Integración con locales", score: 7.0, desc: "El tamaño mediano de la ciudad facilita coincidir de forma habitual con la misma gente." },
+          { label: "Facilidad para hacer amigos", score: 8.0, desc: "El programa Tandem de la universidad conecta estudiantes internacionales con locales de forma estructurada." },
+        ],
+        reviews: [
+          { text: "El programa Tandem con un estudiante alemán me ayudó tanto con el idioma como para hacer mi primer amigo local de verdad.", author: "Nora, Erasmus 2023", flag: "🇳🇴" },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.0,
+        summary: "Posición privilegiada en la triple frontera con Francia y Suiza, con excelentes conexiones para escapadas.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 8.0, desc: "Tranvías VAG frecuentes y puntuales cubren toda la ciudad." },
+          { label: "Ciudad caminable/ciclable", score: 8.5, desc: "Centro histórico peatonal y excelente infraestructura ciclista en toda la ciudad." },
+          { label: "Conexiones internacionales", score: 7.0, desc: "Aeropuerto de Basilea-Mulhouse-Friburgo (EuroAirport) a menos de una hora." },
+          { label: "Escapadas de fin de semana", score: 9.0, desc: "Estrasburgo, Basilea y la Selva Negra, todas a menos de una hora en tren o bus." },
+        ],
+        reviews: [
+          { text: "Un sábado en Basilea, otro en Estrasburgo, y de vuelta a casa a dormir. Estar en la frontera de tres países cambia el fin de semana por completo.", author: "Kacper, Erasmus 2024", flag: "🇵🇱" },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 9.0,
+        summary: "El mejor clima de Alemania combinado con la Selva Negra a las puertas: un entorno natural difícil de superar.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 9.5, desc: "La Selva Negra empieza literalmente al final de la ciudad, con rutas de senderismo y esquí cercanas." },
+          { label: "Clima", score: 9.0, desc: "La ciudad más soleada de Alemania, con veranos cálidos y agradables para el estándar alemán." },
+          { label: "Calidad de vida", score: 9.0, desc: "Ciudad pionera en sostenibilidad, limpia, verde y muy fácil de vivir." },
+          { label: "Autenticidad local", score: 8.0, desc: "Ciudad universitaria alemana genuina, sin masificación turística salvo en el centro histórico en verano." },
+          { label: "Estilo de vida", score: 9.0, desc: "Combinación única de vida universitaria, sostenibilidad y naturaleza de montaña a un paso." },
+        ],
+        reviews: [
+          { text: "Nunca pensé que Alemania pudiera tener tanto sol. Entre el clima y la Selva Negra, es la ciudad alemana más agradable que he vivido.", author: "Beatriz, Erasmus 2023", flag: "🇵🇹" },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 7.0,
+        summary: "Fuerte especialización en energías renovables y ciencias medioambientales, con un mercado laboral sólido pero de tamaño moderado.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 6.5, desc: "Economía estable centrada en investigación, medioambiente y servicios; menos industria pesada que otras regiones alemanas." },
+          { label: "Prácticas", score: 7.5, desc: "El Fraunhofer ISE, referente mundial en energía solar, tiene sede en Friburgo con múltiples colaboraciones." },
+          { label: "Empresas relevantes", score: 6.5, desc: "Clúster fuerte en energías renovables y tecnología medioambiental." },
+          { label: "Oportunidades para estudiantes", score: 7.5, desc: "La reputación de Friburgo en sostenibilidad atrae prácticas específicas en ese sector." },
+        ],
+        reviews: [
+          { text: "Hice prácticas relacionadas con energía solar cerca del Fraunhofer ISE. Para quien estudia medioambiente o energías renovables, Friburgo es un polo importante.", author: "Sven, Internship 2024", flag: "🇸🇪" },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 9.0,
+        summary: "Una de las ciudades más seguras de Alemania, con un ambiente tranquilo típico del sur del país.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 9.5, desc: "Criminalidad muy baja, entre las tasas más reducidas de las ciudades universitarias alemanas." },
+          { label: "Seguridad nocturna", score: 8.5, desc: "El centro histórico y los alrededores del campus son seguros incluso de madrugada." },
+          { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada, limpia y tranquila, con fuerte identidad ecologista." },
+        ],
+        reviews: [
+          { text: "Es probablemente la ciudad alemana donde me he sentido más segura en cualquier horario, sin excepción.", author: "Greta, Erasmus 2023", flag: "🇦🇹" },
+        ],
+      },
+    ],
+  },
+  nantes: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Panorama_depuis_Butte_Sainte-Anne.jpg/1920px-Panorama_depuis_Butte_Sainte-Anne.jpg",
+    tagline: "Elegida repetidamente la ciudad más habitable de Francia, con un elefante mecánico gigante paseando por el puerto.",
+    atmosphere: "Nantes huele a sal del Loira mezclada con crepes recién hechas en el Bouffay, y suena a vapor y engranajes de Les Machines de l'Île, donde un elefante de veinte toneladas pasea entre los estudiantes.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 6.8,
+        summary: "Más asequible que París o Lyon, con un nivel de vida muy alto para el precio que se paga.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 6.5, desc: "Habitación desde 400–500€, más barata que en la mayoría de grandes ciudades francesas." },
+          { label: "Comida y supermercados", score: 7.0, desc: "Mercados como el Marché de Talensac ofrecen producto fresco a buen precio." },
+          { label: "Transporte", score: 7.5, desc: "Abono TAN joven con descuento estudiante notable, cubre tranvía, bus y busway." },
+          { label: "Ocio y gastos diarios", score: 6.5, desc: "Salir de bares y restaurantes es más barato que en Lyon o París, manteniendo buena oferta cultural." },
+        ],
+        reviews: [
+          { text: "Con el presupuesto que tenía pensado para París, aquí vivía holgadamente y salía todas las semanas.", author: "Bianca, Erasmus 2024", flag: "🇷🇴" },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.3,
+        summary: "Mercado razonable para el estándar francés, con oferta creciente pero cada vez más demandada.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 6.5, desc: "Buena oferta de pisos compartidos gracias a la gran población universitaria de la ciudad." },
+          { label: "Precio", score: 6.5, desc: "400–500€ de media, entre los más asequibles de las grandes ciudades francesas." },
+          { label: "Facilidad de búsqueda", score: 5.5, desc: "El CROUS gestiona residencias con demanda alta; conviene solicitar cuanto antes." },
+          { label: "Residencias universitarias", score: 6.0, desc: "Plazas CROUS limitadas para exchange students; muchos optan por colocation privada." },
+        ],
+        reviews: [
+          { text: "Encontrar colocation llevó su tiempo, pero los precios eran razonables comparados con lo que pedían mis amigos en Lyon o París.", author: "Mateo, Erasmus 2023", flag: "🇪🇸" },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 8.3,
+        summary: "Ciudad creativa y con enorme población estudiantil, elegida sistemáticamente como una de las mejores para vivir en Francia.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 8.0, desc: "ESN Nantes organiza salidas a la costa atlántica y eventos culturales durante todo el año." },
+          { label: "Ambiente internacional", score: 7.5, desc: "Universidad grande con programas internacionales consolidados en varias facultades." },
+          { label: "Fiesta y vida nocturna", score: 8.5, desc: "Bouffay y la Île de Nantes concentran una vida nocturna animada y variada." },
+          { label: "Eventos y actividades", score: 9.0, desc: "Le Voyage à Nantes convierte la ciudad entera en un recorrido artístico gratuito cada verano." },
+        ],
+        reviews: [
+          { text: "Nantes tiene el tamaño perfecto: grande para tener planes todos los días, pequeña para no perderte en ella.", author: "Sofia, Erasmus 2024", flag: "🇬🇷" },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8,
+        summary: "Ciudad acogedora y acostumbrada a estudiantes internacionales, aunque el francés sigue siendo clave fuera del campus.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 6.0, desc: "Menos extendido que en el norte de Europa; el francés básico facilita mucho el día a día." },
+          { label: "Actitud local", score: 8.0, desc: "Los nanteses tienen fama de ser de los franceses más abiertos y relajados." },
+          { label: "Integración con locales", score: 7.5, desc: "El tamaño mediano de la ciudad facilita coincidir con la misma gente y crear vínculos." },
+          { label: "Facilidad para hacer amigos", score: 8.0, desc: "La vida asociativa estudiantil, muy activa, facilita conocer gente rápido." },
+        ],
+        reviews: [
+          { text: "Con un francés básico me apañaba perfectamente. Los nanteses fueron mucho más abiertos de lo que esperaba de Francia.", author: "Anna, Erasmus 2023", flag: "🇩🇪" },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.5,
+        summary: "Buena red de tranvía y cercanía a la costa atlántica, aunque las conexiones internacionales directas son más limitadas que en Lyon.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 8.0, desc: "TAN es una de las redes de tranvía más extensas y eficientes de Francia fuera de París." },
+          { label: "Ciudad caminable/ciclable", score: 8.0, desc: "Centro compacto y muy ciclable, con carriles bici en expansión constante." },
+          { label: "Conexiones internacionales", score: 6.0, desc: "Aeropuerto de Nantes Atlantique con vuelos europeos limitados; París a dos horas en TGV." },
+          { label: "Escapadas de fin de semana", score: 8.0, desc: "La Baule, Pornic y la costa atlántica bretona a menos de una hora." },
+        ],
+        reviews: [
+          { text: "Coger el tranvía hasta la playa más cercana un fin de semana cualquiera fue una de mis sorpresas favoritas del Erasmus.", author: "Duarte, Erasmus 2024", flag: "🇵🇹" },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.5,
+        summary: "Ciudad creativa, verde y muy bien valorada por calidad de vida, con el océano Atlántico siempre cerca.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 8.0, desc: "El Loira cruza la ciudad y la costa atlántica está a menos de una hora." },
+          { label: "Clima", score: 7.0, desc: "Oceánico templado, con inviernos suaves y veranos agradables sin calores extremos." },
+          { label: "Calidad de vida", score: 9.0, desc: "Elegida repetidamente como una de las ciudades más habitables de Francia." },
+          { label: "Autenticidad local", score: 8.5, desc: "Ciudad con identidad artística y creativa propia, lejos del circuito turístico masivo." },
+          { label: "Estilo de vida", score: 9.0, desc: "El equilibrio entre creatividad, tamaño manejable y cercanía al mar hace de Nantes un destino muy vivible." },
+        ],
+        reviews: [
+          { text: "Es la ciudad francesa que más me sorprendió: arte por todas partes, buen ambiente y sin el caos de las grandes capitales.", author: "Lorenzo, Erasmus 2023", flag: "🇮🇹" },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 7.0,
+        summary: "Una de las economías más dinámicas del oeste de Francia, con fuerte presencia industrial y digital.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 7.0, desc: "Economía diversificada con aeronáutica (Airbus), digital y agroalimentación con peso importante." },
+          { label: "Prácticas", score: 7.5, desc: "École Centrale de Nantes y Audencia tienen fuertes conexiones con la industria regional." },
+          { label: "Empresas relevantes", score: 6.5, desc: "Presencia de Airbus, Beneteau y un ecosistema digital en expansión (La Cantine Numérique)." },
+          { label: "Oportunidades para estudiantes", score: 7.0, desc: "El ecosistema de startups nantés ofrece prácticas variadas más allá del sector clásico." },
+        ],
+        reviews: [
+          { text: "Hice prácticas en una startup digital cerca de la Île de Nantes. Sorprende lo activo que es el ecosistema tech para el tamaño de la ciudad.", author: "Erik, Internship 2024", flag: "🇳🇴" },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
+        summary: "Una de las ciudades francesas más seguras y tranquilas para vivir, coherente con su reputación de gran calidad de vida.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 8.0, desc: "Criminalidad moderada-baja para el estándar de una gran ciudad francesa." },
+          { label: "Seguridad nocturna", score: 7.5, desc: "El Bouffay y la Île de Nantes son seguros de noche, con presencia policial habitual en zonas de ocio." },
+          { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada y con mucha vida cultural, coherente con su fama de ser muy habitable." },
+        ],
+        reviews: [
+          { text: "Nunca tuve ningún problema serio de seguridad, ni siquiera en las noches de más ambiente en el Bouffay.", author: "Clémence, Erasmus 2023", flag: "🇧🇪" },
+        ],
+      },
+    ],
+  },
+  wroclaw: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/20_Solny_Square_-_12_Market_Square_in_Wroc%C5%82aw%2C_September_2022_01.jpg/1920px-20_Solny_Square_-_12_Market_Square_in_Wroc%C5%82aw%2C_September_2022_01.jpg",
+    tagline: "Más de cien puentes sobre el Óder y cientos de gnomos escondidos, a precio de saldo.",
+    atmosphere: "Breslavia huele a pierogi recién hechos en el Rynek y suena al eco de pasos sobre los puentes de Ostrów Tumski, iluminados a mano cada noche con farolas de gas.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 8.8,
+        summary: "Uno de los costes de vida más bajos de esta guía, comparable a Cracovia o Varsovia.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 8.0, desc: "Habitación desde 250–350€, de las más baratas entre las grandes ciudades universitarias de Europa." },
+          { label: "Comida y supermercados", score: 9.0, desc: "Mercados de barrio y bares de leche (bar mleczny) hacen que comer bien cueste muy poco." },
+          { label: "Transporte", score: 8.5, desc: "MPK con abono estudiantil muy económico cubre tranvía y bus por toda la ciudad." },
+          { label: "Ocio y gastos diarios", score: 9.0, desc: "Salir de bares en el Rynek es de las opciones más baratas de toda Europa occidental y central." },
+        ],
+        reviews: [
+          { text: "Con lo que gastaba en una semana en mi ciudad, aquí me duraba fácilmente el mes.", author: "Iker, Erasmus 2024", flag: "🇪🇸" },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.8,
+        summary: "Mercado accesible y en expansión, con buena oferta tanto de residencias como de pisos compartidos.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 8.0, desc: "Amplia oferta de pisos compartidos gracias a la enorme población universitaria de la ciudad." },
+          { label: "Precio", score: 8.0, desc: "250–350€ de media, entre los alquileres más bajos de toda esta guía." },
+          { label: "Facilidad de búsqueda", score: 7.0, desc: "Portales locales (OLX, otodom) y grupos de Facebook de Erasmus facilitan la búsqueda." },
+          { label: "Residencias universitarias", score: 7.5, desc: "Buena disponibilidad de residencias (domy studenckie) a precios muy bajos." },
+        ],
+        reviews: [
+          { text: "Encontré habitación en una semana por menos de lo que pagaba de fianza en mi ciudad de origen.", author: "Théo, Erasmus 2023", flag: "🇫🇷" },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 8.3,
+        summary: "Comunidad Erasmus grande y muy activa, apoyada en una de las poblaciones universitarias más numerosas de Polonia.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 8.5, desc: "ESN Wrocław, uno de los capítulos más grandes y activos de Polonia, organiza eventos constantes." },
+          { label: "Ambiente internacional", score: 8.0, desc: "Alta proporción de estudiantes internacionales, especialmente en la Politechnika Wrocławska." },
+          { label: "Fiesta y vida nocturna", score: 8.5, desc: "El Rynek y sus alrededores concentran una vida nocturna barata y muy animada." },
+          { label: "Eventos y actividades", score: 8.0, desc: "Juwenalia (fiesta universitaria de mayo) reúne a toda la ciudad estudiantil durante días." },
+        ],
+        reviews: [
+          { text: "La comunidad Erasmus aquí es enorme y muy unida — cada noche había algo organizado por ESN.", author: "Greta, Erasmus 2024", flag: "🇱🇹" },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.8,
+        summary: "Ciudad cada vez más internacional, aunque el nivel de inglés fuera del entorno universitario sigue siendo desigual.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 6.5, desc: "Bien hablado entre los jóvenes; algo más limitado en comercios tradicionales y transporte." },
+          { label: "Actitud local", score: 7.0, desc: "Los polacos de Breslavia son cordiales y cada vez más acostumbrados al estudiante internacional." },
+          { label: "Integración con locales", score: 6.0, desc: "Requiere algo más de esfuerzo que en otras ciudades, aunque el círculo universitario ayuda." },
+          { label: "Facilidad para hacer amigos", score: 7.5, desc: "El tamaño de la comunidad Erasmus hace que hacer amigos internacionales sea muy rápido." },
+        ],
+        reviews: [
+          { text: "Con los locales cuesta un poco más al principio, pero dentro del círculo universitario e internacional todo es muy fácil.", author: "Rafael, Erasmus 2023", flag: "🇧🇷" },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.0,
+        summary: "Buena red de tranvía dentro de la ciudad, con conexiones ferroviarias sólidas al resto de Polonia.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 7.5, desc: "MPK cubre bien la ciudad con tranvías y buses frecuentes a precio muy bajo." },
+          { label: "Ciudad caminable", score: 7.5, desc: "El centro histórico y las islas del Óder se recorren fácilmente a pie." },
+          { label: "Conexiones internacionales", score: 5.5, desc: "Aeropuerto con oferta de vuelos limitada; Berlín a unas cuatro horas en tren o bus." },
+          { label: "Escapadas de fin de semana", score: 7.5, desc: "Cracovia y Poznań a menos de tres horas, y los Sudetes a un salto en bus." },
+        ],
+        reviews: [
+          { text: "El tranvía te deja prácticamente en cualquier sitio de la ciudad por céntimos. Muy fácil moverse sin coche.", author: "Nils, Erasmus 2024", flag: "🇩🇪" },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.3,
+        summary: "Una de las ciudades más bonitas y fotogénicas de Polonia, con un centro histórico reconstruido con mucho mimo tras la guerra.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 7.0, desc: "Parques a orillas del Óder y las islas del centro ofrecen espacio verde accesible." },
+          { label: "Clima", score: 6.0, desc: "Continental, con inviernos fríos y veranos cálidos, típico de Europa central." },
+          { label: "Calidad de vida", score: 8.5, desc: "Ciudad segura, limpia y con un ambiente universitario muy vivo." },
+          { label: "Autenticidad local", score: 8.5, desc: "Menos masificada turísticamente que Cracovia, con identidad propia muy marcada." },
+          { label: "Estilo de vida", score: 9.0, desc: "La combinación de belleza arquitectónica, vida estudiantil intensa y precios bajos es difícil de igualar." },
+        ],
+        reviews: [
+          { text: "Es de las ciudades más bonitas que he visto en Europa central, y encima con precios de otra época.", author: "Alessia, Erasmus 2023", flag: "🇮🇹" },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.0,
+        summary: "Uno de los polos tecnológicos y de outsourcing más importantes de Polonia, con salarios locales aún moderados.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 6.0, desc: "Fuerte presencia de centros de IT y BPO de empresas internacionales (IBM, Google, Nokia, entre otras)." },
+          { label: "Prácticas", score: 6.5, desc: "La Politechnika Wrocławska tiene buena reputación en ingeniería y conexiones con el sector tecnológico." },
+          { label: "Empresas relevantes", score: 6.0, desc: "Hub relevante de desarrollo de software y centros de servicios compartidos." },
+          { label: "Oportunidades para estudiantes", score: 5.5, desc: "Salarios locales moderados comparados con Europa occidental, aunque el coste de vida lo compensa." },
+        ],
+        reviews: [
+          { text: "Hice unas prácticas en un centro de IT internacional. El ambiente tech de Breslavia es más grande de lo que esperaba.", author: "Guillermo, Internship 2024", flag: "🇲🇽" },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
+        summary: "Una de las ciudades más seguras de Polonia, con un ambiente tranquilo pese a su intensa vida nocturna.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 8.0, desc: "Criminalidad baja; los hurtos ocasionales en el Rynek son el principal riesgo." },
+          { label: "Seguridad nocturna", score: 7.5, desc: "El centro histórico y sus alrededores son seguros incluso de madrugada." },
+          { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, limpia y con fuerte ambiente universitario." },
+        ],
+        reviews: [
+          { text: "Volviendo de fiesta a las tantas nunca sentí inseguridad, ni siquiera en las zonas menos turísticas.", author: "Marina, Erasmus 2023", flag: "🇬🇷" },
+        ],
+      },
+    ],
+  },
+  "cluj-napoca": {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Romania-2382_-_View_from_Hotel_%287794313314%29.jpg/1920px-Romania-2382_-_View_from_Hotel_%287794313314%29.jpg",
+    tagline: "El 'Silicon Valley' rumano con la vida nocturna estudiantil más animada de Europa del Este.",
+    atmosphere: "Cluj-Napoca huele a café de especialidad en Piața Unirii y suena a bajos de festival flotando desde el parque central en verano, mezclados con el bullicio constante de la mayor población universitaria de Rumanía.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 9.0,
+        summary: "Uno de los costes de vida más bajos de esta guía, similar a Bucarest pero con menos tamaño y caos.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 8.0, desc: "Habitación desde 200–300€, de las más baratas entre las ciudades universitarias grandes de Europa." },
+          { label: "Comida y supermercados", score: 9.0, desc: "Mercados locales y restaurantes tradicionales rumanos son muy económicos." },
+          { label: "Transporte", score: 8.5, desc: "El transporte público (bus, tranvía, trolebús) es barato y con buena cobertura." },
+          { label: "Ocio y gastos diarios", score: 9.5, desc: "Salir de bares y clubs en Centru es de lo más barato de toda esta guía." },
+        ],
+        reviews: [
+          { text: "Con el presupuesto que llevaba pensado para un mes, aquí me duraba fácilmente seis semanas.", author: "Nuno, Erasmus 2024", flag: "🇵🇹" },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.8,
+        summary: "Mercado accesible, con precios en aumento por el auge del sector tech pero aún muy por debajo de Europa occidental.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 7.5, desc: "Buena oferta de pisos compartidos gracias a la enorme población universitaria." },
+          { label: "Precio", score: 8.0, desc: "200–300€ de media, aunque ha subido con el crecimiento del sector tecnológico local." },
+          { label: "Facilidad de búsqueda", score: 7.0, desc: "Grupos de Facebook y portales locales (OLX) facilitan encontrar piso rápido." },
+          { label: "Residencias universitarias", score: 7.5, desc: "La Babeș-Bolyai ofrece residencias muy económicas, aunque con demanda alta." },
+        ],
+        reviews: [
+          { text: "En una semana ya tenía habitación, y el precio era una fracción de lo que pagaba en España por algo similar.", author: "Konstantina, Erasmus 2023", flag: "🇬🇷" },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 8.8,
+        summary: "Probablemente la vida nocturna estudiantil más intensa de Europa del Este, apoyada en el festival Untold.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 8.5, desc: "ESN Cluj-Napoca organiza excursiones a los Cárpatos y a Transilvania constantemente." },
+          { label: "Ambiente internacional", score: 8.0, desc: "El sector tech en auge ha traído una comunidad internacional creciente además de la universitaria." },
+          { label: "Fiesta y vida nocturna", score: 9.5, desc: "Piața Unirii y Centru concentran bares y clubes con ambiente hasta el amanecer." },
+          { label: "Eventos y actividades", score: 9.0, desc: "El festival Untold, uno de los mayores de Europa, convierte la ciudad en epicentro musical cada agosto." },
+        ],
+        reviews: [
+          { text: "Vine a estudiar y me encontré con una de las ciudades con mejor ambiente nocturno que he vivido, y encima con Untold de fondo.", author: "Mihail, Erasmus 2024", flag: "🇧🇬" },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.5,
+        summary: "Ciudad cada vez más internacional gracias al sector tech, aunque el inglés fuera del circuito universitario aún es limitado.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 6.0, desc: "Bien hablado entre estudiantes y sector tech; más limitado en comercios tradicionales." },
+          { label: "Actitud local", score: 7.5, desc: "Los clujeni son hospitalarios y están acostumbrados a la creciente comunidad internacional." },
+          { label: "Integración con locales", score: 6.0, desc: "Requiere algo de esfuerzo, aunque el ambiente universitario facilita mucho el contacto." },
+          { label: "Facilidad para hacer amigos", score: 7.0, desc: "La vida social intensa y barata hace fácil coincidir y hacer amigos rápidamente." },
+        ],
+        reviews: [
+          { text: "Al principio pensé que sería difícil integrarme, pero entre el ambiente universitario y la hospitalidad local, en un mes ya me sentía en casa.", author: "Amara, Erasmus 2023", flag: "🇮🇹" },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 6.0,
+        summary: "Buena red de transporte urbano, aunque las conexiones internacionales directas son más limitadas que en Europa occidental.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 7.0, desc: "Bus, tranvía y trolebús cubren bien la ciudad a precios muy bajos." },
+          { label: "Ciudad caminable", score: 7.0, desc: "El centro histórico se recorre fácilmente a pie." },
+          { label: "Conexiones internacionales", score: 5.0, desc: "El aeropuerto de Cluj tiene vuelos low-cost a varias ciudades europeas, aunque con menos frecuencia que grandes hubs." },
+          { label: "Escapadas de fin de semana", score: 5.0, desc: "Los Cárpatos y Transilvania rural están cerca, aunque el transporte a otras ciudades rumanas puede ser lento." },
+        ],
+        reviews: [
+          { text: "El transporte dentro de la ciudad va genial, pero para salir de Rumanía conviene mirar bien los vuelos con antelación.", author: "Otto, Erasmus 2024", flag: "🇩🇪" },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 7.0,
+        summary: "Ciudad joven, tecnológica y con festival propio, rodeada de los paisajes de Transilvania.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 7.5, desc: "Parcul Central y las colinas de Cluj ofrecen espacio verde; los Cárpatos están cerca para senderismo." },
+          { label: "Clima", score: 6.5, desc: "Continental, con inviernos fríos y veranos cálidos y secos." },
+          { label: "Calidad de vida", score: 7.5, desc: "Ciudad en auge, con inversión creciente en infraestructura gracias al sector tech." },
+          { label: "Autenticidad local", score: 7.5, desc: "Combina tradición transilvana con una escena tech y cultural moderna en pleno crecimiento." },
+          { label: "Estilo de vida", score: 7.5, desc: "Ambiente joven, dinámico y en plena expansión, con precios que aún no reflejan ese crecimiento." },
+        ],
+        reviews: [
+          { text: "Es una ciudad que está despegando ahora mismo — se nota la energía de startup en el ambiente, pero con precios todavía muy bajos.", author: "Lukas, Erasmus 2023", flag: "🇨🇿" },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.8,
+        summary: "El 'Silicon Valley' rumano, con un sector IT en auge que atrae inversión y talento internacional.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 6.5, desc: "Fuerte presencia de empresas de software y outsourcing tecnológico internacional." },
+          { label: "Prácticas", score: 7.0, desc: "La Universitatea Tehnică tiene buena reputación en ingeniería y conexiones directas con el sector IT." },
+          { label: "Empresas relevantes", score: 7.0, desc: "Presencia de Bosch, Betfair, Endava y decenas de startups tecnológicas locales." },
+          { label: "Oportunidades para estudiantes", score: 6.5, desc: "Salarios locales moderados, aunque las prácticas en tech ofrecen buena experiencia y crecimiento rápido del sector." },
+        ],
+        reviews: [
+          { text: "Hice prácticas en una empresa de software local. El ecosistema tech de Cluj crece a un ritmo que sorprende para el tamaño de la ciudad.", author: "Pavlína, Internship 2024", flag: "🇨🇿" },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 7.5,
+        summary: "Una de las ciudades más seguras de Rumanía, con un ambiente tranquilo fuera de las horas de mayor fiesta.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 7.5, desc: "Criminalidad baja; los hurtos ocasionales en zonas de ocio son el principal riesgo." },
+          { label: "Seguridad nocturna", score: 7.0, desc: "El centro y Centru son seguros de noche, con buena presencia de gente hasta tarde." },
+          { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad en crecimiento, ordenada y con ambiente universitario muy vivo." },
+        ],
+        reviews: [
+          { text: "Nunca tuve ningún problema serio, ni siquiera saliendo de fiesta hasta altas horas casi todos los fines de semana.", author: "Santiago, Erasmus 2023", flag: "🇦🇷" },
+        ],
+      },
+    ],
+  },
+  galway: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/The_Claddagh_Basin_Galway%2C_with_the_Long_Walk_in_the_background.jpg/1920px-The_Claddagh_Basin_Galway%2C_with_the_Long_Walk_in_the_background.jpg",
+    tagline: "Música tradicional en directo en cada esquina, con el salvaje Atlántico a las puertas de la ciudad.",
+    atmosphere: "Galway huele a sal atlántica y turba quemándose en las chimeneas de los pubs, y suena a violines y bodhráns en sesiones de música tradicional que empiezan sin avisar en cualquier esquina de Quay Street.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 4.5,
+        summary: "Cara para el estándar europeo, aunque bastante más asequible que Dublín, con la que comparte la crisis nacional de vivienda.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 4.0, desc: "Habitación desde 550–700€, cara para el tamaño de la ciudad debido a la escasez de vivienda irlandesa." },
+          { label: "Comida y supermercados", score: 5.5, desc: "Supermercados como Lidl y Aldi ayudan a mantener el gasto en comida bajo control." },
+          { label: "Transporte", score: 6.0, desc: "Ciudad compacta y caminable; el bus local cubre lo que quede fuera de alcance a pie." },
+          { label: "Ocio y gastos diarios", score: 4.5, desc: "Una pinta en un pub del centro ronda 5,50–6,50€, en línea con el resto de Irlanda." },
+        ],
+        reviews: [
+          { text: "Es cara, sí, pero mucho menos que Dublín. Compensa con creces por el ambiente que tiene.", author: "Paula, Erasmus 2024", flag: "🇪🇸" },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 4.0,
+        summary: "La crisis de vivienda irlandesa también golpea Galway; buscar con mucha antelación es imprescindible.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 3.5, desc: "Oferta muy limitada frente a la demanda; muchos estudiantes acaban compartiendo habitación." },
+          { label: "Precio", score: 4.0, desc: "550–700€ de media, alto para el tamaño de la ciudad." },
+          { label: "Facilidad de búsqueda", score: 3.5, desc: "Conviene empezar a buscar con seis meses de antelación como mínimo." },
+          { label: "Residencias universitarias", score: 5.0, desc: "La University of Galway ofrece residencias en campus, muy solicitadas por su fiabilidad." },
+        ],
+        reviews: [
+          { text: "Empecé a buscar alojamiento en enero para llegar en septiembre y aun así lo cerré por los pelos. No lo dejes para el último momento.", author: "Milan, Erasmus 2023", flag: "🇸🇮" },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 8.0,
+        summary: "La capital cultural y musical de Irlanda, con una vida social centrada en los pubs y la música en directo.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 7.5, desc: "ESN Galway organiza excursiones a los acantilados de Moher y Connemara con frecuencia." },
+          { label: "Ambiente internacional", score: 7.5, desc: "La University of Galway tiene una comunidad internacional consolidada y activa." },
+          { label: "Fiesta y vida nocturna", score: 8.0, desc: "Quay Street y el Latin Quarter concentran pubs con música en directo cada noche de la semana." },
+          { label: "Eventos y actividades", score: 8.5, desc: "El Galway International Arts Festival y el Galway Races llenan la ciudad de ambiente en verano." },
+        ],
+        reviews: [
+          { text: "Cada pub tiene su propia sesión de música en directo. No hace falta salir de fiesta para tener plan cada noche.", author: "Océane, Erasmus 2024", flag: "🇫🇷" },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
+        summary: "Ciudad cálida y acogedora, con el inglés como idioma nativo facilitando la integración desde el primer día.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 10.0, desc: "Idioma nativo, sin ninguna barrera de comunicación." },
+          { label: "Actitud local", score: 8.5, desc: "Los galwegians tienen fama de ser de los irlandeses más cercanos y habladores." },
+          { label: "Integración con locales", score: 6.5, desc: "El pub es la vía número uno de integración real con la comunidad local." },
+          { label: "Facilidad para hacer amigos", score: 8.0, desc: "El ambiente social constante en pubs y sesiones de música facilita conocer gente rápido." },
+        ],
+        reviews: [
+          { text: "Con solo hablar inglés ya tenía medio camino hecho, pero lo que de verdad ayudó fue ir siempre al mismo pub hasta hacerme habitual.", author: "Serena, Erasmus 2023", flag: "🇮🇹" },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 6.0,
+        summary: "Ciudad pequeña y muy caminable, aunque las conexiones internacionales dependen en gran medida de Dublín.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 5.5, desc: "Bus Éireann cubre la ciudad; suficiente para una ciudad de este tamaño." },
+          { label: "Ciudad caminable", score: 8.0, desc: "Centro pequeño y totalmente caminable, con el paseo de Salthill a un paso." },
+          { label: "Conexiones internacionales", score: 4.0, desc: "Sin aeropuerto internacional propio relevante; Dublín, a 2h30 en bus, es el hub principal." },
+          { label: "Escapadas de fin de semana", score: 8.5, desc: "Los acantilados de Moher, Connemara y las Islas Aran, todas a menos de una hora y media." },
+        ],
+        reviews: [
+          { text: "Depender de Dublín para volar fuera es un poco pesado, pero para explorar la costa oeste irlandesa, Galway es la base perfecta.", author: "Anton, Erasmus 2024", flag: "🇩🇪" },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.5,
+        summary: "El salvaje Atlántico, la música tradicional y un ambiente bohemio hacen de Galway una experiencia muy distinta al resto de Irlanda.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 9.0, desc: "El Atlántico, Salthill y Connemara ofrecen naturaleza salvaje a un paso del centro." },
+          { label: "Clima", score: 5.5, desc: "Oceánico atlántico, con lluvia frecuente y viento constante durante buena parte del año." },
+          { label: "Calidad de vida", score: 8.5, desc: "Ciudad pequeña, segura y con una identidad cultural muy marcada." },
+          { label: "Autenticidad local", score: 9.0, desc: "Considerada la capital cultural de Irlanda, con tradiciones musicales genuinas y muy vivas." },
+          { label: "Estilo de vida", score: 8.5, desc: "El ritmo pausado, la música y el paisaje atlántico crean una experiencia difícil de replicar en otra ciudad." },
+        ],
+        reviews: [
+          { text: "El paisaje y la música tradicional te atrapan desde el primer día. Es la Irlanda auténtica que todo el mundo busca y pocos encuentran.", author: "Marek, Erasmus 2023", flag: "🇸🇰" },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.0,
+        summary: "Sede de un clúster relevante de dispositivos médicos y tecnología, mucho más pequeño que el ecosistema de Dublín.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 5.5, desc: "Mercado más reducido que Dublín, aunque con salarios competitivos en el sector médico-tecnológico." },
+          { label: "Prácticas", score: 6.5, desc: "La University of Galway tiene fuerte tradición en dispositivos médicos e ingeniería biomédica." },
+          { label: "Empresas relevantes", score: 6.5, desc: "Galway es uno de los mayores clústeres de dispositivos médicos de Europa (Boston Scientific, Medtronic)." },
+          { label: "Oportunidades para estudiantes", score: 5.5, desc: "Menos oferta que en Dublín, aunque con calidad alta en sectores especializados." },
+        ],
+        reviews: [
+          { text: "Hice prácticas en una empresa de dispositivos médicos. No sabía que Galway era un polo tan fuerte en ese sector hasta que llegué.", author: "Isabela, Internship 2024", flag: "🇧🇷" },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.3,
+        summary: "Una de las ciudades más seguras y tranquilas de esta guía, propia de una ciudad irlandesa mediana.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 8.5, desc: "Criminalidad baja; ambiente tranquilo típico de una ciudad de tamaño mediano." },
+          { label: "Seguridad nocturna", score: 8.0, desc: "Volver del pub de madrugada por el centro se siente seguro casi siempre." },
+          { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad acogedora y con fuerte sentido de comunidad, tanto local como estudiantil." },
+        ],
+        reviews: [
+          { text: "Nunca tuve ningún problema de seguridad, ni siquiera volviendo sola de los pubs entre semana.", author: "Freya, Erasmus 2023", flag: "🇳🇴" },
+        ],
+      },
+    ],
+  },
+  lausana: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Ouchy_et_ses_h%C3%B4tels.jpg/1920px-Ouchy_et_ses_h%C3%B4tels.jpg",
+    tagline: "Campus con vistas al lago Lemán y a los Alpes franceses, en la capital olímpica del mundo.",
+    atmosphere: "Lausana huele a agua de lago y croissants recién horneados en Ouchy al amanecer, y suena al zumbido silencioso del metro M2 subiendo la ladera entre estudiantes de la EPFL y la UNIL.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 2.5,
+        summary: "Una de las ciudades más caras de esta guía, aunque algo más asequible que Ginebra.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 3.0, desc: "Habitación desde 750–950€, entre los alquileres más altos de toda esta guía." },
+          { label: "Comida y supermercados", score: 3.0, desc: "Supermercados suizos (Migros, Coop) son notablemente más caros que en el resto de Europa." },
+          { label: "Transporte", score: 3.5, desc: "El abono de transporte para estudiantes ayuda, pero los billetes sueltos son caros para el estándar europeo." },
+          { label: "Ocio y gastos diarios", score: 2.5, desc: "Salir de bares y restaurantes en Lausana es de lo más caro de Europa occidental." },
+        ],
+        reviews: [
+          { text: "Llegué sabiendo que Suiza era cara, pero aun así el primer mes de compra en el supermercado fue un shock.", author: "Ana, Erasmus 2024", flag: "🇵🇹" },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 3.5,
+        summary: "Mercado muy tensionado y caro, aunque el campus UNIL-EPFL ofrece alternativas de residencia bien valoradas.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 3.0, desc: "Oferta escasa frente a una demanda constante de estudiantes y profesionales internacionales." },
+          { label: "Precio", score: 2.5, desc: "750–950€ de media, entre los más altos de toda esta guía." },
+          { label: "Facilidad de búsqueda", score: 4.0, desc: "El FMEL (Fondation Maisons pour Étudiants Lausanne) ofrece residencias específicas para estudiantes." },
+          { label: "Residencias universitarias", score: 5.0, desc: "Buena calidad en el campus de Dorigny, aunque muy solicitadas y conviene reservar pronto." },
+        ],
+        reviews: [
+          { text: "Conseguir plaza en una residencia de la FMEL fue la única forma de no arruinarme el primer semestre.", author: "Mateusz, Erasmus 2023", flag: "🇵🇱" },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 6.8,
+        summary: "Vida social más tranquila que en otras ciudades de esta guía, con un campus internacional muy activo.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 7.0, desc: "ESN Lausanne y las asociaciones de la EPFL organizan salidas a los Alpes y al lago constantemente." },
+          { label: "Ambiente internacional", score: 8.5, desc: "La EPFL tiene una de las comunidades estudiantiles más internacionales de Europa." },
+          { label: "Fiesta y vida nocturna", score: 6.0, desc: "El Flon concentra la vida nocturna, aunque los precios limitan salir con la frecuencia de otras ciudades." },
+          { label: "Eventos y actividades", score: 6.5, desc: "Actividades al aire libre (esquí, vela en el lago, senderismo) sustituyen buena parte de la vida nocturna clásica." },
+        ],
+        reviews: [
+          { text: "La vida social aquí es distinta: menos fiesta y más planes en el lago o en la montaña, pero igual de intensa.", author: "Sebastián, Erasmus 2024", flag: "🇨🇴" },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
+        summary: "Campus muy internacional, con inglés ampliamente aceptado en el entorno universitario y científico.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 8.0, desc: "La EPFL funciona en gran parte en inglés; la UNIL requiere más francés según la facultad." },
+          { label: "Actitud local", score: 7.0, desc: "Los suizos romandos son cordiales aunque algo reservados en el trato inicial." },
+          { label: "Integración con locales", score: 6.5, desc: "Requiere algo de esfuerzo y francés básico fuera del entorno puramente universitario." },
+          { label: "Facilidad para hacer amigos", score: 7.5, desc: "La enorme comunidad internacional de la EPFL facilita hacer amigos de decenas de nacionalidades." },
+        ],
+        reviews: [
+          { text: "En la EPFL el inglés es más que suficiente. Para el día a día fuera del campus, un francés básico ayuda mucho.", author: "Priya, Erasmus 2023", flag: "🇮🇳" },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.5,
+        summary: "Una de las ciudades mejor conectadas de Europa, con transporte suizo puntual y el resto del continente a un tren.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 9.0, desc: "El m1, m2 (el metro más inclinado de Europa) y los buses TL son puntuales y muy frecuentes." },
+          { label: "Ciudad caminable", score: 7.0, desc: "La ciudad se levanta en fuertes pendientes desde el lago; el metro compensa las cuestas." },
+          { label: "Conexiones internacionales", score: 8.5, desc: "Aeropuertos de Ginebra y Zúrich accesibles en tren; red ferroviaria suiza entre las mejores del mundo." },
+          { label: "Escapadas de fin de semana", score: 9.0, desc: "Ginebra, Montreux, Berna y los Alpes franceses, todos a menos de una hora." },
+        ],
+        reviews: [
+          { text: "La puntualidad del transporte suizo hay que vivirla para creerla. Nunca esperé más de dos minutos por un tren o un bus.", author: "Felix, Erasmus 2024", flag: "🇩🇪" },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 9.0,
+        summary: "Uno de los entornos más espectaculares de esta guía: lago, viñedos y Alpes conviven en el mismo horizonte.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 9.5, desc: "El lago Lemán, los viñedos de Lavaux (Patrimonio UNESCO) y los Alpes, todos visibles desde la ciudad." },
+          { label: "Clima", score: 7.5, desc: "Templado continental suavizado por el lago, con veranos agradables e inviernos fríos con nieve cercana." },
+          { label: "Calidad de vida", score: 9.5, desc: "Ciudad extremadamente segura, limpia y organizada, con estándar de vida altísimo." },
+          { label: "Autenticidad local", score: 7.5, desc: "Ciudad suiza genuina, con identidad propia más allá del entorno universitario internacional." },
+          { label: "Estilo de vida", score: 9.0, desc: "Pocas ciudades universitarias del mundo ofrecen nadar en un lago alpino entre clase y clase." },
+        ],
+        reviews: [
+          { text: "Estudiar con vistas al lago Lemán y a los Alpes cada día es algo que no olvidaré nunca, por caro que sea vivir aquí.", author: "Charlotte, Erasmus 2023", flag: "🇫🇷" },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 8.0,
+        summary: "Uno de los mercados laborales más sólidos de Europa, con la EPFL como imán de talento e innovación tecnológica.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 8.5, desc: "Salarios suizos entre los más altos de Europa, con baja tasa de desempleo." },
+          { label: "Prácticas", score: 8.0, desc: "La EPFL tiene conexiones directas con startups deep-tech y grandes empresas internacionales." },
+          { label: "Empresas relevantes", score: 7.5, desc: "Ecosistema de startups tecnológicas y presencia de Nestlé, Logitech y Philip Morris International en la región." },
+          { label: "Oportunidades para estudiantes", score: 8.0, desc: "El campus EPFL Innovation Park facilita el contacto directo con empresas emergentes." },
+        ],
+        reviews: [
+          { text: "Hice prácticas en una startup del EPFL Innovation Park. Para ingeniería y tecnología, difícilmente hay mejor sitio en Europa continental.", author: "Henrik, Internship 2024", flag: "🇸🇪" },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 9.0,
+        summary: "Una de las ciudades más seguras de toda esta guía, con estándares suizos de orden y tranquilidad.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 9.5, desc: "Criminalidad extremadamente baja, entre las más bajas de toda Europa." },
+          { label: "Seguridad nocturna", score: 9.0, desc: "Volver a casa de madrugada, incluso solo, se siente completamente seguro en cualquier barrio." },
+          { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad extremadamente ordenada, limpia y tranquila." },
+        ],
+        reviews: [
+          { text: "Es probablemente la ciudad donde más segura me he sentido en mi vida, a cualquier hora y en cualquier barrio.", author: "Ingrid, Erasmus 2023", flag: "🇳🇴" },
+        ],
+      },
+    ],
+  },
+  malmo: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Malm%C3%B6%E2%80%93flygbild_06_september_2014.jpg/1920px-Malm%C3%B6%E2%80%93flygbild_06_september_2014.jpg",
+    tagline: "Desayuna en Suecia y cena en Dinamarca: el puente de Öresund lo hace posible en 35 minutos.",
+    atmosphere: "Malmö huele a canela y cardamomo en las panaderías de Möllevången, y suena a decenas de idiomas mezclándose en el mercado de Möllevångstorget bajo la silueta torcida del Turning Torso.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 5.8,
+        summary: "Más asequible que Estocolmo, aunque cara según el estándar europeo general, como el resto de Suecia.",
+        color: "#0EA5E9",
+        subcategories: [
+          { label: "Alojamiento", score: 5.0, desc: "Habitación desde 450–600€, algo más asequible que Lund o Estocolmo." },
+          { label: "Comida y supermercados", score: 5.5, desc: "Supermercados como Lidl y Willys mantienen el gasto en comida razonable para el estándar sueco." },
+          { label: "Transporte", score: 7.0, desc: "Ciudad muy ciclable; Skånetrafiken cubre el resto con buen descuento estudiantil." },
+          { label: "Ocio y gastos diarios", score: 5.5, desc: "Salir de bares en Suecia tiene precios altos, algo suavizados por la vida social gratuita al aire libre." },
+        ],
+        reviews: [
+          { text: "Es cara para el estándar español, pero mucho más llevadera que Estocolmo, donde vivían mis amigos de intercambio.", author: "Andrés, Erasmus 2024", flag: "🇪🇸" },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 5.3,
+        summary: "Mercado algo menos tensionado que Estocolmo o Uppsala, aunque igualmente conviene moverse pronto.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 5.0, desc: "MKB y otras gestoras públicas ofrecen colas de vivienda, aunque con menos presión que en Estocolmo." },
+          { label: "Precio", score: 5.5, desc: "450–600€ de media, moderado para el estándar sueco." },
+          { label: "Facilidad de búsqueda", score: 5.0, desc: "Conviene registrarse en las colas de vivienda en cuanto se confirma la plaza de intercambio." },
+          { label: "Residencias universitarias", score: 5.5, desc: "Malmö University ofrece opciones de residencia para exchange students, aunque limitadas." },
+        ],
+        reviews: [
+          { text: "Comparado con lo que me contaban de Estocolmo, encontrar piso en Malmö fue relativamente sencillo.", author: "Ida, Erasmus 2023", flag: "🇩🇰" },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 8.0,
+        summary: "Ciudad joven, multicultural y con un ambiente social muy abierto, potenciado por la cercanía a Copenhague.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 7.5, desc: "ESN Malmö organiza actividades constantes, incluyendo escapadas a Copenhague." },
+          { label: "Ambiente internacional", score: 8.5, desc: "Una de las ciudades más multiculturales de Suecia, con una identidad muy internacional." },
+          { label: "Fiesta y vida nocturna", score: 7.5, desc: "Möllevången y el centro concentran bares y una vida nocturna variada." },
+          { label: "Eventos y actividades", score: 8.0, desc: "El Malmöfestivalen en agosto es uno de los mayores festivales urbanos gratuitos de Escandinavia." },
+        ],
+        reviews: [
+          { text: "Poder cruzar a Copenhague un jueves cualquiera para tomar algo y volver esa misma noche cambia por completo el concepto de vida social.", author: "Louise, Erasmus 2024", flag: "🇧🇪" },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.3,
+        summary: "Una de las ciudades más diversas de Suecia, con una identidad multicultural muy marcada y acogedora.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Nivel de inglés", score: 9.5, desc: "Nivel de inglés altísimo en toda la ciudad, sin ninguna barrera para el día a día." },
+          { label: "Actitud local", score: 8.0, desc: "Ciudad acostumbrada a la diversidad, con una población muy mezclada culturalmente." },
+          { label: "Integración con locales", score: 7.5, desc: "Malmö University tiene un fuerte enfoque internacional que facilita mucho el contacto con locales y otros internacionales." },
+          { label: "Facilidad para hacer amigos", score: 8.5, desc: "El ambiente joven y multicultural hace que integrarse sea rápido y natural." },
+        ],
+        reviews: [
+          { text: "Es la ciudad sueca donde más 'en casa' me sentí como extranjero, por lo mezclada y abierta que es.", author: "Youssef, Erasmus 2023", flag: "🇲🇦" },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.5,
+        summary: "Posición única en Europa: la única ciudad de esta guía conectada por puente directo con otro país en menos de 40 minutos.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 8.0, desc: "Skånetrafiken cubre bus y tren regional con buen descuento de estudiante." },
+          { label: "Ciudad caminable/ciclable", score: 8.5, desc: "Ciudad plana y muy ciclable, con infraestructura de bici de nivel escandinavo." },
+          { label: "Conexiones internacionales", score: 9.0, desc: "El aeropuerto de Copenhague-Kastrup está a menos de 30 minutos en tren, con vuelos a todo el mundo." },
+          { label: "Escapadas de fin de semana", score: 9.5, desc: "Copenhague a 35 minutos en tren por el puente de Öresund; Lund a 15 minutos." },
+        ],
+        reviews: [
+          { text: "Vivir a 35 minutos de otra capital europea distinta es algo que no tiene ninguna otra ciudad de esta lista. Lo aproveché casi cada semana.", author: "Tomasz, Erasmus 2024", flag: "🇵🇱" },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 7.8,
+        summary: "Ciudad moderna y reinventada, con un skyline icónico y un ambiente urbano muy vivo para el tamaño de Suecia.",
+        color: "#14B8A6",
+        subcategories: [
+          { label: "Naturaleza", score: 7.0, desc: "Ribersborg y el parque Kungsparken ofrecen playa urbana y espacio verde en pleno centro." },
+          { label: "Clima", score: 6.5, desc: "Oceánico suavizado por el estrecho de Öresund, más templado que el resto de Suecia." },
+          { label: "Calidad de vida", score: 8.0, desc: "Ciudad moderna, bien planificada y con inversión constante en espacio público." },
+          { label: "Autenticidad local", score: 7.5, desc: "Combina tradición sueca con una identidad multicultural muy propia de Malmö." },
+          { label: "Estilo de vida", score: 8.5, desc: "El acceso diario a dos países distintos hace de Malmö una experiencia de vida única en Europa." },
+        ],
+        reviews: [
+          { text: "Malmö tiene lo mejor de Suecia sin perder la energía de Copenhague a un paso. Es un combo que no esperaba encontrar.", author: "Rosa, Erasmus 2023", flag: "🇮🇹" },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.8,
+        summary: "Economía en plena transformación desde su pasado industrial, con un sector tech y de diseño en crecimiento.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 6.5, desc: "Sector servicios, diseño y tecnología en expansión tras la reconversión del antiguo puerto industrial." },
+          { label: "Prácticas", score: 6.5, desc: "Malmö University tiene buena conexión con empresas de la región del Öresund, incluyendo Copenhague." },
+          { label: "Empresas relevantes", score: 7.0, desc: "La región de Öresund (Malmö-Copenhague) concentra un clúster relevante de biotech y ciencias de la vida." },
+          { label: "Oportunidades para estudiantes", score: 7.0, desc: "El acceso al mercado laboral danés, a solo 35 minutos, multiplica las oportunidades disponibles." },
+        ],
+        reviews: [
+          { text: "Al final hice prácticas del lado danés, en Copenhague, gracias a lo fácil que es cruzar el puente cada día.", author: "Viktor, Internship 2024", flag: "🇭🇷" },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 7.3,
+        summary: "Algo por debajo de la media sueca en percepción de seguridad, aunque el circuito estudiantil habitual es tranquilo.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 7.0, desc: "Malmö tiene fama mediática de inseguridad mayor que otras ciudades suecas, aunque el entorno universitario y turístico apenas se ve afectado." },
+          { label: "Seguridad nocturna", score: 7.0, desc: "El centro y Möllevången son seguros de noche; conviene informarse sobre zonas concretas a evitar." },
+          { label: "Ambiente de la ciudad", score: 7.5, desc: "Ciudad ordenada y en constante mejora urbana, con inversión activa en espacio público." },
+        ],
+        reviews: [
+          { text: "Había oído cosas exageradas sobre Malmö antes de llegar. En la práctica, en las zonas donde vive un estudiante, nunca tuve ningún problema.", author: "Elif, Erasmus 2023", flag: "🇹🇷" },
+        ],
+      },
+    ],
+  },
 };
 
 // Generate default scores for cities without custom data
