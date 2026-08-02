@@ -90,6 +90,16 @@ export const CITY_BASE_SCORES = {
   galway:    { coste:4.5, alojamiento:4.0, vida_social:8.0, integracion:7.5, movilidad:6.0, estilo_vida:8.5, empleo:6.0, seguridad:8.3 },
   lausana:   { coste:2.5, alojamiento:3.5, vida_social:6.8, integracion:7.5, movilidad:8.5, estilo_vida:9.0, empleo:8.0, seguridad:9.0 },
   malmo:     { coste:5.8, alojamiento:5.3, vida_social:8.0, integracion:8.3, movilidad:8.5, estilo_vida:7.8, empleo:6.8, seguridad:7.3 },
+  aarhus:    { coste:4.3, alojamiento:4.0, vida_social:8.3, integracion:8.5, movilidad:8.5, estilo_vida:8.3, empleo:7.0, seguridad:9.0 },
+  heidelberg:{ coste:5.5, alojamiento:5.0, vida_social:7.5, integracion:7.5, movilidad:8.0, estilo_vida:9.0, empleo:7.0, seguridad:9.0 },
+  toulouse:  { coste:6.8, alojamiento:6.0, vida_social:8.5, integracion:7.8, movilidad:7.5, estilo_vida:8.3, empleo:8.0, seguridad:7.8 },
+  burdeos:   { coste:6.0, alojamiento:5.3, vida_social:8.3, integracion:7.8, movilidad:7.8, estilo_vida:8.8, empleo:7.3, seguridad:8.0 },
+  palermo:   { coste:8.3, alojamiento:7.5, vida_social:8.3, integracion:6.8, movilidad:5.5, estilo_vida:8.8, empleo:4.8, seguridad:6.3 },
+  gdansk:    { coste:8.5, alojamiento:7.5, vida_social:8.0, integracion:7.0, movilidad:7.3, estilo_vida:8.5, empleo:6.5, seguridad:8.3 },
+  nicosia:   { coste:6.5, alojamiento:6.0, vida_social:6.8, integracion:6.5, movilidad:5.5, estilo_vida:7.5, empleo:6.0, seguridad:8.0 },
+  "la-valeta": { coste:4.3, alojamiento:3.8, vida_social:7.5, integracion:8.0, movilidad:6.0, estilo_vida:8.5, empleo:6.8, seguridad:8.5 },
+  zurich:    { coste:1.0, alojamiento:2.0, vida_social:6.5, integracion:8.0, movilidad:9.3, estilo_vida:9.3, empleo:9.3, seguridad:9.5 },
+  brno:      { coste:9.2, alojamiento:8.3, vida_social:8.5, integracion:7.0, movilidad:8.0, estilo_vida:7.8, empleo:6.8, seguridad:8.5 },
 };
 
 /**
