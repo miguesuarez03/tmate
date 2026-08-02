@@ -145,6 +145,46 @@ export const CITY_BASE_SCORES = {
   rennes:      { coste:7.5, alojamiento:6.8, vida_social:9.0, integracion:8.0, movilidad:7.5, estilo_vida:7.8, empleo:7.0, seguridad:8.0 },
   pecs:        { coste:9.3, alojamiento:8.3, vida_social:8.3, integracion:7.0, movilidad:6.0, estilo_vida:8.0, empleo:5.3, seguridad:8.5 },
   kaunas:      { coste:8.5, alojamiento:7.8, vida_social:7.5, integracion:6.8, movilidad:6.8, estilo_vida:7.8, empleo:6.3, seguridad:8.5 },
+  "sao-paulo": { coste:6.5, alojamiento:6.0, vida_social:8.5, integracion:6.5, movilidad:7.0, estilo_vida:7.5, empleo:8.0, seguridad:5.5 },
+  "rio-de-janeiro": { coste:6.8, alojamiento:6.0, vida_social:9.0, integracion:7.0, movilidad:6.5, estilo_vida:9.0, empleo:6.5, seguridad:5.0 },
+  "florianopolis": { coste:7.0, alojamiento:6.5, vida_social:8.0, integracion:7.0, movilidad:6.5, estilo_vida:9.0, empleo:6.5, seguridad:7.5 },
+  "cartagena-de-indias": { coste:7.5, alojamiento:6.5, vida_social:8.0, integracion:7.0, movilidad:6.0, estilo_vida:8.0, empleo:5.5, seguridad:6.5 },
+  "cusco": { coste:8.5, alojamiento:7.0, vida_social:7.0, integracion:6.5, movilidad:5.5, estilo_vida:8.5, empleo:5.0, seguridad:7.0 },
+  "nueva-york":    { coste:1.7, alojamiento:1.9, vida_social:9.4, integracion:7.8, movilidad:8.8, estilo_vida:8.3, empleo:9.5, seguridad:6.8 },
+  boston:          { coste:2.7, alojamiento:3.0, vida_social:8.0, integracion:7.5, movilidad:7.3, estilo_vida:7.8, empleo:8.5, seguridad:8.0 },
+  chicago:         { coste:4.1, alojamiento:4.3, vida_social:8.2, integracion:7.2, movilidad:7.5, estilo_vida:8.0, empleo:8.0, seguridad:6.3 },
+  "los-angeles":   { coste:2.9, alojamiento:3.2, vida_social:7.8, integracion:7.0, movilidad:4.5, estilo_vida:8.8, empleo:8.3, seguridad:6.5 },
+  "san-francisco": { coste:1.5, alojamiento:1.8, vida_social:7.5, integracion:7.8, movilidad:7.3, estilo_vida:8.3, empleo:9.3, seguridad:5.8 },
+  lima:                  { coste:8.0, alojamiento:7.0, vida_social:7.5, integracion:7.0, movilidad:6.0, estilo_vida:8.3, empleo:6.0, seguridad:6.0 },
+  "ciudad-de-panama":    { coste:6.0, alojamiento:6.5, vida_social:6.5, integracion:7.0, movilidad:7.5, estilo_vida:6.8, empleo:7.5, seguridad:6.5 },
+  "san-jose-costa-rica": { coste:6.0, alojamiento:6.5, vida_social:7.0, integracion:7.2, movilidad:6.3, estilo_vida:8.7, empleo:6.5, seguridad:6.3 },
+  montevideo:            { coste:4.5, alojamiento:6.0, vida_social:6.5, integracion:8.0, movilidad:7.0, estilo_vida:8.5, empleo:6.5, seguridad:8.5 },
+  quito:                 { coste:8.0, alojamiento:7.5, vida_social:7.0, integracion:7.0, movilidad:6.0, estilo_vida:8.7, empleo:5.5, seguridad:6.0 },
+  miami:     { coste:4.5, alojamiento:4.0, vida_social:8.5, integracion:8.0, movilidad:4.5, estilo_vida:8.5, empleo:7.5, seguridad:6.5 },
+  toronto:   { coste:4.0, alojamiento:3.5, vida_social:8.0, integracion:9.0, movilidad:7.5, estilo_vida:7.5, empleo:8.5, seguridad:8.5 },
+  vancouver: { coste:3.5, alojamiento:3.0, vida_social:7.0, integracion:8.0, movilidad:7.5, estilo_vida:9.3, empleo:7.0, seguridad:7.5 },
+  montreal:  { coste:6.5, alojamiento:6.0, vida_social:9.0, integracion:8.5, movilidad:8.0, estilo_vida:8.0, empleo:6.5, seguridad:8.5 },
+  "ciudad-de-mexico": { coste:8.5, alojamiento:7.0, vida_social:8.5, integracion:7.5, movilidad:6.0, estilo_vida:8.0, empleo:6.5, seguridad:5.5 },
+  guadalajara: { coste:8.5, alojamiento:7.0, vida_social:7.5, integracion:6.0, movilidad:6.0, estilo_vida:7.5, empleo:8.0, seguridad:5.5 },
+  austin:      { coste:4.5, alojamiento:4.5, vida_social:8.0, integracion:7.0, movilidad:5.5, estilo_vida:8.0, empleo:8.5, seguridad:6.5 },
+  seattle:     { coste:3.8, alojamiento:3.8, vida_social:6.8, integracion:7.0, movilidad:7.0, estilo_vida:8.0, empleo:9.0, seguridad:6.5 },
+  washington:  { coste:3.5, alojamiento:4.0, vida_social:7.5, integracion:7.5, movilidad:8.0, estilo_vida:8.0, empleo:9.0, seguridad:6.0 },
+  "nueva-orleans": { coste:6.0, alojamiento:6.0, vida_social:8.5, integracion:7.0, movilidad:5.5, estilo_vida:8.5, empleo:6.0, seguridad:5.5 },
+  "ann-arbor": { coste:5.0, alojamiento:5.5, vida_social:7.5, integracion:7.5, movilidad:6.0, estilo_vida:7.5, empleo:7.0, seguridad:8.5 },
+  "quebec":    { coste:7.0, alojamiento:7.0, vida_social:7.2, integracion:6.5, movilidad:6.5, estilo_vida:8.5, empleo:5.8, seguridad:9.3 },
+  "ottawa":    { coste:6.0, alojamiento:6.0, vida_social:6.8, integracion:8.0, movilidad:7.0, estilo_vida:8.5, empleo:7.5, seguridad:9.0 },
+  "san-diego": { coste:3.5, alojamiento:3.5, vida_social:8.0, integracion:8.0, movilidad:6.0, estilo_vida:9.2, empleo:7.8, seguridad:7.5 },
+  "monterrey": { coste:8.5, alojamiento:7.5, vida_social:7.5, integracion:7.0, movilidad:5.5, estilo_vida:6.8, empleo:8.5, seguridad:6.5 },
+  "la-paz":             { coste:8.9, alojamiento:6.6, vida_social:6.9, integracion:8.4, movilidad:6.4, estilo_vida:8.6, empleo:5.2, seguridad:6.5 },
+  "asuncion":           { coste:8.8, alojamiento:7.0, vida_social:6.4, integracion:8.6, movilidad:6.1, estilo_vida:7.4, empleo:5.4, seguridad:7.3 },
+  "ciudad-de-guatemala":{ coste:8.1, alojamiento:6.8, vida_social:6.7, integracion:7.9, movilidad:5.6, estilo_vida:7.9, empleo:6.1, seguridad:5.9 },
+  "san-salvador":       { coste:7.8, alojamiento:6.6, vida_social:7.1, integracion:7.7, movilidad:5.9, estilo_vida:8.3, empleo:5.7, seguridad:6.7 },
+  "santo-domingo":      { coste:7.5, alojamiento:6.9, vida_social:7.9, integracion:8.0, movilidad:6.7, estilo_vida:8.5, empleo:6.0, seguridad:6.8 },
+  "buenos-aires":      { coste:7.5, alojamiento:6.0, vida_social:9.0, integracion:7.5, movilidad:7.5, estilo_vida:8.5, empleo:6.0, seguridad:6.0 },
+  "cordoba-argentina": { coste:8.5, alojamiento:6.5, vida_social:8.5, integracion:7.5, movilidad:6.5, estilo_vida:7.5, empleo:5.5, seguridad:6.5 },
+  "santiago-de-chile": { coste:6.0, alojamiento:6.0, vida_social:7.5, integracion:7.0, movilidad:8.5, estilo_vida:8.0, empleo:7.5, seguridad:7.5 },
+  "bogota":            { coste:7.5, alojamiento:6.0, vida_social:8.0, integracion:6.5, movilidad:6.0, estilo_vida:7.5, empleo:6.5, seguridad:5.5 },
+  "medellin":          { coste:7.5, alojamiento:6.5, vida_social:8.5, integracion:7.5, movilidad:8.0, estilo_vida:8.5, empleo:7.0, seguridad:6.0 },
 };
 
 /**
@@ -397,10 +437,13 @@ export function clearCompare() {
  * @param {number} overallScore
  */
 export function getCityMeta(city, overallScore) {
+  const eligible = isErasmusEligible(city);
   return {
-    title: `${city.name} Erasmus — Guía completa ${city.country} | TMate`,
-    description: `Todo sobre el Erasmus en ${city.name}: coste de vida ${city.costDetail}, scores reales, barrios, universidades y tips de estudiantes. Puntuación TMate: ${overallScore}/10.`,
-    keywords: `Erasmus ${city.name}, ${city.nameEn} Erasmus, estudiar en ${city.country}, ${city.tag}`,
+    title: `${city.name} ${eligible ? 'Erasmus' : 'Intercambio'} — Guía completa ${city.country} | TMate`,
+    description: `Todo sobre ${eligible ? 'el Erasmus' : 'el intercambio internacional'} en ${city.name}: coste de vida ${city.costDetail}, scores reales, barrios, universidades y tips de estudiantes. Puntuación TMate: ${overallScore}/10.`,
+    keywords: eligible
+      ? `Erasmus ${city.name}, ${city.nameEn} Erasmus, estudiar en ${city.country}, ${city.tag}`
+      : `Estudiar en ${city.name}, ${city.nameEn} intercambio, estudiar en ${city.country}, ${city.tag}`,
     ogImage: city.heroImg,
   };
 }

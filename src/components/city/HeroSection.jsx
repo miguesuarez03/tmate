@@ -228,7 +228,7 @@ export default function HeroSection({ city, overallScore, insights }) {
               <span className={styles.heroStatIcon}><IconUniversidad size={22} /></span>
               <div>
                 <p className={styles.heroStatVal}>{city.erasmusStudents}</p>
-                <p className={styles.heroStatKey}>estudiantes Erasmus/año</p>
+                <p className={styles.heroStatKey}>{erasmusEligible ? "estudiantes Erasmus/año" : "estudiantes de intercambio/año"}</p>
               </div>
             </div>
           </div>

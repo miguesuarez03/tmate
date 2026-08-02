@@ -10,7 +10,7 @@ export type PriceLevel = '€' | '€€' | '€€€' | '€€€€';
 export type ExperienceType = 'erasmus' | 'internship' | 'work-travel' | 'volunteering';
 
 // ── Tipo de programa de intercambio (Erasmus+ vs. bilateral) ──────────────────
-export type ProgramType = 'erasmus' | 'uk_bilateral' | 'switzerland_bilateral';
+export type ProgramType = 'erasmus' | 'uk_bilateral' | 'switzerland_bilateral' | 'study_abroad_usa_canada' | 'study_abroad_latam';
 
 // ── Región geográfica ─────────────────────────────────────────────────────────
 export type Region =
@@ -18,7 +18,9 @@ export type Region =
   | 'Europa del Norte'
   | 'Europa del Este'
   | 'Europa Central'
-  | 'Europa del Oeste';
+  | 'Europa del Oeste'
+  | 'Norteamérica'
+  | 'Latinoamérica';
 
 // ── Barrio ────────────────────────────────────────────────────────────────────
 export interface Neighborhood {

@@ -391,7 +391,7 @@ export default function ComparePage() {
                     {/* Quick stats */}
                     <div className={styles.quickStats}>
                       <div className={styles.stat}><span><IconBeca size={18} /></span><span>{city.costDetail}</span></div>
-                      <div className={styles.stat}><span><IconUniversidad size={18} /></span><span>{city.erasmusStudents} Erasmus</span></div>
+                      <div className={styles.stat}><span><IconUniversidad size={18} /></span><span>{city.erasmusStudents} {isErasmusEligible(city) ? "Erasmus" : "intercambio"}</span></div>
                       <div className={styles.stat}><span><IconClima size={18} /></span><span>{city.weather}</span></div>
                       <div className={styles.stat}><span><IconIdiomas size={18} /></span><span>{city.language}</span></div>
                     </div>
