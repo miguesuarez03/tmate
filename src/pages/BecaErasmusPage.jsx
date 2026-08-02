@@ -4,7 +4,7 @@ import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { IconCorazonInclusion, IconAccesibilidad, IconHoja, IconBombilla, IconGrafica, IconPin, IconTarjeta, IconLibros, IconEdificio, IconUniversidad, IconCasa, IconComida, IconTransporte, IconFiesta, IconBeca, IconAlerta, IconCheck, IconViajes } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
 import { CITY_COORDS, haversineDistanceKm, distanceToRange, geocodeCity } from "../lib/cityCoords";
-import { getCityInsights, parseMinCost, parseMaxCost } from "../lib/cities";
+import { getCityInsights, parseMinCost, parseMaxCost, isErasmusEligible } from "../lib/cities";
 import { CITIES } from "../data/cities";
 
 /* ─── SEARCHABLE INPUT ───────────────────────────────────────────────────── */
@@ -323,7 +323,7 @@ function Calculator() {
                   value={destCity?.name || ""}
                   onChange={() => {}}
                   onSelect={(opt) => handleDestinationChange(opt.value)}
-                  options={CITIES.map(c => ({ value: c.slug, label: c.name, sublabel: c.country, emoji: c.emoji }))}
+                  options={CITIES.filter(isErasmusEligible).map(c => ({ value: c.slug, label: c.name, sublabel: c.country, emoji: c.emoji }))}
                   placeholder="Ciudad de destino…"
                 />
               </div>
@@ -437,6 +437,10 @@ function Calculator() {
               <p className="beca-calc__result-placeholder">
                 Selecciona tu ciudad de destino para ver la estimación.
               </p>
+            ) : !isErasmusEligible(destCity) ? (
+              <p className="beca-calc__result-placeholder" style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
+                <IconAlerta size={18} /> {destCity.name} es un destino de intercambio bilateral (no Erasmus+), así que no tiene beca Erasmus+ asociada. La financiación depende del convenio propio de tu universidad — consulta con tu oficina de relaciones internacionales.
+              </p>
             ) : (
               <>
                 <div className="beca-calc__result-group">
@@ -489,7 +493,7 @@ function Calculator() {
       </div>
 
       {/* ── Coste de vida y cuánto te falta poner ── */}
-      {destCity && expenseBreakdown.length > 0 && (
+      {destCity && isErasmusEligible(destCity) && expenseBreakdown.length > 0 && (
         <div className="beca-expenses">
           <h3 className="beca-expenses__title" style={{ display: "flex", alignItems: "center", gap: 10 }}><IconBeca size={28} /> Coste de vida estimado en {destCity.name}</h3>
           <p className="beca-expenses__subtitle">

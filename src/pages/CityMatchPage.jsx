@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { CITIES } from "../data/cities";
-import { getScoreMap, getOverallScore } from "../lib/cities";
+import { getScoreMap, getOverallScore, isErasmusEligible } from "../lib/cities";
 import { useSEO } from "../hooks/useSEO";
 import { Navbar, Footer } from "../components/Layout";
 import { IconBeca, IconClima, IconIdiomas, IconFiesta, IconEdificio, IconHoja, IconUniversidad, IconExperiencia, IconCityMatch, IconMedalla } from "../components/icons";
@@ -139,6 +139,15 @@ const DIMENSIONS = {
 /* ─── Preguntas (copy + opciones) ─────────────────────────────────────── */
 const QUESTIONS = [
   {
+    id: "programa",
+    title: "¿Solo te interesan destinos Erasmus+, o también valorarías otros programas de intercambio?",
+    subtitle: "Reino Unido, Suiza y otros no entran en la beca Erasmus+ pero sí en otros convenios",
+    options: [
+      { value: "solo_erasmus", label: "Solo Erasmus+", desc: "Quiero beca Erasmus+ sí o sí" },
+      { value: "abierto", label: "Estoy abierto/a", desc: "También me interesan otros programas" },
+    ],
+  },
+  {
     id: "presupuesto",
     title: "¿Cuál es tu presupuesto mensual?",
     subtitle: "Alojamiento, comida y ocio incluidos",
@@ -229,7 +238,9 @@ const QUESTIONS = [
 
 function computeMatch(city, answers) {
   const scoreMap = getScoreMap(city.slug);
-  const results = QUESTIONS.map((q) => {
+  // "programa" es un filtro duro (ver matches más abajo), no una dimensión de
+  // similitud — no tiene entrada en DIMENSIONS y se excluye del cálculo.
+  const results = QUESTIONS.filter((q) => DIMENSIONS[q.id]).map((q) => {
     const value = answers[q.id];
     const dim = DIMENSIONS[q.id];
     const sim = value ? dim.similarity(city, scoreMap, value) : 0.5;
@@ -248,7 +259,7 @@ export default function CityMatchPage() {
 
   useSEO({
     title: "City Match — Encuentra tu ciudad Erasmus ideal | TMate",
-    description: "Responde 8 preguntas sobre presupuesto, clima, idioma y estilo de vida, y descubre qué ciudades Erasmus encajan mejor contigo.",
+    description: "Responde 9 preguntas sobre presupuesto, clima, idioma y estilo de vida, y descubre qué ciudades Erasmus encajan mejor contigo.",
   });
 
   // Si la URL trae respuestas guardadas (?r=valor-valor-...), restaura
@@ -290,7 +301,8 @@ export default function CityMatchPage() {
 
   const matches = useMemo(() => {
     if (!showResults) return [];
-    return CITIES.map((c) => computeMatch(c, answers)).sort((a, b) => b.percent - a.percent);
+    const pool = answers.programa === "solo_erasmus" ? CITIES.filter(isErasmusEligible) : CITIES;
+    return pool.map((c) => computeMatch(c, answers)).sort((a, b) => b.percent - a.percent);
   }, [showResults, answers]);
 
   const top = matches.slice(0, 5);
@@ -309,7 +321,7 @@ export default function CityMatchPage() {
               <span className={styles.badge} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><IconCityMatch size={18} /> Tu City Match</span>
               <h1 className={styles.resultsTitle}>Estas son tus ciudades ideales</h1>
               <p className={styles.resultsSubtitle}>
-                Calculado a partir de tus 8 respuestas y los datos reales de cada destino.
+                Calculado a partir de tus 9 respuestas y los datos reales de cada destino.
               </p>
               <div className={styles.resultsActions}>
                 <button className={styles.secondaryBtn} onClick={restart}>↺ Volver a hacer el test</button>

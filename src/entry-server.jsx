@@ -30,6 +30,7 @@ import ComparePage from "./pages/ComparePage";
 import LearningAgreementPage from "./pages/LearningAgreementPage";
 import BecaErasmusPage from "./pages/BecaErasmusPage";
 import CityMatchPage from "./pages/CityMatchPage";
+import TiposDeIntercambioPage from "./pages/TiposDeIntercambioPage";
 
 import { CITIES } from "./data/cities";
 import { getCityBySlug, getOverallScore, getCityMeta, getHomeMeta } from "./lib/cities";
@@ -74,6 +75,13 @@ const STATIC_PAGE_META = {
       "Guía completa de la beca Erasmus+ para estudiantes españoles: importes por país, complementos, compatibilidad con MEC y estimador de cuánto cobrarías.",
     changefreq: "monthly",
     priority: 0.7,
+  },
+  "/tipos-de-intercambio": {
+    title: "Tipos de intercambio: Erasmus+ vs. convenios bilaterales | TMate",
+    description:
+      "Erasmus+, Reino Unido y Suiza explicados: qué es cada programa, si necesitas visado y cómo funciona la financiación en cada caso.",
+    changefreq: "monthly",
+    priority: 0.6,
   },
 };
 
@@ -169,6 +177,7 @@ function App({ url }) {
         <Route path="/learning-agreement" element={<LearningAgreementPage />} />
         <Route path="/beca-erasmus" element={<BecaErasmusPage />} />
         <Route path="/city-match" element={<CityMatchPage />} />
+        <Route path="/tipos-de-intercambio" element={<TiposDeIntercambioPage />} />
       </Routes>
     </StaticRouter>
   );

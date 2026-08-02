@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { CITIES } from "../data/cities";
-import { getScoreMap, getOverallScore, parseMinCost } from "../lib/cities";
+import { getScoreMap, getOverallScore, parseMinCost, isErasmusEligible } from "../lib/cities";
 import { getComparePhrase } from "../data/comparePhrases";
 import { Navbar, Footer } from "../components/Layout";
 import { IconRanking, IconCorona, IconBeca, IconUniversidad, IconClima, IconIdiomas, IconCheck, IconAlerta, IconComparar, IconLupa } from "../components/icons";
@@ -499,6 +499,12 @@ export default function ComparePage() {
                     <div className={styles.featureBlock}>
                       <span className={styles.featureLabel}>Tag</span>
                       <span className={styles.featureVal}>{city.tag}</span>
+                    </div>
+                    <div className={styles.featureBlock}>
+                      <span className={styles.featureLabel}>Tipo de programa</span>
+                      <span className={styles.featureVal}>
+                        {isErasmusEligible(city) ? "Erasmus+" : "Bilateral (no Erasmus+)"}
+                      </span>
                     </div>
                     <div className={styles.featureBlock}>
                       <span className={styles.featureLabel}>Highlights</span>

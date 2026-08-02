@@ -478,6 +478,10 @@ a { text-decoration: none; color: inherit; }
   padding: 4px 12px; font-size: 10px; font-weight: 700; color: #fff; letter-spacing: 0.3px;
 }
 
+.city-card__tag--program {
+  left: auto; right: 13px;
+}
+
 .city-card__content {
   position: absolute; bottom: 0; left: 0; right: 0;
   padding: 16px 16px 18px; z-index: 2;

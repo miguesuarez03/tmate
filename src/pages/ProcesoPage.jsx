@@ -573,6 +573,9 @@ export default function ProcesoPage() {
           <button className="btn-ghost" onClick={() => navigate("/comparar")}>
             Comparar ciudades
           </button>
+          <button className="btn-ghost" onClick={() => navigate("/tipos-de-intercambio")}>
+            ¿Erasmus no es tu única opción? →
+          </button>
         </div>
       </section>
 

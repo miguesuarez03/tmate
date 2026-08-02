@@ -1,0 +1,125 @@
+/* ── PAGE ── */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-white);
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  background: var(--gradient-hero);
+  padding: 96px var(--section-px) 56px;
+}
+.heroContent {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 6vw, 60px);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -1.5px;
+  line-height: 1.05;
+  margin: 16px 0 18px;
+}
+.heroSub {
+  font-size: clamp(15px, 2vw, 17px);
+  color: rgba(255,255,255,0.72);
+  line-height: 1.65;
+  margin: 0 auto;
+}
+
+/* ── SECTION / GRID ── */
+.section {
+  padding: 64px var(--section-px);
+}
+.grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* ── CARD ── */
+.card {
+  border: 1px solid var(--color-border);
+  border-top: 4px solid var(--accent);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  background: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.cardIcon {
+  flex-shrink: 0;
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-full);
+  color: #fff;
+}
+.cardTag {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--color-dark);
+  margin: 2px 0 0;
+}
+.cardBlock { display: flex; flex-direction: column; gap: 6px; }
+.cardBlockLabel {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-slate-light);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin: 0;
+}
+.cardBlockText {
+  font-size: 14px;
+  color: var(--color-slate);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── CTA ── */
+.cta {
+  padding: 64px var(--section-px) 80px;
+  text-align: center;
+  background: var(--color-surface);
+}
+.ctaTitle {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3.5vw, 34px);
+  font-weight: 800;
+  color: var(--color-dark);
+  margin: 0 0 10px;
+}
+.ctaSub {
+  font-size: 15px;
+  color: var(--color-slate);
+  margin: 0 0 24px;
+}
+.ctaBtns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}

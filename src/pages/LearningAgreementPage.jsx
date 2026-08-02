@@ -4,6 +4,7 @@ import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { IconUniversidad, IconEdificio, IconGlobo, IconManos, IconAmigos, IconLibros, IconLapiz, IconRobot, IconAlerta, IconSobre, IconCheck, IconCiclo, IconReloj, IconFiesta, IconClipboard } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
 import { CITIES } from "../data/cities";
+import { isErasmusEligible } from "../lib/cities";
 import styles from "./LearningAgreementPage.module.css";
 
 /* ─── DATA ──────────────────────────────────────────────────────────────── */
@@ -384,7 +385,7 @@ function LAWizard() {
   const canContinue = () => {
     switch (current.id) {
       case "origen":      return data.universidadOrigen.trim() && data.gradoOrigen.trim();
-      case "destino":     return data.ciudadDestino && data.universidadDestino;
+      case "destino":     return data.ciudadDestino && data.universidadDestino && isErasmusEligible(destinoCity);
       case "asignaturas": return data.asignaturas.trim().length > 0;
       case "creditos":    return data.creditos.trim() && data.idioma;
       case "contacto":    return data.nombre.trim() && /\S+@\S+\.\S+/.test(data.email);
@@ -518,7 +519,12 @@ function LAWizard() {
                   ))}
                 </select>
               </label>
-              {data.ciudadDestino && (
+              {data.ciudadDestino && !isErasmusEligible(destinoCity) && (
+                <p className={styles.wizardHint} style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
+                  <IconAlerta size={16} /> El Learning Agreement es un documento específico de Erasmus+, y {destinoCity.name} es un destino de intercambio bilateral (no Erasmus+). Para este tipo de programa, el papeleo de equivalencias lo define tu universidad de origen — consulta con tu oficina de relaciones internacionales.
+                </p>
+              )}
+              {data.ciudadDestino && isErasmusEligible(destinoCity) && (
                 <label className={styles.wizardLabel}>
                   Universidad de destino
                   <select

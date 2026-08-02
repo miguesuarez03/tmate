@@ -28,6 +28,11 @@ export function getCityInsights(slug) {
   return raw ? raw : DEFAULT_INSIGHTS(city);
 }
 
+/** Devuelve true si la ciudad es elegible para Erasmus+ (no es un intercambio bilateral). */
+export function isErasmusEligible(city) {
+  return city.programType === 'erasmus';
+}
+
 // ─── BASE SCORES por ciudad (investigados) ───────────────────────────────────
 export const CITY_BASE_SCORES = {
   bolonia:   { coste:6.5, alojamiento:5.0, vida_social:9.2, integracion:8.5, movilidad:8.0, estilo_vida:8.0, empleo:7.0, seguridad:8.5 },
@@ -210,6 +215,11 @@ export function filterCities(filters = {}, sortKey = 'name') {
     result = result.filter(c =>
       filters.experiences.some(exp => c.experiences.includes(exp))
     );
+  }
+
+  // Filtro por tipo de programa
+  if (filters.programType?.length) {
+    result = result.filter(c => filters.programType.includes(c.programType));
   }
 
   // Filtro por score mínimo Erasmus

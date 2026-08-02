@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IconFuego } from "./icons";
+import { isErasmusEligible } from "../lib/cities";
 
 export default function CityCard({ city }) {
   const [hovered, setHovered] = useState(false);
@@ -33,6 +34,11 @@ export default function CityCard({ city }) {
       <span className="city-card__tag" style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
         {city.tag === "Trending" && <IconFuego size={16} />} {city.tag}
       </span>
+
+      {/* Program type pill — solo se muestra para destinos no-Erasmus */}
+      {!isErasmusEligible(city) && (
+        <span className="city-card__tag city-card__tag--program">🌍 No Erasmus</span>
+      )}
 
       {/* Bottom content */}
       <div className="city-card__content">

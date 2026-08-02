@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./HeroSection.module.css";
 import { getCityWhatsappGroup } from "../../data/cityWhatsappGroups";
+import { isErasmusEligible } from "../../lib/cities";
 import { IconUniversidad, IconFiesta, IconBeca, IconSol, IconBici, IconSeguridad, IconComida, IconArte, IconLaptop, IconPlaya, IconFuego } from "../icons";
 
 // ─── MOOD TAGS CONFIG ─────────────────────────────────────────────────────────
@@ -92,6 +93,7 @@ export default function HeroSection({ city, overallScore, insights }) {
   const moodTags = getMoodTags(city);
   const color = scoreColor(overallScore);
   const whatsappGroup = getCityWhatsappGroup(city.slug);
+  const erasmusEligible = isErasmusEligible(city);
 
   return (
     <section className={styles.hero}>
@@ -114,6 +116,12 @@ export default function HeroSection({ city, overallScore, insights }) {
           </div>
 
           <h1 className={styles.heroTitle}>{city.name}</h1>
+
+          <p className={erasmusEligible ? styles.heroProgramBadgeOk : styles.heroProgramBadgeWarn}>
+            {erasmusEligible
+              ? "✅ Destino Erasmus+ · Beca disponible"
+              : "🌍 Intercambio internacional (no Erasmus) · Financiación propia / convenio bilateral"}
+          </p>
 
           <p className={styles.heroTagline}>
             {insights?.tagline || city.phrase}

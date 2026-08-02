@@ -9,6 +9,9 @@ export type PriceLevel = '€' | '€€' | '€€€' | '€€€€';
 // ── Tipos de programa Erasmus ─────────────────────────────────────────────────
 export type ExperienceType = 'erasmus' | 'internship' | 'work-travel' | 'volunteering';
 
+// ── Tipo de programa de intercambio (Erasmus+ vs. bilateral) ──────────────────
+export type ProgramType = 'erasmus' | 'uk_bilateral' | 'switzerland_bilateral';
+
 // ── Región geográfica ─────────────────────────────────────────────────────────
 export type Region =
   | 'Europa del Sur'
@@ -43,6 +46,7 @@ export interface CityBase {
   img: string;                // imagen para cards (800px)
   heroImg: string;            // imagen hero (1400px)
   experiences: ExperienceType[];
+  programType: ProgramType;
 }
 
 // ── Ciudad completa (detalle de página) ──────────────────────────────────────
@@ -94,6 +98,7 @@ export interface CityFilters {
   maxCost?: number;           // presupuesto máximo €/mes
   minErasmusScore?: number;   // score mínimo Erasmus 0-100
   experiences?: ExperienceType[];
+  programType?: ProgramType[];
   query?: string;             // búsqueda por texto
 }
 
