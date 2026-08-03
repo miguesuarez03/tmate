@@ -68,3 +68,8 @@ Mix of a global stylesheet (`src/styles/global.css`, CSS variables) and CSS Modu
 ### Deployment
 
 Deployed on Vercel (`vercel.json`): `buildCommand` runs the full `npm run build` (client + SSR + prerender) and serves `dist/`. Security headers and a report-only CSP are set there — `connect-src`/`img-src`/etc. allowlists need updating in `vercel.json` if new external hosts (fonts, APIs, image CDNs) are introduced. `src/lib/seo.js` defines `SITE_URL` used for canonical URLs, OG tags, sitemap, and robots.txt — verify it matches the actual deployed domain before relying on generated SEO output.
+
+## Reglas de flujo de trabajo
+
+- Nunca pruebes ni navegues la web tras hacer cambios (no levantes el servidor para comprobar visualmente) — solo revisa el código si quieres verificar que está bien. Las pruebas visuales las hace el usuario.
+- Nunca pidas permiso antes de avanzar. Actúa siempre según tu propio criterio y hazlo, salvo que el usuario indique explícitamente una excepción para ese caso concreto.

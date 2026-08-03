@@ -247,6 +247,71 @@ function VersusGrid({ scoreIds, selectedCities, scoreMaps }) {
   );
 }
 
+/* ─── Mini card (selector view) ─────────────────────────────────────────
+   Tarjeta compacta con checkbox — se usa tanto para las ciudades ya
+   seleccionadas (checked, dispara `remove`) como para el resto de destinos
+   dentro de cada acordeón de región (sin marcar, dispara `toggle`). */
+function MiniCard({ city, checked = false, disabled = false, accentColor, onClick }) {
+  return (
+    <button
+      type="button"
+      className={`${styles.miniCard} ${checked ? styles.miniCardSelected : ""} ${disabled ? styles.miniCardDisabled : ""}`}
+      style={checked ? { "--tile-color": accentColor } : {}}
+      onClick={onClick}
+      disabled={disabled}
+    >
+      <span className={styles.miniCheck} style={checked ? { background: accentColor, borderColor: accentColor } : {}}>
+        {checked ? "✓" : ""}
+      </span>
+      <span className={styles.miniEmoji}>{city.emoji}</span>
+      <span className={styles.miniInfo}>
+        <span className={styles.miniName}>{city.name}</span>
+        <span className={styles.miniCountry}>{city.country}</span>
+      </span>
+    </button>
+  );
+}
+
+/* ─── Region accordion (selector view) ──────────────────────────────────── */
+function RegionAccordion({ region, cities, open, onToggle, isFull, toggle }) {
+  return (
+    <div className={styles.regionAccordion}>
+      <button type="button" className={styles.regionHeader} onClick={onToggle} aria-expanded={open}>
+        <span className={styles.regionName}>{region}</span>
+        <span className={styles.regionCount}>{cities.length}</span>
+        <span className={`${styles.regionChevron} ${open ? styles.regionChevronOpen : ""}`}>›</span>
+      </button>
+      {open && (
+        <div className={styles.regionBody}>
+          <div className={styles.miniGrid}>
+            {cities.map((city) => (
+              <MiniCard
+                key={city.slug}
+                city={city}
+                disabled={isFull}
+                onClick={() => toggle(city.slug)}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Agrupación por región (7 grupos, 14–31 ciudades cada uno) en vez de por
+// país (48 países, la mayoría con 1–3 ciudades — demasiado fragmentado para
+// acordeones útiles). Orden fijo para que la lista no "salte" al seleccionar.
+const REGION_ORDER = [
+  "Europa del Sur",
+  "Europa del Este",
+  "Europa Central",
+  "Europa del Norte",
+  "Europa del Oeste",
+  "Latinoamérica",
+  "Norteamérica",
+];
+
 /* ─── Main Component ────────────────────────────────────────────────────── */
 export default function ComparePage() {
   const navigate = useNavigate();
@@ -302,6 +367,45 @@ export default function ComparePage() {
     () => selected.map((s) => CITIES.find((c) => c.slug === s)).filter(Boolean),
     [selected]
   );
+
+  // Ciudades no seleccionadas que coinciden con la búsqueda, agrupadas por
+  // región y ordenadas alfabéticamente dentro de cada grupo. Se apoya en
+  // `filtered` (ya filtra por nombre/país/tag y excluye las seleccionadas)
+  // para no duplicar esa lógica.
+  const regionGroups = useMemo(() => {
+    return REGION_ORDER
+      .map((region) => ({
+        region,
+        cities: filtered
+          .filter((c) => c.region === region)
+          .sort((a, b) => a.name.localeCompare(b.name, "es")),
+      }))
+      .filter((g) => g.cities.length > 0);
+  }, [filtered]);
+
+  // Acordeones abiertos. Por defecto solo el primero (Europa del Sur, el
+  // grupo más grande) para que la página no cargue con todo desplegado.
+  // Al buscar, se despliegan automáticamente solo los grupos con resultados
+  // y se ocultan los que no tienen ninguno (ver filtro de arriba); al borrar
+  // la búsqueda se vuelve al estado inicial (solo el primer grupo abierto).
+  const [openRegions, setOpenRegions] = useState(() => new Set([REGION_ORDER[0]]));
+  useEffect(() => {
+    if (search.trim()) {
+      setOpenRegions(new Set(regionGroups.map((g) => g.region)));
+    } else {
+      setOpenRegions(new Set([REGION_ORDER[0]]));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search]);
+
+  function toggleRegion(region) {
+    setOpenRegions((prev) => {
+      const next = new Set(prev);
+      if (next.has(region)) next.delete(region);
+      else next.add(region);
+      return next;
+    });
+  }
 
   const scoreMaps = useMemo(() => selectedCities.map((c) => getScoreMap(c.slug)), [selectedCities]);
   const overallScores = useMemo(() => selectedCities.map((c) => getOverallScore(c.slug)), [selectedCities]);
@@ -563,80 +667,75 @@ export default function ComparePage() {
         </div>
       </div>
 
-      <main className={styles.selectorMain}>
+      {/* Sticky bar: buscador + chips de seleccionadas (queda por debajo del
+          navbar fijo de 64px — ver .navbar en src/styles/global.css) */}
+      <div className={styles.stickyBar}>
+        <div className={styles.stickyBarInner}>
+          <div className={styles.searchWrap}>
+            <span className={styles.searchIcon}><IconLupa size={18} /></span>
+            <input className={styles.searchInput} type="text"
+              placeholder="Busca por ciudad, país o tag…"
+              value={search} onChange={(e) => setSearch(e.target.value)} />
+            {search && (
+              <button className={styles.searchClear} onClick={() => setSearch("")}>✕</button>
+            )}
+          </div>
 
-        {/* Selection bar */}
-        {selected.length > 0 && (
-          <div className={styles.selectionBar}>
-            <div className={styles.selectionPills}>
+          {selected.length > 0 && (
+            <div className={styles.stickyChips}>
               {selectedCities.map((city, i) => (
                 <div key={city.slug} className={styles.pill} style={{ "--pill-color": COL_COLORS[i] }}>
                   <span>{city.emoji} {city.name}</span>
-                  <button className={styles.pillRemove} onClick={() => remove(city.slug)}>✕</button>
+                  <button className={styles.pillRemove} onClick={() => remove(city.slug)} aria-label={`Quitar ${city.name} de la selección`}>✕</button>
                 </div>
               ))}
-              {selected.length < 3 && (
-                <div className={styles.pillEmpty}>
-                  + Añadir {selected.length === 1 ? "otra ciudad" : "una más"} (opcional)
-                </div>
-              )}
             </div>
-            {canCompare && (
-              <button className={styles.compareBtn} onClick={() => setComparing(true)}>
-                Comparar {selected.length} destinos →
-              </button>
-            )}
-          </div>
-        )}
-
-        {/* Search */}
-        <div className={styles.searchWrap}>
-          <span className={styles.searchIcon}><IconLupa size={18} /></span>
-          <input className={styles.searchInput} type="text"
-            placeholder="Busca por ciudad, país o tag…"
-            value={search} onChange={(e) => setSearch(e.target.value)} />
-          {search && (
-            <button className={styles.searchClear} onClick={() => setSearch("")}>✕</button>
           )}
         </div>
+      </div>
+
+      <main className={`${styles.selectorMain} ${canCompare ? styles.selectorMainWithBar : ""}`}>
 
         {selected.length === 0 && (
           <p className={styles.hint}>Selecciona de 2 a 3 ciudades para empezar la comparativa</p>
         )}
 
-        {/* City grid */}
-        <div className={styles.cityGrid}>
-          {filtered.map((city) => {
-            const overall = getOverallScore(city.slug);
-            const isSelected = selected.includes(city.slug);
-            const isFull = selected.length >= 3 && !isSelected;
-            const selIdx = selected.indexOf(city.slug);
+        {/* Seleccionadas — siempre arriba del todo, fuera de las regiones */}
+        {selected.length > 0 && (
+          <section className={styles.selectedSection}>
+            <h2 className={styles.groupTitle}>
+              Seleccionadas <span className={styles.groupCount}>{selected.length}/3</span>
+            </h2>
+            <div className={styles.miniGrid}>
+              {selectedCities.map((city, i) => (
+                <MiniCard
+                  key={city.slug}
+                  city={city}
+                  checked
+                  accentColor={COL_COLORS[i]}
+                  onClick={() => remove(city.slug)}
+                />
+              ))}
+            </div>
+          </section>
+        )}
 
-            return (
-              <button key={city.slug}
-                className={`${styles.cityTile} ${isSelected ? styles.cityTileSelected : ""} ${isFull ? styles.cityTileFull : ""}`}
-                style={isSelected ? { "--tile-color": COL_COLORS[selIdx] } : {}}
-                onClick={() => !isFull && toggle(city.slug)}
-                disabled={isFull}>
-                <div className={styles.tileImg} style={{ backgroundImage: `url(${city.img})` }}>
-                  <div className={styles.tileOverlay} />
-                  {isSelected && (
-                    <div className={styles.tileCheck} style={{ background: COL_COLORS[selIdx] }}>✓</div>
-                  )}
-                  <div className={styles.tileScore}>{overall.toFixed(1)}</div>
-                </div>
-                <div className={styles.tileBody}>
-                  <div className={styles.tileName}>{city.emoji} {city.name}</div>
-                  <div className={styles.tileCountry}>{city.country}</div>
-                  <div className={styles.tileTag}>{city.tag}</div>
-                  <div className={styles.tileCost}>{city.costDetail}</div>
-                </div>
-              </button>
-            );
-          })}
+        {/* Resto de destinos, agrupados por región en acordeones */}
+        <div className={styles.accordionList}>
+          {regionGroups.map((group) => (
+            <RegionAccordion
+              key={group.region}
+              region={group.region}
+              cities={group.cities}
+              open={openRegions.has(group.region)}
+              onToggle={() => toggleRegion(group.region)}
+              isFull={selected.length >= 3}
+              toggle={toggle}
+            />
+          ))}
         </div>
 
-        {filtered.length === 0 && (
+        {regionGroups.length === 0 && (
           <div className={styles.empty}>
             <span><IconLupa size={40} /></span>
             <p>No hay ciudades que coincidan con "{search}"</p>
@@ -644,6 +743,21 @@ export default function ComparePage() {
           </div>
         )}
       </main>
+
+      {/* Botón "Comparar" fijo en la parte inferior — activo desde 2 ciudades */}
+      {canCompare && (
+        <div className={styles.stickyCompareBar}>
+          <div className={styles.stickyCompareInner}>
+            <span className={styles.stickyCompareInfo}>
+              {selected.length} destino{selected.length > 1 ? "s" : ""} seleccionado{selected.length > 1 ? "s" : ""}
+            </span>
+            <button className={styles.compareBtn} onClick={() => setComparing(true)}>
+              Comparar {selected.length} destinos →
+            </button>
+          </div>
+        </div>
+      )}
+
       <Footer />
     </div>
   );
