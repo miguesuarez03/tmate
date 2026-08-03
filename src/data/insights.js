@@ -3,7 +3,7 @@
 
 export const CITY_INSIGHTS = {
   bolonia: {
-    heroImg: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=1400&q=80",
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Torri_di_Bologna%2C_Bologna.jpg/1920px-Torri_di_Bologna%2C_Bologna.jpg",
     tagline: "La capital universitaria de Italia. Donde la pasta se inventó y el conocimiento nunca para.",
     atmosphere: "Rojiza, académica, gastronómica y festiva. Bolonia huele a ragù y suena a risas de estudiantes bajo los pórticos.",
     scores: [
@@ -785,7 +785,7 @@ export const CITY_INSIGHTS = {
       ],
   },
   rosenheim: {
-    heroImg: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=85",
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Fu%C3%9Fg%C3%A4ngerzone%2C_Rosenheim_Oberbayern.jpg/1920px-Fu%C3%9Fg%C3%A4ngerzone%2C_Rosenheim_Oberbayern.jpg",
     tagline: "La puerta a los Alpes bávaros. Pequeña, auténtica y a 60km de Múnich — la experiencia alemana sin el ruido de las grandes ciudades.",
     atmosphere: "Tranquila, alpina y profundamente bávara. Rosenheim huele a madera de pino y cerveza artesanal, y suena al silencio de los Alpes roto por el tañido de campanas de iglesia.",
     scores: [
@@ -1569,7 +1569,7 @@ export const CITY_INSIGHTS = {
       ],
   },
   rotterdam: {
-    heroImg: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=85",
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/A_view_of_Rotterdam%2C_taken_from_the_roof_of_the_Maassilo%2C_Rotterdam%2C_The_Netherlands.jpg/1920px-A_view_of_Rotterdam%2C_taken_from_the_roof_of_the_Maassilo%2C_Rotterdam%2C_The_Netherlands.jpg",
     tagline: "La ciudad que se destruyó y se reinventó más bonita. Arquitectura radical, el mayor puerto de Europa y una energía que no para.",
     atmosphere: "Futurista, multicultural y sin complejos. Rotterdam huele a mar y obra nueva, y suena a grúas del puerto mezcladas con música de decenas de culturas en cada barrio.",
     scores: [
@@ -1725,7 +1725,7 @@ export const CITY_INSIGHTS = {
       ],
   },
   budapest: {
-    heroImg: "https://images.unsplash.com/photo-1541849546-216549ae216d?w=1600&q=85",
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/View_from_Gell%C3%A9rt_Hill_to_the_Danube%2C_Hungary_-_Budapest_%2828493220635%29.jpg/1920px-View_from_Gell%C3%A9rt_Hill_to_the_Danube%2C_Hungary_-_Budapest_%2828493220635%29.jpg",
     tagline: "La ciudad más fotogénica de Europa. Baños termales de día, ruin bars de noche y el Danubio siempre de fondo.",
     atmosphere: "Mágica, bohemia y nostálgica. Budapest huele a langos recién fritos y suena a música klezmer saliendo de un ruin bar con paredes cubiertas de arte.",
     scores: [
@@ -2037,7 +2037,7 @@ export const CITY_INSIGHTS = {
       ],
   },
   cracovia: {
-    heroImg: "https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1600&q=85",
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Krakow_Rynek_Glowny_panorama_2.jpg/1920px-Krakow_Rynek_Glowny_panorama_2.jpg",
     tagline: "El secreto mejor guardado del Erasmus europeo. Medieval, barata y con una vida nocturna que no perdona.",
     atmosphere: "Medieval, festiva y sorprendente. Cracovia huele a zapiekanka callejera y suena a música saliendo de los sótanos del Rynek.",
     scores: [
@@ -2349,7 +2349,7 @@ export const CITY_INSIGHTS = {
       ],
   },
   turin: {
-    heroImg: "https://images.unsplash.com/photo-1562883676-8c7feb83f09b?w=1600&q=85",
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Torino_Piazza_Castello_11.jpg/1920px-Torino_Piazza_Castello_11.jpg",
     tagline: "La joya escondida de Italia. Donde el vermut se inventó, los Alpes están a la vuelta y nadie te va a hacer cola.",
     atmosphere: "Elegante, tranquila y sorprendente. Turín huele a chocolate y café, y suena a tranvías sobre una ciudad que guarda secretos en cada palacio.",
     scores: [
@@ -2663,7 +2663,7 @@ export const CITY_INSIGHTS = {
       ],
   },
   milan: {
-    heroImg: "https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?w=1600&q=85",
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Milan_Cathedral_from_Piazza_del_Duomo.jpg/1920px-Milan_Cathedral_from_Piazza_del_Duomo.jpg",
     tagline: "La capital mundial del diseño y la ambición. Donde el aperitivo es una institución y el Duomo te quita el aliento.",
     atmosphere: "Cosmopolita, acelerada y elegante. Milán huele a café espresso y cuero de diseñador, y suena a tacones sobre adoquines mojados.",
     scores: [
@@ -15923,7 +15923,7 @@ export const CITY_INSIGHTS = {
     ],
   },
   lima: {
-    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Plaza_Mayor_de_Lima.jpg/1920px-Plaza_Mayor_de_Lima.jpg",
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/2/21/Plaza_Mayor_de_Lima_SM.jpg",
     tagline: "La capital gastronómica de América. Donde cada esquina huele a ceviche y anticuchos.",
     atmosphere: "Vibrante, caótica y deliciosa. Lima suena a claxon y huele a comida callejera desde el amanecer.",
     scores: [

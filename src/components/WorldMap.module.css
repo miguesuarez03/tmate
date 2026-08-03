@@ -37,26 +37,34 @@
 }
 
 /* ─── Map container ──────────────────────────────────────────────────────── */
+/* aspect-ratio (no height fija) para que el mapa mantenga una proporción
+   ancha tipo 16:9 a cualquier ancho de pantalla, en vez de romperse cuando
+   el contenedor padre cambia de tamaño. min/max-height evitan que se vuelva
+   demasiado alto en pantallas ultra anchas o demasiado bajo en móvil. */
 .mapContainer {
   position: relative;
   background: var(--map-bg);
   border-radius: 24px;
   overflow: hidden;
-  height: 380px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 320px;
+  max-height: 520px;
   border: 1.5px solid var(--map-border);
   box-shadow: 0 4px 24px rgba(0,0,0,0.08);
 }
 
-/* ─── FILTROS FLOTANTES (encima del mapa) ─────────────────────────────────── */
+/* ─── FILTROS — barra encima del mapa (flujo normal, no flota sobre el
+   lienzo) para que nunca tape ni bloquee el clic de los pines que caigan
+   debajo ─────────────────────────────────────────────────────────────── */
 .mapFilters {
-  position: absolute;
-  top: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 20;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 16px;
   background: var(--glass-bg-strong);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -65,8 +73,7 @@
   padding: 8px 16px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.12);
   white-space: nowrap;
-  flex-wrap: nowrap;
-  max-width: calc(100% - 32px);
+  flex-wrap: wrap;
 }
 
 .filterLabel {
@@ -336,15 +343,13 @@
 
 /* ─── Responsive ─────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .mapContainer { height: 300px; }
+  .mapContainer { min-height: 280px; max-height: 420px; }
 
   .mapFilters {
-    top: 12px;
     padding: 6px 12px;
     gap: 6px;
     border-radius: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
+    margin-bottom: 12px;
   }
 
   .vibeBtnLabel { display: none; }
@@ -366,6 +371,5 @@
 }
 
 @media (max-width: 480px) {
-  .mapFilters { top: 8px; }
   .countrySelect { max-width: 90px; }
 }

@@ -361,53 +361,53 @@ export default function WorldMap() {
         <p className={styles.mapSub}>Filtra por país o por lo que más te importa · Haz clic en un pin para ver la guía</p>
       </div>
 
-      <div className={styles.mapContainer} ref={containerRef}>
+      {/* ── FILTROS — barra encima del mapa (fuera del lienzo para no tapar pins) ── */}
+      <div className={styles.mapFilters} onClick={e => e.stopPropagation()}>
 
-        {/* ── FILTRO FLOTANTE ENCIMA DEL MAPA ── */}
-        <div className={styles.mapFilters} onClick={e => e.stopPropagation()}>
-
-          {/* Filtro por país */}
-          <div className={styles.countryFilter}>
-            <span className={styles.filterLabel} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><IconGlobo size={18} /> País</span>
-            <select
-              className={styles.countrySelect}
-              value={country}
-              onChange={e => setCountry(e.target.value)}
-            >
-              {ALL_COUNTRIES.map(c => (
-                <option key={c} value={c}>{c}</option>
-              ))}
-            </select>
-          </div>
-
-          {/* Separador */}
-          <div className={styles.filterDivider} />
-
-          {/* Filtros de vibe */}
-          <div className={styles.vibeFilters}>
-            {VIBE_FILTERS.map(f => (
-              <button
-                key={f.key}
-                className={`${styles.vibeBtn} ${vibeFilter === f.key ? styles.vibeBtnActive : ""}`}
-                onClick={() => setVibeFilter(v => v === f.key ? null : f.key)}
-                title={f.desc}
-              >
-                <span style={{ display: "inline-flex" }}><f.Icon size={18} /></span>
-                <span className={styles.vibeBtnLabel}>{f.label}</span>
-              </button>
+        {/* Filtro por país */}
+        <div className={styles.countryFilter}>
+          <span className={styles.filterLabel} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><IconGlobo size={18} /> País</span>
+          <select
+            className={styles.countrySelect}
+            value={country}
+            onChange={e => setCountry(e.target.value)}
+          >
+            {ALL_COUNTRIES.map(c => (
+              <option key={c} value={c}>{c}</option>
             ))}
-          </div>
-
-          {/* Contador de pins visibles */}
-          {(country !== "Todos" || vibeFilter) && (
-            <div className={styles.filterResult}>
-              <span>{visibleCities.length} ciudad{visibleCities.length !== 1 ? "es" : ""}</span>
-              <button className={styles.filterReset} onClick={() => { setCountry("Todos"); setVibeFilter(null); }}>
-                ✕ Limpiar
-              </button>
-            </div>
-          )}
+          </select>
         </div>
+
+        {/* Separador */}
+        <div className={styles.filterDivider} />
+
+        {/* Filtros de vibe */}
+        <div className={styles.vibeFilters}>
+          {VIBE_FILTERS.map(f => (
+            <button
+              key={f.key}
+              className={`${styles.vibeBtn} ${vibeFilter === f.key ? styles.vibeBtnActive : ""}`}
+              onClick={() => setVibeFilter(v => v === f.key ? null : f.key)}
+              title={f.desc}
+            >
+              <span style={{ display: "inline-flex" }}><f.Icon size={18} /></span>
+              <span className={styles.vibeBtnLabel}>{f.label}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Contador de pins visibles */}
+        {(country !== "Todos" || vibeFilter) && (
+          <div className={styles.filterResult}>
+            <span>{visibleCities.length} ciudad{visibleCities.length !== 1 ? "es" : ""}</span>
+            <button className={styles.filterReset} onClick={() => { setCountry("Todos"); setVibeFilter(null); }}>
+              ✕ Limpiar
+            </button>
+          </div>
+        )}
+      </div>
+
+      <div className={styles.mapContainer} ref={containerRef}>
 
         {/* ── MAPA ── */}
         <ComposableMap
