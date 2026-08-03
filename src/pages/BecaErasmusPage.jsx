@@ -100,6 +100,8 @@ const ORIGIN_CITIES = [
 
 /* ─── DATA ──────────────────────────────────────────────────────────────── */
 
+// Grupos de países y tarifas base según la Guía del Programa Erasmus+ (SEPIE / Comisión Europea)
+// Última verificación contra fuentes oficiales: agosto 2026 (vigente para curso 2026-2027)
 const GROUP1 = [
   "Alemania", "Austria", "Bélgica", "Dinamarca", "Finlandia",
   "Francia", "Irlanda", "Islandia", "Italia", "Liechtenstein",
@@ -114,7 +116,7 @@ const GROUP3 = [
   "Polonia", "Rumanía", "Serbia", "Turquía",
 ];
 
-// Travel aid table (official EU Erasmus+ 2024-2025 rates)
+// Travel aid table (official EU Erasmus+ rates, unchanged 2024-25 through 2026-27; last verified against official sources: Aug 2026)
 const TRAVEL_AID = [
   { range: "10 – 99 km",      standard: 28,   eco: 56   },
   { range: "100 – 499 km",    standard: 211,  eco: 285  },
@@ -750,7 +752,7 @@ export default function BecaErasmusPage() {
 
           {/* Travel aid full table */}
           <div className="beca-travel-table-wrap">
-            <h3 className="beca-travel-table__title">Tabla completa de ayuda de viaje (2024–2025)</h3>
+            <h3 className="beca-travel-table__title">Tabla completa de ayuda de viaje (curso 2026-2027)</h3>
             <p className="beca-travel-table__subtitle">Pago único al inicio de la estancia. La distancia la calcula tu universidad con la <strong>calculadora oficial de la UE</strong>.</p>
             <div className="beca-travel-table">
               <div className="beca-travel-table__header">
@@ -767,7 +769,7 @@ export default function BecaErasmusPage() {
               ))}
             </div>
             <p className="beca-travel-table__note">
-              🇪🇺 Fuente: tarifas oficiales Erasmus+ KA131 2024-2025 (SEPIE / Comisión Europea). A partir de 4.000 km el importe es el mismo independientemente del tipo de transporte.
+              🇪🇺 Fuente: tarifas oficiales Erasmus+ KA131, vigentes desde 2024-25 hasta el curso 2026-27 (SEPIE / Comisión Europea). A partir de 4.000 km el importe es el mismo independientemente del tipo de transporte.
             </p>
           </div>
         </section>
