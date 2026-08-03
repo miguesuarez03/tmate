@@ -248,9 +248,10 @@ function VersusGrid({ scoreIds, selectedCities, scoreMaps }) {
 }
 
 /* ─── Mini card (selector view) ─────────────────────────────────────────
-   Tarjeta compacta con checkbox — se usa tanto para las ciudades ya
-   seleccionadas (checked, dispara `remove`) como para el resto de destinos
-   dentro de cada acordeón de región (sin marcar, dispara `toggle`). */
+   Tarjeta compacta con miniatura de ciudad — se usa tanto para las ciudades
+   ya seleccionadas (checked, dispara `remove`, con IconCheck superpuesto)
+   como para el resto de destinos dentro de cada acordeón de región (sin
+   marcar, dispara `toggle`). */
 function MiniCard({ city, checked = false, disabled = false, accentColor, onClick }) {
   return (
     <button
@@ -260,10 +261,21 @@ function MiniCard({ city, checked = false, disabled = false, accentColor, onClic
       onClick={onClick}
       disabled={disabled}
     >
-      <span className={styles.miniCheck} style={checked ? { background: accentColor, borderColor: accentColor } : {}}>
-        {checked ? "✓" : ""}
+      <span className={styles.miniThumb}>
+        <img
+          className={styles.miniThumbImg}
+          src={city.img}
+          alt=""
+          loading="lazy"
+          onError={(e) => { e.currentTarget.style.opacity = 0; }}
+        />
+        <span className={styles.miniEmoji}>{city.emoji}</span>
+        {checked && (
+          <span className={styles.miniCheck}>
+            <IconCheck size={20} />
+          </span>
+        )}
       </span>
-      <span className={styles.miniEmoji}>{city.emoji}</span>
       <span className={styles.miniInfo}>
         <span className={styles.miniName}>{city.name}</span>
         <span className={styles.miniCountry}>{city.country}</span>

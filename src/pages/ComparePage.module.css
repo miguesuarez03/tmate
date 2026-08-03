@@ -184,9 +184,9 @@
 .groupCount {
   font-family: var(--font-body);
   font-size: 12px;
-  font-weight: 700;
-  color: var(--color-muted);
-  background: var(--color-surface);
+  font-weight: 800;
+  color: var(--color-amber);
+  background: color-mix(in srgb, var(--color-amber) 14%, transparent);
   border-radius: var(--radius-full);
   padding: 2px 10px;
 }
@@ -241,11 +241,11 @@
 .regionChevron {
   font-size: 20px; color: var(--color-muted);
   flex-shrink: 0; line-height: 1;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, color 0.2s ease;
   display: inline-block;
   transform: rotate(90deg);
 }
-.regionChevronOpen { transform: rotate(-90deg); }
+.regionChevronOpen { transform: rotate(-90deg); color: var(--color-amber); }
 .regionBody {
   padding: 2px 20px 20px;
   animation: versusSlideIn 0.2s var(--ease-smooth);
@@ -261,38 +261,73 @@
 .miniCard {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   background: var(--color-surface);
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: 10px 12px;
+  padding: 9px 12px;
   cursor: pointer;
   text-align: left;
   font-family: var(--font-body);
   transition: transform 0.15s var(--ease-spring), border-color 0.2s, box-shadow 0.2s, background 0.2s;
 }
 .miniCard:hover:not(:disabled) {
-  border-color: var(--color-primary);
+  border-color: var(--color-amber);
   background: var(--color-white);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 6px 20px rgba(255,176,32,0.16);
   transform: translateY(-2px);
 }
+.miniCard:hover:not(:disabled) .miniThumbImg { transform: scale(1.08); }
 .miniCardSelected {
   background: color-mix(in srgb, var(--tile-color) 8%, var(--color-white));
   border-color: var(--tile-color);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--tile-color) 20%, transparent);
+  animation: miniPopIn 0.35s var(--ease-spring);
 }
 .miniCardDisabled { opacity: 0.4; cursor: not-allowed; }
-.miniCheck {
-  width: 22px; height: 22px; border-radius: 7px;
-  border: 1.5px solid var(--color-border);
-  background: var(--color-white);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 12px; font-weight: 800; color: #fff;
-  flex-shrink: 0;
-  transition: background 0.15s, border-color 0.15s;
+@keyframes miniPopIn {
+  from { opacity: 0; transform: scale(0.86); }
+  to { opacity: 1; transform: scale(1); }
 }
-.miniEmoji { font-size: 18px; flex-shrink: 0; }
+
+/* Miniatura circular de la ciudad — bandera como badge inferior, check
+   ilustrado (IconCheck) como badge superior solo cuando está seleccionada. */
+.miniThumb {
+  position: relative;
+  width: 42px; height: 42px;
+  flex-shrink: 0;
+}
+.miniThumbImg {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  background: var(--color-border);
+  box-shadow: 0 0 0 2px var(--color-white), 0 0 0 3px var(--color-border);
+  transition: transform 0.25s var(--ease-smooth), box-shadow 0.2s;
+}
+.miniCardSelected .miniThumbImg {
+  box-shadow: 0 0 0 2px var(--color-white), 0 0 0 3px var(--tile-color);
+}
+.miniEmoji {
+  position: absolute; bottom: -3px; right: -4px;
+  font-size: 11px; line-height: 1;
+  background: var(--color-white);
+  border-radius: 50%;
+  width: 18px; height: 18px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+.miniCheck {
+  position: absolute; top: -6px; right: -6px;
+  width: 22px; height: 22px;
+  display: flex; align-items: center; justify-content: center;
+  animation: miniCheckPop 0.4s var(--ease-spring) 0.05s both;
+}
+@keyframes miniCheckPop {
+  from { opacity: 0; transform: scale(0.4) rotate(-15deg); }
+  to { opacity: 1; transform: scale(1) rotate(0); }
+}
 .miniInfo { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
 .miniName {
   font-size: 13.5px; font-weight: 700; color: var(--color-dark);
@@ -315,6 +350,7 @@
   padding: 14px var(--section-px);
   padding-bottom: calc(14px + env(safe-area-inset-bottom));
   box-shadow: 0 -8px 32px rgba(0,0,0,0.08);
+  animation: fadeUp 0.3s var(--ease-spring) both;
 }
 .stickyCompareInner {
   max-width: 1200px;
@@ -844,6 +880,8 @@
   .stickyBarInner { flex-direction: column; align-items: stretch; gap: 12px; }
   .stickyChips { justify-content: flex-start; }
   .miniGrid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .miniCard { gap: 9px; }
+  .miniThumb { width: 36px; height: 36px; }
   .stickyCompareBar .compareBtn { flex: 1; text-align: center; }
 
   /* Diferencias más destacadas: menos "visual" en móvil — quitamos las
