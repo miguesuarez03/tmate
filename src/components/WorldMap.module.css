@@ -42,7 +42,7 @@
   background: var(--map-bg);
   border-radius: 24px;
   overflow: hidden;
-  height: 540px;
+  height: 380px;
   border: 1.5px solid var(--map-border);
   box-shadow: 0 4px 24px rgba(0,0,0,0.08);
 }
@@ -336,7 +336,7 @@
 
 /* ─── Responsive ─────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .mapContainer { height: 420px; }
+  .mapContainer { height: 300px; }
 
   .mapFilters {
     top: 12px;
