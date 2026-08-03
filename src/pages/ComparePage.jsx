@@ -313,8 +313,18 @@ export default function ComparePage() {
     );
   }
   function remove(slug) {
-    setSelected((prev) => prev.filter((s) => s !== slug));
-    if (selected.length <= 2) setComparing(false);
+    setSearchParams((prev) => {
+      const params = new URLSearchParams(prev);
+      const next = selected.filter((s) => s !== slug);
+      if (next.length) {
+        params.set("cities", next.join(","));
+        if (next.length < 2) params.delete("view");
+      } else {
+        params.delete("cities");
+        params.delete("view");
+      }
+      return params;
+    }, { replace: true });
   }
 
   const canCompare = selected.length >= 2;
