@@ -3,7 +3,7 @@
 // dominio propio). Se usa para canonical URLs, Open Graph, sitemap.xml y
 // robots.txt — si está mal, ayuda menos que no tenerlo, así que revísalo
 // antes de publicar.
-export const SITE_URL = "https://tmate.app";
+export const SITE_URL = "https://mabroad.com";
 export const SITE_NAME = "TMate";
 
 export function getWebsiteJsonLd() {

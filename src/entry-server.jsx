@@ -45,36 +45,36 @@ const STATIC_PAGE_META = {
     title: "¿Cómo funciona el Erasmus? — Guía completa paso a paso | TMate",
     description:
       "Todo el proceso Erasmus explicado en 8 pasos: desde elegir destino hasta volver a casa. Guía práctica y honesta para estudiantes.",
-    changefreq: "monthly",
-    priority: 0.7,
+    changefreq: "weekly",
+    priority: 0.8,
   },
   "/comparar": {
     title: "Comparador de ciudades Erasmus — Pon tus destinos lado a lado | TMate",
     description:
       "Compara hasta 3 ciudades Erasmus a la vez: coste de vida, vida social, seguridad, empleo y más. Radar comparativo, diferencias destacadas y resumen automático.",
-    changefreq: "monthly",
+    changefreq: "weekly",
     priority: 0.8,
   },
   "/city-match": {
     title: "City Match — Encuentra tu ciudad Erasmus ideal | TMate",
     description:
       "Responde 8 preguntas sobre presupuesto, clima, idioma y estilo de vida, y descubre qué ciudades Erasmus encajan mejor contigo.",
-    changefreq: "monthly",
+    changefreq: "weekly",
     priority: 0.8,
   },
   "/learning-agreement": {
     title: "Learning Agreement Erasmus — Guía completa para convalidar todo | TMate",
     description:
       "Cómo preparar el Learning Agreement paso a paso: histórico de convalidaciones, OLA digital, cambios durante la estancia y consejos reales de estudiantes.",
-    changefreq: "monthly",
-    priority: 0.7,
+    changefreq: "weekly",
+    priority: 0.8,
   },
   "/beca-erasmus": {
     title: "Beca Erasmus+: cuánto se cobra y cómo funciona | TMate",
     description:
       "Guía completa de la beca Erasmus+ para estudiantes españoles: importes por país, complementos, compatibilidad con MEC y estimador de cuánto cobrarías.",
-    changefreq: "monthly",
-    priority: 0.7,
+    changefreq: "weekly",
+    priority: 0.8,
   },
   "/tipos-de-intercambio": {
     title: "Tipos de intercambio: Erasmus+ vs. convenios bilaterales | TMate",
@@ -99,7 +99,7 @@ export const ALL_ROUTES = [
   ...CITIES.map((c) => ({
     path: `/city/${c.slug}`,
     changefreq: "monthly",
-    priority: 0.9,
+    priority: 0.6,
   })),
 ];
 
