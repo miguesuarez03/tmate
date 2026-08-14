@@ -6,6 +6,10 @@
 export const SITE_URL = "https://mabroad.com";
 export const SITE_NAME = "TMate";
 
+// Imagen OG/Twitter por defecto para páginas sin foto propia (home, comparador,
+// City Match, beca, Learning Agreement). Las fichas de ciudad usan su heroImg.
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
+
 export function getWebsiteJsonLd() {
   return {
     "@context": "https://schema.org",

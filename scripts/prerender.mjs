@@ -73,7 +73,9 @@ function renderTemplate(template, appHtml, meta) {
   html = html
     .replace(/\s*<meta\s+property="og:type"[^>]*>/g, "")
     .replace(/\s*<meta\s+property="og:site_name"[^>]*>/g, "")
-    .replace(/\s*<meta\s+name="twitter:card"[^>]*>/g, "");
+    .replace(/\s*<meta\s+property="og:image"[^>]*>/g, "")
+    .replace(/\s*<meta\s+name="twitter:card"[^>]*>/g, "")
+    .replace(/\s*<meta\s+name="twitter:image"[^>]*>/g, "");
 
   // 4) Inyecta el head por página justo antes de </head>
   html = html.replace(/<\/head>/, `${buildHeadTags(meta)}\n  </head>`);

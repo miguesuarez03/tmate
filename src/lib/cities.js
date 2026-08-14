@@ -6,6 +6,7 @@
 
 import { CITIES } from '../data/cities';
 import { CITY_INSIGHTS, DEFAULT_INSIGHTS } from '../data/insights';
+import { DEFAULT_OG_IMAGE } from './seo';
 
 /** @typedef {import('../types').City} City */
 /** @typedef {import('../types').CityFilters} CityFilters */
@@ -436,15 +437,32 @@ export function clearCompare() {
  * @param {City} city
  * @param {number} overallScore
  */
+// Genera el <title> de una ficha de ciudad con un presupuesto de 60 caracteres:
+// intenta la versión más completa (con país) y va recortando hasta que quepa.
+// Nombres de ciudad muy largos (p. ej. "Cartagena de Indias") o países largos
+// ("República Dominicana") harían que una plantilla fija se pasara de 60
+// caracteres y Google la truncara en el buscador — por eso el fallback en capas
+// en vez de una única plantilla.
+function buildCityTitle(city, type) {
+  const withCountry = `${city.name} ${type}: guía, coste y vida en ${city.country} | TMate`;
+  if (withCountry.length <= 60) return withCountry;
+  const noCountry = `${city.name} ${type}: guía, coste y vida | TMate`;
+  if (noCountry.length <= 60) return noCountry;
+  const short = `${city.name} ${type}: guía completa | TMate`;
+  if (short.length <= 60) return short;
+  return `${city.name} ${type} | TMate`;
+}
+
 export function getCityMeta(city, overallScore) {
   const eligible = isErasmusEligible(city);
+  const type = eligible ? 'Erasmus' : 'Intercambio';
   return {
-    title: `${city.name} ${eligible ? 'Erasmus' : 'Intercambio'} — Guía completa ${city.country} | TMate`,
-    description: `Todo sobre ${eligible ? 'el Erasmus' : 'el intercambio internacional'} en ${city.name}: coste de vida ${city.costDetail}, scores reales, barrios, universidades y tips de estudiantes. Puntuación TMate: ${overallScore}/10.`,
+    title: buildCityTitle(city, type),
+    description: `Todo sobre ${eligible ? 'el Erasmus' : 'estudiar'} en ${city.name}: coste de vida ${city.costDetail}, scores reales, barrios, universidades y tips de estudiantes. Puntuación TMate: ${overallScore}/10.`,
     keywords: eligible
       ? `Erasmus ${city.name}, ${city.nameEn} Erasmus, estudiar en ${city.country}, ${city.tag}`
       : `Estudiar en ${city.name}, ${city.nameEn} intercambio, estudiar en ${city.country}, ${city.tag}`,
-    ogImage: city.heroImg,
+    ogImage: city.heroImg || DEFAULT_OG_IMAGE,
   };
 }
 
@@ -453,9 +471,10 @@ export function getCityMeta(city, overallScore) {
  */
 export function getHomeMeta() {
   return {
-    title: 'TMate — Descubre tu próximo Erasmus',
-    description: `La guía definitiva para elegir tu ciudad Erasmus. ${CITIES.length} destinos con scores reales, opiniones de estudiantes y guías locales. Gratis siempre.`,
+    title: 'TMate — Descubre y compara tu ciudad Erasmus ideal',
+    description: `La guía definitiva para elegir tu ciudad Erasmus. ${CITIES.length} destinos con scores reales, opiniones de estudiantes y guías locales. Totalmente gratis.`,
     keywords: 'Erasmus ciudades, mejores destinos Erasmus, guía Erasmus Europa, TMate',
+    ogImage: DEFAULT_OG_IMAGE,
   };
 }
 

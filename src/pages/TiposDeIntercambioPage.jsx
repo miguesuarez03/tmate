@@ -45,8 +45,8 @@ export default function TiposDeIntercambioPage() {
   const navigate = useNavigate();
 
   useSEO({
-    title: "Tipos de intercambio: Erasmus+ vs. convenios bilaterales | TMate",
-    description: "Erasmus+, Reino Unido y Suiza explicados: qué es cada programa, si necesitas visado y cómo funciona la financiación en cada caso.",
+    title: "Tipos de intercambio: Erasmus+, UK y Suiza | TMate",
+    description: "Erasmus+, Reino Unido y Suiza explicados con detalle: qué es cada programa, si necesitas visado y cómo funciona la financiación en cada caso.",
   });
 
   return (

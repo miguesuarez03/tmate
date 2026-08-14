@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { getCityMeta, getHomeMeta } from '../lib/cities';
-import { SITE_URL, SITE_NAME } from '../lib/seo';
+import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from '../lib/seo';
 
-const DEFAULT_TITLE = 'TMate — Descubre tu próximo Erasmus';
+const DEFAULT_TITLE = 'TMate — Descubre y compara tu ciudad Erasmus ideal';
 
 function setMeta(attr, key, content) {
   if (!content) return;
@@ -57,7 +57,7 @@ export function useSEO({ city = null, overallScore = 0, isHome = false, title, d
       : city
         ? getCityMeta(city, overallScore)
         : (title || description)
-          ? { title, description }
+          ? { title, description, ogImage: DEFAULT_OG_IMAGE }
           : null;
 
     if (!meta) return;

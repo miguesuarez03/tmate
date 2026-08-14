@@ -438,8 +438,8 @@ export default function ProcesoPage() {
   const detailRef = useRef(null);
 
   useSEO({
-    title: "¿Cómo funciona el Erasmus? — Guía completa paso a paso | TMate",
-    description: "Todo el proceso Erasmus explicado en 8 pasos: desde elegir destino hasta volver a casa. Guía práctica y honesta para estudiantes.",
+    title: "¿Cómo funciona el Erasmus? Guía paso a paso | TMate",
+    description: "Todo el proceso Erasmus explicado en 8 pasos: desde elegir destino hasta volver a casa. Guía práctica, honesta y sin rodeos para estudiantes.",
   });
 
   const handleStepClick = (i) => {

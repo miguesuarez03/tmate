@@ -2,6 +2,7 @@ import { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollRestoration from "./components/ScrollRestoration";
 import RouteLoader from "./components/RouteLoader";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 import "./styles/global.css";
 
 // Code-splitting por ruta: cada página se descarga bajo demanda en vez de
@@ -22,6 +23,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollRestoration />
+      <GoogleAnalytics />
       <Suspense fallback={<RouteLoader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />

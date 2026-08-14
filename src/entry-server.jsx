@@ -34,22 +34,22 @@ import TiposDeIntercambioPage from "./pages/TiposDeIntercambioPage";
 
 import { CITIES } from "./data/cities";
 import { getCityBySlug, getOverallScore, getCityMeta, getHomeMeta } from "./lib/cities";
-import { getCityJsonLd, getWebsiteJsonLd, SITE_URL, SITE_NAME } from "./lib/seo";
+import { getCityJsonLd, getWebsiteJsonLd, SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from "./lib/seo";
 
-const DEFAULT_TITLE = "TMate — Descubre tu próximo Erasmus";
+const DEFAULT_TITLE = "TMate — Descubre y compara tu ciudad Erasmus ideal";
 
 // ─── Metadatos por ruta estática (idénticos a los que cada página pasa a
 //     useSEO). Fuente única de verdad para el prerender. ───────────────────────
 const STATIC_PAGE_META = {
   "/proceso": {
-    title: "¿Cómo funciona el Erasmus? — Guía completa paso a paso | TMate",
+    title: "¿Cómo funciona el Erasmus? Guía paso a paso | TMate",
     description:
-      "Todo el proceso Erasmus explicado en 8 pasos: desde elegir destino hasta volver a casa. Guía práctica y honesta para estudiantes.",
+      "Todo el proceso Erasmus explicado en 8 pasos: desde elegir destino hasta volver a casa. Guía práctica, honesta y sin rodeos para estudiantes.",
     changefreq: "weekly",
     priority: 0.8,
   },
   "/comparar": {
-    title: "Comparador de ciudades Erasmus — Pon tus destinos lado a lado | TMate",
+    title: "Comparador de ciudades Erasmus lado a lado | TMate",
     description:
       "Compara hasta 3 ciudades Erasmus a la vez: coste de vida, vida social, seguridad, empleo y más. Radar comparativo, diferencias destacadas y resumen automático.",
     changefreq: "weekly",
@@ -58,12 +58,12 @@ const STATIC_PAGE_META = {
   "/city-match": {
     title: "City Match — Encuentra tu ciudad Erasmus ideal | TMate",
     description:
-      "Responde 8 preguntas sobre presupuesto, clima, idioma y estilo de vida, y descubre qué ciudades Erasmus encajan mejor contigo.",
+      "Responde 10 preguntas sobre tu presupuesto, clima ideal, idioma y estilo de vida, y descubre en segundos qué ciudad Erasmus encaja mejor contigo.",
     changefreq: "weekly",
     priority: 0.8,
   },
   "/learning-agreement": {
-    title: "Learning Agreement Erasmus — Guía completa para convalidar todo | TMate",
+    title: "Learning Agreement Erasmus: la guía completa | TMate",
     description:
       "Cómo preparar el Learning Agreement paso a paso: histórico de convalidaciones, OLA digital, cambios durante la estancia y consejos reales de estudiantes.",
     changefreq: "weekly",
@@ -77,9 +77,9 @@ const STATIC_PAGE_META = {
     priority: 0.8,
   },
   "/tipos-de-intercambio": {
-    title: "Tipos de intercambio: Erasmus+ vs. convenios bilaterales | TMate",
+    title: "Tipos de intercambio: Erasmus+, UK y Suiza | TMate",
     description:
-      "Erasmus+, Reino Unido y Suiza explicados: qué es cada programa, si necesitas visado y cómo funciona la financiación en cada caso.",
+      "Erasmus+, Reino Unido y Suiza explicados con detalle: qué es cada programa, si necesitas visado y cómo funciona la financiación en cada caso.",
     changefreq: "monthly",
     priority: 0.6,
   },
@@ -118,7 +118,7 @@ export function getMetaForPath(pathname) {
       description: m.description,
       canonical,
       ogType: "website",
-      ogImage: null,
+      ogImage: m.ogImage || DEFAULT_OG_IMAGE,
       jsonLd: getWebsiteJsonLd(),
     };
   }
@@ -149,7 +149,7 @@ export function getMetaForPath(pathname) {
       description: m.description,
       canonical,
       ogType: "website",
-      ogImage: null,
+      ogImage: DEFAULT_OG_IMAGE,
       jsonLd: null,
     };
   }
@@ -161,7 +161,7 @@ export function getMetaForPath(pathname) {
       "La guía definitiva para elegir tu ciudad Erasmus, con scores reales, comparador y calculadora de beca.",
     canonical,
     ogType: "website",
-    ogImage: null,
+    ogImage: DEFAULT_OG_IMAGE,
     jsonLd: null,
   };
 }

@@ -645,7 +645,7 @@ export default function LearningAgreementPage() {
   const navigate = useNavigate();
 
   useSEO({
-    title: "Learning Agreement Erasmus — Guía completa para convalidar todo | TMate",
+    title: "Learning Agreement Erasmus: la guía completa | TMate",
     description: "Cómo preparar el Learning Agreement paso a paso: histórico de convalidaciones, OLA digital, cambios durante la estancia y consejos reales de estudiantes.",
   });
 

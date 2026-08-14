@@ -259,7 +259,7 @@ export default function CityMatchPage() {
 
   useSEO({
     title: "City Match — Encuentra tu ciudad Erasmus ideal | TMate",
-    description: "Responde 9 preguntas sobre presupuesto, clima, idioma y estilo de vida, y descubre qué ciudades Erasmus encajan mejor contigo.",
+    description: "Responde 10 preguntas sobre tu presupuesto, clima ideal, idioma y estilo de vida, y descubre en segundos qué ciudad Erasmus encaja mejor contigo.",
   });
 
   // Si la URL trae respuestas guardadas (?r=valor-valor-...), restaura
