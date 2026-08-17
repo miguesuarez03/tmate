@@ -15,11 +15,11 @@ const SCORE_IDS = [
   "movilidad", "estilo_vida", "empleo", "seguridad",
 ];
 
-const COL_COLORS = ["#3F7A7D", "#F59E0B", "#8B5CF6"];
+const COL_COLORS = ["#3F7A7D", "#F59E0B", "#B45309"];
 const COL_GRADIENTS = [
   "linear-gradient(135deg,#3F7A7D,#2F5073)",
   "linear-gradient(135deg,#F59E0B,#EF4444)",
-  "linear-gradient(135deg,#8B5CF6,#EC4899)",
+  "linear-gradient(135deg,#FFC95E,#B45309)",
 ];
 
 // ─── Radar comparativo ──────────────────────────────────────────────────
