@@ -571,7 +571,7 @@ export default function BecaErasmusPage() {
   const navigate = useNavigate();
 
   useSEO({
-    title: "Beca Erasmus+: cuánto se cobra y cómo funciona | TMate",
+    title: "Beca Erasmus+: cuánto se cobra y cómo funciona | MAbroad",
     description: "Guía completa de la beca Erasmus+ para estudiantes españoles: importes por país, complementos, compatibilidad con MEC y estimador de cuánto cobrarías.",
   });
 

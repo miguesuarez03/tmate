@@ -1,5 +1,5 @@
 /**
- * cityCoords.js — TMate
+ * cityCoords.js — MAbroad
  *
  * Coordenadas [lng, lat] de las 20 ciudades destino (mismas que usa WorldMap.jsx
  * para los pines del mapa). Se reutilizan aquí para la calculadora de distancia

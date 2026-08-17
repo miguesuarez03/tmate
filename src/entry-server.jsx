@@ -36,48 +36,48 @@ import { CITIES } from "./data/cities";
 import { getCityBySlug, getOverallScore, getCityMeta, getHomeMeta } from "./lib/cities";
 import { getCityJsonLd, getWebsiteJsonLd, SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from "./lib/seo";
 
-const DEFAULT_TITLE = "TMate — Descubre y compara tu ciudad Erasmus ideal";
+const DEFAULT_TITLE = "MAbroad — Descubre y compara tu ciudad Erasmus ideal";
 
 // ─── Metadatos por ruta estática (idénticos a los que cada página pasa a
 //     useSEO). Fuente única de verdad para el prerender. ───────────────────────
 const STATIC_PAGE_META = {
   "/proceso": {
-    title: "¿Cómo funciona el Erasmus? Guía paso a paso | TMate",
+    title: "¿Cómo funciona el Erasmus? Guía paso a paso | MAbroad",
     description:
       "Todo el proceso Erasmus explicado en 8 pasos: desde elegir destino hasta volver a casa. Guía práctica, honesta y sin rodeos para estudiantes.",
     changefreq: "weekly",
     priority: 0.8,
   },
   "/comparar": {
-    title: "Comparador de ciudades Erasmus lado a lado | TMate",
+    title: "Comparador de ciudades Erasmus lado a lado | MAbroad",
     description:
       "Compara hasta 3 ciudades Erasmus a la vez: coste de vida, vida social, seguridad, empleo y más. Radar comparativo, diferencias destacadas y resumen automático.",
     changefreq: "weekly",
     priority: 0.8,
   },
   "/city-match": {
-    title: "City Match — Encuentra tu ciudad Erasmus ideal | TMate",
+    title: "City Match — Encuentra tu ciudad Erasmus ideal | MAbroad",
     description:
       "Responde 10 preguntas sobre tu presupuesto, clima ideal, idioma y estilo de vida, y descubre en segundos qué ciudad Erasmus encaja mejor contigo.",
     changefreq: "weekly",
     priority: 0.8,
   },
   "/learning-agreement": {
-    title: "Learning Agreement Erasmus: la guía completa | TMate",
+    title: "Learning Agreement Erasmus: la guía completa | MAbroad",
     description:
       "Cómo preparar el Learning Agreement paso a paso: histórico de convalidaciones, OLA digital, cambios durante la estancia y consejos reales de estudiantes.",
     changefreq: "weekly",
     priority: 0.8,
   },
   "/beca-erasmus": {
-    title: "Beca Erasmus+: cuánto se cobra y cómo funciona | TMate",
+    title: "Beca Erasmus+: cuánto se cobra y cómo funciona | MAbroad",
     description:
       "Guía completa de la beca Erasmus+ para estudiantes españoles: importes por país, complementos, compatibilidad con MEC y estimador de cuánto cobrarías.",
     changefreq: "weekly",
     priority: 0.8,
   },
   "/tipos-de-intercambio": {
-    title: "Tipos de intercambio: Erasmus+, UK y Suiza | TMate",
+    title: "Tipos de intercambio: Erasmus+, UK y Suiza | MAbroad",
     description:
       "Erasmus+, Reino Unido y Suiza explicados con detalle: qué es cada programa, si necesitas visado y cómo funciona la financiación en cada caso.",
     changefreq: "monthly",

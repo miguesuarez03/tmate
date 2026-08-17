@@ -31,7 +31,7 @@ export default function MethodologyNote({ compact = false }) {
           </p>
           <p className="trust-note__feedback">
             ¿Ves algo desactualizado o que no cuadra?{" "}
-            <a href="mailto:hola@tmate.app?subject=Dato%20desactualizado%20en%20TMate">Escríbenos</a>.
+            <a href="mailto:hola@tmate.app?subject=Dato%20desactualizado%20en%20MAbroad">Escríbenos</a>.
           </p>
         </div>
       )}

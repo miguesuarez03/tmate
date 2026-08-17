@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 /**
- * IconPlaya — icono ilustrado TMate (sistema 3D consistente).
+ * IconPlaya — icono ilustrado MAbroad (sistema 3D consistente).
  * Sombrilla — cerca del mar / playa.
  * Multi-color: franjas Sky/rojo cálido sobre base Amber, mástil Navy.
  * Luz 135°, sombra navy 20%, brillo especular soft-light.

@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 /**
- * IconReloj — icono ilustrado TMate (sistema 3D consistente).
+ * IconReloj — icono ilustrado MAbroad (sistema 3D consistente).
  * Reloj — tiempo / plazo / espera.
  * Luz 135°, sombra navy 20%, brillo especular soft-light.
  * @param {number} size - tamaño en px (ancho y alto). Default 56.

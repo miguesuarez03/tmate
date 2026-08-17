@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 /**
- * IconGlobo — icono ilustrado TMate (sistema 3D consistente).
+ * IconGlobo — icono ilustrado MAbroad (sistema 3D consistente).
  * Globo digital — plataforma online, red, web.
  * Luz 135°, sombra navy 20%, brillo especular soft-light.
  * @param {number} size - tamaño en px (ancho y alto). Default 56.

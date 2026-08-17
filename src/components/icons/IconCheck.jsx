@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 /**
- * IconCheck — icono ilustrado TMate (sistema 3D consistente).
+ * IconCheck — icono ilustrado MAbroad (sistema 3D consistente).
  * Check circular — aceptación / hecho / completado.
  * Luz 135°, sombra navy 20%, brillo especular soft-light.
  * @param {number} size - tamaño en px (ancho y alto). Default 56.

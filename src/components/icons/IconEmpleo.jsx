@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 /**
- * IconEmpleo — icono ilustrado TMate (sistema 3D consistente).
+ * IconEmpleo — icono ilustrado MAbroad (sistema 3D consistente).
  * Maletín — empleo y oportunidades.
  * Multi-color: cuerpo Amber/Gold, cierre Navy, indicador Emerald.
  * Luz 135°, sombra navy 20%, brillo especular soft-light.

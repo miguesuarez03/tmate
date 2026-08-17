@@ -325,7 +325,7 @@ const WIZARD_DEFAULTS = {
 function buildEmailContent(data, destinoCity) {
   const subject = `Learning Agreement — ${data.nombre} (${destinoCity?.name || data.ciudadDestino})`;
   const body =
-`Solicitud de propuesta de equivalencias — TMate Learning Agreement
+`Solicitud de propuesta de equivalencias — MAbroad Learning Agreement
 
 UNIVERSIDAD DE ORIGEN
 Universidad: ${data.universidadOrigen}
@@ -645,7 +645,7 @@ export default function LearningAgreementPage() {
   const navigate = useNavigate();
 
   useSEO({
-    title: "Learning Agreement Erasmus: la guía completa | TMate",
+    title: "Learning Agreement Erasmus: la guía completa | MAbroad",
     description: "Cómo preparar el Learning Agreement paso a paso: histórico de convalidaciones, OLA digital, cambios durante la estancia y consejos reales de estudiantes.",
   });
 

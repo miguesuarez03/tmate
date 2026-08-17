@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 /**
- * IconSeguridad — icono ilustrado TMate (sistema 3D consistente).
+ * IconSeguridad — icono ilustrado MAbroad (sistema 3D consistente).
  * Luz 135°, sombra navy 20%, brillo especular soft-light.
  * @param {number} size - tamaño en px (ancho y alto). Default 56.
  * @param {string} className

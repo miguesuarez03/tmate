@@ -45,7 +45,7 @@ export default function TiposDeIntercambioPage() {
   const navigate = useNavigate();
 
   useSEO({
-    title: "Tipos de intercambio: Erasmus+, UK y Suiza | TMate",
+    title: "Tipos de intercambio: Erasmus+, UK y Suiza | MAbroad",
     description: "Erasmus+, Reino Unido y Suiza explicados con detalle: qué es cada programa, si necesitas visado y cómo funciona la financiación en cada caso.",
   });
 
@@ -58,7 +58,7 @@ export default function TiposDeIntercambioPage() {
           <SectionLabel color="#10B981">Guía rápida</SectionLabel>
           <h1 className={styles.heroTitle}>Tipos de intercambio</h1>
           <p className={styles.heroSub}>
-            No todos los destinos de TMate son Erasmus+. Aquí te explicamos qué significa cada tipo de programa,
+            No todos los destinos de MAbroad son Erasmus+. Aquí te explicamos qué significa cada tipo de programa,
             si necesitas visado y cómo funciona la financiación, para que sepas a qué atenerte antes de elegir destino.
           </p>
         </div>
@@ -101,7 +101,7 @@ export default function TiposDeIntercambioPage() {
 
       <section className={styles.cta}>
         <h2 className={styles.ctaTitle}>¿Ya sabes qué tipo de destino buscas?</h2>
-        <p className={styles.ctaSub}>Explora los destinos de TMate o haz el City Match para encontrar el tuyo.</p>
+        <p className={styles.ctaSub}>Explora los destinos de MAbroad o haz el City Match para encontrar el tuyo.</p>
         <div className={styles.ctaBtns}>
           <button className="btn-primary" onClick={() => navigate("/")}>
             Explorar destinos →

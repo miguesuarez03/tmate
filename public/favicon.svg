@@ -1,10 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="520" viewBox="0 0 520 520" fill="none">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0EA5E9"/>
-      <stop offset="100%" stop-color="#14B8A6"/>
+    <linearGradient id="leftMountain" x1="55" y1="115" x2="190" y2="365" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#16364D"/>
+      <stop offset="1" stop-color="#2F5073"/>
+    </linearGradient>
+    <linearGradient id="rightMountain" x1="190" y1="365" x2="325" y2="115" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3F7A7D"/>
+      <stop offset="0.55" stop-color="#55A9B3"/>
+      <stop offset="1" stop-color="#A6D5DB"/>
+    </linearGradient>
+    <linearGradient id="sun" x1="155" y1="365" x2="225" y2="295" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F5963A"/>
+      <stop offset="1" stop-color="#F7CA52"/>
     </linearGradient>
   </defs>
-  <circle cx="32" cy="32" r="32" fill="url(#g)"/>
-  <text x="32" y="42" font-size="32" text-anchor="middle">🌍</text>
+  <path d="M45 365 L45 125 L185 365 L325 125 L465 365"
+        stroke="url(#leftMountain)" stroke-width="50"
+        stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M185 365 L325 125 L465 365"
+        stroke="url(#rightMountain)" stroke-width="50"
+        stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M220 365 A65 65 0 0 1 350 365 Z" fill="url(#sun)"/>
 </svg>

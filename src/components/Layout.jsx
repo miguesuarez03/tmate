@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useId, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   IconExplorar,
@@ -11,18 +11,66 @@ import {
 } from "./icons";
 import ThemeToggle, { ThemeToggleRow } from "./ThemeToggle";
 
+// Símbolo MA — trazo grueso de puntas redondeadas que dibuja la M y la A de
+// un solo recorrido (vertical → valle → pico → base), con el tramo derecho
+// repasado en un degradado distinto para lograr el efecto bitono, y el sol
+// como semicírculo apoyado en la línea base entre las dos montañas.
+// El icono nunca se recolorea — mismos degradados siempre, independientemente
+// del modo claro/oscuro o del fondo del navbar. Fuente: MAbroad_symbol_only.svg
+export function MASymbol({ size = 28 }) {
+  // Un solo símbolo puede aparecer varias veces en la misma página (navbar +
+  // footer, por ejemplo) — cada instancia necesita sus propios ids de
+  // degradado, o un `url(#id)` duplicado en el HTML sería inválido.
+  const uid = useId();
+  const leftId = `ma-left-${uid}`;
+  const rightId = `ma-right-${uid}`;
+  const sunId = `ma-sun-${uid}`;
+  return (
+    <svg viewBox="0 0 520 360" width={size} height={size * (360 / 520)} role="img" aria-hidden="true">
+      <defs>
+        <linearGradient id={leftId} x1="55" y1="35" x2="190" y2="285" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#16364D" />
+          <stop offset="1" stopColor="#2F5073" />
+        </linearGradient>
+        <linearGradient id={rightId} x1="190" y1="285" x2="325" y2="35" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#3F7A7D" />
+          <stop offset="0.55" stopColor="#55A9B3" />
+          <stop offset="1" stopColor="#A6D5DB" />
+        </linearGradient>
+        <linearGradient id={sunId} x1="155" y1="285" x2="225" y2="215" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#F5963A" />
+          <stop offset="1" stopColor="#F7CA52" />
+        </linearGradient>
+      </defs>
+      <path
+        d="M45 285 L45 45 L185 285 L325 45 L465 285"
+        stroke={`url(#${leftId})`}
+        strokeWidth="50"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+      <path
+        d="M185 285 L325 45 L465 285"
+        stroke={`url(#${rightId})`}
+        strokeWidth="50"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+      <path d="M220 285 A65 65 0 0 1 350 285 Z" fill={`url(#${sunId})`} />
+    </svg>
+  );
+}
+
 export function Logo({ dark = false, onClick }) {
   return (
     <div className="navbar__logo" onClick={onClick} role="button" tabIndex={0} aria-label="Ir al inicio">
       <div className="navbar__logo-icon">
-        <svg viewBox="0 0 24 24" width="18" height="18" role="img" aria-hidden="true">
-          <circle cx="12" cy="12" r="9" fill="none" stroke="#FFFFFF" strokeWidth="1.8"/>
-          <ellipse cx="12" cy="12" rx="3.6" ry="9" fill="none" stroke="#FFFFFF" strokeWidth="1.4" opacity="0.85"/>
-          <line x1="3" y1="12" x2="21" y2="12" stroke="#FFFFFF" strokeWidth="1.4" opacity="0.85"/>
-        </svg>
+        <MASymbol size={26} />
       </div>
       <span className="navbar__logo-text" style={{ color: dark ? "var(--color-dark)" : "#fff" }}>
-        TMate
+        Abroad
       </span>
     </div>
   );
@@ -238,7 +286,7 @@ export function Footer() {
   return (
     <footer className="footer">
       <Logo dark={false} onClick={() => navigate("/")} />
-      <p className="footer__copy">© 2025 TMate · Hecho para ciudadanos globales</p>
+      <p className="footer__copy">© 2025 MAbroad · Hecho para ciudadanos globales</p>
     </footer>
   );
 }

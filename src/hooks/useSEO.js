@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { getCityMeta, getHomeMeta } from '../lib/cities';
 import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from '../lib/seo';
 
-const DEFAULT_TITLE = 'TMate — Descubre y compara tu ciudad Erasmus ideal';
+const DEFAULT_TITLE = 'MAbroad — Descubre y compara tu ciudad Erasmus ideal';
 
 function setMeta(attr, key, content) {
   if (!content) return;

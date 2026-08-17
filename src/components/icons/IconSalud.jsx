@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 /**
- * IconSalud — icono ilustrado TMate (sistema 3D consistente).
+ * IconSalud — icono ilustrado MAbroad (sistema 3D consistente).
  * Cruz de salud — sanidad / TSE / seguro médico.
  * Luz 135°, sombra navy 20%, brillo especular soft-light.
  * @param {number} size - tamaño en px (ancho y alto). Default 56.

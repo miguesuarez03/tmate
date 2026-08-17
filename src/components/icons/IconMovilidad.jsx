@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 /**
- * IconMovilidad — icono ilustrado TMate (sistema 3D consistente).
+ * IconMovilidad — icono ilustrado MAbroad (sistema 3D consistente).
  * Tren — ubicación y movilidad.
  * Multi-color: cuerpo blanco sobre fondo Sky, ventanas Sky, luces rojo/Gold.
  * Luz 135°, sombra navy 20%, brillo especular soft-light.

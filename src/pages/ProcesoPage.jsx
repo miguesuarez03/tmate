@@ -21,7 +21,7 @@ const STEPS = [
 · El coste real de vida: alquiler, comida, transporte y ocio
 
 Visita cuanto antes la ORI de tu facultad: tienen el listado de universidades con convenio, requisitos y plazos exactos. Llegar tarde a informarte es el error más común.`,
-    note: "Usa TMate para comparar ciudades con scores reales de estudiantes que ya estuvieron ahí. Es exactamente para esto.",
+    note: "Usa MAbroad para comparar ciudades con scores reales de estudiantes que ya estuvieron ahí. Es exactamente para esto.",
     shortContent: [
       "Elige bien: no es solo una ciudad bonita, es donde vas a vivir meses.",
       "Tu nota media decide el orden de adjudicación de plazas.",
@@ -50,7 +50,7 @@ Visita cuanto antes la ORI de tu facultad: tienen el listado de universidades co
 · Adjuntar expediente, certificado de idioma y carta de motivación
 
 Después toca esperar: la resolución suele tardar entre 2 y 6 semanas.`,
-    tip: "💡 Ordena las preferencias con cabeza. No pongas una ciudad de número 1 solo porque suena bien — compara scores reales en TMate antes de decidir.",
+    tip: "💡 Ordena las preferencias con cabeza. No pongas una ciudad de número 1 solo porque suena bien — compara scores reales en MAbroad antes de decidir.",
     shortContent: [
       "Tu uni abre el plazo entre octubre y febrero.",
       "Ordena tus destinos por preferencia (3–5 opciones).",
@@ -438,7 +438,7 @@ export default function ProcesoPage() {
   const detailRef = useRef(null);
 
   useSEO({
-    title: "¿Cómo funciona el Erasmus? Guía paso a paso | TMate",
+    title: "¿Cómo funciona el Erasmus? Guía paso a paso | MAbroad",
     description: "Todo el proceso Erasmus explicado en 8 pasos: desde elegir destino hasta volver a casa. Guía práctica, honesta y sin rodeos para estudiantes.",
   });
 

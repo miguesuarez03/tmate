@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 /**
- * IconBombilla — icono ilustrado TMate (sistema 3D consistente).
+ * IconBombilla — icono ilustrado MAbroad (sistema 3D consistente).
  * Bombilla — idea / consejo / tip.
  * Luz 135°, sombra navy 20%, brillo especular soft-light.
  * @param {number} size - tamaño en px (ancho y alto). Default 56.

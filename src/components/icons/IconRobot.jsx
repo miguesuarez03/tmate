@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 /**
- * IconRobot — icono ilustrado TMate (sistema 3D consistente).
+ * IconRobot — icono ilustrado MAbroad (sistema 3D consistente).
  * Robot — inteligencia artificial / herramienta digital.
  * Luz 135°, sombra navy 20%, brillo especular soft-light.
  * @param {number} size - tamaño en px (ancho y alto). Default 56.

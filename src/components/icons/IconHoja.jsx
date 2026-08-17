@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 /**
- * IconHoja — icono ilustrado TMate (sistema 3D consistente).
+ * IconHoja — icono ilustrado MAbroad (sistema 3D consistente).
  * Hoja — viaje ecológico / green travel / sostenibilidad.
  * Luz 135°, sombra navy 20%, brillo especular soft-light.
  * @param {number} size - tamaño en px (ancho y alto). Default 56.

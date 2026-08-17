@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 /**
- * IconAlerta — icono ilustrado TMate (sistema 3D consistente).
+ * IconAlerta — icono ilustrado MAbroad (sistema 3D consistente).
  * Alerta / advertencia — color rojo sancionado como excepción semántica del sistema.
  * Luz 135°, sombra navy 20%, brillo especular soft-light.
  * @param {number} size - tamaño en px (ancho y alto). Default 56.

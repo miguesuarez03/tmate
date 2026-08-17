@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 /**
- * IconDocumento — icono ilustrado TMate (sistema 3D consistente).
+ * IconDocumento — icono ilustrado MAbroad (sistema 3D consistente).
  * Documento — informe / certificado único.
  * Luz 135°, sombra navy 20%, brillo especular soft-light.
  * @param {number} size - tamaño en px (ancho y alto). Default 56.

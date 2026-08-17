@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 /**
- * IconLaptop — icono ilustrado TMate (sistema 3D consistente).
+ * IconLaptop — icono ilustrado MAbroad (sistema 3D consistente).
  * Portátil — tech & startups.
  * Multi-color: cuerpo Navy/DeepTeal, pantalla con acento Sky + indicador Emerald.
  * Luz 135°, sombra navy 20%, brillo especular soft-light.

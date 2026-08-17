@@ -23,6 +23,11 @@ const ROOT = join(__dirname, "..");
 const DIST = join(ROOT, "dist");
 const SSR_BUNDLE = join(ROOT, ".ssr-temp", "entry-server.mjs");
 
+// Se rellena en main() con el SITE_NAME real exportado por entry-server.jsx
+// (que a su vez viene de src/lib/seo.js) — así og:site_name nunca queda
+// desincronizado del nombre de marca real.
+let SITE_NAME = "MAbroad";
+
 // ─── Utilidades de escape ────────────────────────────────────────────────────
 function escapeHtml(str = "") {
   return String(str)
@@ -42,7 +47,7 @@ function buildHeadTags(meta) {
   const tags = [];
   tags.push(`<link rel="canonical" href="${escapeHtml(meta.canonical)}" />`);
   tags.push(`<meta property="og:type" content="${escapeHtml(meta.ogType)}" />`);
-  tags.push(`<meta property="og:site_name" content="TMate" />`);
+  tags.push(`<meta property="og:site_name" content="${escapeHtml(SITE_NAME)}" />`);
   tags.push(`<meta property="og:title" content="${escapeHtml(meta.title)}" />`);
   tags.push(`<meta property="og:description" content="${escapeHtml(meta.description)}" />`);
   tags.push(`<meta property="og:url" content="${escapeHtml(meta.canonical)}" />`);
@@ -136,7 +141,8 @@ async function main() {
     process.exit(1);
   }
 
-  const { renderPage, ALL_ROUTES, SITE_URL } = await import(pathToFileURL(SSR_BUNDLE).href);
+  const { renderPage, ALL_ROUTES, SITE_URL, SITE_NAME: siteName } = await import(pathToFileURL(SSR_BUNDLE).href);
+  if (siteName) SITE_NAME = siteName;
   const template = readFileSync(join(DIST, "index.html"), "utf-8");
 
   let ok = 0;

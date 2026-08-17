@@ -1,5 +1,5 @@
 /**
- * UNIVERSITY_ERASMUS_LINKS — TMate
+ * UNIVERSITY_ERASMUS_LINKS — MAbroad
  *
  * Mapa de "nombre de universidad tal y como aparece en cities.js" -> URL oficial
  * de la página de Erasmus/Relaciones Internacionales (incoming students) de esa

@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 /**
- * IconSobre — icono ilustrado TMate (sistema 3D consistente).
+ * IconSobre — icono ilustrado MAbroad (sistema 3D consistente).
  * Sobre / correo — resolución, comunicaciones, email.
  * Luz 135°, sombra navy 20%, brillo especular soft-light.
  * @param {number} size - tamaño en px (ancho y alto). Default 56.

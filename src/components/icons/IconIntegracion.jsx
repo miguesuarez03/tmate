@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 /**
- * IconIntegracion — icono ilustrado TMate (sistema 3D consistente).
+ * IconIntegracion — icono ilustrado MAbroad (sistema 3D consistente).
  * Globo con nodos de red — integración internacional.
  * Multi-color: globo Sky/DeepTeal, nodos en Gold, rojo y Emerald.
  * Luz 135°, sombra navy 20%, brillo especular soft-light.

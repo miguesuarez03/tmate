@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 /**
- * IconSol — icono ilustrado TMate (sistema 3D consistente).
+ * IconSol — icono ilustrado MAbroad (sistema 3D consistente).
  * Sol — clima cálido / mucho sol.
  * Multi-color: núcleo Amber→Gold, acento interior en rojo cálido.
  * Luz 135°, sombra navy 20%, brillo especular soft-light.

@@ -1,5 +1,5 @@
 /**
- * CITY_WHATSAPP_GROUPS — TMate
+ * CITY_WHATSAPP_GROUPS — MAbroad
  *
  * Enlaces a grupos de WhatsApp reales por ciudad (uno por destino).
  * NOTA IMPORTANTE: esto es gestión de comunidad, no desarrollo. Hasta que

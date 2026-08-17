@@ -1,10 +1,10 @@
 // ⚠️ IMPORTANTE: confirma que este es el dominio real donde está desplegado
-// TMate (Vercel puede darte una URL distinta a menos que hayas conectado un
+// MAbroad (Vercel puede darte una URL distinta a menos que hayas conectado un
 // dominio propio). Se usa para canonical URLs, Open Graph, sitemap.xml y
 // robots.txt — si está mal, ayuda menos que no tenerlo, así que revísalo
 // antes de publicar.
 export const SITE_URL = "https://mabroad.com";
-export const SITE_NAME = "TMate";
+export const SITE_NAME = "MAbroad";
 
 // Imagen OG/Twitter por defecto para páginas sin foto propia (home, comparador,
 // City Match, beca, Learning Agreement). Las fichas de ciudad usan su heroImg.

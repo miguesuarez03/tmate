@@ -1,5 +1,5 @@
 /**
- * SCORES BASE — TMate
+ * SCORES BASE — MAbroad
  *
  * Puntuaciones base por ciudad y categoría.
  * Escala 0–10. Estas puntuaciones representan el 50% del score final.

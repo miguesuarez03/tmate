@@ -99,7 +99,7 @@ const TESTIMONIALS = [
     name: "Lucía M.",
     city: "Bolonia",
     flag: "🇮🇹",
-    text: "TMate me ayudó a elegir Bolonia sin dudarlo. Los scores de vida nocturna y coste de vida fueron exactamente lo que necesitaba para convencer a mis padres.",
+    text: "MAbroad me ayudó a elegir Bolonia sin dudarlo. Los scores de vida nocturna y coste de vida fueron exactamente lo que necesitaba para convencer a mis padres.",
     avatar: "L",
     color: "#E0F2FE",
     stars: 5,
@@ -129,7 +129,7 @@ const TESTIMONIALS = [
     name: "Anónimo",
     city: "Praga",
     flag: "🇨🇿",
-    text: "Nunca había viajado solo. TMate me dio la confianza de saber exactamente a qué iba. La sección de transporte y tips locales es oro puro.",
+    text: "Nunca había viajado solo. MAbroad me dio la confianza de saber exactamente a qué iba. La sección de transporte y tips locales es oro puro.",
     avatar: "?",
     color: "#F3E8FF",
     stars: 4,
@@ -211,12 +211,12 @@ function GlobeSection() {
 
 const FAQS = [
   {
-    q: "¿Es gratis usar TMate?",
+    q: "¿Es gratis usar MAbroad?",
     a: "Sí, completamente gratis. Puedes explorar todos los destinos, comparar ciudades y usar el generador de Learning Agreement sin pagar nada.",
   },
   {
     q: "¿Qué es el Learning Agreement y para qué sirve?",
-    a: "Es el documento académico que recoge las asignaturas que cursarás en el extranjero y cómo se reconocerán en tu universidad de origen. Sin él, tu plaza Erasmus no queda confirmada. En TMate puedes generarlo paso a paso.",
+    a: "Es el documento académico que recoge las asignaturas que cursarás en el extranjero y cómo se reconocerán en tu universidad de origen. Sin él, tu plaza Erasmus no queda confirmada. En MAbroad puedes generarlo paso a paso.",
   },
   {
     q: "¿Cuántas ciudades tenéis?",
@@ -228,7 +228,7 @@ const FAQS = [
   },
   {
     q: "¿Puedo comparar varias ciudades a la vez?",
-    a: "Sí. El comparador de TMate te permite poner varias ciudades lado a lado y ver todas sus métricas de golpe. Es la forma más rápida de decidirte.",
+    a: "Sí. El comparador de MAbroad te permite poner varias ciudades lado a lado y ver todas sus métricas de golpe. Es la forma más rápida de decidirte.",
   },
   {
     q: "¿Por dónde empiezo si acabo de confirmar mi plaza?",
@@ -525,7 +525,7 @@ function CommunitySection() {
     <section className="community-section">
       {/* Header */}
       <div className="community-header">
-        <SectionLabel color="var(--color-teal)">Comunidad TMate</SectionLabel>
+        <SectionLabel color="var(--color-teal)">Comunidad MAbroad</SectionLabel>
         <h2 className="section__title" style={{ marginBottom: 14 }}>Erasmus que inspiran.</h2>
         <p style={{ fontSize: "clamp(15px,2vw,17px)", color: "var(--color-slate-light)", maxWidth: 520, margin: "0 auto", lineHeight: 1.6 }}>
           Historias reales de estudiantes. Cada tarjeta mezcla su opinión con sus propias fotos del viaje.

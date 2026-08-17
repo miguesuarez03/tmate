@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 /**
- * IconArte — icono ilustrado TMate (sistema 3D consistente).
+ * IconArte — icono ilustrado MAbroad (sistema 3D consistente).
  * Paleta de pintor — cultural / arte.
  * Multi-color intencional: gotas de pintura en Sky, rojo, Gold y Emerald.
  * Luz 135°, sombra navy 20%, brillo especular soft-light.

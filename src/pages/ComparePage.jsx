@@ -330,7 +330,7 @@ export default function ComparePage() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   useSEO({
-    title: "Comparador de ciudades Erasmus lado a lado | TMate",
+    title: "Comparador de ciudades Erasmus lado a lado | MAbroad",
     description: "Compara hasta 3 ciudades Erasmus a la vez: coste de vida, vida social, seguridad, empleo y más. Radar comparativo, diferencias destacadas y resumen automático.",
   });
 

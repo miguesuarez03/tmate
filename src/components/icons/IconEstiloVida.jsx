@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 /**
- * IconEstiloVida — icono ilustrado TMate (sistema 3D consistente).
+ * IconEstiloVida — icono ilustrado MAbroad (sistema 3D consistente).
  * Montaña con sol — estilo de vida y entorno.
  * Multi-color: montañas Emerald/DeepTeal, cumbre nevada blanca, sol Gold.
  * Luz 135°, sombra navy 20%, brillo especular soft-light.

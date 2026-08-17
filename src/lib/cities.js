@@ -444,13 +444,13 @@ export function clearCompare() {
 // caracteres y Google la truncara en el buscador — por eso el fallback en capas
 // en vez de una única plantilla.
 function buildCityTitle(city, type) {
-  const withCountry = `${city.name} ${type}: guía, coste y vida en ${city.country} | TMate`;
+  const withCountry = `${city.name} ${type}: guía, coste y vida en ${city.country} | MAbroad`;
   if (withCountry.length <= 60) return withCountry;
-  const noCountry = `${city.name} ${type}: guía, coste y vida | TMate`;
+  const noCountry = `${city.name} ${type}: guía, coste y vida | MAbroad`;
   if (noCountry.length <= 60) return noCountry;
-  const short = `${city.name} ${type}: guía completa | TMate`;
+  const short = `${city.name} ${type}: guía completa | MAbroad`;
   if (short.length <= 60) return short;
-  return `${city.name} ${type} | TMate`;
+  return `${city.name} ${type} | MAbroad`;
 }
 
 export function getCityMeta(city, overallScore) {
@@ -458,7 +458,7 @@ export function getCityMeta(city, overallScore) {
   const type = eligible ? 'Erasmus' : 'Intercambio';
   return {
     title: buildCityTitle(city, type),
-    description: `Todo sobre ${eligible ? 'el Erasmus' : 'estudiar'} en ${city.name}: coste de vida ${city.costDetail}, scores reales, barrios, universidades y tips de estudiantes. Puntuación TMate: ${overallScore}/10.`,
+    description: `Todo sobre ${eligible ? 'el Erasmus' : 'estudiar'} en ${city.name}: coste de vida ${city.costDetail}, scores reales, barrios, universidades y tips de estudiantes. Puntuación MAbroad: ${overallScore}/10.`,
     keywords: eligible
       ? `Erasmus ${city.name}, ${city.nameEn} Erasmus, estudiar en ${city.country}, ${city.tag}`
       : `Estudiar en ${city.name}, ${city.nameEn} intercambio, estudiar en ${city.country}, ${city.tag}`,
@@ -471,9 +471,9 @@ export function getCityMeta(city, overallScore) {
  */
 export function getHomeMeta() {
   return {
-    title: 'TMate — Descubre y compara tu ciudad Erasmus ideal',
+    title: 'MAbroad — Descubre y compara tu ciudad Erasmus ideal',
     description: `La guía definitiva para elegir tu ciudad Erasmus. ${CITIES.length} destinos con scores reales, opiniones de estudiantes y guías locales. Totalmente gratis.`,
-    keywords: 'Erasmus ciudades, mejores destinos Erasmus, guía Erasmus Europa, TMate',
+    keywords: 'Erasmus ciudades, mejores destinos Erasmus, guía Erasmus Europa, MAbroad',
     ogImage: DEFAULT_OG_IMAGE,
   };
 }

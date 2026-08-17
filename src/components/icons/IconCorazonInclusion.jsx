@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 /**
- * IconCorazonInclusion — icono ilustrado TMate (sistema 3D consistente).
+ * IconCorazonInclusion — icono ilustrado MAbroad (sistema 3D consistente).
  * Corazón — colectivo de menos oportunidades / inclusión.
  * Luz 135°, sombra navy 20%, brillo especular soft-light.
  * @param {number} size - tamaño en px (ancho y alto). Default 56.

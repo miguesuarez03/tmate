@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 /**
- * IconEdificio — icono ilustrado TMate (sistema 3D consistente).
+ * IconEdificio — icono ilustrado MAbroad (sistema 3D consistente).
  * Edificio institucional — universidad, banco, administración.
  * Luz 135°, sombra navy 20%, brillo especular soft-light.
  * @param {number} size - tamaño en px (ancho y alto). Default 56.

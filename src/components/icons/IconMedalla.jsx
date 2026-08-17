@@ -7,7 +7,7 @@ const TONES = {
 };
 
 /**
- * IconMedalla — icono ilustrado TMate (sistema 3D consistente).
+ * IconMedalla — icono ilustrado MAbroad (sistema 3D consistente).
  * Medalla de posición para rankings (top 1/2/3).
  * Luz 135°, sombra navy 20%, brillo especular soft-light.
  * @param {number} size - tamaño en px (ancho y alto). Default 56.
