@@ -20,15 +20,15 @@ export default function IconLearningAgreement({ size = 56, className = "", ...re
     >
       <defs>
 <filter id={`ds-${uid}`} x="-40%" y="-40%" width="180%" height="180%">
-<feDropShadow dx="0" dy="4" stdDeviation="3.2" floodColor="#0F172A" floodOpacity="0.20"/>
+<feDropShadow dx="0" dy="4" stdDeviation="3.2" floodColor="#0F1E2D" floodOpacity="0.20"/>
 </filter>
 <linearGradient id={`folderg-${uid}`} x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stopColor="#0EA5E9"/><stop offset="100%" stopColor="#06B6D4"/>
+<stop offset="0%" stopColor="#F5963A"/><stop offset="100%" stopColor="#FFC95E"/>
 </linearGradient>
 <linearGradient id={`folders-${uid}`} x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stopColor="#0C2340" stopOpacity="0"/>
-<stop offset="55%" stopColor="#0C2340" stopOpacity="0"/>
-<stop offset="100%" stopColor="#0C2340" stopOpacity="0.32"/>
+<stop offset="0%" stopColor="#2F5073" stopOpacity="0"/>
+<stop offset="55%" stopColor="#2F5073" stopOpacity="0"/>
+<stop offset="100%" stopColor="#2F5073" stopOpacity="0.32"/>
 </linearGradient>
 <clipPath id={`folderc-${uid}`}><path d="M20 40 L54 40 L60 48 L108 48 L108 96 C108 100 104 104 100 104 L24 104 C22 104 20 102 20 100 Z" /></clipPath>
 </defs>

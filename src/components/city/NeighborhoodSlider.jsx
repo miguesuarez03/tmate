@@ -2,7 +2,7 @@ import styles from "./NeighborhoodSlider.module.css";
 import { getUniversityErasmusLink } from "../../data/universityErasmusLinks";
 
 function UniCard({ name, index }) {
-  const colors = ["#0EA5E9", "#00BFA5", "#A855F7", "#F97316", "#22C55E"];
+  const colors = ["#F5963A", "#00BFA5", "#A855F7", "#F97316", "#22C55E"];
   const color = colors[index % colors.length];
   const href = getUniversityErasmusLink(name);
   return (

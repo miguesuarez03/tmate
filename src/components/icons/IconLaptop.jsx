@@ -22,15 +22,15 @@ export default function IconLaptop({ size = 56, className = "", ...rest }) {
     >
       <defs>
 <filter id={`ds-${uid}`} x="-40%" y="-40%" width="180%" height="180%">
-<feDropShadow dx="0" dy="4" stdDeviation="3.2" floodColor="#0F172A" floodOpacity="0.20"/>
+<feDropShadow dx="0" dy="4" stdDeviation="3.2" floodColor="#0F1E2D" floodOpacity="0.20"/>
 </filter>
 <linearGradient id={`bg-${uid}`} x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stopColor="#0C2340"/><stop offset="100%" stopColor="#0D5C6E"/>
+<stop offset="0%" stopColor="#2F5073"/><stop offset="100%" stopColor="#16364D"/>
 </linearGradient>
 <linearGradient id={`sh-${uid}`} x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stopColor="#0C2340" stopOpacity="0"/>
-<stop offset="55%" stopColor="#0C2340" stopOpacity="0"/>
-<stop offset="100%" stopColor="#0C2340" stopOpacity="0.32"/>
+<stop offset="0%" stopColor="#2F5073" stopOpacity="0"/>
+<stop offset="55%" stopColor="#2F5073" stopOpacity="0"/>
+<stop offset="100%" stopColor="#2F5073" stopOpacity="0.32"/>
 </linearGradient>
 <clipPath id={`cc-${uid}`}><circle cx="64" cy="64" r="46" /></clipPath>
 </defs>
@@ -40,7 +40,7 @@ export default function IconLaptop({ size = 56, className = "", ...rest }) {
 <rect x="0" y="0" width="128" height="128" fill={`url(#sh-${uid})`}/>
 </g>
 <rect x="42" y="42" width="44" height="30" rx="3" fill="#FFFFFF" opacity="0.95"/>
-<rect x="46" y="46" width="36" height="22" rx="1.5" fill="#0EA5E9"/>
+<rect x="46" y="46" width="36" height="22" rx="1.5" fill="#F5963A"/>
 <circle cx="64" cy="57" r="4" fill="#10B981"/>
 <path d="M34 74 L94 74 L88 84 L40 84 Z" fill="#FFFFFF" opacity="0.85"/>
 </g>

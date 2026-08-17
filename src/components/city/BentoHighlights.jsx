@@ -9,7 +9,7 @@ const FALLBACK_PHOTOS = [
   "https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=1200&q=80",
 ];
 
-const ACCENTS = ["#0EA5E9", "#22C55E", "#F97316", "#A855F7"];
+const ACCENTS = ["#F5963A", "#22C55E", "#F97316", "#A855F7"];
 
 // Generate a slightly longer description from the short highlight text
 function getDetail(text, cityName) {

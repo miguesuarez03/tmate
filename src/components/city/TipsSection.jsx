@@ -2,12 +2,12 @@ import styles from "./TipsSection.module.css";
 import { IconBombilla, IconExplorar, IconBeca, IconCasa, IconBici, IconFiesta } from "../icons";
 
 const TIP_COLORS = [
-  { bg: "#DBEAFE", accent: "#2563EB", text: "#0F172A", Icon: IconBombilla },
-  { bg: "#EDE4FF", accent: "#9333EA", text: "#0F172A", Icon: IconExplorar },
-  { bg: "#D7F7E0", accent: "#16A34A", text: "#0F172A", Icon: IconBeca },
-  { bg: "#FFE4D6", accent: "#EA580C", text: "#0F172A", Icon: IconCasa },
-  { bg: "#D6F1FF", accent: "#0284C7", text: "#0F172A", Icon: IconBici },
-  { bg: "#FDE0F0", accent: "#DB2777", text: "#0F172A", Icon: IconFiesta },
+  { bg: "#DBEAFE", accent: "#2563EB", text: "#0F1E2D", Icon: IconBombilla },
+  { bg: "#EDE4FF", accent: "#9333EA", text: "#0F1E2D", Icon: IconExplorar },
+  { bg: "#D7F7E0", accent: "#16A34A", text: "#0F1E2D", Icon: IconBeca },
+  { bg: "#FFE4D6", accent: "#EA580C", text: "#0F1E2D", Icon: IconCasa },
+  { bg: "#D6F1FF", accent: "#0284C7", text: "#0F1E2D", Icon: IconBici },
+  { bg: "#FDE0F0", accent: "#DB2777", text: "#0F1E2D", Icon: IconFiesta },
 ];
 
 export default function TipsSection({ tips = [], cityName }) {

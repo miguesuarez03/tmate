@@ -138,9 +138,9 @@
 }
 
 .vibeBtnActive {
-  background: #0F172A;
+  background: #0F1E2D;
   color: #fff;
-  border-color: #0F172A;
+  border-color: #0F1E2D;
 }
 
 .vibeBtnLabel {
@@ -306,7 +306,7 @@
   border: 1px solid; border-radius: 100px; padding: 0.22rem 0.6rem;
 }
 .popupCta {
-  width: 100%; background: #0F172A; color: #fff; border: none;
+  width: 100%; background: #0F1E2D; color: #fff; border: none;
   border-radius: 100px; padding: 0.7rem;
   font-family: var(--font-body); font-size: 0.85rem; font-weight: 700;
   cursor: pointer; transition: background 0.2s ease, transform 0.2s ease;

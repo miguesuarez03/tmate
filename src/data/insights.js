@@ -14,7 +14,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.8,
         summary: "Moderado para Italia, alto para Europa del Este. Vivir bien con 850€/mes es realista.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 5.5, desc: "Habitaciones desde 350–500€. Alta demanda por la universidad, conviene buscar con antelación." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercado Quadrilatero: comer bien por 5€. La cultura gastronómica premia al curioso." },
@@ -72,7 +72,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.4,
         summary: "Ciudad muy acostumbrada a estudiantes internacionales. El inglés llega lejos y los locales son abiertos.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.5, desc: "El inglés funciona bien en zonas universitarias. Aprender algo de italiano acelera todo." },
           { label: "Actitud local", score: 9.0, desc: "Boloñeses muy abiertos y curiosos con los extranjeros. Nada de hostilidad." },
@@ -108,7 +108,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.0,
         summary: "Excelente calidad de vida entre gastronomía, cultura y un ritmo equilibrado. El clima es variable pero los pórticos lo hacen todo más llevadero.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 7.2, desc: "Veranos muy calurosos (35–40°C en julio-agosto), inviernos fríos con niebla frecuente. Primavera y otoño son espectaculares: 18–25°C perfectos para vivir la ciudad." },
           { label: "Calidad de vida", score: 8.6, desc: "Ritmo de vida equilibrado. Ni demasiado acelerado ni aburrido. Instalaciones universitarias accesibles y mucha vida al aire libre en los parques." },
@@ -171,7 +171,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.2,
         summary: "Más asequible que París o Londres. Habitaciones desde 500–700€, comida barata si sabes dónde.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "WG (pisos compartidos) 450–700€. La demanda es alta pero la oferta también." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercados turcos, döner a 3€, supermercados económicos. Comer sano y barato es fácil." },
@@ -228,7 +228,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.8,
         summary: "La ciudad más internacional de Alemania. El inglés funciona perfectamente en todos lados.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.5, desc: "Todo el mundo habla inglés. Berlín funciona en inglés perfectamente." },
           { label: "Ambiente internacional", score: 9.5, desc: "35% de residentes son de fuera de Alemania. La ciudad más diversa del país." },
@@ -263,7 +263,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.4,
         summary: "Libertad, cultura, creatividad. Una ciudad que te expande como persona.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.5, desc: "30% de la ciudad es parques y lagos. Müggelsee, Wannsee — playas urbanas épicas." },
           { label: "Clima", score: 6.2, desc: "Inviernos largos y grises. Veranos cortos pero intensos y maravillosos. Verano (jun–ago): Los mejores meses. Lagos, terrazas, festivales. Berlín en verano es otro planeta. Invierno (dic–feb): Frío, gris y lluvioso. Los días son cortos. Requiere adaptación anímica." },
@@ -326,7 +326,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 5.5,
         summary: "Cara, sí. Pero con residencias CROUS y beca Erasmus+ máxima es más viable de lo que parece. 1.000–1.400€/mes.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 4.5, desc: "Habitaciones desde 700–1.100€. Residencias CROUS desde 400€ — la opción más inteligente. Solicítalas el primer día." },
           { label: "Comida y supermercados", score: 7.5, desc: "Boulangeries para desayunos baratos (croissant 1,20€). Mercados del barrio asequibles. Monoprix y Franprix para el día a día." },
@@ -384,7 +384,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.5,
         summary: "París ha mejorado mucho. Los parisinos son más abiertos de lo que su fama sugiere, especialmente en entornos universitarios.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.0, desc: "El francés importa más aquí que el inglés en otras ciudades. Hacer el esfuerzo de hablar francés cambia completamente la experiencia." },
           { label: "Actitud local", score: 7.5, desc: "Los parisinos son menos fríos de lo que su reputación sugiere. En entornos universitarios y de barrio son muy abiertos." },
@@ -420,7 +420,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.0,
         summary: "La ciudad más icónica del mundo por algo. Cultura, gastronomía, arquitectura y romanticismo en concentración máxima.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "Espacios naturales y zonas verdes accesibles desde la ciudad." },
           { label: "Clima", score: 6.8, desc: "Oceánico suave. Inviernos grises pero no muy fríos. Primavera y otoño son la mejor época para vivir París. Verano: 22–30°C, soleado. París en verano — terrazas, picnics en el Champ de Mars, jardines en flor. La mejor versión de la ciudad. Invierno: 5–10°C, gris y con lluvia frecuente. No hace tanto frío como otras capitales pero la falta de sol tiene impacto anímico." },
@@ -484,7 +484,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.2,
         summary: "Más asequible que Lisboa y mucho más que cualquier capital occidental. Con 600–800€/mes se vive muy bien.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitaciones desde 350–550€. Más barata que Lisboa. Bonfim y Campanhã son las zonas más asequibles para estudiantes." },
           { label: "Comida y supermercados", score: 9.0, desc: "Mercado do Bolhão renovado con precios razonables. Menú del día por 7–9€. Francesinha y bacalhau a precios de verdad." },
@@ -541,7 +541,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 9.0,
         summary: "Los portuenses son de los más acogedores de Europa. Ciudad abierta con mucha menos saturación turística que Lisboa.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Actitud local", score: 9.5, desc: "Los portuenses son directos, orgullosos y extraordinariamente generosos. La hospitalidad portuguesa en su versión más auténtica." },
           { label: "Nivel de inglés", score: 8.5, desc: "El inglés funciona bien en zonas universitarias. El español es comprendido fácilmente. El portugués se aprende rápido." },
@@ -577,7 +577,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.6,
         summary: "Una de las ciudades con mejor calidad de vida por precio de esta guía. Belleza, autenticidad, gastronomía y mar.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.0, desc: "Matosinhos para surf, Foz do Douro para paseos, Valle del Duero a 1h para vino y paisaje. Naturaleza en todas direcciones." },
           { label: "Clima", score: 8.2, desc: "Clima atlántico con mucho sol y algo de lluvia en invierno. Más fresco que Lisboa pero muy agradable todo el año. Verano: 22–28°C, soleado. Las playas de Matosinhos y Foz do Douro a 20 minutos. La brisa atlántica suaviza el calor. Invierno: 10–16°C. Llueve más que Lisboa pero raramente hace frío de verdad. El invierno más suave de la Península después del sur." },
@@ -640,7 +640,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.0,
         summary: "Precio medio para Europa Occidental. Con 750–1.000€/mes se vive bien en la capital europea.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 500–700€. Más asequible que París o Ámsterdam. Ixelles y Saint-Gilles son las zonas más estudiantiles." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercado du Midi los domingos — el más grande de Bélgica y muy asequible. Chocolate y gaufres de calidad a buen precio." },
@@ -697,7 +697,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 9.0,
         summary: "La ciudad más internacional de esta guía después de La Haya. El inglés, francés y neerlandés conviven perfectamente.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.5, desc: "Ciudad oficialmente trilingüe. El inglés funciona perfectamente. La diversidad lingüística es parte del ADN de la ciudad." },
           { label: "Comunidad europea", score: 10.0, desc: "40.000 funcionarios europeos más miles de becarios de toda la UE. La ciudad más internacional de Europa en términos de diversidad institucional." },
@@ -732,7 +732,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.0,
         summary: "Ciudad más rica de lo que parece al primer golpe de vista. Chocolate, cerveza, arte nouveau y el pulso europeo.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "Espacios naturales y zonas verdes accesibles desde la ciudad." },
           { label: "Clima", score: 5.8, desc: "Clima oceánico con mucha lluvia y cielos grises. Veranos agradables pero cortos. El paraguas es esencial. Verano: 18–24°C, con días soleados perfectos para terrazas y parques. El Bois de la Cambre lleno de vida. Invierno: Gris, húmedo y con días muy cortos. El clima belga en invierno es uno de los más duros anímicamente de Europa." },
@@ -796,7 +796,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.5,
         summary: "Más asequible que Múnich con acceso a todo lo que ofrece. Con 650–850€/mes se vive muy bien.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitaciones desde 400–600€. Significativamente más barata que Múnich a solo 40 minutos en tren." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercado semanal en la Ludwigsplatz con productos bávaros frescos. Supermercados bien surtidos a precios razonables." },
@@ -853,7 +853,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.8,
         summary: "Bávaros auténticos y muy acogedores. Menos inglés que en las grandes ciudades — el alemán abre todas las puertas.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.5, desc: "Menos inglés que en Múnich. El alemán es esencial para integrarse con los locales. Un reto pero muy recompensado." },
           { label: "Actitud local", score: 9.0, desc: "Bávaros genuinamente acogedores con los pocos extranjeros que llegan. Sin la frialdad de las grandes ciudades." },
@@ -888,7 +888,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.2,
         summary: "Calidad de vida altísima para quien busca naturaleza, autenticidad y tranquilidad. El antídoto a las grandes ciudades.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 10.0, desc: "Chiemsee, Alpes, bosques bávaros. La naturaleza más espectacular de esta guía a precios de vida razonables." },
           { label: "Clima", score: 7.5, desc: "Clima alpino con cuatro estaciones marcadas. Nieve en invierno garantizada, veranos frescos y muy agradables. Verano: 20–26°C, fresco y soleado. Los lagos alpinos cercanos son perfectos. Sin el calor sofocante de las ciudades del sur. Invierno: Nieve garantizada. Frío pero con los Alpes a 30 minutos se convierte en una ventaja enorme para el ski." },
@@ -951,7 +951,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 4.5,
         summary: "La ciudad más cara de esta guía. Con 1.200–1.600€/mes se sobrevive. Para vivir bien, más.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 3.5, desc: "Habitaciones desde 800–1.200€. House shares son la única opción viable. Zonas como Stratford o Hackney son más asequibles." },
           { label: "Comida y supermercados", score: 6.0, desc: "Supermercados como Lidl y Aldi salvan el presupuesto. Mercados como Borough Market o Portobello para caprichos asequibles." },
@@ -1009,7 +1009,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.8,
         summary: "La ciudad más diversa del mundo. El inglés es el idioma nativo y la diversidad es el ADN de Londres.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 10.0, desc: "Inglés nativo de inmersión total. En pocas semanas el salto es notable. La mejor ciudad del mundo para aprenderlo." },
           { label: "Ambiente internacional", score: 10.0, desc: "Más de 300 idiomas hablados. El 37% de la población nació fuera del Reino Unido. Diversidad que no existe en ningún otro sitio." },
@@ -1045,7 +1045,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 6.8,
         summary: "Cara y caótica, pero con una oferta cultural, gastronómica y de oportunidades que no existe en ningún otro sitio.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.0, desc: "Hyde Park, Regent's Park, Hampstead Heath. El 47% de Londres es espacio verde. Increíble para una megalópolis." },
           { label: "Clima", score: 5.2, desc: "El famoso clima londinense es real. Lluvia frecuente, cielos grises y sol que se celebra como victoria. Verano: 18–25°C, con días soleados épicos. Los parques se llenan de vida. El verano londinense es genuinamente bonito. Invierno: Gris, húmedo y con días muy cortos. No hace tanto frío pero la falta de sol tiene impacto anímico real." },
@@ -1109,7 +1109,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 5.8,
         summary: "La ciudad más cara de Alemania. Con 1.000–1.300€/mes se vive bien si controlas el alquiler.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 4.5, desc: "Habitaciones desde 700–1.000€. El mercado más tenso de Alemania. WG (pisos compartidos) es la única opción realista." },
           { label: "Comida y supermercados", score: 7.0, desc: "Viktualienmarkt para productos frescos de calidad. Supermercados Aldi y Lidl para el día a día. Comer fuera es caro." },
@@ -1167,7 +1167,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.2,
         summary: "Ciudad muy internacional por su tamaño y economía. El inglés funciona bien en entornos universitarios y tech.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.5, desc: "El inglés funciona bien en campus y empresas internacionales. El alemán marca la diferencia para integrarse con locales." },
           { label: "Actitud local", score: 8.0, desc: "Los bávaros son orgullosos de su cultura pero acogedores. Más cálidos que los berlineses en el trato personal." },
@@ -1202,7 +1202,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.2,
         summary: "La mejor calidad de vida de Alemania. Alpes, cultura, seguridad, gastronomía bávara y eficiencia alemana en un paquete único.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 10.0, desc: "Lagos alpinos, ski en invierno, senderismo en verano. La naturaleza bávara es un privilegio diario." },
           { label: "Clima", score: 7.2, desc: "Veranos soleados y agradables, inviernos fríos con nieve. Los Alpes regulan el clima y añaden magia al paisaje. Verano: 22–28°C, soleado. El English Garden se convierte en la playa urbana más grande de Europa. Perfecto. Invierno: Frío real, -5 a -10°C posibles. Nieve frecuente pero los mercados navideños son de los más bonitos de Europa." },
@@ -1266,7 +1266,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.5,
         summary: "Cara para estándares holandeses. Con 900–1.100€/mes se vive bien si controlas el ocio.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 5.5, desc: "Habitaciones desde 600–850€. Más barata que Ámsterdam pero el mercado es competitivo. Busca con antelación." },
           { label: "Comida y supermercados", score: 7.0, desc: "Haagse Markt — el mercado más grande y barato de Holanda. Albert Heijn para compra diaria asequible." },
@@ -1323,7 +1323,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 9.0,
         summary: "La ciudad más internacional de Holanda. Todo el mundo habla inglés y está acostumbrado a trabajar con personas de todo el mundo.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.5, desc: "Todo el mundo habla inglés perfectamente. La ciudad funciona al 100% en inglés sin necesidad de neerlandés." },
           { label: "Ambiente internacional", score: 9.5, desc: "Con 100+ organizaciones internacionales, La Haya es la ciudad más acostumbrada a la diversidad de Holanda." },
@@ -1359,7 +1359,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.0,
         summary: "Altísima calidad de vida. Mar, bici, cultura, seguridad y la ciudad más internacional del mundo en un paquete compacto.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.0, desc: "Scheveningen y Kijkduin a 15 minutos. Dunas, mar del Norte y atardeceres espectaculares." },
           { label: "Clima", score: 5.5, desc: "Clima oceánico con mucho viento y lluvia. El mar del Norte marca el ritmo. Verano agradable pero corto. Verano: 18–24°C, con días soleados perfectos para la playa de Scheveningen. El mejor momento para vivir la ciudad. Invierno: Gris, lluvioso y ventoso. El viento del mar del Norte puede ser brutal. Ropa impermeable imprescindible." },
@@ -1423,7 +1423,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 5.5,
         summary: "Una de las ciudades más caras de Europa. Con 1.100–1.400€/mes se vive bien si encuentras piso.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 4.0, desc: "Habitaciones desde 750–1.100€. El mercado más competitivo de Holanda. Encontrar algo es el mayor reto del Erasmus." },
           { label: "Comida y supermercados", score: 7.0, desc: "Albert Heijn para compra diaria asequible. Albert Cuypmarkt para productos frescos y baratos. Comer fuera es caro." },
@@ -1481,7 +1481,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 9.2,
         summary: "La ciudad más abierta e internacional de Holanda. El inglés es prácticamente el idioma oficial del día a día.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.5, desc: "Todo el mundo habla inglés perfectamente — incluso los ancianos. Nunca necesitarás el neerlandés." },
           { label: "Ambiente internacional", score: 9.5, desc: "Ciudad histórica de tolerancia y apertura. LGBTQ+ friendly al máximo. Todo el mundo es bienvenido." },
@@ -1517,7 +1517,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.3,
         summary: "Altísima calidad de vida si el presupuesto lo permite. Cultura, libertad, canales y bici. Difícil de superar.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "Espacios naturales y zonas verdes accesibles desde la ciudad." },
           { label: "Clima", score: 5.8, desc: "Oceánico con mucha lluvia y viento. Veranos agradables pero cortos. Hay que adaptarse mentalmente. Verano: 18–24°C, soleado y con terrazas llenas de vida. Los canales en verano son la imagen perfecta de la ciudad. Invierno: Gris, húmedo y con viento. Los días son muy cortos. La ciudad sabe compensarlo con mucha vida interior." },
@@ -1580,7 +1580,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.8,
         summary: "Más asequible que Ámsterdam pero sigue siendo Holanda. Con 800–1.000€/mes se vive bien.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 550–750€. Más barata que Ámsterdam. Kralingen y Delfshaven son las zonas más asequibles." },
           { label: "Comida y supermercados", score: 7.5, desc: "Markthal — espectacular y con opciones para todos los presupuestos. Mercados del barrio más baratos para el día a día." },
@@ -1637,7 +1637,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.8,
         summary: "La ciudad más multicultural de Holanda. El inglés funciona perfectamente y la diversidad es parte del ADN de la ciudad.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.5, desc: "Todo el mundo habla inglés. Rotterdam funciona perfectamente en inglés sin necesitar neerlandés." },
           { label: "Ambiente internacional", score: 9.5, desc: "Más del 50% de la población tiene raíces no holandesas. La ciudad más diversa de los Países Bajos sin discusión." },
@@ -1673,7 +1673,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 6.9,
         summary: "Ciudad estimulante, diversa y con una arquitectura que no deja de sorprender. La alternativa auténtica a Ámsterdam.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "Espacios naturales y zonas verdes accesibles desde la ciudad." },
           { label: "Clima", score: 5.5, desc: "Clima oceánico clásico. Lluvia frecuente, viento del mar y veranos agradables pero cortos. Verano: 18–24°C, con días soleados perfectos. Las terrazas del Witte de Withstraat se llenan de vida en verano. Invierno: Gris, húmedo y ventoso. El viento en Rotterdam es especialmente fuerte por la proximidad al puerto y el mar." },
@@ -1736,7 +1736,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.8,
         summary: "Una de las ciudades más baratas de Europa Central. Con 400–600€/mes se vive de maravilla.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 8.5, desc: "Habitaciones desde 250–400€. Pisos en el centro histórico por lo que en Berlín costaría una habitación pequeña." },
           { label: "Comida y supermercados", score: 9.0, desc: "Gran Mercado Central: frutas, especias y comida húngara por muy poco. Menú del día por 4–6€. Langos a 2€." },
@@ -1793,7 +1793,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.8,
         summary: "Ciudad muy acostumbrada al turismo internacional. El inglés funciona bien aunque el húngaro es un mundo aparte.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.5, desc: "El húngaro es uno de los idiomas más difíciles de Europa — nadie espera que lo aprendas. El inglés funciona en todas partes." },
           { label: "Actitud local", score: 8.0, desc: "Los húngaros son reservados con desconocidos pero muy hospitalarios cuando te conocen. Muy leales como amigos." },
@@ -1829,7 +1829,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.0,
         summary: "Difícil encontrar una ciudad que combine mejor precio, belleza, cultura y vida social. Budapest es una joya.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "Espacios naturales y zonas verdes accesibles desde la ciudad." },
           { label: "Clima", score: 7.0, desc: "Cuatro estaciones bien marcadas. Veranos calurosos, inviernos fríos pero no extremos. Primavera espectacular. Verano: 30–35°C, soleado. Las playas del Danubio y los balnearios al aire libre hacen el calor muy llevadero. Invierno: Frío, -5 a -10°C posibles. Puede nevar. Los baños termales calientes son el antídoto perfecto." },
@@ -1892,7 +1892,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.5,
         summary: "Muy asequible para ser una capital tan turística. Con 500–700€/mes se vive muy bien.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitaciones desde 300–500€. Más cara que Cracovia o Budapest pero todavía muy razonable." },
           { label: "Comida y supermercados", score: 9.0, desc: "Cerveza a 1€ el litro en bares locales. Menú del día por 5–7€. Evita los restaurantes del centro histórico turístico." },
@@ -1949,7 +1949,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.8,
         summary: "Ciudad muy turística pero con alma propia. El inglés funciona bien, los checos son discretos pero hospitalarios.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 8.5, desc: "Excelente nivel de inglés entre la gente joven. En zonas universitarias y turísticas no hay barrera real." },
           { label: "Actitud local", score: 7.5, desc: "Los checos son reservados y no muy expresivos con desconocidos. Nada de hostilidad — solo discreción cultural." },
@@ -1985,7 +1985,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.8,
         summary: "Una de las ciudades con mejor relación belleza-precio-calidad de vida de toda Europa. Difícil de superar.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "Espacios naturales y zonas verdes accesibles desde la ciudad." },
           { label: "Clima", score: 6.5, desc: "Cuatro estaciones marcadas. Inviernos fríos con nieve posible, veranos cálidos y muy agradables. Verano: 25–30°C, soleado y perfecto. Náplavka, terrazas y la ciudad entera al aire libre. La mejor época sin duda. Invierno: Frío, -5 a -10°C posibles. Gris con frecuencia. Pero los mercados navideños de Praga son de los más bonitos de Europa." },
@@ -2048,7 +2048,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 9.2,
         summary: "La ciudad más barata de esta guía. Con 350–500€/mes se vive increíblemente bien.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 9.0, desc: "Habitaciones desde 200–350€. Pisos enteros por lo que en Lisboa pagarías una habitación." },
           { label: "Comida y supermercados", score: 9.5, desc: "Menú del día por 4–5€. Cerveza a 1,50€. Zapiekanka (bocadillo polaco) por 2€. Comer bien es ridículamente barato." },
@@ -2105,7 +2105,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.0,
         summary: "Ciudad muy acostumbrada a estudiantes internacionales. El inglés funciona perfectamente en zonas estudiantiles.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 8.0, desc: "El inglés funciona bien en el centro y zonas universitarias. El polaco es difícil pero los locales lo agradecen si lo intentas." },
           { label: "Actitud local", score: 8.0, desc: "Los polacos son reservados al principio pero muy hospitalarios cuando se abren. Leales y directos." },
@@ -2141,7 +2141,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.4,
         summary: "Calidad de vida altísima para el precio. Historia, gastronomía, naturaleza y comunidad en una ciudad perfecta de tamaño.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.0, desc: "Zakopane y los Tatras a 2h. Senderismo en verano, esquí en invierno. Naturaleza polaca espectacular." },
           { label: "Clima", score: 6.0, desc: "Inviernos fríos y nevados, veranos cálidos y agradables. Las cuatro estaciones bien marcadas. Verano: 25–30°C, soleado y agradable. El Rynek lleno de vida, terrazas por todas partes. La mejor época. Invierno: Muy frío, -5 a -15°C con frecuencia. Nieve garantizada. Requiere ropa de abrigo real y mentalidad de invierno." },
@@ -2204,7 +2204,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.5,
         summary: "Más cara que Cracovia pero todavía muy asequible. Con 550–700€/mes se vive bien en la capital polaca.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 8.0, desc: "Habitaciones desde 300–450€. Más cara que Cracovia pero muy asequible comparada con capitales occidentales." },
           { label: "Comida y supermercados", score: 9.0, desc: "Menú del día por 5–7€. Mercado Hala Koszyki para foodie asequible. Supermercados baratos y bien surtidos." },
@@ -2261,7 +2261,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.8,
         summary: "Ciudad cada vez más internacional. El inglés funciona bien en entornos profesionales y zonas jóvenes.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 8.0, desc: "Muy buen nivel de inglés entre la gente joven. En entornos profesionales y universitarios funciona perfectamente." },
           { label: "Actitud local", score: 7.5, desc: "Los varsovianoss son más reservados que los cracovianoss con extranjeros. Más cálidos en entornos universitarios." },
@@ -2297,7 +2297,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.0,
         summary: "Ciudad moderna con mucho que ofrecer. Historia, cultura, gastronomía y una energía de ciudad en construcción constante.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.0, desc: "Parque Łazienki, orillas del Wisła. Más verde de lo que parece. Muy buena infraestructura deportiva." },
           { label: "Clima", score: 5.8, desc: "Inviernos muy fríos y largos. Veranos cálidos y agradables. Hay que venir preparado para el frío. Verano: 25–30°C, soleado y agradable. Las orillas del Wisła se llenan de gente. La mejor época para vivir Varsovia. Invierno: Muy frío, -10 a -20°C posibles. Gris y largo. El invierno polaco es serio — no es para todo el mundo." },
@@ -2360,7 +2360,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.8,
         summary: "La más asequible de las grandes ciudades italianas. Con 650–800€/mes se vive muy bien.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitaciones desde 300–450€. Oferta amplia y precios razonables gracias a la menor presión turística." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercato di Porta Palazzo — el más grande de Europa — con precios imbatibles. Comer bien por 5–7€ es fácil." },
@@ -2417,7 +2417,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.3,
         summary: "Turineses reservados al principio pero muy leales. Ciudad abierta con menos saturación turística.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.0, desc: "Menos inglés que en Milán. Aprender italiano básico es más necesario aquí — y más recompensado." },
           { label: "Actitud local", score: 8.5, desc: "Turineses elegantes y discretos. No invasivos pero muy generosos cuando te conocen. Relaciones más profundas." },
@@ -2454,7 +2454,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.7,
         summary: "Alta calidad de vida con bajo coste. Chocolate, vermut, Alpes y museos de clase mundial. El secreto de Italia.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.5, desc: "Alpes a 1h para esquiar en invierno y senderismo en verano. Lagos Maggiore y Como accesibles en tren." },
           { label: "Clima", score: 6.8, desc: "Veranos calurosos, inviernos fríos con algo de nieve. Los Alpes regulan el clima y añaden opciones únicas. Verano: 30–35°C, caluroso pero menos húmedo que Milán. Los Alpes a 1h para escapar del calor. Invierno: Frío real, puede nevar. Pero la nieve en los Alpes a 1h lo convierte en una ventaja para los esquiadores." },
@@ -2517,7 +2517,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.5,
         summary: "Más asequible que Milán, más cara que Bolonia. Con 800–1.000€/mes se vive bien si controlas el ocio.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 5.5, desc: "Habitaciones desde 450–650€. Zonas estudiantiles como Pigneto o Nomentano son más asequibles que el centro." },
           { label: "Comida y supermercados", score: 8.0, desc: "Pizza al taglio desde 2€. Mercados de barrio baratos. Comer auténtico y barato es parte de la cultura romana." },
@@ -2575,7 +2575,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.2,
         summary: "Ciudad muy acostumbrada al turismo y a los internacionales. Caótica pero acogedora.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.5, desc: "El inglés funciona en zonas universitarias y turísticas. Aprender algo de italiano acelera la integración real." },
           { label: "Actitud local", score: 8.5, desc: "Los romanos son expresivos, apasionados y generosos. Más cálidos que los milaneses desde el primer día." },
@@ -2611,7 +2611,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.7,
         summary: "Vivir en Roma es una experiencia que marca para siempre. Historia, comida, belleza y caos en equilibrio perfecto.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.0, desc: "Villa Borghese, Appia Antica, playas a 30 minutos en Ostia. Más verde de lo que parece." },
           { label: "Clima", score: 8.5, desc: "Clima mediterráneo de manual. Inviernos suaves, veranos calurosos y mucho sol durante todo el año. Verano: 35–38°C en julio y agosto. Caluroso pero seco. La ciudad se vacía en agosto — mucho espacio para los que se quedan. Invierno: 10–15°C. Uno de los inviernos más suaves de Italia continental. Raramente nieva." },
@@ -2674,7 +2674,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.0,
         summary: "La más cara de Italia. Viable con 1.000–1.200€/mes si controlas el ocio y compartes piso.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitaciones desde 550–800€. El mercado es muy competitivo. Zona Città Studi es la más asequible para estudiantes." },
           { label: "Comida y supermercados", score: 7.0, desc: "Supermercados Esselunga muy completos. El aperitivo (18–21h) incluye buffet gratis con la bebida — cena gratuita si sabes usarlo." },
@@ -2732,7 +2732,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.0,
         summary: "Ciudad muy internacional. El inglés funciona en entornos universitarios y profesionales.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.5, desc: "El inglés funciona bien en campus y zonas internacionales. En barrios locales, el italiano marca la diferencia." },
           { label: "Actitud local", score: 8.0, desc: "Los milaneses son directos y no siempre cálidos al principio, pero muy respetuosos con los extranjeros." },
@@ -2768,7 +2768,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.4,
         summary: "Alta calidad de vida si el presupuesto lo permite. Diseño, moda, gastronomía y cultura al máximo nivel.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.0, desc: "Parco Sempione, lagos Maggiore y Como a 1h. Menos verde que otras ciudades pero accesible." },
           { label: "Clima", score: 6.5, desc: "Veranos muy calurosos y húmedos. Inviernos fríos con niebla. Primavera es la estación dorada. Verano: 35°C con humedad alta. Mucho milanés huye en agosto. Los canales compensan un poco. Invierno: Frío húmedo, niebla frecuente en enero-febrero. No tan frío como el norte de Europa pero gris." },
@@ -2831,7 +2831,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.0,
         summary: "Cara para el este de Europa, asequible para el oeste. Con 800–1.100€/mes se vive muy bien.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 500–750€. Más asequible que Múnich o Londres. El mercado es competitivo pero manejable." },
           { label: "Comida y supermercados", score: 8.0, desc: "Naschmarkt — el mejor mercado de la ciudad con precios razonables. Supermercados Billa y Spar bien surtidos y asequibles." },
@@ -2888,7 +2888,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.2,
         summary: "Ciudad muy internacional y acostumbrada a visitantes de todo el mundo. El inglés funciona bien en todos los entornos.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 8.0, desc: "El inglés funciona muy bien en zonas universitarias y turísticas. El alemán vienés tiene su acento particular pero es accesible." },
           { label: "Actitud local", score: 8.0, desc: "Los vieneses son formales y algo reservados pero muy educados. La cortesía es parte del ADN cultural." },
@@ -2924,7 +2924,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.5,
         summary: "La mejor calidad de vida de esta guía. 10 años consecutivos número 1 mundial. No es casualidad.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.0, desc: "Prater, Donauinsel, Wienerwald. Verde abundante dentro de la ciudad. Naturaleza alpina a 1h en tren." },
           { label: "Clima", score: 7.5, desc: "Cuatro estaciones bien marcadas. Veranos calurosos, inviernos fríos pero con mucho encanto navideño. Verano: 28–33°C, soleado. El Donauinsel (isla del Danubio) se convierte en la playa de la ciudad. Perfecta para vivir al aire libre. Invierno: Frío, -5°C posibles, con nieve ocasional. Pero los mercados navideños de Viena son de los más bonitos de Europa." },
@@ -2987,7 +2987,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.0,
         summary: "Asequible para Europa Occidental. Caro para Portugal. 900–1.100€/mes bien vividos.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "500–700€ habitación. El boom turístico encareció el mercado. Busca en Mouraria o Intendente." },
           { label: "Comida y supermercados", score: 8.5, desc: "Menú del día por 8–10€. Mercado de Ribeira. Pastéis por 1,20€. Comer bien es barato." },
@@ -3043,7 +3043,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 9.2,
         summary: "Los portugueses son de los más acogedores de Europa. La ciudad más amigable del sur.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Actitud local", score: 9.5, desc: "Extremadamente amables y pacientes. El orgullo português se comparte, no se impone." },
           { label: "Nivel de inglés", score: 8.5, desc: "El inglés funciona muy bien. Muchos jóvenes hablan castellano también." },
@@ -3078,7 +3078,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 9.2,
         summary: "Difícil encontrar una ciudad que lo combine todo mejor. Será tu referencia de por vida.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.5, desc: "Surf en Ericeira (45min), playas de Cascais (30min), Serra de Sintra (30min)." },
           { label: "Clima", score: 9.4, desc: "El mejor clima de Europa Occidental. 300 días de sol. El Atlántico regula la temperatura. Verano: 25–35°C, seco y soleado. La brisa atlántica suaviza el calor. Playas a 30 minutos. Invierno: 12–18°C. El invierno más suave de Europa. Raramente baja de 10°C." },
@@ -3141,7 +3141,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 4.2,
         summary: "Una de las ciudades más caras de esta guía, a la altura de Londres o Ámsterdam. Con 1.000–1.200€/mes se vive con holgura.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 3.0, desc: "Habitaciones desde 500–750€. El coste más alto de la vivienda de toda la guía junto a Londres." },
           { label: "Comida y supermercados", score: 5.5, desc: "ICA y Coop cubren lo básico, pero comer fuera es caro. Lunch menu del mediodía (100–130 SEK) es la opción lista." },
@@ -3198,7 +3198,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.5,
         summary: "El inglés es prácticamente un segundo idioma nativo para los suecos, lo que facilita el día a día — aunque integrarse socialmente con locales lleva más tiempo que el idioma.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.5, desc: "Nivel de inglés altísimo en toda la población, incluidas las clases universitarias impartidas en inglés sin problema." },
           { label: "Actitud local", score: 6.5, desc: "Amables pero reservados — el concepto de 'lagom' (ni mucho ni poco) se aplica también al contacto social espontáneo." },
@@ -3234,7 +3234,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.7,
         summary: "Calidad de vida excepcional: naturaleza integrada en la ciudad, diseño en cada esquina y un equilibrio vida-trabajo que pocos sitios igualan.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.5, desc: "El archipiélago, los bosques dentro de los límites de la ciudad y el agua limpia para bañarse en pleno centro en verano." },
           { label: "Clima", score: 6.0, desc: "Extremo estacional: veranos de días interminables (18-19h de luz) frente a inviernos con apenas 6 horas de luz y frío seco bajo cero." },
@@ -3296,7 +3296,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 4.0,
         summary: "Una de las capitales más caras de esta guía. Con 1.000–1.300€/mes se vive con comodidad, sin lujos.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 3.2, desc: "Habitaciones desde 550–800€. Especialmente caro en Frederiksberg e Indre By (centro)." },
           { label: "Comida y supermercados", score: 5.5, desc: "Netto, Rema 1000 y Lidl para el día a día. Comer fuera es caro salvo en food halls como Reffen o Torvehallerne." },
@@ -3353,7 +3353,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.8,
         summary: "Inglés altísimo y cultura muy abierta a estudiantes internacionales, aunque el danés cerrado ('hyggeligt' pero reservado) tarda en abrirse del todo.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.5, desc: "Casi toda la población domina el inglés con fluidez nativa, incluidos trámites administrativos y vida diaria." },
           { label: "Actitud local", score: 7.0, desc: "Amables y educados, pero el círculo social danés se forma desde la infancia — cuesta entrar del todo en poco tiempo." },
@@ -3389,7 +3389,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.8,
         summary: "El hygge no es marketing: calidad de vida altísima, diseño en cada esquina y un equilibrio entre trabajo, estudio y bienestar que se nota desde el primer día.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.0, desc: "Canales limpios para bañarse en pleno centro, parques como Frederiksberg Have y la costa a un pedaleo de distancia." },
           { label: "Clima", score: 6.0, desc: "Veranos suaves y luminosos (16-22°C) frente a inviernos oscuros y húmedos con apenas 7 horas de luz." },
@@ -3451,7 +3451,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 5.5,
         summary: "Algo más asequible que Estocolmo o Copenhague, aunque sigue siendo una capital nórdica cara. Con 800–1.150€/mes se vive bien.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitaciones desde 450–650€. HOAS (residencias estudiantiles) es la opción más asequible con diferencia." },
           { label: "Comida y supermercados", score: 6.0, desc: "K-Market, S-Market y Lidl para el día a día. Los comedores universitarios (con Kela Card) ofrecen menús completos por 2,95€." },
@@ -3507,7 +3507,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.5,
         summary: "Inglés muy alto y sistema pensado para estudiantes internacionales. Los finlandeses son reservados pero honestos y fiables una vez conectas.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.0, desc: "Nivel de inglés muy alto en toda la población joven; los cursos de Aalto y Hanken están mayoritariamente en inglés." },
           { label: "Actitud local", score: 6.5, desc: "Reservados y de pocas palabras al principio, pero directos y de fiar — el silencio incómodo no existe en la cultura finlandesa." },
@@ -3543,7 +3543,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.5,
         summary: "Naturaleza, diseño y sauna en su máxima expresión. Calma nórdica en estado puro para quien busca desconectar del ruido de las grandes capitales.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.5, desc: "Bosques dentro de los límites de la ciudad, archipiélago de más de 300 islas y agua limpia para bañarse en verano." },
           { label: "Clima", score: 5.5, desc: "Veranos de días eternos (hasta 19h de luz) frente a inviernos con apenas 6 horas de luz, frío intenso y nieve garantizada." },
@@ -3605,7 +3605,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 3.5,
         summary: "La ciudad más cara de esta guía. Con 1.000–1.350€/mes se vive con comodidad moderada; Noruega no está en la eurozona y el coste se nota en todo.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 4.0, desc: "Habitaciones desde 500–750€. SiO gestiona buena parte de la vivienda estudiantil, la opción más asequible con diferencia." },
           { label: "Comida y supermercados", score: 3.5, desc: "Kiwi y Rema 1000 son los supermercados más económicos, aun así los precios sorprenden a quien llega de fuera de Escandinavia." },
@@ -3661,7 +3661,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.2,
         summary: "Inglés altísimo y sistema muy accesible para internacionales. Los noruegos son reservados al principio, pero cercanos y fiables una vez conectas.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.0, desc: "Nivel de inglés muy alto en toda la población, especialmente entre los jóvenes universitarios." },
           { label: "Actitud local", score: 6.0, desc: "Reservados y de pocas palabras al inicio, similar a otros países nórdicos — pero honestos y de fiar." },
@@ -3697,7 +3697,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 9.0,
         summary: "Naturaleza salvaje integrada en la ciudad como en ningún otro destino de esta guía: fiordo y bosque a la vez, con una calidad de vida excepcional.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 10.0, desc: "Fiordo de Oslo para bañarte en verano y bosque de Nordmarka con 2.600 km de pistas de esquí de fondo en invierno." },
           { label: "Clima", score: 6.0, desc: "Veranos suaves y luminosos (16-22°C) frente a inviernos fríos y oscuros con nieve prácticamente garantizada." },
@@ -3759,7 +3759,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 4.0,
         summary: "Cara y fuera de la eurozona. Con 900–1.300€/mes se vive, pero comer fuera y el ocio nocturno son de los más caros de Europa.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 4.5, desc: "Habitaciones desde 500–750€. Comunidad estudiantil pequeña facilita encontrar piso compartido vía grupos de Facebook." },
           { label: "Comida y supermercados", score: 4.0, desc: "Bónus y Krónan son los supermercados más económicos. Comer fuera puede triplicar el precio que en el sur de Europa." },
@@ -3815,7 +3815,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 6.8,
         summary: "Inglés altísimo e islandeses sorprendentemente cercanos para tratarse de un país nórdico — la comunidad pequeña favorece conexiones reales.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.0, desc: "Nivel de inglés muy alto en toda la población joven, especialmente en el entorno universitario." },
           { label: "Actitud local", score: 6.5, desc: "Más abiertos de lo esperado para ser nórdicos; el tamaño reducido de la ciudad favorece el contacto cercano." },
@@ -3851,7 +3851,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 9.5,
         summary: "El entorno más espectacular y extremo de toda esta guía: volcanes, géiseres, glaciares y auroras boreales al alcance de un fin de semana.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 10.0, desc: "Círculo Dorado, glaciares, costas volcánicas y auroras boreales — un paisaje que no se parece a ningún otro destino de Europa." },
           { label: "Clima", score: 6.5, desc: "Extremo estacional: sol de medianoche en verano frente a apenas 4-5 horas de luz en pleno invierno, con viento constante todo el año." },
@@ -3913,7 +3913,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 3.8,
         summary: "Una de las capitales más caras de esta guía. Con 1.000–1.400€/mes se vive con cierta comodidad, sin margen para grandes lujos.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 2.5, desc: "Habitaciones desde 700–1.000€. La crisis de vivienda dublinesa es real y golpea de lleno a los estudiantes internacionales." },
           { label: "Comida y supermercados", score: 5.0, desc: "Lidl y Aldi salvan el presupuesto. Salir a comer fuera es notablemente caro comparado con el resto de Europa." },
@@ -3969,7 +3969,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.5,
         summary: "Inglés nativo desde el primer día e irlandeses entre los más abiertos, habladores y acogedores de toda Europa.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 10.0, desc: "Inmersión total en inglés nativo desde el minuto uno, con el irlandés como segunda lengua oficial en menor uso cotidiano." },
           { label: "Actitud local", score: 9.0, desc: "Los irlandeses tienen fama merecida de ser habladores, cercanos y dispuestos a charlar con cualquiera en el pub." },
@@ -4005,7 +4005,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.5,
         summary: "Literatura, música y una costa espectacular a un trayecto corto de la ciudad. El estilo de vida dublinés gira en torno a lo social.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "Costa irlandesa con acantilados y pueblos pesqueros a menos de una hora; Phoenix Park, uno de los parques urbanos más grandes de Europa." },
           { label: "Clima", score: 5.5, desc: "Oceánico suave y muy lluvioso todo el año, sin extremos de temperatura pero con lluvia constante e impredecible." },
@@ -4066,7 +4066,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 3.8,
         summary: "Cara, en línea con Dublín. Con 1.000–1.400€/mes se vive con cierta comodidad, especialmente fuera del festival de agosto.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 3.0, desc: "Habitaciones desde 650–950€. Los precios suben notablemente si tu estancia coincide con el Fringe Festival en agosto." },
           { label: "Comida y supermercados", score: 5.0, desc: "Lidl, Aldi y Tesco cubren el día a día. Comer fuera es caro salvo en food markets puntuales." },
@@ -4122,7 +4122,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.0,
         summary: "Inglés nativo y escoceses conocidos por ser especialmente cercanos y hospitalarios, incluso más que el resto del Reino Unido.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 10.0, desc: "Inmersión total en inglés nativo, con acento escocés como reto añadido pero muy asequible con el tiempo." },
           { label: "Actitud local", score: 8.5, desc: "Los escoceses tienen fama merecida de ser más cercanos y menos reservados que el resto del Reino Unido." },
@@ -4158,7 +4158,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.5,
         summary: "Gótica y literaria, con Arthur's Seat como montaña dentro de la propia ciudad y las Highlands escocesas a un trayecto corto.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.5, desc: "Arthur's Seat, un volcán extinto dentro de los límites de la ciudad, ofrece vistas panorámicas a pocos minutos del centro." },
           { label: "Clima", score: 5.5, desc: "Oceánico fresco y lluvioso todo el año, sin extremos de temperatura pero con viento constante." },
@@ -4219,7 +4219,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.0,
         summary: "Una de las capitales más baratas de Europa Occidental. Con 500–800€/mes se vive con comodidad, incluyendo salidas frecuentes.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 250–400€. Los precios han subido con el turismo y los pisos turísticos, pero siguen siendo bajos para Europa Occidental." },
           { label: "Comida y supermercados", score: 8.5, desc: "Souvlaki callejero por 2-3€, mercados frescos y tabernas económicas por toda la ciudad." },
@@ -4275,7 +4275,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.0,
         summary: "Griegos hospitalarios y calurosos, aunque el nivel de inglés varía según el barrio y el entorno generacional.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.0, desc: "Buen nivel entre jóvenes y en el entorno universitario; más limitado en comercios de barrio o generaciones mayores." },
           { label: "Actitud local", score: 8.5, desc: "Los griegos tienen fama merecida de hospitalarios — la filoxenía (amor al extranjero) es parte de su cultura." },
@@ -4311,7 +4311,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.5,
         summary: "Historia antigua, playas cercanas y ritmo mediterráneo auténtico. Vivir entre ruinas de miles de años forma parte del día a día.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.0, desc: "Playas del Egeo a un tranvía, monte Licabeto con vistas panorámicas y las islas griegas a un ferry de distancia." },
           { label: "Clima", score: 8.5, desc: "Mediterráneo con veranos calurosos e inviernos suaves — de los climas más agradecidos de toda esta guía." },
@@ -4373,7 +4373,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.5,
         summary: "Uno de los costes de vida más bajos de esta guía. Con 450–700€/mes se vive con comodidad y margen para viajar por la región.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.0, desc: "Habitaciones desde 250–380€. Sin la presión de otras capitales, aunque los precios han subido moderadamente en los últimos años." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercado Dolac para producto fresco y económico; menús del día en tabernas desde 6-8€." },
@@ -4429,7 +4429,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.0,
         summary: "Croatas acogedores y con buen nivel de inglés entre los jóvenes, en una ciudad menos acostumbrada al turismo masivo que otras capitales.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.5, desc: "Buen nivel entre estudiantes y jóvenes; algo más limitado fuera del entorno universitario." },
           { label: "Actitud local", score: 7.5, desc: "Los croatas son hospitalarios y curiosos con los extranjeros, especialmente al ser una ciudad con menos turismo masivo." },
@@ -4465,7 +4465,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.5,
         summary: "Elegancia austrohúngara en la Ciudad Alta combinada con un ritmo de vida tranquilo y la costa adriática siempre cerca.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.0, desc: "Parque Maksimir dentro de la ciudad; montaña Medvednica para senderismo a un tranvía del centro." },
           { label: "Clima", score: 7.0, desc: "Continental con veranos cálidos e inviernos fríos pero secos, sin extremos severos." },
@@ -4526,7 +4526,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.0,
         summary: "Muy asequible, de las capitales más baratas de esta guía. Con 500–750€/mes se vive con comodidad y margen para escapadas.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 280–420€. Mercado pequeño y manejable, sin la tensión de otras capitales." },
           { label: "Comida y supermercados", score: 7.5, desc: "Mercadillo central (Odprta kuhna los viernes) y supermercados asequibles cubren bien el presupuesto." },
@@ -4582,7 +4582,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.0,
         summary: "Eslovenos amables y discretos, con buen nivel de inglés entre los jóvenes y una actitud abierta hacia los estudiantes internacionales.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.5, desc: "Buen nivel entre jóvenes y en el entorno universitario, algo más limitado fuera de él." },
           { label: "Actitud local", score: 7.5, desc: "Eslovenos discretos pero amables, con una curiosidad genuina hacia los estudiantes internacionales." },
@@ -4618,7 +4618,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 9.0,
         summary: "La capital más verde de Europa Central, a escala humana y con una calidad de vida altísima para quien busca tranquilidad.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.5, desc: "Castillo con bosque propio dentro de la ciudad; lago Bled, Bohinj y los Alpes Julianos a un trayecto corto." },
           { label: "Clima", score: 7.0, desc: "Continental con veranos agradables e inviernos fríos pero manejables, sin extremos severos." },
@@ -4680,7 +4680,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.5,
         summary: "Asequible, de las capitales más baratas de esta guía. Con 500–800€/mes se vive con comodidad.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "Habitaciones desde 300–450€. Kalamaja y Kristiine ofrecen los precios más razonables cerca del centro." },
           { label: "Comida y supermercados", score: 7.0, desc: "Rimi, Selver y Maxima cubren el día a día a precios bajos comparados con el resto de Europa Occidental." },
@@ -4735,7 +4735,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.0,
         summary: "Estonios reservados al principio pero fiables y directos, con un nivel de inglés muy alto entre los jóvenes.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 8.5, desc: "Nivel de inglés muy alto entre la población joven, especialmente en el entorno universitario y tecnológico." },
           { label: "Actitud local", score: 6.5, desc: "Reservados y de pocas palabras al principio, similar a otros países bálticos y nórdicos, pero fiables." },
@@ -4771,7 +4771,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.5,
         summary: "Casco medieval Patrimonio de la Humanidad conviviendo con una identidad digital y startup muy fuerte para su tamaño.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.0, desc: "Bosques y costa báltica a un trayecto corto; el parque Kadriorg ofrece naturaleza dentro de la propia ciudad." },
           { label: "Clima", score: 6.0, desc: "Báltico con inviernos fríos y oscuros y veranos suaves de días largos — extremos marcados por estación." },
@@ -4832,7 +4832,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.0,
         summary: "Asequible, de las capitales más baratas de esta guía. Con 500–750€/mes se vive con comodidad.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 280–420€. Užupis y el centro son algo más caros que Žvėrynas." },
           { label: "Comida y supermercados", score: 7.5, desc: "Maxima, Rimi e IKI cubren el día a día a precios bajos; los mercados locales ofrecen productos frescos económicos." },
@@ -4887,7 +4887,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 6.8,
         summary: "Lituanos cercanos y cálidos una vez conectas, con buen nivel de inglés entre la población joven y universitaria.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 8.0, desc: "Nivel de inglés alto entre jóvenes y en el entorno universitario, aunque menos extendido fuera de él." },
           { label: "Actitud local", score: 6.5, desc: "Reservados al principio, pero cálidos y hospitalarios una vez se rompe el hielo inicial." },
@@ -4923,7 +4923,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.8,
         summary: "Casco barroco Patrimonio de la Humanidad con alma alternativa y creativa, gracias en gran parte a Užupis.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "Bosques y lagos bálticos a un trayecto corto; el río Neris y sus orillas ofrecen naturaleza dentro de la propia ciudad." },
           { label: "Clima", score: 6.0, desc: "Continental húmedo con inviernos fríos y veranos suaves — clima báltico típico con estaciones marcadas." },
@@ -4984,7 +4984,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.0,
         summary: "Asequible, de las capitales más baratas de esta guía. Con 500–750€/mes se vive con comodidad.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 280–420€. El casco antiguo y el barrio Art Nouveau son algo más caros que Āgenskalns." },
           { label: "Comida y supermercados", score: 7.5, desc: "Rimi y Maxima cubren el día a día; el Mercado Central, en antiguos hangares de zepelines, ofrece producto fresco muy barato." },
@@ -5039,7 +5039,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 6.8,
         summary: "Letones reservados al principio pero fiables, con buen nivel de inglés entre la población joven y universitaria.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 8.0, desc: "Nivel de inglés alto entre jóvenes y en el entorno universitario, similar al resto de países bálticos." },
           { label: "Actitud local", score: 6.5, desc: "Reservados y de pocas palabras al principio, pero fiables y honestos una vez conectas." },
@@ -5075,7 +5075,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.5,
         summary: "La mayor colección de arquitectura Art Nouveau de Europa conviviendo con un casco medieval Patrimonio de la Humanidad.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.0, desc: "Jurmala y sus playas bálticas a 30 minutos; bosques y parques dentro de la propia ciudad." },
           { label: "Clima", score: 6.0, desc: "Continental húmedo con inviernos fríos y veranos suaves — clima báltico típico marcado por estaciones." },
@@ -5136,7 +5136,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.0,
         summary: "Asequible, de las capitales más baratas de Centroeuropa. Con 500–750€/mes se vive con comodidad.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 300–450€. Staré Mesto es algo más caro que Petržalka o Ružinov." },
           { label: "Comida y supermercados", score: 7.5, desc: "Lidl, Kaufland y Billa cubren el día a día a precios bajos comparados con Viena o Múnich." },
@@ -5192,7 +5192,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.0,
         summary: "Eslovacos cercanos y hospitalarios, con buen nivel de inglés entre la población joven y universitaria.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.5, desc: "Nivel de inglés bueno entre jóvenes y en el entorno universitario, algo menor fuera de él." },
           { label: "Actitud local", score: 7.5, desc: "Los eslovacos tienen fama de cercanos y hospitalarios, especialmente en un país pequeño y acogedor." },
@@ -5228,7 +5228,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.5,
         summary: "Ciudad pequeña a orillas del Danubio, con un castillo desde el que se ven tres países a la vez y una vida tranquila pero bien conectada.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.0, desc: "El Danubio atraviesa la ciudad; los Cárpatos Pequeños ofrecen senderismo y viñedos a un trayecto corto." },
           { label: "Clima", score: 6.5, desc: "Continental con veranos cálidos e inviernos fríos con nieve ocasional — clima centroeuropeo típico." },
@@ -5289,7 +5289,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.5,
         summary: "La capital más barata de toda esta guía. Con 400–650€/mes se vive muy bien, incluyendo salidas frecuentes.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitaciones desde 200–350€, de los precios más bajos de toda Europa para una capital." },
           { label: "Comida y supermercados", score: 8.5, desc: "Kaufland, Mega Image y Lidl cubren el día a día muy barato; comer fuera también es muy asequible." },
@@ -5345,7 +5345,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 6.5,
         summary: "Rumanos hospitalarios y cercanos, con un nivel de inglés que varía notablemente según la generación y la zona de la ciudad.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.0, desc: "Buen nivel entre jóvenes y en el entorno universitario, más limitado fuera de ese círculo." },
           { label: "Actitud local", score: 8.0, desc: "Los rumanos tienen fama merecida de hospitalarios y cálidos con los estudiantes internacionales." },
@@ -5381,7 +5381,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 6.8,
         summary: "El 'Pequeño París' con contrastes constantes entre arquitectura Belle Époque y monumentalismo comunista.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 6.5, desc: "El parque Herăstrău, junto a un lago, ofrece un respiro verde dentro de la propia ciudad." },
           { label: "Clima", score: 5.5, desc: "Continental extremo, con veranos calurosos e inviernos fríos con nieve frecuente." },
@@ -5442,7 +5442,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.7,
         summary: "De las capitales más baratas de toda esta guía. Con 400–600€/mes se vive muy bien.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitaciones desde 180–320€, de los precios más bajos de toda Europa para una capital." },
           { label: "Comida y supermercados", score: 8.5, desc: "Kaufland, Lidl y Billa cubren el día a día muy barato; comer fuera también es muy asequible." },
@@ -5497,7 +5497,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 6.5,
         summary: "Búlgaros hospitalarios y cercanos, con un nivel de inglés que varía notablemente según la generación.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.5, desc: "Buen nivel entre jóvenes y en el entorno universitario, más limitado fuera de ese círculo." },
           { label: "Actitud local", score: 7.5, desc: "Los búlgaros tienen fama de hospitalarios y cálidos con los estudiantes internacionales, aunque algo reservados al inicio." },
@@ -5533,7 +5533,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.5,
         summary: "Más de 7.000 años de historia continua conviviendo con una montaña que ofrece esquí, senderismo y naturaleza a las puertas de la ciudad.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.0, desc: "El monte Vitosha, con esquí en invierno y senderismo en verano, es un parque natural a 30 minutos del centro." },
           { label: "Clima", score: 6.0, desc: "Continental con veranos calurosos e inviernos fríos con nieve garantizada en la montaña." },
@@ -5593,7 +5593,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 1.8,
         summary: "La ciudad más cara de toda la guía, muy por encima de Londres o Ámsterdam. Sin una beca complementaria es difícil de sostener.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 1.5, desc: "Habitaciones desde 900–1.200€. El alquiler más caro de toda esta guía, a la altura de Zúrich." },
           { label: "Comida y supermercados", score: 3.0, desc: "Migros y Coop cubren lo básico pero los precios duplican a los de España. Menús en restaurantes universitarios rondan 12–15 CHF." },
@@ -5645,7 +5645,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 9.0,
         summary: "Posiblemente la ciudad más internacional de Europa: con organismos globales a cada paso, el inglés y el francés conviven sin fricción.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 8.5, desc: "Ampliamente hablado en el entorno universitario e internacional, aunque el francés ayuda mucho en el día a día." },
           { label: "Actitud local", score: 7.5, desc: "Ginebrinos discretos pero correctos; la ciudad está acostumbrada a la rotación constante de expatriados." },
@@ -5679,7 +5679,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.5,
         summary: "Lago y montaña con una calidad de vida excepcional, aunque con un ritmo más formal y menos espontáneo que otras ciudades de la guía.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.5, desc: "El lago Lemán y los Alpes literalmente a la vuelta de la esquina; paseos, vela y senderismo todo el año." },
           { label: "Clima", score: 7.0, desc: "Templado, con veranos agradables e inviernos fríos con niebla ocasional sobre el lago (la 'bise')." },
@@ -5737,7 +5737,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.0,
         summary: "Moderada para Italia, aunque la presión turística ha subido el alquiler en el centro los últimos años. Con 800€/mes se vive bien.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitaciones desde 400–550€ en el centro; más barato en Campo di Marte o Novoli." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercado de San Lorenzo y Sant'Ambrogio para comprar barato; la trattoria de barrio sigue siendo asequible fuera de zonas turísticas." },
@@ -5789,7 +5789,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.0,
         summary: "Acostumbrada durante décadas a estudiantes internacionales, especialmente estadounidenses, lo que facilita mucho la llegada.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.0, desc: "Bueno en el entorno universitario y turístico, algo más limitado en trámites administrativos." },
           { label: "Actitud local", score: 8.0, desc: "Los florentinos, orgullosos de su ciudad, suelen ser cálidos con quien muestra interés genuino por la cultura local." },
@@ -5823,7 +5823,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 9.0,
         summary: "Vivir rodeado de arte renacentista de camino a clase cambia la perspectiva de cualquiera. Difícil encontrar una combinación de historia, arte y gastronomía similar.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 6.5, desc: "Las colinas toscanas (Fiesole, Piazzale Michelangelo) ofrecen naturaleza cercana, aunque la ciudad en sí es urbana." },
           { label: "Clima", score: 7.0, desc: "Mediterráneo, con veranos muy calurosos en el valle del Arno e inviernos suaves." },
@@ -5881,7 +5881,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 5.5,
         summary: "Más asequible que Múnich, aunque por encima de la media alemana. Con 900€/mes se vive con comodidad.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitaciones desde 450–600€; Sternschanze y St. Pauli entre las zonas más caras por su popularidad." },
           { label: "Comida y supermercados", score: 6.5, desc: "Edeka, Rewe y Aldi para el día a día; el Fischmarkt dominical para pescado fresco barato." },
@@ -5933,7 +5933,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.0,
         summary: "Ciudad portuaria y mediática, muy acostumbrada a la llegada de extranjeros, con un nivel de inglés alto entre los jóvenes.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 8.0, desc: "Alto en el entorno universitario y entre la generación joven, aunque el alemán ayuda en trámites." },
           { label: "Actitud local", score: 7.0, desc: "Los hamburgueses, algo reservados al principio (fama de 'fríos' incluso para Alemania), pero fiables una vez conectas." },
@@ -5967,7 +5967,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.8,
         summary: "Puerto, canales y una calidad de vida norteña muy equilibrada, con la Elbphilharmonie como símbolo de una ciudad que mira al futuro sin perder su identidad portuaria.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "Los lagos Alster y el Stadtpark ofrecen naturaleza urbana muy accesible." },
           { label: "Clima", score: 6.0, desc: "Oceánico, con lluvia frecuente y veranos suaves; el gris es parte del carácter de la ciudad." },
@@ -6025,7 +6025,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.0,
         summary: "Más barata que Bruselas o Amberes; con 700–750€/mes se vive con comodidad.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Kot estudiantil (habitación tipo estudio) desde 350–500€, abundante gracias a la mayor universidad de Bélgica." },
           { label: "Comida y supermercados", score: 7.5, desc: "Colruyt y Aldi para el día a día; Vrijdagmarkt para comprar barato entre semana." },
@@ -6077,7 +6077,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.5,
         summary: "Con la universidad más grande de Bélgica, Gante está diseñada para recibir estudiantes internacionales, y el inglés funciona en cualquier contexto universitario.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.0, desc: "Muy alto entre los jóvenes y en todo el entorno universitario, sin apenas barrera idiomática." },
           { label: "Actitud local", score: 8.0, desc: "Flamencos abiertos y acostumbrados a la enorme comunidad Erasmus de la ciudad." },
@@ -6111,7 +6111,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.3,
         summary: "Medieval sin las masas de turistas de Brujas, con un alma universitaria propia que se nota en cada rincón de la ciudad.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 6.5, desc: "Parques como Citadelpark ofrecen zonas verdes accesibles, aunque no es el fuerte de la ciudad." },
           { label: "Clima", score: 6.5, desc: "Oceánico, con lluvia frecuente y veranos suaves, similar al resto de Bélgica." },
@@ -6166,7 +6166,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 4.0,
         summary: "El precio de vivir en la ciudad más fotografiada del mundo. El alquiler en el centro histórico compite con miles de pisos turísticos.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 3.0, desc: "Habitaciones desde 500–700€ en el centro histórico; bajan a 350–450€ en Mestre, en tierra firme." },
           { label: "Comida y supermercados", score: 5.5, desc: "Los supermercados de barrio (lejos de San Marco) tienen precios normales italianos; los bares turísticos triplican el precio de un café." },
@@ -6208,7 +6208,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
         summary: "Ciudad acostumbrada al visitante internacional, aunque la masificación turística complica distinguir a un estudiante de un turista más.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.0, desc: "Bien hablado en el entorno universitario y turístico, algo menos en los barrios residenciales." },
           { label: "Actitud local", score: 6.0, desc: "Los venecianos son reservados con el turismo masivo, pero cordiales con quien vive y respeta la ciudad." },
@@ -6236,7 +6236,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 9.3,
         summary: "La experiencia estética más singular de esta guía: vivir rodeado de arte, agua y arquitectura única en el mundo.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "La laguna y las islas cercanas ofrecen paseos en barco y playas en el Lido a poca distancia." },
           { label: "Clima", score: 7.0, desc: "Veranos húmedos y calurosos, inviernos con niebla y acqua alta recurrente." },
@@ -6285,7 +6285,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.5,
         summary: "Mucho más asequible que París por un nivel de vida y gastronomía comparables.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "Habitación desde 400–550€; piso compartido más barato que en la capital, aunque ha subido en los últimos años." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercados como Les Halles de Lyon y menús bouchon a precio estudiante hacen que comer bien sea asequible." },
@@ -6327,7 +6327,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8,
         summary: "Ciudad acostumbrada al estudiante internacional, aunque el francés ayuda mucho más que en el norte de Europa.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.5, desc: "Se habla en el entorno universitario, pero el francés es necesario para el día a día fuera del campus." },
           { label: "Actitud local", score: 7.5, desc: "Los lioneses tienen fama de discretos pero acogedores una vez se rompe el hielo inicial." },
@@ -6355,7 +6355,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.3,
         summary: "Equilibrio perfecto entre ciudad grande y calidad de vida, con la gastronomía como eje central.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.0, desc: "Parcs de la Tête d'Or y los ríos ofrecen espacio verde en pleno centro; los Alpes cerca para escapadas." },
           { label: "Clima", score: 6.5, desc: "Continental con veranos calurosos e inviernos fríos, aunque menos extremo que el norte de Francia." },
@@ -6404,7 +6404,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.3,
         summary: "Más asequible que Múnich o Fráncfort, con un coste de vida típico de una gran ciudad alemana de segunda fila.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 5.5, desc: "Habitaciones desde 400–550€; el WG (piso compartido) es la norma entre estudiantes." },
           { label: "Comida y supermercados", score: 7.0, desc: "Aldi, Lidl y Rewe cubren la compra básica a precios razonables para Alemania." },
@@ -6446,7 +6446,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
         summary: "Ciudad abierta y cosmopolita, con una comunidad internacional muy consolidada gracias al tamaño de la universidad.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.0, desc: "Se habla bien en el entorno universitario; el alemán es necesario para trámites y vida diaria fuera del campus." },
           { label: "Actitud local", score: 8.0, desc: "Los renanos tienen fama de ser de los alemanes más abiertos y habladores del país." },
@@ -6474,7 +6474,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 7.8,
         summary: "Ciudad grande con carácter propio, entre la seriedad alemana y el desparpajo renano, con la catedral como referencia constante.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 6.5, desc: "El Rin cruza la ciudad y ofrece paseos y parques; el bosque de Königsforst cerca para escapadas verdes." },
           { label: "Clima", score: 6.0, desc: "Oceánico húmedo, con inviernos grises pero suaves para Alemania." },
@@ -6523,7 +6523,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.3,
         summary: "Más barata que Bruselas o Amberes, con un coste de vida moderado gracias al tamaño manejable de la ciudad.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 400–550€; el 'kot' (habitación de estudiante) es la institución local para vivir barato." },
           { label: "Comida y supermercados", score: 7.5, desc: "Supermercados belgas estándar (Colruyt, Aldi) y comedores universitarios muy económicos." },
@@ -6565,7 +6565,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.3,
         summary: "Ciudad diseñada en torno al estudiante internacional, con inglés ampliamente hablado gracias a los numerosos programas en ese idioma.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.0, desc: "KU Leuven ofrece gran parte de sus másteres en inglés, y se habla con fluidez en todo el entorno universitario." },
           { label: "Actitud local", score: 8.0, desc: "Los lovainenses están muy acostumbrados a la enorme población estudiantil internacional." },
@@ -6593,7 +6593,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 7.5,
         summary: "Ciudad pequeña, segura y con encanto medieval, ideal para quien busca una experiencia universitaria intensa sin el ritmo de una gran capital.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 6.0, desc: "Parques urbanos y el Provinciedomein Kessel-Lo cerca, aunque no es una ciudad de naturaleza destacada." },
           { label: "Clima", score: 6.0, desc: "Oceánico húmedo, con inviernos grises típicos de Bélgica." },
@@ -6642,7 +6642,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 4.7,
         summary: "Más barata que Ámsterdam, aunque sigue siendo una de las ciudades caras de esta guía dentro del contexto neerlandés.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 4.0, desc: "Habitaciones desde 550–750€; más barato que Ámsterdam pero por encima de la media europea." },
           { label: "Comida y supermercados", score: 6.0, desc: "Albert Heijn y Jumbo cubren la compra; los precios son ligeramente más bajos que en Ámsterdam." },
@@ -6684,7 +6684,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.7,
         summary: "Una de las ciudades más internacionales y con mejor nivel de inglés de esta guía, gracias a la tradición universitaria neerlandesa.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.5, desc: "Prácticamente toda la población, y en especial el entorno universitario, domina el inglés con fluidez." },
           { label: "Actitud local", score: 8.0, desc: "Los neerlandeses son directos pero abiertos, y muy acostumbrados al estudiante internacional." },
@@ -6712,7 +6712,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.3,
         summary: "El encanto de Ámsterdam con más calma y menos turismo, además de un carácter marcadamente joven y universitario.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.0, desc: "Parques como el Wilhelminapark y rutas en bici por el campo neerlandés cerca del centro." },
           { label: "Clima", score: 6.0, desc: "Oceánico húmedo, con lluvia frecuente y viento — típico neerlandés." },
@@ -6761,7 +6761,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 5.5,
         summary: "Coste de vida típico de Suecia, con la ventaja de ser más barata que Estocolmo.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitaciones desde 450–600€, gestionadas en gran parte por AF Bostäder, la cooperativa estudiantil." },
           { label: "Comida y supermercados", score: 6.0, desc: "ICA y Lidl cubren la compra básica; los precios suecos son altos pero manejables con planificación." },
@@ -6803,7 +6803,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8,
         summary: "Ciudad muy acostumbrada al estudiante internacional, con un inglés casi universal en el entorno universitario.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.0, desc: "Prácticamente toda la comunidad universitaria domina el inglés con fluidez nativa." },
           { label: "Actitud local", score: 7.0, desc: "Los suecos son reservados al principio, pero muy fiables una vez se establece la relación." },
@@ -6831,7 +6831,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.0,
         summary: "Ciudad universitaria clásica escandinava: pequeña, segura, con mucha vida de estudiante y una catedral como centro simbólico.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.0, desc: "Parques urbanos y cercanía a la costa de Escania para escapadas de fin de semana." },
           { label: "Clima", score: 5.5, desc: "Inviernos largos, fríos y con pocas horas de luz — el aspecto más duro de vivir aquí." },
@@ -6880,7 +6880,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 5.8,
         summary: "Más asequible que Viena o Salzburgo, aunque el equipo y los forfaits de esquí son un gasto añadido a tener en cuenta.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 5.5, desc: "Habitaciones desde 450–600€; algo más barato que las grandes capitales austriacas." },
           { label: "Comida y supermercados", score: 6.5, desc: "Spar y Hofer (Aldi austriaco) cubren la compra básica a precios razonables." },
@@ -6922,7 +6922,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
         summary: "Ciudad acogedora, aunque el tamaño más pequeño hace que la integración dependa más del propio esfuerzo que en grandes capitales.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.0, desc: "Bien hablado en el entorno universitario y turístico, algo menos en el día a día fuera de él." },
           { label: "Actitud local", score: 7.5, desc: "Los tiroleses son acogedores, con un fuerte orgullo regional y tradición de hospitalidad de montaña." },
@@ -6950,7 +6950,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 9.3,
         summary: "Calidad de vida excepcional para quien busca naturaleza y deporte de montaña combinados con vida universitaria.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.8, desc: "Los Alpes literalmente al final de la calle principal, con senderismo en verano y esquí en invierno." },
           { label: "Clima", score: 6.5, desc: "Alpino, con inviernos largos y nevados y veranos suaves; ideal si te gusta la nieve." },
@@ -6999,7 +6999,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.3,
         summary: "Asequible fuera de temporada alta, aunque los precios suben notablemente en los meses de verano por el turismo costero.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 300–450€, aunque en verano muchos propietarios prefieren alquiler turístico de corta estancia." },
           { label: "Comida y supermercados", score: 7.5, desc: "Supermercados como Konzum y mercados locales de pescado y verdura, muy asequibles fuera de zona turística." },
@@ -7041,7 +7041,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.8,
         summary: "Ciudad acostumbrada al turista, aunque la comunidad universitaria internacional es todavía más pequeña que en otras ciudades de esta guía.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.5, desc: "Ampliamente hablado gracias al turismo, especialmente entre la población joven." },
           { label: "Actitud local", score: 7.0, desc: "Los dálmatas son cálidos y hospitalarios, con un ritmo de vida mediterráneo muy marcado." },
@@ -7069,7 +7069,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.8,
         summary: "Vida de costa mediterránea combinada con un patrimonio histórico único: vivir literalmente dentro de un palacio romano.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.0, desc: "El Adriático, las islas y el Parque Nacional de Krka a poca distancia." },
           { label: "Clima", score: 8.5, desc: "Mediterráneo con veranos largos y soleados, ideal para la vida de playa casi todo el año." },
@@ -7118,7 +7118,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.5,
         summary: "Una de las ciudades más baratas de esta guía, con un coste de vida muy por debajo de la media europea.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitaciones desde 200–300€, de las más baratas de toda esta guía." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercados como el Modiano y tabernas de barrio permiten comer muy bien por muy poco." },
@@ -7160,7 +7160,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
         summary: "Ciudad acogedora, aunque el griego ayuda bastante fuera del entorno universitario más internacional.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.5, desc: "Bien hablado entre la población joven y universitaria, menos en el día a día fuera de ese entorno." },
           { label: "Actitud local", score: 8.0, desc: "Los griegos son extremadamente hospitalarios, con una cultura de acogida muy marcada." },
@@ -7188,7 +7188,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.0,
         summary: "Ritmo mediterráneo intenso, con el paseo marítimo y la vida de café como ejes centrales de la vida diaria.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.0, desc: "El golfo Termaico y el Monte Olimpo cerca, con playas de Calcídica a poca distancia." },
           { label: "Clima", score: 8.0, desc: "Mediterráneo, con veranos largos y calurosos y una vida en la calle casi todo el año." },
@@ -7237,7 +7237,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.5,
         summary: "Una de las ciudades más baratas de Italia, muy por debajo de Milán o Roma.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 300–400€, de las más baratas entre las grandes ciudades italianas." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercados de barrio y pizzerías históricas hacen que comer bien sea baratísimo." },
@@ -7279,7 +7279,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
         summary: "Ciudad calurosa y acogedora con los extranjeros, aunque el ritmo caótico requiere adaptación al principio.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 5.5, desc: "Menos hablado que en el norte de Italia; el italiano básico ayuda mucho en el día a día." },
           { label: "Actitud local", score: 8.5, desc: "Los napolitanos tienen fama, merecida, de ser de los italianos más calurosos y hospitalarios." },
@@ -7307,7 +7307,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.5,
         summary: "Autenticidad italiana en su forma más intensa, con el Vesubio y la bahía como telón de fondo constante.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.0, desc: "El Vesubio, la bahía de Nápoles y la Costa Amalfitana a un paso de la ciudad." },
           { label: "Clima", score: 8.5, desc: "Mediterráneo, con veranos calurosos e inviernos suaves, de los climas más agradables de esta guía." },
@@ -7356,7 +7356,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 5.8,
         summary: "Más barata que Ámsterdam o Utrecht, aunque sigue siendo Países Bajos: nada es realmente barato.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitación desde 400–550€; el mercado es más accesible que en Ámsterdam gracias al enorme parque de vivienda estudiantil." },
           { label: "Comida y supermercados", score: 6.5, desc: "Supermercados como Lidl y Aldi mantienen el gasto en comida razonable comparado con el resto de Países Bajos." },
@@ -7398,7 +7398,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.5,
         summary: "Los neerlandeses de Groningen tienen fama de ser de los más abiertos y directos con los internacionales del país.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.5, desc: "Prácticamente toda la ciudad, incluidos comercios y administración, funciona en inglés sin problema." },
           { label: "Actitud local", score: 8.0, desc: "Directos pero cordiales; la enorme proporción de estudiantes hace que lo internacional se sienta normal." },
@@ -7426,7 +7426,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 7.5,
         summary: "Vida universitaria compacta, verde y relajada, sin las prisas ni el turismo masivo de otras ciudades neerlandesas.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.0, desc: "El Noorderplantsoen y los canales del centro ofrecen espacio verde a poca distancia de cualquier punto." },
           { label: "Clima", score: 6.0, desc: "Oceánico, con viento constante por la cercanía al mar y lluvias frecuentes todo el año." },
@@ -7475,7 +7475,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 9.0,
         summary: "Una de las ciudades más baratas de toda esta guía, muy por debajo de Lisboa y Oporto.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 8.5, desc: "Habitación en república estudiantil o piso compartido desde 200–300€, de las más bajas de Europa." },
           { label: "Comida y supermercados", score: 9.0, desc: "Menús de restaurante universitario por 3–4€ y mercados locales muy económicos." },
@@ -7517,7 +7517,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
         summary: "Ciudad pequeña y acogedora, aunque menos rodada en recibir internacionales que Lisboa u Oporto.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.0, desc: "Bien hablado entre estudiantes; algo menos en comercios tradicionales del centro." },
           { label: "Actitud local", score: 8.0, desc: "Los coimbrões tienen fama de cálidos y orgullosos de su tradición académica." },
@@ -7545,7 +7545,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.3,
         summary: "Tradición académica centenaria envuelta en un ambiente relajado a orillas del río Mondego.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "El río Mondego y el Parque Verde ofrecen espacio de descanso a un paso del centro histórico." },
           { label: "Clima", score: 8.0, desc: "Mediterráneo suave, con veranos calurosos e inviernos templados." },
@@ -7594,7 +7594,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 5.5,
         summary: "Cara como el resto de Suecia, aunque algo más asequible que Estocolmo gracias a su tamaño más manejable.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 4.5, desc: "Habitación desde 450–600€, con una demanda muy alta frente a la oferta disponible." },
           { label: "Comida y supermercados", score: 5.5, desc: "Supermercados como Lidl y Willys ayudan a mantener el presupuesto bajo control." },
@@ -7636,7 +7636,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8,
         summary: "Ciudad universitaria acostumbrada a recibir internacionales desde hace siglos, con suecos abiertos aunque algo reservados al inicio.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.5, desc: "Nivel de inglés altísimo en toda la ciudad, sin ninguna barrera para el día a día." },
           { label: "Actitud local", score: 7.0, desc: "Los suecos son amables pero reservados; las naciones ayudan mucho a romper el hielo." },
@@ -7664,7 +7664,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.0,
         summary: "Tradición académica sueca, naturaleza cercana y un ritmo de vida pausado marcado por las estaciones extremas.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.0, desc: "El río Fyris cruza la ciudad y los bosques suecos empiezan a pocos minutos en bici." },
           { label: "Clima", score: 5.5, desc: "Inviernos largos y oscuros con nieve; veranos cortos pero con días interminables de luz." },
@@ -7713,7 +7713,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 5.8,
         summary: "Más cara que el este de Alemania, pero razonable comparada con Múnich o Friburgo de Suiza (a la que a veces se confunde).",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitación desde 450–600€; el mercado está tensionado por ser ciudad pequeña y muy demandada." },
           { label: "Comida y supermercados", score: 6.5, desc: "Supermercados alemanes estándar (Aldi, Lidl, Rewe) mantienen el gasto en comida controlado." },
@@ -7755,7 +7755,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
         summary: "Ciudad acogedora y con buen nivel de inglés en el entorno universitario, aunque el alemán ayuda mucho fuera de él.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.0, desc: "Bien hablado en la universidad; algo más limitado en comercios tradicionales." },
           { label: "Actitud local", score: 7.5, desc: "Friburgueses conocidos por ser de los alemanes más relajados y ecologistas del país." },
@@ -7783,7 +7783,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 9.0,
         summary: "El mejor clima de Alemania combinado con la Selva Negra a las puertas: un entorno natural difícil de superar.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.5, desc: "La Selva Negra empieza literalmente al final de la ciudad, con rutas de senderismo y esquí cercanas." },
           { label: "Clima", score: 9.0, desc: "La ciudad más soleada de Alemania, con veranos cálidos y agradables para el estándar alemán." },
@@ -7832,7 +7832,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.8,
         summary: "Más asequible que París o Lyon, con un nivel de vida muy alto para el precio que se paga.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 400–500€, más barata que en la mayoría de grandes ciudades francesas." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercados como el Marché de Talensac ofrecen producto fresco a buen precio." },
@@ -7874,7 +7874,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8,
         summary: "Ciudad acogedora y acostumbrada a estudiantes internacionales, aunque el francés sigue siendo clave fuera del campus.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.0, desc: "Menos extendido que en el norte de Europa; el francés básico facilita mucho el día a día." },
           { label: "Actitud local", score: 8.0, desc: "Los nanteses tienen fama de ser de los franceses más abiertos y relajados." },
@@ -7902,7 +7902,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.5,
         summary: "Ciudad creativa, verde y muy bien valorada por calidad de vida, con el océano Atlántico siempre cerca.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.0, desc: "El Loira cruza la ciudad y la costa atlántica está a menos de una hora." },
           { label: "Clima", score: 7.0, desc: "Oceánico templado, con inviernos suaves y veranos agradables sin calores extremos." },
@@ -7951,7 +7951,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.8,
         summary: "Uno de los costes de vida más bajos de esta guía, comparable a Cracovia o Varsovia.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 8.0, desc: "Habitación desde 250–350€, de las más baratas entre las grandes ciudades universitarias de Europa." },
           { label: "Comida y supermercados", score: 9.0, desc: "Mercados de barrio y bares de leche (bar mleczny) hacen que comer bien cueste muy poco." },
@@ -7993,7 +7993,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.8,
         summary: "Ciudad cada vez más internacional, aunque el nivel de inglés fuera del entorno universitario sigue siendo desigual.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.5, desc: "Bien hablado entre los jóvenes; algo más limitado en comercios tradicionales y transporte." },
           { label: "Actitud local", score: 7.0, desc: "Los polacos de Breslavia son cordiales y cada vez más acostumbrados al estudiante internacional." },
@@ -8021,7 +8021,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.3,
         summary: "Una de las ciudades más bonitas y fotogénicas de Polonia, con un centro histórico reconstruido con mucho mimo tras la guerra.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.0, desc: "Parques a orillas del Óder y las islas del centro ofrecen espacio verde accesible." },
           { label: "Clima", score: 6.0, desc: "Continental, con inviernos fríos y veranos cálidos, típico de Europa central." },
@@ -8070,7 +8070,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 9.0,
         summary: "Uno de los costes de vida más bajos de esta guía, similar a Bucarest pero con menos tamaño y caos.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 8.0, desc: "Habitación desde 200–300€, de las más baratas entre las ciudades universitarias grandes de Europa." },
           { label: "Comida y supermercados", score: 9.0, desc: "Mercados locales y restaurantes tradicionales rumanos son muy económicos." },
@@ -8112,7 +8112,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.5,
         summary: "Ciudad cada vez más internacional gracias al sector tech, aunque el inglés fuera del circuito universitario aún es limitado.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.0, desc: "Bien hablado entre estudiantes y sector tech; más limitado en comercios tradicionales." },
           { label: "Actitud local", score: 7.5, desc: "Los clujeni son hospitalarios y están acostumbrados a la creciente comunidad internacional." },
@@ -8140,7 +8140,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 7.0,
         summary: "Ciudad joven, tecnológica y con festival propio, rodeada de los paisajes de Transilvania.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "Parcul Central y las colinas de Cluj ofrecen espacio verde; los Cárpatos están cerca para senderismo." },
           { label: "Clima", score: 6.5, desc: "Continental, con inviernos fríos y veranos cálidos y secos." },
@@ -8189,7 +8189,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 4.5,
         summary: "Cara para el estándar europeo, aunque bastante más asequible que Dublín, con la que comparte la crisis nacional de vivienda.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 4.0, desc: "Habitación desde 550–700€, cara para el tamaño de la ciudad debido a la escasez de vivienda irlandesa." },
           { label: "Comida y supermercados", score: 5.5, desc: "Supermercados como Lidl y Aldi ayudan a mantener el gasto en comida bajo control." },
@@ -8231,7 +8231,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
         summary: "Ciudad cálida y acogedora, con el inglés como idioma nativo facilitando la integración desde el primer día.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 10.0, desc: "Idioma nativo, sin ninguna barrera de comunicación." },
           { label: "Actitud local", score: 8.5, desc: "Los galwegians tienen fama de ser de los irlandeses más cercanos y habladores." },
@@ -8259,7 +8259,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.5,
         summary: "El salvaje Atlántico, la música tradicional y un ambiente bohemio hacen de Galway una experiencia muy distinta al resto de Irlanda.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.0, desc: "El Atlántico, Salthill y Connemara ofrecen naturaleza salvaje a un paso del centro." },
           { label: "Clima", score: 5.5, desc: "Oceánico atlántico, con lluvia frecuente y viento constante durante buena parte del año." },
@@ -8308,7 +8308,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 2.5,
         summary: "Una de las ciudades más caras de esta guía, aunque algo más asequible que Ginebra.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 3.0, desc: "Habitación desde 750–950€, entre los alquileres más altos de toda esta guía." },
           { label: "Comida y supermercados", score: 3.0, desc: "Supermercados suizos (Migros, Coop) son notablemente más caros que en el resto de Europa." },
@@ -8350,7 +8350,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
         summary: "Campus muy internacional, con inglés ampliamente aceptado en el entorno universitario y científico.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 8.0, desc: "La EPFL funciona en gran parte en inglés; la UNIL requiere más francés según la facultad." },
           { label: "Actitud local", score: 7.0, desc: "Los suizos romandos son cordiales aunque algo reservados en el trato inicial." },
@@ -8378,7 +8378,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 9.0,
         summary: "Uno de los entornos más espectaculares de esta guía: lago, viñedos y Alpes conviven en el mismo horizonte.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.5, desc: "El lago Lemán, los viñedos de Lavaux (Patrimonio UNESCO) y los Alpes, todos visibles desde la ciudad." },
           { label: "Clima", score: 7.5, desc: "Templado continental suavizado por el lago, con veranos agradables e inviernos fríos con nieve cercana." },
@@ -8427,7 +8427,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 5.8,
         summary: "Más asequible que Estocolmo, aunque cara según el estándar europeo general, como el resto de Suecia.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitación desde 450–600€, algo más asequible que Lund o Estocolmo." },
           { label: "Comida y supermercados", score: 5.5, desc: "Supermercados como Lidl y Willys mantienen el gasto en comida razonable para el estándar sueco." },
@@ -8469,7 +8469,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.3,
         summary: "Una de las ciudades más diversas de Suecia, con una identidad multicultural muy marcada y acogedora.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.5, desc: "Nivel de inglés altísimo en toda la ciudad, sin ninguna barrera para el día a día." },
           { label: "Actitud local", score: 8.0, desc: "Ciudad acostumbrada a la diversidad, con una población muy mezclada culturalmente." },
@@ -8497,7 +8497,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 7.8,
         summary: "Ciudad moderna y reinventada, con un skyline icónico y un ambiente urbano muy vivo para el tamaño de Suecia.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.0, desc: "Ribersborg y el parque Kungsparken ofrecen playa urbana y espacio verde en pleno centro." },
           { label: "Clima", score: 6.5, desc: "Oceánico suavizado por el estrecho de Öresund, más templado que el resto de Suecia." },
@@ -8546,7 +8546,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 4.3,
         summary: "Cara para el estándar europeo, aunque bastante más asequible que Copenhague.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 4.0, desc: "Habitación desde 500–650€, por debajo de Copenhague pero aún alta para el estándar europeo." },
           { label: "Comida y supermercados", score: 5.0, desc: "Netto y Rema 1000 mantienen el gasto en comida algo más controlado que en la capital." },
@@ -8588,7 +8588,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.5,
         summary: "Los daneses de Aarhus tienen fama de ser abiertos y muy acostumbrados al estudiante internacional.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.5, desc: "Prácticamente toda la ciudad funciona en inglés sin ningún problema." },
           { label: "Actitud local", score: 8.0, desc: "Daneses relajados y directos, acostumbrados a la enorme comunidad internacional universitaria." },
@@ -8616,7 +8616,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.3,
         summary: "Playas urbanas, diseño escandinavo y un ritmo de vida pausado y muy verde.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.5, desc: "El bosque de Marselisborg y las playas urbanas de Tangkrogen a un paseo en bici del centro." },
           { label: "Clima", score: 6.0, desc: "Oceánico con inviernos oscuros, aunque más suave que el norte escandinavo." },
@@ -8665,7 +8665,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 5.5,
         summary: "Cara para una ciudad pequeña alemana, por la enorme demanda de una ciudad universitaria de referencia.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitación desde 480–620€, alta para el tamaño de la ciudad por la fuerte demanda universitaria." },
           { label: "Comida y supermercados", score: 6.5, desc: "Supermercados alemanes estándar (Aldi, Lidl, Rewe) mantienen el gasto en comida razonable." },
@@ -8707,7 +8707,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
         summary: "Ciudad acostumbrada a estudiantes internacionales desde hace siglos, con buen nivel de inglés en el entorno universitario.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.5, desc: "Bien hablado en la universidad y el centro histórico; algo más limitado en barrios residenciales." },
           { label: "Actitud local", score: 7.5, desc: "Los heidelbergeses están acostumbrados al turismo y a la comunidad universitaria internacional." },
@@ -8735,7 +8735,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 9.0,
         summary: "Probablemente la postal alemana más romántica de esta guía: castillo, río y colinas boscosas en un mismo horizonte.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.5, desc: "El Königstuhl y las colinas del Odenwald ofrecen senderismo a un paso del centro." },
           { label: "Clima", score: 8.0, desc: "Uno de los climas más suaves de Alemania, con veranos cálidos gracias al valle del Rin." },
@@ -8784,7 +8784,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.8,
         summary: "Más asequible que París o Burdeos, con un ambiente estudiantil que compensa cualquier gasto extra.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.3, desc: "Habitación desde 420–520€, razonable para el tamaño y la actividad económica de la ciudad." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercados como Victor Hugo ofrecen producto fresco a buen precio." },
@@ -8826,7 +8826,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8,
         summary: "Ciudad acostumbrada a estudiantes internacionales gracias al sector aeronáutico y a su enorme población universitaria.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.0, desc: "Menos extendido que en el norte de Europa; un francés básico facilita mucho el día a día." },
           { label: "Actitud local", score: 8.0, desc: "Los toulousains tienen fama de ser de los franceses más cálidos y abiertos, propio del sur del país." },
@@ -8854,7 +8854,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.3,
         summary: "Ciudad de ladrillo rosa con un ambiente relajado del sur de Francia y una identidad tecnológica muy marcada.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "El Garona cruza la ciudad, con los Pirineos a menos de dos horas para escapadas de montaña." },
           { label: "Clima", score: 8.0, desc: "Mediterráneo continental, con veranos calurosos e inviernos suaves." },
@@ -8903,7 +8903,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.0,
         summary: "Más cara que hace una década por su creciente popularidad, aunque razonable comparada con París.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 5.3, desc: "Habitación desde 480–580€; el precio ha subido notablemente en los últimos años por la demanda." },
           { label: "Comida y supermercados", score: 6.5, desc: "Mercado de Capucins y supermercados estándar franceses mantienen el gasto en comida razonable." },
@@ -8945,7 +8945,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8,
         summary: "Ciudad muy acostumbrada al estudiante internacional, con un ambiente acogedor y cosmopolita.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.0, desc: "Menos extendido que en el norte de Europa; un francés básico ayuda mucho en el día a día." },
           { label: "Actitud local", score: 8.0, desc: "Los bordeleses tienen fama de ser abiertos y orgullosos de su ciudad y su vino." },
@@ -8973,7 +8973,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.8,
         summary: "Elegancia arquitectónica, viñedos de fama mundial y una calidad de vida que explica su enorme popularidad reciente.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.5, desc: "El Garona cruza la ciudad, y los viñedos y la costa atlántica están a un paso." },
           { label: "Clima", score: 7.5, desc: "Oceánico templado, con inviernos suaves y veranos agradables sin calores extremos." },
@@ -9022,7 +9022,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.3,
         summary: "Uno de los costes de vida más bajos de toda Italia, muy por debajo de Milán, Roma o incluso Nápoles.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 8.0, desc: "Habitación desde 220–320€, de las más bajas entre las grandes ciudades universitarias italianas." },
           { label: "Comida y supermercados", score: 9.0, desc: "Mercados callejeros y street food hacen que comer bien cueste muy poco." },
@@ -9064,7 +9064,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.8,
         summary: "Ciudad calurosa y hospitalaria, aunque el ritmo caótico y el inglés limitado requieren adaptación al principio.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 5.0, desc: "Menos hablado que en el norte de Italia; el italiano básico ayuda mucho en el día a día." },
           { label: "Actitud local", score: 8.5, desc: "Los palermitanos tienen fama, merecida, de ser extremadamente hospitalarios." },
@@ -9092,7 +9092,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.8,
         summary: "El Mediterráneo en su forma más auténtica, con mercados, playas y un patrimonio árabe-normando único en Europa.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.5, desc: "Mondello y las playas cercanas, además de Monte Pellegrino, a un paso de la ciudad." },
           { label: "Clima", score: 9.0, desc: "Mediterráneo con veranos muy calurosos e inviernos suaves, de los climas más soleados de esta guía." },
@@ -9141,7 +9141,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.5,
         summary: "Uno de los costes de vida más bajos de esta guía, similar a Cracovia pero con mucho menos turismo.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitación desde 280–380€, algo más cara que Cracovia por el atractivo turístico de la costa, aunque aún muy baja." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercados de barrio y bares de leche (bar mleczny) hacen que comer bien cueste muy poco." },
@@ -9183,7 +9183,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
         summary: "Ciudad cada vez más internacional gracias al turismo báltico, aunque el nivel de inglés fuera del entorno universitario es desigual.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.5, desc: "Bien hablado entre los jóvenes y en el sector turístico; algo más limitado en comercios tradicionales." },
           { label: "Actitud local", score: 7.5, desc: "Los gdańszczanie son cordiales y están acostumbrados al turismo internacional del Báltico." },
@@ -9211,7 +9211,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.5,
         summary: "Una de las combinaciones de historia y playa más singulares de Europa, con precios que aún no reflejan lo bonita que es.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.5, desc: "Las playas del Báltico y los bosques de Trójmiasto están a un tranvía del centro histórico." },
           { label: "Clima", score: 5.5, desc: "Continental báltico, con inviernos fríos y veranos suaves gracias a la brisa marina." },
@@ -9260,7 +9260,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.5,
         summary: "Moderada para el Mediterráneo, con el lado norte de la ciudad notablemente más barato que el sur.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "Habitación desde 350–450€ en el lado grecochipriota; más barato en el lado turcochipriota." },
           { label: "Comida y supermercados", score: 6.5, desc: "Mercados locales y tavernas ofrecen precios razonables para el Mediterráneo." },
@@ -9302,7 +9302,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.5,
         summary: "Ciudad singular por su historia reciente, con una integración distinta según el lado de la ciudad en el que se viva.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.5, desc: "Bien hablado en general gracias al pasado colonial británico de la isla." },
           { label: "Actitud local", score: 7.0, desc: "Tanto grecochipriotas como turcochipriotas suelen ser hospitalarios con estudiantes internacionales." },
@@ -9330,7 +9330,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 7.5,
         summary: "Una experiencia histórica y cultural sin equivalente en Europa, con un clima de los más soleados de esta guía.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 6.5, desc: "Las Troodos Mountains y las playas del sur están a menos de una hora en coche." },
           { label: "Clima", score: 9.0, desc: "Casi 300 días de sol al año, de los climas más soleados de toda esta guía." },
@@ -9379,7 +9379,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 4.3,
         summary: "Cara para una isla pequeña, con un mercado de alquiler tensionado por el turismo y la industria del iGaming.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 3.5, desc: "Habitación desde 500–650€, alta por la fuerte demanda de expatriados y turismo en la isla." },
           { label: "Comida y supermercados", score: 5.0, desc: "Los supermercados tienen precios moderados, aunque bastante producto es importado y encarece la cesta." },
@@ -9421,7 +9421,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
         summary: "Uno de los destinos más fáciles de esta guía para integrarse sin hablar el idioma local.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 10.0, desc: "Idioma oficial y de instrucción universitaria, sin ninguna barrera de comunicación." },
           { label: "Actitud local", score: 7.5, desc: "Los malteses son hospitalarios y están muy acostumbrados a la enorme comunidad de expatriados." },
@@ -9449,7 +9449,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.5,
         summary: "Un verano que dura casi medio año, con arquitectura barroca y aguas cristalinas como constante diaria.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.0, desc: "Aguas cristalinas, Comino y la Laguna Azul a un paso en barco." },
           { label: "Clima", score: 9.5, desc: "Más de 300 días de sol al año, con un verano que se extiende de mayo a octubre." },
@@ -9498,7 +9498,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 1.0,
         summary: "La ciudad más cara de toda esta guía, por delante incluso de Ginebra.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 1.5, desc: "Habitación desde 900–1.150€, el alquiler más alto de toda esta guía." },
           { label: "Comida y supermercados", score: 2.0, desc: "Los supermercados suizos (Migros, Coop) son de los más caros de Europa." },
@@ -9540,7 +9540,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
         summary: "Campus extremadamente internacional, con inglés ampliamente aceptado en el entorno universitario y profesional.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.0, desc: "La ETH funciona en gran parte en inglés, especialmente en programas de máster." },
           { label: "Actitud local", score: 7.0, desc: "Los suizos alemanes son cordiales aunque algo reservados en el trato inicial." },
@@ -9568,7 +9568,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 9.3,
         summary: "Encabeza sistemáticamente los rankings mundiales de calidad de vida, con lago y Alpes a un paso del centro.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.0, desc: "El lago de Zúrich y los Alpes suizos, visibles y accesibles desde el propio centro." },
           { label: "Clima", score: 7.5, desc: "Continental templado, con veranos agradables e inviernos fríos con nieve cercana." },
@@ -9617,7 +9617,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 9.2,
         summary: "Uno de los costes de vida más bajos de toda esta guía, notablemente por debajo incluso de Praga.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 8.5, desc: "Habitación desde 180–280€, de las más baratas entre las grandes ciudades universitarias de Europa." },
           { label: "Comida y supermercados", score: 9.5, desc: "Mercados locales y restaurantes tradicionales checos son muy económicos." },
@@ -9659,7 +9659,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
         summary: "Ciudad universitaria acostumbrada al estudiante internacional, con buen nivel de inglés en el entorno de la universidad.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.5, desc: "Bien hablado entre estudiantes; algo más limitado en comercios tradicionales fuera del centro." },
           { label: "Actitud local", score: 7.5, desc: "Los checos de Brno son cordiales y acostumbrados a la gran comunidad universitaria internacional." },
@@ -9687,7 +9687,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 7.8,
         summary: "Toda la belleza de la República Checa, con un ambiente más local y menos saturado que la capital.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "El bosque de Wilson y las colinas moravas ofrecen espacio verde a un paso del centro." },
           { label: "Clima", score: 6.0, desc: "Continental, con inviernos fríos y veranos cálidos, típico de Europa central." },
@@ -9736,7 +9736,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.3,
         summary: "Moderada para el estándar francés, algo por debajo de Estrasburgo su vecina alemana Friburgo.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 5.8, desc: "Habitación desde 420–540€, con demanda alta por las instituciones europeas y Erasmus." },
           { label: "Comida y supermercados", score: 6.5, desc: "Mercados alsacianos y supermercados estándar franceses mantienen el gasto razonable." },
@@ -9778,7 +9778,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.5,
         summary: "Una de las ciudades más acostumbradas a lo internacional de toda Francia.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.5, desc: "Bien hablado gracias a la presencia europea; el francés básico sigue ayudando mucho." },
           { label: "Actitud local", score: 8.0, desc: "Los alsacianos combinan la cordialidad francesa con una apertura muy marcada a lo internacional." },
@@ -9806,7 +9806,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.3,
         summary: "Una identidad fronteriza única, entre la tradición alsaciana y el peso simbólico de ser capital europea.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "El Rin y los Vosgos ofrecen naturaleza y rutas de senderimo a poca distancia." },
           { label: "Clima", score: 7.0, desc: "Continental templado, con veranos agradables e inviernos fríos con nieve ocasional." },
@@ -9855,7 +9855,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.0,
         summary: "Asequible para el sur de Francia, con un ambiente estudiantil que mantiene los precios razonables.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 400–500€, razonable gracias a la enorme oferta de vivienda estudiantil." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercados como Les Halles Castellane ofrecen producto fresco mediterráneo a buen precio." },
@@ -9897,7 +9897,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
         summary: "Ciudad muy acostumbrada al estudiante internacional gracias a su enorme población universitaria.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.0, desc: "Menos extendido que en el norte de Europa; un francés básico ayuda mucho." },
           { label: "Actitud local", score: 8.0, desc: "Los montpelliéranos tienen fama de ser de los franceses más abiertos y relajados." },
@@ -9925,7 +9925,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.8,
         summary: "Sol, playa y vida universitaria en un mismo paquete, con más de 300 días de sol al año.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.5, desc: "Playas mediterráneas a 10-20 minutos en tranvía, además de la Camarga cercana." },
           { label: "Clima", score: 9.5, desc: "Mediterráneo con más de 300 días de sol al año, de los mejores climas de esta guía." },
@@ -9974,7 +9974,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.0,
         summary: "Más asequible que otras grandes ciudades francesas, con un carácter propio muy alejado de París.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 400–500€, razonable para una ciudad de más de 800.000 habitantes." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercados como el de Noailles ofrecen producto mediterráneo y del norte de África muy barato." },
@@ -10016,7 +10016,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
         summary: "Ciudad acostumbrada a la diversidad, aunque el ritmo intenso requiere adaptación al principio.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 5.5, desc: "Menos hablado que en el norte de Francia; el francés básico ayuda mucho en el día a día." },
           { label: "Actitud local", score: 8.0, desc: "Los marselleses tienen fama de ser directos pero muy cálidos una vez rompes el hielo." },
@@ -10044,7 +10044,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.8,
         summary: "Mediterráneo auténtico, con calas casi vírgenes y una identidad muy propia dentro de Francia.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.5, desc: "Las Calanques, calas de acantilados casi vírgenes, a un bus del centro de la ciudad." },
           { label: "Clima", score: 9.0, desc: "Mediterráneo con veranos calurosos y secos, de los climas más soleados de Francia." },
@@ -10093,7 +10093,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.2,
         summary: "De las más asequibles entre las grandes ciudades universitarias francesas.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 380–480€, entre las más bajas de las grandes ciudades francesas." },
           { label: "Comida y supermercados", score: 7.5, desc: "El mercado de Wazemmes y los supermercados estándar mantienen el gasto bajo control." },
@@ -10135,7 +10135,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
         summary: "Ciudad muy acostumbrada al estudiante internacional gracias a su posición fronteriza.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.5, desc: "Algo más extendido que en el resto de Francia por la cercanía con Bélgica y el Reino Unido." },
           { label: "Actitud local", score: 8.0, desc: "Los habitantes de Lille (les Chtis) tienen fama de ser de los franceses más cálidos y hospitalarios." },
@@ -10163,7 +10163,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 7.5,
         summary: "Identidad flamenca única en Francia, con un ambiente estudiantil constante y muy acogedor.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 6.0, desc: "Ciudad urbana, con parques como el Bois de Boulogne lillois como principal espacio verde." },
           { label: "Clima", score: 6.0, desc: "Oceánico, con lluvias frecuentes e inviernos suaves, típico del norte de Francia." },
@@ -10212,7 +10212,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.5,
         summary: "Notablemente más barata que Múnich, Colonia o Hamburgo, típico del este de Alemania.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.0, desc: "Habitación desde 320–420€, de las más bajas entre las grandes ciudades alemanas." },
           { label: "Comida y supermercados", score: 7.5, desc: "Supermercados alemanes estándar mantienen el gasto en comida muy controlado." },
@@ -10254,7 +10254,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
         summary: "Ciudad acogedora aunque con menos rodaje internacional que las grandes ciudades del oeste alemán.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.0, desc: "Bien hablado entre estudiantes; algo más limitado en comercios tradicionales fuera del centro." },
           { label: "Actitud local", score: 7.0, desc: "Los dresdenses son cordiales, aunque algo más reservados que en el oeste de Alemania." },
@@ -10282,7 +10282,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.8,
         summary: "Una de las reconstrucciones arquitectónicas más impresionantes de Europa, con la Suiza Sajona a un paso.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.5, desc: "La Suiza Sajona, con sus formaciones rocosas espectaculares, a 30 minutos en tren." },
           { label: "Clima", score: 6.0, desc: "Continental, con inviernos fríos y veranos cálidos, típico del este de Alemania." },
@@ -10331,7 +10331,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.3,
         summary: "Una de las ciudades más baratas de Alemania para su tamaño y escena cultural.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 350–450€, muy por debajo de Berlín o Múnich." },
           { label: "Comida y supermercados", score: 7.5, desc: "Supermercados alemanes estándar mantienen el gasto en comida muy controlado." },
@@ -10373,7 +10373,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
         summary: "Ciudad cada vez más internacional gracias a su creciente reputación creativa y cultural.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.5, desc: "Bien hablado entre la comunidad creativa y estudiantil, algo menos en comercios tradicionales." },
           { label: "Actitud local", score: 7.5, desc: "Los leipzigers son cordiales y cada vez más acostumbrados a la comunidad internacional creciente." },
@@ -10401,7 +10401,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.3,
         summary: "Una de las escenas creativas más auténticas de Europa, en plena efervescencia y todavía asequible.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.0, desc: "Los lagos artificiales de la antigua zona minera (Cospudener See) ofrecen playa urbana en verano." },
           { label: "Clima", score: 6.0, desc: "Continental, con inviernos fríos y veranos cálidos, típico del este de Alemania." },
@@ -10450,7 +10450,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 5.5,
         summary: "Cara para su tamaño, por la enorme demanda de una ciudad universitaria muy pequeña y muy solicitada.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 4.5, desc: "Habitación desde 480–620€, alta para el tamaño de la ciudad por la fuerte demanda universitaria." },
           { label: "Comida y supermercados", score: 6.5, desc: "Supermercados alemanes estándar mantienen el gasto en comida razonable." },
@@ -10492,7 +10492,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.3,
         summary: "Ciudad acostumbrada a estudiantes internacionales desde hace siglos, con buen nivel de inglés en la universidad.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.0, desc: "Bien hablado en la universidad; algo más limitado en comercios tradicionales." },
           { label: "Actitud local", score: 7.0, desc: "Los tubingueses están muy acostumbrados a la enorme comunidad universitaria." },
@@ -10520,7 +10520,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 9.0,
         summary: "Probablemente el pueblo-universidad más pintoresco de esta guía, sobre un río cargado de tradición estudiantil.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.0, desc: "El valle del Neckar y las colinas circundantes ofrecen senderismo a un paso del centro." },
           { label: "Clima", score: 7.5, desc: "Continental templado, con veranos agradables y buen clima para pasear en batea." },
@@ -10569,7 +10569,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.8,
         summary: "Uno de los costes de vida más bajos de esta guía, similar a Cracovia pero con menos turismo.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 8.0, desc: "Habitación desde 250–350€, de las más bajas entre las grandes ciudades universitarias de Europa." },
           { label: "Comida y supermercados", score: 9.0, desc: "Mercados de barrio y bares de leche (bar mleczny) hacen que comer bien cueste muy poco." },
@@ -10611,7 +10611,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
         summary: "Ciudad muy acostumbrada al estudiante internacional gracias a su enorme comunidad Erasmus.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.0, desc: "Bien hablado entre los jóvenes; algo más limitado en comercios tradicionales." },
           { label: "Actitud local", score: 7.5, desc: "Los poznańczycy son cordiales y están muy acostumbrados a la comunidad internacional." },
@@ -10639,7 +10639,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 7.8,
         summary: "Una de las plazas renacentistas más bonitas de Polonia, con tradiciones locales muy singulares.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.0, desc: "El lago Malta y los parques junto al río Warta ofrecen espacio verde accesible." },
           { label: "Clima", score: 6.0, desc: "Continental, con inviernos fríos y veranos cálidos, típico de Europa central." },
@@ -10688,7 +10688,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 9.0,
         summary: "Uno de los costes de vida más bajos de esta guía, similar a Cracovia o Wrocław.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 8.5, desc: "Habitación desde 220–320€, de las más bajas entre las grandes ciudades universitarias de Europa." },
           { label: "Comida y supermercados", score: 9.0, desc: "Mercados locales y restaurantes tradicionales de Silesia son muy económicos." },
@@ -10730,7 +10730,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.8,
         summary: "Ciudad en plena transformación hacia lo internacional, aunque con menos rodaje que Cracovia o Varsovia.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.0, desc: "Bien hablado entre los jóvenes; algo más limitado en comercios tradicionales." },
           { label: "Actitud local", score: 7.5, desc: "Los habitantes de Silesia tienen fama de ser hospitalarios y trabajadores." },
@@ -10758,7 +10758,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 6.8,
         summary: "Una transformación urbana única en Europa, de ciudad minera a hub cultural en una generación.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 6.0, desc: "Parques recuperados de antiguas zonas mineras y los Tatras a un par de horas." },
           { label: "Clima", score: 6.0, desc: "Continental, con inviernos fríos y veranos cálidos, típico del sur de Polonia." },
@@ -10807,7 +10807,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.8,
         summary: "Uno de los costes de vida más bajos de Portugal, incluso por debajo de Coimbra.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 8.5, desc: "Habitación desde 220–320€, de las más bajas de todo Portugal." },
           { label: "Comida y supermercados", score: 9.0, desc: "Mercados locales y restaurantes tradicionales portugueses son muy económicos." },
@@ -10849,7 +10849,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.3,
         summary: "Ciudad acogedora y cada vez más acostumbrada al estudiante internacional.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.0, desc: "Bien hablado entre estudiantes; algo más limitado en comercios tradicionales del centro." },
           { label: "Actitud local", score: 8.0, desc: "Los bracarenses tienen fama de ser cálidos y muy orgullosos de su ciudad." },
@@ -10877,7 +10877,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 7.8,
         summary: "Tradición religiosa barroca conviviendo con una identidad joven y universitaria muy marcada.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "El Parque Nacional da Peneda-Gerês, el único de Portugal, a menos de una hora." },
           { label: "Clima", score: 7.5, desc: "Mediterráneo suave, con veranos cálidos e inviernos templados." },
@@ -10926,7 +10926,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.0,
         summary: "Una de las ciudades más baratas de Italia, por debajo incluso de Nápoles.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitación desde 280–380€, de las más bajas entre las grandes ciudades universitarias italianas." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercados de pescado y verdura fresca hacen que comer bien sea baratísimo." },
@@ -10968,7 +10968,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.5,
         summary: "Ciudad calurosa y hospitalaria, aunque el ritmo del sur y el inglés limitado requieren adaptación al principio.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 5.0, desc: "Menos hablado que en el norte de Italia; el italiano básico ayuda mucho en el día a día." },
           { label: "Actitud local", score: 8.5, desc: "Los baresi tienen fama, merecida, de ser extremadamente hospitalarios." },
@@ -10996,7 +10996,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.3,
         summary: "El sur de Italia en su forma más auténtica, sin la masificación turística de otras ciudades del país.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "El Lungomare y las playas de Pane e Pomodoro a un paseo del centro." },
           { label: "Clima", score: 9.0, desc: "Mediterráneo con veranos largos y calurosos, de los climas más soleados de esta guía." },
@@ -11045,7 +11045,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.3,
         summary: "Notablemente más barata que Venecia, con toda la belleza del Véneto a un paso.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 380–480€, muy por debajo de lo que costaría vivir en Venecia." },
           { label: "Comida y supermercados", score: 7.5, desc: "Mercados locales y supermercados estándar mantienen el gasto en comida razonable." },
@@ -11087,7 +11087,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8,
         summary: "Universidad con siglos de tradición internacional, desde que Galileo Galilei enseñó aquí.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.0, desc: "Bien hablado en el entorno universitario, especialmente en ciencias y medicina." },
           { label: "Actitud local", score: 7.5, desc: "Los padovani son cordiales y están muy acostumbrados a la comunidad universitaria internacional." },
@@ -11115,7 +11115,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.0,
         summary: "Ciencia, historia y la mejor ubicación del Véneto en una ciudad universitaria de tamaño perfecto.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.0, desc: "Los Colli Euganei, colinas volcánicas con termas naturales, a menos de 30 minutos." },
           { label: "Clima", score: 7.0, desc: "Continental templado, con veranos cálidos e inviernos con niebla ocasional." },
@@ -11164,7 +11164,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.3,
         summary: "Más asequible que Milán o Turín, con acceso directo al mar y a la Riviera ligur.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 380–480€, por debajo de Milán o Turín." },
           { label: "Comida y supermercados", score: 7.5, desc: "Mercados de pescado y producto ligur fresco a buen precio." },
@@ -11206,7 +11206,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
         summary: "Ciudad marinera acostumbrada al extranjero desde hace siglos, aunque menos rodada en Erasmus que otras ciudades italianas.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.0, desc: "Bien hablado en el entorno universitario y portuario; algo más limitado en comercios tradicionales." },
           { label: "Actitud local", score: 7.0, desc: "Los genoveses tienen fama de reservados, pero cordiales una vez rompes el hielo." },
@@ -11234,7 +11234,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.3,
         summary: "El centro histórico medieval más grande de Europa, con el mar Ligur siempre presente.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.0, desc: "El mar Ligur y las Cinque Terre, entre los paisajes costeros más bonitos de Europa, a un paso." },
           { label: "Clima", score: 8.5, desc: "Mediterráneo suavizado por el mar, con inviernos templados y veranos agradables." },
@@ -11283,7 +11283,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.8,
         summary: "Asequible para el centro de Italia, con precios muy por debajo de Florencia o Roma.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.0, desc: "Habitación desde 320–420€, muy por debajo de Florencia o Roma." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercados de la Umbría, con producto local muy asequible, hacen que comer bien sea barato." },
@@ -11325,7 +11325,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.3,
         summary: "Probablemente la ciudad italiana con mayor experiencia recibiendo e integrando a estudiantes internacionales.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.5, desc: "Bien hablado en el entorno universitario, gracias a la larga tradición internacional de la ciudad." },
           { label: "Actitud local", score: 8.5, desc: "Los perugini están acostumbrados desde hace décadas a recibir estudiantes de todo el mundo." },
@@ -11353,7 +11353,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.5,
         summary: "Colinas verdes, tradición medieval y una identidad internacional muy marcada en el corazón de Italia.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.5, desc: "Las colinas de la Umbría, verdes durante todo el año, rodean la ciudad por completo." },
           { label: "Clima", score: 7.5, desc: "Continental templado, con veranos agradables e inviernos suaves para el centro de Italia." },
@@ -11402,7 +11402,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 4.0,
         summary: "Notablemente más asequible que Londres, aunque cara para el estándar europeo continental.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 3.5, desc: "Habitación desde 550–700€, por debajo de Londres pero alta para el estándar europeo." },
           { label: "Comida y supermercados", score: 5.0, desc: "Supermercados británicos estándar (Tesco, Aldi) mantienen el gasto razonable." },
@@ -11444,7 +11444,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.8,
         summary: "Una de las ciudades más diversas y acogedoras del Reino Unido para el estudiante internacional.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 10.0, desc: "Idioma nativo, sin ninguna barrera de comunicación." },
           { label: "Actitud local", score: 8.5, desc: "Los mancunianos tienen fama de ser de los británicos más cálidos y directos." },
@@ -11472,7 +11472,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 7.5,
         summary: "Cultura musical y futbolística de primer nivel mundial, con un espíritu industrial reconvertido.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 6.5, desc: "El Distrito de los Lagos y los Peninos, a menos de una hora, para escapadas de senderismo." },
           { label: "Clima", score: 5.0, desc: "Oceánico lluvioso, con lluvias frecuentes durante buena parte del año." },
@@ -11521,7 +11521,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 4.5,
         summary: "Más asequible que Edimburgo o Londres, aunque cara para el estándar europeo continental.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 4.0, desc: "Habitación desde 500–650€, por debajo de Edimburgo y notablemente por debajo de Londres." },
           { label: "Comida y supermercados", score: 5.5, desc: "Supermercados británicos estándar mantienen el gasto en comida razonable." },
@@ -11563,7 +11563,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
         summary: "Ciudad muy acogedora, con un carácter escocés cálido y directo que facilita la integración.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 10.0, desc: "Idioma nativo, sin ninguna barrera de comunicación (con acento escocés que se coge rápido)." },
           { label: "Actitud local", score: 8.5, desc: "Los glaswegians tienen fama de ser de los británicos más cálidos y directos." },
@@ -11591,7 +11591,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.0,
         summary: "Arte, música y carácter escocés genuino, con las Highlands a un paso de la ciudad.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "El Loch Lomond y las Highlands escocesas, a menos de una hora, para escapadas espectaculares." },
           { label: "Clima", score: 5.5, desc: "Oceánico, con lluvias frecuentes e inviernos fríos, típico de Escocia." },
@@ -11640,7 +11640,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 3.8,
         summary: "Cara para el estándar europeo, aunque más asequible que Londres, a la que está muy conectada.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 3.3, desc: "Habitación desde 580–730€, alta para el estándar europeo aunque bastante por debajo de Londres." },
           { label: "Comida y supermercados", score: 5.0, desc: "Supermercados británicos estándar mantienen el gasto en comida razonable." },
@@ -11682,7 +11682,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
         summary: "Ciudad abierta y creativa, muy acogedora para el estudiante internacional.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 10.0, desc: "Idioma nativo, sin ninguna barrera de comunicación." },
           { label: "Actitud local", score: 8.0, desc: "Los bristolianos tienen fama de ser abiertos, creativos y poco convencionales." },
@@ -11710,7 +11710,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.3,
         summary: "Arte urbano, música y una identidad independiente muy marcada, con el West Country a un paso.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.0, desc: "El desfiladero del Avon y el West Country ofrecen naturaleza espectacular a poca distancia." },
           { label: "Clima", score: 5.5, desc: "Oceánico, algo más suave que el norte de Inglaterra pero con lluvias frecuentes." },
@@ -11759,7 +11759,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 1.3,
         summary: "Una de las ciudades más caras de toda esta guía, similar a Zúrich o Ginebra.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 1.8, desc: "Habitación desde 850–1.050€, entre los alquileres más altos de toda esta guía." },
           { label: "Comida y supermercados", score: 2.0, desc: "Los supermercados suizos (Migros, Coop) son de los más caros de Europa." },
@@ -11801,7 +11801,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.3,
         summary: "Una de las ciudades más internacionales de Suiza gracias a su industria farmacéutica global.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 8.5, desc: "Muy bien hablado gracias a la presencia de Novartis, Roche y su plantilla internacional." },
           { label: "Actitud local", score: 7.0, desc: "Los basilenses son cordiales aunque algo reservados en el trato inicial." },
@@ -11829,7 +11829,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.3,
         summary: "Una identidad trifronteriza única en Europa, con arte de primer nivel mundial y el Rin como centro de la vida social.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "El Rin, navegable y nadable en verano, cruza la ciudad de punta a punta." },
           { label: "Clima", score: 7.5, desc: "Templado continental, con veranos agradables e inviernos fríos moderados." },
@@ -11878,7 +11878,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 2.0,
         summary: "Muy cara, aunque algo más asequible que Zúrich, Ginebra o Basilea.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 2.5, desc: "Habitación desde 750–950€, alta aunque algo por debajo de Zúrich o Ginebra." },
           { label: "Comida y supermercados", score: 2.5, desc: "Los supermercados suizos (Migros, Coop) son de los más caros de Europa." },
@@ -11920,7 +11920,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
         summary: "Capital federal con ambiente institucional internacional, aunque más reservado que otras ciudades suizas.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.5, desc: "Bien hablado en el entorno universitario e institucional de la capital." },
           { label: "Actitud local", score: 7.0, desc: "Los bernenses tienen fama de ser tranquilos y algo más reservados que otros suizos." },
@@ -11948,7 +11948,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.8,
         summary: "Casco histórico medieval completo, osos de verdad y una calidad de vida excepcional.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.5, desc: "El río Aare, nadable en verano, y los Alpes berneses visibles desde puntos elevados de la ciudad." },
           { label: "Clima", score: 7.0, desc: "Templado continental, con veranos agradables e inviernos fríos con nieve cercana." },
@@ -11997,7 +11997,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 9.5,
         summary: "Uno de los costes de vida más bajos de toda esta guía para una ciudad de más de 15 millones de habitantes.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 9.0, desc: "Habitación desde 150–250€, de las más bajas de toda esta guía." },
           { label: "Comida y supermercados", score: 9.5, desc: "Mercados y restaurantes tradicionales turcos son extraordinariamente baratos." },
@@ -12039,7 +12039,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.5,
         summary: "Ciudad hospitalaria y acostumbrada al viajero, aunque la barrera del idioma y el tamaño requieren adaptación.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 5.5, desc: "Bien hablado entre estudiantes y en zonas turísticas; el turco básico ayuda mucho fuera de ellas." },
           { label: "Actitud local", score: 8.0, desc: "Los estambulíes tienen fama, merecida, de ser extremadamente hospitalarios con el extranjero." },
@@ -12067,7 +12067,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 9.0,
         summary: "Una experiencia sin equivalente en el mundo: vivir repartido entre dos continentes con milenios de historia.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.0, desc: "El Bósforo y las Islas de los Príncipes ofrecen naturaleza y desconexión a un ferry de distancia." },
           { label: "Clima", score: 8.0, desc: "Mediterráneo continental, con veranos calurosos e inviernos suaves comparado con el resto de Turquía." },
@@ -12116,7 +12116,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.8,
         summary: "Una de las ciudades universitarias más baratas de la Toscana, muy por debajo de Florencia.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.0, desc: "Habitación desde 300–400€, muy por debajo de Florencia." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercados locales y supermercados estándar hacen que comer bien sea barato." },
@@ -12158,7 +12158,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8,
         summary: "Ciudad acostumbrada al estudiante internacional gracias a su enorme reputación científica.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.0, desc: "Bien hablado en el entorno universitario, especialmente en ciencias." },
           { label: "Actitud local", score: 7.5, desc: "Los pisanos son cordiales, acostumbrados a la enorme población estudiantil de la ciudad." },
@@ -12186,7 +12186,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.5,
         summary: "Una identidad científica desproporcionada para el tamaño de la ciudad, con la Toscana a las puertas.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "El Arno cruza la ciudad, y la costa toscana está a menos de 30 minutos." },
           { label: "Clima", score: 8.0, desc: "Mediterráneo con veranos cálidos e inviernos suaves, típico de la Toscana." },
@@ -12235,7 +12235,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.3,
         summary: "Asequible para la Toscana, aunque algo más cara que otras ciudades universitarias italianas por su atractivo turístico.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 350–450€, moderada para el estándar toscano." },
           { label: "Comida y supermercados", score: 7.5, desc: "Mercados locales y supermercados estándar mantienen el gasto razonable." },
@@ -12277,7 +12277,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.3,
         summary: "Ciudad acogedora, con una tradición centenaria de recibir estudiantes extranjeros para aprender italiano.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.0, desc: "Bien hablado en el entorno universitario y turístico." },
           { label: "Actitud local", score: 7.5, desc: "Los sieneses son orgullosos de su contrada y de su ciudad, y cordiales con el extranjero." },
@@ -12305,7 +12305,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 9.0,
         summary: "Probablemente la ciudad medieval mejor conservada de Italia, con las colinas toscanas a las puertas.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.5, desc: "Las colinas de la Toscana, con viñedos y bosques, rodean la ciudad por completo." },
           { label: "Clima", score: 7.5, desc: "Continental templado, con veranos cálidos e inviernos suaves." },
@@ -12354,7 +12354,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.8,
         summary: "Asequible para el norte de Italia, con una identidad centroeuropea que no encarece los precios.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.0, desc: "Habitación desde 320–420€, por debajo de otras ciudades del norte de Italia." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercados locales y la influencia centroeuropea en la gastronomía mantienen precios razonables." },
@@ -12396,7 +12396,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
         summary: "Ciudad fronteriza acostumbrada a la mezcla cultural desde hace siglos.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.5, desc: "Bien hablado en el entorno universitario y científico." },
           { label: "Actitud local", score: 7.5, desc: "Los triestinos combinan la calidez italiana con una discreción más centroeuropea." },
@@ -12424,7 +12424,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.5,
         summary: "Una identidad centroeuropea única en Italia, con el mar Adriático y los Balcanes a las puertas.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.0, desc: "El Adriático y el Carso triestino, con sus rutas de senderismo, a un paso del centro." },
           { label: "Clima", score: 7.0, desc: "Mediterráneo marcado por la bora, un viento fortísimo característico de la ciudad." },
@@ -12473,7 +12473,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.3,
         summary: "Asequible para la Emilia-Romaña, con precios notablemente por debajo de Bolonia.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 350–450€, por debajo de Bolonia o Milán." },
           { label: "Comida y supermercados", score: 8.5, desc: "Con la mejor gastronomía de Italia a precio local, comer bien aquí es excepcionalmente barato." },
@@ -12515,7 +12515,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.3,
         summary: "Ciudad elegante y acogedora, con buen nivel de inglés en el entorno universitario.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.0, desc: "Bien hablado entre estudiantes; algo más limitado en comercios tradicionales." },
           { label: "Actitud local", score: 7.5, desc: "Los parmigiani son orgullosos de su gastronomía y muy cordiales con quien la aprecia." },
@@ -12543,7 +12543,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.3,
         summary: "La mejor mesa de Italia en una ciudad elegante y a tamaño humano.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.0, desc: "Los Apeninos y el Parque Ducale, en pleno centro, ofrecen naturaleza accesible." },
           { label: "Clima", score: 7.0, desc: "Continental templado, con veranos cálidos e inviernos fríos con niebla ocasional." },
@@ -12592,7 +12592,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.3,
         summary: "Notablemente más barata que Milán, a la que está muy bien conectada.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 350–450€, muy por debajo de Milán." },
           { label: "Comida y supermercados", score: 7.5, desc: "Mercados locales y gastronomía lombarda a precio asequible." },
@@ -12634,7 +12634,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
         summary: "Ciudad acogedora, aunque menos rodada en Erasmus que las grandes ciudades italianas.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.0, desc: "Bien hablado entre estudiantes; algo más limitado en comercios tradicionales." },
           { label: "Actitud local", score: 7.5, desc: "Los bergamaschi son cordiales y hospitalarios, con fuerte identidad local." },
@@ -12662,7 +12662,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.3,
         summary: "Dos ciudades en una, con lagos alpinos a un paso y Milán sin pagar sus precios.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.0, desc: "Los lagos de Como e Iseo, y los Prealpes orobici, a menos de una hora." },
           { label: "Clima", score: 6.5, desc: "Continental, con inviernos fríos y veranos cálidos, típico del norte de Italia." },
@@ -12711,7 +12711,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.8,
         summary: "Una de las ciudades más baratas de la Emilia-Romaña, por debajo de Bolonia y Parma.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.0, desc: "Habitación desde 300–400€, de las más bajas de la región." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercados locales y gastronomía de la Emilia-Romaña a precio muy asequible." },
@@ -12753,7 +12753,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
         summary: "Ciudad acogedora y tranquila, con un ambiente universitario a tamaño humano.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.0, desc: "Bien hablado entre estudiantes; algo más limitado en comercios tradicionales." },
           { label: "Actitud local", score: 7.5, desc: "Los ferraresi son cordiales y orgullosos de su ciudad renacentista." },
@@ -12781,7 +12781,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.3,
         summary: "Renacimiento urbanístico intacto, sin la masificación turística de otras ciudades del Véneto o la Toscana.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 6.5, desc: "El río Po y las Valli di Comacchio, humedales protegidos, a poca distancia." },
           { label: "Clima", score: 6.5, desc: "Continental, con inviernos fríos y neblinosos y veranos cálidos." },
@@ -12830,7 +12830,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.3,
         summary: "Una de las ciudades más baratas de esta guía, propia de un pueblo pequeño de las Marcas.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitación desde 250–350€, de las más bajas de toda esta guía." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercados locales y trattorias familiares a precios muy bajos." },
@@ -12872,7 +12872,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.8,
         summary: "Ciudad-universidad donde estudiantes y pueblo son casi indistinguibles, lo que facilita mucho la integración.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 5.5, desc: "Menos hablado que en ciudades más grandes; el italiano básico ayuda mucho." },
           { label: "Actitud local", score: 7.5, desc: "Los urbinati están acostumbrados a que la mitad del pueblo sea estudiante." },
@@ -12900,7 +12900,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.8,
         summary: "Vivir dentro de una obra maestra renacentista completa, sin distracciones de ciudad grande.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "Las colinas de las Marcas rodean el pueblo, con la costa adriática a un paso." },
           { label: "Clima", score: 7.0, desc: "Continental templado, con veranos agradables e inviernos fríos en la colina." },
@@ -12949,7 +12949,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.3,
         summary: "Una de las ciudades más baratas de Italia, con playas de postal a un paso.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitación desde 250–350€, de las más bajas de Italia." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercados y gastronomía del Salento a precios muy bajos." },
@@ -12991,7 +12991,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.5,
         summary: "Ciudad calurosa y hospitalaria, típica del sur de Italia, aunque el inglés está menos extendido.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 5.0, desc: "Menos hablado que en el norte de Italia; el italiano básico ayuda mucho." },
           { label: "Actitud local", score: 8.5, desc: "Los leccesi tienen fama, merecida, de ser extremadamente hospitalarios." },
@@ -13019,7 +13019,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.8,
         summary: "Barroco dorado y playas turquesa: el sur de Italia en su versión más fotogénica y accesible.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.0, desc: "Las playas del Salento, con aguas turquesas comparables al Caribe, a 20 minutos." },
           { label: "Clima", score: 9.0, desc: "Mediterráneo con veranos largos y calurosos, de los más soleados de esta guía." },
@@ -13068,7 +13068,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.3,
         summary: "Una de las ciudades más baratas de Italia, similar a Palermo.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitación desde 250–350€, de las más bajas entre las grandes ciudades universitarias italianas." },
           { label: "Comida y supermercados", score: 9.0, desc: "Mercados sicilianos y street food hacen que comer bien cueste muy poco." },
@@ -13110,7 +13110,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.8,
         summary: "Ciudad calurosa y hospitalaria, aunque el ritmo siciliano y el inglés limitado requieren adaptación al principio.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 5.0, desc: "Menos hablado que en el norte de Italia; el italiano básico ayuda mucho en el día a día." },
           { label: "Actitud local", score: 8.5, desc: "Los catanesi tienen fama, merecida, de ser extremadamente hospitalarios." },
@@ -13138,7 +13138,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.8,
         summary: "Vivir a la sombra de un volcán activo, con playas sicilianas y una vida callejera intensa.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.5, desc: "El Etna, el volcán activo más grande de Europa, y playas sicilianas, todo a un paso." },
           { label: "Clima", score: 9.0, desc: "Mediterráneo con veranos largos y calurosos, de los climas más soleados de esta guía." },
@@ -13187,7 +13187,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.8,
         summary: "Asequible para ser una capital regional con playa urbana de primer nivel.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.8, desc: "Habitación desde 300–420€, razonable para una capital regional con playa incluida." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercados locales de pescado y producto sardo a buen precio." },
@@ -13229,7 +13229,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.8,
         summary: "Ciudad hospitalaria e insular, con un ritmo de vida propio que requiere algo de adaptación.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 5.5, desc: "Menos hablado que en el continente italiano; el italiano básico ayuda mucho." },
           { label: "Actitud local", score: 7.5, desc: "Los cagliaritani son cordiales y muy orgullosos de su identidad sarda." },
@@ -13257,7 +13257,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 9.0,
         summary: "La única capital europea con playa urbana de arena blanca, con un estilo de vida casi vacacional.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.5, desc: "La playa del Poetto, con 8 km de arena blanca, dentro de los límites de la ciudad." },
           { label: "Clima", score: 9.0, desc: "Mediterráneo con veranos largos y calurosos, de los más soleados de esta guía." },
@@ -13306,7 +13306,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 4.3,
         summary: "Cara para el estándar europeo, similar a otras ciudades universitarias grandes de los Países Bajos.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 3.8, desc: "Habitación desde 550–700€, alta por la enorme demanda internacional." },
           { label: "Comida y supermercados", score: 5.5, desc: "Supermercados como Lidl y Aldi ayudan a mantener el gasto en comida controlado." },
@@ -13348,7 +13348,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 9.3,
         summary: "Probablemente la ciudad más internacional de esta guía, diseñada casi por completo para el estudiante extranjero.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 10.0, desc: "Toda la universidad y buena parte de la ciudad funciona en inglés sin ningún problema." },
           { label: "Actitud local", score: 8.5, desc: "Los maastrichtenaren están extremadamente acostumbrados a la comunidad internacional." },
@@ -13376,7 +13376,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.3,
         summary: "Una identidad fronteriza única en los Países Bajos, con influencia belga y alemana muy marcada.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.0, desc: "Las colinas de Limburgo, poco habituales en el paisaje llano neerlandés, ofrecen rutas de senderismo." },
           { label: "Clima", score: 6.5, desc: "Oceánico templado, más suave que el norte de los Países Bajos." },
@@ -13425,7 +13425,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.8,
         summary: "Razonable para una ciudad tecnológica y alpina, más asequible que otras ciudades francesas de su perfil.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "Habitación desde 420–520€, razonable para una ciudad con este nivel tecnológico." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercados locales y supermercados estándar franceses mantienen el gasto razonable." },
@@ -13467,7 +13467,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
         summary: "Ciudad tecnológica acostumbrada al estudiante y profesional internacional.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.0, desc: "Bien hablado en el entorno tecnológico y universitario, gracias a la presencia de STMicroelectronics." },
           { label: "Actitud local", score: 7.5, desc: "Los grenoblois combinan la cordialidad francesa con una mentalidad muy internacional por el sector tech." },
@@ -13495,7 +13495,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 9.0,
         summary: "Vida universitaria y tecnológica rodeada de montañas por los cuatro costados.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.5, desc: "Las cordilleras de Belledonne, Chartreuse y Vercors rodean la ciudad, visibles desde cualquier calle." },
           { label: "Clima", score: 7.5, desc: "Alpino, con inviernos fríos y nevados y veranos agradables en el valle." },
@@ -13544,7 +13544,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.8,
         summary: "Moderada para el Véneto, con precios por debajo de Venecia aunque algo por encima de Padua.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "Habitación desde 400–500€, moderada para una ciudad tan turística del Véneto." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercados locales y gastronomía véneta a precio razonable fuera de zonas turísticas." },
@@ -13586,7 +13586,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
         summary: "Ciudad muy acostumbrada al turismo y al estudiante internacional gracias a su fama literaria.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.0, desc: "Bien hablado gracias al enorme flujo turístico internacional de la ciudad." },
           { label: "Actitud local", score: 7.5, desc: "Los veronesi son cordiales, aunque el turismo masivo en el centro puede saturar el trato inicial." },
@@ -13614,7 +13614,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.5,
         summary: "Romance shakespeariano, historia romana y el lago di Garda a un paso.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.0, desc: "El lago di Garda, con playas y montañas, a menos de 30 minutos." },
           { label: "Clima", score: 7.0, desc: "Continental templado, con veranos cálidos e inviernos con niebla ocasional." },
@@ -13663,7 +13663,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 4.3,
         summary: "Cara para el estándar europeo, aunque algo más asequible que Estocolmo.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 3.8, desc: "Habitación desde 500–650€, alta aunque por debajo de Estocolmo." },
           { label: "Comida y supermercados", score: 5.5, desc: "Supermercados como Lidl y Willys mantienen el gasto en comida algo más controlado." },
@@ -13705,7 +13705,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8,
         summary: "Ciudad acostumbrada al estudiante internacional, con suecos abiertos aunque algo reservados al inicio.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.5, desc: "Nivel de inglés altísimo en toda la ciudad, sin ninguna barrera para el día a día." },
           { label: "Actitud local", score: 7.0, desc: "Los göteborgare son amables pero algo reservados en el trato inicial, como el resto de Suecia." },
@@ -13733,7 +13733,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.3,
         summary: "Diseño escandinavo, canales de inspiración holandesa y un archipiélago entero a las puertas.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.5, desc: "El archipiélago de Gotemburgo, con decenas de islas, accesible en ferry desde el centro." },
           { label: "Clima", score: 6.0, desc: "Oceánico frío, con inviernos largos y oscuros y veranos suaves y agradables." },
@@ -13782,7 +13782,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 5.3,
         summary: "Más asequible que Mánchester o Londres, de las ciudades británicas grandes más baratas de esta guía.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 4.8, desc: "Habitación desde 480–620€, por debajo de Mánchester y muy por debajo de Londres." },
           { label: "Comida y supermercados", score: 5.5, desc: "Supermercados británicos estándar mantienen el gasto en comida razonable." },
@@ -13824,7 +13824,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
         summary: "Ciudad extremadamente acogedora, con un carácter local muy cálido y directo.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 10.0, desc: "Idioma nativo, sin ninguna barrera de comunicación (con acento scouse que se coge rápido)." },
           { label: "Actitud local", score: 9.0, desc: "Los scousers tienen fama, muy merecida, de ser de los británicos más cálidos y divertidos." },
@@ -13852,7 +13852,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 7.8,
         summary: "Identidad musical y portuaria muy marcada, con una calidez local difícil de encontrar en otras ciudades.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 6.5, desc: "El Distrito de los Lagos y Gales del Norte, ambos a menos de dos horas, para escapadas de naturaleza." },
           { label: "Clima", score: 5.0, desc: "Oceánico lluvioso, con lluvias frecuentes durante buena parte del año." },
@@ -13901,7 +13901,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 4.8,
         summary: "Más asequible que Mánchester, de las ciudades universitarias grandes del Reino Unido más baratas.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 4.3, desc: "Habitación desde 500–650€, por debajo de Mánchester y de la mayoría de grandes ciudades británicas." },
           { label: "Comida y supermercados", score: 5.5, desc: "Supermercados británicos estándar mantienen el gasto en comida razonable." },
@@ -13943,7 +13943,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
         summary: "Ciudad muy acogedora, con la mayor comunidad estudiantil del norte de Inglaterra.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 10.0, desc: "Idioma nativo, sin ninguna barrera de comunicación." },
           { label: "Actitud local", score: 8.0, desc: "Los habitantes de Leeds tienen fama de ser abiertos y directos, típico de Yorkshire." },
@@ -13971,7 +13971,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 7.3,
         summary: "Antigua ciudad industrial textil reconvertida en centro comercial y estudiantil del norte de Inglaterra.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 6.5, desc: "Los Yorkshire Dales, con paisajes espectaculares, a menos de una hora." },
           { label: "Clima", score: 5.0, desc: "Oceánico, con lluvias frecuentes e inviernos fríos, típico del norte de Inglaterra." },
@@ -14020,7 +14020,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 5.0,
         summary: "Más asequible que Helsinki, con un ambiente universitario que muchos consideran el mejor del país.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 4.5, desc: "Habitación desde 450–550€, por debajo de Helsinki." },
           { label: "Comida y supermercados", score: 5.5, desc: "Supermercados finlandeses estándar mantienen el gasto en comida razonable." },
@@ -14062,7 +14062,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
         summary: "Ciudad acogedora, con finlandeses algo reservados al principio pero muy fiables una vez rota la barrera inicial.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.0, desc: "Nivel de inglés muy alto en toda la ciudad, sin apenas barreras para el día a día." },
           { label: "Actitud local", score: 7.0, desc: "Los turkulaiset son amables pero reservados, típico del carácter finlandés." },
@@ -14090,7 +14090,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.0,
         summary: "La ciudad más antigua de Finlandia, con un archipiélago de miles de islas como patio trasero.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.5, desc: "El archipiélago de Turku, con miles de islas, uno de los más grandes del mundo." },
           { label: "Clima", score: 5.5, desc: "Continental frío, con inviernos largos y oscuros y veranos cortos pero luminosos." },
@@ -14139,7 +14139,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.5,
         summary: "Asequible para el oeste de Francia, con precios notablemente por debajo de Nantes.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.0, desc: "Habitación desde 350–450€, por debajo de Nantes." },
           { label: "Comida y supermercados", score: 7.5, desc: "Mercados bretones y galettes a precio de estudiante mantienen el gasto bajo control." },
@@ -14181,7 +14181,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
         summary: "Ciudad muy acostumbrada al estudiante internacional gracias a su enorme población universitaria.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.0, desc: "Menos extendido que en el norte de Europa; un francés básico ayuda mucho en el día a día." },
           { label: "Actitud local", score: 8.0, desc: "Los rennais tienen fama de ser cordiales y muy orgullosos de su identidad bretona." },
@@ -14209,7 +14209,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 7.8,
         summary: "Capital bretona con identidad propia muy marcada y la costa atlántica a un paso.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.0, desc: "La costa bretona, con acantilados y playas espectaculares, a menos de una hora." },
           { label: "Clima", score: 6.0, desc: "Oceánico, con lluvias frecuentes e inviernos suaves, típico de Bretaña." },
@@ -14258,7 +14258,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 9.3,
         summary: "Uno de los costes de vida más bajos de toda esta guía, incluso por debajo de Budapest.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 8.5, desc: "Habitación desde 180–280€, de las más bajas de toda esta guía." },
           { label: "Comida y supermercados", score: 9.5, desc: "Mercados locales y gastronomía húngara son extraordinariamente baratos." },
@@ -14300,7 +14300,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
         summary: "Ciudad muy acostumbrada al estudiante internacional gracias a su enorme comunidad Erasmus.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.5, desc: "Bien hablado entre los jóvenes; algo más limitado en comercios tradicionales." },
           { label: "Actitud local", score: 7.5, desc: "Los pécsi son cordiales y están muy acostumbrados a la comunidad internacional." },
@@ -14328,7 +14328,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.0,
         summary: "El clima más suave de Hungría, con patrimonio paleocristiano único en Europa central.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "Las colinas de Mecsek, con rutas de senderismo, rodean la ciudad por el norte." },
           { label: "Clima", score: 8.5, desc: "El clima más suave y casi mediterráneo de Hungría, con inviernos más templados que el resto del país." },
@@ -14377,7 +14377,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.5,
         summary: "Uno de los costes de vida más bajos de esta guía, notablemente por debajo de Vilna.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 8.0, desc: "Habitación desde 220–320€, por debajo de Vilna." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercados locales y gastronomía lituana son muy económicos." },
@@ -14419,7 +14419,7 @@ export const CITY_INSIGHTS = {
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.8,
         summary: "Ciudad menos turística que Vilna, con una comunidad internacional creciente pero más pequeña.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.5, desc: "Bien hablado entre los jóvenes; algo más limitado en comercios tradicionales." },
           { label: "Actitud local", score: 7.5, desc: "Los kauniečiai son cordiales y orgullosos del pasado de capital provisional de su ciudad." },
@@ -14447,7 +14447,7 @@ export const CITY_INSIGHTS = {
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 7.8,
         summary: "La mayor colección de arquitectura modernista de entreguerras de Europa del Este.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.0, desc: "La confluencia de los ríos Nemunas y Neris, y los bosques cercanos, ofrecen espacio verde accesible." },
           { label: "Clima", score: 5.5, desc: "Continental frío, con inviernos largos y veranos cortos pero agradables." },
@@ -14499,7 +14499,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.5,
         summary: "Más cara que el resto de Brasil, pero muy asequible comparada con Europa. Con 600-700€/mes se vive bien compartiendo piso.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "Habitación compartida desde 180-230€, individual desde 350-470€ en zonas como Vila Mariana o Pinheiros." },
           { label: "Comida y supermercados", score: 7.5, desc: "Comer en un \"por kilo\" cuesta 5-8€. La variedad gastronómica de la ciudad es enorme y hay opciones para todos los bolsillos." },
@@ -14552,7 +14552,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 6.5,
         summary: "Ciudad grande y algo anónima al principio, pero muy acogedora una vez entras en un grupo o asociación.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 5.5, desc: "El inglés funciona en zonas de negocios, pero el portugués es casi imprescindible en el día a día." },
           { label: "Actitud local", score: 7.0, desc: "Paulistanos ocupados pero amables; el trato es más directo que en el resto de Brasil." },
@@ -14586,7 +14586,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.5,
         summary: "Ritmo acelerado compensado por una oferta cultural y gastronómica difícil de igualar en el continente.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 6.5, desc: "Subtropical de altitud (760m): veranos cálidos y lluviosos, inviernos suaves y secos. Cambia mucho en un mismo día." },
           { label: "Calidad de vida", score: 7.0, desc: "Ritmo trepidante tipo gran capital, con parques como el Ibirapuera para desconectar." },
@@ -14643,7 +14643,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.8,
         summary: "Similar a São Paulo, algo más cara en las zonas de playa. Con 650-750€/mes se vive con comodidad compartiendo piso.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "Habitación en Botafogo o Flamengo desde 300-450€; en Ipanema o Leblon el precio sube bastante." },
           { label: "Comida y supermercados", score: 7.5, desc: "Quilo (buffet por peso) desde 6-9€. El açaí y el pastel de feira son opciones baratas y ricas." },
@@ -14695,7 +14695,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.0,
         summary: "Cariocas abiertos y cercanos, aunque el portugués ayuda mucho a que la integración sea completa.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 5.5, desc: "El inglés funciona en zonas turísticas, pero el portugués es necesario para el día a día." },
           { label: "Actitud local", score: 8.5, desc: "Cariocas famosos por su calidez y su facilidad para hacer amigos rápido." },
@@ -14729,7 +14729,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 9.0,
         summary: "Playa y montaña dentro de la misma ciudad: pocas ciudades del mundo tienen este entorno natural.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 7.5, desc: "Tropical húmedo: veranos muy calurosos (30-40°C) e inviernos suaves (18-25°C). Playa todo el año." },
           { label: "Calidad de vida", score: 9.0, desc: "El estilo de vida carioca gira en torno a la playa, el deporte al aire libre y la vida social." },
@@ -14786,7 +14786,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.0,
         summary: "Más barata que Río o São Paulo salvo en las zonas turísticas junto al mar. Con 500-600€/mes se vive bien.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación en Trindade (junto a la UFSC) desde 250-350€; en Lagoa da Conceição sube bastante en temporada alta." },
           { label: "Comida y supermercados", score: 7.5, desc: "Marisco y pescado fresco a buen precio en los mercados; restaurante por kilo desde 6€." },
@@ -14837,7 +14837,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.0,
         summary: "Ciudad acogedora y relajada, acostumbrada al turismo y a estudiantes de otras partes de Brasil y del mundo.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 5.5, desc: "El inglés funciona en zonas turísticas; el portugués sigue siendo necesario en el resto de la isla." },
           { label: "Actitud local", score: 8.0, desc: "Florianopolitanos relajados y abiertos, con fuerte identidad de \"gente de isla\"." },
@@ -14871,7 +14871,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 9.0,
         summary: "Calidad de vida altísima: playa, naturaleza y una de las ciudades brasileñas mejor valoradas para vivir.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 7.5, desc: "Subtropical con cuatro estaciones marcadas: veranos calurosos y húmedos, inviernos frescos, sin extremos." },
           { label: "Calidad de vida", score: 9.0, desc: "Ritmo de vida tranquilo comparado con otras ciudades brasileñas de tamaño similar." },
@@ -14928,7 +14928,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.5,
         summary: "Una de las ciudades más asequibles de esta guía fuera del centro histórico turístico. Con 450-550€/mes se vive con holgura.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación en Manga o Getsemaní desde 200-320€; en Bocagrande o el centro amurallado sube considerablemente." },
           { label: "Comida y supermercados", score: 8.0, desc: "Comida corriente (menú del día) desde 3-5€. El pescado fresco y las frutas tropicales son muy baratos." },
@@ -14979,7 +14979,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.0,
         summary: "Ciudad cálida y hospitalaria, muy acostumbrada a recibir extranjeros por el turismo constante.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.0, desc: "Bastante extendido en zonas turísticas y en la UTB, que imparte formación bilingüe." },
           { label: "Actitud local", score: 8.0, desc: "Cartageneros extrovertidos y orgullosos de su ciudad, con gran facilidad para el trato cercano." },
@@ -15013,7 +15013,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.0,
         summary: "Vida caribeña relajada, con el mar, el calor y la música marcando cada día.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 6.0, desc: "Tropical seco caribeño: 28-32°C todo el año, con temporada de lluvias entre agosto y noviembre." },
           { label: "Calidad de vida", score: 8.5, desc: "Ritmo de vida pausado, muy centrado en la calle, la plaza y el mar." },
@@ -15070,7 +15070,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.5,
         summary: "La ciudad más barata de esta guía. Con 350-450€/mes se vive muy bien, incluso saliendo con frecuencia.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 8.0, desc: "Habitación desde 150-250€ en Wanchaq o San Blas, muy por debajo de otras capitales latinoamericanas." },
           { label: "Comida y supermercados", score: 8.5, desc: "Menú del día en mercados locales desde 2-3€. San Pedro es el mercado de referencia para comer barato y bien." },
@@ -15121,7 +15121,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 6.5,
         summary: "Ciudad acogedora, con fuerte identidad quechua e hispanohablante; el español es imprescindible.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 5.0, desc: "El inglés funciona en el sector turístico, pero el español es necesario para la vida universitaria." },
           { label: "Actitud local", score: 7.5, desc: "Cusqueños orgullosos de su historia y muy dispuestos a compartirla con quien se interesa de verdad." },
@@ -15155,7 +15155,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.5,
         summary: "Entorno histórico y natural incomparable, con Machu Picchu y el Valle Sagrado como telón de fondo permanente.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 6.5, desc: "Andino de altura: días soleados y secos de mayo a octubre, noches frías todo el año (0-10°C); lluvias de noviembre a abril." },
           { label: "Calidad de vida", score: 8.5, desc: "Ritmo de vida pausado, muy alejado del estrés de las grandes capitales." },
@@ -15212,7 +15212,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 1.8,
         summary: "La ciudad más cara de esta guía, con diferencia. Vivir con menos de 2.200€/mes es un reto real.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 1.5, desc: "Habitación compartida desde 1.400–2.000€ en Manhattan, algo menos en Brooklyn o Queens. El mercado es feroz." },
           { label: "Comida y supermercados", score: 4.0, desc: "Los delis y food trucks salvan el presupuesto (bagel o slice de pizza por 3–4€), pero el supermercado es caro." },
@@ -15265,7 +15265,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.8,
         summary: "Ciudad hecha de inmigrantes e internacionales, pero el ritmo de vida exige adaptarse rápido.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 10.0, desc: "Es el idioma nativo, obviamente, pero también se escuchan decenas de otros en cada barrio." },
           { label: "Actitud local", score: 7.0, desc: "Los neoyorquinos son directos y van rápido, no siempre cálidos a primera vista pero abiertos si te acercas." },
@@ -15299,7 +15299,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.3,
         summary: "Energía sin descanso, oferta cultural infinita y una diversidad que no se encuentra en ningún otro sitio.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 5.5, desc: "Veranos calurosos y húmedos (30°C+), inviernos fríos con nieve (bajo cero en enero-febrero). Primavera y otoño son la mejor época." },
           { label: "Calidad de vida", score: 8.0, desc: "Ritmo altísimo, poco espacio para el descanso, pero la ciudad da tanto que compensa a la mayoría." },
@@ -15357,7 +15357,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 2.9,
         summary: "Una de las ciudades más caras de Estados Unidos, aunque algo más manejable que Nueva York o San Francisco.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 2.5, desc: "Habitación compartida desde 900–1.400€, especialmente cara cerca de los campus del centro." },
           { label: "Comida y supermercados", score: 5.5, desc: "Mercados como Haymarket bajan el precio de fruta y verdura, pero comer fuera es caro." },
@@ -15409,7 +15409,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.6,
         summary: "Ciudad acostumbrada a estudiantes internacionales desde hace siglos, con oficinas de apoyo muy desarrolladas.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 10.0, desc: "Inglés nativo, con acento propio de Nueva Inglaterra ('pahk the cah')." },
           { label: "Actitud local", score: 7.5, desc: "Los bostonianos tienen fama de fríos al principio, pero se abren con el tiempo y son leales." },
@@ -15443,7 +15443,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.8,
         summary: "Ambiente académico, histórico y con las cuatro estaciones muy marcadas. El otoño en Nueva Inglaterra es espectacular.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 6.0, desc: "Inviernos fríos con nevadas serias (nor'easters), veranos cálidos y húmedos. El otoño (sept-nov) es lo mejor, con el follaje icónico de Nueva Inglaterra." },
           { label: "Calidad de vida", score: 8.5, desc: "Ciudad tranquila para su tamaño, con mucho verde y un ritmo más pausado que Nueva York." },
@@ -15501,7 +15501,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 4.1,
         summary: "La gran ciudad de Estados Unidos más asequible de esta guía, con diferencia.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 4.0, desc: "Habitación compartida desde 700–1.000€, mucho más barato que en las costas." },
           { label: "Comida y supermercados", score: 6.0, desc: "Deep dish, hot dogs de Chicago, mercados como el West Loop. Comer bien y barato es posible." },
@@ -15553,7 +15553,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.2,
         summary: "Ciudad acogedora y directa, con fama de ser la más amable de las grandes ciudades de EEUU.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 10.0, desc: "Inglés nativo, con el característico acento del Medio Oeste." },
           { label: "Actitud local", score: 8.0, desc: "Los 'Midwestern nice' tienen fama merecida: amables, directos y hospitalarios." },
@@ -15587,7 +15587,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.0,
         summary: "Arquitectura de récord, un lago que hace de playa en verano y un carácter directo muy del Medio Oeste.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 5.0, desc: "Veranos calurosos junto al lago, inviernos muy fríos y ventosos (de ahí 'Windy City'), con nieve entre diciembre y marzo." },
           { label: "Calidad de vida", score: 8.5, desc: "Ciudad ordenada, con mucho parque y acceso directo al lago Michigan, sensación de espacio poco común en una gran urbe." },
@@ -15645,7 +15645,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 2.9,
         summary: "Cara, aunque algo más manejable que Nueva York o San Francisco si compartes piso lejos de la costa.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 2.5, desc: "Habitación compartida desde 800–1.300€, más barata en Koreatown o el Valley que en Santa Mónica." },
           { label: "Comida y supermercados", score: 5.5, desc: "Food trucks y taquerías bajan el presupuesto, pero salir a comer fuera es caro." },
@@ -15697,7 +15697,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.0,
         summary: "Ciudad muy diversa y acostumbrada a estudiantes internacionales, aunque su extensión dificulta la vida de barrio.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 10.0, desc: "Inglés nativo, aunque también se escucha mucho español y coreano en distintas zonas." },
           { label: "Actitud local", score: 7.5, desc: "Gente relajada y abierta, aunque la cultura del coche reduce el contacto casual en la calle." },
@@ -15731,7 +15731,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.8,
         summary: "Sol prácticamente todo el año, playas y montañas a la misma distancia, y la capital mundial del entretenimiento como telón de fondo.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 9.5, desc: "Mediterráneo casi perfecto: más de 300 días de sol, temperaturas suaves todo el año, apenas llueve." },
           { label: "Calidad de vida", score: 8.5, desc: "Playas, senderismo en las montañas de Santa Mónica y una vida al aire libre difícil de igualar." },
@@ -15789,7 +15789,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 1.5,
         summary: "La ciudad más cara de Estados Unidos junto con Nueva York. El alojamiento se lleva la mayor parte del presupuesto.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 1.2, desc: "Habitación compartida desde 1.300–1.900€, de las más caras del país." },
           { label: "Comida y supermercados", score: 4.5, desc: "El Mission tiene opciones asequibles (taquerías, dim sum), pero el supermercado es caro." },
@@ -15841,7 +15841,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.8,
         summary: "Ciudad abierta y progresista, muy acostumbrada a la diversidad y a estudiantes de todo el mundo.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 10.0, desc: "Inglés nativo, con fuerte presencia también del español y el cantonés en distintos barrios." },
           { label: "Actitud local", score: 8.0, desc: "Ciudad abierta, progresista y acostumbrada a la diversidad de todo tipo." },
@@ -15875,7 +15875,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.3,
         summary: "Colinas, niebla y una identidad muy propia. El 'verano frío' de San Francisco es toda una experiencia.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 6.0, desc: "Templado todo el año, pero con niebla frecuente en verano ('Karl the Fog') y temperaturas que rara vez superan los 22°C. Lleva capas siempre." },
           { label: "Calidad de vida", score: 8.0, desc: "Naturaleza a un paso: playas, el Golden Gate Park y las montañas de Marin al otro lado del puente." },
@@ -15933,7 +15933,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.0,
         summary: "Muy asequible para el nivel de vida que ofrece. Con 600€/mes se vive cómodamente en un buen barrio.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.0, desc: "Habitación en Miraflores o Barranco desde 250-350€. Fuera de estos barrios, aún más barato." },
           { label: "Comida y mercados", score: 9.0, desc: "Menú del día completo por 3-5€. La variedad y calidad de la comida callejera no tiene rival en la región." },
@@ -15985,7 +15985,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.0,
         summary: "Los limeños son cálidos y hospitalarios, aunque la ciudad puede resultar intimidante al principio por su tamaño y ritmo.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Actitud local", score: 8.5, desc: "Gente muy amable y orgullosa de mostrar su cultura y gastronomía a los extranjeros." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "Fácil relacionarse con estudiantes universitarios, algo más costoso salir del círculo universitario." },
@@ -16018,7 +16018,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.3,
         summary: "La meca gastronómica de América y una costa espectacular. El clima gris de invierno es el único punto débil.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 6.0, desc: "Sin apenas lluvias pero con garúa (niebla) de mayo a noviembre; el cielo gris limeño es un clásico. Verano (dic-abr) soleado y caluroso." },
           { label: "Gastronomía", score: 10.0, desc: "Central, Maido y decenas de restaurantes entre los mejores del mundo. La cultura culinaria más rica de Sudamérica." },
@@ -16075,7 +16075,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.0,
         summary: "La más cara de Centroamérica, con economía dolarizada. Con 900€/mes se vive bien en una buena zona.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "Habitación en zonas céntricas desde 350-500$. Los edificios modernos con seguridad 24h encarecen el alquiler." },
           { label: "Comida y mercados", score: 6.5, desc: "Restaurantes internacionales caros, pero los mercados y fondas locales permiten comer bien por 5-8$." },
@@ -16124,7 +16124,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.0,
         summary: "Ciudad muy acostumbrada a extranjeros por su papel de hub internacional. El inglés se habla ampliamente en el entorno de negocios.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 8.0, desc: "Ampliamente hablado en zonas de negocios y universidades privadas, gracias al peso histórico de EEUU en el país." },
           { label: "Actitud local", score: 7.5, desc: "Panameños abiertos y acostumbrados a la diversidad por el propio Canal." },
@@ -16157,7 +16157,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 6.8,
         summary: "Contraste único entre rascacielos, selva tropical y el Canal. Clima tropical húmedo todo el año.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 5.5, desc: "Calor y humedad constantes (27-32°C) todo el año, con temporada de lluvias intensa de mayo a noviembre." },
           { label: "Naturaleza en la ciudad", score: 8.5, desc: "Parque Natural Metropolitano: selva con monos y perezosos a minutos del centro financiero." },
@@ -16213,7 +16213,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.0,
         summary: "Cara para Centroamérica por el peso del turismo, pero razonable si vives fuera del circuito turístico. Unos 800€/mes es un presupuesto cómodo.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 300-450$ en zonas como San Pedro o Escalante." },
           { label: "Comida y mercados", score: 7.0, desc: "Sodas (restaurantes locales) con menú completo por 5-7$; los supermercados son más caros que en el resto de la región." },
@@ -16262,7 +16262,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.2,
         summary: "Los ticos son de los más hospitalarios de Latinoamérica. La filosofía pura vida hace que la adaptación sea muy sencilla.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Actitud local", score: 9.0, desc: "Costarricenses extremadamente amables y pacientes con los extranjeros; el país lleva décadas recibiendo estudiantes internacionales." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "Fácil integrarse en el entorno universitario, algo más lento fuera de él." },
@@ -16294,7 +16294,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.7,
         summary: "La mejor relación entre ciudad y naturaleza de toda la región. Clima primaveral casi todo el año.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 8.5, desc: "18-27°C todo el año gracias a la altitud del Valle Central; estación seca (dic-abr) y verde (may-nov)." },
           { label: "Naturaleza y biodiversidad", score: 10.0, desc: "El país con mayor densidad de biodiversidad del planeta, con un 25% del territorio protegido." },
@@ -16351,7 +16351,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 4.5,
         summary: "El país más caro de Latinoamérica. Con 1.000€/mes se vive bien, pero es un salto respecto al resto de la región.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitación desde 350-500€ en zonas como Cordón o Ciudad Vieja; Pocitos es bastante más caro." },
           { label: "Comida y mercados", score: 5.5, desc: "Precios similares a Europa del Sur; el asado y la carne son más baratos que el resto de productos." },
@@ -16400,7 +16400,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.0,
         summary: "Uno de los sitios más fáciles de Latinoamérica para adaptarse: seguro, tranquilo y con locales muy cercanos.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Actitud local", score: 9.0, desc: "Uruguayos discretos pero muy cálidos una vez rompes el hielo, sin la efusividad de otros países de la región." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "Fácil integrarse en el entorno universitario y en actividades sociales cotidianas como el mate en el parque." },
@@ -16432,7 +16432,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.5,
         summary: "Playas urbanas, clima templado y un ritmo de vida pausado envidiable. La ciudad más relajada de la región.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 7.5, desc: "Clima templado con cuatro estaciones, veranos suaves (25-28°C) e inviernos frescos (8-14°C)." },
           { label: "Playas urbanas", score: 8.5, desc: "Pocitos y Punta Carretas tienen playa a un paseo del centro, con arena y agua del Río de la Plata." },
@@ -16488,7 +16488,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.0,
         summary: "Muy asequible gracias a la dolarización y el bajo coste de vida. Con 550$/mes se vive bien.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitación desde 200-350$ en La Floresta o el centro; Cumbayá es más caro." },
           { label: "Comida y mercados", score: 8.5, desc: "Almuerzo completo (menú del día) por 2,5-4$; mercados locales muy baratos." },
@@ -16537,7 +16537,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.0,
         summary: "Los quiteños son reservados al principio pero muy hospitalarios. La USFQ tiene mucha experiencia recibiendo extranjeros.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Actitud local", score: 7.5, desc: "Trato amable aunque algo más reservado que en otras capitales de la región al principio." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "Fácil integrarse en el entorno universitario, especialmente en la USFQ con su enfoque internacional." },
@@ -16569,7 +16569,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.7,
         summary: "El centro histórico colonial mejor conservado de Latinoamérica, rodeado de volcanes y con clima de eterna primavera.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 8.0, desc: "18-21°C de día y algo más fresco de noche, prácticamente sin variación estacional por su posición ecuatorial y la altitud." },
           { label: "Patrimonio y cultura", score: 9.5, desc: "Centro histórico Patrimonio UNESCO desde 1978, el mejor conservado de toda Latinoamérica." },
@@ -16626,7 +16626,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 4.3,
         summary: "Una de las ciudades más caras de EEUU para vivir, sobre todo por el alquiler. Compartir piso es casi obligatorio.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 3.5, desc: "Un dormitorio compartido en Brickell o Wynwood ronda los 900–1.200€. La demanda no para de subir." },
           { label: "Comida y supermercados", score: 6.0, desc: "Publix y Trader Joe's para el día a día; la comida cubana y latina barata compensa los restaurantes caros." },
@@ -16679,7 +16679,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.2,
         summary: "Ciudad bilingüe donde el español funciona en el día a día, lo que facilita muchísimo la integración para hispanohablantes.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de español/inglés", score: 9.0, desc: "Se puede vivir en español en muchas zonas, aunque para clases y trámites el inglés es necesario." },
           { label: "Actitud local", score: 8.0, desc: "Ciudad joven y acostumbrada a la inmigración latina, muy abierta con el extranjero." },
@@ -16713,7 +16713,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.7,
         summary: "Sol prácticamente todo el año, playas urbanas y un estilo de vida relajado con mucho ambiente latino.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 9.0, desc: "Cálido casi todo el año, con temporada de huracanes de junio a noviembre y veranos muy húmedos." },
           { label: "Calidad de vida", score: 8.0, desc: "Playas, aire libre y buen clima constante compensan el ritmo de vida algo más individualista." },
@@ -16770,7 +16770,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 4.2,
         summary: "Una de las ciudades más caras de Canadá, especialmente por el alquiler, aunque algo más asequible que Vancouver.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 3.5, desc: "Habitación compartida desde 750–1.000€/mes; el centro y zonas cercanas a UofT son las más caras." },
           { label: "Comida y supermercados", score: 6.0, desc: "No Frills y Food Basics para ahorrar; el St. Lawrence Market para comer bien sin arruinarse." },
@@ -16823,7 +16823,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 9.1,
         summary: "La ciudad más multicultural del mundo. Nadie te mira raro por ser extranjero porque casi todo el mundo lo es.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.5, desc: "Inglés como idioma común entre comunidades; fácil comunicarse desde el primer día." },
           { label: "Actitud local", score: 9.0, desc: "Ciudad acostumbrada a la inmigración de todo el mundo; muy poca fricción cultural." },
@@ -16857,7 +16857,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.7,
         summary: "Ciudad ordenada y segura con oferta cultural inmensa, aunque los inviernos son largos y muy fríos.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 5.5, desc: "Inviernos largos con nieve y temperaturas bajo cero desde noviembre hasta marzo; veranos cálidos y agradables." },
           { label: "Calidad de vida", score: 8.5, desc: "Ciudad limpia, segura y bien organizada, con parques y vida al aire libre en verano." },
@@ -16914,7 +16914,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 3.6,
         summary: "Una de las ciudades más caras de Canadá, sobre todo por la vivienda. El resto del presupuesto se compensa con ocio gratuito al aire libre.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 2.8, desc: "Habitación compartida desde 850–1.100€/mes; el mercado inmobiliario es de los más tensionados de Norteamérica." },
           { label: "Comida y supermercados", score: 6.0, desc: "Save-On-Foods y mercados como Granville Island para variar sin gastar de más." },
@@ -16966,7 +16966,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.1,
         summary: "Ciudad muy multicultural y tranquila, fácil de integrarse aunque el ritmo social es más pausado que en otras metrópolis.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.0, desc: "Inglés funciona perfectamente en cualquier contexto; también hay mucha presencia de mandarín y punjabi." },
           { label: "Actitud local", score: 8.0, desc: "Gente amable pero algo más reservada; hay que dar el primer paso para hacer amigos." },
@@ -17000,7 +17000,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 9.4,
         summary: "Calidad de vida excepcional: montaña, mar y bosque a un paso, aunque con lluvia casi constante buena parte del año.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 6.5, desc: "Inviernos suaves pero muy lluviosos (noviembre-marzo); veranos secos, soleados y espectaculares." },
           { label: "Calidad de vida", score: 9.8, desc: "De las ciudades mejor valoradas del mundo en calidad de vida; naturaleza integrada en el día a día." },
@@ -17058,7 +17058,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.6,
         summary: "La opción más asequible de las grandes ciudades canadienses. Vivir bien con 1.200€/mes es realista.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "Habitación compartida desde 500–700€/mes, un 30-40% más barata que Toronto o Vancouver." },
           { label: "Comida y supermercados", score: 7.5, desc: "Marché Jean-Talon y supermercados como Metro o IGA; comer bien y barato es posible." },
@@ -17111,7 +17111,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.6,
         summary: "Ciudad bilingüe y muy acostumbrada al estudiante internacional; el francés de Quebec sorprende al principio pero se coge rápido.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de francés/inglés", score: 8.0, desc: "El inglés funciona en la universidad y el centro; el francés (quebequés) ayuda mucho fuera de esas zonas." },
           { label: "Actitud local", score: 9.0, desc: "Quebequenses cálidos y orgullosos de su cultura, muy abiertos con el estudiante extranjero." },
@@ -17145,7 +17145,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.1,
         summary: "Cultura, gastronomía y festivales todo el año, aunque los inviernos son largos y muy fríos.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 5.5, desc: "Inviernos muy fríos (hasta -20°C) con nieve de noviembre a marzo; veranos cálidos y húmedos." },
           { label: "Calidad de vida", score: 8.5, desc: "Ritmo de vida relajado para ser Norteamérica, con parques, terrazas y vida de barrio." },
@@ -17203,7 +17203,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.6,
         summary: "Una de las capitales más baratas para estudiar de todo el continente. Vivir muy bien con 700€/mes es totalmente realista.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitación compartida desde 250–400€/mes en zonas como Roma, Condesa o Coyoacán." },
           { label: "Comida y supermercados", score: 9.0, desc: "Comer en fondas y mercados cuesta 2-4€; una de las gastronomías callejeras más baratas y variadas del mundo." },
@@ -17256,7 +17256,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.8,
         summary: "Muy fácil de integrarse para hispanohablantes gracias al idioma común; la calidez de la gente ayuda mucho al principio.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de español", score: 9.5, desc: "Español como idioma principal, lo que facilita muchísimo la integración desde el primer día." },
           { label: "Actitud local", score: 8.0, desc: "Gente muy cálida y hospitalaria con el estudiante extranjero." },
@@ -17290,7 +17290,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.2,
         summary: "Oferta cultural y gastronómica de primer nivel mundial, con un clima templado casi todo el año gracias a la altitud.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 8.0, desc: "Clima templado todo el año gracias a los 2.240m de altitud; temporada de lluvias de junio a septiembre." },
           { label: "Calidad de vida", score: 7.5, desc: "Ciudad intensa y con mucho tráfico, pero con una vida de barrio y cultural excepcional." },
@@ -17348,7 +17348,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.9,
         summary: "Una de las capitales más baratas de Sudamérica. Con 400€/mes se vive con holgura.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 8.5, desc: "Habitación en piso compartido desde 100–180€/mes en Sopocachi o Miraflores. La demanda internacional es todavía baja." },
           { label: "Comida y supermercados", score: 9.0, desc: "Mercados como el Rodríguez o el Lanza permiten comer muy barato; un almuerzo completo cuesta 2–3€." },
@@ -17401,7 +17401,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.4,
         summary: "Gente muy cercana y acogedora, aunque el español andino y el aymara conviven y toman su tiempo entender.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Actitud local", score: 8.8, desc: "Los paceños son hospitalarios y curiosos con los extranjeros, aunque el trato inicial puede ser algo más reservado que en otras capitales latinoamericanas." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "El grupo reducido de estudiantes internacionales favorece vínculos cercanos, tanto con locales como con otros extranjeros." },
@@ -17435,7 +17435,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.6,
         summary: "Paisajes de otro planeta, cultura andina viva y un ritmo de vida que obliga a bajar el ritmo, literalmente.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 6.5, desc: "Frío y seco todo el año por la altitud, con sol intenso de día y temperaturas cercanas a 0°C de noche. Mayo–agosto (invierno) son los meses más fríos y secos." },
           { label: "Calidad de vida", score: 8.5, desc: "El primer mes exige adaptación a la altitud, pero después el ritmo de vida es tranquilo y muy asequible." },
@@ -17493,7 +17493,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.8,
         summary: "Una de las capitales más baratas del continente; con 450€/mes se vive muy bien.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 8.5, desc: "Habitación compartida desde 150€/mes en Carmelitas o Recoleta; piso completo en Villa Morra desde 350€." },
           { label: "Comida y supermercados", score: 9.0, desc: "Menú del día desde 3€; mercados como el Mercado 4 permiten comprar muy barato." },
@@ -17545,7 +17545,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.6,
         summary: "Los paraguayos tienen fama merecida de hospitalarios; integrarse es rápido y natural.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Actitud local", score: 9.2, desc: "La calidez guaraní es real: es habitual que desconocidos inviten a tereré o a comer sin pedir nada a cambio." },
           { label: "Facilidad para hacer amigos", score: 8.5, desc: "Al ser un destino poco masificado, los locales muestran mucha curiosidad genuina por los extranjeros." },
@@ -17579,7 +17579,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.4,
         summary: "Ritmo de vida pausado, calor casi todo el año y una cultura guaraní muy presente en el día a día.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 5.5, desc: "Subtropical, muy caluroso y húmedo de diciembre a marzo (hasta 40°C); inviernos (jun–ago) suaves y agradables." },
           { label: "Calidad de vida", score: 8.0, desc: "Ciudad tranquila, sin las prisas de otras capitales, ideal para quien busca una experiencia menos abrumadora." },
@@ -17637,7 +17637,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.1,
         summary: "Asequible para el nivel de infraestructura que ofrece, aunque las zonas más seguras encarecen el alquiler.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación en piso compartido desde 250€/mes en zonas seguras (10, 14, 15); fuera de esas zonas, mucho más barato pero con más precauciones." },
           { label: "Comida y supermercados", score: 8.5, desc: "Comedores y mercados locales permiten comer por 3–4€; supermercados con precios similares a Europa del Este." },
@@ -17689,7 +17689,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.9,
         summary: "Los guatemaltecos son cálidos y curiosos; el español es imprescindible pero el trato es muy abierto.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Actitud local", score: 8.5, desc: "Gente hospitalaria y orgullosa de mostrar su cultura maya y colonial a los extranjeros." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "Las universidades privadas facilitan mucho el contacto con estudiantes locales de perfil internacional." },
@@ -17723,7 +17723,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.9,
         summary: "Clima templado todo el año, volcanes activos y una identidad maya muy presente fuera del área metropolitana.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 8.8, desc: "La 'eterna primavera': entre 15 y 25°C todo el año gracias a la altitud (1.500m), sin apenas cambios estacionales bruscos." },
           { label: "Calidad de vida", score: 7.0, desc: "Buena calidad de vida dentro de las zonas seguras, con oferta gastronómica y cultural creciente." },
@@ -17781,7 +17781,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.8,
         summary: "Asequible para estudiantes, con las zonas premium (Escalón, San Benito) marcando el precio hacia arriba.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación compartida desde 280€/mes en Antiguo Cuscatlán o San Benito; piso completo en Escalón, más caro." },
           { label: "Comida y supermercados", score: 8.5, desc: "Pupusas desde 0,50€ cada una; comer bien y barato es fácil fuera de zonas turísticas." },
@@ -17833,7 +17833,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.7,
         summary: "Salvadoreños abiertos y hospitalarios, con un país que se enorgullece de mostrar su cara más positiva últimamente.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Actitud local", score: 8.5, desc: "Trato cálido y directo; los salvadoreños suelen estar orgullosos del cambio reciente en su país y encantados de compartirlo." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "La comunidad universitaria de la UCA facilita mucho el contacto con estudiantes locales." },
@@ -17867,7 +17867,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.3,
         summary: "Surf de talla mundial, volcanes activos y un clima cálido casi todo el año — vida al aire libre garantizada.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 7.5, desc: "Tropical, cálido todo el año (24–32°C), con estación seca (nov–abr) y lluviosa (may–oct) bien diferenciadas." },
           { label: "Calidad de vida", score: 8.0, desc: "Buena calidad de vida en las zonas donde vive la mayoría de estudiantes, con oferta gastronómica en auge." },
@@ -17925,7 +17925,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.5,
         summary: "Asequible fuera de las zonas más exclusivas (Piantini, Naco); con 600€/mes se vive bien.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación compartida desde 250€/mes en Gazcue o Zona Colonial; piso en Piantini, bastante más caro." },
           { label: "Comida y supermercados", score: 7.5, desc: "Comida criolla completa desde 3–4€ en comedores locales; supermercados con precios similares a Europa del Este." },
@@ -17978,7 +17978,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.0,
         summary: "Los dominicanos son extrovertidos y abiertos; hacer amigos locales es rápido y natural.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Actitud local", score: 8.5, desc: "Carácter extrovertido y cercano; es habitual entablar conversación con desconocidos con total naturalidad." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La vida social gira en torno a la calle y la música, lo que facilita mucho conocer gente nueva." },
@@ -18012,7 +18012,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.5,
         summary: "Historia, playa y música conviven en una ciudad caribeña con mucha identidad propia.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 7.0, desc: "Tropical caribeño todo el año (25–32°C); temporada de huracanes de junio a noviembre, con picos en agosto-octubre." },
           { label: "Calidad de vida", score: 8.5, desc: "Buen equilibrio entre vida urbana, historia y playa a menos de una hora; ritmo de vida animado pero no agobiante." },
@@ -18070,7 +18070,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.4,
         summary: "Muy asequible para estándares norteamericanos. Vivir bien con 600€/mes es totalmente realista.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitación en piso compartido desde 300–450€ en Americana o Chapultepec; bajando a 200€ en Zapopan." },
           { label: "Comida y supermercados", score: 9.0, desc: "Tacos y tortas ahogadas por 1–3€, mercados como San Juan de Dios para comer barato y bien." },
@@ -18123,7 +18123,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 6.2,
         summary: "El español es imprescindible: fuera de las universidades y zonas expat, el inglés no llega muy lejos. A cambio, los tapatíos son de los más hospitalarios de México.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 5.0, desc: "Funciona en universidades y zonas turísticas, pero conviene llegar con un español decente." },
           { label: "Actitud local", score: 8.5, desc: "Los tapatíos tienen fama de ser de los mexicanos más cálidos y hospitalarios." },
@@ -18155,7 +18155,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.6,
         summary: "Clima templado casi todo el año, gastronomía espectacular y una identidad cultural muy marcada: mariachi, tequila y charrería.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 8.5, desc: "Templado gracias a la altitud (1.566m); temporada de lluvias entre junio y septiembre, resto del año seco y agradable." },
           { label: "Calidad de vida", score: 7.5, desc: "Ritmo de vida más relajado que en las grandes capitales, con muy buena gastronomía y coste bajo." },
@@ -18211,7 +18211,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 4.6,
         summary: "Cara para estándares de EEUU, aunque más asequible que la costa oeste. Compartir piso es casi obligatorio.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 4.0, desc: "Habitación compartida desde 600–900$ en West Campus; bajando en Hyde Park o al este del centro." },
           { label: "Comida y supermercados", score: 6.5, desc: "Food trucks desde 8–10$; cocinar en casa con HEB (supermercado local) es la forma de ahorrar." },
@@ -18262,7 +18262,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.2,
         summary: "Ambiente relajado y abierto, típico texano: la gente saluda por la calle y es fácil hacer amigos locales.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 10.0, desc: "País de habla inglesa: cero barrera de idioma." },
           { label: "Actitud local", score: 8.0, desc: "Los tejanos de Austin tienen fama de ser de los más abiertos y relajados de EEUU." },
@@ -18294,7 +18294,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.8,
         summary: "Veranos abrasadores compensados por una identidad cultural fortísima: música, food trucks y el lema 'Keep Austin Weird'.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 6.0, desc: "Veranos muy calurosos (35–40°C de junio a septiembre); inviernos suaves. Primavera y otoño son ideales." },
           { label: "Calidad de vida", score: 8.0, desc: "Barton Springs, Lady Bird Lake y kilómetros de senderos hacen fácil la vida al aire libre." },
@@ -18350,7 +18350,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 3.8,
         summary: "Una de las ciudades más caras de EEUU para vivir. Compartir piso lejos del centro es casi imprescindible.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 3.5, desc: "Habitación compartida desde 800–1.200$ cerca del campus; el U-District es algo más asequible." },
           { label: "Comida y supermercados", score: 6.0, desc: "Mercados como Pike Place para producto fresco; cocinar en casa ahorra mucho frente a comer fuera." },
@@ -18400,7 +18400,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.1,
         summary: "Ciudad diversa y acogedora sobre el papel, aunque el estereotipo del 'Seattle Freeze' (cordialidad superficial) tiene algo de verdad.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 10.0, desc: "País de habla inglesa: sin barrera de idioma." },
           { label: "Actitud local", score: 6.5, desc: "Amables pero reservados al principio; hace falta tiempo para pasar de conocidos a amigos." },
@@ -18432,7 +18432,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.9,
         summary: "Naturaleza a un paso: montañas, lagos e islas, aunque hay que hacer las paces con la lluvia de octubre a abril.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 6.0, desc: "Lluvia fina y constante de octubre a abril; veranos secos, suaves y espectaculares (junio–septiembre)." },
           { label: "Calidad de vida", score: 8.5, desc: "Excursionismo, kayak y esquí a menos de dos horas; equilibrio entre ciudad y naturaleza difícil de igualar." },
@@ -18488,7 +18488,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 3.6,
         summary: "Una de las ciudades más caras de EEUU. El alojamiento se lleva la mayor parte del presupuesto.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 3.5, desc: "Habitación compartida desde 900–1.400$; Georgetown y Dupont Circle son los barrios más caros." },
           { label: "Comida y supermercados", score: 6.0, desc: "Food halls y mercados como Eastern Market para comer bien sin gastar de más." },
@@ -18539,7 +18539,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.6,
         summary: "Ciudad hecha para gente de fuera: diplomáticos, becarios y estudiantes internacionales forman parte del paisaje habitual.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 10.0, desc: "País de habla inglesa: sin barrera de idioma." },
           { label: "Actitud local", score: 7.5, desc: "Población acostumbrada a la rotación constante de gente de fuera; fácil integrarse rápido." },
@@ -18571,7 +18571,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.8,
         summary: "Ciudad monumental y cultural, con veranos húmedos y calurosos pero una primavera espectacular gracias a los cerezos.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 6.5, desc: "Veranos húmedos y calurosos (30°C+); inviernos fríos pero suaves. Primavera con los famosos cerezos en flor." },
           { label: "Calidad de vida", score: 8.0, desc: "Parques, el río Potomac y una oferta cultural enorme, casi toda gratuita." },
@@ -18627,7 +18627,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.1,
         summary: "Más asequible que la mayoría de grandes ciudades de EEUU, aunque los precios han subido en los últimos años.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "Habitación compartida desde 500–800$ en Uptown o Mid-City; el Garden District es más caro." },
           { label: "Comida y supermercados", score: 6.5, desc: "Cocina criolla y cajún accesible en mercados locales; comer fuera puede salir barato en sitios de barrio." },
@@ -18678,7 +18678,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.2,
         summary: "Ciudad muy acogedora y con una identidad cultural fortísima que los locales comparten con orgullo.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 10.0, desc: "País de habla inglesa: sin barrera de idioma, aunque el acento local (y el criollo/cajún) sorprende al principio." },
           { label: "Actitud local", score: 8.0, desc: "Los locales tienen fama de ser de los más cálidos y hospitalarios de EEUU." },
@@ -18710,7 +18710,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.4,
         summary: "Cultura criolla y cajún única en el mundo, con gastronomía y música que definen la identidad de la ciudad — a cambio de aceptar la temporada de huracanes.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 5.5, desc: "Verano muy húmedo y caluroso (30–35°C); temporada de huracanes de junio a noviembre, con riesgo real que la universidad monitoriza de cerca." },
           { label: "Calidad de vida", score: 8.0, desc: "Ritmo de vida relajado, gastronomía excepcional y una vida cultural que no para en todo el año." },
@@ -18766,7 +18766,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 5.0,
         summary: "Caro para Michigan, moderado para EEUU. Vivir con 1.100€/mes es realista compartiendo piso.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 4.5, desc: "Habitaciones desde 700–950€/mes cerca de campus. La demanda sube mucho en agosto, antes del curso." },
           { label: "Comida y supermercados", score: 6.0, desc: "Kroger y Meijer para el día a día; Zingerman's Deli para darse un capricho a precio alto." },
@@ -18817,7 +18817,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.5,
         summary: "Campus muy acostumbrado a estudiantes internacionales; el inglés académico se aprende rápido asistiendo a clase.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.0, desc: "El acento del Medio Oeste es de los más neutros y fáciles de entender de EEUU." },
           { label: "Actitud local", score: 8.0, desc: "Estudiantes y profesores acostumbrados a un campus con miles de internacionales." },
@@ -18849,7 +18849,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.5,
         summary: "Pueblo universitario con mucha naturaleza cerca, aunque el invierno de Michigan es largo y exigente.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 5.5, desc: "Inviernos largos y nevados de noviembre a marzo; veranos cortos pero muy agradables." },
           { label: "Calidad de vida", score: 8.5, desc: "Ritmo tranquilo, mucho verde, el río Huron y el Arb a un paseo del centro." },
@@ -18904,7 +18904,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.0,
         summary: "Más barato que Toronto o Vancouver. Vivir bien con 900€/mes es realista.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 500–650€/mes fuera del Vieux-Québec." },
           { label: "Comida y supermercados", score: 7.5, desc: "IGA y Metro para el día a día; el marché du Vieux-Port para productos locales." },
@@ -18953,7 +18953,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 6.5,
         summary: "Ciudad 100% francófona: sin buen nivel de francés cuesta más integrarse que en Montreal u Ottawa.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de francés necesario", score: 6.0, desc: "El inglés funciona en el turismo, pero la vida diaria y la universidad son en francés." },
           { label: "Actitud local", score: 7.5, desc: "Québécois orgullosos de su identidad y muy abiertos con quien hace el esfuerzo de hablar francés." },
@@ -18985,7 +18985,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.5,
         summary: "Probablemente el casco histórico más bonito de Norteamérica, con cuatro estaciones muy marcadas.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 6.0, desc: "Inviernos muy fríos y nevados (hasta -25°C), veranos cortos pero luminosos." },
           { label: "Calidad de vida", score: 8.8, desc: "Ciudad tranquila, segura y a escala humana, con el río San Lorenzo como telón de fondo." },
@@ -19041,7 +19041,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.0,
         summary: "Más asequible que Toronto, aunque sigue siendo una capital cara para estándares canadienses.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 5.5, desc: "Habitaciones desde 600–800€/mes en Sandy Hill o Centretown." },
           { label: "Comida y supermercados", score: 6.5, desc: "Loblaws y Farm Boy para el día a día; el ByWard Market para productos frescos." },
@@ -19089,7 +19089,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.0,
         summary: "Capital bilingüe y multicultural, muy acostumbrada a estudiantes internacionales.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 8.5, desc: "El inglés cubre el 100% de la vida diaria, aunque el francés suma puntos." },
           { label: "Actitud local", score: 8.0, desc: "Ciudad diplomática y multicultural, muy abierta a extranjeros." },
@@ -19121,7 +19121,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.5,
         summary: "Ciudad verde, ordenada y con una calidad de vida altísima, aunque el invierno es largo.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 5.5, desc: "Inviernos fríos y nevados, veranos cortos pero muy agradables junto al canal." },
           { label: "Calidad de vida", score: 9.5, desc: "Ottawa aparece siempre entre las ciudades con mejor calidad de vida del mundo." },
@@ -19177,7 +19177,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 3.5,
         summary: "Cara, como toda California. Vivir con menos de 1.400€/mes es difícil compartiendo piso.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 3.0, desc: "Habitaciones desde 900–1.300€/mes, más en La Jolla o Pacific Beach." },
           { label: "Comida y supermercados", score: 5.5, desc: "Trader Joe's ayuda al bolsillo; comer fuera en zonas turísticas es caro." },
@@ -19226,7 +19226,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 8.0,
         summary: "Ciudad diversa y acostumbrada a estudiantes internacionales, con una gran comunidad hispana.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 8.5, desc: "El inglés cubre toda la vida diaria; el español también se escucha muchísimo." },
           { label: "Actitud local", score: 8.0, desc: "Ambiente relajado y abierto, típico de la cultura de playa californiana." },
@@ -19258,7 +19258,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 9.2,
         summary: "El clima más estable de EEUU: rara vez baja de 15°C o sube de 28°C en todo el año.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 9.8, desc: "Clima mediterráneo casi perfecto todo el año, según la NOAA uno de los más estables del país." },
           { label: "Calidad de vida", score: 9.0, desc: "Playas, montaña y desierto a menos de una hora, con vida al aire libre todo el año." },
@@ -19314,7 +19314,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.5,
         summary: "Muy asequible comparado con EEUU o Canadá. Vivir bien con 650€/mes es totalmente realista.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 8.0, desc: "Habitaciones desde 250–400€/mes fuera de San Pedro Garza García." },
           { label: "Comida y supermercados", score: 9.0, desc: "Comer muy bien y barato: un taco de asada o un plato de cabrito por menos de 3€." },
@@ -19363,7 +19363,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.0,
         summary: "El campus del Tec es muy internacional, aunque fuera de él el español es imprescindible.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.5, desc: "En el Tec el inglés funciona bien; en la calle y comercios se necesita español." },
           { label: "Actitud local", score: 8.0, desc: "Los regiomontanos tienen fama de hospitalarios y directos, fáciles de tratar." },
@@ -19395,7 +19395,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 6.8,
         summary: "Ciudad de montañas y buena comida, aunque el calor del verano y el tráfico pueden pesar.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 5.0, desc: "Veranos muy calurosos (fácilmente 40°C), inviernos suaves con algún frente frío puntual." },
           { label: "Calidad de vida", score: 7.5, desc: "Parque Fundidora, Chipinque y el Cerro de la Silla dan mucho verde y montaña cerca de la ciudad." },
@@ -19450,7 +19450,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.5,
         summary: "Muy asequible para estudiantes con ingresos en euros o dólares gracias al cambio informal. Vivir bien con 600-700€/mes es realista.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación en Palermo o Recoleta desde 250-350€/mes al cambio blue. Compartir piso es lo habitual." },
           { label: "Comida y supermercados", score: 8.0, desc: "Menú del día por 4-6€. Carne y vino, baratísimos comparados con Europa." },
@@ -19503,7 +19503,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.5,
         summary: "Los porteños son cercanos y curiosos con los extranjeros, aunque el español rioplatense y el voseo cuestan al principio.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de español requerido", score: 6.5, desc: "El inglés no llega lejos fuera de zonas turísticas; el voseo y el acento porteño exigen algo de adaptación." },
           { label: "Actitud local", score: 8.5, desc: "Gente abierta, habladora y orgullosa de su ciudad. Fácil entrar en conversación en cualquier bar." },
@@ -19537,7 +19537,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.5,
         summary: "Vida cultural constante entre teatros, librerías de trasnoche y una escena gastronómica que mezcla Europa y Sudamérica.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 7.0, desc: "Templado con las cuatro estaciones marcadas: veranos húmedos de hasta 35°C e inviernos suaves sin nieve, 7-15°C." },
           { label: "Calidad de vida", score: 8.5, desc: "Parques enormes (Bosques de Palermo), cafés históricos abiertos hasta tarde, ritmo de vida intenso pero no agobiante." },
@@ -19594,7 +19594,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.5,
         summary: "Una de las ciudades más baratas de esta guía. Vivir bien con 450-550€/mes es totalmente realista.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 7.0, desc: "Habitación en Nueva Córdoba desde 150-220€/mes." },
           { label: "Comida y supermercados", score: 8.5, desc: "Menú del día por 3-4€. Fernet con cola, el trago nacional, a 2€." },
@@ -19647,7 +19647,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.5,
         summary: "El voseo y el acento cordobés cuestan al principio, pero la calidez local hace la integración muy rápida.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de español requerido", score: 6.5, desc: "Acento muy marcado y modismos propios ('che', 'boludo') forman parte del día a día." },
           { label: "Actitud local", score: 8.5, desc: "Gente muy cálida, orgullosa de su acento y su ciudad, siempre dispuesta a ayudar." },
@@ -19681,7 +19681,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.5,
         summary: "Ritmo relajado de ciudad de interior, con las sierras siempre cerca y una identidad cultural muy marcada.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 7.0, desc: "Veranos calurosos y húmedos hasta 31°C, inviernos suaves sin apenas nieve, entre 5 y 18°C." },
           { label: "Calidad de vida", score: 8.0, desc: "Ritmo más tranquilo que Buenos Aires, con mucha vida al aire libre gracias a las sierras cercanas." },
@@ -19739,7 +19739,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.0,
         summary: "La capital más cara del Cono Sur después de Buenos Aires en dólares, pero sigue siendo accesible frente a Europa.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 5.5, desc: "Habitación en Providencia o Ñuñoa desde 300-400€/mes." },
           { label: "Comida y supermercados", score: 7.0, desc: "Menú del día por 6-7€. Ferias libres bajan mucho el gasto en fruta y verdura." },
@@ -19792,7 +19792,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.0,
         summary: "Los chilenos son cordiales aunque algo más reservados al principio; el acento y los modismos locales cuestan un poco.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de español requerido", score: 6.5, desc: "Modismos chilenos muy marcados ('cachai', 'al tiro'); cuesta entender al principio." },
           { label: "Actitud local", score: 7.5, desc: "Gente amable aunque algo menos efusiva que en Argentina o Colombia al primer contacto." },
@@ -19826,7 +19826,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.0,
         summary: "Naturaleza a mano: mar, cordillera y viñedos en un radio de menos de dos horas desde el centro.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 7.5, desc: "Clima mediterráneo con veranos secos de hasta 32°C e inviernos suaves y lluviosos, entre 0 y 15°C." },
           { label: "Calidad de vida", score: 8.5, desc: "Ciudad ordenada, parques cuidados (Parque Bustamante, Cerro San Cristóbal) y buena calidad de vida fuera de los meses de invierno." },
@@ -19884,7 +19884,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.5,
         summary: "Una de las capitales más asequibles de esta guía; vivir bien con 500-600€/mes es realista.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación en Chapinero desde 200-300€/mes." },
           { label: "Comida y supermercados", score: 8.0, desc: "Almuerzo corriente (menú del día) por 3-4€. Mercados como Paloquemao, muy baratos." },
@@ -19937,7 +19937,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 6.5,
         summary: "Los bogotanos son amables y hospitalarios, aunque el ritmo de la ciudad y las distancias hacen que la integración lleve algo más de tiempo.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de español requerido", score: 7.0, desc: "El español bogotano es uno de los más neutros y fáciles de entender de Latinoamérica." },
           { label: "Actitud local", score: 7.5, desc: "Gente educada y hospitalaria, aunque el trato es algo más formal al principio." },
@@ -19971,7 +19971,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 7.5,
         summary: "Vida cultural de primer nivel entre museos, arte urbano y naturaleza de montaña a las puertas de la ciudad.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 6.0, desc: "Clima frío de montaña casi constante todo el año, entre 8 y 19°C, sin apenas variación estacional." },
           { label: "Calidad de vida", score: 7.5, desc: "Ciclovía dominical, parques como el Simón Bolívar y una oferta cultural que no para." },
@@ -20030,7 +20030,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.5,
         summary: "Clima primaveral constante y un coste de vida muy competitivo frente a otras ciudades de la región.",
-        color: "#0EA5E9",
+        color: "#F5963A",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación en Laureles desde 200-300€/mes, algo más en El Poblado." },
           { label: "Comida y supermercados", score: 8.0, desc: "Menú del día (corrientazo) por 3-4€, bandeja paisa incluida." },
@@ -20083,7 +20083,7 @@ export const CITY_INSIGHTS = {
         icon: "🌍",
         score: 7.5,
         summary: "Los paisas tienen fama de ser de los más cálidos y hospitalarios de Latinoamérica, y se nota desde el primer día.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de español requerido", score: 7.5, desc: "El acento paisa es muy claro y fácil de entender comparado con otras regiones de Colombia." },
           { label: "Actitud local", score: 9.0, desc: "La hospitalidad paisa es reconocida en toda la región; la gente está muy dispuesta a ayudar." },
@@ -20118,7 +20118,7 @@ export const CITY_INSIGHTS = {
         icon: "🏔️",
         score: 8.5,
         summary: "El clima primaveral constante marca todo el estilo de vida: vida al aire libre, terrazas y naturaleza durante todo el año.",
-        color: "#14B8A6",
+        color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 9.0, desc: "Temperatura media de 22°C los 365 días del año, sin apenas variación estacional." },
           { label: "Calidad de vida", score: 8.5, desc: "Parques, miradores y una vida al aire libre constante gracias al clima." },
@@ -20170,12 +20170,12 @@ export const CITY_INSIGHTS = {
 
 // Generate default scores for cities without custom data
 const DEFAULT_SCORES = (city) => [
-  { id: "coste", label: "Coste de vida", icon: "💰", score: 7.0, summary: `Coste medio para Europa. Planifica un presupuesto de ${city?.costDetail || "800–1.200€"}/mes.`, color: "#0EA5E9", subcategories: [], reviews: [] },
+  { id: "coste", label: "Coste de vida", icon: "💰", score: 7.0, summary: `Coste medio para Europa. Planifica un presupuesto de ${city?.costDetail || "800–1.200€"}/mes.`, color: "#F5963A", subcategories: [], reviews: [] },
   { id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.0, summary: "Busca con 2–3 meses de antelación. Incluye pisos, habitaciones, residencias y colivings.", color: "#EF4444", subcategories: [], reviews: [] },
   { id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 7.5, summary: "Buena vida social estudiantil. Comunidad Erasmus activa con eventos semanales.", color: "#8B5CF6", subcategories: [], reviews: [] },
-  { id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8, summary: "Ciudad abierta a estudiantes internacionales. El inglés funciona bien.", color: "#14B8A6", subcategories: [], reviews: [] },
+  { id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8, summary: "Ciudad abierta a estudiantes internacionales. El inglés funciona bien.", color: "#3F7A7D", subcategories: [], reviews: [] },
   { id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.5, summary: "Buen transporte público y buenas conexiones. Tarjeta mensual entre 30–60€.", color: "#F59E0B", subcategories: [], reviews: [] },
-  { id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 7.8, summary: "Buena calidad de vida general. Mezcla equilibrada de cultura, ocio y comodidad.", color: "#14B8A6", subcategories: [], reviews: [] },
+  { id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 7.8, summary: "Buena calidad de vida general. Mezcla equilibrada de cultura, ocio y comodidad.", color: "#3F7A7D", subcategories: [], reviews: [] },
   { id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 7.0, summary: "Oportunidades en sectores clave. Prácticas Erasmus+ disponibles.", color: "#8B5CF6", subcategories: [], reviews: [] },
   { id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0, summary: "Ciudad segura para estándares europeos. Precaución normal.", color: "#22C55E", subcategories: [], reviews: [] },
 ];

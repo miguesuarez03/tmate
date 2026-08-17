@@ -22,15 +22,15 @@ export default function IconPlaya({ size = 56, className = "", ...rest }) {
     >
       <defs>
 <filter id={`ds-${uid}`} x="-40%" y="-40%" width="180%" height="180%">
-<feDropShadow dx="0" dy="4" stdDeviation="3.2" floodColor="#0F172A" floodOpacity="0.20"/>
+<feDropShadow dx="0" dy="4" stdDeviation="3.2" floodColor="#0F1E2D" floodOpacity="0.20"/>
 </filter>
 <linearGradient id={`bg-${uid}`} x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stopColor="#0EA5E9"/><stop offset="100%" stopColor="#06B6D4"/>
+<stop offset="0%" stopColor="#F5963A"/><stop offset="100%" stopColor="#FFC95E"/>
 </linearGradient>
 <linearGradient id={`sh-${uid}`} x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stopColor="#0C2340" stopOpacity="0"/>
-<stop offset="55%" stopColor="#0C2340" stopOpacity="0"/>
-<stop offset="100%" stopColor="#0C2340" stopOpacity="0.32"/>
+<stop offset="0%" stopColor="#2F5073" stopOpacity="0"/>
+<stop offset="55%" stopColor="#2F5073" stopOpacity="0"/>
+<stop offset="100%" stopColor="#2F5073" stopOpacity="0.32"/>
 </linearGradient>
 <clipPath id={`cc-${uid}`}><circle cx="64" cy="64" r="46" /></clipPath>
 <clipPath id={`umb-${uid}`}><path d="M30 58 C30 40 46 30 64 30 C82 30 98 40 98 58 Z" /></clipPath>
@@ -47,8 +47,8 @@ export default function IconPlaya({ size = 56, className = "", ...rest }) {
 <rect x="64" y="30" width="17" height="28" fill="#EF4444" opacity="0.85"/>
 <rect x="81" y="30" width="17" height="28" fill="#FFFFFF"/>
 </g>
-<line x1="64" y1="58" x2="64" y2="94" stroke="#0C2340" strokeWidth="5" strokeLinecap="round"/>
-<line x1="50" y1="94" x2="78" y2="94" stroke="#0C2340" strokeWidth="5" strokeLinecap="round"/>
+<line x1="64" y1="58" x2="64" y2="94" stroke="#2F5073" strokeWidth="5" strokeLinecap="round"/>
+<line x1="50" y1="94" x2="78" y2="94" stroke="#2F5073" strokeWidth="5" strokeLinecap="round"/>
 </g>
 
     </svg>

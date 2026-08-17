@@ -20,15 +20,15 @@ export default function IconProceso({ size = 56, className = "", ...rest }) {
     >
       <defs>
 <filter id={`ds-${uid}`} x="-40%" y="-40%" width="180%" height="180%">
-<feDropShadow dx="0" dy="4" stdDeviation="3.2" floodColor="#0F172A" floodOpacity="0.20"/>
+<feDropShadow dx="0" dy="4" stdDeviation="3.2" floodColor="#0F1E2D" floodOpacity="0.20"/>
 </filter>
 <linearGradient id={`qg-${uid}`} x1="0" y1="0" x2="1" y2="1">
 <stop offset="0%" stopColor="#EF4444"/><stop offset="100%" stopColor="#DC2626"/>
 </linearGradient>
 <linearGradient id={`qs-${uid}`} x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stopColor="#0C2340" stopOpacity="0"/>
-<stop offset="55%" stopColor="#0C2340" stopOpacity="0"/>
-<stop offset="100%" stopColor="#0C2340" stopOpacity="0.32"/>
+<stop offset="0%" stopColor="#2F5073" stopOpacity="0"/>
+<stop offset="55%" stopColor="#2F5073" stopOpacity="0"/>
+<stop offset="100%" stopColor="#2F5073" stopOpacity="0.32"/>
 </linearGradient>
 <clipPath id={`qc-${uid}`}><circle cx="64" cy="64" r="46" /></clipPath>
 </defs>
@@ -40,7 +40,7 @@ export default function IconProceso({ size = 56, className = "", ...rest }) {
 style={{ mixBlendMode: "soft-light" }} transform="rotate(-35 48 46)"/>
 </g>
 <circle cx="64" cy="64" r="37" fill="none" stroke="#FFFFFF" strokeOpacity="0.35" strokeWidth="1.6"/>
-<text x="64" y="82" fontFamily="Georgia, 'DM Sans', serif" fontSize="50" fontWeight="700" textAnchor="middle" fill="#FFFFFF" opacity="0.95">?</text>
+<text x="64" y="82" fontFamily="Georgia, 'Bricolage Grotesque', serif" fontSize="50" fontWeight="700" textAnchor="middle" fill="#FFFFFF" opacity="0.95">?</text>
 </g>
 
     </svg>

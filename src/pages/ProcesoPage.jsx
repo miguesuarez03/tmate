@@ -11,7 +11,7 @@ const STEPS = [
     num: "01",
     Icon: IconLupa,
     title: "Elige tu destino",
-    color: "#0EA5E9",
+    color: "#F5963A",
     tag: "Preparación",
     content: `Tómate en serio la elección — no vas a vivir solo en una ciudad bonita, vas a vivir allí varios meses. Lo que de verdad importa:
 
@@ -41,7 +41,7 @@ Visita cuanto antes la ORI de tu facultad: tienen el listado de universidades co
     num: "02",
     Icon: IconClipboard,
     title: "Solicita en tu universidad",
-    color: "#14B8A6",
+    color: "#3F7A7D",
     tag: "Solicitud",
     content: `Tu universidad abre un plazo oficial (normalmente entre octubre y febrero) en el que debes:
 
@@ -464,7 +464,7 @@ export default function ProcesoPage() {
           <button className="proceso-back" onClick={() => navigate("/")}>
             ← Volver al inicio
           </button>
-          <SectionLabel color="#14B8A6">Guía completa</SectionLabel>
+          <SectionLabel color="#3F7A7D">Guía completa</SectionLabel>
           <h1 className="proceso-hero__title">
             ¿Cómo funciona<br />
             <span className="proceso-hero__title-accent">el Erasmus?</span>

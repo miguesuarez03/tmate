@@ -89,7 +89,7 @@ export default function Globe3D({ onCityHover }) {
     sun.position.set(-4, 3, 5);
     scene.add(sun);
 
-    const rimLight = new THREE.DirectionalLight(0x14B8A6, 0.6);
+    const rimLight = new THREE.DirectionalLight(0x3f7a7d, 0.6);
     rimLight.position.set(4, -2, -3);
     scene.add(rimLight);
 
@@ -109,9 +109,9 @@ export default function Globe3D({ onCityHover }) {
 
     // Fondo oceano
     const oceanGrad = ctx.createLinearGradient(0, 0, 0, 1024);
-    oceanGrad.addColorStop(0,   "#0C2340");
-    oceanGrad.addColorStop(0.4, "#0F3460");
-    oceanGrad.addColorStop(1,   "#0D5C6E");
+    oceanGrad.addColorStop(0,   "#2F5073");
+    oceanGrad.addColorStop(0.4, "#24455F");
+    oceanGrad.addColorStop(1,   "#16364D");
     ctx.fillStyle = oceanGrad;
     ctx.fillRect(0, 0, 2048, 1024);
 
@@ -178,7 +178,7 @@ export default function Globe3D({ onCityHover }) {
     // ── ATMOSPHERE GLOW ────────────────────────────────────
     const atmGeo = new THREE.SphereGeometry(1.065, 64, 64);
     const atmMat = new THREE.MeshPhongMaterial({
-      color: 0x0ea5e9,
+      color: 0xf5963a,
       transparent: true,
       opacity: 0.08,
       side: THREE.FrontSide,
@@ -190,7 +190,7 @@ export default function Globe3D({ onCityHover }) {
     // Halo exterior
     const haloGeo = new THREE.SphereGeometry(1.12, 32, 32);
     const haloMat = new THREE.MeshBasicMaterial({
-      color: 0x0ea5e9,
+      color: 0xf5963a,
       transparent: true,
       opacity: 0.04,
       side: THREE.BackSide,
@@ -207,7 +207,7 @@ export default function Globe3D({ onCityHover }) {
 
       // Dot
       const dotGeo = new THREE.SphereGeometry(0.018, 12, 12);
-      const dotMat = new THREE.MeshBasicMaterial({ color: 0x0ea5e9 });
+      const dotMat = new THREE.MeshBasicMaterial({ color: 0xf5963a });
       const dot = new THREE.Mesh(dotGeo, dotMat);
       dot.position.copy(pos);
       dot.userData = { city };
@@ -216,7 +216,7 @@ export default function Globe3D({ onCityHover }) {
       // Ring (halo del marcador)
       const ringGeo = new THREE.RingGeometry(0.024, 0.032, 24);
       const ringMat = new THREE.MeshBasicMaterial({
-        color: 0x14B8A6,
+        color: 0x3f7a7d,
         transparent: true,
         opacity: 0.7,
         side: THREE.DoubleSide,
@@ -271,7 +271,7 @@ export default function Globe3D({ onCityHover }) {
         renderer.domElement.style.cursor = "pointer";
 
         // Highlight
-        hit.object.material.color.set(0x14B8A6);
+        hit.object.material.color.set(0x3f7a7d);
         hit.object.scale.setScalar(1.8);
 
         // Proyectar posición a pantalla
@@ -286,7 +286,7 @@ export default function Globe3D({ onCityHover }) {
       } else {
         renderer.domElement.style.cursor = "grab";
         if (hoveredCity) {
-          hoveredCity.material.color.set(0x0ea5e9);
+          hoveredCity.material.color.set(0xf5963a);
           hoveredCity.scale.setScalar(1);
           hoveredCity = null;
         }
@@ -296,7 +296,7 @@ export default function Globe3D({ onCityHover }) {
       // Restaurar no-hovered
       markerObjs.forEach(({ dot }) => {
         if (dot !== hoveredCity) {
-          dot.material.color.set(0x0ea5e9);
+          dot.material.color.set(0xf5963a);
           dot.scale.setScalar(1);
         }
       });
@@ -436,7 +436,7 @@ export default function Globe3D({ onCityHover }) {
           top:  tooltip.y - 52,
           transform: "translateX(-50%)",
           background: "rgba(10,20,40,0.93)",
-          border: "1px solid rgba(14,165,233,0.5)",
+          border: "1px solid rgba(245,150,58,0.5)",
           borderRadius: 10,
           padding: "7px 14px",
           pointerEvents: "none",

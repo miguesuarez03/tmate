@@ -7,13 +7,13 @@
 
 .badge {
   display: inline-block;
-  background: rgba(20,184,166,0.18);
-  border: 1px solid rgba(20,184,166,0.4);
+  background: rgba(63,122,125,0.18);
+  border: 1px solid rgba(63,122,125,0.4);
   border-radius: var(--radius-full);
   padding: 6px 16px;
   font-size: 13px;
   font-weight: 700;
-  color: #5EEAD4;
+  color: #8FC5C8;
   margin-bottom: 16px;
 }
 
@@ -80,8 +80,8 @@
 }
 .optionBtn:hover { border-color: var(--color-primary); background: var(--color-white); }
 .optionBtnActive {
-  border-color: var(--color-primary); background: rgba(14,165,233,0.06);
-  box-shadow: 0 0 0 3px rgba(14,165,233,0.12);
+  border-color: var(--color-primary); background: rgba(245,150,58,0.06);
+  box-shadow: 0 0 0 3px rgba(245,150,58,0.12);
 }
 .optionLabel { font-size: 15px; font-weight: 700; color: var(--color-dark); }
 .optionDesc { font-size: 12.5px; color: var(--color-slate-light); }
@@ -105,8 +105,8 @@
 .resultsHeroBg {
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(14,165,233,0.2) 0%, transparent 55%),
-    radial-gradient(ellipse at 80% 20%, rgba(20,184,166,0.15) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 50%, rgba(245,150,58,0.2) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 20%, rgba(63,122,125,0.15) 0%, transparent 50%);
 }
 .resultsHeroContent { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; }
 .resultsTitle {
@@ -151,7 +151,7 @@
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 .resultCard:hover { box-shadow: var(--shadow-md); }
-.resultCardTop { border-color: rgba(14,165,233,0.35); box-shadow: var(--shadow-md); }
+.resultCardTop { border-color: rgba(245,150,58,0.35); box-shadow: var(--shadow-md); }
 
 .resultRank {
   display: flex; align-items: center; justify-content: center;

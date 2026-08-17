@@ -36,7 +36,7 @@ function getMoodTags(city) {
 function scoreColor(score) {
   if (score >= 9)   return "#22C55E";
   if (score >= 8)   return "#00BFA5";
-  if (score >= 6)   return "#0EA5E9";
+  if (score >= 6)   return "#F5963A";
   if (score >= 5)   return "#F59E0B";
   return "#EF4444";
 }
@@ -186,7 +186,7 @@ export default function HeroSection({ city, overallScore, insights }) {
               </div>
             )}
 
-            <div className={styles.heroBigLink} style={{ "--big-color": "#0EA5E9" }}>
+            <div className={styles.heroBigLink} style={{ "--big-color": "#F5963A" }}>
               <span className={styles.heroBigLinkIcon}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/>

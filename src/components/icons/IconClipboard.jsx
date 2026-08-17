@@ -21,15 +21,15 @@ export default function IconClipboard({ size = 56, className = "", ...rest }) {
     >
       <defs>
 <filter id={`ds-${uid}`} x="-40%" y="-40%" width="180%" height="180%">
-<feDropShadow dx="0" dy="4" stdDeviation="3.2" floodColor="#0F172A" floodOpacity="0.20"/>
+<feDropShadow dx="0" dy="4" stdDeviation="3.2" floodColor="#0F1E2D" floodOpacity="0.20"/>
 </filter>
 <linearGradient id={`bg-${uid}`} x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stopColor="#14B8A6"/><stop offset="100%" stopColor="#10B981"/>
+<stop offset="0%" stopColor="#3F7A7D"/><stop offset="100%" stopColor="#10B981"/>
 </linearGradient>
 <linearGradient id={`sh-${uid}`} x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stopColor="#0C2340" stopOpacity="0"/>
-<stop offset="55%" stopColor="#0C2340" stopOpacity="0"/>
-<stop offset="100%" stopColor="#0C2340" stopOpacity="0.32"/>
+<stop offset="0%" stopColor="#2F5073" stopOpacity="0"/>
+<stop offset="55%" stopColor="#2F5073" stopOpacity="0"/>
+<stop offset="100%" stopColor="#2F5073" stopOpacity="0.32"/>
 </linearGradient>
 <clipPath id={`cc-${uid}`}><circle cx="64" cy="64" r="46" /></clipPath>
 </defs>
@@ -41,10 +41,10 @@ export default function IconClipboard({ size = 56, className = "", ...rest }) {
 style={{ mixBlendMode: "soft-light" }} transform="rotate(-35 48 46)"/>
 </g>
 <rect x="46" y="42" width="36" height="46" rx="4" fill="#FFFFFF" opacity="0.95"/>
-<rect x="56" y="38" width="16" height="9" rx="3" fill="#0C2340" opacity="0.35"/>
-<line x1="53" y1="58" x2="75" y2="58" stroke="#14B8A6" strokeWidth="3.4" strokeLinecap="round"/>
-<line x1="53" y1="68" x2="75" y2="68" stroke="#14B8A6" strokeWidth="3.4" strokeLinecap="round"/>
-<line x1="53" y1="78" x2="68" y2="78" stroke="#14B8A6" strokeWidth="3.4" strokeLinecap="round"/>
+<rect x="56" y="38" width="16" height="9" rx="3" fill="#2F5073" opacity="0.35"/>
+<line x1="53" y1="58" x2="75" y2="58" stroke="#3F7A7D" strokeWidth="3.4" strokeLinecap="round"/>
+<line x1="53" y1="68" x2="75" y2="68" stroke="#3F7A7D" strokeWidth="3.4" strokeLinecap="round"/>
+<line x1="53" y1="78" x2="68" y2="78" stroke="#3F7A7D" strokeWidth="3.4" strokeLinecap="round"/>
 </g>
 
     </svg>

@@ -590,7 +590,7 @@ export default function BecaErasmusPage() {
           <button className="proceso-back" onClick={() => navigate("/")}>
             ← Volver al inicio
           </button>
-          <SectionLabel color="#14B8A6">Guía de ayudas</SectionLabel>
+          <SectionLabel color="#3F7A7D">Guía de ayudas</SectionLabel>
           <h1 className="proceso-hero__title">
             La beca Erasmus+<br />
             <span className="proceso-hero__title-accent">explicada sin rodeos</span>
@@ -647,7 +647,7 @@ export default function BecaErasmusPage() {
 
         {/* ── GRUPOS / IMPORTES ── */}
         <section className="beca-section beca-section--dark">
-          <SectionLabel color="#14B8A6">Importes base</SectionLabel>
+          <SectionLabel color="#3F7A7D">Importes base</SectionLabel>
           <h2 className="beca-section__title beca-section__title--light">Ayuda base según el país de destino</h2>
           <p className="beca-section__subtitle beca-section__subtitle--light">
             Los países Erasmus se dividen en tres grupos según el coste de vida. Tu mensualidad depende del grupo al que pertenezca tu destino.

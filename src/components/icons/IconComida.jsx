@@ -20,15 +20,15 @@ export default function IconComida({ size = 56, className = "", ...rest }) {
     >
       <defs>
 <filter id={`ds-${uid}`} x="-40%" y="-40%" width="180%" height="180%">
-<feDropShadow dx="0" dy="4" stdDeviation="3.2" floodColor="#0F172A" floodOpacity="0.20"/>
+<feDropShadow dx="0" dy="4" stdDeviation="3.2" floodColor="#0F1E2D" floodOpacity="0.20"/>
 </filter>
 <linearGradient id={`plateg-${uid}`} x1="0" y1="0" x2="1" y2="1">
 <stop offset="0%" stopColor="#F59E0B"/><stop offset="100%" stopColor="#FBBF24"/>
 </linearGradient>
 <linearGradient id={`plates-${uid}`} x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stopColor="#0C2340" stopOpacity="0"/>
-<stop offset="55%" stopColor="#0C2340" stopOpacity="0"/>
-<stop offset="100%" stopColor="#0C2340" stopOpacity="0.32"/>
+<stop offset="0%" stopColor="#2F5073" stopOpacity="0"/>
+<stop offset="55%" stopColor="#2F5073" stopOpacity="0"/>
+<stop offset="100%" stopColor="#2F5073" stopOpacity="0.32"/>
 </linearGradient>
 <clipPath id={`platec-${uid}`}><circle cx="64" cy="64" r="42" /></clipPath>
 </defs>
@@ -40,8 +40,8 @@ export default function IconComida({ size = 56, className = "", ...rest }) {
 style={{ mixBlendMode: "soft-light" }} transform="rotate(-35 48 46)"/>
 </g>
 <circle cx="64" cy="64" r="30" fill="none" stroke="#FFFFFF" strokeOpacity="0.35" strokeWidth="1.6"/>
-<g stroke="#0C2340" strokeWidth="4.4" strokeLinecap="round" fill="none"><line x1="46" y1="42" x2="46" y2="86"/><line x1="40" y1="42" x2="40" y2="56"/><line x1="52" y1="42" x2="52" y2="56"/><path d="M40 56 C40 62 52 62 52 56"/></g>
-<g stroke="#0C2340" strokeWidth="4.4" strokeLinecap="round" fill="none"><line x1="82" y1="86" x2="82" y2="58"/><path d="M82 58 C82 44 90 40 90 40 C90 48 86 54 82 58 Z" fill="#0C2340" stroke="none"/></g>
+<g stroke="#2F5073" strokeWidth="4.4" strokeLinecap="round" fill="none"><line x1="46" y1="42" x2="46" y2="86"/><line x1="40" y1="42" x2="40" y2="56"/><line x1="52" y1="42" x2="52" y2="56"/><path d="M40 56 C40 62 52 62 52 56"/></g>
+<g stroke="#2F5073" strokeWidth="4.4" strokeLinecap="round" fill="none"><line x1="82" y1="86" x2="82" y2="58"/><path d="M82 58 C82 44 90 40 90 40 C90 48 86 54 82 58 Z" fill="#2F5073" stroke="none"/></g>
 </g>
 
     </svg>

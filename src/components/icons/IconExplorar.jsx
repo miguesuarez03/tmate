@@ -20,15 +20,15 @@ export default function IconExplorar({ size = 56, className = "", ...rest }) {
     >
       <defs>
 <filter id={`ds-${uid}`} x="-40%" y="-40%" width="180%" height="180%">
-<feDropShadow dx="0" dy="4" stdDeviation="3.2" floodColor="#0F172A" floodOpacity="0.20"/>
+<feDropShadow dx="0" dy="4" stdDeviation="3.2" floodColor="#0F1E2D" floodOpacity="0.20"/>
 </filter>
 <linearGradient id={`ping-${uid}`} x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stopColor="#14B8A6"/><stop offset="100%" stopColor="#06B6D4"/>
+<stop offset="0%" stopColor="#3F7A7D"/><stop offset="100%" stopColor="#FFC95E"/>
 </linearGradient>
 <linearGradient id={`pins-${uid}`} x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stopColor="#0C2340" stopOpacity="0"/>
-<stop offset="55%" stopColor="#0C2340" stopOpacity="0"/>
-<stop offset="100%" stopColor="#0C2340" stopOpacity="0.32"/>
+<stop offset="0%" stopColor="#2F5073" stopOpacity="0"/>
+<stop offset="55%" stopColor="#2F5073" stopOpacity="0"/>
+<stop offset="100%" stopColor="#2F5073" stopOpacity="0.32"/>
 </linearGradient>
 <clipPath id={`pinc-${uid}`}><path d="M64 20 C42 20 26 36 26 57 C26 82 64 112 64 112 C64 112 102 82 102 57 C102 36 86 20 64 20 Z" /></clipPath>
 </defs>
@@ -40,7 +40,7 @@ export default function IconExplorar({ size = 56, className = "", ...rest }) {
 style={{ mixBlendMode: "soft-light" }} transform="rotate(-35 48 44)"/>
 </g>
 <circle cx="64" cy="57" r="16" fill="#FFFFFF"/>
-<circle cx="64" cy="57" r="16" fill="none" stroke="#0D5C6E" strokeOpacity="0.25" strokeWidth="2"/>
+<circle cx="64" cy="57" r="16" fill="none" stroke="#16364D" strokeOpacity="0.25" strokeWidth="2"/>
 </g>
 
     </svg>

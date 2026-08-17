@@ -5,7 +5,7 @@ import { IconComparar } from "../icons";
 function scoreColor(s) {
   if (s >= 8.5) return "#22C55E";
   if (s >= 7.5) return "#00BFA5";
-  if (s >= 6.5) return "#0EA5E9";
+  if (s >= 6.5) return "#F5963A";
   return "#F59E0B";
 }
 
