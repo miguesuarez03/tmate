@@ -342,8 +342,18 @@
 }
 
 /* ─── Responsive ─────────────────────────────────────────────────────────── */
+/* Tablet: el popup de ciudad es más alto que el contenedor por defecto del
+   mapa (imagen + nombre + vibes + tags + CTA no caben en 420px de alto), y
+   como .mapContainer usa overflow:hidden, se corta/queda "pillado". Se
+   agranda el contenedor aquí y se compacta el popup más abajo (768px) para
+   que quepa con margen en cualquier caso, con overflow-y:auto como red de
+   seguridad. Solo afecta a este breakpoint — desktop no se toca. */
+@media (max-width: 1024px) {
+  .mapContainer { min-height: 420px; max-height: 620px; }
+}
+
 @media (max-width: 768px) {
-  .mapContainer { min-height: 280px; max-height: 420px; }
+  .mapContainer { min-height: 400px; max-height: 560px; }
 
   .mapFilters {
     padding: 6px 12px;
@@ -362,7 +372,24 @@
     top: auto; bottom: 1rem; left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 2rem); max-width: 300px;
+    /* Red de seguridad: si aun así no cupiera entero, se puede hacer scroll
+       dentro de la tarjeta en vez de desbordar/cortarse contra el mapa. */
+    max-height: calc(100% - 2rem);
+    overflow-y: auto;
   }
+
+  /* Versión compacta del contenido del popup solo en móvil/tablet */
+  .popupImg { height: 96px; }
+  .popupScore { font-size: 1.2rem; }
+  .popupFlag { font-size: 18px; }
+  .popupBody { padding: 0.7rem 0.85rem 0.85rem; }
+  .popupName { font-size: 1rem; }
+  .popupCountry { font-size: 0.7rem; margin-bottom: 0.4rem; }
+  .popupVibes { margin-bottom: 0.5rem; }
+  .popupVibe { font-size: 10px; padding: 2px 7px; }
+  .popupTags { margin-bottom: 0.6rem; }
+  .popupTag, .popupTagScore { font-size: 0.68rem; padding: 0.18rem 0.5rem; }
+  .popupCta { padding: 0.55rem; font-size: 0.8rem; }
 
   @keyframes popupIn {
     from { opacity: 0; transform: translateX(-50%) translateY(12px); }
@@ -372,4 +399,11 @@
 
 @media (max-width: 480px) {
   .countrySelect { max-width: 90px; }
+
+  /* Aún más compacto en móviles pequeños */
+  .mapContainer { min-height: 360px; max-height: 480px; }
+  .popupImg { height: 80px; }
+  .popupBody { padding: 0.6rem 0.75rem 0.75rem; }
+  .popupName { font-size: 0.92rem; }
+  .popupVibes { gap: 4px; }
 }
