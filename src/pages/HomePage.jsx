@@ -774,7 +774,11 @@ export default function HomePage() {
 
         <div className="hero__content">
           <div className="hero__badge fade-up-1">
-            <span className="hero__badge-dot" />
+            <span className="hero__badge-mark">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8L12 2z" />
+              </svg>
+            </span>
             <span className="hero__badge-text">La guía definitiva para tu Erasmus</span>
           </div>
 
