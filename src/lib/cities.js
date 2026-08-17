@@ -502,3 +502,76 @@ export function getScoreLevel(score) {
 
 /** Total de ciudades. */
 export const CITY_COUNT = CITIES.length;
+
+// ─── BÚSQUEDA FUZZY ─────────────────────────────────────────────────────────
+// Sin librería externa: con ~150 ciudades, normalizar tildes/mayúsculas +
+// distancia de Levenshtein es más que suficiente y no añade peso al bundle
+// (una alternativa tipo fuse.js aporta indexado avanzado que aquí no hace
+// falta, para un dataset de este tamaño la búsqueda es instantánea).
+
+/** Quita tildes/diacríticos y normaliza mayúsculas para comparar sin errores
+ *  de ortografía tipo "Munchen" vs "Múnich". */
+function normalizeForSearch(str) {
+  return str
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .trim();
+}
+
+/** Distancia de edición (Levenshtein) entre dos strings. */
+function levenshtein(a, b) {
+  const m = a.length, n = b.length;
+  if (m === 0) return n;
+  if (n === 0) return m;
+  let prev = Array.from({ length: n + 1 }, (_, i) => i);
+  for (let i = 1; i <= m; i++) {
+    const curr = [i];
+    for (let j = 1; j <= n; j++) {
+      curr[j] = a[i - 1] === b[j - 1]
+        ? prev[j - 1]
+        : 1 + Math.min(prev[j - 1], prev[j], curr[j - 1]);
+    }
+    prev = curr;
+  }
+  return prev[n];
+}
+
+/**
+ * Busca ciudades por nombre tolerando tildes/mayúsculas y errores
+ * tipográficos (ej. "rama" encuentra "Roma"). Prioriza, en orden:
+ * coincidencia exacta > empieza por > contiene > distancia de edición corta.
+ * @param {string} query
+ * @param {number} limit
+ * @returns {City[]}
+ */
+export function searchCities(query, limit = 6) {
+  const q = normalizeForSearch(query);
+  if (!q) return [];
+
+  const threshold = q.length <= 3 ? 1 : q.length <= 6 ? 2 : 3;
+  const scored = [];
+
+  for (const city of CITIES) {
+    const name = normalizeForSearch(city.name);
+    let score;
+    if (name === q) score = 0;
+    else if (name.startsWith(q)) score = 1;
+    else if (name.includes(q)) score = 2;
+    else {
+      const dist = levenshtein(q, name);
+      if (dist > threshold) continue;
+      score = 3 + dist;
+    }
+    scored.push({ city, score });
+  }
+
+  scored.sort((a, b) => a.score - b.score || a.city.name.length - b.city.name.length);
+  return scored.slice(0, limit).map(s => s.city);
+}
+
+/** Coincidencia única "más probable" para navegación directa (Enter / botón
+ *  buscar) — exacta si existe, si no la mejor coincidencia fuzzy. */
+export function findBestCityMatch(query) {
+  return searchCities(query, 1)[0] ?? null;
+}

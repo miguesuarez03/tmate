@@ -1,9 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { CITIES } from "../data/cities";
+import { searchCities, findBestCityMatch } from "../lib/cities";
 import { IconLupa, IconPin } from "./icons";
-
-const ALL_NAMES = CITIES.map((c) => c.name);
 
 export default function SearchBar({ light = false }) {
   const [query, setQuery] = useState("");
@@ -13,27 +11,18 @@ export default function SearchBar({ light = false }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (query.length > 0) {
-      setSuggestions(
-        ALL_NAMES.filter((n) =>
-          n.toLowerCase().startsWith(query.toLowerCase())
-        ).slice(0, 6)
-      );
-    } else {
-      setSuggestions([]);
-    }
+    setSuggestions(query.length > 0 ? searchCities(query, 6) : []);
   }, [query]);
 
-  const handleSelect = (name) => {
-    const city = CITIES.find((c) => c.name === name);
-    if (city) navigate(`/city/${city.slug}`);
+  const handleSelect = (slug) => {
+    navigate(`/city/${slug}`);
     setQuery("");
   };
 
+  // Coincidencia exacta si existe; si no, la más parecida (tolera errores
+  // tipográficos y tildes, ej. "rama" encuentra "Roma").
   const handleSearch = () => {
-    const city = CITIES.find(
-      (c) => c.name.toLowerCase() === query.toLowerCase()
-    );
+    const city = findBestCityMatch(query);
     if (city) navigate(`/city/${city.slug}`);
   };
 
@@ -67,24 +56,19 @@ export default function SearchBar({ light = false }) {
 
       {focused && suggestions.length > 0 && (
         <div className="search-bar__dropdown">
-          {suggestions.map((name) => {
-            const city = CITIES.find((c) => c.name === name);
-            return (
-              <div
-                key={name}
-                className="search-bar__item"
-                onMouseDown={() => handleSelect(name)}
-              >
-                <span style={{ display: "inline-flex" }}><IconPin size={16} /></span>
-                <span className="search-bar__city">{name}</span>
-                {city && (
-                  <span className="search-bar__country">
-                    {city.emoji} {city.country}
-                  </span>
-                )}
-              </div>
-            );
-          })}
+          {suggestions.map((city) => (
+            <div
+              key={city.slug}
+              className="search-bar__item"
+              onMouseDown={() => handleSelect(city.slug)}
+            >
+              <span style={{ display: "inline-flex" }}><IconPin size={16} /></span>
+              <span className="search-bar__city">{city.name}</span>
+              <span className="search-bar__country">
+                {city.emoji} {city.country}
+              </span>
+            </div>
+          ))}
         </div>
       )}
     </div>
