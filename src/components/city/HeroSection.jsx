@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./HeroSection.module.css";
 import { getCityWhatsappGroup } from "../../data/cityWhatsappGroups";
-import { isErasmusEligible } from "../../lib/cities";
+import { isErasmusEligible, getScoreLevel } from "../../lib/cities";
 import { IconUniversidad, IconFiesta, IconBeca, IconSol, IconBici, IconSeguridad, IconComida, IconArte, IconLaptop, IconPlaya, IconFuego } from "../icons";
 
 // ─── MOOD TAGS CONFIG ─────────────────────────────────────────────────────────
@@ -33,34 +33,26 @@ function getMoodTags(city) {
   return tags.slice(0, 5).map(k => MOOD_ICONS[k]).filter(Boolean);
 }
 
-function scoreColor(score) {
-  if (score >= 9)   return "#22C55E";
-  if (score >= 8)   return "#00BFA5";
-  if (score >= 6)   return "#3F7A7D";
-  if (score >= 5)   return "#F59E0B";
-  return "#EF4444";
-}
-
-function scoreLabel(score) {
-  if (score >= 9)   return "Excelente";
-  if (score >= 8)   return "Muy bueno";
-  if (score >= 6)   return "Bueno";
-  if (score >= 5)   return "Aceptable";
-  if (score >= 3)   return "Malo";
-  return "Muy malo";
-}
-
 // ─── SCORE RING ───────────────────────────────────────────────────────────────
 function ScoreRing({ score, size = 96 }) {
   const [animated, setAnimated] = useState(false);
   const r = 44;
   const circ = 2 * Math.PI * r;
-  const color = scoreColor(score);
+  const level = getScoreLevel(score);
+  const color = level.color;
 
   useEffect(() => {
     const t = setTimeout(() => setAnimated(true), 400);
     return () => clearTimeout(t);
   }, []);
+
+  // Tamaños de fuente proporcionales al diámetro real del anillo (en vez de
+  // rem fijos): así "7.5", "10" o cualquier score con decimales siempre
+  // caben dentro del círculo, sin depender del font-size raíz del navegador
+  // (que puede variar por zoom/accesibilidad y desbordar un rem fijo).
+  const scoreFontSize = Math.round(size * 0.335);
+  const denFontSize = Math.round(size * 0.11);
+  const labelFontSize = Math.max(8, Math.round(size * 0.09));
 
   return (
     <div className={styles.ringWrap} style={{ width: size, height: size }}>
@@ -79,9 +71,9 @@ function ScoreRing({ score, size = 96 }) {
         />
       </svg>
       <div className={styles.ringCenter}>
-        <span className={styles.ringScore} style={{ color }}>{score}</span>
-        <span className={styles.ringDen}>/10</span>
-        <span className={styles.ringLabel} style={{ color }}>{scoreLabel(score)}</span>
+        <span className={styles.ringScore} style={{ color, fontSize: scoreFontSize }}>{score}</span>
+        <span className={styles.ringDen} style={{ fontSize: denFontSize }}>/10</span>
+        <span className={styles.ringLabel} style={{ color, fontSize: labelFontSize }}>{level.label}</span>
       </div>
     </div>
   );
@@ -91,7 +83,7 @@ function ScoreRing({ score, size = 96 }) {
 export default function HeroSection({ city, overallScore, insights }) {
   const navigate = useNavigate();
   const moodTags = getMoodTags(city);
-  const color = scoreColor(overallScore);
+  const color = getScoreLevel(overallScore).color;
   const whatsappGroup = getCityWhatsappGroup(city.slug);
   const erasmusEligible = isErasmusEligible(city);
 

@@ -2,23 +2,10 @@ import { useState, useEffect } from "react";
 import styles from "./InsightDashboard.module.css";
 import { getCityWhatsappGroup } from "../../data/cityWhatsappGroups";
 import { getCategoryIcon } from "../../lib/categoryIcons";
+import { getScoreLevel } from "../../lib/cities";
 
-function scoreColor(s) {
-  if (s >= 9)   return "#22C55E";
-  if (s >= 8)   return "#00BFA5";
-  if (s >= 6)   return "#3F7A7D";
-  if (s >= 5)   return "#F59E0B";
-  if (s >= 3)   return "#EF4444";
-  return "#991B1B";
-}
-function scoreLabel(s) {
-  if (s >= 9)   return "Excelente";
-  if (s >= 8)   return "Muy bueno";
-  if (s >= 6)   return "Bueno";
-  if (s >= 5)   return "Aceptable";
-  if (s >= 3)   return "Malo";
-  return "Muy malo";
-}
+const scoreColor = (s) => getScoreLevel(s).color;
+const scoreLabel = (s) => getScoreLevel(s).label;
 
 // ── Bar ──────────────────────────────────────────────────────────────────────
 function AnimatedBar({ score, color, delay = 0 }) {

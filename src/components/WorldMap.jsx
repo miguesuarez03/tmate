@@ -8,7 +8,7 @@ import {
 } from "react-simple-maps";
 import { useNavigate } from "react-router-dom";
 import styles from "./WorldMap.module.css";
-import { getOverallScore, CITY_BASE_SCORES, getCityBySlug } from "../lib/cities";
+import { getOverallScore, CITY_BASE_SCORES, getCityBySlug, getScoreLevel } from "../lib/cities";
 import { IconFiesta, IconEdificio, IconBeca, IconGlobo } from "./icons";
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
@@ -254,18 +254,8 @@ const VIBE_FILTERS = [
 const ALL_COUNTRIES = ["Todos", ...Array.from(new Set(CITIES.map(c => c.country))).sort()];
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
-function scoreColor(score) {
-  if (score >= 8.5) return "#22c55e";
-  if (score >= 8)   return "#00bfa5";
-  if (score >= 7)   return "#3b82f6";
-  return "#f59e0b";
-}
-function scoreLabel(score) {
-  if (score >= 8.5) return "Excelente";
-  if (score >= 8)   return "Muy bueno";
-  if (score >= 7)   return "Bueno";
-  return "Regular";
-}
+const scoreColor = (score) => getScoreLevel(score).color;
+const scoreLabel = (score) => getScoreLevel(score).label;
 
 // ─── POPUP ────────────────────────────────────────────────────────────────────
 function CityPopup({ city, onClose, navigate }) {

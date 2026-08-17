@@ -1,13 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./RelatedCities.module.css";
 import { IconComparar } from "../icons";
+import { getScoreLevel } from "../../lib/cities";
 
-function scoreColor(s) {
-  if (s >= 8.5) return "#22C55E";
-  if (s >= 7.5) return "#00BFA5";
-  if (s >= 6.5) return "#3F7A7D";
-  return "#F59E0B";
-}
+const scoreColor = (s) => getScoreLevel(s).color;
 
 function RelatedCard({ city }) {
   const navigate = useNavigate();

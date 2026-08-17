@@ -35,17 +35,21 @@
 }
 
 /* ── Inner grid ── */
+/* max-width igual al resto de secciones de la ficha (.content-section,
+   .tab-nav__inner = 1160px) — antes era 1320px, así que el texto del hero
+   quedaba desplazado respecto al borde del contenido de debajo. */
 .heroInner {
   position: relative; z-index: 1;
   display: grid;
   grid-template-columns: 1fr 320px;
   gap: 2rem;
   align-items: flex-end;
-  max-width: 1320px;
+  max-width: 1160px;
   margin: 0 auto;
   width: 100%;
   height: 100%;
   padding: 96px var(--section-px) 4vh;
+  box-sizing: border-box;
 }
 
 /* ── Left ── */
@@ -202,19 +206,22 @@ a.heroBigLink:hover {
   .heroBigLinkSub { font-size: 0.78rem; }
 }
 
+/* Mismo estilo que el CTA primario del resto del sitio (.btn-primary /
+   botón "Explorar" de la home): degradado de marca, mismo radio y sombra. */
 .heroCta {
   display: flex; align-items: center; gap: 0.5rem;
-  background: #fff; color: #0a0f1e;
-  border: none; border-radius: var(--radius-full);
-  padding: 0.85rem 1.75rem;
+  background: var(--gradient-brand); color: #fff;
+  border: none; border-radius: var(--radius-md);
+  padding: 14px 32px;
   font-family: var(--font-body); font-size: 0.92rem; font-weight: 700;
   cursor: pointer; letter-spacing: 0.01em;
-  transition: transform 0.22s var(--ease-spring), box-shadow 0.22s ease;
+  box-shadow: var(--shadow-brand);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
 }
 
 .heroCta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(255,255,255,0.25);
+  opacity: 0.9;
+  transform: translateY(-2px);
 }
 
 .heroSecondary {
@@ -280,16 +287,22 @@ a.heroBigLink:hover {
   position: absolute; inset: 0;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
+  padding: 0 6%; /* margen de seguridad para que el texto nunca toque el trazo del anillo */
 }
 
+/* El font-size real lo fija el componente en línea, proporcional al tamaño
+   del anillo (ver ScoreRing) — el valor de aquí es solo un fallback. */
 .ringScore {
   font-family: var(--font-display); font-size: 2.2rem;
   font-weight: 800; line-height: 1;
+  white-space: nowrap;
+  max-width: 100%;
 }
 
 .ringDen {
   font-size: 0.72rem; color: rgba(255,255,255,0.4);
   font-family: var(--font-body);
+  white-space: nowrap;
 }
 
 .ringLabel {
