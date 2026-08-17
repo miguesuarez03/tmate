@@ -14,7 +14,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.8,
         summary: "Moderado para Italia, alto para Europa del Este. Vivir bien con 850€/mes es realista.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.5, desc: "Habitaciones desde 350–500€. Alta demanda por la universidad, conviene buscar con antelación." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercado Quadrilatero: comer bien por 5€. La cultura gastronómica premia al curioso." },
@@ -171,7 +171,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.2,
         summary: "Más asequible que París o Londres. Habitaciones desde 500–700€, comida barata si sabes dónde.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "WG (pisos compartidos) 450–700€. La demanda es alta pero la oferta también." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercados turcos, döner a 3€, supermercados económicos. Comer sano y barato es fácil." },
@@ -326,7 +326,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 5.5,
         summary: "Cara, sí. Pero con residencias CROUS y beca Erasmus+ máxima es más viable de lo que parece. 1.000–1.400€/mes.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 4.5, desc: "Habitaciones desde 700–1.100€. Residencias CROUS desde 400€ — la opción más inteligente. Solicítalas el primer día." },
           { label: "Comida y supermercados", score: 7.5, desc: "Boulangeries para desayunos baratos (croissant 1,20€). Mercados del barrio asequibles. Monoprix y Franprix para el día a día." },
@@ -484,7 +484,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.2,
         summary: "Más asequible que Lisboa y mucho más que cualquier capital occidental. Con 600–800€/mes se vive muy bien.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitaciones desde 350–550€. Más barata que Lisboa. Bonfim y Campanhã son las zonas más asequibles para estudiantes." },
           { label: "Comida y supermercados", score: 9.0, desc: "Mercado do Bolhão renovado con precios razonables. Menú del día por 7–9€. Francesinha y bacalhau a precios de verdad." },
@@ -640,7 +640,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.0,
         summary: "Precio medio para Europa Occidental. Con 750–1.000€/mes se vive bien en la capital europea.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 500–700€. Más asequible que París o Ámsterdam. Ixelles y Saint-Gilles son las zonas más estudiantiles." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercado du Midi los domingos — el más grande de Bélgica y muy asequible. Chocolate y gaufres de calidad a buen precio." },
@@ -796,7 +796,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.5,
         summary: "Más asequible que Múnich con acceso a todo lo que ofrece. Con 650–850€/mes se vive muy bien.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitaciones desde 400–600€. Significativamente más barata que Múnich a solo 40 minutos en tren." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercado semanal en la Ludwigsplatz con productos bávaros frescos. Supermercados bien surtidos a precios razonables." },
@@ -951,7 +951,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 4.5,
         summary: "La ciudad más cara de esta guía. Con 1.200–1.600€/mes se sobrevive. Para vivir bien, más.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 3.5, desc: "Habitaciones desde 800–1.200€. House shares son la única opción viable. Zonas como Stratford o Hackney son más asequibles." },
           { label: "Comida y supermercados", score: 6.0, desc: "Supermercados como Lidl y Aldi salvan el presupuesto. Mercados como Borough Market o Portobello para caprichos asequibles." },
@@ -1109,7 +1109,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 5.8,
         summary: "La ciudad más cara de Alemania. Con 1.000–1.300€/mes se vive bien si controlas el alquiler.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 4.5, desc: "Habitaciones desde 700–1.000€. El mercado más tenso de Alemania. WG (pisos compartidos) es la única opción realista." },
           { label: "Comida y supermercados", score: 7.0, desc: "Viktualienmarkt para productos frescos de calidad. Supermercados Aldi y Lidl para el día a día. Comer fuera es caro." },
@@ -1266,7 +1266,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.5,
         summary: "Cara para estándares holandeses. Con 900–1.100€/mes se vive bien si controlas el ocio.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.5, desc: "Habitaciones desde 600–850€. Más barata que Ámsterdam pero el mercado es competitivo. Busca con antelación." },
           { label: "Comida y supermercados", score: 7.0, desc: "Haagse Markt — el mercado más grande y barato de Holanda. Albert Heijn para compra diaria asequible." },
@@ -1423,7 +1423,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 5.5,
         summary: "Una de las ciudades más caras de Europa. Con 1.100–1.400€/mes se vive bien si encuentras piso.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 4.0, desc: "Habitaciones desde 750–1.100€. El mercado más competitivo de Holanda. Encontrar algo es el mayor reto del Erasmus." },
           { label: "Comida y supermercados", score: 7.0, desc: "Albert Heijn para compra diaria asequible. Albert Cuypmarkt para productos frescos y baratos. Comer fuera es caro." },
@@ -1580,7 +1580,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.8,
         summary: "Más asequible que Ámsterdam pero sigue siendo Holanda. Con 800–1.000€/mes se vive bien.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 550–750€. Más barata que Ámsterdam. Kralingen y Delfshaven son las zonas más asequibles." },
           { label: "Comida y supermercados", score: 7.5, desc: "Markthal — espectacular y con opciones para todos los presupuestos. Mercados del barrio más baratos para el día a día." },
@@ -1736,7 +1736,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.8,
         summary: "Una de las ciudades más baratas de Europa Central. Con 400–600€/mes se vive de maravilla.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 8.5, desc: "Habitaciones desde 250–400€. Pisos en el centro histórico por lo que en Berlín costaría una habitación pequeña." },
           { label: "Comida y supermercados", score: 9.0, desc: "Gran Mercado Central: frutas, especias y comida húngara por muy poco. Menú del día por 4–6€. Langos a 2€." },
@@ -1892,7 +1892,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.5,
         summary: "Muy asequible para ser una capital tan turística. Con 500–700€/mes se vive muy bien.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitaciones desde 300–500€. Más cara que Cracovia o Budapest pero todavía muy razonable." },
           { label: "Comida y supermercados", score: 9.0, desc: "Cerveza a 1€ el litro en bares locales. Menú del día por 5–7€. Evita los restaurantes del centro histórico turístico." },
@@ -2048,7 +2048,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 9.2,
         summary: "La ciudad más barata de esta guía. Con 350–500€/mes se vive increíblemente bien.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 9.0, desc: "Habitaciones desde 200–350€. Pisos enteros por lo que en Lisboa pagarías una habitación." },
           { label: "Comida y supermercados", score: 9.5, desc: "Menú del día por 4–5€. Cerveza a 1,50€. Zapiekanka (bocadillo polaco) por 2€. Comer bien es ridículamente barato." },
@@ -2204,7 +2204,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.5,
         summary: "Más cara que Cracovia pero todavía muy asequible. Con 550–700€/mes se vive bien en la capital polaca.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 8.0, desc: "Habitaciones desde 300–450€. Más cara que Cracovia pero muy asequible comparada con capitales occidentales." },
           { label: "Comida y supermercados", score: 9.0, desc: "Menú del día por 5–7€. Mercado Hala Koszyki para foodie asequible. Supermercados baratos y bien surtidos." },
@@ -2360,7 +2360,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.8,
         summary: "La más asequible de las grandes ciudades italianas. Con 650–800€/mes se vive muy bien.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitaciones desde 300–450€. Oferta amplia y precios razonables gracias a la menor presión turística." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercato di Porta Palazzo — el más grande de Europa — con precios imbatibles. Comer bien por 5–7€ es fácil." },
@@ -2517,7 +2517,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.5,
         summary: "Más asequible que Milán, más cara que Bolonia. Con 800–1.000€/mes se vive bien si controlas el ocio.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.5, desc: "Habitaciones desde 450–650€. Zonas estudiantiles como Pigneto o Nomentano son más asequibles que el centro." },
           { label: "Comida y supermercados", score: 8.0, desc: "Pizza al taglio desde 2€. Mercados de barrio baratos. Comer auténtico y barato es parte de la cultura romana." },
@@ -2674,7 +2674,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.0,
         summary: "La más cara de Italia. Viable con 1.000–1.200€/mes si controlas el ocio y compartes piso.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitaciones desde 550–800€. El mercado es muy competitivo. Zona Città Studi es la más asequible para estudiantes." },
           { label: "Comida y supermercados", score: 7.0, desc: "Supermercados Esselunga muy completos. El aperitivo (18–21h) incluye buffet gratis con la bebida — cena gratuita si sabes usarlo." },
@@ -2831,7 +2831,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.0,
         summary: "Cara para el este de Europa, asequible para el oeste. Con 800–1.100€/mes se vive muy bien.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 500–750€. Más asequible que Múnich o Londres. El mercado es competitivo pero manejable." },
           { label: "Comida y supermercados", score: 8.0, desc: "Naschmarkt — el mejor mercado de la ciudad con precios razonables. Supermercados Billa y Spar bien surtidos y asequibles." },
@@ -2987,7 +2987,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.0,
         summary: "Asequible para Europa Occidental. Caro para Portugal. 900–1.100€/mes bien vividos.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "500–700€ habitación. El boom turístico encareció el mercado. Busca en Mouraria o Intendente." },
           { label: "Comida y supermercados", score: 8.5, desc: "Menú del día por 8–10€. Mercado de Ribeira. Pastéis por 1,20€. Comer bien es barato." },
@@ -3141,7 +3141,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 4.2,
         summary: "Una de las ciudades más caras de esta guía, a la altura de Londres o Ámsterdam. Con 1.000–1.200€/mes se vive con holgura.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 3.0, desc: "Habitaciones desde 500–750€. El coste más alto de la vivienda de toda la guía junto a Londres." },
           { label: "Comida y supermercados", score: 5.5, desc: "ICA y Coop cubren lo básico, pero comer fuera es caro. Lunch menu del mediodía (100–130 SEK) es la opción lista." },
@@ -3296,7 +3296,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 4.0,
         summary: "Una de las capitales más caras de esta guía. Con 1.000–1.300€/mes se vive con comodidad, sin lujos.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 3.2, desc: "Habitaciones desde 550–800€. Especialmente caro en Frederiksberg e Indre By (centro)." },
           { label: "Comida y supermercados", score: 5.5, desc: "Netto, Rema 1000 y Lidl para el día a día. Comer fuera es caro salvo en food halls como Reffen o Torvehallerne." },
@@ -3451,7 +3451,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 5.5,
         summary: "Algo más asequible que Estocolmo o Copenhague, aunque sigue siendo una capital nórdica cara. Con 800–1.150€/mes se vive bien.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitaciones desde 450–650€. HOAS (residencias estudiantiles) es la opción más asequible con diferencia." },
           { label: "Comida y supermercados", score: 6.0, desc: "K-Market, S-Market y Lidl para el día a día. Los comedores universitarios (con Kela Card) ofrecen menús completos por 2,95€." },
@@ -3605,7 +3605,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 3.5,
         summary: "La ciudad más cara de esta guía. Con 1.000–1.350€/mes se vive con comodidad moderada; Noruega no está en la eurozona y el coste se nota en todo.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 4.0, desc: "Habitaciones desde 500–750€. SiO gestiona buena parte de la vivienda estudiantil, la opción más asequible con diferencia." },
           { label: "Comida y supermercados", score: 3.5, desc: "Kiwi y Rema 1000 son los supermercados más económicos, aun así los precios sorprenden a quien llega de fuera de Escandinavia." },
@@ -3759,7 +3759,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 4.0,
         summary: "Cara y fuera de la eurozona. Con 900–1.300€/mes se vive, pero comer fuera y el ocio nocturno son de los más caros de Europa.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 4.5, desc: "Habitaciones desde 500–750€. Comunidad estudiantil pequeña facilita encontrar piso compartido vía grupos de Facebook." },
           { label: "Comida y supermercados", score: 4.0, desc: "Bónus y Krónan son los supermercados más económicos. Comer fuera puede triplicar el precio que en el sur de Europa." },
@@ -3913,7 +3913,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 3.8,
         summary: "Una de las capitales más caras de esta guía. Con 1.000–1.400€/mes se vive con cierta comodidad, sin margen para grandes lujos.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 2.5, desc: "Habitaciones desde 700–1.000€. La crisis de vivienda dublinesa es real y golpea de lleno a los estudiantes internacionales." },
           { label: "Comida y supermercados", score: 5.0, desc: "Lidl y Aldi salvan el presupuesto. Salir a comer fuera es notablemente caro comparado con el resto de Europa." },
@@ -4066,7 +4066,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 3.8,
         summary: "Cara, en línea con Dublín. Con 1.000–1.400€/mes se vive con cierta comodidad, especialmente fuera del festival de agosto.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 3.0, desc: "Habitaciones desde 650–950€. Los precios suben notablemente si tu estancia coincide con el Fringe Festival en agosto." },
           { label: "Comida y supermercados", score: 5.0, desc: "Lidl, Aldi y Tesco cubren el día a día. Comer fuera es caro salvo en food markets puntuales." },
@@ -4219,7 +4219,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.0,
         summary: "Una de las capitales más baratas de Europa Occidental. Con 500–800€/mes se vive con comodidad, incluyendo salidas frecuentes.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 250–400€. Los precios han subido con el turismo y los pisos turísticos, pero siguen siendo bajos para Europa Occidental." },
           { label: "Comida y supermercados", score: 8.5, desc: "Souvlaki callejero por 2-3€, mercados frescos y tabernas económicas por toda la ciudad." },
@@ -4373,7 +4373,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.5,
         summary: "Uno de los costes de vida más bajos de esta guía. Con 450–700€/mes se vive con comodidad y margen para viajar por la región.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.0, desc: "Habitaciones desde 250–380€. Sin la presión de otras capitales, aunque los precios han subido moderadamente en los últimos años." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercado Dolac para producto fresco y económico; menús del día en tabernas desde 6-8€." },
@@ -4526,7 +4526,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.0,
         summary: "Muy asequible, de las capitales más baratas de esta guía. Con 500–750€/mes se vive con comodidad y margen para escapadas.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 280–420€. Mercado pequeño y manejable, sin la tensión de otras capitales." },
           { label: "Comida y supermercados", score: 7.5, desc: "Mercadillo central (Odprta kuhna los viernes) y supermercados asequibles cubren bien el presupuesto." },
@@ -4680,7 +4680,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.5,
         summary: "Asequible, de las capitales más baratas de esta guía. Con 500–800€/mes se vive con comodidad.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "Habitaciones desde 300–450€. Kalamaja y Kristiine ofrecen los precios más razonables cerca del centro." },
           { label: "Comida y supermercados", score: 7.0, desc: "Rimi, Selver y Maxima cubren el día a día a precios bajos comparados con el resto de Europa Occidental." },
@@ -4832,7 +4832,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.0,
         summary: "Asequible, de las capitales más baratas de esta guía. Con 500–750€/mes se vive con comodidad.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 280–420€. Užupis y el centro son algo más caros que Žvėrynas." },
           { label: "Comida y supermercados", score: 7.5, desc: "Maxima, Rimi e IKI cubren el día a día a precios bajos; los mercados locales ofrecen productos frescos económicos." },
@@ -4984,7 +4984,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.0,
         summary: "Asequible, de las capitales más baratas de esta guía. Con 500–750€/mes se vive con comodidad.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 280–420€. El casco antiguo y el barrio Art Nouveau son algo más caros que Āgenskalns." },
           { label: "Comida y supermercados", score: 7.5, desc: "Rimi y Maxima cubren el día a día; el Mercado Central, en antiguos hangares de zepelines, ofrece producto fresco muy barato." },
@@ -5136,7 +5136,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.0,
         summary: "Asequible, de las capitales más baratas de Centroeuropa. Con 500–750€/mes se vive con comodidad.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 300–450€. Staré Mesto es algo más caro que Petržalka o Ružinov." },
           { label: "Comida y supermercados", score: 7.5, desc: "Lidl, Kaufland y Billa cubren el día a día a precios bajos comparados con Viena o Múnich." },
@@ -5289,7 +5289,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.5,
         summary: "La capital más barata de toda esta guía. Con 400–650€/mes se vive muy bien, incluyendo salidas frecuentes.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitaciones desde 200–350€, de los precios más bajos de toda Europa para una capital." },
           { label: "Comida y supermercados", score: 8.5, desc: "Kaufland, Mega Image y Lidl cubren el día a día muy barato; comer fuera también es muy asequible." },
@@ -5442,7 +5442,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.7,
         summary: "De las capitales más baratas de toda esta guía. Con 400–600€/mes se vive muy bien.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitaciones desde 180–320€, de los precios más bajos de toda Europa para una capital." },
           { label: "Comida y supermercados", score: 8.5, desc: "Kaufland, Lidl y Billa cubren el día a día muy barato; comer fuera también es muy asequible." },
@@ -5593,7 +5593,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 1.8,
         summary: "La ciudad más cara de toda la guía, muy por encima de Londres o Ámsterdam. Sin una beca complementaria es difícil de sostener.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 1.5, desc: "Habitaciones desde 900–1.200€. El alquiler más caro de toda esta guía, a la altura de Zúrich." },
           { label: "Comida y supermercados", score: 3.0, desc: "Migros y Coop cubren lo básico pero los precios duplican a los de España. Menús en restaurantes universitarios rondan 12–15 CHF." },
@@ -5737,7 +5737,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.0,
         summary: "Moderada para Italia, aunque la presión turística ha subido el alquiler en el centro los últimos años. Con 800€/mes se vive bien.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitaciones desde 400–550€ en el centro; más barato en Campo di Marte o Novoli." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercado de San Lorenzo y Sant'Ambrogio para comprar barato; la trattoria de barrio sigue siendo asequible fuera de zonas turísticas." },
@@ -5881,7 +5881,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 5.5,
         summary: "Más asequible que Múnich, aunque por encima de la media alemana. Con 900€/mes se vive con comodidad.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitaciones desde 450–600€; Sternschanze y St. Pauli entre las zonas más caras por su popularidad." },
           { label: "Comida y supermercados", score: 6.5, desc: "Edeka, Rewe y Aldi para el día a día; el Fischmarkt dominical para pescado fresco barato." },
@@ -6025,7 +6025,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.0,
         summary: "Más barata que Bruselas o Amberes; con 700–750€/mes se vive con comodidad.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Kot estudiantil (habitación tipo estudio) desde 350–500€, abundante gracias a la mayor universidad de Bélgica." },
           { label: "Comida y supermercados", score: 7.5, desc: "Colruyt y Aldi para el día a día; Vrijdagmarkt para comprar barato entre semana." },
@@ -6166,7 +6166,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 4.0,
         summary: "El precio de vivir en la ciudad más fotografiada del mundo. El alquiler en el centro histórico compite con miles de pisos turísticos.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 3.0, desc: "Habitaciones desde 500–700€ en el centro histórico; bajan a 350–450€ en Mestre, en tierra firme." },
           { label: "Comida y supermercados", score: 5.5, desc: "Los supermercados de barrio (lejos de San Marco) tienen precios normales italianos; los bares turísticos triplican el precio de un café." },
@@ -6285,7 +6285,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.5,
         summary: "Mucho más asequible que París por un nivel de vida y gastronomía comparables.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "Habitación desde 400–550€; piso compartido más barato que en la capital, aunque ha subido en los últimos años." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercados como Les Halles de Lyon y menús bouchon a precio estudiante hacen que comer bien sea asequible." },
@@ -6404,7 +6404,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.3,
         summary: "Más asequible que Múnich o Fráncfort, con un coste de vida típico de una gran ciudad alemana de segunda fila.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.5, desc: "Habitaciones desde 400–550€; el WG (piso compartido) es la norma entre estudiantes." },
           { label: "Comida y supermercados", score: 7.0, desc: "Aldi, Lidl y Rewe cubren la compra básica a precios razonables para Alemania." },
@@ -6523,7 +6523,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.3,
         summary: "Más barata que Bruselas o Amberes, con un coste de vida moderado gracias al tamaño manejable de la ciudad.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 400–550€; el 'kot' (habitación de estudiante) es la institución local para vivir barato." },
           { label: "Comida y supermercados", score: 7.5, desc: "Supermercados belgas estándar (Colruyt, Aldi) y comedores universitarios muy económicos." },
@@ -6642,7 +6642,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 4.7,
         summary: "Más barata que Ámsterdam, aunque sigue siendo una de las ciudades caras de esta guía dentro del contexto neerlandés.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 4.0, desc: "Habitaciones desde 550–750€; más barato que Ámsterdam pero por encima de la media europea." },
           { label: "Comida y supermercados", score: 6.0, desc: "Albert Heijn y Jumbo cubren la compra; los precios son ligeramente más bajos que en Ámsterdam." },
@@ -6761,7 +6761,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 5.5,
         summary: "Coste de vida típico de Suecia, con la ventaja de ser más barata que Estocolmo.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitaciones desde 450–600€, gestionadas en gran parte por AF Bostäder, la cooperativa estudiantil." },
           { label: "Comida y supermercados", score: 6.0, desc: "ICA y Lidl cubren la compra básica; los precios suecos son altos pero manejables con planificación." },
@@ -6880,7 +6880,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 5.8,
         summary: "Más asequible que Viena o Salzburgo, aunque el equipo y los forfaits de esquí son un gasto añadido a tener en cuenta.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.5, desc: "Habitaciones desde 450–600€; algo más barato que las grandes capitales austriacas." },
           { label: "Comida y supermercados", score: 6.5, desc: "Spar y Hofer (Aldi austriaco) cubren la compra básica a precios razonables." },
@@ -6999,7 +6999,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.3,
         summary: "Asequible fuera de temporada alta, aunque los precios suben notablemente en los meses de verano por el turismo costero.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 300–450€, aunque en verano muchos propietarios prefieren alquiler turístico de corta estancia." },
           { label: "Comida y supermercados", score: 7.5, desc: "Supermercados como Konzum y mercados locales de pescado y verdura, muy asequibles fuera de zona turística." },
@@ -7118,7 +7118,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.5,
         summary: "Una de las ciudades más baratas de esta guía, con un coste de vida muy por debajo de la media europea.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitaciones desde 200–300€, de las más baratas de toda esta guía." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercados como el Modiano y tabernas de barrio permiten comer muy bien por muy poco." },
@@ -7237,7 +7237,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.5,
         summary: "Una de las ciudades más baratas de Italia, muy por debajo de Milán o Roma.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 300–400€, de las más baratas entre las grandes ciudades italianas." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercados de barrio y pizzerías históricas hacen que comer bien sea baratísimo." },
@@ -7356,7 +7356,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 5.8,
         summary: "Más barata que Ámsterdam o Utrecht, aunque sigue siendo Países Bajos: nada es realmente barato.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitación desde 400–550€; el mercado es más accesible que en Ámsterdam gracias al enorme parque de vivienda estudiantil." },
           { label: "Comida y supermercados", score: 6.5, desc: "Supermercados como Lidl y Aldi mantienen el gasto en comida razonable comparado con el resto de Países Bajos." },
@@ -7475,7 +7475,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 9.0,
         summary: "Una de las ciudades más baratas de toda esta guía, muy por debajo de Lisboa y Oporto.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 8.5, desc: "Habitación en república estudiantil o piso compartido desde 200–300€, de las más bajas de Europa." },
           { label: "Comida y supermercados", score: 9.0, desc: "Menús de restaurante universitario por 3–4€ y mercados locales muy económicos." },
@@ -7594,7 +7594,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 5.5,
         summary: "Cara como el resto de Suecia, aunque algo más asequible que Estocolmo gracias a su tamaño más manejable.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 4.5, desc: "Habitación desde 450–600€, con una demanda muy alta frente a la oferta disponible." },
           { label: "Comida y supermercados", score: 5.5, desc: "Supermercados como Lidl y Willys ayudan a mantener el presupuesto bajo control." },
@@ -7713,7 +7713,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 5.8,
         summary: "Más cara que el este de Alemania, pero razonable comparada con Múnich o Friburgo de Suiza (a la que a veces se confunde).",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitación desde 450–600€; el mercado está tensionado por ser ciudad pequeña y muy demandada." },
           { label: "Comida y supermercados", score: 6.5, desc: "Supermercados alemanes estándar (Aldi, Lidl, Rewe) mantienen el gasto en comida controlado." },
@@ -7832,7 +7832,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.8,
         summary: "Más asequible que París o Lyon, con un nivel de vida muy alto para el precio que se paga.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 400–500€, más barata que en la mayoría de grandes ciudades francesas." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercados como el Marché de Talensac ofrecen producto fresco a buen precio." },
@@ -7951,7 +7951,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.8,
         summary: "Uno de los costes de vida más bajos de esta guía, comparable a Cracovia o Varsovia.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 8.0, desc: "Habitación desde 250–350€, de las más baratas entre las grandes ciudades universitarias de Europa." },
           { label: "Comida y supermercados", score: 9.0, desc: "Mercados de barrio y bares de leche (bar mleczny) hacen que comer bien cueste muy poco." },
@@ -8070,7 +8070,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 9.0,
         summary: "Uno de los costes de vida más bajos de esta guía, similar a Bucarest pero con menos tamaño y caos.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 8.0, desc: "Habitación desde 200–300€, de las más baratas entre las ciudades universitarias grandes de Europa." },
           { label: "Comida y supermercados", score: 9.0, desc: "Mercados locales y restaurantes tradicionales rumanos son muy económicos." },
@@ -8189,7 +8189,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 4.5,
         summary: "Cara para el estándar europeo, aunque bastante más asequible que Dublín, con la que comparte la crisis nacional de vivienda.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 4.0, desc: "Habitación desde 550–700€, cara para el tamaño de la ciudad debido a la escasez de vivienda irlandesa." },
           { label: "Comida y supermercados", score: 5.5, desc: "Supermercados como Lidl y Aldi ayudan a mantener el gasto en comida bajo control." },
@@ -8308,7 +8308,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 2.5,
         summary: "Una de las ciudades más caras de esta guía, aunque algo más asequible que Ginebra.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 3.0, desc: "Habitación desde 750–950€, entre los alquileres más altos de toda esta guía." },
           { label: "Comida y supermercados", score: 3.0, desc: "Supermercados suizos (Migros, Coop) son notablemente más caros que en el resto de Europa." },
@@ -8427,7 +8427,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 5.8,
         summary: "Más asequible que Estocolmo, aunque cara según el estándar europeo general, como el resto de Suecia.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitación desde 450–600€, algo más asequible que Lund o Estocolmo." },
           { label: "Comida y supermercados", score: 5.5, desc: "Supermercados como Lidl y Willys mantienen el gasto en comida razonable para el estándar sueco." },
@@ -8546,7 +8546,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 4.3,
         summary: "Cara para el estándar europeo, aunque bastante más asequible que Copenhague.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 4.0, desc: "Habitación desde 500–650€, por debajo de Copenhague pero aún alta para el estándar europeo." },
           { label: "Comida y supermercados", score: 5.0, desc: "Netto y Rema 1000 mantienen el gasto en comida algo más controlado que en la capital." },
@@ -8665,7 +8665,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 5.5,
         summary: "Cara para una ciudad pequeña alemana, por la enorme demanda de una ciudad universitaria de referencia.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitación desde 480–620€, alta para el tamaño de la ciudad por la fuerte demanda universitaria." },
           { label: "Comida y supermercados", score: 6.5, desc: "Supermercados alemanes estándar (Aldi, Lidl, Rewe) mantienen el gasto en comida razonable." },
@@ -8784,7 +8784,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.8,
         summary: "Más asequible que París o Burdeos, con un ambiente estudiantil que compensa cualquier gasto extra.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.3, desc: "Habitación desde 420–520€, razonable para el tamaño y la actividad económica de la ciudad." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercados como Victor Hugo ofrecen producto fresco a buen precio." },
@@ -8903,7 +8903,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.0,
         summary: "Más cara que hace una década por su creciente popularidad, aunque razonable comparada con París.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.3, desc: "Habitación desde 480–580€; el precio ha subido notablemente en los últimos años por la demanda." },
           { label: "Comida y supermercados", score: 6.5, desc: "Mercado de Capucins y supermercados estándar franceses mantienen el gasto en comida razonable." },
@@ -9022,7 +9022,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.3,
         summary: "Uno de los costes de vida más bajos de toda Italia, muy por debajo de Milán, Roma o incluso Nápoles.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 8.0, desc: "Habitación desde 220–320€, de las más bajas entre las grandes ciudades universitarias italianas." },
           { label: "Comida y supermercados", score: 9.0, desc: "Mercados callejeros y street food hacen que comer bien cueste muy poco." },
@@ -9141,7 +9141,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.5,
         summary: "Uno de los costes de vida más bajos de esta guía, similar a Cracovia pero con mucho menos turismo.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitación desde 280–380€, algo más cara que Cracovia por el atractivo turístico de la costa, aunque aún muy baja." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercados de barrio y bares de leche (bar mleczny) hacen que comer bien cueste muy poco." },
@@ -9260,7 +9260,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.5,
         summary: "Moderada para el Mediterráneo, con el lado norte de la ciudad notablemente más barato que el sur.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "Habitación desde 350–450€ en el lado grecochipriota; más barato en el lado turcochipriota." },
           { label: "Comida y supermercados", score: 6.5, desc: "Mercados locales y tavernas ofrecen precios razonables para el Mediterráneo." },
@@ -9379,7 +9379,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 4.3,
         summary: "Cara para una isla pequeña, con un mercado de alquiler tensionado por el turismo y la industria del iGaming.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 3.5, desc: "Habitación desde 500–650€, alta por la fuerte demanda de expatriados y turismo en la isla." },
           { label: "Comida y supermercados", score: 5.0, desc: "Los supermercados tienen precios moderados, aunque bastante producto es importado y encarece la cesta." },
@@ -9498,7 +9498,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 1.0,
         summary: "La ciudad más cara de toda esta guía, por delante incluso de Ginebra.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 1.5, desc: "Habitación desde 900–1.150€, el alquiler más alto de toda esta guía." },
           { label: "Comida y supermercados", score: 2.0, desc: "Los supermercados suizos (Migros, Coop) son de los más caros de Europa." },
@@ -9617,7 +9617,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 9.2,
         summary: "Uno de los costes de vida más bajos de toda esta guía, notablemente por debajo incluso de Praga.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 8.5, desc: "Habitación desde 180–280€, de las más baratas entre las grandes ciudades universitarias de Europa." },
           { label: "Comida y supermercados", score: 9.5, desc: "Mercados locales y restaurantes tradicionales checos son muy económicos." },
@@ -9736,7 +9736,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.3,
         summary: "Moderada para el estándar francés, algo por debajo de Estrasburgo su vecina alemana Friburgo.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.8, desc: "Habitación desde 420–540€, con demanda alta por las instituciones europeas y Erasmus." },
           { label: "Comida y supermercados", score: 6.5, desc: "Mercados alsacianos y supermercados estándar franceses mantienen el gasto razonable." },
@@ -9855,7 +9855,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.0,
         summary: "Asequible para el sur de Francia, con un ambiente estudiantil que mantiene los precios razonables.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 400–500€, razonable gracias a la enorme oferta de vivienda estudiantil." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercados como Les Halles Castellane ofrecen producto fresco mediterráneo a buen precio." },
@@ -9974,7 +9974,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.0,
         summary: "Más asequible que otras grandes ciudades francesas, con un carácter propio muy alejado de París.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 400–500€, razonable para una ciudad de más de 800.000 habitantes." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercados como el de Noailles ofrecen producto mediterráneo y del norte de África muy barato." },
@@ -10093,7 +10093,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.2,
         summary: "De las más asequibles entre las grandes ciudades universitarias francesas.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 380–480€, entre las más bajas de las grandes ciudades francesas." },
           { label: "Comida y supermercados", score: 7.5, desc: "El mercado de Wazemmes y los supermercados estándar mantienen el gasto bajo control." },
@@ -10212,7 +10212,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.5,
         summary: "Notablemente más barata que Múnich, Colonia o Hamburgo, típico del este de Alemania.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.0, desc: "Habitación desde 320–420€, de las más bajas entre las grandes ciudades alemanas." },
           { label: "Comida y supermercados", score: 7.5, desc: "Supermercados alemanes estándar mantienen el gasto en comida muy controlado." },
@@ -10331,7 +10331,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.3,
         summary: "Una de las ciudades más baratas de Alemania para su tamaño y escena cultural.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 350–450€, muy por debajo de Berlín o Múnich." },
           { label: "Comida y supermercados", score: 7.5, desc: "Supermercados alemanes estándar mantienen el gasto en comida muy controlado." },
@@ -10450,7 +10450,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 5.5,
         summary: "Cara para su tamaño, por la enorme demanda de una ciudad universitaria muy pequeña y muy solicitada.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 4.5, desc: "Habitación desde 480–620€, alta para el tamaño de la ciudad por la fuerte demanda universitaria." },
           { label: "Comida y supermercados", score: 6.5, desc: "Supermercados alemanes estándar mantienen el gasto en comida razonable." },
@@ -10569,7 +10569,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.8,
         summary: "Uno de los costes de vida más bajos de esta guía, similar a Cracovia pero con menos turismo.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 8.0, desc: "Habitación desde 250–350€, de las más bajas entre las grandes ciudades universitarias de Europa." },
           { label: "Comida y supermercados", score: 9.0, desc: "Mercados de barrio y bares de leche (bar mleczny) hacen que comer bien cueste muy poco." },
@@ -10688,7 +10688,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 9.0,
         summary: "Uno de los costes de vida más bajos de esta guía, similar a Cracovia o Wrocław.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 8.5, desc: "Habitación desde 220–320€, de las más bajas entre las grandes ciudades universitarias de Europa." },
           { label: "Comida y supermercados", score: 9.0, desc: "Mercados locales y restaurantes tradicionales de Silesia son muy económicos." },
@@ -10807,7 +10807,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.8,
         summary: "Uno de los costes de vida más bajos de Portugal, incluso por debajo de Coimbra.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 8.5, desc: "Habitación desde 220–320€, de las más bajas de todo Portugal." },
           { label: "Comida y supermercados", score: 9.0, desc: "Mercados locales y restaurantes tradicionales portugueses son muy económicos." },
@@ -10926,7 +10926,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.0,
         summary: "Una de las ciudades más baratas de Italia, por debajo incluso de Nápoles.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitación desde 280–380€, de las más bajas entre las grandes ciudades universitarias italianas." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercados de pescado y verdura fresca hacen que comer bien sea baratísimo." },
@@ -11045,7 +11045,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.3,
         summary: "Notablemente más barata que Venecia, con toda la belleza del Véneto a un paso.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 380–480€, muy por debajo de lo que costaría vivir en Venecia." },
           { label: "Comida y supermercados", score: 7.5, desc: "Mercados locales y supermercados estándar mantienen el gasto en comida razonable." },
@@ -11164,7 +11164,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.3,
         summary: "Más asequible que Milán o Turín, con acceso directo al mar y a la Riviera ligur.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 380–480€, por debajo de Milán o Turín." },
           { label: "Comida y supermercados", score: 7.5, desc: "Mercados de pescado y producto ligur fresco a buen precio." },
@@ -11283,7 +11283,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.8,
         summary: "Asequible para el centro de Italia, con precios muy por debajo de Florencia o Roma.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.0, desc: "Habitación desde 320–420€, muy por debajo de Florencia o Roma." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercados de la Umbría, con producto local muy asequible, hacen que comer bien sea barato." },
@@ -11402,7 +11402,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 4.0,
         summary: "Notablemente más asequible que Londres, aunque cara para el estándar europeo continental.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 3.5, desc: "Habitación desde 550–700€, por debajo de Londres pero alta para el estándar europeo." },
           { label: "Comida y supermercados", score: 5.0, desc: "Supermercados británicos estándar (Tesco, Aldi) mantienen el gasto razonable." },
@@ -11521,7 +11521,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 4.5,
         summary: "Más asequible que Edimburgo o Londres, aunque cara para el estándar europeo continental.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 4.0, desc: "Habitación desde 500–650€, por debajo de Edimburgo y notablemente por debajo de Londres." },
           { label: "Comida y supermercados", score: 5.5, desc: "Supermercados británicos estándar mantienen el gasto en comida razonable." },
@@ -11640,7 +11640,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 3.8,
         summary: "Cara para el estándar europeo, aunque más asequible que Londres, a la que está muy conectada.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 3.3, desc: "Habitación desde 580–730€, alta para el estándar europeo aunque bastante por debajo de Londres." },
           { label: "Comida y supermercados", score: 5.0, desc: "Supermercados británicos estándar mantienen el gasto en comida razonable." },
@@ -11759,7 +11759,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 1.3,
         summary: "Una de las ciudades más caras de toda esta guía, similar a Zúrich o Ginebra.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 1.8, desc: "Habitación desde 850–1.050€, entre los alquileres más altos de toda esta guía." },
           { label: "Comida y supermercados", score: 2.0, desc: "Los supermercados suizos (Migros, Coop) son de los más caros de Europa." },
@@ -11878,7 +11878,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 2.0,
         summary: "Muy cara, aunque algo más asequible que Zúrich, Ginebra o Basilea.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 2.5, desc: "Habitación desde 750–950€, alta aunque algo por debajo de Zúrich o Ginebra." },
           { label: "Comida y supermercados", score: 2.5, desc: "Los supermercados suizos (Migros, Coop) son de los más caros de Europa." },
@@ -11997,7 +11997,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 9.5,
         summary: "Uno de los costes de vida más bajos de toda esta guía para una ciudad de más de 15 millones de habitantes.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 9.0, desc: "Habitación desde 150–250€, de las más bajas de toda esta guía." },
           { label: "Comida y supermercados", score: 9.5, desc: "Mercados y restaurantes tradicionales turcos son extraordinariamente baratos." },
@@ -12116,7 +12116,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.8,
         summary: "Una de las ciudades universitarias más baratas de la Toscana, muy por debajo de Florencia.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.0, desc: "Habitación desde 300–400€, muy por debajo de Florencia." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercados locales y supermercados estándar hacen que comer bien sea barato." },
@@ -12235,7 +12235,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.3,
         summary: "Asequible para la Toscana, aunque algo más cara que otras ciudades universitarias italianas por su atractivo turístico.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 350–450€, moderada para el estándar toscano." },
           { label: "Comida y supermercados", score: 7.5, desc: "Mercados locales y supermercados estándar mantienen el gasto razonable." },
@@ -12354,7 +12354,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.8,
         summary: "Asequible para el norte de Italia, con una identidad centroeuropea que no encarece los precios.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.0, desc: "Habitación desde 320–420€, por debajo de otras ciudades del norte de Italia." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercados locales y la influencia centroeuropea en la gastronomía mantienen precios razonables." },
@@ -12473,7 +12473,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.3,
         summary: "Asequible para la Emilia-Romaña, con precios notablemente por debajo de Bolonia.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 350–450€, por debajo de Bolonia o Milán." },
           { label: "Comida y supermercados", score: 8.5, desc: "Con la mejor gastronomía de Italia a precio local, comer bien aquí es excepcionalmente barato." },
@@ -12592,7 +12592,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.3,
         summary: "Notablemente más barata que Milán, a la que está muy bien conectada.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 350–450€, muy por debajo de Milán." },
           { label: "Comida y supermercados", score: 7.5, desc: "Mercados locales y gastronomía lombarda a precio asequible." },
@@ -12711,7 +12711,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.8,
         summary: "Una de las ciudades más baratas de la Emilia-Romaña, por debajo de Bolonia y Parma.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.0, desc: "Habitación desde 300–400€, de las más bajas de la región." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercados locales y gastronomía de la Emilia-Romaña a precio muy asequible." },
@@ -12830,7 +12830,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.3,
         summary: "Una de las ciudades más baratas de esta guía, propia de un pueblo pequeño de las Marcas.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitación desde 250–350€, de las más bajas de toda esta guía." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercados locales y trattorias familiares a precios muy bajos." },
@@ -12949,7 +12949,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.3,
         summary: "Una de las ciudades más baratas de Italia, con playas de postal a un paso.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitación desde 250–350€, de las más bajas de Italia." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercados y gastronomía del Salento a precios muy bajos." },
@@ -13068,7 +13068,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.3,
         summary: "Una de las ciudades más baratas de Italia, similar a Palermo.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitación desde 250–350€, de las más bajas entre las grandes ciudades universitarias italianas." },
           { label: "Comida y supermercados", score: 9.0, desc: "Mercados sicilianos y street food hacen que comer bien cueste muy poco." },
@@ -13187,7 +13187,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.8,
         summary: "Asequible para ser una capital regional con playa urbana de primer nivel.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.8, desc: "Habitación desde 300–420€, razonable para una capital regional con playa incluida." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercados locales de pescado y producto sardo a buen precio." },
@@ -13306,7 +13306,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 4.3,
         summary: "Cara para el estándar europeo, similar a otras ciudades universitarias grandes de los Países Bajos.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 3.8, desc: "Habitación desde 550–700€, alta por la enorme demanda internacional." },
           { label: "Comida y supermercados", score: 5.5, desc: "Supermercados como Lidl y Aldi ayudan a mantener el gasto en comida controlado." },
@@ -13425,7 +13425,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.8,
         summary: "Razonable para una ciudad tecnológica y alpina, más asequible que otras ciudades francesas de su perfil.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "Habitación desde 420–520€, razonable para una ciudad con este nivel tecnológico." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercados locales y supermercados estándar franceses mantienen el gasto razonable." },
@@ -13544,7 +13544,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.8,
         summary: "Moderada para el Véneto, con precios por debajo de Venecia aunque algo por encima de Padua.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "Habitación desde 400–500€, moderada para una ciudad tan turística del Véneto." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercados locales y gastronomía véneta a precio razonable fuera de zonas turísticas." },
@@ -13663,7 +13663,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 4.3,
         summary: "Cara para el estándar europeo, aunque algo más asequible que Estocolmo.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 3.8, desc: "Habitación desde 500–650€, alta aunque por debajo de Estocolmo." },
           { label: "Comida y supermercados", score: 5.5, desc: "Supermercados como Lidl y Willys mantienen el gasto en comida algo más controlado." },
@@ -13782,7 +13782,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 5.3,
         summary: "Más asequible que Mánchester o Londres, de las ciudades británicas grandes más baratas de esta guía.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 4.8, desc: "Habitación desde 480–620€, por debajo de Mánchester y muy por debajo de Londres." },
           { label: "Comida y supermercados", score: 5.5, desc: "Supermercados británicos estándar mantienen el gasto en comida razonable." },
@@ -13901,7 +13901,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 4.8,
         summary: "Más asequible que Mánchester, de las ciudades universitarias grandes del Reino Unido más baratas.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 4.3, desc: "Habitación desde 500–650€, por debajo de Mánchester y de la mayoría de grandes ciudades británicas." },
           { label: "Comida y supermercados", score: 5.5, desc: "Supermercados británicos estándar mantienen el gasto en comida razonable." },
@@ -14020,7 +14020,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 5.0,
         summary: "Más asequible que Helsinki, con un ambiente universitario que muchos consideran el mejor del país.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 4.5, desc: "Habitación desde 450–550€, por debajo de Helsinki." },
           { label: "Comida y supermercados", score: 5.5, desc: "Supermercados finlandeses estándar mantienen el gasto en comida razonable." },
@@ -14139,7 +14139,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.5,
         summary: "Asequible para el oeste de Francia, con precios notablemente por debajo de Nantes.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.0, desc: "Habitación desde 350–450€, por debajo de Nantes." },
           { label: "Comida y supermercados", score: 7.5, desc: "Mercados bretones y galettes a precio de estudiante mantienen el gasto bajo control." },
@@ -14258,7 +14258,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 9.3,
         summary: "Uno de los costes de vida más bajos de toda esta guía, incluso por debajo de Budapest.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 8.5, desc: "Habitación desde 180–280€, de las más bajas de toda esta guía." },
           { label: "Comida y supermercados", score: 9.5, desc: "Mercados locales y gastronomía húngara son extraordinariamente baratos." },
@@ -14377,7 +14377,7 @@ export const CITY_INSIGHTS = {
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.5,
         summary: "Uno de los costes de vida más bajos de esta guía, notablemente por debajo de Vilna.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 8.0, desc: "Habitación desde 220–320€, por debajo de Vilna." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercados locales y gastronomía lituana son muy económicos." },
@@ -14499,7 +14499,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.5,
         summary: "Más cara que el resto de Brasil, pero muy asequible comparada con Europa. Con 600-700€/mes se vive bien compartiendo piso.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "Habitación compartida desde 180-230€, individual desde 350-470€ en zonas como Vila Mariana o Pinheiros." },
           { label: "Comida y supermercados", score: 7.5, desc: "Comer en un \"por kilo\" cuesta 5-8€. La variedad gastronómica de la ciudad es enorme y hay opciones para todos los bolsillos." },
@@ -14643,7 +14643,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.8,
         summary: "Similar a São Paulo, algo más cara en las zonas de playa. Con 650-750€/mes se vive con comodidad compartiendo piso.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "Habitación en Botafogo o Flamengo desde 300-450€; en Ipanema o Leblon el precio sube bastante." },
           { label: "Comida y supermercados", score: 7.5, desc: "Quilo (buffet por peso) desde 6-9€. El açaí y el pastel de feira son opciones baratas y ricas." },
@@ -14786,7 +14786,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.0,
         summary: "Más barata que Río o São Paulo salvo en las zonas turísticas junto al mar. Con 500-600€/mes se vive bien.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación en Trindade (junto a la UFSC) desde 250-350€; en Lagoa da Conceição sube bastante en temporada alta." },
           { label: "Comida y supermercados", score: 7.5, desc: "Marisco y pescado fresco a buen precio en los mercados; restaurante por kilo desde 6€." },
@@ -14928,7 +14928,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.5,
         summary: "Una de las ciudades más asequibles de esta guía fuera del centro histórico turístico. Con 450-550€/mes se vive con holgura.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación en Manga o Getsemaní desde 200-320€; en Bocagrande o el centro amurallado sube considerablemente." },
           { label: "Comida y supermercados", score: 8.0, desc: "Comida corriente (menú del día) desde 3-5€. El pescado fresco y las frutas tropicales son muy baratos." },
@@ -15070,7 +15070,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.5,
         summary: "La ciudad más barata de esta guía. Con 350-450€/mes se vive muy bien, incluso saliendo con frecuencia.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 8.0, desc: "Habitación desde 150-250€ en Wanchaq o San Blas, muy por debajo de otras capitales latinoamericanas." },
           { label: "Comida y supermercados", score: 8.5, desc: "Menú del día en mercados locales desde 2-3€. San Pedro es el mercado de referencia para comer barato y bien." },
@@ -15212,7 +15212,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 1.8,
         summary: "La ciudad más cara de esta guía, con diferencia. Vivir con menos de 2.200€/mes es un reto real.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 1.5, desc: "Habitación compartida desde 1.400–2.000€ en Manhattan, algo menos en Brooklyn o Queens. El mercado es feroz." },
           { label: "Comida y supermercados", score: 4.0, desc: "Los delis y food trucks salvan el presupuesto (bagel o slice de pizza por 3–4€), pero el supermercado es caro." },
@@ -15357,7 +15357,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 2.9,
         summary: "Una de las ciudades más caras de Estados Unidos, aunque algo más manejable que Nueva York o San Francisco.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 2.5, desc: "Habitación compartida desde 900–1.400€, especialmente cara cerca de los campus del centro." },
           { label: "Comida y supermercados", score: 5.5, desc: "Mercados como Haymarket bajan el precio de fruta y verdura, pero comer fuera es caro." },
@@ -15501,7 +15501,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 4.1,
         summary: "La gran ciudad de Estados Unidos más asequible de esta guía, con diferencia.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 4.0, desc: "Habitación compartida desde 700–1.000€, mucho más barato que en las costas." },
           { label: "Comida y supermercados", score: 6.0, desc: "Deep dish, hot dogs de Chicago, mercados como el West Loop. Comer bien y barato es posible." },
@@ -15645,7 +15645,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 2.9,
         summary: "Cara, aunque algo más manejable que Nueva York o San Francisco si compartes piso lejos de la costa.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 2.5, desc: "Habitación compartida desde 800–1.300€, más barata en Koreatown o el Valley que en Santa Mónica." },
           { label: "Comida y supermercados", score: 5.5, desc: "Food trucks y taquerías bajan el presupuesto, pero salir a comer fuera es caro." },
@@ -15789,7 +15789,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 1.5,
         summary: "La ciudad más cara de Estados Unidos junto con Nueva York. El alojamiento se lleva la mayor parte del presupuesto.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 1.2, desc: "Habitación compartida desde 1.300–1.900€, de las más caras del país." },
           { label: "Comida y supermercados", score: 4.5, desc: "El Mission tiene opciones asequibles (taquerías, dim sum), pero el supermercado es caro." },
@@ -15933,7 +15933,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.0,
         summary: "Muy asequible para el nivel de vida que ofrece. Con 600€/mes se vive cómodamente en un buen barrio.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.0, desc: "Habitación en Miraflores o Barranco desde 250-350€. Fuera de estos barrios, aún más barato." },
           { label: "Comida y mercados", score: 9.0, desc: "Menú del día completo por 3-5€. La variedad y calidad de la comida callejera no tiene rival en la región." },
@@ -16075,7 +16075,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.0,
         summary: "La más cara de Centroamérica, con economía dolarizada. Con 900€/mes se vive bien en una buena zona.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "Habitación en zonas céntricas desde 350-500$. Los edificios modernos con seguridad 24h encarecen el alquiler." },
           { label: "Comida y mercados", score: 6.5, desc: "Restaurantes internacionales caros, pero los mercados y fondas locales permiten comer bien por 5-8$." },
@@ -16213,7 +16213,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.0,
         summary: "Cara para Centroamérica por el peso del turismo, pero razonable si vives fuera del circuito turístico. Unos 800€/mes es un presupuesto cómodo.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 300-450$ en zonas como San Pedro o Escalante." },
           { label: "Comida y mercados", score: 7.0, desc: "Sodas (restaurantes locales) con menú completo por 5-7$; los supermercados son más caros que en el resto de la región." },
@@ -16351,7 +16351,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 4.5,
         summary: "El país más caro de Latinoamérica. Con 1.000€/mes se vive bien, pero es un salto respecto al resto de la región.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitación desde 350-500€ en zonas como Cordón o Ciudad Vieja; Pocitos es bastante más caro." },
           { label: "Comida y mercados", score: 5.5, desc: "Precios similares a Europa del Sur; el asado y la carne son más baratos que el resto de productos." },
@@ -16488,7 +16488,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.0,
         summary: "Muy asequible gracias a la dolarización y el bajo coste de vida. Con 550$/mes se vive bien.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitación desde 200-350$ en La Floresta o el centro; Cumbayá es más caro." },
           { label: "Comida y mercados", score: 8.5, desc: "Almuerzo completo (menú del día) por 2,5-4$; mercados locales muy baratos." },
@@ -16626,7 +16626,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 4.3,
         summary: "Una de las ciudades más caras de EEUU para vivir, sobre todo por el alquiler. Compartir piso es casi obligatorio.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 3.5, desc: "Un dormitorio compartido en Brickell o Wynwood ronda los 900–1.200€. La demanda no para de subir." },
           { label: "Comida y supermercados", score: 6.0, desc: "Publix y Trader Joe's para el día a día; la comida cubana y latina barata compensa los restaurantes caros." },
@@ -16770,7 +16770,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 4.2,
         summary: "Una de las ciudades más caras de Canadá, especialmente por el alquiler, aunque algo más asequible que Vancouver.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 3.5, desc: "Habitación compartida desde 750–1.000€/mes; el centro y zonas cercanas a UofT son las más caras." },
           { label: "Comida y supermercados", score: 6.0, desc: "No Frills y Food Basics para ahorrar; el St. Lawrence Market para comer bien sin arruinarse." },
@@ -16914,7 +16914,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 3.6,
         summary: "Una de las ciudades más caras de Canadá, sobre todo por la vivienda. El resto del presupuesto se compensa con ocio gratuito al aire libre.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 2.8, desc: "Habitación compartida desde 850–1.100€/mes; el mercado inmobiliario es de los más tensionados de Norteamérica." },
           { label: "Comida y supermercados", score: 6.0, desc: "Save-On-Foods y mercados como Granville Island para variar sin gastar de más." },
@@ -17058,7 +17058,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.6,
         summary: "La opción más asequible de las grandes ciudades canadienses. Vivir bien con 1.200€/mes es realista.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "Habitación compartida desde 500–700€/mes, un 30-40% más barata que Toronto o Vancouver." },
           { label: "Comida y supermercados", score: 7.5, desc: "Marché Jean-Talon y supermercados como Metro o IGA; comer bien y barato es posible." },
@@ -17203,7 +17203,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.6,
         summary: "Una de las capitales más baratas para estudiar de todo el continente. Vivir muy bien con 700€/mes es totalmente realista.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitación compartida desde 250–400€/mes en zonas como Roma, Condesa o Coyoacán." },
           { label: "Comida y supermercados", score: 9.0, desc: "Comer en fondas y mercados cuesta 2-4€; una de las gastronomías callejeras más baratas y variadas del mundo." },
@@ -17348,7 +17348,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.9,
         summary: "Una de las capitales más baratas de Sudamérica. Con 400€/mes se vive con holgura.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 8.5, desc: "Habitación en piso compartido desde 100–180€/mes en Sopocachi o Miraflores. La demanda internacional es todavía baja." },
           { label: "Comida y supermercados", score: 9.0, desc: "Mercados como el Rodríguez o el Lanza permiten comer muy barato; un almuerzo completo cuesta 2–3€." },
@@ -17493,7 +17493,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.8,
         summary: "Una de las capitales más baratas del continente; con 450€/mes se vive muy bien.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 8.5, desc: "Habitación compartida desde 150€/mes en Carmelitas o Recoleta; piso completo en Villa Morra desde 350€." },
           { label: "Comida y supermercados", score: 9.0, desc: "Menú del día desde 3€; mercados como el Mercado 4 permiten comprar muy barato." },
@@ -17637,7 +17637,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.1,
         summary: "Asequible para el nivel de infraestructura que ofrece, aunque las zonas más seguras encarecen el alquiler.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación en piso compartido desde 250€/mes en zonas seguras (10, 14, 15); fuera de esas zonas, mucho más barato pero con más precauciones." },
           { label: "Comida y supermercados", score: 8.5, desc: "Comedores y mercados locales permiten comer por 3–4€; supermercados con precios similares a Europa del Este." },
@@ -17781,7 +17781,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.8,
         summary: "Asequible para estudiantes, con las zonas premium (Escalón, San Benito) marcando el precio hacia arriba.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación compartida desde 280€/mes en Antiguo Cuscatlán o San Benito; piso completo en Escalón, más caro." },
           { label: "Comida y supermercados", score: 8.5, desc: "Pupusas desde 0,50€ cada una; comer bien y barato es fácil fuera de zonas turísticas." },
@@ -17925,7 +17925,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.5,
         summary: "Asequible fuera de las zonas más exclusivas (Piantini, Naco); con 600€/mes se vive bien.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación compartida desde 250€/mes en Gazcue o Zona Colonial; piso en Piantini, bastante más caro." },
           { label: "Comida y supermercados", score: 7.5, desc: "Comida criolla completa desde 3–4€ en comedores locales; supermercados con precios similares a Europa del Este." },
@@ -18070,7 +18070,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.4,
         summary: "Muy asequible para estándares norteamericanos. Vivir bien con 600€/mes es totalmente realista.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitación en piso compartido desde 300–450€ en Americana o Chapultepec; bajando a 200€ en Zapopan." },
           { label: "Comida y supermercados", score: 9.0, desc: "Tacos y tortas ahogadas por 1–3€, mercados como San Juan de Dios para comer barato y bien." },
@@ -18211,7 +18211,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 4.6,
         summary: "Cara para estándares de EEUU, aunque más asequible que la costa oeste. Compartir piso es casi obligatorio.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 4.0, desc: "Habitación compartida desde 600–900$ en West Campus; bajando en Hyde Park o al este del centro." },
           { label: "Comida y supermercados", score: 6.5, desc: "Food trucks desde 8–10$; cocinar en casa con HEB (supermercado local) es la forma de ahorrar." },
@@ -18350,7 +18350,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 3.8,
         summary: "Una de las ciudades más caras de EEUU para vivir. Compartir piso lejos del centro es casi imprescindible.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 3.5, desc: "Habitación compartida desde 800–1.200$ cerca del campus; el U-District es algo más asequible." },
           { label: "Comida y supermercados", score: 6.0, desc: "Mercados como Pike Place para producto fresco; cocinar en casa ahorra mucho frente a comer fuera." },
@@ -18488,7 +18488,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 3.6,
         summary: "Una de las ciudades más caras de EEUU. El alojamiento se lleva la mayor parte del presupuesto.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 3.5, desc: "Habitación compartida desde 900–1.400$; Georgetown y Dupont Circle son los barrios más caros." },
           { label: "Comida y supermercados", score: 6.0, desc: "Food halls y mercados como Eastern Market para comer bien sin gastar de más." },
@@ -18627,7 +18627,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.1,
         summary: "Más asequible que la mayoría de grandes ciudades de EEUU, aunque los precios han subido en los últimos años.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "Habitación compartida desde 500–800$ en Uptown o Mid-City; el Garden District es más caro." },
           { label: "Comida y supermercados", score: 6.5, desc: "Cocina criolla y cajún accesible en mercados locales; comer fuera puede salir barato en sitios de barrio." },
@@ -18766,7 +18766,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 5.0,
         summary: "Caro para Michigan, moderado para EEUU. Vivir con 1.100€/mes es realista compartiendo piso.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 4.5, desc: "Habitaciones desde 700–950€/mes cerca de campus. La demanda sube mucho en agosto, antes del curso." },
           { label: "Comida y supermercados", score: 6.0, desc: "Kroger y Meijer para el día a día; Zingerman's Deli para darse un capricho a precio alto." },
@@ -18904,7 +18904,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.0,
         summary: "Más barato que Toronto o Vancouver. Vivir bien con 900€/mes es realista.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 500–650€/mes fuera del Vieux-Québec." },
           { label: "Comida y supermercados", score: 7.5, desc: "IGA y Metro para el día a día; el marché du Vieux-Port para productos locales." },
@@ -19041,7 +19041,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.0,
         summary: "Más asequible que Toronto, aunque sigue siendo una capital cara para estándares canadienses.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.5, desc: "Habitaciones desde 600–800€/mes en Sandy Hill o Centretown." },
           { label: "Comida y supermercados", score: 6.5, desc: "Loblaws y Farm Boy para el día a día; el ByWard Market para productos frescos." },
@@ -19177,7 +19177,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 3.5,
         summary: "Cara, como toda California. Vivir con menos de 1.400€/mes es difícil compartiendo piso.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 3.0, desc: "Habitaciones desde 900–1.300€/mes, más en La Jolla o Pacific Beach." },
           { label: "Comida y supermercados", score: 5.5, desc: "Trader Joe's ayuda al bolsillo; comer fuera en zonas turísticas es caro." },
@@ -19314,7 +19314,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.5,
         summary: "Muy asequible comparado con EEUU o Canadá. Vivir bien con 650€/mes es totalmente realista.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 8.0, desc: "Habitaciones desde 250–400€/mes fuera de San Pedro Garza García." },
           { label: "Comida y supermercados", score: 9.0, desc: "Comer muy bien y barato: un taco de asada o un plato de cabrito por menos de 3€." },
@@ -19450,7 +19450,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.5,
         summary: "Muy asequible para estudiantes con ingresos en euros o dólares gracias al cambio informal. Vivir bien con 600-700€/mes es realista.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación en Palermo o Recoleta desde 250-350€/mes al cambio blue. Compartir piso es lo habitual." },
           { label: "Comida y supermercados", score: 8.0, desc: "Menú del día por 4-6€. Carne y vino, baratísimos comparados con Europa." },
@@ -19594,7 +19594,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 8.5,
         summary: "Una de las ciudades más baratas de esta guía. Vivir bien con 450-550€/mes es totalmente realista.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.0, desc: "Habitación en Nueva Córdoba desde 150-220€/mes." },
           { label: "Comida y supermercados", score: 8.5, desc: "Menú del día por 3-4€. Fernet con cola, el trago nacional, a 2€." },
@@ -19739,7 +19739,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 6.0,
         summary: "La capital más cara del Cono Sur después de Buenos Aires en dólares, pero sigue siendo accesible frente a Europa.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.5, desc: "Habitación en Providencia o Ñuñoa desde 300-400€/mes." },
           { label: "Comida y supermercados", score: 7.0, desc: "Menú del día por 6-7€. Ferias libres bajan mucho el gasto en fruta y verdura." },
@@ -19884,7 +19884,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.5,
         summary: "Una de las capitales más asequibles de esta guía; vivir bien con 500-600€/mes es realista.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación en Chapinero desde 200-300€/mes." },
           { label: "Comida y supermercados", score: 8.0, desc: "Almuerzo corriente (menú del día) por 3-4€. Mercados como Paloquemao, muy baratos." },
@@ -20030,7 +20030,7 @@ export const CITY_INSIGHTS = {
         icon: "💰",
         score: 7.5,
         summary: "Clima primaveral constante y un coste de vida muy competitivo frente a otras ciudades de la región.",
-        color: "#F5963A",
+        color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación en Laureles desde 200-300€/mes, algo más en El Poblado." },
           { label: "Comida y supermercados", score: 8.0, desc: "Menú del día (corrientazo) por 3-4€, bandeja paisa incluida." },
@@ -20170,7 +20170,7 @@ export const CITY_INSIGHTS = {
 
 // Generate default scores for cities without custom data
 const DEFAULT_SCORES = (city) => [
-  { id: "coste", label: "Coste de vida", icon: "💰", score: 7.0, summary: `Coste medio para Europa. Planifica un presupuesto de ${city?.costDetail || "800–1.200€"}/mes.`, color: "#F5963A", subcategories: [], reviews: [] },
+  { id: "coste", label: "Coste de vida", icon: "💰", score: 7.0, summary: `Coste medio para Europa. Planifica un presupuesto de ${city?.costDetail || "800–1.200€"}/mes.`, color: "#B45309", subcategories: [], reviews: [] },
   { id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.0, summary: "Busca con 2–3 meses de antelación. Incluye pisos, habitaciones, residencias y colivings.", color: "#EF4444", subcategories: [], reviews: [] },
   { id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 7.5, summary: "Buena vida social estudiantil. Comunidad Erasmus activa con eventos semanales.", color: "#8B5CF6", subcategories: [], reviews: [] },
   { id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8, summary: "Ciudad abierta a estudiantes internacionales. El inglés funciona bien.", color: "#3F7A7D", subcategories: [], reviews: [] },

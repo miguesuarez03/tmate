@@ -24,7 +24,7 @@ export default function IconTarjeta({ size = 56, className = "", ...rest }) {
 <feDropShadow dx="0" dy="4" stdDeviation="3.2" floodColor="#0F1E2D" floodOpacity="0.20"/>
 </filter>
 <linearGradient id={`bg-${uid}`} x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stopColor="#F5963A"/><stop offset="100%" stopColor="#3F7A7D"/>
+<stop offset="0%" stopColor="#3F7A7D"/><stop offset="100%" stopColor="#3F7A7D"/>
 </linearGradient>
 <linearGradient id={`sh-${uid}`} x1="0" y1="0" x2="1" y2="1">
 <stop offset="0%" stopColor="#2F5073" stopOpacity="0"/>
@@ -42,7 +42,7 @@ style={{ mixBlendMode: "soft-light" }} transform="rotate(-35 48 46)"/>
 </g>
 <rect x="38" y="48" width="52" height="36" rx="6" fill="#FFFFFF" opacity="0.95"/>
 <rect x="38" y="58" width="52" height="8" fill="#2F5073" opacity="0.35"/>
-<rect x="45" y="72" width="16" height="5" rx="2" fill="#F5963A" opacity="0.6"/>
+<rect x="45" y="72" width="16" height="5" rx="2" fill="#3F7A7D" opacity="0.6"/>
 </g>
 
     </svg>

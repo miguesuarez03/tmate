@@ -43,7 +43,7 @@ style={{ mixBlendMode: "soft-light" }} transform="rotate(-35 48 46)"/>
 </g>
 <rect x="52" y="40" width="24" height="12" rx="3" fill="none" stroke="#2F5073" strokeWidth="4.5" opacity="0.85"/>
 <rect x="38" y="52" width="52" height="34" rx="6" fill="#FFFFFF" opacity="0.95"/>
-<rect x="38" y="66" width="52" height="8" fill="#F5963A" opacity="0.55"/>
+<rect x="38" y="66" width="52" height="8" fill="#3F7A7D" opacity="0.55"/>
 <circle cx="64" cy="70" r="4.5" fill="#10B981"/>
 </g>
 

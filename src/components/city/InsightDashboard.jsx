@@ -6,7 +6,7 @@ import { getCategoryIcon } from "../../lib/categoryIcons";
 function scoreColor(s) {
   if (s >= 9)   return "#22C55E";
   if (s >= 8)   return "#00BFA5";
-  if (s >= 6)   return "#F5963A";
+  if (s >= 6)   return "#3F7A7D";
   if (s >= 5)   return "#F59E0B";
   if (s >= 3)   return "#EF4444";
   return "#991B1B";
@@ -54,7 +54,7 @@ function ReviewBubble({ review }) {
 export default function InsightDashboard({ scores = [], overallScore, citySlug, cityName }) {
   const [active, setActive] = useState(scores[0]?.id ?? null);
   const current = scores.find(s => s.id === active) ?? scores[0];
-  const color = current ? scoreColor(current.score) : "#F5963A";
+  const color = current ? scoreColor(current.score) : "#3F7A7D";
   const whatsappGroup = getCityWhatsappGroup(citySlug);
 
   if (!scores.length) return null;

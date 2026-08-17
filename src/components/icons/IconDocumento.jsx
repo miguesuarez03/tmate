@@ -24,7 +24,7 @@ export default function IconDocumento({ size = 56, className = "", ...rest }) {
 <feDropShadow dx="0" dy="4" stdDeviation="3.2" floodColor="#0F1E2D" floodOpacity="0.20"/>
 </filter>
 <linearGradient id={`bg-${uid}`} x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stopColor="#F5963A"/><stop offset="100%" stopColor="#FFC95E"/>
+<stop offset="0%" stopColor="#3F7A7D"/><stop offset="100%" stopColor="#A6D5DB"/>
 </linearGradient>
 <linearGradient id={`sh-${uid}`} x1="0" y1="0" x2="1" y2="1">
 <stop offset="0%" stopColor="#2F5073" stopOpacity="0"/>
@@ -42,8 +42,8 @@ style={{ mixBlendMode: "soft-light" }} transform="rotate(-35 48 46)"/>
 </g>
 <path d="M46 38 H72 L82 48 V90 H46 Z" fill="#FFFFFF" opacity="0.95"/>
 <path d="M72 38 L72 48 L82 48 Z" fill="#2F5073" opacity="0.3"/>
-<line x1="53" y1="62" x2="75" y2="62" stroke="#F5963A" strokeWidth="3" strokeLinecap="round"/>
-<line x1="53" y1="72" x2="75" y2="72" stroke="#F5963A" strokeWidth="3" strokeLinecap="round"/>
+<line x1="53" y1="62" x2="75" y2="62" stroke="#3F7A7D" strokeWidth="3" strokeLinecap="round"/>
+<line x1="53" y1="72" x2="75" y2="72" stroke="#3F7A7D" strokeWidth="3" strokeLinecap="round"/>
 </g>
 
     </svg>

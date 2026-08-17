@@ -32,7 +32,7 @@ export default function IconAmigos({ size = 56, className = "", ...rest }) {
 </linearGradient>
 <clipPath id={`avAc-${uid}`}><circle cx="48" cy="58" r="30" /></clipPath>
 <linearGradient id={`avBg-${uid}`} x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stopColor="#F5963A"/><stop offset="100%" stopColor="#3F7A7D"/>
+<stop offset="0%" stopColor="#3F7A7D"/><stop offset="100%" stopColor="#3F7A7D"/>
 </linearGradient>
 <linearGradient id={`avBs-${uid}`} x1="0" y1="0" x2="1" y2="1">
 <stop offset="0%" stopColor="#2F5073" stopOpacity="0"/>

@@ -24,7 +24,7 @@ export default function IconBici({ size = 56, className = "", ...rest }) {
 <feDropShadow dx="0" dy="4" stdDeviation="3.2" floodColor="#0F1E2D" floodOpacity="0.20"/>
 </filter>
 <linearGradient id={`bg-${uid}`} x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stopColor="#F5963A"/><stop offset="100%" stopColor="#3F7A7D"/>
+<stop offset="0%" stopColor="#3F7A7D"/><stop offset="100%" stopColor="#3F7A7D"/>
 </linearGradient>
 <linearGradient id={`sh-${uid}`} x1="0" y1="0" x2="1" y2="1">
 <stop offset="0%" stopColor="#2F5073" stopOpacity="0"/>

@@ -11,7 +11,7 @@ const STEPS = [
     num: "01",
     Icon: IconLupa,
     title: "Elige tu destino",
-    color: "#F5963A",
+    color: "#3F7A7D",
     tag: "Preparación",
     content: `Tómate en serio la elección — no vas a vivir solo en una ciudad bonita, vas a vivir allí varios meses. Lo que de verdad importa:
 

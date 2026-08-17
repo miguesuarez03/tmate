@@ -20,7 +20,7 @@ const PROGRAM_TYPES = [
   {
     id: "uk_bilateral",
     Icon: IconMaleta,
-    color: "#F5963A",
+    color: "#3F7A7D",
     title: "Reino Unido",
     tag: "Convenio bilateral",
     what: "Desde el Brexit, Reino Unido salió del programa Erasmus+. Ir a universidades como Londres, Edimburgo o Mánchester se hace a través de convenios bilaterales que tu universidad haya firmado directamente con la universidad británica.",

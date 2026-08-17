@@ -40,7 +40,7 @@ export default function IconLaptop({ size = 56, className = "", ...rest }) {
 <rect x="0" y="0" width="128" height="128" fill={`url(#sh-${uid})`}/>
 </g>
 <rect x="42" y="42" width="44" height="30" rx="3" fill="#FFFFFF" opacity="0.95"/>
-<rect x="46" y="46" width="36" height="22" rx="1.5" fill="#F5963A"/>
+<rect x="46" y="46" width="36" height="22" rx="1.5" fill="#3F7A7D"/>
 <circle cx="64" cy="57" r="4" fill="#10B981"/>
 <path d="M34 74 L94 74 L88 84 L40 84 Z" fill="#FFFFFF" opacity="0.85"/>
 </g>

@@ -16,7 +16,7 @@ const FIRMAS = [
     label: "Tú",
     desc: "El estudiante",
     detail: "Eres la primera firma. Tú propones las asignaturas, justificas las equivalencias y eres responsable de que el documento esté completo y correcto antes de enviarlo.",
-    color: "#F5963A",
+    color: "#3F7A7D",
     step: "1ª firma",
   },
   {
@@ -42,7 +42,7 @@ const FIRMAS = [
 const TIPS = [
   {
     Icon: IconEdificio,
-    color: "#F5963A",
+    color: "#2F5073",
     title: "Consulta el histórico de tu uni",
     short: "La info más valiosa y la que casi nadie pide",
     content: "Casi seguro que alguien de tu universidad ya se fue de Erasmus a tu destino antes. Las universidades guardan registro de qué asignaturas se han convalidado.\n\nContacta con tu ORI o coordinador de grado y pídeles el histórico. Es oro puro y muy poca gente lo pide.",
@@ -98,7 +98,7 @@ const TIPS = [
   },
   {
     Icon: IconSobre,
-    color: "#F5963A",
+    color: "#3F7A7D",
     title: "Atentos a los correos de ambas universidades",
     short: "Plazos, documentos, instrucciones — todo llega por email",
     content: "Durante todo el proceso Erasmus, tanto tu universidad de origen como la de destino te enviarán correos con plazos, instrucciones y documentos importantes.\n\nRevisar el correo a diario es fundamental:\n· Plazos de entrega del LA que se cierran sin aviso\n· Instrucciones de matrícula y acceso a plataformas\n· Cambios de última hora en asignaturas o aulas\n· Notificaciones de firmas pendientes en el OLA\n\nRevisa también la carpeta de spam — algunos correos institucionales cuelan ahí. Y si tienes cuenta de tu uni de destino, actívala cuanto antes.",

@@ -40,8 +40,8 @@ export default function IconMovilidad({ size = 56, className = "", ...rest }) {
 <rect x="0" y="0" width="128" height="128" fill={`url(#sh-${uid})`}/>
 </g>
 <rect x="42" y="38" width="44" height="40" rx="14" fill="#FFFFFF" opacity="0.95"/>
-<rect x="48" y="48" width="14" height="14" rx="2" fill="#F5963A"/>
-<rect x="66" y="48" width="14" height="14" rx="2" fill="#F5963A"/>
+<rect x="48" y="48" width="14" height="14" rx="2" fill="#3F7A7D"/>
+<rect x="66" y="48" width="14" height="14" rx="2" fill="#3F7A7D"/>
 <circle cx="52" cy="80" r="6" fill="#2F5073"/>
 <circle cx="76" cy="80" r="6" fill="#2F5073"/>
 <rect x="46" y="30" width="8" height="8" rx="2" fill="#EF4444"/>
