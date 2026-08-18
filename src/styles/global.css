@@ -164,20 +164,34 @@ a { text-decoration: none; color: inherit; }
   font-family: var(--font-display); font-weight: 800;
   font-size: 20px; letter-spacing: -0.5px; transition: color 0.3s;
 }
+/* Navegación horizontal tipo Apple: oculta por defecto (móvil/tablet-
+   portrait usan el drawer de hamburguesa), visible desde 1024px (tablet
+   landscape en adelante) — ver el breakpoint hermano más abajo que oculta
+   la hamburguesa exactamente en el mismo punto. */
 .navbar__links { display: none; }
 .navbar__link {
-  background: transparent; border: none; padding: 8px 14px;
-  font-size: 14px; font-weight: 500; border-radius: var(--radius-sm);
-  transition: color var(--transition-fast), background var(--transition-fast);
+  background: transparent; border: none; padding: 7px 12px;
+  font-size: 13.5px; font-weight: 500; border-radius: var(--radius-sm);
+  text-decoration: none; white-space: nowrap;
+  transition: color var(--transition-fast), background var(--transition-fast), opacity var(--transition-fast);
+  opacity: 0.82;
 }
-.navbar__link:hover { background: rgba(0,0,0,0.05); }
+.navbar__link:hover { background: rgba(127,127,127,0.12); opacity: 1; }
+.navbar__link--active { opacity: 1; font-weight: 700; }
 .navbar__cta {
+  display: none;
   background: var(--gradient-brand); border: none;
   padding: 9px 20px; font-size: 14px; font-weight: 700;
-  color: #fff; border-radius: var(--radius-full); margin-left: 8px;
+  color: #fff; border-radius: var(--radius-full);
   transition: opacity var(--transition-fast), transform var(--transition-fast);
 }
 .navbar__cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+@media (min-width: 1024px) {
+  .navbar__links { display: flex; align-items: center; gap: 2px; margin-left: 28px; }
+  .navbar__cta { display: inline-flex; align-items: center; }
+  .navbar__hamburger { display: none; }
+}
 .navbar__hamburger {
   display: flex; flex-direction: column; gap: 5px;
   background: rgba(255,255,255,0.12);
@@ -278,30 +292,65 @@ a { text-decoration: none; color: inherit; }
 }
 .hero__orb { position: absolute; border-radius: 50%; pointer-events: none; animation: pulse 4s ease-in-out infinite; }
 .hero__content { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; align-items: center; }
-/* Insignia de marca: fondo Dark Navy con cristal esmerilado (no un pill
-   translúcido genérico), marca naranja en degradado en vez de un punto
-   plano, y texto en mayúsculas con peso fuerte. */
-.hero__badge {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: rgba(15,30,45,0.55);
-  border: 1px solid rgba(245,150,58,0.4);
+/* Composición de hero inspirada en travelingua.es: símbolo de marca grande
+   y centrado arriba, con los accesos rápidos como pills alrededor —
+   convive con la navegación horizontal normal del header (misma lista de
+   enlaces, NAV_LINKS, para no duplicar destinos distintos y confundir). */
+.hero__crest {
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+  margin-bottom: 30px;
+}
+.hero__crest-logo {
+  width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.16);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.28);
+}
+.hero__crest-pills {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+  max-width: 620px;
+}
+.hero__crest-pill {
+  padding: 7px 16px;
   border-radius: var(--radius-full);
-  padding: 6px 18px 6px 6px;
-  margin-bottom: 28px;
-  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 4px 18px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.72);
+  font-family: var(--font-body);
+  font-size: 12.5px; font-weight: 500;
+  text-decoration: none; white-space: nowrap;
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+.hero__crest-pill:hover {
+  background: rgba(245,150,58,0.16);
+  border-color: rgba(245,150,58,0.4);
+  color: #fff;
+}
+@media (max-width: 640px) {
+  .hero__crest-pills { display: none; } /* en móvil ya está la hamburguesa para navegar; evita saturar el hero */
+  .hero__crest-logo { width: 52px; height: 52px; }
+}
+
+/* Eyebrow editorial, no un pill/chip flotante: sin fondo, sin glow, sin
+   icono — un punto pequeño + una línea fina hacen de separador, como un
+   antetítulo de revista, integrado en el flujo del hero en vez de
+   "flotando" encima con aspecto de badge genérico. */
+.hero__badge {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding-bottom: 11px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.16);
 }
 .hero__badge-mark {
-  width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(135deg, #F5963A, #FFC95E);
-  color: #1E3348;
-  box-shadow: 0 0 14px rgba(245,150,58,0.55);
+  width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
+  background: #F5963A;
 }
 .hero__badge-text {
   font-family: var(--font-body);
-  font-size: 11.5px; font-weight: 700; color: #fff;
-  letter-spacing: 0.6px; text-transform: uppercase;
+  font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.72);
+  letter-spacing: 0.1px;
 }
 .hero__title {
   font-family: var(--font-editorial); font-weight: 800;
@@ -512,6 +561,9 @@ a { text-decoration: none; color: inherit; }
   position: absolute; bottom: 0; left: 0; right: 0;
   padding: 16px 16px 18px; z-index: 2;
 }
+.city-card__contentTop {
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 10px;
+}
 .city-card__name {
   font-family: var(--font-display); font-size: clamp(18px, 2.5vw, 22px);
   font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 3px;
@@ -640,6 +692,32 @@ a { text-decoration: none; color: inherit; }
   margin-right: 8px;
 }
 
+/* ─── SCORE RING (compartido: ficha, listado, comparador, City Match) ────── */
+/* El font-size real lo fija ScoreRing.jsx en línea, proporcional al tamaño
+   del anillo — los valores de aquí son solo fallback/estructura. */
+.score-ring { position: relative; margin: 0 auto; flex-shrink: 0; }
+.score-ring__svg { width: 100%; height: 100%; display: block; }
+.score-ring__center {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 0 8%;
+}
+.score-ring__num {
+  font-family: var(--font-display); font-weight: 800; line-height: 1;
+  white-space: nowrap; max-width: 100%;
+}
+.score-ring__den {
+  color: rgba(255,255,255,0.45); font-family: var(--font-body);
+  white-space: nowrap; margin-top: 1px;
+}
+.score-ring__label {
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+  margin-top: 2px; font-family: var(--font-body); white-space: nowrap;
+}
+/* Sobre fondos claros (listado, comparador) el denominador debe verse. */
+.score-ring--on-light .score-ring__den { color: var(--color-muted); }
+
 /* ─── PROGRESS BAR ───────────────────────────────────────────────────────── */
 .progress-bar { height: 5px; background: var(--surface-2); border-radius: 99px; overflow: hidden; }
 .progress-bar__fill { height: 100%; border-radius: 99px; transition: width 1.1s var(--ease-smooth); }
@@ -684,7 +762,7 @@ a { text-decoration: none; color: inherit; }
 .tip-item__text { font-size: 13px; color: var(--color-dark-mid); line-height: 1.65; }
 
 /* ─── CONTENT SECTIONS ───────────────────────────────────────────────────── */
-.content-section { max-width: 1160px; margin: 0 auto; padding: 64px var(--section-px); }
+.content-section { max-width: 1160px; margin: 0 auto; padding: var(--section-py) var(--section-px); }
 .content-section__header { margin-bottom: 36px; }
 .content-section__title { font-family: var(--font-display); font-size: clamp(26px, 3.5vw, 38px); font-weight: 800; color: var(--color-dark); margin-bottom: 8px; }
 .content-section__subtitle { font-size: 15px; color: var(--color-slate-light); }
@@ -1521,7 +1599,7 @@ a { text-decoration: none; color: inherit; }
 /* CTA section */
 .proceso-cta {
   background: var(--gradient-hero); text-align: center;
-  padding: 80px var(--section-px);
+  padding: var(--section-py) var(--section-px);
 }
 .proceso-cta__title {
   font-family: var(--font-display); font-weight: 900;
@@ -2088,7 +2166,7 @@ a { text-decoration: none; color: inherit; }
 .beca-body { max-width: 1100px; margin: 0 auto; }
 
 .beca-section {
-  padding: 64px var(--section-px);
+  padding: var(--section-py) var(--section-px);
 }
 .beca-section--dark {
   background: var(--gradient-dark);

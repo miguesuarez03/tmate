@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./HeroSection.module.css";
 import { getCityWhatsappGroup } from "../../data/cityWhatsappGroups";
 import { isErasmusEligible, getScoreLevel } from "../../lib/cities";
 import { IconUniversidad, IconFiesta, IconBeca, IconSol, IconBici, IconSeguridad, IconComida, IconArte, IconLaptop, IconPlaya, IconFuego } from "../icons";
+import ScoreRing from "../ScoreRing";
 
 // ─── MOOD TAGS CONFIG ─────────────────────────────────────────────────────────
 const MOOD_ICONS = {
@@ -31,52 +31,6 @@ function getMoodTags(city) {
   if (city.highlights?.some(h => h.toLowerCase().includes("startup") || h.toLowerCase().includes("tech") || h.toLowerCase().includes("fintech"))) tags.push("tech");
   tags.push("fiesta");
   return tags.slice(0, 5).map(k => MOOD_ICONS[k]).filter(Boolean);
-}
-
-// ─── SCORE RING ───────────────────────────────────────────────────────────────
-function ScoreRing({ score, size = 96 }) {
-  const [animated, setAnimated] = useState(false);
-  const r = 44;
-  const circ = 2 * Math.PI * r;
-  const level = getScoreLevel(score);
-  const color = level.color;
-
-  useEffect(() => {
-    const t = setTimeout(() => setAnimated(true), 400);
-    return () => clearTimeout(t);
-  }, []);
-
-  // Tamaños de fuente proporcionales al diámetro real del anillo (en vez de
-  // rem fijos): así "7.5", "10" o cualquier score con decimales siempre
-  // caben dentro del círculo, sin depender del font-size raíz del navegador
-  // (que puede variar por zoom/accesibilidad y desbordar un rem fijo).
-  const scoreFontSize = Math.round(size * 0.335);
-  const denFontSize = Math.round(size * 0.11);
-  const labelFontSize = Math.max(8, Math.round(size * 0.09));
-
-  return (
-    <div className={styles.ringWrap} style={{ width: size, height: size }}>
-      <svg viewBox="0 0 100 100" className={styles.ringsvg}>
-        <circle cx="50" cy="50" r={r} fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="7"/>
-        <circle
-          cx="50" cy="50" r={r}
-          fill="none"
-          stroke={color}
-          strokeWidth="7"
-          strokeLinecap="round"
-          strokeDasharray={circ}
-          strokeDashoffset={animated ? circ * (1 - score / 10) : circ}
-          transform="rotate(-90 50 50)"
-          style={{ transition: "stroke-dashoffset 1.4s cubic-bezier(0.16,1,0.3,1)" }}
-        />
-      </svg>
-      <div className={styles.ringCenter}>
-        <span className={styles.ringScore} style={{ color, fontSize: scoreFontSize }}>{score}</span>
-        <span className={styles.ringDen} style={{ fontSize: denFontSize }}>/10</span>
-        <span className={styles.ringLabel} style={{ color, fontSize: labelFontSize }}>{level.label}</span>
-      </div>
-    </div>
-  );
 }
 
 // ─── MAIN ─────────────────────────────────────────────────────────────────────

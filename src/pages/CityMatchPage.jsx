@@ -5,6 +5,7 @@ import { getScoreMap, getOverallScore, isErasmusEligible } from "../lib/cities";
 import { useSEO } from "../hooks/useSEO";
 import { Navbar, Footer } from "../components/Layout";
 import { IconBeca, IconClima, IconIdiomas, IconFiesta, IconEdificio, IconHoja, IconUniversidad, IconExperiencia, IconCityMatch, IconMedalla } from "../components/icons";
+import ScoreRing from "../components/ScoreRing";
 import styles from "./CityMatchPage.module.css";
 
 /* ─────────────────────────────────────────────────────────────────────────
@@ -352,11 +353,14 @@ export default function CityMatchPage() {
                     <div className={styles.resultHead}>
                       <div>
                         <h2 className={styles.resultName}>{m.city.emoji} {m.city.name}</h2>
-                        <span className={styles.resultCountry}>{m.city.country} · {overall.toFixed(1)}/10 global</span>
+                        <span className={styles.resultCountry}>{m.city.country}</span>
                       </div>
-                      <div className={styles.matchBadge}>
-                        <span className={styles.matchPercent}>{m.percent}%</span>
-                        <span className={styles.matchLabel}>match</span>
+                      <div className={styles.resultHeadRight}>
+                        <ScoreRing score={overall} size={48} showLabel={false} animate={false} className="score-ring--on-light" />
+                        <div className={styles.matchBadge}>
+                          <span className={styles.matchPercent}>{m.percent}%</span>
+                          <span className={styles.matchLabel}>match</span>
+                        </div>
                       </div>
                     </div>
 
@@ -395,7 +399,13 @@ export default function CityMatchPage() {
     <div className={styles.page}>
       <Navbar />
       <main className={styles.quizMain}>
+        <div className={styles.quizBgBlur} aria-hidden="true" />
         <div className={styles.quizWrap}>
+          <div className={styles.quizBrand}>
+            <IconCityMatch size={26} />
+            <span>City Match</span>
+          </div>
+
           <div className={styles.progressTrack}>
             <div className={styles.progressFill} style={{ width: `${progress}%` }} />
           </div>
@@ -413,6 +423,7 @@ export default function CityMatchPage() {
                   className={`${styles.optionBtn}${answers[q.id] === opt.value ? ` ${styles.optionBtnActive}` : ""}`}
                   onClick={() => selectOption(q.id, opt.value)}
                 >
+                  <span className={styles.optionBtnGlow} />
                   <span className={styles.optionLabel}>{opt.label}</span>
                   {opt.desc && <span className={styles.optionDesc}>{opt.desc}</span>}
                 </button>

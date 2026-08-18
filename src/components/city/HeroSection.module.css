@@ -276,41 +276,8 @@ a.heroBigLink:hover {
 
 .heroCardFlag { font-size: 2rem; line-height: 1; }
 
-/* ── Score ring ── */
-.ringWrap {
-  position: relative; margin: 0 auto;
-}
-
-.ringsvg { width: 100%; height: 100%; }
-
-.ringCenter {
-  position: absolute; inset: 0;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  padding: 0 6%; /* margen de seguridad para que el texto nunca toque el trazo del anillo */
-}
-
-/* El font-size real lo fija el componente en línea, proporcional al tamaño
-   del anillo (ver ScoreRing) — el valor de aquí es solo un fallback. */
-.ringScore {
-  font-family: var(--font-display); font-size: 2.2rem;
-  font-weight: 800; line-height: 1;
-  white-space: nowrap;
-  max-width: 100%;
-}
-
-.ringDen {
-  font-size: 0.72rem; color: rgba(255,255,255,0.4);
-  font-family: var(--font-body);
-  white-space: nowrap;
-}
-
-.ringLabel {
-  font-size: 0.6rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.04em;
-  margin-top: 2px; font-family: var(--font-body);
-  white-space: nowrap;
-}
+/* Score ring: componente compartido ScoreRing.jsx, estilos en global.css
+   (.score-ring / .score-ring__*) — nada que definir aquí. */
 
 /* ── Stats ── */
 .heroStats {

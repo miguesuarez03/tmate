@@ -7,8 +7,13 @@ import { Navbar, Footer } from "../components/Layout";
 import { IconRanking, IconCorona, IconBeca, IconUniversidad, IconClima, IconIdiomas, IconCheck, IconAlerta, IconComparar, IconLupa } from "../components/icons";
 import { getCategoryIcon } from "../lib/categoryIcons";
 import MethodologyNote from "../components/MethodologyNote";
+import ScoreRing from "../components/ScoreRing";
 import { useSEO } from "../hooks/useSEO";
 import styles from "./ComparePage.module.css";
+
+// Mismo top trending que la home — cuando no hay nada seleccionado, se usa
+// como bloque destacado en vez de empezar directo con la sopa de acordeones.
+const TRENDING_SLUGS = ["bolonia", "lisboa", "berlin", "praga", "viena"];
 
 const SCORE_IDS = [
   "coste", "alojamiento", "vida_social", "integracion",
@@ -280,6 +285,31 @@ function MiniCard({ city, checked = false, disabled = false, accentColor, onClic
         <span className={styles.miniName}>{city.name}</span>
         <span className={styles.miniCountry}>{city.country}</span>
       </span>
+    </button>
+  );
+}
+
+/* ─── Featured card (seleccionadas / trending) — jerarquía visual clara,
+   nada que ver con el tamaño mini de las regiones de debajo ──────────────── */
+function FeaturedCard({ city, checked = false, accentColor, onClick }) {
+  const overall = getOverallScore(city.slug);
+  return (
+    <button
+      type="button"
+      className={`${styles.featuredCard} ${checked ? styles.featuredCardSelected : ""}`}
+      style={checked ? { "--tile-color": accentColor } : {}}
+      onClick={onClick}
+    >
+      <img className={styles.featuredImg} src={city.img} alt="" loading="lazy" onError={(e) => { e.currentTarget.style.opacity = 0; }} />
+      <div className={styles.featuredOverlay} />
+      {checked && <span className={styles.featuredCheck}><IconCheck size={18} /></span>}
+      <div className={styles.featuredBody}>
+        <div>
+          <p className={styles.featuredName}>{city.emoji} {city.name}</p>
+          <p className={styles.featuredCountry}>{city.country}</p>
+        </div>
+        <ScoreRing score={overall} size={46} showLabel={false} animate={false} />
+      </div>
     </button>
   );
 }
@@ -712,15 +742,16 @@ export default function ComparePage() {
           <p className={styles.hint}>Selecciona de 2 a 3 ciudades para empezar la comparativa</p>
         )}
 
-        {/* Seleccionadas — siempre arriba del todo, fuera de las regiones */}
+        {/* Seleccionadas — destacadas en grande arriba del todo, fuera de
+            las regiones, para que no compitan visualmente con el resto. */}
         {selected.length > 0 && (
           <section className={styles.selectedSection}>
             <h2 className={styles.groupTitle}>
               Seleccionadas <span className={styles.groupCount}>{selected.length}/3</span>
             </h2>
-            <div className={styles.miniGrid}>
+            <div className={styles.featuredGrid}>
               {selectedCities.map((city, i) => (
-                <MiniCard
+                <FeaturedCard
                   key={city.slug}
                   city={city}
                   checked
@@ -728,6 +759,23 @@ export default function ComparePage() {
                   onClick={() => remove(city.slug)}
                 />
               ))}
+            </div>
+          </section>
+        )}
+
+        {/* Sin nada seleccionado todavía: destinos trending destacados en
+            grande, en vez de arrancar directo en la sopa de acordeones. */}
+        {selected.length === 0 && !search && (
+          <section className={styles.selectedSection}>
+            <h2 className={styles.groupTitle}>Destinos con más tirón ahora mismo</h2>
+            <div className={styles.featuredGrid}>
+              {TRENDING_SLUGS.map((slug) => {
+                const city = CITIES.find((c) => c.slug === slug);
+                if (!city) return null;
+                return (
+                  <FeaturedCard key={slug} city={city} onClick={() => toggle(slug)} />
+                );
+              })}
             </div>
           </section>
         )}

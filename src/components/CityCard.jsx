@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IconFuego } from "./icons";
-import { isErasmusEligible } from "../lib/cities";
+import { isErasmusEligible, getOverallScore } from "../lib/cities";
+import ScoreRing from "./ScoreRing";
 
 export default function CityCard({ city }) {
   const [hovered, setHovered] = useState(false);
   const navigate = useNavigate();
+  const overall = getOverallScore(city.slug);
 
   return (
     <div
@@ -42,9 +44,13 @@ export default function CityCard({ city }) {
 
       {/* Bottom content */}
       <div className="city-card__content">
-        {/* Name + country row */}
-        <p className="city-card__name">{city.name}</p>
-        <p className="city-card__country">{city.emoji} {city.country}</p>
+        <div className="city-card__contentTop">
+          <div>
+            <p className="city-card__name">{city.name}</p>
+            <p className="city-card__country">{city.emoji} {city.country}</p>
+          </div>
+          <ScoreRing score={overall} size={44} showLabel={false} animate={false} />
+        </div>
 
         {/* Phrase — always visible */}
         <p className="city-card__phrase">{city.phrase}</p>

@@ -1,5 +1,5 @@
 import { useId, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import {
   IconExplorar,
   IconCityMatch,
@@ -63,11 +63,11 @@ export function MASymbol({ size = 28 }) {
   );
 }
 
-export function Logo({ dark = false, onClick }) {
+export function Logo({ dark = false, onClick, iconSize = 26 }) {
   return (
     <div className="navbar__logo" onClick={onClick} role="button" tabIndex={0} aria-label="Ir al inicio">
       <div className="navbar__logo-icon">
-        <MASymbol size={26} />
+        <MASymbol size={iconSize} />
       </div>
       <span className="navbar__logo-text" style={{ color: dark ? "var(--color-dark)" : "#fff" }}>
         Abroad
@@ -75,6 +75,10 @@ export function Logo({ dark = false, onClick }) {
     </div>
   );
 }
+
+// ~30% más grande que el tamaño base (26px) — solo para el header/navbar,
+// el texto "Abroad" no cambia de tamaño (fuente aparte, en navbar__logo-text).
+const HEADER_LOGO_ICON_SIZE = 34;
 
 const MENU_ITEMS = [
   {
@@ -120,6 +124,41 @@ const MENU_ITEMS = [
     action: "share",
   },
 ];
+
+// Navegación horizontal (desktop/tablet-landscape, ver .navbar__links en
+// global.css) — etiquetas cortas a propósito, distintas de las de
+// MENU_ITEMS (que sí llevan descripción larga, para el drawer móvil). No
+// incluye "Cuéntanos tu experiencia": es una acción secundaria (abre un
+// modal en Home), no una sección — se queda solo en el drawer móvil.
+export const NAV_LINKS = [
+  { label: "Destinos", path: "/" },
+  { label: "City Match", path: "/city-match" },
+  { label: "Comparar", path: "/comparar" },
+  { label: "Proceso", path: "/proceso" },
+  { label: "Beca", path: "/beca-erasmus" },
+  { label: "Learning Agreement", path: "/learning-agreement" },
+];
+
+function HorizontalNav({ isDark }) {
+  const location = useLocation();
+  return (
+    <div className="navbar__links">
+      {NAV_LINKS.map((link) => {
+        const active = location.pathname === link.path;
+        return (
+          <Link
+            key={link.path}
+            to={link.path}
+            className={`navbar__link${active ? " navbar__link--active" : ""}`}
+            style={{ color: isDark ? "rgba(255,255,255,0.88)" : "var(--color-dark)" }}
+          >
+            {link.label}
+          </Link>
+        );
+      })}
+    </div>
+  );
+}
 
 function useMenuAction(navigate, setMenuOpen) {
   return (action) => {
@@ -227,11 +266,33 @@ export function Navbar({ transparent = false }) {
 
   const isDark = transparent && !scrolled && !menuOpen;
 
+  // Solo en Home (transparent=true, exclusivo de HomePage): si ya se ha
+  // hecho scroll, el logo actúa como "volver arriba" en vez de navegar.
+  // En el resto de páginas mantiene su comportamiento normal (ir a "/").
+  const handleLogoClick = () => {
+    setMenuOpen(false);
+    if (transparent && scrolled) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/");
+    }
+  };
+
   return (
     <>
       <nav className={`navbar ${scrolled || !transparent || menuOpen ? "navbar--scrolled" : ""}`}>
-        <Logo dark={!isDark} onClick={() => { setMenuOpen(false); navigate("/"); }} />
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <Logo dark={!isDark} onClick={handleLogoClick} iconSize={HEADER_LOGO_ICON_SIZE} />
+          <HorizontalNav isDark={isDark} />
+        </div>
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginLeft: "auto" }}>
+          <button
+            type="button"
+            className="navbar__cta"
+            onClick={() => navigate("/city-match")}
+          >
+            City Match
+          </button>
           <ThemeToggle isDark={isDark} />
           <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={isDark} />
         </div>
@@ -258,7 +319,7 @@ export function NavbarCity({ cityName, overall }) {
   return (
     <>
       <nav className="navbar navbar--scrolled" style={{ position: "fixed", zIndex: 1000 }}>
-        <Logo dark onClick={() => navigate("/")} />
+        <Logo dark onClick={() => navigate("/")} iconSize={HEADER_LOGO_ICON_SIZE} />
         <div className="navbar__city-breadcrumb">
           <span style={{ cursor: "pointer", color: "var(--color-primary)" }} onClick={() => navigate("/")}>Inicio</span>
           <span>›</span>
