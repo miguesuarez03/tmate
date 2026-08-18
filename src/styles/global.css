@@ -865,11 +865,15 @@ a { text-decoration: none; color: inherit; }
   .city-hero__score-badge { top: auto; bottom: 130px; right: 24px; }
 }
 
-@media (max-width: 768px) {
-  /* Más padding-top que antes: deja sitio para .hero__quicklinks, que
-     flota justo debajo del navbar (64px) sin pisar el crest/badge. */
-  .hero { padding-top: 132px; padding-bottom: 72px; }
-  .hero__title { font-size: clamp(32px, 9vw, 52px); letter-spacing: -1px; white-space: normal; }
+/* El navbar horizontal de escritorio (.navbar__links) solo aparece desde
+   1200px — por debajo de eso (tablets incluidas: iPad portrait 768-834px,
+   landscape 1024-1194px) queda oculto detrás de la hamburguesa. Sin este
+   bloque, cualquier ancho entre 769px y 1199px se quedaba sin NINGÚN
+   acceso rápido visible (.hero__quicklinks solo cubría ≤768px) — hueco
+   real para iPad. Se cubre aquí, para todo ese rango, con el mismo
+   .hero__quicklinks que ya usa el móvil. */
+@media (max-width: 1199px) {
+  .hero { padding-top: 132px; }
   .hero__quicklinks {
     display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
     gap: 4px;
@@ -882,6 +886,11 @@ a { text-decoration: none; color: inherit; }
     box-shadow: var(--shadow-sm);
     z-index: 3;
   }
+}
+
+@media (max-width: 768px) {
+  .hero { padding-bottom: 72px; }
+  .hero__title { font-size: clamp(32px, 9vw, 52px); letter-spacing: -1px; white-space: normal; }
   /* Los stats se ven también en móvil (antes los tapaba el nav que ahora
      está arriba) — un poco más pequeños que en desktop, presentes pero
      sin protagonismo. */
