@@ -185,11 +185,11 @@ a { text-decoration: none; color: inherit; }
    la hamburguesa exactamente en el mismo punto. */
 .navbar__links { display: none; }
 .navbar__link {
-  background: transparent; border: none; padding: 7px 12px;
-  font-size: 13.5px; font-weight: 500; border-radius: var(--radius-sm);
+  background: transparent; border: none; padding: 8px 15px;
+  font-size: 14.5px; font-weight: 600; border-radius: var(--radius-sm);
   text-decoration: none; white-space: nowrap;
   transition: color var(--transition-fast), background var(--transition-fast), opacity var(--transition-fast);
-  opacity: 0.82;
+  opacity: 0.85;
 }
 .navbar__link:hover { background: rgba(127,127,127,0.12); opacity: 1; }
 .navbar__link--active { opacity: 1; font-weight: 700; }
@@ -202,8 +202,15 @@ a { text-decoration: none; color: inherit; }
 }
 .navbar__cta:hover { opacity: 0.9; transform: translateY(-1px); }
 
-@media (min-width: 1024px) {
-  .navbar__links { display: flex; align-items: center; gap: 2px; margin-left: 28px; }
+/* Breakpoint más generoso que antes (1200px en vez de 1024px): con los
+   enlaces centrados de forma absoluta y más grandes, a 1024px se pisaban
+   con el logo/CTA en vez de quedar centrados con aire. */
+@media (min-width: 1200px) {
+  .navbar__links {
+    display: flex; align-items: center; gap: 2px;
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+  }
   .navbar__cta { display: inline-flex; align-items: center; }
   .navbar__hamburger { display: none; }
 }
@@ -307,45 +314,16 @@ a { text-decoration: none; color: inherit; }
 }
 .hero__orb { position: absolute; border-radius: 50%; pointer-events: none; animation: pulse 4s ease-in-out infinite; }
 .hero__content { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; align-items: center; }
-/* Composición de hero inspirada en travelingua.es: símbolo de marca grande
-   y centrado arriba, con los accesos rápidos como pills alrededor —
-   convive con la navegación horizontal normal del header (misma lista de
-   enlaces, NAV_LINKS, para no duplicar destinos distintos y confundir). */
+/* Símbolo de marca grande y centrado arriba del hero (composición
+   inspirada en travelingua.es) — sin círculo/badge alrededor, ni pills de
+   navegación repetidas (la navegación ya está en el header, ver
+   .navbar__links; duplicarla aquí debajo confundía). */
 .hero__crest {
-  display: flex; flex-direction: column; align-items: center; gap: 16px;
-  margin-bottom: 30px;
-}
-.hero__crest-logo {
-  width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.16);
-  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 8px 28px rgba(0,0,0,0.28);
-}
-.hero__crest-pills {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
-  max-width: 620px;
-}
-.hero__crest-pill {
-  padding: 7px 16px;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(255,255,255,0.04);
-  color: rgba(255,255,255,0.72);
-  font-family: var(--font-body);
-  font-size: 12.5px; font-weight: 500;
-  text-decoration: none; white-space: nowrap;
-  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
-}
-.hero__crest-pill:hover {
-  background: rgba(245,150,58,0.16);
-  border-color: rgba(245,150,58,0.4);
-  color: #fff;
+  display: flex; justify-content: center;
+  margin-bottom: 22px;
 }
 @media (max-width: 640px) {
-  .hero__crest-pills { display: none; } /* en móvil ya está la hamburguesa para navegar; evita saturar el hero */
-  .hero__crest-logo { width: 52px; height: 52px; }
+  .hero__crest svg { width: 32px; height: auto; }
 }
 
 /* Eyebrow editorial, no un pill/chip flotante: sin fondo, sin glow, sin

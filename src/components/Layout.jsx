@@ -283,10 +283,8 @@ export function Navbar({ transparent = false }) {
   return (
     <>
       <nav className={`navbar ${scrolled || !transparent || menuOpen ? "navbar--scrolled" : ""}`}>
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <Logo dark={!isDark} onClick={handleLogoClick} iconSize={HEADER_LOGO_ICON_SIZE} />
-          <HorizontalNav isDark={isDark} />
-        </div>
+        <Logo dark={!isDark} onClick={handleLogoClick} iconSize={HEADER_LOGO_ICON_SIZE} />
+        <HorizontalNav isDark={isDark} />
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginLeft: "auto" }}>
           <button
             type="button"

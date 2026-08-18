@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef, useMemo, lazy, Suspense } from "react";
-import { useNavigate, useSearchParams, Link } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { CITIES } from "../data/cities";
 import { getScoreMap, getOverallScore } from "../lib/cities";
-import { Navbar, Footer, SectionLabel, MASymbol, NAV_LINKS } from "../components/Layout";
+import { Navbar, Footer, SectionLabel, MASymbol } from "../components/Layout";
 import { IconCityMatch, IconComparar, IconBeca, IconRanking, IconComunidad, IconSeguridad, IconUniversidad, IconMedalla, IconCamara, IconEdificio, IconFiesta, IconLapiz } from "../components/icons";
 import SearchBar from "../components/SearchBar";
 import CityCard from "../components/CityCard";
@@ -825,17 +825,8 @@ export default function HomePage() {
         <div className="hero__orb" style={{ bottom: "18%", right: "4%", width: 260, height: 260, background: "radial-gradient(circle, rgba(63,122,125,0.2) 0%, transparent 70%)", animationDelay: "2s" }} />
 
         <div className="hero__content">
-          <div className="hero__crest fade-up-1">
-            <div className="hero__crest-logo" aria-hidden="true">
-              <MASymbol size={40} />
-            </div>
-            <nav className="hero__crest-pills" aria-label="Accesos rápidos">
-              {NAV_LINKS.map((link) => (
-                <Link key={link.path} to={link.path} className="hero__crest-pill">
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
+          <div className="hero__crest fade-up-1" aria-hidden="true">
+            <MASymbol size={40} />
           </div>
 
           <div className="hero__badge fade-up-1">
