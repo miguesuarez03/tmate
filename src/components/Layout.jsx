@@ -141,7 +141,21 @@ export const NAV_LINKS = [
   { label: "Learning Agreement", path: "/learning-agreement" },
 ];
 
-function HorizontalNav({ isDark }) {
+// Un color de texto por enlace (salvo City Match, que ya tiene su propio
+// degradado de marca) — variedad discreta en vez de todo el mismo tono,
+// sin llegar a los pills/fondos de City Match. Todos son tokens que ya se
+// adaptan solos a modo oscuro (o, en el caso de --navlink-beca, definidos
+// explícitamente para ambos modos en global.css) — nunca colores fijos,
+// para no perder contraste al cambiar de tema.
+export const NAV_LINK_COLORS = {
+  "/": "var(--color-dark)",
+  "/comparar": "var(--color-teal)",
+  "/proceso": "var(--color-slate)",
+  "/beca-erasmus": "var(--navlink-beca)",
+  "/learning-agreement": "var(--color-dark-mid)",
+};
+
+function HorizontalNav() {
   const location = useLocation();
   return (
     <div className="navbar__links">
@@ -153,7 +167,7 @@ function HorizontalNav({ isDark }) {
             key={link.path}
             to={link.path}
             className={`navbar__link${active ? " navbar__link--active" : ""}${isCityMatch ? " navbar__link--cta" : ""}`}
-            style={isCityMatch ? undefined : { color: isDark ? "rgba(255,255,255,0.88)" : "var(--color-dark)" }}
+            style={isCityMatch ? undefined : { color: NAV_LINK_COLORS[link.path] }}
           >
             {link.label}
           </Link>
@@ -290,7 +304,7 @@ export function Navbar({ transparent = false }) {
     <>
       <nav className="navbar navbar--scrolled">
         <Logo dark onClick={handleLogoClick} iconSize={HEADER_LOGO_ICON_SIZE} />
-        <HorizontalNav isDark={false} />
+        <HorizontalNav />
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginLeft: "auto" }}>
           <ThemeToggle isDark={false} />
           <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={false} />

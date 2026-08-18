@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useMemo, lazy, Suspense } from "react";
 import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import { CITIES } from "../data/cities";
 import { getScoreMap, getOverallScore } from "../lib/cities";
-import { Navbar, Footer, SectionLabel, MASymbol, NAV_LINKS } from "../components/Layout";
+import { Navbar, Footer, SectionLabel, MASymbol, NAV_LINKS, NAV_LINK_COLORS } from "../components/Layout";
 import { IconCityMatch, IconComparar, IconBeca, IconRanking, IconComunidad, IconSeguridad, IconUniversidad, IconMedalla, IconCamara, IconEdificio, IconFiesta, IconLapiz } from "../components/icons";
 import SearchBar from "../components/SearchBar";
 import CityCard from "../components/CityCard";
@@ -870,6 +870,28 @@ export default function HomePage() {
         <div className="hero__orb" style={{ top: "14%", left: "7%", width: 320, height: 320, background: "radial-gradient(circle, rgba(245,150,58,0.22) 0%, transparent 70%)" }} />
         <div className="hero__orb" style={{ bottom: "18%", right: "4%", width: 260, height: 260, background: "radial-gradient(circle, rgba(63,122,125,0.2) 0%, transparent 70%)", animationDelay: "2s" }} />
 
+        {/* Solo en móvil (ver CSS): el navbar horizontal de escritorio se
+            esconde detrás de la hamburguesa, así que estos 3 accesos
+            (los mismos que ya no caben en el navbar) flotan aquí, justo
+            debajo del logo/hamburguesa — mismos colores por enlace que en
+            desktop, sobre una píldora pequeña tipo navbar (glass), no muy
+            llamativa. */}
+        <nav className="hero__quicklinks" aria-label="Accesos rápidos">
+          {HERO_MOBILE_LINKS.map((link) => {
+            const isCityMatch = link.path === "/city-match";
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`hero__quicklink${isCityMatch ? " hero__quicklink--cta" : ""}`}
+                style={isCityMatch ? undefined : { color: NAV_LINK_COLORS[link.path] }}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </nav>
+
         <div className="hero__content">
           <div className="hero__crest fade-up-1" aria-hidden="true">
             <MASymbol size={40} />
@@ -906,6 +928,10 @@ export default function HomePage() {
           </div>
         </div>
 
+        {/* Mismos stats en desktop y en móvil — en móvil sustituían a un
+            nav (ver .hero__quicklinks, ahora arriba), pero un número no
+            es un enlace muerto: tiene sentido dejarlos, solo más
+            pequeños/discretos que en desktop. */}
         <div className="hero__stats">
           {STATS.map((s) => (
             <div key={s.label} className="hero__stat">
@@ -914,20 +940,6 @@ export default function HomePage() {
             </div>
           ))}
         </div>
-
-        {/* Solo en móvil (ver CSS): atajos a secciones — en desktop esa
-            info ya está arriba, en el navbar horizontal, pero en móvil el
-            navbar se esconde detrás de la hamburguesa. Solo 3 accesos (no
-            los 6 del navbar): Destinos ya es la propia Home, y Comparar/
-            Beca quedan a un toque en la hamburguesa — menos ruido, más
-            aire entre los que quedan. */}
-        <nav className="hero__mobile-nav" aria-label="Accesos rápidos">
-          {HERO_MOBILE_LINKS.map((link) => (
-            <Link key={link.path} to={link.path} className="hero__mobile-nav-link">
-              {link.label}
-            </Link>
-          ))}
-        </nav>
       </section>
 
       {/* ACCESOS PRINCIPALES */}
