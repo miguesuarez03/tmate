@@ -195,8 +195,10 @@ a { text-decoration: none; color: inherit; }
   text-decoration: none; white-space: nowrap;
   transition: background 0.22s ease, color 0.22s ease;
 }
-.navbar__link:hover { background: var(--color-primary); color: #fff; }
-.navbar__link--active { background: var(--color-primary); color: #fff; font-weight: 700; }
+/* El relleno usa el mismo degradado que el botón "Explorar" (--gradient-
+   brand), no naranja plano — mismo lenguaje de color en toda la página. */
+.navbar__link:hover { background: var(--gradient-brand); color: #fff; }
+.navbar__link--active { background: var(--gradient-brand); color: #fff; font-weight: 700; }
 
 /* Breakpoint más generoso que antes (1200px en vez de 1024px): con los
    enlaces centrados de forma absoluta y más grandes, a 1024px se pisaban
@@ -414,7 +416,7 @@ a { text-decoration: none; color: inherit; }
   box-shadow: var(--shadow-sm);
   transition: background 0.22s ease, color 0.22s ease;
 }
-.hero__quicklink:hover, .hero__quicklink:active { background: var(--color-primary); color: #fff; }
+.hero__quicklink:hover, .hero__quicklink:active { background: var(--gradient-brand); color: #fff; }
 
 /* ─── QUICK ACCESS (3 accesos principales) ──────────────────────────────── */
 .quick-access {
@@ -861,33 +863,59 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* El navbar horizontal de escritorio (.navbar__links) solo aparece desde
-   1200px — por debajo de eso (tablets incluidas: iPad portrait 768-834px,
-   landscape 1024-1194px) queda oculto detrás de la hamburguesa. Sin este
-   bloque, cualquier ancho entre 769px y 1199px se quedaba sin NINGÚN
-   acceso rápido visible (.hero__quicklinks solo cubría ≤768px) — hueco
-   real para iPad. Se cubre aquí, para todo ese rango, con el mismo
-   .hero__quicklinks que ya usa el móvil. */
+   1200px — por debajo de eso (tablets incluidas) queda oculto detrás de
+   la hamburguesa. Sin este bloque, cualquier ancho entre 769px y 1199px
+   se quedaba sin NINGÚN acceso rápido visible — hueco real para iPad.
+   Se cubre aquí, para todo ese rango, con .hero__quicklinks (nowrap +
+   scroll lateral en vez de wrap: con 3 ítems un wrap deja uno huérfano
+   en su propia línea, así siempre quedan en una sola fila). El bloque
+   siguiente (1024-1199px Y alto ≥600px) lo sustituye por el navbar
+   normal en el caso concreto de iPad en horizontal. */
 @media (max-width: 1199px) {
   .hero { padding-top: 122px; }
   .hero__quicklinks {
-    display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+    display: flex; flex-wrap: nowrap; overflow-x: auto; justify-content: center; align-items: center;
     gap: 8px;
     position: absolute; left: 50%; top: 78px; transform: translateX(-50%);
     max-width: calc(100% - 2 * var(--section-px));
     z-index: 3;
+    -webkit-overflow-scrolling: touch;
   }
 }
 
+/* iPad en horizontal (o cualquier tablet ancha): los accesos vuelven al
+   navbar, como en escritorio, en vez de la píldora flotante — así no
+   quedan pegados al logo. Min-width 1024px (no 769px) porque a un ancho
+   de iPad en VERTICAL (768-834px) los 6 enlaces no caben sin pisar el
+   logo — ahí se mantiene la píldora flotante. Min-height 600px para no
+   capturar un móvil grande en horizontal (ancho parecido a un iPad
+   pequeño, pero mucho menos alto) — ese caso sigue tratándose como
+   "vertical": la instrucción explícita fue que un móvil rotado no debe
+   comportarse como un iPad. */
+@media (min-width: 1024px) and (max-width: 1199px) and (min-height: 600px) {
+  .hero { padding-top: 90px; }
+  .hero__quicklinks { display: none; }
+  .navbar__hamburger { display: none; }
+  .navbar__links {
+    display: flex; align-items: center; gap: 4px;
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .navbar__link { font-size: 12.5px; padding: 6px 10px; }
+}
+
 @media (max-width: 768px) {
-  .hero { padding-bottom: 72px; }
+  /* "Sube todo lo demás" (crest/badge/título/subtítulo/buscador): en vez
+     de centrar verticalmente todo .hero__content en el alto completo
+     (lo que dejaba un hueco grande entre la píldora de accesos y el
+     resto), el contenido arranca justo debajo de la píldora — los stats
+     no se mueven, van aparte con position:absolute al fondo. */
+  .hero { padding-top: 122px; padding-bottom: 72px; justify-content: flex-start; }
   .hero__title { font-size: clamp(32px, 9vw, 52px); letter-spacing: -1px; white-space: normal; }
   .hero__quicklink { font-size: 11px; padding: 5px 10px; }
   /* Los stats se ven también en móvil (antes los tapaba el nav que ahora
      está arriba) — un poco más pequeños que en desktop, presentes pero
-     sin protagonismo. nowrap + overflow-x en vez de flex-wrap: con 3
-     ítems un wrap deja uno huérfano en su propia línea (se vio en
-     pantallas estrechas) — así siempre quedan en una fila, con scroll
-     lateral como último recurso en vez de partirse mal. */
+     sin protagonismo. */
   .hero__stats { gap: 14px; flex-wrap: nowrap; overflow-x: auto; max-width: calc(100% - 2 * var(--section-px)); -webkit-overflow-scrolling: touch; }
   .hero__stat { flex-shrink: 0; }
   .hero__stat-val { font-size: 15px; }

@@ -146,7 +146,9 @@ function HorizontalNav() {
   return (
     <div className="navbar__links">
       {NAV_LINKS.map((link) => {
-        const active = location.pathname === link.path;
+        // "Destinos" ("/") no se marca como activo: es la home por
+        // defecto, no una sección que tenga sentido ver "seleccionada".
+        const active = link.path !== "/" && location.pathname === link.path;
         return (
           <Link
             key={link.path}
