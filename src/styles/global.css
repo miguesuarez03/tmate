@@ -700,17 +700,25 @@ a { text-decoration: none; color: inherit; }
   align-items: center; justify-content: center;
   padding: 0 8%;
 }
+/* Sombra de contraste: el número/etiqueta usan un color dinámico según el
+   score (verde/teal/ámbar/rojo), así que sobre una foto de fondo variable
+   (hero de ciudad) el contraste no está garantizado. Un halo oscuro sutil
+   los mantiene legibles sea cual sea lo que haya detrás, sin tocar el
+   color/diseño del anillo en sí. */
 .score-ring__num {
   font-family: var(--font-display); font-weight: 800; line-height: 1;
   white-space: nowrap; max-width: 100%;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.45), 0 1px 10px rgba(0,0,0,0.3);
 }
 .score-ring__den {
   color: rgba(255,255,255,0.45); font-family: var(--font-body);
   white-space: nowrap; margin-top: 1px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.35);
 }
 .score-ring__label {
   font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
   margin-top: 2px; font-family: var(--font-body); white-space: nowrap;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.45), 0 1px 8px rgba(0,0,0,0.3);
 }
 /* Sobre fondos claros (listado, comparador) el denominador debe verse. */
 .score-ring--on-light .score-ring__den { color: var(--color-muted); }
