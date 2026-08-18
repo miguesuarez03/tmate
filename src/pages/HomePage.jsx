@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef, useMemo, lazy, Suspense } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import { CITIES } from "../data/cities";
 import { getScoreMap, getOverallScore } from "../lib/cities";
-import { Navbar, Footer, SectionLabel, MASymbol } from "../components/Layout";
+import { Navbar, Footer, SectionLabel, MASymbol, NAV_LINKS } from "../components/Layout";
 import { IconCityMatch, IconComparar, IconBeca, IconRanking, IconComunidad, IconSeguridad, IconUniversidad, IconMedalla, IconCamara, IconEdificio, IconFiesta, IconLapiz } from "../components/icons";
 import SearchBar from "../components/SearchBar";
 import CityCard from "../components/CityCard";
@@ -909,6 +909,20 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+
+        {/* Solo en móvil (ver CSS): sustituye a .hero__stats por accesos
+            directos a las secciones — en desktop esa info ya está arriba,
+            en el navbar horizontal, pero en móvil el navbar se esconde
+            detrás de la hamburguesa, así que aquí queda un atajo visible
+            sin tener que abrirla. Chips discretos, no texto plano como en
+            el navbar de escritorio. */}
+        <nav className="hero__mobile-nav" aria-label="Accesos rápidos">
+          {NAV_LINKS.map((link) => (
+            <Link key={link.path} to={link.path} className="hero__mobile-nav-link">
+              {link.label}
+            </Link>
+          ))}
+        </nav>
       </section>
 
       {/* ACCESOS PRINCIPALES */}
