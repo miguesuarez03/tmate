@@ -917,11 +917,24 @@ export default function HomePage() {
             sin tener que abrirla. Chips discretos, no texto plano como en
             el navbar de escritorio. */}
         <nav className="hero__mobile-nav" aria-label="Accesos rápidos">
-          {NAV_LINKS.map((link) => (
-            <Link key={link.path} to={link.path} className="hero__mobile-nav-link">
-              {link.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map((link) =>
+            link.path === "/" ? (
+              // Ya estamos en "/" — un <Link to="/"> no haría nada. En vez
+              // de un enlace muerto, este bajaa hasta el grid de ciudades.
+              <button
+                key={link.path}
+                type="button"
+                className="hero__mobile-nav-link"
+                onClick={() => document.querySelector(".section")?.scrollIntoView({ behavior: "smooth" })}
+              >
+                {link.label}
+              </button>
+            ) : (
+              <Link key={link.path} to={link.path} className="hero__mobile-nav-link">
+                {link.label}
+              </Link>
+            )
+          )}
         </nav>
       </section>
 
