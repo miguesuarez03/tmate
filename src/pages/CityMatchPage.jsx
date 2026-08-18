@@ -356,7 +356,7 @@ export default function CityMatchPage() {
                         <span className={styles.resultCountry}>{m.city.country}</span>
                       </div>
                       <div className={styles.resultHeadRight}>
-                        <ScoreRing score={overall} size={48} showLabel={false} animate={false} className="score-ring--on-light" />
+                        <ScoreRing score={overall} size={48} showLabel={false} animate={false} />
                         <div className={styles.matchBadge}>
                           <span className={styles.matchPercent}>{m.percent}%</span>
                           <span className={styles.matchLabel}>match</span>

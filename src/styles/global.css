@@ -691,52 +691,31 @@ a { text-decoration: none; color: inherit; }
 
 /* ─── SCORE RING (compartido: ficha, listado, comparador, City Match) ────── */
 /* El font-size real lo fija ScoreRing.jsx en línea, proporcional al tamaño
-   del anillo — los valores de aquí son solo fallback/estructura. */
+   del anillo — los valores de aquí son solo fallback/estructura.
+   El círculo es un relleno sólido de color (ver RING_FILL en ScoreRing.jsx)
+   con el texto siempre en blanco: contraste garantizado en cualquier fondo
+   (foto, tarjeta clara u oscura) sin depender de discos/sombras intermedios. */
 .score-ring { position: relative; margin: 0 auto; flex-shrink: 0; }
 .score-ring__svg { width: 100%; height: 100%; display: block; }
 .score-ring__center {
   position: absolute; inset: 0;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
-  padding: 0 8%;
+  padding: 0 10%;
 }
-/* Disco de fondo detrás del número — en vez de una sombra (que dependía de
-   adivinar bien el contraste caso a caso), el número se apoya siempre
-   sobre un color de fondo controlado y conocido, así que la legibilidad
-   queda garantizada sea cual sea la foto/superficie de detrás del anillo.
-   Azul marino por defecto (fichas, listado, comparador — siempre sobre
-   foto); blanco/oscuro-según-tema en los contextos claros marcados con
-   --on-light (City Match). Semitransparente y más pequeño (inset 18%, no
-   12%) para que se note menos como "un círculo sólido tapando todo" y más
-   como un aro de contraste discreto.
-   IMPORTANTE: un elemento position:absolute con z-index:auto se pinta por
-   ENCIMA de cualquier contenido normal del mismo contenedor, sin importar
-   el orden en el HTML — por eso el número/etiqueta (más abajo) necesitan
-   también position:relative, si no el disco los tapa por completo. */
-.score-ring__center-bg {
-  position: absolute; inset: 18%;
-  border-radius: 50%;
-  background: rgba(15,30,45,0.72);
-}
-.score-ring--on-light .score-ring__center-bg { background: color-mix(in srgb, var(--color-white) 80%, transparent); }
-
 .score-ring__num {
-  position: relative;
   font-family: var(--font-display); font-weight: 800; line-height: 1;
-  white-space: nowrap; max-width: 100%;
+  color: #fff; white-space: nowrap; max-width: 100%;
 }
 .score-ring__den {
-  position: relative;
-  color: rgba(255,255,255,0.5); font-family: var(--font-body);
+  color: rgba(255,255,255,0.75); font-family: var(--font-body);
   white-space: nowrap; margin-top: 1px;
 }
 .score-ring__label {
-  position: relative;
+  color: rgba(255,255,255,0.92);
   font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
   margin-top: 2px; font-family: var(--font-body); white-space: nowrap;
 }
-/* Sobre fondos claros (listado, comparador) el denominador debe verse. */
-.score-ring--on-light .score-ring__den { color: var(--color-muted); }
 
 /* ─── PROGRESS BAR ───────────────────────────────────────────────────────── */
 .progress-bar { height: 5px; background: var(--surface-2); border-radius: 99px; overflow: hidden; }
