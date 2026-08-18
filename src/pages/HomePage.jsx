@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useMemo, lazy, Suspense } from "react";
 import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import { CITIES } from "../data/cities";
 import { getScoreMap, getOverallScore } from "../lib/cities";
-import { Navbar, Footer, SectionLabel, MASymbol, NAV_LINKS, NAV_LINK_COLORS } from "../components/Layout";
+import { Navbar, Footer, SectionLabel, MASymbol, NAV_LINKS } from "../components/Layout";
 import { IconCityMatch, IconComparar, IconBeca, IconRanking, IconComunidad, IconSeguridad, IconUniversidad, IconMedalla, IconCamara, IconEdificio, IconFiesta, IconLapiz } from "../components/icons";
 import SearchBar from "../components/SearchBar";
 import CityCard from "../components/CityCard";
@@ -870,26 +870,17 @@ export default function HomePage() {
         <div className="hero__orb" style={{ top: "14%", left: "7%", width: 320, height: 320, background: "radial-gradient(circle, rgba(245,150,58,0.22) 0%, transparent 70%)" }} />
         <div className="hero__orb" style={{ bottom: "18%", right: "4%", width: 260, height: 260, background: "radial-gradient(circle, rgba(63,122,125,0.2) 0%, transparent 70%)", animationDelay: "2s" }} />
 
-        {/* Solo en móvil (ver CSS): el navbar horizontal de escritorio se
-            esconde detrás de la hamburguesa, así que estos 3 accesos
-            (los mismos que ya no caben en el navbar) flotan aquí, justo
-            debajo del logo/hamburguesa — mismos colores por enlace que en
-            desktop, sobre una píldora pequeña tipo navbar (glass), no muy
-            llamativa. */}
+        {/* En móvil/tablet (ver CSS, ≤1199px) el navbar horizontal de
+            escritorio se esconde detrás de la hamburguesa, así que estos
+            3 accesos flotan aquí, justo debajo del logo/hamburguesa —
+            mismo chip (fondo blanco, hilo naranja) que el navbar de
+            escritorio, cada uno suelto en vez de una caja envolvente. */}
         <nav className="hero__quicklinks" aria-label="Accesos rápidos">
-          {HERO_MOBILE_LINKS.map((link) => {
-            const isCityMatch = link.path === "/city-match";
-            return (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`hero__quicklink${isCityMatch ? " hero__quicklink--cta" : ""}`}
-                style={isCityMatch ? undefined : { color: NAV_LINK_COLORS[link.path] }}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
+          {HERO_MOBILE_LINKS.map((link) => (
+            <Link key={link.path} to={link.path} className="hero__quicklink">
+              {link.label}
+            </Link>
+          ))}
         </nav>
 
         <div className="hero__content">
