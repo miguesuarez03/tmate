@@ -49,6 +49,7 @@ export default function ScoreRing({ score, size = 96, showLabel = true, animate 
         />
       </svg>
       <div className="score-ring__center">
+        <span className="score-ring__center-bg" />
         <span className="score-ring__num" style={{ color, fontSize: scoreFontSize }}>{score}</span>
         <span className="score-ring__den" style={{ fontSize: denFontSize }}>/10</span>
         {showLabel && (
