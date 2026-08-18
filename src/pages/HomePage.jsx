@@ -33,6 +33,11 @@ const STATS = [
 
 const TRENDING = ["Bolonia", "Lisboa", "Berlín", "Praga", "Viena"];
 
+// Subconjunto de NAV_LINKS para los accesos rápidos del hero en móvil —
+// "Destinos" sobra (ya estamos en Home) y Comparar/Beca quedan bien
+// cubiertos por la hamburguesa; con solo 3 hay más aire entre chips.
+const HERO_MOBILE_LINKS = NAV_LINKS.filter((l) => ["/city-match", "/proceso", "/learning-agreement"].includes(l.path));
+
 // Fase 1 — Home: los 3 accesos principales que responden a la intención
 // más habitual de un estudiante que llega por primera vez.
 const QUICK_ACCESS = [
@@ -910,31 +915,18 @@ export default function HomePage() {
           ))}
         </div>
 
-        {/* Solo en móvil (ver CSS): sustituye a .hero__stats por accesos
-            directos a las secciones — en desktop esa info ya está arriba,
-            en el navbar horizontal, pero en móvil el navbar se esconde
-            detrás de la hamburguesa, así que aquí queda un atajo visible
-            sin tener que abrirla. Chips discretos, no texto plano como en
-            el navbar de escritorio. */}
+        {/* Solo en móvil (ver CSS): atajos a secciones — en desktop esa
+            info ya está arriba, en el navbar horizontal, pero en móvil el
+            navbar se esconde detrás de la hamburguesa. Solo 3 accesos (no
+            los 6 del navbar): Destinos ya es la propia Home, y Comparar/
+            Beca quedan a un toque en la hamburguesa — menos ruido, más
+            aire entre los que quedan. */}
         <nav className="hero__mobile-nav" aria-label="Accesos rápidos">
-          {NAV_LINKS.map((link) =>
-            link.path === "/" ? (
-              // Ya estamos en "/" — un <Link to="/"> no haría nada. En vez
-              // de un enlace muerto, este bajaa hasta el grid de ciudades.
-              <button
-                key={link.path}
-                type="button"
-                className="hero__mobile-nav-link"
-                onClick={() => document.querySelector(".section")?.scrollIntoView({ behavior: "smooth" })}
-              >
-                {link.label}
-              </button>
-            ) : (
-              <Link key={link.path} to={link.path} className="hero__mobile-nav-link">
-                {link.label}
-              </Link>
-            )
-          )}
+          {HERO_MOBILE_LINKS.map((link) => (
+            <Link key={link.path} to={link.path} className="hero__mobile-nav-link">
+              {link.label}
+            </Link>
+          ))}
         </nav>
       </section>
 

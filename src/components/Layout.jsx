@@ -147,12 +147,13 @@ function HorizontalNav({ isDark }) {
     <div className="navbar__links">
       {NAV_LINKS.map((link) => {
         const active = location.pathname === link.path;
+        const isCityMatch = link.path === "/city-match";
         return (
           <Link
             key={link.path}
             to={link.path}
-            className={`navbar__link${active ? " navbar__link--active" : ""}`}
-            style={{ color: isDark ? "rgba(255,255,255,0.88)" : "var(--color-dark)" }}
+            className={`navbar__link${active ? " navbar__link--active" : ""}${isCityMatch ? " navbar__link--cta" : ""}`}
+            style={isCityMatch ? undefined : { color: isDark ? "rgba(255,255,255,0.88)" : "var(--color-dark)" }}
           >
             {link.label}
           </Link>
@@ -291,13 +292,6 @@ export function Navbar({ transparent = false }) {
         <Logo dark onClick={handleLogoClick} iconSize={HEADER_LOGO_ICON_SIZE} />
         <HorizontalNav isDark={false} />
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginLeft: "auto" }}>
-          <button
-            type="button"
-            className="navbar__cta"
-            onClick={() => navigate("/city-match")}
-          >
-            City Match
-          </button>
           <ThemeToggle isDark={false} />
           <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={false} />
         </div>
