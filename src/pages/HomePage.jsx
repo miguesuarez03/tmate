@@ -158,6 +158,59 @@ const TESTIMONIALS = [
 
 
 
+// Anima "150" → cuenta entera, "2,4M" → cuenta el decimal manteniendo el
+// sufijo. Cualquier otro valor no numérico ("Gratis") se muestra tal cual,
+// sin animar. Dispara una sola vez al entrar en el viewport y respeta
+// prefers-reduced-motion (muestra el valor final directamente).
+function CountUpStat({ value }) {
+  const ref = useRef(null);
+  const intMatch = /^(\d+)$/.exec(value);
+  const decMatch = /^(\d+),(\d+)(\D*)$/.exec(value);
+  const animatable = Boolean(intMatch || decMatch);
+  const [display, setDisplay] = useState(
+    animatable ? (intMatch ? "0" : `0,0${decMatch[3]}`) : value
+  );
+  const done = useRef(false);
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion || !animatable) { setDisplay(value); return; }
+
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting || done.current) return;
+      done.current = true;
+      const start = performance.now();
+      const duration = 1100;
+
+      const target = intMatch ? parseInt(intMatch[1], 10) : parseInt(decMatch[1] + decMatch[2], 10);
+      const suffix = decMatch ? decMatch[3] : "";
+
+      function tick(now) {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        const current = Math.round(target * eased);
+        setDisplay(
+          intMatch
+            ? String(current)
+            : `${Math.floor(current / 10)},${current % 10}${suffix}`
+        );
+        if (p < 1) requestAnimationFrame(tick);
+        else setDisplay(value);
+      }
+      requestAnimationFrame(tick);
+      observer.disconnect();
+    }, { threshold: 0.5 });
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [value]);
+
+  return <span ref={ref} className="hero__stat-val">{display}</span>;
+}
+
 function AnimatedWord() {
   const [idx, setIdx] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -819,7 +872,7 @@ export default function HomePage() {
         <div className="hero__stats">
           {STATS.map((s) => (
             <div key={s.label} className="hero__stat">
-              <span className="hero__stat-val">{s.val}</span>
+              <CountUpStat value={s.val} />
               <span className="hero__stat-label">{s.label}</span>
             </div>
           ))}

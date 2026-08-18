@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getCityBySlug, getCityInsights, getRelatedCities, getOverallScore } from "../lib/cities";
-import { getCityJsonLd } from "../lib/seo";
+import { getCityJsonLd, getBreadcrumbJsonLd } from "../lib/seo";
 import { useSEO } from "../hooks/useSEO";
 import { NavbarCity, Footer } from "../components/Layout";
 import HeroSection        from "../components/city/HeroSection";
@@ -30,7 +30,7 @@ export default function CityDetailPage() {
     // restaurada al pulsar "atrás" desde el navegador.
   }, [slug, city, navigate]);
 
-  useSEO(city ? { city, overallScore, jsonLd: getCityJsonLd(city) } : {});
+  useSEO(city ? { city, overallScore, jsonLd: [getCityJsonLd(city), getBreadcrumbJsonLd(city)] } : {});
 
   if (!city) return null;
 

@@ -10,13 +10,41 @@ export const SITE_NAME = "MAbroad";
 // City Match, beca, Learning Agreement). Las fichas de ciudad usan su heroImg.
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 
-export function getWebsiteJsonLd() {
+export function getOrganizationJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@type": "WebSite",
+    "@type": "Organization",
     name: SITE_NAME,
     url: SITE_URL,
-    description: "La guía definitiva para elegir tu ciudad Erasmus, con scores reales, comparador y calculadora de beca.",
+    logo: `${SITE_URL}/favicon-512.png`,
+  };
+}
+
+export function getWebsiteJsonLd() {
+  // Array (varios nodos @type en un mismo <script type="application/ld+json">)
+  // en vez de un solo objeto — válido en JSON-LD y evita tener que elegir
+  // entre WebSite y Organization en la home, que necesita las dos.
+  return [
+    getOrganizationJsonLd(),
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: SITE_NAME,
+      url: SITE_URL,
+      description: "La guía definitiva para elegir tu ciudad Erasmus, con scores reales, comparador y calculadora de beca.",
+    },
+  ];
+}
+
+/** Migas de pan (Inicio › Ciudad) para las fichas de destino. */
+export function getBreadcrumbJsonLd(city) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: city.name, item: `${SITE_URL}/city/${city.slug}` },
+    ],
   };
 }
 

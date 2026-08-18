@@ -118,6 +118,21 @@
 /* ─── RESET ──────────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+/* Red de seguridad global para prefers-reduced-motion: en vez de auditar
+   cada animación/transition una a una, se recortan todas a casi-cero de
+   golpe para quien lo pida en el sistema — mantiene el layout final (no
+   usa display:none ni desactiva transform en seco, solo acelera el tiempo
+   a un valor imperceptible) sin tener que duplicar reglas por componente. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 body { font-family: var(--font-body); background: var(--color-white); color: var(--color-dark); overflow-x: hidden; line-height: 1.5; }
 img { max-width: 100%; display: block; }
 button { cursor: pointer; font-family: var(--font-body); }
@@ -525,9 +540,13 @@ a { text-decoration: none; color: inherit; }
   /* Dark bg while image loads */
   background: #0F1E2D;
   transform: translateY(0) scale(1);
-  transition: transform var(--transition-med), box-shadow 0.3s ease;
+  transition: transform var(--transition-med), box-shadow 0.3s ease, opacity 0.6s var(--ease-smooth);
   box-shadow: var(--shadow-sm);
 }
+/* Entrada suave al hacer scroll (ver CityCard.jsx / IntersectionObserver) —
+   estado inicial antes de entrar en el viewport. */
+.city-card:not(.city-card--in-view) { opacity: 0; transform: translateY(24px) scale(1); }
+.city-card--in-view { opacity: 1; }
 .city-card:hover { transform: translateY(-6px) scale(1.012); box-shadow: var(--shadow-lg); }
 .city-card:focus { outline: 2px solid var(--color-primary); outline-offset: 3px; }
 

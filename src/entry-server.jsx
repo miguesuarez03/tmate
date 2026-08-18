@@ -34,7 +34,7 @@ import TiposDeIntercambioPage from "./pages/TiposDeIntercambioPage";
 
 import { CITIES } from "./data/cities";
 import { getCityBySlug, getOverallScore, getCityMeta, getHomeMeta } from "./lib/cities";
-import { getCityJsonLd, getWebsiteJsonLd, SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from "./lib/seo";
+import { getCityJsonLd, getBreadcrumbJsonLd, getWebsiteJsonLd, SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from "./lib/seo";
 
 const DEFAULT_TITLE = "MAbroad — Descubre y compara tu ciudad Erasmus ideal";
 
@@ -136,7 +136,7 @@ export function getMetaForPath(pathname) {
         canonical,
         ogType: "article",
         ogImage: m.ogImage || null,
-        jsonLd: getCityJsonLd(city),
+        jsonLd: [getCityJsonLd(city), getBreadcrumbJsonLd(city)],
       };
     }
   }

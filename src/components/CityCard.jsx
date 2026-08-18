@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { IconFuego } from "./icons";
 import { isErasmusEligible, getOverallScore } from "../lib/cities";
@@ -6,12 +6,30 @@ import ScoreRing from "./ScoreRing";
 
 export default function CityCard({ city }) {
   const [hovered, setHovered] = useState(false);
+  const [inView, setInView] = useState(false);
+  const cardRef = useRef(null);
   const navigate = useNavigate();
   const overall = getOverallScore(city.slug);
 
+  // Entrada suave al hacer scroll — una sola vez, con IntersectionObserver
+  // en vez de un listener de scroll propio. prefers-reduced-motion ya se
+  // gestiona globalmente (ver global.css), así que aquí no hace falta
+  // duplicar esa comprobación: la transición simplemente se acorta a
+  // instantánea si el usuario lo tiene activado.
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { setInView(true); observer.disconnect(); }
+    }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div
-      className="city-card"
+      ref={cardRef}
+      className={`city-card${inView ? " city-card--in-view" : ""}`}
       onClick={() => navigate(`/city/${city.slug}`)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
