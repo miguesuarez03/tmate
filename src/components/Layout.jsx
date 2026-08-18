@@ -266,8 +266,13 @@ export function Navbar({ transparent = false }) {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
-  const isDark = transparent && !scrolled && !menuOpen;
-
+  // Antes el navbar de Home nacía transparente y flotaba sobre la foto/vídeo
+  // del hero hasta el primer scroll (isDark=true → texto blanco sin fondo
+  // detrás). Se quita: sobre un fondo variable (foto, degradado, vídeo) el
+  // contraste del texto no se puede garantizar, así que el navbar lleva
+  // siempre el mismo fondo sólido/glass que ya usan el resto de páginas y
+  // NavbarCity — mismo componente, un solo aspecto, siempre legible.
+  //
   // Solo en Home (transparent=true, exclusivo de HomePage): si ya se ha
   // hecho scroll, el logo actúa como "volver arriba" en vez de navegar.
   // En el resto de páginas mantiene su comportamiento normal (ir a "/").
@@ -282,9 +287,9 @@ export function Navbar({ transparent = false }) {
 
   return (
     <>
-      <nav className={`navbar ${scrolled || !transparent || menuOpen ? "navbar--scrolled" : ""}`}>
-        <Logo dark={!isDark} onClick={handleLogoClick} iconSize={HEADER_LOGO_ICON_SIZE} />
-        <HorizontalNav isDark={isDark} />
+      <nav className="navbar navbar--scrolled">
+        <Logo dark onClick={handleLogoClick} iconSize={HEADER_LOGO_ICON_SIZE} />
+        <HorizontalNav isDark={false} />
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginLeft: "auto" }}>
           <button
             type="button"
@@ -293,8 +298,8 @@ export function Navbar({ transparent = false }) {
           >
             City Match
           </button>
-          <ThemeToggle isDark={isDark} />
-          <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={isDark} />
+          <ThemeToggle isDark={false} />
+          <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={false} />
         </div>
       </nav>
 

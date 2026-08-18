@@ -236,6 +236,47 @@ function AnimatedWord() {
   );
 }
 
+// Vídeo de prueba para el fondo del hero — placeholder libre de derechos
+// (Mixkit, licencia gratuita comercial) hasta que se elija el definitivo;
+// basta con cambiar estas dos constantes para sustituirlo.
+const HERO_VIDEO_URL = "https://assets.mixkit.co/videos/3130/3130-720.mp4";
+const HERO_PHOTO_URL = "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600&q=70";
+
+// Fondo del hero: vídeo en bucle si el navegador lo soporta y el usuario no
+// pide "reduced motion"; si no, la misma foto estática de siempre. Un
+// degradado oscuro por encima asegura que el título/subtítulo se lean igual
+// de bien sobre vídeo que sobre foto.
+function HeroBackground() {
+  const [reducedMotion, setReducedMotion] = useState(false);
+  const [videoFailed, setVideoFailed] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const onChange = (e) => setReducedMotion(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  const showVideo = !reducedMotion && !videoFailed;
+
+  if (!showVideo) return <div className="hero__img" />;
+
+  return (
+    <>
+      <video
+        className="hero__video"
+        autoPlay muted loop playsInline preload="metadata"
+        poster={HERO_PHOTO_URL}
+        onError={() => setVideoFailed(true)}
+      >
+        <source src={HERO_VIDEO_URL} type="video/mp4" />
+      </video>
+      <div className="hero__video-overlay" />
+    </>
+  );
+}
+
 const VIBE_FILTERS = [
   { key: "fiesta",  label: "Fiesta",   Icon: IconFiesta, tags: ["Ciudad universitaria", "Ruin bars", "Oktoberfest", "Arte & Libertad", "Trending"] },
   { key: "cultura", label: "Cultura",  Icon: IconEdificio, tags: ["Historia viva", "Joya medieval", "Capital diplomática", "Arquitectura radical", "La ciudad luz", "Capital global", "Capital de Europa", "Fotogénica", "Calidad de vida #1"] },
@@ -820,7 +861,7 @@ export default function HomePage() {
       {/* HERO */}
       <section className="hero">
         <div className="hero__bg" />
-        <div className="hero__img" />
+        <HeroBackground />
         <div className="hero__orb" style={{ top: "14%", left: "7%", width: 320, height: 320, background: "radial-gradient(circle, rgba(245,150,58,0.22) 0%, transparent 70%)" }} />
         <div className="hero__orb" style={{ bottom: "18%", right: "4%", width: 260, height: 260, background: "radial-gradient(circle, rgba(63,122,125,0.2) 0%, transparent 70%)", animationDelay: "2s" }} />
 
