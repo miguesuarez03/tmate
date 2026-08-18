@@ -9,7 +9,7 @@
       <stop offset="0.55" stop-color="#55A9B3"/>
       <stop offset="1" stop-color="#A6D5DB"/>
     </linearGradient>
-    <linearGradient id="sun" x1="155" y1="365" x2="225" y2="295" gradientUnits="userSpaceOnUse">
+    <linearGradient id="sun" x1="275" y1="365" x2="345" y2="295" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#F5963A"/>
       <stop offset="1" stop-color="#F7CA52"/>
     </linearGradient>
@@ -20,5 +20,5 @@
   <path d="M185 365 L325 125 L465 365"
         stroke="url(#rightMountain)" stroke-width="50"
         stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M220 365 A65 65 0 0 1 350 365 Z" fill="url(#sun)"/>
+  <path d="M270 365 A65 65 0 0 1 400 365 Z" fill="url(#sun)"/>
 </svg>

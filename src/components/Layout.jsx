@@ -16,7 +16,9 @@ import ThemeToggle, { ThemeToggleRow } from "./ThemeToggle";
 // repasado en un degradado distinto para lograr el efecto bitono, y el sol
 // como semicírculo apoyado en la línea base entre las dos montañas.
 // El icono nunca se recolorea — mismos degradados siempre, independientemente
-// del modo claro/oscuro o del fondo del navbar. Fuente: MAbroad_symbol_only.svg
+// del modo claro/oscuro o del fondo del navbar.
+// Fuente: MAbroad_symbol_only_corrected.svg (sol desplazado a la derecha,
+// bajo el segundo pico, en vez de centrado en el valle).
 export function MASymbol({ size = 28 }) {
   // Un solo símbolo puede aparecer varias veces en la misma página (navbar +
   // footer, por ejemplo) — cada instancia necesita sus propios ids de
@@ -37,7 +39,7 @@ export function MASymbol({ size = 28 }) {
           <stop offset="0.55" stopColor="#55A9B3" />
           <stop offset="1" stopColor="#A6D5DB" />
         </linearGradient>
-        <linearGradient id={sunId} x1="155" y1="285" x2="225" y2="215" gradientUnits="userSpaceOnUse">
+        <linearGradient id={sunId} x1="275" y1="285" x2="345" y2="215" gradientUnits="userSpaceOnUse">
           <stop offset="0" stopColor="#F5963A" />
           <stop offset="1" stopColor="#F7CA52" />
         </linearGradient>
@@ -58,7 +60,7 @@ export function MASymbol({ size = 28 }) {
         strokeLinejoin="round"
         fill="none"
       />
-      <path d="M220 285 A65 65 0 0 1 350 285 Z" fill={`url(#${sunId})`} />
+      <path d="M270 285 A65 65 0 0 1 400 285 Z" fill={`url(#${sunId})`} />
     </svg>
   );
 }
