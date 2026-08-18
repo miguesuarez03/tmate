@@ -29,8 +29,13 @@
 
 .heroBgGradient {
   position: absolute; inset: 0;
+  /* 100% opaco (antes 0.96) justo en el borde inferior: con menos del
+     100% siempre quedaba un poquito de la foto asomando justo en la
+     costura con la sección siguiente (fondo blanco), lo que se veía como
+     una tira "sin cubrir". Ahora el corte hacia la sección de debajo es
+     limpio, sin foto visible en absoluto en ese borde. */
   background:
-    linear-gradient(to top,  rgba(8,12,22,0.96) 0%,  rgba(8,12,22,0.65) 40%, rgba(8,12,22,0.2) 70%,  transparent 100%),
+    linear-gradient(to top,  #0F1E2D 0%, rgba(8,12,22,0.96) 6%, rgba(8,12,22,0.65) 40%, rgba(8,12,22,0.2) 70%,  transparent 100%),
     linear-gradient(to right, rgba(8,12,22,0.75) 0%, rgba(8,12,22,0.3) 50%, transparent 80%);
 }
 
