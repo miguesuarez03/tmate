@@ -6,7 +6,7 @@
 
 import { CITIES } from '../data/cities';
 import { CITY_INSIGHTS, DEFAULT_INSIGHTS } from '../data/insights';
-import { DEFAULT_OG_IMAGE } from './seo';
+import { DEFAULT_OG_IMAGE, getCityOgImage } from './seo';
 
 /** @typedef {import('../types').City} City */
 /** @typedef {import('../types').CityFilters} CityFilters */
@@ -462,7 +462,7 @@ export function getCityMeta(city, overallScore) {
     keywords: eligible
       ? `Erasmus ${city.name}, ${city.nameEn} Erasmus, estudiar en ${city.country}, ${city.tag}`
       : `Estudiar en ${city.name}, ${city.nameEn} intercambio, estudiar en ${city.country}, ${city.tag}`,
-    ogImage: city.heroImg || DEFAULT_OG_IMAGE,
+    ogImage: getCityOgImage(city),
   };
 }
 

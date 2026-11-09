@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getCityBySlug, getCityInsights, getRelatedCities, getOverallScore } from "../lib/cities";
 import { getCityJsonLd, getBreadcrumbJsonLd } from "../lib/seo";
 import { useSEO } from "../hooks/useSEO";
@@ -12,27 +11,26 @@ import WeatherTimeline    from "../components/city/WeatherTimeline";
 import TipsSection        from "../components/city/TipsSection";
 import RelatedCities      from "../components/city/RelatedCities";
 import MethodologyNote    from "../components/MethodologyNote";
+import NotFoundPage       from "./NotFoundPage";
 import "../styles/cityDetailPage.css";
 
 export default function CityDetailPage() {
   const { slug }  = useParams();
-  const navigate  = useNavigate();
   const city          = getCityBySlug(slug);
   const insights      = getCityInsights(slug);
   const overallScore  = getOverallScore(slug);
   const relatedCities = city ? getRelatedCities(city, 3) : [];
 
-  useEffect(() => {
-    if (!city) navigate("/", { replace: true });
-    // Nota: el scroll (subir arriba al entrar / restaurar al volver atrás)
-    // lo gestiona <ScrollRestoration /> de forma global, así que aquí no
-    // forzamos window.scrollTo — si lo hiciéramos, pisaríamos la posición
-    // restaurada al pulsar "atrás" desde el navegador.
-  }, [slug, city, navigate]);
+  // Nota: el scroll (subir arriba al entrar / restaurar al volver atrás)
+  // lo gestiona <ScrollRestoration /> de forma global, así que aquí no
+  // forzamos window.scrollTo — si lo hiciéramos, pisaríamos la posición
+  // restaurada al pulsar "atrás" desde el navegador.
 
   useSEO(city ? { city, overallScore, jsonLd: [getCityJsonLd(city), getBreadcrumbJsonLd(city)] } : {});
 
-  if (!city) return null;
+  // Slug inexistente: página 404 (noindex) en vez de redirigir a la home,
+  // que Google trataría como un "soft 404".
+  if (!city) return <NotFoundPage />;
 
   return (
     <div className="cdp-root">

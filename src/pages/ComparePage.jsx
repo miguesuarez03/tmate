@@ -10,6 +10,7 @@ import MethodologyNote from "../components/MethodologyNote";
 import ScoreRing from "../components/ScoreRing";
 import { useSEO } from "../hooks/useSEO";
 import styles from "./ComparePage.module.css";
+import { sizedImage, imageSrcSet } from "../lib/images";
 
 // Mismo top trending que la home — cuando no hay nada seleccionado, se usa
 // como bloque destacado en vez de empezar directo con la sopa de acordeones.
@@ -269,9 +270,12 @@ function MiniCard({ city, checked = false, disabled = false, accentColor, onClic
       <span className={styles.miniThumb}>
         <img
           className={styles.miniThumbImg}
-          src={city.img}
+          src={sizedImage(city.img, 250)}
           alt=""
+          width={120}
+          height={120}
           loading="lazy"
+          decoding="async"
           onError={(e) => { e.currentTarget.style.opacity = 0; }}
         />
         <span className={styles.miniEmoji}>{city.emoji}</span>
@@ -300,7 +304,7 @@ function FeaturedCard({ city, checked = false, accentColor, onClick }) {
       style={checked ? { "--tile-color": accentColor } : {}}
       onClick={onClick}
     >
-      <img className={styles.featuredImg} src={city.img} alt="" loading="lazy" onError={(e) => { e.currentTarget.style.opacity = 0; }} />
+      <img className={styles.featuredImg} src={sizedImage(city.img, 500)} srcSet={imageSrcSet(city.img, [500, 960])} sizes="(max-width: 640px) 100vw, 400px" width={800} height={600} alt="" loading="lazy" decoding="async" onError={(e) => { e.currentTarget.style.opacity = 0; }} />
       <div className={styles.featuredOverlay} />
       {checked && <span className={styles.featuredCheck}><IconCheck size={18} /></span>}
       <div className={styles.featuredBody}>

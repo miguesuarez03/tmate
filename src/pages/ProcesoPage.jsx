@@ -260,7 +260,7 @@ function StepDetail({ step }) {
       {/* Languages table for step 01 */}
       {step.languages && (
         <div className="proceso-langs">
-          <h4 className="proceso-langs__title">Idiomas y certificados habituales</h4>
+          <h3 className="proceso-langs__title">Idiomas y certificados habituales</h3>
           <p className="proceso-langs__disclaimer">
             Cada universidad fija sus propios requisitos de idioma — consulta siempre con tu ORI o coordinador antes de dar nada por hecho.
           </p>

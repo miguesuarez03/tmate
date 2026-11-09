@@ -17,6 +17,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { createHash } from "node:crypto";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -27,6 +28,7 @@ const SSR_BUNDLE = join(ROOT, ".ssr-temp", "entry-server.mjs");
 // (que a su vez viene de src/lib/seo.js) — así og:site_name nunca queda
 // desincronizado del nombre de marca real.
 let SITE_NAME = "MAbroad";
+let SITE_LOCALE = "es_ES";
 
 // ─── Utilidades de escape ────────────────────────────────────────────────────
 function escapeHtml(str = "") {
@@ -45,19 +47,33 @@ function safeJsonLd(obj) {
 // ─── Construcción del <head> por página ──────────────────────────────────────
 function buildHeadTags(meta) {
   const tags = [];
-  tags.push(`<link rel="canonical" href="${escapeHtml(meta.canonical)}" />`);
+  // La 404 no lleva canonical (no es una URL que deba indexarse).
+  if (!meta.noindex) tags.push(`<link rel="canonical" href="${escapeHtml(meta.canonical)}" />`);
   tags.push(`<meta property="og:type" content="${escapeHtml(meta.ogType)}" />`);
   tags.push(`<meta property="og:site_name" content="${escapeHtml(SITE_NAME)}" />`);
+  tags.push(`<meta property="og:locale" content="${escapeHtml(SITE_LOCALE)}" />`);
   tags.push(`<meta property="og:title" content="${escapeHtml(meta.title)}" />`);
   tags.push(`<meta property="og:description" content="${escapeHtml(meta.description)}" />`);
-  tags.push(`<meta property="og:url" content="${escapeHtml(meta.canonical)}" />`);
-  if (meta.ogImage) tags.push(`<meta property="og:image" content="${escapeHtml(meta.ogImage)}" />`);
+  if (!meta.noindex) tags.push(`<meta property="og:url" content="${escapeHtml(meta.canonical)}" />`);
+  if (meta.ogImage) {
+    tags.push(`<meta property="og:image" content="${escapeHtml(meta.ogImage)}" />`);
+    tags.push(`<meta property="og:image:secure_url" content="${escapeHtml(meta.ogImage)}" />`);
+    if (meta.ogImageWidth && meta.ogImageHeight) {
+      tags.push(`<meta property="og:image:width" content="${meta.ogImageWidth}" />`);
+      tags.push(`<meta property="og:image:height" content="${meta.ogImageHeight}" />`);
+    }
+    if (meta.ogImageAlt) tags.push(`<meta property="og:image:alt" content="${escapeHtml(meta.ogImageAlt)}" />`);
+  }
   tags.push(`<meta name="twitter:card" content="${meta.ogImage ? "summary_large_image" : "summary"}" />`);
   tags.push(`<meta name="twitter:title" content="${escapeHtml(meta.title)}" />`);
   tags.push(`<meta name="twitter:description" content="${escapeHtml(meta.description)}" />`);
   if (meta.ogImage) tags.push(`<meta name="twitter:image" content="${escapeHtml(meta.ogImage)}" />`);
+  if (meta.ogImage && meta.ogImageAlt)
+    tags.push(`<meta name="twitter:image:alt" content="${escapeHtml(meta.ogImageAlt)}" />`);
+  // data-tmate-jsonld: el hook useSEO del cliente reutiliza este mismo
+  // <script> en vez de añadir un segundo bloque duplicado.
   if (meta.jsonLd)
-    tags.push(`<script type="application/ld+json">${safeJsonLd(meta.jsonLd)}</script>`);
+    tags.push(`<script type="application/ld+json" data-tmate-jsonld="true">${safeJsonLd(meta.jsonLd)}</script>`);
   return tags.map((t) => "    " + t).join("\n");
 }
 
@@ -80,7 +96,18 @@ function renderTemplate(template, appHtml, meta) {
     .replace(/\s*<meta\s+property="og:site_name"[^>]*>/g, "")
     .replace(/\s*<meta\s+property="og:image"[^>]*>/g, "")
     .replace(/\s*<meta\s+name="twitter:card"[^>]*>/g, "")
-    .replace(/\s*<meta\s+name="twitter:image"[^>]*>/g, "");
+    .replace(/\s*<meta\s+name="twitter:image"[^>]*>/g, "")
+    .replace(/\s*<meta\s+property="og:locale"[^>]*>/g, "")
+    .replace(/\s*<meta\s+property="og:image:[a-z_]+"[^>]*>/g, "")
+    .replace(/\s*<meta\s+name="twitter:image:alt"[^>]*>/g, "");
+
+  // 3b) robots: la 404 no se indexa.
+  if (meta.noindex) {
+    html = html.replace(
+      /<meta\s+name="robots"\s+content="[^"]*"\s*\/?>/,
+      `<meta name="robots" content="noindex, follow" />`
+    );
+  }
 
   // 4) Inyecta el head por página justo antes de </head>
   html = html.replace(/<\/head>/, `${buildHeadTags(meta)}\n  </head>`);
@@ -129,6 +156,30 @@ Sitemap: ${siteUrl}/sitemap.xml
 `;
 }
 
+// ─── Comprobación de la CSP ──────────────────────────────────────────────────
+// La Content-Security-Policy de vercel.json solo permite scripts inline cuyo
+// hash sha256 figure en script-src (p.ej. el script del tema en index.html).
+// Si alguien edita ese script y no actualiza el hash, el navegador lo
+// bloquearía en silencio: aquí se para el build con el hash correcto.
+function checkCspHashes(template) {
+  const vercelPath = join(ROOT, "vercel.json");
+  if (!existsSync(vercelPath)) return;
+  const vercel = JSON.parse(readFileSync(vercelPath, "utf-8"));
+  const csp = (vercel.headers || [])
+    .flatMap((h) => h.headers || [])
+    .find((h) => h.key.toLowerCase() === "content-security-policy")?.value;
+  if (!csp) return;
+  const inline = [...template.matchAll(/<script(?![^>]*\bsrc=)(?![^>]*application\/ld\+json)[^>]*>([\s\S]*?)<\/script>/g)];
+  const missing = inline
+    .map((m) => `sha256-${createHash("sha256").update(m[1], "utf8").digest("base64")}`)
+    .filter((hash) => !csp.includes(`'${hash}'`));
+  if (missing.length) {
+    console.error("✖ Hay scripts inline en index.html cuyo hash no está en la CSP de vercel.json.");
+    console.error(`  Añade a script-src: ${missing.map((h) => `'${h}'`).join(" ")}`);
+    process.exit(1);
+  }
+}
+
 // ─── Main ────────────────────────────────────────────────────────────────────
 async function main() {
   if (!existsSync(join(DIST, "index.html"))) {
@@ -141,9 +192,12 @@ async function main() {
     process.exit(1);
   }
 
-  const { renderPage, ALL_ROUTES, SITE_URL, SITE_NAME: siteName } = await import(pathToFileURL(SSR_BUNDLE).href);
+  const { renderPage, renderNotFound, ALL_ROUTES, SITE_URL, SITE_NAME: siteName, SITE_LOCALE: siteLocale } =
+    await import(pathToFileURL(SSR_BUNDLE).href);
   if (siteName) SITE_NAME = siteName;
+  if (siteLocale) SITE_LOCALE = siteLocale;
   const template = readFileSync(join(DIST, "index.html"), "utf-8");
+  checkCspHashes(template);
 
   let ok = 0;
   const failed = [];
@@ -161,6 +215,17 @@ async function main() {
       failed.push({ path: route.path, error: err.message.split("\n")[0] });
       console.error(`  ✖ ${route.path}  →  ${err.message.split("\n")[0]}`);
     }
+  }
+
+  // 404.html: Vercel la sirve (con estado HTTP 404) para cualquier URL que no
+  // exista en dist/. Lleva noindex y no aparece en el sitemap.
+  try {
+    const { appHtml, meta } = renderNotFound();
+    writeFileSync(join(DIST, "404.html"), renderTemplate(template, appHtml, meta), "utf-8");
+    console.log("  ✓ 404.html (noindex)");
+  } catch (err) {
+    console.error("  ✖ 404.html →", err.message.split("\n")[0]);
+    process.exit(1);
   }
 
   // sitemap.xml + robots.txt (dinámicos, sobrescriben los estáticos copiados)

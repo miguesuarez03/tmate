@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./RelatedCities.module.css";
 import { IconComparar } from "../icons";
 import { getScoreLevel } from "../../lib/cities";
+import { sizedImage, imageSrcSet } from "../../lib/images";
 
 const scoreColor = (s) => getScoreLevel(s).color;
 
@@ -9,7 +10,17 @@ function RelatedCard({ city }) {
   const navigate = useNavigate();
   return (
     <div className={styles.card} onClick={() => navigate(`/city/${city.slug}`)}>
-      <img src={city.img} alt={city.name} className={styles.cardImg} loading="lazy" />
+      <img
+        src={sizedImage(city.img, 960)}
+        srcSet={imageSrcSet(city.img, [500, 960])}
+        sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px"
+        width={800}
+        height={600}
+        alt={`${city.name}, ${city.country}`}
+        className={styles.cardImg}
+        loading="lazy"
+        decoding="async"
+      />
       <div className={styles.cardOverlay} />
       <div className={styles.cardContent}>
         <span className={styles.cardFlag}>{city.emoji}</span>

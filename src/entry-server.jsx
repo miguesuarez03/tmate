@@ -32,10 +32,24 @@ import BecaErasmusPage from "./pages/BecaErasmusPage";
 import CityMatchPage from "./pages/CityMatchPage";
 import TiposDeIntercambioPage from "./pages/TiposDeIntercambioPage";
 import PrivacidadPage from "./pages/PrivacidadPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 import { CITIES } from "./data/cities";
 import { getCityBySlug, getOverallScore, getCityMeta, getHomeMeta } from "./lib/cities";
-import { getCityJsonLd, getBreadcrumbJsonLd, getWebsiteJsonLd, SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from "./lib/seo";
+import {
+  getCityJsonLd, getBreadcrumbJsonLd, getWebsiteJsonLd,
+  SITE_URL, SITE_NAME, SITE_LOCALE,
+  DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_WIDTH, DEFAULT_OG_IMAGE_HEIGHT, DEFAULT_OG_IMAGE_ALT,
+} from "./lib/seo";
+
+// Imagen de marca por defecto (1200×630) con sus dimensiones y alt, para que
+// WhatsApp/redes la pinten en grande sin tener que descargarla primero.
+const DEFAULT_OG = {
+  ogImage: DEFAULT_OG_IMAGE,
+  ogImageWidth: DEFAULT_OG_IMAGE_WIDTH,
+  ogImageHeight: DEFAULT_OG_IMAGE_HEIGHT,
+  ogImageAlt: DEFAULT_OG_IMAGE_ALT,
+};
 
 const DEFAULT_TITLE = "MAbroad — Descubre y compara tu ciudad Erasmus ideal";
 
@@ -126,7 +140,7 @@ export function getMetaForPath(pathname) {
       description: m.description,
       canonical,
       ogType: "website",
-      ogImage: m.ogImage || DEFAULT_OG_IMAGE,
+      ...DEFAULT_OG,
       jsonLd: getWebsiteJsonLd(),
     };
   }
@@ -143,7 +157,8 @@ export function getMetaForPath(pathname) {
         description: m.description,
         canonical,
         ogType: "article",
-        ogImage: m.ogImage || null,
+        ogImage: m.ogImage || DEFAULT_OG_IMAGE,
+        ogImageAlt: `Vista de ${city.name}, ${city.country}`,
         jsonLd: [getCityJsonLd(city), getBreadcrumbJsonLd(city)],
       };
     }
@@ -157,7 +172,7 @@ export function getMetaForPath(pathname) {
       description: m.description,
       canonical,
       ogType: "website",
-      ogImage: DEFAULT_OG_IMAGE,
+      ...DEFAULT_OG,
       jsonLd: null,
     };
   }
@@ -169,7 +184,7 @@ export function getMetaForPath(pathname) {
       "La guía definitiva para elegir tu ciudad Erasmus, con scores reales, comparador y calculadora de beca.",
     canonical,
     ogType: "website",
-    ogImage: DEFAULT_OG_IMAGE,
+    ...DEFAULT_OG,
     jsonLd: null,
   };
 }
@@ -187,6 +202,7 @@ function App({ url }) {
         <Route path="/city-match" element={<CityMatchPage />} />
         <Route path="/tipos-de-intercambio" element={<TiposDeIntercambioPage />} />
         <Route path="/privacidad" element={<PrivacidadPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </StaticRouter>
   );
@@ -203,4 +219,23 @@ export function renderPage(url) {
   return { appHtml, meta };
 }
 
-export { SITE_URL, SITE_NAME };
+/**
+ * Renderiza la página 404 (dist/404.html). noindex y sin canonical.
+ */
+export function renderNotFound() {
+  const appHtml = renderToString(<App url="/404" />);
+  return {
+    appHtml,
+    meta: {
+      title: "Página no encontrada | MAbroad",
+      description: "Esta página no existe o se ha movido. Vuelve al inicio para explorar las ciudades Erasmus de MAbroad.",
+      canonical: `${SITE_URL}/`,
+      ogType: "website",
+      ...DEFAULT_OG,
+      jsonLd: null,
+      noindex: true,
+    },
+  };
+}
+
+export { SITE_URL, SITE_NAME, SITE_LOCALE };

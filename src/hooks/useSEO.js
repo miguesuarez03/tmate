@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
 import { getCityMeta, getHomeMeta } from '../lib/cities';
-import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from '../lib/seo';
+import {
+  SITE_URL, SITE_NAME, SITE_LOCALE,
+  DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_WIDTH, DEFAULT_OG_IMAGE_HEIGHT, DEFAULT_OG_IMAGE_ALT,
+} from '../lib/seo';
 
 const DEFAULT_TITLE = 'MAbroad — Descubre y compara tu ciudad Erasmus ideal';
 
@@ -63,7 +66,8 @@ export function useSEO({ city = null, overallScore = 0, isHome = false, title, d
     if (!meta) return;
 
     const finalTitle = meta.title || DEFAULT_TITLE;
-    const url = `${SITE_URL}${path ?? window.location.pathname}`;
+    const rawPath = path ?? window.location.pathname;
+    const url = `${SITE_URL}${rawPath === '/' ? '/' : rawPath.replace(/\/$/, '')}`;
 
     document.title = finalTitle;
     setMeta('name', 'description', meta.description);
@@ -75,7 +79,21 @@ export function useSEO({ city = null, overallScore = 0, isHome = false, title, d
     setMeta('property', 'og:url', url);
     setMeta('property', 'og:site_name', SITE_NAME);
     setMeta('property', 'og:type', city ? 'article' : 'website');
-    if (meta.ogImage) setMeta('property', 'og:image', meta.ogImage);
+    setMeta('property', 'og:locale', SITE_LOCALE);
+    if (meta.ogImage) {
+      setMeta('property', 'og:image', meta.ogImage);
+      setMeta('property', 'og:image:secure_url', meta.ogImage);
+      const isDefault = meta.ogImage === DEFAULT_OG_IMAGE;
+      const alt = isDefault ? DEFAULT_OG_IMAGE_ALT : city ? `Vista de ${city.name}, ${city.country}` : DEFAULT_OG_IMAGE_ALT;
+      setMeta('property', 'og:image:alt', alt);
+      setMeta('name', 'twitter:image:alt', alt);
+      // Dimensiones solo cuando se conocen (imagen de marca 1200×630).
+      for (const [k, v] of [['og:image:width', DEFAULT_OG_IMAGE_WIDTH], ['og:image:height', DEFAULT_OG_IMAGE_HEIGHT]]) {
+        const el = document.querySelector(`meta[property="${k}"]`);
+        if (isDefault) setMeta('property', k, String(v));
+        else if (el) el.remove();
+      }
+    }
 
     // Twitter Card
     setMeta('name', 'twitter:card', meta.ogImage ? 'summary_large_image' : 'summary');

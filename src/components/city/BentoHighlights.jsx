@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./BentoHighlights.module.css";
+import { sizedImage } from "../../lib/images";
 
 // Generic Unsplash photos for cards 2-4
 const FALLBACK_PHOTOS = [
@@ -45,7 +46,7 @@ export default function BentoHighlights({ highlights = [], cityName, cityImg }) 
               aria-label={`Ver más sobre: ${text}`}
             >
               {photo && (
-                <img src={photo} alt={text} className={styles.cardImg} loading="lazy" />
+                <img src={sizedImage(photo, 960)} alt={text} className={styles.cardImg} width={800} height={600} loading="lazy" decoding="async" />
               )}
               <div className={styles.cardOverlay} />
               <div className={styles.cardContent}>
@@ -71,7 +72,7 @@ export default function BentoHighlights({ highlights = [], cityName, cityImg }) 
               ✕
             </button>
             <div className={styles.modalImg}>
-              {activePhoto && <img src={activePhoto} alt={activeItem} />}
+              {activePhoto && <img src={sizedImage(activePhoto, 960)} alt={activeItem} width={800} height={450} decoding="async" />}
               <div className={styles.cardOverlay} />
               <div className={styles.modalImgContent}>
                 <span className={styles.cardNum} style={{ color: ACCENTS[active], fontSize: "0.7rem" }}>0{active + 1}</span>

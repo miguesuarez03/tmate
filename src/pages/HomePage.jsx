@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useMemo, lazy, Suspense } from "react";
 import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import { CITIES } from "../data/cities";
-import { getScoreMap, getOverallScore } from "../lib/cities";
+import { getScoreMap, getOverallScore, findBestCityMatch } from "../lib/cities";
 import { Navbar, Footer, SectionLabel, MASymbol, NAV_LINKS } from "../components/Layout";
 import { IconCityMatch, IconComparar, IconBeca, IconRanking, IconComunidad, IconSeguridad, IconUniversidad, IconMedalla, IconCamara, IconEdificio, IconFiesta, IconLapiz } from "../components/icons";
 import SearchBar from "../components/SearchBar";
@@ -9,6 +9,7 @@ import CityCard from "../components/CityCard";
 import { useCityFilter } from "../hooks/useCityFilter";
 import { useSEO } from "../hooks/useSEO";
 import { getWebsiteJsonLd } from "../lib/seo";
+import { sizedImage, imageSrcSet } from "../lib/images";
 
 // WorldMap arrastra react-simple-maps + d3 (pesado). Se carga bajo demanda
 // para no engordar el bundle inicial — el globo está más abajo en la página,
@@ -407,7 +408,7 @@ function TestimonialCard({ t, onClick, compact }) {
       onClick={onClick}
     >
       <div className="community-card__img">
-        <img src={t.photo} alt={t.city} loading="lazy" />
+        <img src={sizedImage(t.photo, 500)} srcSet={imageSrcSet(t.photo, [500, 960])} sizes="(max-width: 640px) 100vw, 400px" alt={`Foto de ${t.city}`} width={800} height={600} loading="lazy" decoding="async" />
         <div className="community-card__img-overlay" />
         <div className="community-card__city-badge">
           <span>{t.flag}</span>
@@ -663,7 +664,7 @@ function CommunitySection() {
               ✕
             </button>
             <div className="testimonial-modal__img">
-              <img src={activeTestimonial.photo} alt={activeTestimonial.city} />
+              <img src={sizedImage(activeTestimonial.photo, 960)} alt={`Foto de ${activeTestimonial.city}`} width={800} height={450} decoding="async" />
               <div className="community-card__img-overlay" />
               <div className="community-card__city-badge">
                 <span>{activeTestimonial.flag}</span>
@@ -784,7 +785,7 @@ function CommunitySection() {
                   <label className="exp-form__label">Sube una foto tuya del Erasmus (opcional)</label>
                   <div className="photo-upload" onClick={() => fileRef.current?.click()}>
                     {photoPreview ? (
-                      <img src={photoPreview} alt="Preview" className="photo-upload__preview" />
+                      <img src={photoPreview} alt="Vista previa de tu foto" className="photo-upload__preview" />
                     ) : (
                       <div className="photo-upload__placeholder">
                         <span style={{ display: "inline-flex" }}><IconCamara size={40} /></span>
@@ -855,6 +856,16 @@ export default function HomePage() {
 
   // SEO dinámico
   useSEO({ isHome: true, jsonLd: getWebsiteJsonLd() });
+
+  // SearchAction (JSON-LD de WebSite): /?buscar=<texto> abre la ficha de la
+  // ciudad que mejor coincide, igual que el buscador del hero.
+  useEffect(() => {
+    const term = searchParams.get("buscar");
+    if (!term) return;
+    const match = findBestCityMatch(term);
+    if (match) navigate(`/city/${match.slug}`, { replace: true });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const INITIAL_COUNT = 4;
   const displayedCities = showAll ? filtered : filtered.slice(0, INITIAL_COUNT);

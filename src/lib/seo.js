@@ -1,22 +1,46 @@
-// ⚠️ IMPORTANTE: confirma que este es el dominio real donde está desplegado
-// MAbroad (Vercel puede darte una URL distinta a menos que hayas conectado un
-// dominio propio). Se usa para canonical URLs, Open Graph, sitemap.xml y
-// robots.txt — si está mal, ayuda menos que no tenerlo, así que revísalo
-// antes de publicar.
-export const SITE_URL = "https://mabroad.com";
-export const SITE_NAME = "MAbroad";
+import { sizedImage } from "./images";
 
-// Imagen OG/Twitter por defecto para páginas sin foto propia (home, comparador,
-// City Match, beca, Learning Agreement). Las fichas de ciudad usan su heroImg.
+// Dominio canónico: www. El apex (mabroad.com) redirige con 308 a www desde
+// la configuración de dominios de Vercel, así que canonical, Open Graph,
+// sitemap.xml y robots.txt deben apuntar SIEMPRE a www — si apuntan al apex,
+// Google ve un canonical que redirige y lo ignora.
+export const SITE_URL = "https://www.mabroad.com";
+export const SITE_NAME = "MAbroad";
+export const SITE_LOCALE = "es_ES";
+
+// Imagen OG/Twitter por defecto (1200×630, imagen de marca) para páginas sin
+// foto propia. Las fichas de ciudad usan su foto (ver getCityOgImage).
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
+export const DEFAULT_OG_IMAGE_WIDTH = 1200;
+export const DEFAULT_OG_IMAGE_HEIGHT = 630;
+export const DEFAULT_OG_IMAGE_ALT = "MAbroad — Descubre y compara tu ciudad Erasmus ideal";
+
+/**
+ * Foto de la ciudad para compartir (WhatsApp, redes). Las fotos originales
+ * son de 1920px (300-800 kB): WhatsApp no muestra previsualizaciones de
+ * imágenes muy pesadas, así que se pide una versión de 1280px a Wikimedia o
+ * un recorte 1200×630 a Unsplash.
+ */
+export function getCityOgImage(city) {
+  const src = city?.heroImg || city?.img;
+  if (!src) return DEFAULT_OG_IMAGE;
+  if (src.includes("images.unsplash.com")) return sizedImage(src, 1200, 630);
+  return sizedImage(src, 1280);
+}
 
 export function getOrganizationJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
     name: SITE_NAME,
-    url: SITE_URL,
-    logo: `${SITE_URL}/favicon-512.png`,
+    url: `${SITE_URL}/`,
+    logo: {
+      "@type": "ImageObject",
+      url: `${SITE_URL}/favicon-512.png`,
+      width: 512,
+      height: 512,
+    },
   };
 }
 
@@ -29,9 +53,22 @@ export function getWebsiteJsonLd() {
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
       name: SITE_NAME,
-      url: SITE_URL,
+      url: `${SITE_URL}/`,
+      inLanguage: "es",
       description: "La guía definitiva para elegir tu ciudad Erasmus, con scores reales, comparador y calculadora de beca.",
+      publisher: { "@id": `${SITE_URL}/#organization` },
+      // /?buscar=<texto> lleva a la ficha de la ciudad que mejor coincide
+      // (ver HomePage). Es el mismo buscador del hero.
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${SITE_URL}/?buscar={search_term_string}`,
+        },
+        "query-input": "required name=search_term_string",
+      },
     },
   ];
 }
@@ -42,7 +79,7 @@ export function getBreadcrumbJsonLd(city) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Inicio", item: SITE_URL },
+      { "@type": "ListItem", position: 1, name: "Inicio", item: `${SITE_URL}/` },
       { "@type": "ListItem", position: 2, name: city.name, item: `${SITE_URL}/city/${city.slug}` },
     ],
   };
@@ -59,7 +96,7 @@ export function getCityJsonLd(city) {
     name: `${city.name}, ${city.country}`,
     description: city.phrase || `Guía Erasmus de ${city.name}: coste de vida, vida social, seguridad y más.`,
     url: `${SITE_URL}/city/${city.slug}`,
-    ...(city.heroImg ? { image: city.heroImg } : {}),
+    ...(city.heroImg || city.img ? { image: getCityOgImage(city) } : {}),
     containedInPlace: {
       "@type": "Country",
       name: city.country,

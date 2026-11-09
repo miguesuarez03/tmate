@@ -47,6 +47,8 @@ export default function SearchBar({ light = false }) {
           onBlur={() => setTimeout(() => setFocused(false), 160)}
           onKeyDown={handleKey}
           placeholder="¿A dónde quieres ir?"
+          aria-label="Buscar ciudad"
+          enterKeyHint="search"
           autoComplete="off"
         />
         <button className="search-bar__btn" onClick={handleSearch}>

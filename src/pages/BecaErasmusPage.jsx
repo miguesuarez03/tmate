@@ -300,9 +300,9 @@ function Calculator() {
 
   return (
     <div className="beca-calc">
-      <h3 className="beca-calc__title" style={{ display: "flex", alignItems: "center", gap: 12 }}>
+      <h2 className="beca-calc__title" style={{ display: "flex", alignItems: "center", gap: 12 }}>
         <IconGrafica size={32} /> Calcula cuánto podrías cobrar
-      </h3>
+      </h2>
       <p className="beca-calc__subtitle">Estimación orientativa — las cuantías exactas las confirma tu universidad</p>
 
       <div className="beca-calc__grid">

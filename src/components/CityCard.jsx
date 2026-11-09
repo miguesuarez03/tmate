@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { IconFuego } from "./icons";
 import { isErasmusEligible, getOverallScore } from "../lib/cities";
 import ScoreRing from "./ScoreRing";
+import { sizedImage, imageSrcSet } from "../lib/images";
 
 export default function CityCard({ city }) {
   const [hovered, setHovered] = useState(false);
@@ -41,9 +42,14 @@ export default function CityCard({ city }) {
       {/* Image — position absolute fills entire card */}
       <img
         className="city-card__img"
-        src={city.img}
-        alt={city.name}
+        src={sizedImage(city.img, 960)}
+        srcSet={imageSrcSet(city.img, [500, 960])}
+        sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px"
+        width={800}
+        height={600}
+        alt={`${city.name}, ${city.country}`}
         loading="lazy"
+        decoding="async"
         onError={(e) => { e.currentTarget.style.opacity = 0; }}
       />
 
