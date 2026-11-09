@@ -3,7 +3,7 @@ import { useSEO } from "../hooks/useSEO";
 import { GA_MEASUREMENT_ID } from "../lib/analytics";
 import styles from "./PrivacidadPage.module.css";
 
-const CONTACT_EMAIL = "hola@tmate.app";
+const CONTACT_EMAIL = "suarezalvarez.ma03@gmail.com";
 const LAST_UPDATED = "9 de noviembre de 2026";
 
 export default function PrivacidadPage() {

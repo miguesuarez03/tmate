@@ -15,8 +15,8 @@ import styles from "./FeedbackWidget.module.css";
 
 const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || "";
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
-// Mismo buzón de contacto que ya usa el resto de la web (MethodologyNote, LA).
-const FEEDBACK_EMAIL = "hola@tmate.app";
+// Mismo buzón de contacto que usa el resto de la web (MethodologyNote, LA, /privacidad).
+const FEEDBACK_EMAIL = "suarezalvarez.ma03@gmail.com";
 const MAX_LEN = 2000;
 
 function buildMailto({ message, email, page }) {

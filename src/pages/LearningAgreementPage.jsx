@@ -404,7 +404,7 @@ function LAWizard() {
 
   const sendEmail = () => {
     const { subject, body } = buildEmailContent(data, destinoCity);
-    window.location.href = `mailto:hola@tmate.app?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:suarezalvarez.ma03@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSent(true);
     try {
       localStorage.removeItem(WIZARD_STORAGE_KEY);
@@ -415,7 +415,7 @@ function LAWizard() {
 
   const handleCopy = async () => {
     const { subject, body } = buildEmailContent(data, destinoCity);
-    const text = `Para: hola@tmate.app\nAsunto: ${subject}\n\n${body}`;
+    const text = `Para: suarezalvarez.ma03@gmail.com\nAsunto: ${subject}\n\n${body}`;
     try {
       await navigator.clipboard.writeText(text);
       setCopied(true);
@@ -438,7 +438,7 @@ function LAWizard() {
         </p>
         <p className={styles.wizardDoneText}>
           Si no se ha abierto ningún programa de correo (pasa en algunos móviles), copia el texto y envíalo
-          tú mismo a <strong>hola@tmate.app</strong>.
+          tú mismo a <strong>suarezalvarez.ma03@gmail.com</strong>.
         </p>
         <div className={styles.wizardDoneActions}>
           <button className={styles.wizardCopyBtn} onClick={handleCopy} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
