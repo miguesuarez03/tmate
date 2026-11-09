@@ -19,7 +19,7 @@ import ThemeToggle, { ThemeToggleRow } from "./ThemeToggle";
 // del modo claro/oscuro o del fondo del navbar.
 // Fuente: MAbroad_symbol_only_corrected.svg (sol desplazado a la derecha,
 // bajo el segundo pico, en vez de centrado en el valle).
-export function MASymbol({ size = 28 }) {
+export function MASymbol({ size = 28, light = false }) {
   // Un solo símbolo puede aparecer varias veces en la misma página (navbar +
   // footer, por ejemplo) — cada instancia necesita sus propios ids de
   // degradado, o un `url(#id)` duplicado en el HTML sería inválido.
@@ -31,8 +31,11 @@ export function MASymbol({ size = 28 }) {
     <svg viewBox="0 0 520 360" width={size} height={size * (360 / 520)} role="img" aria-hidden="true">
       <defs>
         <linearGradient id={leftId} x1="55" y1="35" x2="190" y2="285" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#16364D" />
-          <stop offset="1" stopColor="#2F5073" />
+          {/* light: variante clara del trazo izquierdo para cuando el navbar
+              flota transparente sobre una foto/vídeo oscuro (el navy original
+              desaparecería sobre el fondo). */}
+          <stop offset="0" stopColor={light ? "#FFFFFF" : "#16364D"} />
+          <stop offset="1" stopColor={light ? "#D9E8F0" : "#2F5073"} />
         </linearGradient>
         <linearGradient id={rightId} x1="190" y1="285" x2="325" y2="35" gradientUnits="userSpaceOnUse">
           <stop offset="0" stopColor="#3F7A7D" />
@@ -65,11 +68,11 @@ export function MASymbol({ size = 28 }) {
   );
 }
 
-export function Logo({ dark = false, onClick, iconSize = 26 }) {
+export function Logo({ dark = false, onClick, iconSize = 26, light = false }) {
   return (
     <div className="navbar__logo" onClick={onClick} role="button" tabIndex={0} aria-label="Ir al inicio">
       <div className="navbar__logo-icon">
-        <MASymbol size={iconSize} />
+        <MASymbol size={iconSize} light={light} />
       </div>
       <span className="navbar__logo-text" style={{ color: dark ? "var(--color-dark)" : "#fff" }}>
         Abroad
@@ -140,6 +143,24 @@ export const NAV_LINKS = [
   { label: "Beca", path: "/beca-erasmus" },
   { label: "Learning Agreement", path: "/learning-agreement" },
 ];
+
+/**
+ * Navbar "integrado" con el fondo: mientras el usuario está arriba del todo
+ * en una página con foto/vídeo de fondo (home, fichas de ciudad), la barra es
+ * transparente con un degradado oscuro sutil y todo en blanco; al bajar
+ * (>40px) pasa con una transición suave al estado sólido/blur de siempre.
+ * `enabled` = false en el resto de páginas → siempre sólido, como hasta ahora.
+ */
+function useNavbarOverlay(enabled) {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll(); // al volver atrás, la página puede abrir ya scrolleada
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return { scrolled, overlay: enabled && !scrolled };
+}
 
 function HorizontalNav() {
   const location = useLocation();
@@ -248,15 +269,11 @@ export function HamburgerButton({ menuOpen, setMenuOpen, isDark }) {
 }
 
 export function Navbar({ transparent = false }) {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const { scrolled, overlay: atTop } = useNavbarOverlay(transparent);
+  // Con el menú abierto, barra sólida (el drawer y el overlay van debajo).
+  const overlay = atTop && !menuOpen;
 
   useEffect(() => {
     if (menuOpen) {
@@ -267,12 +284,9 @@ export function Navbar({ transparent = false }) {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
-  // Antes el navbar de Home nacía transparente y flotaba sobre la foto/vídeo
-  // del hero hasta el primer scroll (isDark=true → texto blanco sin fondo
-  // detrás). Se quita: sobre un fondo variable (foto, degradado, vídeo) el
-  // contraste del texto no se puede garantizar, así que el navbar lleva
-  // siempre el mismo fondo sólido/glass que ya usan el resto de páginas y
-  // NavbarCity — mismo componente, un solo aspecto, siempre legible.
+  // Arriba del todo en Home (transparent=true) la barra es transparente y
+  // blanca sobre el vídeo; el contraste lo garantiza el degradado oscuro de
+  // .navbar--overlay::before (no depende de la foto que haya debajo).
   //
   // Solo en Home (transparent=true, exclusivo de HomePage): si ya se ha
   // hecho scroll, el logo actúa como "volver arriba" en vez de navegar.
@@ -288,12 +302,12 @@ export function Navbar({ transparent = false }) {
 
   return (
     <>
-      <nav className="navbar navbar--scrolled">
-        <Logo dark onClick={handleLogoClick} iconSize={HEADER_LOGO_ICON_SIZE} />
+      <nav className={`navbar ${overlay ? "navbar--overlay" : "navbar--scrolled"}`}>
+        <Logo dark={!overlay} light={overlay} onClick={handleLogoClick} iconSize={HEADER_LOGO_ICON_SIZE} />
         <HorizontalNav />
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginLeft: "auto" }}>
-          <ThemeToggle isDark={false} />
-          <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={false} />
+          <ThemeToggle isDark={overlay} />
+          <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={overlay} />
         </div>
       </nav>
 
@@ -305,6 +319,10 @@ export function Navbar({ transparent = false }) {
 export function NavbarCity({ cityName, overall }) {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  // Las fichas abren con la foto de la ciudad a pantalla completa: misma
+  // barra transparente que la home mientras se está arriba del todo.
+  const { overlay: atTop } = useNavbarOverlay(true);
+  const overlay = atTop && !menuOpen;
 
   useEffect(() => {
     if (menuOpen) {
@@ -317,12 +335,12 @@ export function NavbarCity({ cityName, overall }) {
 
   return (
     <>
-      <nav className="navbar navbar--scrolled" style={{ position: "fixed", zIndex: 1000 }}>
-        <Logo dark onClick={() => navigate("/")} iconSize={HEADER_LOGO_ICON_SIZE} />
+      <nav className={`navbar ${overlay ? "navbar--overlay" : "navbar--scrolled"}`} style={{ position: "fixed", zIndex: 1000 }}>
+        <Logo dark={!overlay} light={overlay} onClick={() => navigate("/")} iconSize={HEADER_LOGO_ICON_SIZE} />
         <div className="navbar__city-breadcrumb">
-          <span style={{ cursor: "pointer", color: "var(--color-primary)" }} onClick={() => navigate("/")}>Inicio</span>
+          <span className="navbar__crumb-link" onClick={() => navigate("/")}>Inicio</span>
           <span>›</span>
-          <span style={{ color: "var(--color-dark)", fontWeight: 600 }}>{cityName}</span>
+          <span className="navbar__crumb-current">{cityName}</span>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           {overall && (
@@ -331,8 +349,8 @@ export function NavbarCity({ cityName, overall }) {
               <span style={{ fontSize: 12, color: "rgba(255,255,255,0.75)", fontWeight: 500 }}>/ 10</span>
             </div>
           )}
-          <ThemeToggle isDark={false} />
-          <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={false} />
+          <ThemeToggle isDark={overlay} />
+          <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={overlay} />
         </div>
       </nav>
 

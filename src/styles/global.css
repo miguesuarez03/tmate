@@ -48,6 +48,15 @@
   --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
   --transition-fast: 0.2s ease;
   --transition-med: 0.35s var(--ease-spring);
+  /* Hover de tarjetas e imágenes — un único efecto para toda la web:
+     zoom suave de la foto dentro de su contenedor (overflow:hidden) y, como
+     mucho, una elevación leve de la tarjeta, con la MISMA curva y duración.
+     Solo se activa con ratón (hover:hover + pointer:fine) y sin
+     prefers-reduced-motion — ver bloque "HOVER UNIFICADO" más abajo. */
+  --ease-hover: cubic-bezier(0.22, 1, 0.36, 1);
+  --hover-duration: 520ms;
+  --hover-zoom: 1.05;
+  --hover-lift: -4px;
   /* Sistema de color por familia de score (el color identifica QUÉ se mide,
      no si el resultado es bueno o malo — eso lo dicen los números). Definidos
      ahora como base del sistema de marca; se conectan a las cards de score,
@@ -160,13 +169,50 @@ a { text-decoration: none; color: inherit; }
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
   height: 64px; display: flex; align-items: center;
   justify-content: space-between; padding: 0 var(--section-px);
-  transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.45s var(--ease-hover), backdrop-filter 0.45s var(--ease-hover),
+    -webkit-backdrop-filter 0.45s var(--ease-hover), border-color 0.45s var(--ease-hover);
 }
 .navbar--scrolled {
   background: var(--glass-bg);
   backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--color-border);
 }
+
+/* Estado "integrado" (arriba del todo en home y fichas de ciudad, ver
+   useNavbarOverlay en Layout.jsx): sin fondo, y un degradado oscuro sutil
+   por arriba (::before) que garantiza contraste AA del texto blanco sea
+   cual sea la foto/vídeo de debajo. El degradado se funde por opacidad, y
+   el fondo glass entra a la vez al hacer scroll: transición suave entre
+   ambos estados. Igual en modo claro y oscuro (el fondo es siempre foto). */
+.navbar::before {
+  content: ""; position: absolute; inset: 0 0 -36px 0; z-index: -1;
+  background: linear-gradient(to bottom, rgba(7,16,26,0.66) 0%, rgba(7,16,26,0.34) 60%, rgba(7,16,26,0) 100%);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.45s var(--ease-hover);
+}
+.navbar--overlay {
+  background: transparent;
+  backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px);
+}
+.navbar--overlay::before { opacity: 1; }
+.navbar--overlay .navbar__link {
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.78);
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+}
+/* Relleno de marca con texto navy (5:1 sobre el naranja: AA), en vez de
+   blanco sobre naranja, que no llega a AA. */
+.navbar--overlay .navbar__link:hover,
+.navbar--overlay .navbar__link--active {
+  background: var(--gradient-brand); border-color: transparent;
+  color: #16364D; text-shadow: none;
+}
+.navbar--overlay .navbar__city-breadcrumb { color: rgba(255,255,255,0.75); }
+.navbar--overlay .navbar__crumb-current { color: #fff; }
+.navbar__crumb-link { cursor: pointer; color: var(--color-primary); }
+.navbar__crumb-current { color: var(--color-dark); font-weight: 600; transition: color 0.45s var(--ease-hover); }
 .navbar__logo {
   display: flex; align-items: center; gap: 9px;
   text-decoration: none; cursor: pointer;
@@ -193,7 +239,7 @@ a { text-decoration: none; color: inherit; }
   padding: 7px 15px; font-size: 14.5px; font-weight: 600; border-radius: var(--radius-full);
   color: var(--color-primary);
   text-decoration: none; white-space: nowrap;
-  transition: background 0.22s ease, color 0.22s ease;
+  transition: background 0.3s var(--ease-hover), color 0.3s var(--ease-hover), border-color 0.3s var(--ease-hover);
 }
 /* El relleno usa el mismo degradado que el botón "Explorar" (--gradient-
    brand), no naranja plano — mismo lenguaje de color en toda la página. */
@@ -304,18 +350,17 @@ a { text-decoration: none; color: inherit; }
   text-align: center; padding: 90px var(--section-px) 80px; overflow: hidden;
 }
 .hero__bg { position: absolute; inset: 0; background: var(--gradient-hero); }
-.hero__img {
-  position: absolute; inset: 0;
-  background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600&q=70');
-  background-size: cover; background-position: center 45%; opacity: 0.16;
-}
-/* Vídeo de fondo del hero (a pantalla completa, no al 16% como .hero__img
-   estático) con un degradado oscuro encima para que el título siga
-   leyéndose igual de bien que sobre la foto de siempre. */
+/* Fondo del hero: poster (primer fotograma del vídeo, siempre visible y
+   única imagen con reduced motion / ahorro de datos) y, encima, el vídeo,
+   que entra con un fundido cuando ya reproduce — sin flash negro. El
+   degradado .hero__video-overlay asegura que el título se lea. */
+.hero__poster,
 .hero__video {
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; object-position: center 45%;
 }
+.hero__video { opacity: 0; transition: opacity 0.9s var(--ease-hover); }
+.hero__video--playing { opacity: 1; }
 /* Modo claro: overlay más transparente que el original (se ve más vídeo).
    Modo oscuro conserva el degradado original, sin cambios. */
 .hero__video-overlay {
@@ -552,24 +597,25 @@ a { text-decoration: none; color: inherit; }
   position: relative; aspect-ratio: 4/5;
   /* Dark bg while image loads */
   background: #0F1E2D;
-  transform: translateY(0) scale(1);
-  transition: transform var(--transition-med), box-shadow 0.3s ease, opacity 0.6s var(--ease-smooth);
+  transform: translateY(0);
+  /* isolation: recorta bien la foto ampliada en las esquinas redondeadas
+     (sin ello Safari deja ver el borde de la imagen durante la transición). */
+  isolation: isolate;
+  transition: transform var(--hover-duration) var(--ease-hover), opacity 0.6s var(--ease-smooth);
   box-shadow: var(--shadow-sm);
 }
 /* Entrada suave al hacer scroll (ver CityCard.jsx / IntersectionObserver) —
    estado inicial antes de entrar en el viewport. */
-.city-card:not(.city-card--in-view) { opacity: 0; transform: translateY(24px) scale(1); }
+.city-card:not(.city-card--in-view) { opacity: 0; transform: translateY(24px); }
 .city-card--in-view { opacity: 1; }
-.city-card:hover { transform: translateY(-6px) scale(1.012); box-shadow: var(--shadow-lg); }
 .city-card:focus { outline: 2px solid var(--color-primary); outline-offset: 3px; }
 
 /* Image fills entire card — position absolute */
 .city-card__img {
   position: absolute; inset: 0;
   width: 100%; height: 100%; object-fit: cover; object-position: center;
-  transition: transform 0.5s ease;
+  transition: transform var(--hover-duration) var(--ease-hover), opacity var(--hover-duration) var(--ease-hover);
 }
-.city-card:hover .city-card__img { transform: scale(1.07); }
 
 /* Gradient always above image */
 .city-card__overlay {
@@ -1142,13 +1188,12 @@ a { text-decoration: none; color: inherit; }
   gap: 10px; border-radius: var(--radius-xl); overflow: hidden;
 }
 .gallery-item {
-  position: relative; aspect-ratio: 3/4; overflow: hidden;
+  position: relative; aspect-ratio: 3/4; overflow: hidden; isolation: isolate;
 }
 .gallery-item img {
   width: 100%; height: 100%; object-fit: cover;
-  transition: transform 0.5s var(--ease-smooth);
+  transition: transform var(--hover-duration) var(--ease-hover), opacity var(--hover-duration) var(--ease-hover);
 }
-.gallery-item:hover img { transform: scale(1.06); }
 .gallery-item__overlay {
   position: absolute; inset: 0;
   background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
@@ -1896,10 +1941,7 @@ a { text-decoration: none; color: inherit; }
   padding: 0;
   scroll-snap-align: start;
 }
-.community-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(0,0,0,0.1);
-}
+
 .community-card--compact {
   flex: none;
   width: 100%;
@@ -1909,13 +1951,11 @@ a { text-decoration: none; color: inherit; }
   position: relative;
   height: 140px;
   overflow: hidden;
+  isolation: isolate;
 }
 .community-card__img img {
   width: 100%; height: 100%; object-fit: cover;
-  transition: transform 0.4s ease;
-}
-.community-card:hover .community-card__img img {
-  transform: scale(1.04);
+  transition: transform var(--hover-duration) var(--ease-hover), opacity var(--hover-duration) var(--ease-hover);
 }
 .community-card__img-overlay {
   position: absolute; inset: 0;
@@ -3002,3 +3042,29 @@ a { text-decoration: none; color: inherit; }
    (gain/loss, eco badge) read fine on dark too since they're already
    saturated — only the soft rgba() tints they sit on need to stay legible,
    which color-mix()-free literal rgba(0,0,0..) tints already are. */
+
+/* ─── HOVER UNIFICADO ────────────────────────────────────────────────────────
+   Un solo efecto para tarjetas e imágenes en toda la web (los CSS modules
+   de RelatedCities, BentoHighlights y ComparePage usan los mismos tokens):
+   - La foto se amplía a --hover-zoom DENTRO de su contenedor (overflow:hidden
+     + isolation:isolate), así no hay saltos de layout ni esquinas que asoman.
+   - Misma curva (--ease-hover) y duración (--hover-duration) para la foto y
+     para la leve elevación de la tarjeta: antes la tarjeta usaba un easing
+     con rebote (--ease-spring) y escalaba entera, y la foto otra curva.
+   - Solo transform/opacity (nada de sombras animadas: provocan repintados).
+   - Solo con ratón: en táctil :hover se queda "pegado" tras el toque.
+   - Con prefers-reduced-motion NO hay zoom. Antes el zoom se aplicaba igual
+     y la red de seguridad de reduced-motion (arriba) dejaba la transición en
+     0.001ms: la foto saltaba de golpe — de ahí el efecto "brusco". */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .city-card.city-card--in-view:hover { transform: translateY(var(--hover-lift)); }
+  .city-card:hover .city-card__img,
+  .city-card:focus-visible .city-card__img,
+  .gallery-item:hover img,
+  .community-card:hover .community-card__img img {
+    transform: scale(var(--hover-zoom));
+    will-change: transform;
+  }
+  .community-card { transition: transform var(--hover-duration) var(--ease-hover); }
+  .community-card:hover { transform: translateY(var(--hover-lift)); }
+}

@@ -242,42 +242,74 @@ function AnimatedWord() {
   );
 }
 
-// Vídeo de prueba para el fondo del hero — placeholder libre de derechos
-// (Mixkit, licencia gratuita comercial) hasta que se elija el definitivo;
-// basta con cambiar estas dos constantes para sustituirlo.
-const HERO_VIDEO_URL = "https://assets.mixkit.co/videos/3130/3130-720.mp4";
-const HERO_PHOTO_URL = "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600&q=70";
+// Vídeo de fondo del hero, alojado en /public (no en un CDN externo):
+// plano aéreo de Oporto al anochecer — Pexels, vídeo 34286758 ("Stunning
+// Aerial View of Porto at Dusk"), Licencia Pexels: uso comercial gratuito,
+// sin atribución obligatoria. Recortado a 12 s con fundido del final sobre
+// el principio para que el bucle no tenga salto; MP4 H.264 + WebM VP9 a
+// 1080p (<4 MB cada uno). El poster es su primer fotograma.
+const HERO_VIDEO = {
+  webm: "/videos/hero-porto.webm",
+  mp4: "/videos/hero-porto.mp4",
+  poster: "/videos/hero-porto-poster.jpg",
+};
 
-// Fondo del hero: vídeo en bucle si el navegador lo soporta y el usuario no
-// pide "reduced motion"; si no, la misma foto estática de siempre. Un
-// degradado oscuro por encima asegura que el título/subtítulo se lean igual
-// de bien sobre vídeo que sobre foto.
+/** ¿Hay que quedarse solo con la imagen? (reduced motion o ahorro de datos) */
+function shouldSkipHeroVideo() {
+  if (typeof window === "undefined") return true;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return true;
+  const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  if (conn && (conn.saveData || ["slow-2g", "2g"].includes(conn.effectiveType))) return true;
+  return false;
+}
+
+// Fondo del hero: SIEMPRE se pinta el poster (es la imagen LCP y la que ve
+// quien tenga reduced motion o ahorro de datos). El <video> se monta solo en
+// cliente y solo si procede — así el HTML prerenderizado no empieza a
+// descargar 4 MB de vídeo a quien no lo va a ver — y aparece con un fundido
+// cuando ya está reproduciendo (sin parpadeo negro). El degradado de encima
+// asegura que el título se lea igual sobre vídeo que sobre la foto.
 function HeroBackground() {
-  const [reducedMotion, setReducedMotion] = useState(false);
-  const [videoFailed, setVideoFailed] = useState(false);
+  const [videoAllowed, setVideoAllowed] = useState(false);
+  const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
+    setVideoAllowed(!shouldSkipHeroVideo());
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(mq.matches);
-    const onChange = (e) => setReducedMotion(e.matches);
+    const onChange = () => setVideoAllowed(!shouldSkipHeroVideo());
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
   }, []);
 
-  const showVideo = !reducedMotion && !videoFailed;
-
-  if (!showVideo) return <div className="hero__img" />;
-
   return (
     <>
-      <video
-        className="hero__video"
-        autoPlay muted loop playsInline preload="metadata"
-        poster={HERO_PHOTO_URL}
-        onError={() => setVideoFailed(true)}
-      >
-        <source src={HERO_VIDEO_URL} type="video/mp4" />
-      </video>
+      <img
+        className="hero__poster"
+        src={HERO_VIDEO.poster}
+        alt=""
+        aria-hidden="true"
+        width={1600}
+        height={900}
+        fetchpriority="high"
+        decoding="async"
+      />
+      {videoAllowed && (
+        <video
+          className={`hero__video${playing ? " hero__video--playing" : ""}`}
+          autoPlay muted loop playsInline
+          preload="auto"
+          poster={HERO_VIDEO.poster}
+          aria-hidden="true"
+          tabIndex={-1}
+          onPlaying={() => setPlaying(true)}
+          onError={() => setVideoAllowed(false)}
+        >
+          <source src={HERO_VIDEO.webm} type="video/webm" />
+          {/* Si falla el último formato, se queda el poster (el vídeo solo
+              se hace visible cuando ya está reproduciendo). */}
+          <source src={HERO_VIDEO.mp4} type="video/mp4" onError={() => setVideoAllowed(false)} />
+        </video>
+      )}
       <div className="hero__video-overlay" />
     </>
   );
