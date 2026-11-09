@@ -346,7 +346,10 @@ export function Footer() {
   return (
     <footer className="footer">
       <Logo dark={false} onClick={() => navigate("/")} />
-      <p className="footer__copy">© 2025 MAbroad · Hecho para ciudadanos globales</p>
+      <p className="footer__copy">
+        © 2025 MAbroad · Hecho para ciudadanos globales ·{" "}
+        <Link to="/privacidad" className="footer__link">Privacidad y cookies</Link>
+      </p>
     </footer>
   );
 }

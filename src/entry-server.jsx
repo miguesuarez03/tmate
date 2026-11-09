@@ -31,6 +31,7 @@ import LearningAgreementPage from "./pages/LearningAgreementPage";
 import BecaErasmusPage from "./pages/BecaErasmusPage";
 import CityMatchPage from "./pages/CityMatchPage";
 import TiposDeIntercambioPage from "./pages/TiposDeIntercambioPage";
+import PrivacidadPage from "./pages/PrivacidadPage";
 
 import { CITIES } from "./data/cities";
 import { getCityBySlug, getOverallScore, getCityMeta, getHomeMeta } from "./lib/cities";
@@ -82,6 +83,13 @@ const STATIC_PAGE_META = {
       "Erasmus+, Reino Unido y Suiza explicados con detalle: qué es cada programa, si necesitas visado y cómo funciona la financiación en cada caso.",
     changefreq: "monthly",
     priority: 0.6,
+  },
+  "/privacidad": {
+    title: "Privacidad y cookies | MAbroad",
+    description:
+      "Qué datos trata MAbroad y para qué: analítica anónima sin cookies (Vercel Web Analytics), formulario de feedback y preferencias guardadas en tu navegador.",
+    changefreq: "yearly",
+    priority: 0.2,
   },
 };
 
@@ -178,6 +186,7 @@ function App({ url }) {
         <Route path="/beca-erasmus" element={<BecaErasmusPage />} />
         <Route path="/city-match" element={<CityMatchPage />} />
         <Route path="/tipos-de-intercambio" element={<TiposDeIntercambioPage />} />
+        <Route path="/privacidad" element={<PrivacidadPage />} />
       </Routes>
     </StaticRouter>
   );

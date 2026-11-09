@@ -1,0 +1,246 @@
+/* ─── Botón flotante «¿Qué te falta?» ─────────────────────────────────────────
+   Discreto: superficie de la página + contorno e icono naranja. z-index por
+   debajo del navbar (1000), el drawer y los modales, así nunca los tapa. */
+.fab {
+  position: fixed;
+  right: 16px;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  z-index: 900;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 16px 0 12px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-primary);
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--color-dark);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s var(--ease-smooth, ease), box-shadow 0.2s ease,
+    bottom 0.3s var(--ease-smooth, ease), opacity 0.2s ease;
+}
+.fab:hover { transform: translateY(-2px); box-shadow: var(--shadow-brand); }
+.fab:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
+.fabIcon { display: inline-flex; color: var(--color-primary); }
+
+/* Formato icono: en móvil siempre, y en City Match / comparador también en
+   desktop para no competir con el quiz ni con la barra de comparar. */
+.fabCompact { width: 44px; padding: 0; justify-content: center; }
+.fabCompact .fabLabel { display: none; }
+@media (max-width: 640px) {
+  .fab { width: 44px; padding: 0; justify-content: center; }
+  .fabLabel { display: none; }
+}
+
+/* Fichas de ciudad: por encima de las 2 burbujas flotantes (WhatsApp /
+   alojamiento: 20px + 52 + 12 + 52 = 136px) para no taparlas. */
+.fabRaised { bottom: calc(148px + env(safe-area-inset-bottom)); right: 24px; }
+
+/* Comparador con la barra "Comparar N destinos" visible abajo: se sube
+   por encima de ella (la barra lleva data-bottom-bar). */
+:global(body:has([data-bottom-bar])) .fab {
+  bottom: calc(92px + env(safe-area-inset-bottom));
+}
+
+.fabHidden { opacity: 0; pointer-events: none; }
+
+/* ─── Panel ─────────────────────────────────────────────────────────────── */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1090;
+  background: rgba(15, 30, 45, 0.28);
+  animation: fbFade 0.18s ease both;
+}
+.panel {
+  position: fixed;
+  right: 16px;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  z-index: 1100;
+  width: min(380px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  padding: 22px 20px 18px;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-primary);
+  box-shadow: var(--shadow-lg);
+  color: var(--color-dark);
+  font-family: var(--font-body);
+  animation: fbUp 0.22s var(--ease-spring, ease) both;
+}
+@media (max-width: 640px) {
+  /* Móvil: hoja inferior a todo el ancho. */
+  .panel {
+    left: 0; right: 0; bottom: 0;
+    width: 100%;
+    max-height: 88dvh;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    padding-bottom: calc(18px + env(safe-area-inset-bottom));
+  }
+}
+
+.close {
+  position: absolute;
+  top: 10px; right: 10px;
+  width: 36px; height: 36px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: none; border-radius: 50%;
+  background: transparent;
+  color: var(--color-slate);
+  cursor: pointer;
+}
+.close:hover { background: var(--overlay-hover); color: var(--color-dark); }
+.close:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 1px; }
+
+.title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0 36px 6px 0;
+  color: var(--color-dark);
+}
+.desc {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--color-slate);
+  margin: 0 0 14px;
+}
+
+.textarea,
+.input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-dark);
+  font-family: var(--font-body);
+  /* 16px: evita el zoom automático de iOS al enfocar. */
+  font-size: 16px;
+  line-height: 1.45;
+  padding: 10px 12px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.textarea { resize: vertical; min-height: 96px; }
+.textarea::placeholder,
+.input::placeholder { color: var(--color-muted); }
+.textarea:focus,
+.input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--surface-tint-primary);
+}
+.textarea:disabled,
+.input:disabled { opacity: 0.6; }
+
+.label {
+  display: block;
+  margin: 12px 0 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+.optional { font-weight: 500; color: var(--color-slate); }
+
+.error {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #B91C1C;
+  font-size: 13px;
+  line-height: 1.45;
+}
+:global(:root[data-theme="dark"]) .error { color: #FCA5A5; }
+.error a { color: inherit; font-weight: 700; text-decoration: underline; }
+
+.submit {
+  margin-top: 14px;
+  width: 100%;
+  min-height: 46px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--gradient-brand);
+  /* Texto navy sobre naranja: mejor contraste que blanco. */
+  color: #16364D;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: var(--shadow-brand);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.submit:hover:not(:disabled) { transform: translateY(-1px); }
+.submit:disabled { opacity: 0.55; cursor: not-allowed; box-shadow: none; }
+.submit:focus-visible { outline: 3px solid var(--color-dark); outline-offset: 2px; }
+
+.spinner {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  border: 2px solid rgba(22, 54, 77, 0.3);
+  border-top-color: #16364D;
+  animation: fbSpin 0.7s linear infinite;
+}
+
+.fine {
+  margin: 10px 0 0;
+  font-size: 11.5px;
+  color: var(--color-slate);
+  text-align: center;
+}
+.fine a { color: inherit; text-decoration: underline; }
+
+.success { text-align: center; padding: 8px 4px 2px; }
+.success .title { margin: 0 0 6px; }
+.successIcon {
+  width: 48px; height: 48px;
+  margin: 4px auto 12px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.honeypot {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  opacity: 0;
+  pointer-events: none;
+  left: -9999px;
+}
+.srOnly {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes fbFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fbUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fbSpin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .fab, .panel, .backdrop { animation: none; transition: none; }
+  .spinner { animation-duration: 1.6s; }
+}

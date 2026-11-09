@@ -806,7 +806,7 @@ export default function ComparePage() {
 
       {/* Botón "Comparar" fijo en la parte inferior — activo desde 2 ciudades */}
       {canCompare && (
-        <div className={styles.stickyCompareBar}>
+        <div className={styles.stickyCompareBar} data-bottom-bar>
           <div className={styles.stickyCompareInner}>
             <span className={styles.stickyCompareInfo}>
               {selected.length} destino{selected.length > 1 ? "s" : ""} seleccionado{selected.length > 1 ? "s" : ""}

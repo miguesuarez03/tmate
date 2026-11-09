@@ -3,6 +3,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollRestoration from "./components/ScrollRestoration";
 import RouteLoader from "./components/RouteLoader";
 import GoogleAnalytics from "./components/GoogleAnalytics";
+import FeedbackWidget from "./components/FeedbackWidget";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import "./styles/global.css";
 
 // Code-splitting por ruta: cada página se descarga bajo demanda en vez de
@@ -18,6 +21,7 @@ const LearningAgreementPage = lazy(() => import("./pages/LearningAgreementPage")
 const BecaErasmusPage       = lazy(() => import("./pages/BecaErasmusPage"));
 const CityMatchPage         = lazy(() => import("./pages/CityMatchPage"));
 const TiposDeIntercambioPage = lazy(() => import("./pages/TiposDeIntercambioPage"));
+const PrivacidadPage        = lazy(() => import("./pages/PrivacidadPage"));
 
 export default function App() {
   return (
@@ -34,8 +38,16 @@ export default function App() {
           <Route path="/beca-erasmus" element={<BecaErasmusPage />} />
           <Route path="/city-match" element={<CityMatchPage />} />
           <Route path="/tipos-de-intercambio" element={<TiposDeIntercambioPage />} />
+          <Route path="/privacidad" element={<PrivacidadPage />} />
         </Routes>
       </Suspense>
+      <FeedbackWidget />
+      {/* Vercel Web Analytics + Speed Insights: sin cookies, datos anónimos.
+          App es la raíz en cliente para TODAS las rutas (también las
+          prerenderizadas, que se montan con createRoot), y el script detecta
+          solo los cambios de ruta de react-router. */}
+      <Analytics />
+      <SpeedInsights />
     </BrowserRouter>
   );
 }
