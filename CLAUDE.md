@@ -61,6 +61,8 @@ Documented in detail in `ARCHITECTURE.md`. Short version: add an entry to `CITIE
 
 Mix of a global stylesheet (`src/styles/global.css`, CSS variables) and CSS Modules (`ComponentName.module.css`) for individual components/pages — check which pattern a neighboring file uses before adding new styles.
 
+**Reduced motion is tiered** (see "MOVIMIENTO REDUCIDO POR NIVELES" in `global.css`): under `prefers-reduced-motion: reduce` a global net cuts every animation/transition to ~0 by default. Small, slow, in-place, user-initiated effects (photo hover zoom inside its frame, opacity fades) opt out by declaring `--motion-safe-duration` next to their `transition`. The hero video keeps playing (it has a pause button; only `saveData` drops it to the poster). Don't gate hover zoom on `prefers-reduced-motion: no-preference` — the `--hover-*` tokens already soften it (1.03, 700ms, no lift).
+
 ### Icons
 
 `src/components/icons/` holds one hand-authored SVG React component per icon (`IconX.jsx`), re-exported through `src/components/icons/index.js`. Add new icons following that same one-file-per-icon + barrel-export pattern rather than inlining SVG in page/component files.

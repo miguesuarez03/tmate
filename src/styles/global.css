@@ -51,8 +51,9 @@
   /* Hover de tarjetas e imágenes — un único efecto para toda la web:
      zoom suave de la foto dentro de su contenedor (overflow:hidden) y, como
      mucho, una elevación leve de la tarjeta, con la MISMA curva y duración.
-     Solo se activa con ratón (hover:hover + pointer:fine) y sin
-     prefers-reduced-motion — ver bloque "HOVER UNIFICADO" más abajo. */
+     Solo se activa con ratón (hover:hover + pointer:fine) — ver bloque
+     "HOVER UNIFICADO" más abajo. Con prefers-reduced-motion se atenúa
+     (ver "MOVIMIENTO REDUCIDO POR NIVELES", justo después del reset). */
   --ease-hover: cubic-bezier(0.22, 1, 0.36, 1);
   --hover-duration: 520ms;
   --hover-zoom: 1.05;
@@ -128,17 +129,45 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 
-/* Red de seguridad global para prefers-reduced-motion: en vez de auditar
-   cada animación/transition una a una, se recortan todas a casi-cero de
-   golpe para quien lo pida en el sistema — mantiene el layout final (no
-   usa display:none ni desactiva transform en seco, solo acelera el tiempo
-   a un valor imperceptible) sin tener que duplicar reglas por componente. */
+/* ─── MOVIMIENTO REDUCIDO POR NIVELES ────────────────────────────────────────
+   prefers-reduced-motion se aplica con criterio, no como un interruptor
+   de todo o nada:
+
+   Nivel 1 — SE ELIMINA (por defecto, todo lo que no esté en el nivel 2):
+     movimiento grande o que no inicia el usuario — entradas al hacer
+     scroll, rebotes y pulsos (@keyframes), contadores animados (eso en JS:
+     CountUpStat), scroll suave, elevaciones de tarjetas. La red de seguridad
+     de abajo recorta TODAS las animaciones y transiciones a casi cero
+     (0.001ms en vez de 0, para que transitionend siga disparándose), así
+     que cualquier animación nueva queda cubierta sin tener que auditarla.
+
+   Nivel 2 — SE MANTIENE, ATENUADO: cambios "en el sitio", lentos y
+     pequeños, que no desplazan nada por la pantalla — el zoom de la foto
+     en hover DENTRO de su marco (lo inicia el usuario; con reduced motion
+     baja a 1.03 y va más lento, y la tarjeta ya no se eleva) y los
+     fundidos de opacidad (el vídeo del hero entrando sobre su poster).
+     Un elemento entra en el nivel 2 declarando --motion-safe-duration
+     con la duración que quiere conservar; la red de seguridad la respeta.
+     inherits:false → solo afecta al propio elemento, nunca a sus hijos.
+
+   El vídeo del hero también se mantiene (es lento y no se desplaza):
+   lleva un botón de pausa (WCAG 2.2.2) cuya elección se recuerda. */
+@property --motion-safe-duration {
+  syntax: "<time>";
+  inherits: false;
+  initial-value: 0.001ms;
+}
 @media (prefers-reduced-motion: reduce) {
+  :root {
+    --hover-zoom: 1.03;
+    --hover-duration: 700ms;
+    --hover-lift: 0px;
+  }
   html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
+    transition-duration: var(--motion-safe-duration, 0.001ms) !important;
     scroll-behavior: auto !important;
   }
 }
@@ -351,16 +380,39 @@ a { text-decoration: none; color: inherit; }
 }
 .hero__bg { position: absolute; inset: 0; background: var(--gradient-hero); }
 /* Fondo del hero: poster (primer fotograma del vídeo, siempre visible y
-   única imagen con reduced motion / ahorro de datos) y, encima, el vídeo,
-   que entra con un fundido cuando ya reproduce — sin flash negro. El
-   degradado .hero__video-overlay asegura que el título se lea. */
+   única imagen con ahorro de datos o si el vídeo falla) y, encima, el
+   vídeo, que entra con un fundido cuando ya reproduce — sin flash negro.
+   El fundido es nivel 2 (se mantiene con reduced motion). El degradado
+   .hero__video-overlay asegura que el título se lea. */
 .hero__poster,
 .hero__video {
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; object-position: center 45%;
 }
-.hero__video { opacity: 0; transition: opacity 0.9s var(--ease-hover); }
+.hero__video { opacity: 0; transition: opacity 0.9s var(--ease-hover); --motion-safe-duration: 0.9s; }
 .hero__video--playing { opacity: 1; }
+/* Pausa/reproducir del vídeo (WCAG 2.2.2: un movimiento automático de más
+   de 5 s tiene que poder pararse). Discreto: circular, translúcido, en la
+   esquina inferior IZQUIERDA (la derecha la ocupa el botón flotante de
+   feedback). Mismo lenguaje que las pills del navbar sobre fondo de
+   imagen: hilo blanco y, en hover, relleno de marca con icono navy. */
+.hero__video-toggle {
+  position: absolute; z-index: 3;
+  left: var(--section-px); bottom: 26px;
+  width: 40px; height: 40px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0;
+  color: #fff;
+  background: rgba(15,30,45,0.42);
+  border: 1.5px solid rgba(255,255,255,0.7);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  transition: background-color 0.25s var(--ease-hover), border-color 0.25s var(--ease-hover), color 0.25s var(--ease-hover);
+}
+.hero__video-toggle:hover {
+  background: var(--gradient-brand); border-color: transparent; color: #16364D;
+}
+.hero__video-toggle:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
+.hero__video-toggle svg { display: block; }
 /* Modo claro: overlay más transparente que el original (se ve más vídeo).
    Modo oscuro conserva el degradado original, sin cambios. */
 .hero__video-overlay {
@@ -614,7 +666,7 @@ a { text-decoration: none; color: inherit; }
 .city-card__img {
   position: absolute; inset: 0;
   width: 100%; height: 100%; object-fit: cover; object-position: center;
-  transition: transform var(--hover-duration) var(--ease-hover), opacity var(--hover-duration) var(--ease-hover);
+  transition: transform var(--hover-duration) var(--ease-hover), opacity var(--hover-duration) var(--ease-hover); --motion-safe-duration: var(--hover-duration);
 }
 
 /* Gradient always above image */
@@ -966,6 +1018,10 @@ a { text-decoration: none; color: inherit; }
      sin protagonismo. */
   .hero__stats { gap: 14px; flex-wrap: nowrap; overflow-x: auto; max-width: calc(100% - 2 * var(--section-px)); -webkit-overflow-scrolling: touch; }
   .hero__stat { flex-shrink: 0; }
+  /* Botón de pausa del vídeo (esquina inferior izquierda): los stats le
+     dejan hueco a ambos lados para no pisarlo en móviles estrechos. */
+  .hero__video-toggle { width: 36px; height: 36px; bottom: 24px; }
+  .hero:has(.hero__video-toggle) .hero__stats { max-width: calc(100% - 2 * (var(--section-px) + 44px)); }
   .hero__stat-val { font-size: 15px; }
   .hero__stat-label { font-size: 9px; }
   .search-bar__btn { padding: 11px 16px; font-size: 13px; }
@@ -1192,7 +1248,7 @@ a { text-decoration: none; color: inherit; }
 }
 .gallery-item img {
   width: 100%; height: 100%; object-fit: cover;
-  transition: transform var(--hover-duration) var(--ease-hover), opacity var(--hover-duration) var(--ease-hover);
+  transition: transform var(--hover-duration) var(--ease-hover), opacity var(--hover-duration) var(--ease-hover); --motion-safe-duration: var(--hover-duration);
 }
 .gallery-item__overlay {
   position: absolute; inset: 0;
@@ -1955,7 +2011,7 @@ a { text-decoration: none; color: inherit; }
 }
 .community-card__img img {
   width: 100%; height: 100%; object-fit: cover;
-  transition: transform var(--hover-duration) var(--ease-hover), opacity var(--hover-duration) var(--ease-hover);
+  transition: transform var(--hover-duration) var(--ease-hover), opacity var(--hover-duration) var(--ease-hover); --motion-safe-duration: var(--hover-duration);
 }
 .community-card__img-overlay {
   position: absolute; inset: 0;
@@ -3053,10 +3109,12 @@ a { text-decoration: none; color: inherit; }
      con rebote (--ease-spring) y escalaba entera, y la foto otra curva.
    - Solo transform/opacity (nada de sombras animadas: provocan repintados).
    - Solo con ratón: en táctil :hover se queda "pegado" tras el toque.
-   - Con prefers-reduced-motion NO hay zoom. Antes el zoom se aplicaba igual
-     y la red de seguridad de reduced-motion (arriba) dejaba la transición en
-     0.001ms: la foto saltaba de golpe — de ahí el efecto "brusco". */
-@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+   - Con prefers-reduced-motion el zoom SIGUE (nivel 2, ver "MOVIMIENTO
+     REDUCIDO POR NIVELES" arriba): baja a 1.03, dura 700ms y la tarjeta ya
+     no se eleva (--hover-lift: 0). Cada foto declara --motion-safe-duration
+     junto a su transition; sin eso la red de seguridad dejaría la
+     transición en 0.001ms y la foto saltaría de golpe en vez de crecer. */
+@media (hover: hover) and (pointer: fine) {
   .city-card.city-card--in-view:hover { transform: translateY(var(--hover-lift)); }
   .city-card:hover .city-card__img,
   .city-card:focus-visible .city-card__img,

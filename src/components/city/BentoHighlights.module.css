@@ -54,7 +54,7 @@
 }
 
 /* Hover unificado (ver tokens --hover-* en global.css) */
-@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+@media (hover: hover) and (pointer: fine) {
   .card:hover { transform: translateY(var(--hover-lift)); }
   .card:hover .cardImg { transform: scale(var(--hover-zoom)); will-change: transform; }
 }
@@ -144,7 +144,7 @@
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover; object-position: center;
-  transition: transform var(--hover-duration) var(--ease-hover), opacity var(--hover-duration) var(--ease-hover);
+  transition: transform var(--hover-duration) var(--ease-hover), opacity var(--hover-duration) var(--ease-hover); --motion-safe-duration: var(--hover-duration);
 }
 
 /* Dark gradient overlay */

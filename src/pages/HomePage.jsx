@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import { CITIES } from "../data/cities";
 import { getScoreMap, getOverallScore, findBestCityMatch } from "../lib/cities";
 import { Navbar, Footer, SectionLabel, MASymbol, NAV_LINKS } from "../components/Layout";
-import { IconCityMatch, IconComparar, IconBeca, IconRanking, IconComunidad, IconSeguridad, IconUniversidad, IconMedalla, IconCamara, IconEdificio, IconFiesta, IconLapiz } from "../components/icons";
+import { IconCityMatch, IconComparar, IconBeca, IconRanking, IconComunidad, IconSeguridad, IconUniversidad, IconMedalla, IconCamara, IconEdificio, IconFiesta, IconLapiz, IconPausa, IconReproducir } from "../components/icons";
 import SearchBar from "../components/SearchBar";
 import CityCard from "../components/CityCard";
 import { useCityFilter } from "../hooks/useCityFilter";
@@ -254,32 +254,98 @@ const HERO_VIDEO = {
   poster: "/videos/hero-porto-poster.jpg",
 };
 
-/** ¿Hay que quedarse solo con la imagen? (reduced motion o ahorro de datos) */
-function shouldSkipHeroVideo() {
+/**
+ * ¿Pide el usuario ahorrar datos? (modo ahorro de datos o red 2G). Es el
+ * ÚNICO caso en que el hero se queda solo con el poster. prefers-reduced-
+ * motion NO lo quita: el plano es lento y no se desplaza por la pantalla
+ * (nivel 2 de "MOVIMIENTO REDUCIDO POR NIVELES" en global.css), y el botón
+ * de pausa cubre a quien prefiera pararlo.
+ */
+function prefersReducedData() {
   if (typeof window === "undefined") return true;
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return true;
+  if (window.matchMedia?.("(prefers-reduced-data: reduce)").matches) return true;
   const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-  if (conn && (conn.saveData || ["slow-2g", "2g"].includes(conn.effectiveType))) return true;
-  return false;
+  return Boolean(conn && (conn.saveData || ["slow-2g", "2g"].includes(conn.effectiveType)));
+}
+
+// La pausa del usuario se recuerda entre visitas. Con el almacenamiento
+// bloqueado (modo privado estricto, cookies desactivadas) no se recuerda,
+// pero el botón sigue funcionando durante la visita.
+const HERO_VIDEO_PAUSED_KEY = "tmate-hero-video-paused";
+
+function readHeroVideoPaused() {
+  try { return localStorage.getItem(HERO_VIDEO_PAUSED_KEY) === "1"; } catch { return false; }
+}
+
+function saveHeroVideoPaused(paused) {
+  try {
+    if (paused) localStorage.setItem(HERO_VIDEO_PAUSED_KEY, "1");
+    else localStorage.removeItem(HERO_VIDEO_PAUSED_KEY);
+  } catch { /* sin almacenamiento: la elección dura solo esta visita */ }
 }
 
 // Fondo del hero: SIEMPRE se pinta el poster (es la imagen LCP y la que ve
-// quien tenga reduced motion o ahorro de datos). El <video> se monta solo en
-// cliente y solo si procede — así el HTML prerenderizado no empieza a
-// descargar 4 MB de vídeo a quien no lo va a ver — y aparece con un fundido
-// cuando ya está reproduciendo (sin parpadeo negro). El degradado de encima
-// asegura que el título se lea igual sobre vídeo que sobre la foto.
+// quien ahorra datos). El <video> se monta solo en cliente — así el HTML
+// prerenderizado no empieza a descargar 4 MB a quien no lo va a ver — y
+// aparece con un fundido cuando ya reproduce (sin parpadeo negro). El
+// degradado de encima asegura que el título se lea sobre vídeo o foto.
+//
+// La reproducción se controla a mano (play()/pause()) en vez de con el
+// atributo autoplay, para poder: respetar la pausa guardada sin descargar
+// el vídeo (preload="none"), pararlo cuando el hero sale de pantalla (no
+// tiene sentido decodificar vídeo que nadie ve) y reflejar en el botón si
+// el navegador bloqueó el arranque (p. ej. iOS en modo ahorro de batería).
 function HeroBackground() {
+  const videoRef = useRef(null);
   const [videoAllowed, setVideoAllowed] = useState(false);
-  const [playing, setPlaying] = useState(false);
+  const [paused, setPaused] = useState(false);   // elección del usuario (persistida)
+  const [blocked, setBlocked] = useState(false); // el navegador no dejó arrancar solo
+  const [inView, setInView] = useState(true);
+  const [started, setStarted] = useState(false); // ya hay fotogramas → fundido sobre el poster
 
   useEffect(() => {
-    setVideoAllowed(!shouldSkipHeroVideo());
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const onChange = () => setVideoAllowed(!shouldSkipHeroVideo());
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
+    setPaused(readHeroVideoPaused());
+    setVideoAllowed(!prefersReducedData());
   }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting));
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, [videoAllowed]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (paused || !inView) { video.pause(); return; }
+    video.muted = true; // los navegadores solo permiten arrancar solo un vídeo silenciado
+    video.play()?.catch((err) => {
+      // AbortError = un pause() posterior interrumpió este play(): no es un bloqueo.
+      if (err?.name === "NotAllowedError") setBlocked(true);
+    });
+  }, [videoAllowed, paused, inView]);
+
+  const playing = !paused && !blocked;
+
+  function togglePlayback() {
+    const video = videoRef.current;
+    if (playing) {
+      setPaused(true);
+      saveHeroVideoPaused(true);
+      video?.pause();
+      return;
+    }
+    setPaused(false);
+    setBlocked(false);
+    saveHeroVideoPaused(false);
+    // play() dentro del propio clic: si el navegador bloqueó el arranque
+    // automático, solo lo permite durante un gesto del usuario.
+    if (video) { video.muted = true; video.play()?.catch(() => {}); }
+  }
+
+  const toggleLabel = playing ? "Pausar el vídeo de fondo" : "Reproducir el vídeo de fondo";
 
   return (
     <>
@@ -295,13 +361,16 @@ function HeroBackground() {
       />
       {videoAllowed && (
         <video
-          className={`hero__video${playing ? " hero__video--playing" : ""}`}
-          autoPlay muted loop playsInline
-          preload="auto"
+          ref={videoRef}
+          className={`hero__video${started ? " hero__video--playing" : ""}`}
+          muted loop playsInline
+          disablePictureInPicture
+          disableRemotePlayback
+          preload={paused ? "none" : "auto"}
           poster={HERO_VIDEO.poster}
           aria-hidden="true"
           tabIndex={-1}
-          onPlaying={() => setPlaying(true)}
+          onPlaying={() => { setStarted(true); setBlocked(false); }}
           onError={() => setVideoAllowed(false)}
         >
           <source src={HERO_VIDEO.webm} type="video/webm" />
@@ -311,6 +380,17 @@ function HeroBackground() {
         </video>
       )}
       <div className="hero__video-overlay" />
+      {videoAllowed && (
+        <button
+          type="button"
+          className="hero__video-toggle"
+          onClick={togglePlayback}
+          aria-label={toggleLabel}
+          title={toggleLabel}
+        >
+          {playing ? <IconPausa size={16} /> : <IconReproducir size={16} />}
+        </button>
+      )}
     </>
   );
 }

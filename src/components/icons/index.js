@@ -53,3 +53,5 @@ export { default as IconIntegracion } from "./IconIntegracion";
 export { default as IconMovilidad } from "./IconMovilidad";
 export { default as IconEstiloVida } from "./IconEstiloVida";
 export { default as IconEmpleo } from "./IconEmpleo";
+export { default as IconPausa } from "./IconPausa";
+export { default as IconReproducir } from "./IconReproducir";
