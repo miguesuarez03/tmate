@@ -161,7 +161,7 @@ const QUESTIONS = [
     options: [
       { value: "pequena", label: "Pequeña y manejable", desc: "Menos de 300.000 habitantes" },
       { value: "mediana", label: "Mediana", desc: "De 300.000 a 1 millón de habitantes" },
-      { value: "grande", label: "Gran ciudad", desc: "Más de 1 millón de habitantes" },
+      { value: "grande", label: "Gran ciudad", desc: "1 millón de habitantes o más" },
       { value: NEUTRAL, label: "No me importa" },
     ],
   },
