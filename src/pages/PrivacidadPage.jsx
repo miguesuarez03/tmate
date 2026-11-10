@@ -1,6 +1,5 @@
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { useSEO } from "../hooks/useSEO";
-import { GA_MEASUREMENT_ID } from "../lib/analytics";
 import styles from "./PrivacidadPage.module.css";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -49,11 +48,7 @@ export default function PrivacidadPage() {
         <ul>
           <li>MAbroad lo hace {OWNER_NAME}, un particular. Para cualquier cosa: {mail}.</li>
           <li>No necesitas cuenta para usar la web.</li>
-          <li>
-            {GA_MEASUREMENT_ID
-              ? "La analítica principal (Vercel Web Analytics) no usa cookies; Google Analytics sí, ver más abajo."
-              : "No usamos cookies: ni de analítica, ni de publicidad, ni de ningún otro tipo."}
-          </li>
+          <li>No usamos cookies: ni de analítica, ni de publicidad, ni de ningún otro tipo.</li>
           <li>Medimos las visitas de forma anónima y agregada para saber qué partes de la web se usan.</li>
           <li>Solo recibimos datos tuyos si nos los mandas tú: el botón de feedback, «Comparte tu experiencia» o el asistente del Learning Agreement.</li>
           <li>No vendemos ni cedemos tus datos, ni los usamos para publicidad.</li>
@@ -129,19 +124,6 @@ export default function PrivacidadPage() {
             política de privacidad de Vercel Web Analytics
           </a>.
         </p>
-
-        {GA_MEASUREMENT_ID && (
-          <>
-            <h2>Google Analytics</h2>
-            <p>
-              También usamos Google Analytics 4, que sí utiliza cookies propias de Google para
-              distinguir visitas. Puedes bloquearlas desde la configuración de tu navegador o con el{" "}
-              <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">
-                complemento de inhabilitación de Google
-              </a>.
-            </p>
-          </>
-        )}
 
         <h2>3. Botón de feedback «¿Qué te falta?»</h2>
         <ul>
@@ -244,13 +226,12 @@ export default function PrivacidadPage() {
 
         <h2>Otros servicios que carga la web</h2>
         <p>
-          Para mostrar la web, tu navegador se conecta directamente a estos servicios, que ven tu dirección
-          IP como en cualquier web. No les enviamos otros datos tuyos:
+          Las tipografías y los datos del mapa se sirven desde nuestro propio dominio. Para mostrar la web, tu
+          navegador solo se conecta directamente a estos servicios, que ven tu dirección IP como en cualquier
+          web. No les enviamos otros datos tuyos:
         </p>
         <ul>
-          <li><strong>Google Fonts</strong> (Google, Estados Unidos): las tipografías.</li>
           <li><strong>Wikimedia Commons</strong> (Wikimedia Foundation, Estados Unidos) y <strong>Unsplash</strong>: las fotos.</li>
-          <li><strong>jsDelivr</strong>: los datos del mapa del mundo.</li>
           <li>
             <strong>Nominatim</strong>, de la OpenStreetMap Foundation (Reino Unido): solo si pulsas «Calcular
             distancia» en la calculadora de la beca. Recibe la ciudad de origen que escribes.
@@ -261,7 +242,7 @@ export default function PrivacidadPage() {
         <p>Algunos de los servicios anteriores tratan datos fuera del Espacio Económico Europeo:</p>
         <ul>
           <li>
-            <strong>Estados Unidos — Vercel Inc. y Google LLC:</strong> están adheridas al Marco de Privacidad
+            <strong>Estados Unidos — Vercel Inc. y Google LLC (nuestro correo, Gmail):</strong> están adheridas al Marco de Privacidad
             de Datos UE-EE. UU. (Data Privacy Framework), reconocido por la Comisión Europea en la Decisión de
             Ejecución (UE) 2023/1795.
           </li>

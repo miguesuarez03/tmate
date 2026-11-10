@@ -1,6 +1,6 @@
-/* Google Fonts (Bricolage Grotesque + Fraunces) se cargan como <link> en
-   index.html, no como @import aquí — @import retrasa el descubrimiento de
-   la fuente hasta que el navegador parsea este archivo entero primero. */
+/* Tipografías (Bricolage Grotesque + Fraunces): autoalojadas con Fontsource,
+   importadas en src/main.jsx. La variable se llama «Bricolage Grotesque
+   Variable»; el nombre sin «Variable» queda de respaldo. */
 /* ─── DESIGN TOKENS — identidad MAbroad ──────────────────────────────────── */
 :root {
   --color-navy: #2F5073;    /* Deep Blue — marca, estructura, textos importantes */
@@ -28,8 +28,8 @@
   --gradient-brand: linear-gradient(135deg, #F5963A, #FFC95E);
   --gradient-hero: linear-gradient(160deg, var(--color-navy) 0%, #24455F 40%, #16364D 100%);
   --gradient-dark: linear-gradient(135deg, var(--color-navy) 0%, #16364D 100%);
-  --font-display: 'Bricolage Grotesque', sans-serif;
-  --font-body: 'Bricolage Grotesque', sans-serif;
+  --font-display: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', sans-serif;
+  --font-body: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', sans-serif;
   /* Reservada para titulares editoriales grandes y puntuales (hero, algún
      subtítulo con storytelling) — no para UI/navegación/cuerpo de texto. */
   --font-editorial: 'Fraunces', serif;

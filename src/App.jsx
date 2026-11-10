@@ -2,7 +2,6 @@ import { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ScrollRestoration from "./components/ScrollRestoration";
 import RouteLoader from "./components/RouteLoader";
-import GoogleAnalytics from "./components/GoogleAnalytics";
 import FeedbackWidget from "./components/FeedbackWidget";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
@@ -29,7 +28,6 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollRestoration />
-      <GoogleAnalytics />
       <Suspense fallback={<RouteLoader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />

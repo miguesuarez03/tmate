@@ -16,7 +16,9 @@ import PhotoCredit from "./PhotoCredit";
 // Foto de la ficha emergente: 240px de ancho × 130px de alto (WorldMap.module.css).
 const POPUP_PHOTO_SLOTS = [[null, "240px", 240 / 130]];
 
-const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+// world-atlas@2.0.2 (licencia ISC en public/maps/LICENSE-world-atlas.txt;
+// geometrías de Natural Earth, dominio público), servido desde el propio dominio.
+const GEO_URL = "/maps/countries-110m.json";
 
 // ─── CITIES del mapa — coords y datos estáticos ──────────────────────────────
 // El score se calcula dinámicamente con getOverallScore() para mantener

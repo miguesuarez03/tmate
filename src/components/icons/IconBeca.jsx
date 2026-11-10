@@ -40,7 +40,7 @@ export default function IconBeca({ size = 56, className = "", ...rest }) {
 style={{ mixBlendMode: "soft-light" }} transform="rotate(-35 48 46)"/>
 </g>
 <circle cx="64" cy="64" r="37" fill="none" stroke="#FFFFFF" strokeOpacity="0.35" strokeWidth="1.6"/>
-<text x="64" y="80" fontFamily="Georgia, 'Bricolage Grotesque', serif" fontSize="46" fontWeight="700" textAnchor="middle" fill="#2F5073" opacity="0.88">&#8364;</text>
+<text x="64" y="80" fontFamily="Georgia, 'Bricolage Grotesque Variable', 'Bricolage Grotesque', serif" fontSize="46" fontWeight="700" textAnchor="middle" fill="#2F5073" opacity="0.88">&#8364;</text>
 </g>
 
     </svg>

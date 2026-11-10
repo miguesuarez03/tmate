@@ -54,8 +54,8 @@ style={{ mixBlendMode: "soft-light" }} transform="rotate(-35 32 30)"/>
 <ellipse cx="66" cy="62" rx="12" ry="6.6" fill="#FFFFFF" opacity="0.4"
 style={{ mixBlendMode: "soft-light" }} transform="rotate(-35 66 62)"/>
 </g>
-<text x="48" y="46" fontFamily="'Bricolage Grotesque', sans-serif" fontSize="20" fontWeight="700" textAnchor="middle" fill="#FFFFFF">A</text>
-<text x="80" y="80" fontFamily="'Bricolage Grotesque', sans-serif" fontSize="20" fontWeight="700" textAnchor="middle" fill="#FFFFFF">B</text>
+<text x="48" y="46" fontFamily="'Bricolage Grotesque Variable', 'Bricolage Grotesque', sans-serif" fontSize="20" fontWeight="700" textAnchor="middle" fill="#FFFFFF">A</text>
+<text x="80" y="80" fontFamily="'Bricolage Grotesque Variable', 'Bricolage Grotesque', sans-serif" fontSize="20" fontWeight="700" textAnchor="middle" fill="#FFFFFF">B</text>
 </g>
 
     </svg>
