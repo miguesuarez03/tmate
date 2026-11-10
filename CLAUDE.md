@@ -84,4 +84,16 @@ En este repo también trabaja Codex (plugin `codex@openai-codex`). Las normas co
 
 @AGENTS.md
 
-La regla de no pedir permiso tiene una excepción: `git push` a `main` y `vercel --prod` solo cuando Miguel lo pida explícitamente.
+### Flujo de cada tarea (Claude + Codex, sin Miguel de puente)
+
+1. **Claude Code hace la tarea.**
+2. **Revisión de Codex antes del push**: al terminar, Claude le pide a Codex que revise el diff y verifique los datos contra fuentes oficiales, siempre en modo solo lectura:
+   ```powershell
+   Get-Content prompt.txt -Raw -Encoding utf8 | codex exec -s read-only --ephemeral --color never -c 'web_search="live"' -o respuesta.txt -
+   ```
+   (prompt y respuesta en el scratchpad, no en el repo; no cortar la salida con `Select-Object -First`, que mata el proceso).
+3. **Si Codex encuentra fallos**, Claude los corrige y vuelve a pedir revisión: **máximo 2 rondas**. Si siguen sin estar de acuerdo, Claude decide con su criterio y lo apunta en el resumen.
+4. **Después**: `npm run build` sin errores, commit y `git push` a `main` **sin preguntar** a Miguel.
+5. **Resumen final**: incluye una línea con lo que encontró Codex.
+
+`vercel --prod` sigue necesitando que Miguel lo pida (el push a `main` ya despliega solo en Vercel).

@@ -7,34 +7,27 @@ El contexto técnico completo (arquitectura, comandos, SSG, datos, rutas, estilo
 MAbroad (repo `tmate`): web en español para elegir ciudad de Erasmus. React + Vite, sin backend, prerenderizada (SSG) y desplegada en Vercel. Dueño: Miguel.
 
 ## Reparto de papeles
-- **Claude Code manda**: decide qué se hace y cómo, planifica, toma las decisiones de producto, diseño y arquitectura, y da el visto bueno final.
-- **Codex ejecuta y revisa**: Claude le delega todo lo que no necesite su criterio, para ahorrar uso de Claude. Si Codex lo hace igual o mejor, lo hace Codex.
+- **Claude Code hace las tareas**: planifica, decide (producto, diseño, arquitectura, textos), edita el código y los datos, y da el visto bueno final.
+- **Codex revisa**: Claude lo llama con `codex exec` en **modo solo lectura** (`-s read-only`) al terminar cada tarea, antes del push. Codex no edita archivos en esas llamadas: informa y Claude corrige.
 
-## Cuándo delegar en Codex (`/codex:rescue`)
-- Tareas mecánicas o repetitivas: añadir o actualizar ciudades y datos en `src/data/`, cambios en muchos archivos con el mismo patrón, renombrados.
-- Ejecutar `npm run build` y arreglar los errores que salgan.
-- Depurar un fallo concreto y bien acotado.
-- Refactors grandes una vez que Claude ha fijado el plan.
-- Buscar en el código ("¿dónde se usa X?") cuando haga falta recorrer mucho.
+## Flujo de cada tarea
+1. Claude hace la tarea.
+2. Antes del push, Claude pide a Codex que revise el diff y verifique los datos contra **fuentes oficiales** (con búsqueda web).
+3. Si Codex encuentra fallos, Claude los corrige y vuelve a pedir revisión: **máximo 2 rondas**. Si siguen sin estar de acuerdo, decide Claude y lo apunta en el resumen.
+4. Después: `npm run build` sin errores, commit y `git push` a `main` sin preguntar a Miguel.
+5. El resumen final de Claude incluye una línea con lo que encontró Codex.
 
-## Qué se queda Claude
-- Planificar y dividir el trabajo, con encargos a Codex breves y concretos (qué, archivos, criterio de "hecho").
-- Decisiones de UX, diseño visual, textos de la web y contenido.
-- Revisar el resultado de Codex mirando el diff, no releyendo todo el proyecto.
-
-## Revisiones (`/codex:review`)
-- Codex revisa los cambios no triviales de Claude antes del push, y siempre los que tocan rutas, SEO/prerender, `vercel.json` o datos legales.
-- Los cambios pequeños (un texto, un estilo) no necesitan revisión.
-
-## Ahorro de uso
-- Codex devuelve resúmenes cortos: qué ha cambiado, en qué archivos y qué queda pendiente.
-- No repetir trabajo: si uno ya ha investigado algo, el otro parte de su resumen.
+## Cómo revisa Codex
+- Respuestas cortas y accionables: solo lo que hay que cambiar, con archivo/slug, valor actual, valor correcto y **URL de la fuente**.
+- Si un dato no aparece en una fuente oficial o fiable, lo dice en vez de inventar una cifra.
+- Fuentes válidas: institutos nacionales de estadística, webs oficiales de universidades, ayuntamientos, operadores de transporte, Comisión Europea/SEPIE, servicios meteorológicos nacionales. Blogs y agregadores solo como pista, nunca como fuente final.
+- No repite trabajo: parte del diff y del resumen que le pasa Claude.
 
 ## Reglas para los dos
-1. **Nunca editar a la vez los mismos archivos.** Un agente edita y el otro revisa.
-2. **Git es el punto de encuentro**: commits pequeños, con mensaje en español que diga qué y por qué. Antes de empezar, `git status` para no pisar cambios sin commitear del otro.
-3. **Revisión antes de aceptar**: todo cambio no trivial pasa por la revisión del otro agente antes de hacer push.
-4. **Despliegue solo con permiso explícito de Miguel**: nada de `git push` a `main` ni `vercel --prod` sin que lo pida en ese momento (push a main despliega en producción).
+1. **Nunca editar a la vez los mismos archivos.** Claude edita y Codex revisa.
+2. **Git es el punto de encuentro**: commits pequeños, con mensaje en español que diga qué y por qué. Antes de empezar, `git status` para no pisar cambios sin commitear.
+3. **Revisión antes del push**: todo cambio no trivial pasa por la revisión de Codex antes de hacer push (los cambios pequeños, como un texto o un estilo, no la necesitan).
+4. **Despliegue**: el push a `main` (que despliega en Vercel) lo hace Claude tras la revisión y el build, sin preguntar. `vercel --prod` solo si Miguel lo pide.
 5. Respetar las capas: datos en `src/data/`, lógica en `src/lib/cities.js`, estado en `src/hooks/`, tipos en `src/types/`, UI en `src/components/` y `src/pages/`.
 6. **Nunca inventar opiniones ni testimonios** de estudiantes (`cityExperiences.js` solo contiene experiencias reales aprobadas a mano). Las puntuaciones son valoración editorial de MAbroad, nunca datos oficiales.
 7. No levantar el servidor ni navegar la web para comprobar cambios visualmente: se revisa el código. Las pruebas visuales las hace Miguel.
