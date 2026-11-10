@@ -18,6 +18,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { createHash } from "node:crypto";
+import { INDEXNOW_KEY, MANIFEST_FILE, CHANGED_FILE } from "./indexnow-config.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -181,6 +182,88 @@ function checkCspHashes(template) {
   }
 }
 
+// ─── IndexNow (ver scripts/indexnow-config.mjs) ──────────────────────────────
+// Hash del contenido que importa a un buscador (head SEO + body renderizado),
+// sin la plantilla: los nombres de los bundles cambian en cada build y harían
+// que todas las URLs parecieran «cambiadas».
+function contentHash(appHtml, meta) {
+  const payload = JSON.stringify({
+    title: meta.title, description: meta.description, canonical: meta.canonical,
+    noindex: Boolean(meta.noindex), jsonLd: meta.jsonLd ?? null, appHtml,
+  });
+  return createHash("sha256").update(payload, "utf8").digest("hex").slice(0, 32);
+}
+
+// La clave tiene que estar publicada en la raíz del deploy (public/<clave>.txt
+// → dist/<clave>.txt). Si falta o no coincide, se repara y se avisa.
+function ensureIndexNowKeyFile() {
+  const keyPath = join(DIST, `${INDEXNOW_KEY}.txt`);
+  const current = existsSync(keyPath) ? readFileSync(keyPath, "utf-8").trim() : null;
+  if (current !== INDEXNOW_KEY) {
+    writeFileSync(keyPath, INDEXNOW_KEY, "utf-8");
+    console.warn(`  ⚠ IndexNow: faltaba public/${INDEXNOW_KEY}.txt (o no coincidía); escrito en dist/.`);
+  }
+}
+
+// Compara con el manifiesto que sirve ahora producción y escribe la lista de
+// URLs nuevas, cambiadas o borradas. Solo en builds de producción de Vercel.
+// Si el manifiesto anterior no se puede leer (red, HTTP ≠ 200, JSON roto), se
+// avisan TODAS las URLs indexables actuales: este deploy publica hashes
+// nuevos, así que una lista vacía perdería para siempre el aviso de lo que
+// haya cambiado. Nunca rompe el build.
+async function writeIndexNowFiles(pages, siteUrl) {
+  const commit = process.env.VERCEL_GIT_COMMIT_SHA || null;
+  const isProduction = process.env.VERCEL_ENV === "production";
+  writeFileSync(
+    join(DIST, MANIFEST_FILE),
+    JSON.stringify({ commit, pages }, null, 0) + "\n",
+    "utf-8"
+  );
+
+  let urls = [];
+  let reason;
+  const allCurrent = (why) => {
+    urls = Object.keys(pages);
+    reason = `${why}: se avisan todas las URLs indexables`;
+  };
+  if (!isProduction) {
+    reason = "no es un build de producción: no se avisa";
+  } else {
+    try {
+      const res = await fetch(`${siteUrl}/${MANIFEST_FILE}`, {
+        signal: AbortSignal.timeout(8000),
+        headers: { "Cache-Control": "no-cache" },
+      });
+      if (res.status === 404) {
+        allCurrent("no hay manifiesto anterior (primer deploy)");
+      } else if (!res.ok) {
+        allCurrent(`manifiesto anterior ilegible (HTTP ${res.status})`);
+      } else {
+        let prev = null;
+        try { prev = (await res.json())?.pages; } catch { /* JSON roto */ }
+        if (!prev || typeof prev !== "object" || Array.isArray(prev)) {
+          allCurrent("manifiesto anterior con formato no válido");
+        } else {
+          const changed = Object.keys(pages).filter((u) => prev[u] !== pages[u]);
+          const removed = Object.keys(prev).filter((u) => !(u in pages));
+          urls = [...changed, ...removed];
+          reason = `${changed.length} nuevas/cambiadas, ${removed.length} borradas`;
+        }
+      }
+    } catch (err) {
+      allCurrent(`manifiesto anterior ilegible (${err.name}: ${err.message})`);
+    }
+  }
+  // Solo URLs del dominio canónico.
+  urls = [...new Set(urls)].filter((u) => u === `${siteUrl}/` || u.startsWith(`${siteUrl}/`));
+  writeFileSync(
+    join(DIST, CHANGED_FILE),
+    JSON.stringify({ commit, production: isProduction, urls }, null, 2) + "\n",
+    "utf-8"
+  );
+  console.log(`  ✓ IndexNow: ${urls.length} URLs para avisar (${reason})`);
+}
+
 // ─── Main ────────────────────────────────────────────────────────────────────
 async function main() {
   if (!existsSync(join(DIST, "index.html"))) {
@@ -197,16 +280,32 @@ async function main() {
     await import(pathToFileURL(SSR_BUNDLE).href);
   if (siteName) SITE_NAME = siteName;
   if (siteLocale) SITE_LOCALE = siteLocale;
-  const template = readFileSync(join(DIST, "index.html"), "utf-8");
+  // La home se escribe ENCIMA de dist/index.html (la plantilla). Para que
+  // relanzar `npm run prerender` sin rehacer el build de cliente no use como
+  // plantilla una home ya prerenderizada (duplicaría canonical/OG/JSON-LD),
+  // se guarda una copia limpia en .ssr-temp y se reutiliza.
+  const TEMPLATE_COPY = join(ROOT, ".ssr-temp", "index.template.html");
+  let template = readFileSync(join(DIST, "index.html"), "utf-8");
+  const isPristine = (t) => /<div id="root">\s*<\/div>/.test(t) && !t.includes('rel="canonical"');
+  if (isPristine(template)) {
+    writeFileSync(TEMPLATE_COPY, template, "utf-8");
+  } else if (existsSync(TEMPLATE_COPY) && isPristine(readFileSync(TEMPLATE_COPY, "utf-8"))) {
+    template = readFileSync(TEMPLATE_COPY, "utf-8");
+  } else {
+    console.error("✖ dist/index.html ya está prerenderizada y no hay plantilla limpia. Ejecuta `npm run build`.");
+    process.exit(1);
+  }
   checkCspHashes(template);
 
   let ok = 0;
   const failed = [];
+  const indexNowPages = {}; // URL canónica → hash del contenido (solo indexables)
 
   for (const route of ALL_ROUTES) {
     try {
       const { appHtml, meta } = renderPage(route.path);
       const html = renderTemplate(template, appHtml, meta);
+      if (!meta.noindex) indexNowPages[meta.canonical] = contentHash(appHtml, meta);
       const out = outPathFor(route.path);
       mkdirSync(dirname(out), { recursive: true });
       writeFileSync(out, html, "utf-8");
@@ -233,6 +332,15 @@ async function main() {
   writeFileSync(join(DIST, "sitemap.xml"), buildSitemap(ALL_ROUTES, SITE_URL), "utf-8");
   writeFileSync(join(DIST, "robots.txt"), buildRobots(SITE_URL), "utf-8");
   console.log(`  ✓ sitemap.xml (${ALL_ROUTES.filter((r) => !r.noindex).length} URLs) + robots.txt generados`);
+
+  // IndexNow: clave publicada + manifiesto/lista de cambios. Nada de esto
+  // puede romper el build.
+  try {
+    ensureIndexNowKeyFile();
+    await writeIndexNowFiles(indexNowPages, SITE_URL);
+  } catch (err) {
+    console.warn("  ⚠ IndexNow: no se generaron los ficheros de aviso →", err.message);
+  }
 
   console.log(`\n  Prerender completado: ${ok}/${ALL_ROUTES.length} páginas.`);
   if (failed.length) {

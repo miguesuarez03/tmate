@@ -1,0 +1,38 @@
+# Avisa a Bing (IndexNow) de las URLs nuevas, cambiadas o borradas después de
+# cada deploy de PRODUCCIÓN correcto en Vercel. Vercel manda el evento
+# repository_dispatch «vercel.deployment.success» con client_payload.environment
+# y client_payload.git.sha (https://vercel.com/docs/git/vercel-for-github#repository-dispatch-events).
+# No necesita secretos: la clave de IndexNow es pública (public/<clave>.txt).
+# Ver scripts/indexnow-config.mjs y scripts/indexnow-notify.mjs.
+name: IndexNow
+
+on:
+  repository_dispatch:
+    types:
+      - "vercel.deployment.success"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  notify:
+    if: github.event.client_payload.environment == 'production'
+    runs-on: ubuntu-latest
+    # Espera al dominio (≤5 min) + reintentos del envío.
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.client_payload.git.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Avisar a IndexNow
+        run: node scripts/indexnow-notify.mjs
+        env:
+          DEPLOY_ENVIRONMENT: ${{ github.event.client_payload.environment }}
+          EXPECTED_SHA: ${{ github.event.client_payload.git.sha }}

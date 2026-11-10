@@ -73,6 +73,10 @@ Mix of a global stylesheet (`src/styles/global.css`, CSS variables) and CSS Modu
 
 Deployed on Vercel (`vercel.json`): `buildCommand` runs the full `npm run build` (client + SSR + prerender) and serves `dist/`. Security headers and a report-only CSP are set there — `connect-src`/`img-src`/etc. allowlists need updating in `vercel.json` if new external hosts (fonts, APIs, image CDNs) are introduced. `src/lib/seo.js` defines `SITE_URL` used for canonical URLs, OG tags, sitemap, and robots.txt — verify it matches the actual deployed domain before relying on generated SEO output.
 
+**IndexNow (Bing)**: the public key lives in `public/<key>.txt` and `scripts/indexnow-config.mjs`. In production builds (`VERCEL_ENV=production`) the prerender compares a per-URL content hash against the live `indexnow-manifest.json` and publishes `indexnow-changed.json` (new/changed/deleted canonical URLs); if the previous manifest is missing or unreadable it lists every indexable URL (so no change is lost), and it never fails the build. After a successful production deploy, Vercel's `repository_dispatch` event `vercel.deployment.success` triggers `.github/workflows/indexnow.yml` → `scripts/indexnow-notify.mjs`, which waits until `www.mabroad.com` serves that commit, checks the key file is published, and only then POSTs to Bing (retrying network errors, 5xx and 429; if it still fails the job exits 1 so it can be re-run). Previews never notify. `SITE_URL` is duplicated in `indexnow-notify.mjs` — keep it in sync with `src/lib/seo.js`.
+
+**FAQ**: `src/data/faqs.js` is the single source for the visible FAQ (home, `/beca-erasmus`) and their `FAQPage` JSON-LD (`HOME_JSON_LD`/`BECA_JSON_LD` in `src/lib/seo.js`, used by the pages and by `entry-server.jsx`). Answers stay in the HTML with `hidden` when collapsed.
+
 ## Reglas de flujo de trabajo
 
 - Nunca pruebes ni navegues la web tras hacer cambios (no levantes el servidor para comprobar visualmente) — solo revisa el código si quieres verificar que está bien. Las pruebas visuales las hace el usuario.
