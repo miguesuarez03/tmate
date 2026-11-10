@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useId } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { IconCorazonInclusion, IconAccesibilidad, IconHoja, IconBombilla, IconGrafica, IconPin, IconTarjeta, IconLibros, IconEdificio, IconUniversidad, IconCasa, IconComida, IconTransporte, IconFiesta, IconBeca, IconAlerta, IconCheck, IconViajes } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
@@ -816,6 +816,10 @@ export default function BecaErasmusPage() {
               <FaqItem key={i} item={item} />
             ))}
           </div>
+          <p className="guide-link">
+            ¿Quieres el detalle con las fuentes oficiales?{" "}
+            <Link to="/guias/beca-erasmus-cuanto-se-cobra">Guía: cuánto se cobra de beca Erasmus+ y cuándo llega →</Link>
+          </p>
         </section>
 
         {/* ── CTA ── */}

@@ -157,3 +157,33 @@ export interface FavoritesState {
 export interface ComparisonState {
   slugs: string[];            // máx 3 ciudades
 }
+
+// ─── Guías (/guias) ─────────────────────────────────────────────────────────
+// Texto con formato inline: "[texto](url)" = enlace, "**texto**" = negrita.
+
+export type GuideBlock =
+  | { type: "p" | "note"; text: string }
+  | { type: "list"; items: string[]; ordered?: boolean }
+  | { type: "checklist"; items: string[] }
+  | { type: "table"; caption?: string; head: string[]; rows: string[][] }
+  | { type: "example"; title: string; text?: string; items?: string[] };
+
+export interface GuideSection {
+  id: string;
+  heading: string;
+  blocks: GuideBlock[];
+}
+
+export interface Guide {
+  slug: string;
+  title: string;
+  seoTitle: string;
+  description: string;
+  summary: string;
+  datePublished: string; // AAAA-MM-DD
+  dateModified: string;  // AAAA-MM-DD
+  intro: string;
+  sections: GuideSection[];
+  sources: { label: string; url: string }[];
+  related: { to: string; label: string }[];
+}

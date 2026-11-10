@@ -1,5 +1,8 @@
 import { sizedImage } from "./images";
 import { HOME_FAQS, BECA_FAQS } from "../data/faqs";
+// Ojo: este módulo se carga en la portada. No importar aquí src/data/guides.js
+// (arrastraría el texto de las guías al bundle inicial): los JSON-LD de guías
+// son funciones puras y la constante del índice vive en src/lib/guides.js.
 
 // Dominio canónico: www. El apex (mabroad.com) redirige con 308 a www desde
 // la configuración de dominios de Vercel, así que canonical, Open Graph,
@@ -100,6 +103,62 @@ export function getFaqJsonLd(faqs, path) {
  */
 export const HOME_JSON_LD = [...getWebsiteJsonLd(), getFaqJsonLd(HOME_FAQS, "/")];
 export const BECA_JSON_LD = getFaqJsonLd(BECA_FAQS, "/beca-erasmus");
+
+/**
+ * Article (https://developers.google.com/search/docs/appearance/structured-data/article)
+ * para cada guía, con migas de pan Inicio › Guías › Guía. Autor y editor:
+ * MAbroad como organización. Imagen: la de marca (1200×630).
+ */
+export function getGuideJsonLd(guide) {
+  const url = `${SITE_URL}/guias/${guide.slug}`;
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "@id": `${url}#article`,
+      headline: guide.title,
+      description: guide.description,
+      inLanguage: "es",
+      datePublished: guide.datePublished,
+      dateModified: guide.dateModified,
+      mainEntityOfPage: { "@type": "WebPage", "@id": url },
+      url,
+      image: [DEFAULT_OG_IMAGE],
+      author: { "@type": "Organization", name: SITE_NAME, url: `${SITE_URL}/` },
+      publisher: { "@id": `${SITE_URL}/#organization`, "@type": "Organization", name: SITE_NAME, logo: { "@type": "ImageObject", url: `${SITE_URL}/favicon-512.png` } },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Inicio", item: `${SITE_URL}/` },
+        { "@type": "ListItem", position: 2, name: "Guías", item: `${SITE_URL}/guias` },
+        { "@type": "ListItem", position: 3, name: guide.title, item: url },
+      ],
+    },
+  ];
+}
+
+/** Índice /guias: CollectionPage con la lista de guías. */
+export function getGuidesIndexJsonLd(guides) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${SITE_URL}/guias#page`,
+    name: "Guías Erasmus de MAbroad",
+    inLanguage: "es",
+    url: `${SITE_URL}/guias`,
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: guides.map((g, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: `${SITE_URL}/guias/${g.slug}`,
+        name: g.title,
+      })),
+    },
+  };
+}
 
 /** Migas de pan (Inicio › Ciudad) para las fichas de destino. */
 export function getBreadcrumbJsonLd(city) {

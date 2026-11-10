@@ -66,10 +66,11 @@ export const BECA_FAQS = [
     // reciben ayuda de viaje según los importes de la Guía del Programa):
     // https://www.sepie.es/doc/convocatoria/2026/infofinanciacioneplus2026.pdf
     // y la Guía del Programa Erasmus+ 2026 (tarifas estándar y de viaje
-    // ecológico por franja de distancia):
-    // https://erasmus-plus.ec.europa.eu/sites/default/files/2025-11/programme-guide-2026_en.pdf
+    // ecológico por franja de distancia; glosario, p. 446: viaje ecológico =
+    // medios de bajas emisiones en al menos la mitad del viaje de ida y vuelta):
+    // https://erasmus-plus.ec.europa.eu/sites/default/files/2025-11/programme-guide-2026_en.pdf#page=446
     q: "¿Qué es Green Travel?",
-    a: "No es una ayuda aparte: es la modalidad ecológica de la ayuda de viaje. Si haces la mayor parte del trayecto en medios con bajas emisiones (tren, autobús o coche compartido), tu ayuda de viaje se calcula con la tarifa de viaje ecológico, que puede ser mayor que la estándar según la franja de distancia. Las dos tarifas son importes fijos por franja que marca la Guía del Programa; tu universidad te dirá qué justificantes del viaje pide.",
+    a: "No es una ayuda aparte: es la modalidad ecológica de la ayuda de viaje. Si al menos la mitad del viaje de ida y vuelta la haces en medios con bajas emisiones (por ejemplo, autobús, tren, bici o coche compartido), tu ayuda de viaje se calcula con la tarifa de viaje ecológico, que puede ser mayor que la estándar según la franja de distancia. Las dos tarifas son importes fijos por franja que marca la Guía del Programa; tu universidad te dirá qué justificantes del viaje pide.",
   },
   {
     // Fuentes: SEPIE, tabla de importes KA131 de la convocatoria 2026

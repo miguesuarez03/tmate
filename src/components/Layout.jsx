@@ -8,6 +8,7 @@ import {
   IconLearningAgreement,
   IconProceso,
   IconExperiencia,
+  IconDocumento,
 } from "./icons";
 import ThemeToggle, { ThemeToggleRow } from "./ThemeToggle";
 
@@ -123,6 +124,12 @@ const MENU_ITEMS = [
     action: "la",
   },
   {
+    Icon: IconDocumento,
+    label: "Guías Erasmus",
+    desc: "Beca, Learning Agreement, destino y papeles, explicados a fondo",
+    action: "guias",
+  },
+  {
     Icon: IconExperiencia,
     label: "Cuéntanos tu experiencia",
     desc: "Comparte tu Erasmus y ayuda a otros estudiantes",
@@ -204,6 +211,8 @@ function useMenuAction(navigate, setMenuOpen) {
         navigate("/beca-erasmus");
       } else if (action === "la") {
         navigate("/learning-agreement");
+      } else if (action === "guias") {
+        navigate("/guias");
       } else if (action === "share") {
         navigate("/?accion=compartir");
       }
@@ -439,6 +448,7 @@ const FOOTER_LINKS = [
   { label: "Beca Erasmus+", path: "/beca-erasmus" },
   { label: "Learning Agreement", path: "/learning-agreement" },
   { label: "Tipos de intercambio", path: "/tipos-de-intercambio" },
+  { label: "Guías Erasmus", path: "/guias" },
 ];
 
 export function Footer() {

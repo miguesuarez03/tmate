@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { IconGlobo, IconBeca, IconDocumento, IconMaleta, IconViajes } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
@@ -117,7 +117,11 @@ export default function TiposDeIntercambioPage() {
 
       <section className={styles.cta}>
         <h2 className={styles.ctaTitle}>¿Ya sabes qué tipo de destino buscas?</h2>
-        <p className={styles.ctaSub}>Explora los destinos de MAbroad o haz el City Match para encontrar el tuyo.</p>
+        <p className={styles.ctaSub}>
+          Explora los destinos de MAbroad o haz el City Match para encontrar el tuyo. Si dudas entre Europa y fuera,
+          lee la{" "}
+          <Link to="/guias/erasmus-o-intercambio-fuera-de-europa" className="guide-link-inline">guía Erasmus+ o intercambio fuera de Europa</Link>.
+        </p>
         <div className={styles.ctaBtns}>
           <button className="btn-primary" onClick={() => navigate("/")}>
             Explorar destinos →

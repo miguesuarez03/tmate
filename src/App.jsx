@@ -22,6 +22,8 @@ const CityMatchPage         = lazy(() => import("./pages/CityMatchPage"));
 const TiposDeIntercambioPage = lazy(() => import("./pages/TiposDeIntercambioPage"));
 const PrivacidadPage        = lazy(() => import("./pages/PrivacidadPage"));
 const CreditosPage          = lazy(() => import("./pages/CreditosPage"));
+const GuiasPage             = lazy(() => import("./pages/GuiasPage"));
+const GuidePage             = lazy(() => import("./pages/GuidePage"));
 const NotFoundPage          = lazy(() => import("./pages/NotFoundPage"));
 
 export default function App() {
@@ -42,6 +44,8 @@ export default function App() {
           {/* El aviso legal vive dentro de /privacidad (en producción, 308 desde vercel.json). */}
           <Route path="/aviso-legal" element={<Navigate to="/privacidad" replace />} />
           <Route path="/creditos" element={<CreditosPage />} />
+          <Route path="/guias" element={<GuiasPage />} />
+          <Route path="/guias/:slug" element={<GuidePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>

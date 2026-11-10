@@ -52,8 +52,9 @@ function setJsonLd(data) {
  *  - useSEO({ isHome: true })                      → metadatos de home
  *  - useSEO({ city, overallScore })                 → metadatos de ficha de ciudad
  *  - useSEO({ title, description, path, jsonLd })   → cualquier otra página
+ *    (ogType: "article" en las guías; por defecto "website")
  */
-export function useSEO({ city = null, overallScore = 0, isHome = false, title, description, path, jsonLd } = {}) {
+export function useSEO({ city = null, overallScore = 0, isHome = false, title, description, path, jsonLd, ogType } = {}) {
   useEffect(() => {
     const meta = isHome
       ? getHomeMeta()
@@ -78,7 +79,7 @@ export function useSEO({ city = null, overallScore = 0, isHome = false, title, d
     setMeta('property', 'og:description', meta.description);
     setMeta('property', 'og:url', url);
     setMeta('property', 'og:site_name', SITE_NAME);
-    setMeta('property', 'og:type', city ? 'article' : 'website');
+    setMeta('property', 'og:type', ogType || (city ? 'article' : 'website'));
     setMeta('property', 'og:locale', SITE_LOCALE);
     if (meta.ogImage) {
       setMeta('property', 'og:image', meta.ogImage);
@@ -111,5 +112,5 @@ export function useSEO({ city = null, overallScore = 0, isHome = false, title, d
       setJsonLd(null);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [city, overallScore, isHome, title, description, path, jsonLd]);
+  }, [city, overallScore, isHome, title, description, path, jsonLd, ogType]);
 }

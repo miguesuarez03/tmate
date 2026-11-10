@@ -2460,6 +2460,13 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 0;
 }
 
+/* ─── Enlaces a las guías desde las herramientas ───────────────────────────── */
+.guide-link { margin: 20px 0 0; font-size: 14.5px; color: var(--color-slate); }
+.guide-link a { color: var(--color-teal); font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+.guide-link a:hover { color: var(--color-primary); }
+.guide-link-inline { color: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+.guide-link-inline:hover { color: var(--color-primary); }
+
 /* ─── Directorio «Todos los destinos» (home) ───────────────────────────────
    Lista compacta de enlaces a TODAS las fichas, agrupadas por región: sirve
    de índice y garantiza que ninguna ficha quede sin enlace interno. */

@@ -33,12 +33,16 @@ import CityMatchPage from "./pages/CityMatchPage";
 import TiposDeIntercambioPage from "./pages/TiposDeIntercambioPage";
 import PrivacidadPage from "./pages/PrivacidadPage";
 import CreditosPage from "./pages/CreditosPage";
+import GuiasPage from "./pages/GuiasPage";
+import GuidePage from "./pages/GuidePage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 import { CITIES } from "./data/cities";
 import { getCityBySlug, getOverallScore, getCityMeta, getHomeMeta } from "./lib/cities";
+import { getGuides, getGuideBySlug, getGuideMeta, GUIDES_INDEX_META, GUIDES_INDEX_JSON_LD } from "./lib/guides";
 import {
   getCityJsonLd, getBreadcrumbJsonLd, HOME_JSON_LD, BECA_JSON_LD,
+  getGuideJsonLd,
   SITE_URL, SITE_NAME, SITE_LOCALE,
   DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_WIDTH, DEFAULT_OG_IMAGE_HEIGHT, DEFAULT_OG_IMAGE_ALT,
 } from "./lib/seo";
@@ -108,6 +112,13 @@ const STATIC_PAGE_META = {
     changefreq: "yearly",
     priority: 0.2,
   },
+  // Índice de guías: mismos title/description/JSON-LD que GuiasPage.
+  "/guias": {
+    ...GUIDES_INDEX_META,
+    changefreq: "monthly",
+    priority: 0.8,
+    jsonLd: GUIDES_INDEX_JSON_LD,
+  },
   // noindex: se prerenderiza (con <meta robots noindex>, sin canonical) pero
   // no entra en el sitemap.
   "/creditos": {
@@ -130,6 +141,12 @@ export const ALL_ROUTES = [
     changefreq: m.changefreq,
     priority: m.priority,
     noindex: Boolean(m.noindex),
+  })),
+  // Guías (src/data/guides.js): una URL limpia por guía.
+  ...getGuides().map((g) => ({
+    path: `/guias/${g.slug}`,
+    changefreq: "monthly",
+    priority: 0.7,
   })),
   ...CITIES.map((c) => ({
     path: `/city/${c.slug}`,
@@ -178,6 +195,22 @@ export function getMetaForPath(pathname) {
     }
   }
 
+  // Guía (mismos meta y JSON-LD Article que GuidePage)
+  if (pathname.startsWith("/guias/")) {
+    const guide = getGuideBySlug(pathname.replace("/guias/", "").replace(/\/$/, ""));
+    if (guide) {
+      const gm = getGuideMeta(guide);
+      return {
+        title: gm.title,
+        description: gm.description,
+        canonical,
+        ogType: "article",
+        ...DEFAULT_OG,
+        jsonLd: getGuideJsonLd(guide),
+      };
+    }
+  }
+
   // Páginas estáticas
   const m = STATIC_PAGE_META[pathname];
   if (m) {
@@ -220,6 +253,8 @@ function App({ url }) {
         {/* /aviso-legal → /privacidad (en producción la redirección la hace vercel.json) */}
         <Route path="/aviso-legal" element={<Navigate to="/privacidad" replace />} />
         <Route path="/creditos" element={<CreditosPage />} />
+        <Route path="/guias" element={<GuiasPage />} />
+        <Route path="/guias/:slug" element={<GuidePage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </StaticRouter>
