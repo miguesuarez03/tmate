@@ -53,7 +53,6 @@ Copia el bloque de cualquier ciudad existente y modifica el contenido:
   erasmus: 89,               // score Erasmus 0-100
   weather: "Mediterráneo seco",
   language: "Español",
-  students: "70.000+",
   img: "https://images.unsplash.com/photo-XXX?w=800&q=80",
   heroImg: "https://images.unsplash.com/photo-XXX?w=1400&q=80",
   description: "Descripción completa de la ciudad...",

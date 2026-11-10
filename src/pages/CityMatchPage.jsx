@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useRef, useId } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { CITIES } from "../data/cities";
-import { getScoreMap, getOverallScore, isErasmusEligible } from "../lib/cities";
+import { getScoreMap, getOverallScore, isErasmusEligible, getCitySize } from "../lib/cities";
 import { useSEO } from "../hooks/useSEO";
 import { Navbar, Footer } from "../components/Layout";
 import {
@@ -25,7 +25,7 @@ const RESULT_PHOTO_SLOTS = [
    City Match — recomendador inteligente.
 
    Cada pregunta se resuelve contra datos reales que ya existen en la app
-   (scores de categoría, idioma, clima, nº de estudiantes) en vez de
+   (scores de categoría, idioma, clima, población oficial) en vez de
    inventar métricas nuevas por ciudad. "Naturaleza" es la única dimensión
    heurística: cuenta menciones de palabras relacionadas con naturaleza en
    los textos reales de cada ciudad (highlights/tips/descripción), así que
@@ -48,14 +48,6 @@ const MAX_RANKED = 3;
 const RANK_WEIGHTS = [1, 0.6, 0.3];
 const ORDINALS = ["1º", "2º", "3º"];
 const ORDINAL_WORDS = ["primera", "segunda", "tercera"];
-
-/** Nº de estudiantes ("100.000+") → 0 pequeña (<50 mil), 1 mediana (<110 mil), 2 grande. */
-function bucketStudents(str) {
-  const n = parseInt(String(str).replace(/\D/g, ""), 10) || 0;
-  if (n < 50000) return 0;
-  if (n < 110000) return 1;
-  return 2;
-}
 
 /**
  * Clima de la ficha → 0 cálido, 1 templado, 2 frío. Por palabras clave: los
@@ -167,9 +159,9 @@ const QUESTIONS = [
     title: "¿Qué tipo de ciudad prefieres?",
     subtitle: "Piensa en el ambiente que te gustaría sentir cada día",
     options: [
-      { value: "pequena", label: "Pequeña y manejable", desc: "Todo cerca, ritmo tranquilo" },
-      { value: "mediana", label: "Mediana", desc: "Equilibrio entre ambiente y tamaño" },
-      { value: "grande", label: "Gran capital", desc: "Todo grande, todo pasa allí" },
+      { value: "pequena", label: "Pequeña y manejable", desc: "Menos de 300.000 habitantes" },
+      { value: "mediana", label: "Mediana", desc: "De 300.000 a 1 millón de habitantes" },
+      { value: "grande", label: "Gran ciudad", desc: "Más de 1 millón de habitantes" },
       { value: NEUTRAL, label: "No me importa" },
     ],
   },
@@ -266,8 +258,11 @@ const DIMENSIONS = {
   tamano: {
     Icon: IconEdificio,
     reason: "tiene el tamaño de ciudad que encaja contigo",
-    similarity: (city, _sm, value) =>
-      bucketSimilarity(bucketStudents(city.students), { pequena: 0, mediana: 1, grande: 2 }[value]),
+    similarity: (city, _sm, value) => {
+      const size = getCitySize(city);
+      if (size == null) return null; // sin dato oficial: la pregunta no cuenta para esa ciudad
+      return bucketSimilarity(size, { pequena: 0, mediana: 1, grande: 2 }[value]);
+    },
   },
   naturaleza: {
     Icon: IconHoja,

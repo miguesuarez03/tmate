@@ -44,7 +44,6 @@ export interface CityBase {
   erasmus: number;            // score global 0-100
   weather: string;
   language: string;
-  students: string;           // ej: "100.000+"
   img: string;                // imagen para cards (800px)
   heroImg: string;            // imagen hero (1400px)
   experiences: ExperienceType[];

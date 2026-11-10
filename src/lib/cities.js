@@ -7,6 +7,7 @@
 import { CITIES } from '../data/cities';
 import { CITY_INSIGHTS, DEFAULT_INSIGHTS } from '../data/insights';
 import { CITY_EXPERIENCES, FOUNDER_EXPERIENCE } from '../data/cityExperiences';
+import { CITY_POPULATION } from '../data/cityPopulation';
 import { DEFAULT_OG_IMAGE, getCityOgImage } from './seo';
 
 /** @typedef {import('../types').City} City */
@@ -33,6 +34,24 @@ export function getCityInsights(slug) {
 /** Devuelve true si la ciudad es elegible para Erasmus+ (no es un intercambio bilateral). */
 export function isErasmusEligible(city) {
   return city.programType === 'erasmus';
+}
+
+// ─── TAMAÑO DE CIUDAD ─────────────────────────────────────────────────────────
+
+/** Umbrales de población oficial (CITY_POPULATION) para cada tamaño. */
+export const CITY_SIZE_LIMITS = { mediana: 300000, grande: 1000000 };
+
+/**
+ * Tamaño de la ciudad según su población oficial: 0 pequeña (<300.000 hab.),
+ * 1 mediana (300.000 – 1 millón), 2 grande (1 millón o más).
+ * Devuelve null si la ciudad no tiene dato de población.
+ */
+export function getCitySize(city) {
+  const n = CITY_POPULATION[city.slug]?.population;
+  if (!n) return null;
+  if (n < CITY_SIZE_LIMITS.mediana) return 0;
+  if (n < CITY_SIZE_LIMITS.grande) return 1;
+  return 2;
 }
 
 /**

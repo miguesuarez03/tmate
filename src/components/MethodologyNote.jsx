@@ -41,7 +41,8 @@ export default function MethodologyNote({ compact = false }) {
               «Excelente»; de 7 a 8,4, «Bueno»; de 5,5 a 6,9, «Regular»; y por debajo, «Difícil».
             </li>
             <li>
-              Las cifras de las fichas (precios, número de estudiantes) son aproximadas y pueden quedarse desfasadas.
+              Los precios de las fichas son aproximados y pueden quedarse desfasados. El tamaño de ciudad de City Match
+              sale de la población oficial del municipio que publica el instituto de estadística de cada país.
             </li>
             <li>
               Los importes de la beca Erasmus+ y la ayuda de viaje siguen la convocatoria 2026 del <strong>SEPIE</strong> y
