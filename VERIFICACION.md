@@ -5,7 +5,7 @@ Claude Code hace cada tanda y Codex la revisa con `codex exec` en solo lectura (
 
 ## Dónde vamos
 
-**Siguiente tanda: 6** (Lovaina, Gante, Utrecht, Groninga, Róterdam) (actualizar al cerrar cada tanda).
+**Siguiente tanda: 6** (Lovaina, Gante, Utrecht, Groningen, Rotterdam) (actualizar al cerrar cada tanda).
 
 ## Qué se revisa en cada ciudad
 
@@ -21,6 +21,20 @@ Claude Code hace cada tanda y Codex la revisa con `codex exec` en solo lectura (
 | Score | `insights.js` (8 categorías y subcategorías) + `comparePhrases.js` | Que los textos de cada subcategoría sean ciertos y que las notas (valoración editorial de MAbroad) sean coherentes con los datos comprobados (p. ej., la nota de coste con `costDetail`). |
 
 Reglas: no inventar datos ni opiniones; si algo no se puede comprobar en una fuente oficial o fiable, se reescribe sin la cifra o se quita. Las notas son editoriales, no datos oficiales.
+
+## Cómo se hace una tanda
+
+Herramientas en `scripts/verificacion/` (ejecutar desde la raíz del repo):
+
+1. **Auditoría (Codex, solo lectura)**: `prompt-auditoria.txt` con `{{SLUGS}}` sustituido por las 5 ciudades →
+   `Get-Content prompt.txt -Raw -Encoding utf8 | codex exec -s read-only --ephemeral --color never -c web_search=live -o auditoria.txt -` (en segundo plano: tarda 10–20 min).
+2. **Fotos (Claude)**: comprobar que cada `img`/`heroImg` es de esa ciudad (descargar una miniatura y mirarla) y, si es de Wikimedia, que el original mide ≥1920×1080 en `wikimediaPhotos.js`.
+3. **Ver los textos marcados**: `node scripts/verificacion/show.cjs <slug> "patrón1|patrón2"` imprime las líneas de esa ciudad en cities.js, insights.js, comparePhrases.js y weatherSeasons.js.
+4. **Aplicar (Claude)**: un script con `require("./scripts/verificacion/lib.cjs")` → `city(slug, { C, I, P, W })` (reemplazos exactos dentro del bloque de la ciudad; falla si el texto no aparece una sola vez), `temps(slug, {...})`, `score(slug, "coste", "7.0", "6.5")` y `file(ruta, pares)`. Hacer copia de `src/data` antes por si falla a medias.
+5. **Revisión (Codex)**: ronda 1 sobre `git diff` con las afirmaciones nuevas y las decisiones editoriales; corregir y ronda 2 si hace falta (máx. 2).
+6. **Cerrar**: actualizar «Dónde vamos», la tabla y el registro; `npm run build`; commit y push.
+
+Criterios fijados en las tandas 1–5: `language` = solo idiomas oficiales; `costDetail` = estimación mensual que publica una universidad de la ciudad (si no hay, estimación editorial marcada como pendiente) y nota de coste coherente; clima = medias de mínimas y máximas por estación de las normales 1991–2020 (sin dato verificado, sin bloque: la sección no se muestra); precios sueltos de cervezas o menús sin fuente → se reescriben sin cifra; testimonios en primera persona que no estén en `cityExperiences.js` → fuera.
 
 ## Tandas
 

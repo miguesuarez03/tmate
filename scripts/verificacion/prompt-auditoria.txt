@@ -1,0 +1,22 @@
+Eres el revisor de Claude Code en este repo (lee AGENTS.md y la tabla «Qué se revisa en cada ciudad» de VERIFICACION.md). Modo solo lectura: NO edites nada, solo informa.
+
+Audita estas ciudades: {{SLUGS}}
+
+Para cada una, lee TODO lo que tiene en: src/data/cities.js (su objeto entero), src/data/insights.js (su entrada en CITY_INSIGHTS: textos `desc` y notas), src/data/weatherSeasons.js, src/data/comparePhrases.js, src/data/cityPopulation.js y, en src/data/universityErasmusLinks.js, las URLs de sus universidades.
+
+Busca en la web y comprueba contra fuentes oficiales o fiables (institutos de estadística, webs de universidades, operadores de transporte, servicios meteorológicos, UNESCO, Comisión Europea):
+- Afirmaciones factuales de textos, highlights, tips, phrase y desc de insights (fechas, «la más antigua», UNESCO, récords, nombres).
+- Precios de transporte y servicios que aparecen en tips y desc (tarifa vigente en 2026).
+- Temperaturas de weatherSeasons (medias de mín./máx. de la estación, normales climatológicas).
+- Universidades: que existen con ese nombre y que su URL de Erasmus/incoming funciona y es la oficial (si no, propón la correcta).
+- Barrios: que existen.
+- programType: Erasmus+ o convenio bilateral según el país.
+- Cifras sin fuente que convenga quitar.
+- Notas de insights claramente incoherentes con los datos (p. ej., nota de coste alta en una ciudad cara).
+
+Formato de respuesta, corto, agrupado por ciudad. SOLO lo que haya que cambiar, una línea por hallazgo:
+slug | archivo | campo (o label de la subcategoría) | texto actual (abreviado) | corrección propuesta | URL de la fuente
+Si algo no se puede comprobar en una fuente fiable, márcalo como «sin fuente: quitar o reescribir sin la cifra». No inventes cifras. Si una ciudad está bien, escribe «slug: OK».
+﻿
+Para las temperaturas, da las medias de mínimas y máximas de cada estación (Mar–May, Jun–Ago, Sep–Nov, Dic–Feb) de las normales 1991–2020, con la estación meteorológica. El campo language ya recoge solo idiomas oficiales. Para costDetail, compáralo con la estimación mensual que publique alguna universidad de la ciudad para estudiantes internacionales. Ignora precios sueltos de cervezas o menús salvo que sean claramente falsos (se reescribirán sin cifra igualmente).
+Si una ciudad no tiene bloque en weatherSeasons.js, da igualmente sus normales 1991–2020 (medias de mínimas y máximas por estación) para poder añadirlo, con la estación y la fuente.
