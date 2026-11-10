@@ -257,7 +257,11 @@ function NavMenuDrawer({ menuOpen, setMenuOpen, triggerRef }) {
     if (!menuOpen) return undefined;
     const drawer = drawerRef.current;
     const trigger = triggerRef.current;
-    const frame = requestAnimationFrame(() => drawer?.querySelector(FOCUSABLE)?.focus({ preventScroll: true }));
+    // El panel ya es visible (visibility cambia al instante al abrir): el foco
+    // entra en el primer elemento; si aún no pudo, se reintenta al pintar.
+    const focusFirst = () => drawer?.querySelector(FOCUSABLE)?.focus({ preventScroll: true });
+    focusFirst();
+    const frame = drawer && !drawer.contains(document.activeElement) ? requestAnimationFrame(focusFirst) : 0;
 
     const onKeyDown = (e) => {
       if (e.key === "Escape") {

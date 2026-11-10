@@ -1523,9 +1523,12 @@ a { text-decoration: none; color: inherit; }
   transition: opacity var(--menu-close) var(--menu-ease-out), visibility 0s linear var(--menu-close);
   --motion-safe-duration: 280ms;
 }
+/* Al abrir, visibility NO se transiciona (cambia al instante): así el panel
+   ya admite foco en el mismo fotograma, también con reduced motion (donde
+   la red de seguridad alargaría cualquier transición listada). */
 .nav-overlay--open {
   opacity: 1; visibility: visible; pointer-events: auto;
-  transition: opacity var(--menu-open) var(--menu-ease-in), visibility 0s linear 0s;
+  transition: opacity var(--menu-open) var(--menu-ease-in);
 }
 
 /* El panel arranca bajo la barra (64px): la ✕ del botón del menú queda
@@ -1545,8 +1548,7 @@ a { text-decoration: none; color: inherit; }
 .nav-drawer--open {
   opacity: 1; visibility: visible;
   transform: translateX(0);
-  transition: transform var(--menu-open) var(--menu-ease-in), opacity 300ms var(--menu-ease-in),
-    visibility 0s linear 0s;
+  transition: transform var(--menu-open) var(--menu-ease-in), opacity 300ms var(--menu-ease-in);
 }
 
 .nav-drawer__items {
