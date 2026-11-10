@@ -63,9 +63,9 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Rotterdam University of Applied Sciences": "https://www.rotterdamuas.com/study/exchange-programme/",
 
   // ── Múnich ───────────────────────────────────────────────────────────────
-  "Ludwig Maximilian University (LMU)": "https://www.lmu.de/en/study/before-your-studies/international-applicants/exchange-students/index.html",
-  "Technical University of Munich (TUM)": "https://www.tum.de/en/studies/application/incoming-exchange-students",
-  "Munich University of Applied Sciences": "https://www.hm.edu/en/international_applicants_1/exchange_students/exchange_students.en.html",
+  "Ludwig Maximilian University (LMU)": "https://www.lmu.de/en/study/all-degrees-and-programs/programs-for-international-visiting-students/erasmus-and-lmuexchange/",
+  "Technical University of Munich (TUM)": "https://www.global.tum.de/en/global/exchange-programs-at-tum/",
+  "Munich University of Applied Sciences": "https://hm.edu/internationales/wege_an_die_hm/exchange/index.en.html",
 
   // ── Berlín ───────────────────────────────────────────────────────────────
   "Freie Universität Berlin": "https://www.fu-berlin.de/en/studium/international/studium_fu/auslandssemester/erasmus_in/infos_incomingstudents/index.html",
@@ -364,7 +364,7 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Politecnico di Bari": "http://www.en.poliba.it/international-students/studyingpoliba-international-students",
 
   // ── Padua ────────────────────────────────────────────────────────────────
-  "Università degli Studi di Padova": "https://www.unipd.it/en/exchange-students/international-incoming-mobility-erasmus-and-other-exchange-programmes",
+  "Università degli Studi di Padova": "https://www.unipd.it/en/erasmus-studio-semp",
 
   // ── Génova ───────────────────────────────────────────────────────────────
   "Università di Genova": "https://unige.it/en/internazionale/incoming",

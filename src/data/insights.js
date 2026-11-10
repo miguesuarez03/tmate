@@ -890,7 +890,7 @@ export const CITY_INSIGHTS = {
   },
   munich: {
     heroImg: "https://images.unsplash.com/photo-1595867818082-083862f3d630?w=1600&q=85",
-    tagline: "La capital de Baviera. Los Alpes a una hora, el Oktoberfest en casa y la mejor calidad de vida de Alemania.",
+    tagline: "La capital de Baviera. Los Alpes a una hora, el Oktoberfest en casa y una de las mejores calidades de vida de Alemania.",
     atmosphere: "Ordenada, festiva y eficiente. Múnich huele a pretzel y cerveza de trigo, y suena a conversaciones en bávaro mezcladas con inglés en beergardens llenos de sol.",
     scores: [
       // 1. COSTE DE VIDA
@@ -898,14 +898,14 @@ export const CITY_INSIGHTS = {
         id: "coste",
         label: "Coste de vida",
         icon: "💰",
-        score: 5.8,
-        summary: "La ciudad más cara de Alemania. Con 1.000–1.300€/mes se vive bien si controlas el alquiler.",
+        score: 5.0,
+        summary: "De las ciudades más caras de Alemania: la TUM recomienda contar con al menos 1.200€/mes, sin ocio.",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 4.5, desc: "Habitaciones desde 700–1.000€. El mercado más tenso de Alemania. WG (pisos compartidos) es la única opción realista." },
           { label: "Comida y supermercados", score: 7.0, desc: "Viktualienmarkt para productos frescos de calidad. Supermercados Aldi y Lidl para el día a día. Comer fuera es caro." },
-          { label: "Transporte", score: 7.5, desc: "Isarcard mensual a 57€ — metro, autobús, tranvía y tren regional incluidos. Bien conectada internamente." },
-          { label: "Ocio y gastos diarios", score: 6.5, desc: "Cervezas en biergarten a 4–5€. Oktoberfest aparte — allí una Mass (litro) cuesta 15€. Mucha oferta cultural gratuita." },
+          { label: "Transporte", score: 7.5, desc: "Deutschlandticket a 63€/mes — metro, autobús, tranvía y tren regional incluidos (salvo alta velocidad). Bien conectada internamente." },
+          { label: "Ocio y gastos diarios", score: 6.5, desc: "Cerveza asequible en los biergarten; en el Oktoberfest la Mass (litro) sale bastante más cara. Mucha oferta cultural gratuita." },
         ],
       },
       // 2. ALOJAMIENTO
@@ -920,7 +920,7 @@ export const CITY_INSIGHTS = {
           { label: "Disponibilidad", score: 3.5, desc: "Crisis de vivienda severa. Las WG buenas se van en horas. Competencia brutal con locales y otros estudiantes." },
           { label: "Precio", score: 4.0, desc: "700–1.000€ habitación. Los precios más altos de Alemania. WG compartida es la única opción para presupuestos Erasmus." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "WG-Gesucht es la biblia. Residencias de LMU y TUM muy limitadas — solicítalas el primer día sin falta." },
-          { label: "Residencias universitarias", score: 6.0, desc: "La residencia universitaria me la dieron por sorteo. Sin ella no sé si habría podido ir. Fundamental solicitarla a tiempo." },
+          { label: "Residencias universitarias", score: 6.0, desc: "Plazas limitadas y sin garantía: solicítala a tiempo a través de tu universidad de destino." },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -932,9 +932,9 @@ export const CITY_INSIGHTS = {
         summary: "Biergardens, Oktoberfest y una escena de clubs sorprendentemente buena. La fiesta bávara tiene su propia personalidad. Gran comunidad internacional entre LMU y TUM. Activa, diversa y con muy buen networking profesional.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 8.5, desc: "+4.500 internacionales entre LMU, TUM y Munich UAS. Comunidad grande y bien organizada. ESN Munich muy activo. Oktoberfest en grupo, ski trips, cenas internacionales, visitas a BMW Welt." },
+          { label: "Comunidad Erasmus", score: 8.5, desc: "Comunidad internacional repartida entre LMU, TUM y Munich UAS. Comunidad grande y bien organizada. ESN Munich muy activo. Oktoberfest en grupo, ski trips, cenas internacionales, visitas a BMW Welt." },
           { label: "Ambiente internacional", score: 8.5, desc: "Ambiente internacional con estudiantes de toda Europa y el mundo." },
-          { label: "Fiesta y vida nocturna", score: 10.0, desc: "Rote Sonne, Blitz, Harry Klein. Escena electrónica seria aunque más pequeña que Berlín. Muy buena calidad." },
+          { label: "Fiesta y vida nocturna", score: 10.0, desc: "Rote Sonne y Blitz. Escena electrónica seria aunque más pequeña que Berlín. Muy buena calidad." },
           { label: "Eventos y actividades", score: 8.0, desc: "ESN activo en LMU y TUM. Eventos desde la semana de bienvenida, excursiones a los Alpes y al lago Starnberg." },
         ],
       },
@@ -949,7 +949,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Nivel de inglés", score: 7.5, desc: "El inglés funciona bien en campus y empresas internacionales. El alemán marca la diferencia para integrarse con locales." },
           { label: "Actitud local", score: 8.0, desc: "Los bávaros son orgullosos de su cultura pero acogedores. Más cálidos que los berlineses en el trato personal." },
-          { label: "Integración con locales", score: 8.5, desc: "Ciudad muy internacional — el 40% de la población tiene raíces extranjeras. Fácil encontrar comunidad." },
+          { label: "Integración con locales", score: 8.5, desc: "Ciudad muy internacional — una gran parte de la población tiene raíces extranjeras. Fácil encontrar comunidad." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
         ],
       },
@@ -994,7 +994,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Mercado laboral", score: 10.0, desc: "BMW, MAN, MTU. La automoción alemana tiene su corazón en Múnich. Prácticas de ingeniería de primer nivel mundial." },
           { label: "Prácticas", score: 9.5, desc: "Allianz, Munich Re, HypoVereinsbank. El hub financiero más importante del sur de Alemania." },
-          { label: "Empresas relevantes", score: 9.0, desc: "Siemens, MBition (Mercedes), Celonis. Ecosistema tech creciente con salarios muy competitivos." },
+          { label: "Empresas relevantes", score: 9.0, desc: "Siemens, BMW, Celonis. Ecosistema tech creciente con salarios muy competitivos." },
           { label: "Oportunidades para estudiantes", score: 9.5, desc: "El hub industrial y tecnológico más potente de Alemania. BMW, Siemens, Allianz y un ecosistema tech en auge." },
         ],
       },
@@ -1004,11 +1004,11 @@ export const CITY_INSIGHTS = {
         label: "Seguridad",
         icon: "🛡️",
         score: 9.2,
-        summary: "Una de las ciudades más seguras de Europa. Múnich tiene estadísticas de criminalidad excepcionalmente bajas.",
+        summary: "De las grandes ciudades más seguras de Alemania, con criminalidad baja.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 9.5, desc: "Consistentemente rankeada como una de las ciudades más seguras de Europa. Criminalidad muy baja." },
-          { label: "Seguridad nocturna", score: 9.0, desc: "Completamente segura de noche en todas las zonas del centro. Sin barrios conflictivos reales." },
+          { label: "Seguridad general", score: 9.5, desc: "Según la estadística policial, la ciudad alemana de más de 200.000 habitantes con menos delitos por habitante." },
+          { label: "Seguridad nocturna", score: 9.0, desc: "Muy segura de noche; precaución normal en zonas como la estación central." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Problema muy menor. Solo precaución básica en el Oktoberfest por la aglomeración." },
         ],
       },
@@ -1914,13 +1914,13 @@ export const CITY_INSIGHTS = {
         id: "coste",
         label: "Coste de vida",
         icon: "💰",
-        score: 7.8,
-        summary: "La más asequible de las grandes ciudades italianas. Con 650–800€/mes se vive muy bien.",
+        score: 7.0,
+        summary: "Asequible para una gran ciudad italiana: el Politecnico calcula unos 700–1.000€/mes entre habitación, comida, suministros y transporte.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 7.5, desc: "Habitaciones desde 300–450€. Oferta amplia y precios razonables gracias a la menor presión turística." },
+          { label: "Alojamiento", score: 7.5, desc: "Habitación individual de 400–600€ según el Politecnico. Oferta amplia y precios razonables gracias a la menor presión turística." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercato di Porta Palazzo —uno de los mercados al aire libre más grandes de Europa— con precios imbatibles. Comer bien por 5–7€ es fácil." },
-          { label: "Transporte", score: 8.5, desc: "GTT mensual a 35€. Metro + autobuses + tranvías. Red compacta y eficiente para el tamaño de la ciudad." },
+          { label: "Transporte", score: 8.5, desc: "Abono mensual GTT a 38€ (25€ para menores de 26 con requisitos). Metro + autobuses + tranvías. Red compacta y eficiente para el tamaño de la ciudad." },
           { label: "Ocio y gastos diarios", score: 8.0, desc: "Cervezas a 3–4€. Aperitivo turinés (el original, antes que Milán) con buffet incluido. Mucha oferta cultural gratuita." },
         ],
       },
@@ -1930,11 +1930,11 @@ export const CITY_INSIGHTS = {
         label: "Alojamiento",
         icon: "🏠",
         score: 7.2,
-        summary: "El mercado más fácil de las grandes ciudades italianas. Más oferta, mejores precios y menos competencia.",
+        summary: "Más oferta, mejores precios y menos competencia que en Milán o Roma.",
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 7.5, desc: "Oferta mucho más amplia que Roma o Milán. Menos presión turística significa más pisos disponibles." },
-          { label: "Precio", score: 8.0, desc: "300–450€ habitación. De las más baratas entre ciudades universitarias italianas de tamaño comparable." },
+          { label: "Precio", score: 8.0, desc: "Habitación individual de 400–600€ (Politecnico di Torino). Más barata que en Milán." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "Idealista, Subito.it, grupos de Facebook del Politecnico di Torino y UniTo. Proceso más relajado que en otras ciudades." },
           { label: "Residencias universitarias", score: 6.0, desc: "Consulta residencias universitarias disponibles — pueden ser la opción más cómoda y segura para los primeros meses." },
         ],
@@ -1980,9 +1980,9 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Transporte público", score: 7.5, desc: "Una sola línea (M1) pero cubre el eje principal. Puntual y limpio. Se está ampliando." },
           { label: "Transporte público", score: 8.0, desc: "Red de autobuses y tranvías amplia. Cubre toda la ciudad con frecuencia razonable." },
-          { label: "Ciudad caminable", score: 8.0, desc: "Ciudad bastante plana en el centro. TO Bike (bici compartida) muy útil. Carriles bici en crecimiento." },
-          { label: "Conexiones nacionales", score: 8.5, desc: "Tren a Milán (45min), Génova (2h), Lyon (3h30). Aeropuerto de Caselle con vuelos lowcost." },
-          { label: "Escapadas de fin de semana", score: 8.5, desc: "Excelente posición para escapadas: Tren a Milán (45min), Génova (2h), Lyon (3h30). Aeropuerto de Caselle con vuelos lowcost." },
+          { label: "Ciudad caminable", score: 8.0, desc: "Ciudad bastante plana en el centro. Carriles bici en crecimiento." },
+          { label: "Conexiones nacionales", score: 8.5, desc: "Tren a Milán (50min), Génova (2h), Lyon (unas 4h). Aeropuerto de Caselle con vuelos lowcost." },
+          { label: "Escapadas de fin de semana", score: 8.5, desc: "Excelente posición para escapadas: Tren a Milán (50min), Génova (2h), Lyon (unas 4h). Aeropuerto de Caselle con vuelos lowcost." },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -2010,7 +2010,7 @@ export const CITY_INSIGHTS = {
         summary: "Motor industrial de Italia. Automoción, aeroespacial y tech con un ecosistema de startups en rápido crecimiento.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Mercado laboral", score: 9.0, desc: "Ferrari, Lamborghini, Maserati y FIAT/Stellantis tienen sede aquí. La Motor Valley atrae talento de ingeniería de toda Europa." },
+          { label: "Mercado laboral", score: 9.0, desc: "Stellantis (antigua FIAT) e Iveco tienen aquí sus raíces. Turín es la capital italiana del automóvil y atrae talento de ingeniería de toda Europa." },
           { label: "Prácticas", score: 8.0, desc: "Leonardo, Thales Alenia Space, Reply. Turín es el hub aeroespacial de Italia con demanda real de ingenieros." },
           { label: "Empresas relevantes", score: 7.0, desc: "I3P (incubadora del Politecnico) es una de las mejores de Italia. Ecosistema joven pero con mucho potencial." },
           { label: "Oportunidades para estudiantes", score: 7.5, desc: "Motor industrial de Italia. Automoción, aeroespacial y tech con un ecosistema de startups en rápido crecimiento." },
@@ -2021,11 +2021,11 @@ export const CITY_INSIGHTS = {
         id: "seguridad",
         label: "Seguridad",
         icon: "🛡️",
-        score: 8.2,
-        summary: "Una de las ciudades más seguras de Italia. Ambiente tranquilo y sin los problemas de carteristas de Roma.",
+        score: 7.5,
+        summary: "Ambiente tranquilo en general; como en toda gran ciudad, cuidado con los hurtos en zonas concretas.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 8.5, desc: "Ciudad tranquila con baja incidencia de delitos. Muy segura para estándares de ciudades universitarias italianas." },
+          { label: "Seguridad general", score: 8.5, desc: "Los delitos más habituales son hurtos; precaución normal en estaciones y zonas de ocio nocturno." },
           { label: "Seguridad nocturna", score: 8.0, desc: "San Salvario y Vanchiglia son seguros de noche. Precaución normal en zonas periféricas." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Nivel muy bajo comparado con Roma o Milán. No es un problema habitual para los estudiantes." },
         ],
@@ -5148,13 +5148,13 @@ export const CITY_INSIGHTS = {
     atmosphere: "Lyon huele a mantequilla dorada y vino de Beaujolais desde la puerta de cualquier bouchon, y suena al Ródano y el Saona corriendo bajo puentes llenos de estudiantes en bicicleta.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 6.5,
-        summary: "Mucho más asequible que París por un nivel de vida y gastronomía comparables.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 6.0,
+        summary: "Mucho más asequible que París: la Universidad Lyon 2 calcula unos 950€/mes.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 6.0, desc: "Habitación desde 400–550€; piso compartido más barato que en la capital, aunque ha subido en los últimos años." },
+          { label: "Alojamiento", score: 6.0, desc: "Alquiler privado orientativo de 500–800€/mes (Lyon 2); piso compartido más barato que en la capital, aunque ha subido en los últimos años." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercados como Les Halles de Lyon y menús bouchon a precio estudiante hacen que comer bien sea asequible." },
-          { label: "Transporte", score: 7.5, desc: "Abono TCL joven ronda 32€/mes, con descuentos adicionales para estudiantes." },
+          { label: "Transporte", score: 7.5, desc: "Abono TCL de 26€/mes (zonas 1–2) para jóvenes de 18 a 25 años y estudiantes de 26 y 27, desde septiembre de 2026." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Salir de bares y restaurantes es más barato que en París, aunque sigue siendo Francia." },
         ],
       },
@@ -5164,7 +5164,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 6.5, desc: "Oferta amplia gracias al gran número de universidades, aunque hay que moverse rápido en la búsqueda de septiembre." },
-          { label: "Precio", score: 6.0, desc: "400–550€ de media por habitación; algo más en Presqu'île, menos en la periferia bien conectada." },
+          { label: "Precio", score: 6.0, desc: "Alquiler privado orientativo de 500–800€/mes; algo más en Presqu'île, menos en la periferia bien conectada." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "CROUS y las oficinas internacionales de Lyon 2/Lyon 3 ayudan con listados y garantías." },
           { label: "Residencias universitarias", score: 6.0, desc: "El CROUS ofrece plazas para exchange students, aunque conviene solicitarlas con mucha antelación." },
         ],
@@ -5199,7 +5199,7 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 8.5, desc: "TCL integra metro, tranvía, funicular y bus con un único abono." },
           { label: "Ciudad caminable", score: 8.0, desc: "Centro compacto entre los dos ríos, muy paseable, con carriles bici en expansión." },
           { label: "Conexiones internacionales", score: 9.0, desc: "TGV a París en 2 horas, a Ginebra en 2, y aeropuerto con vuelos directos a toda Europa." },
-          { label: "Escapadas de fin de semana", score: 9.5, desc: "Los Alpes, la Provenza y Annecy, todos a menos de dos horas." },
+          { label: "Escapadas de fin de semana", score: 9.5, desc: "Los Alpes, Annecy y la Provenza, a pocas horas en tren." },
         ],
       },
       {
@@ -5908,11 +5908,11 @@ export const CITY_INSIGHTS = {
     atmosphere: "Nápoles huele a masa de pizza recién horneada y café espresso de pie en cualquier bar, y suena a claxon, tendederos y conversaciones a gritos entre balcones del centro histórico.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 7.5,
+        id: "coste", label: "Coste de vida", icon: "💰", score: 7.0,
         summary: "Una de las ciudades más baratas de Italia, muy por debajo de Milán o Roma.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 300–400€, de las más baratas entre las grandes ciudades italianas." },
+          { label: "Alojamiento", score: 6.5, desc: "Habitación individual de 380–500€ más gastos, según la Federico II." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercados de barrio y pizzerías históricas hacen que comer bien sea baratísimo." },
           { label: "Transporte", score: 7.0, desc: "Abono ANM (metro, bus y funicular) con tarifa estudiante muy económica." },
           { label: "Ocio y gastos diarios", score: 8.0, desc: "Salir de bares y restaurantes cuesta una fracción de lo que costaría en el norte de Italia." },
@@ -5924,7 +5924,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 6.5, desc: "Buena oferta gracias al enorme tamaño de la población universitaria." },
-          { label: "Precio", score: 7.0, desc: "300–400€ de media por habitación, muy por debajo de Roma o Milán." },
+          { label: "Precio", score: 7.0, desc: "Habitación individual de 380–500€ (Federico II), por debajo de Roma o Milán." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "La Federico II ofrece listados básicos; conviene visitar el piso o pedir referencias antes de comprometerse." },
           { label: "Residencias universitarias", score: 5.5, desc: "Plazas limitadas frente al enorme número de estudiantes de la Federico II." },
         ],
@@ -5959,7 +5959,7 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 5.0, desc: "ANM (metro, bus y funicular) es funcional pero menos fiable que en el norte de Italia." },
           { label: "Ciudad caminable", score: 6.5, desc: "El centro histórico se recorre a pie, aunque el tráfico y el ruido son constantes." },
           { label: "Conexiones internacionales", score: 6.5, desc: "Aeropuerto de Capodichino bien conectado; trenes de alta velocidad a Roma en poco más de una hora." },
-          { label: "Escapadas de fin de semana", score: 9.0, desc: "Pompeya, Herculano, Capri y la Costa Amalfitana en Circumvesuviana o ferry, todos a menos de una hora." },
+          { label: "Escapadas de fin de semana", score: 9.0, desc: "Pompeya y Herculano en Circumvesuviana; Capri y la Costa Amalfitana en ferry o bus." },
         ],
       },
       {
@@ -5990,7 +5990,7 @@ export const CITY_INSIGHTS = {
         summary: "Requiere más precaución que otras ciudades de esta guía, sobre todo con carteristas en zonas turísticas y de transporte.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 6.0, desc: "Criminalidad menor (carteristas, hurtos) más frecuente que en el norte de Italia; la violencia grave no afecta al circuito estudiantil habitual." },
+          { label: "Seguridad general", score: 6.0, desc: "Ojo con carteristas y hurtos; la violencia grave no afecta al circuito estudiantil habitual." },
           { label: "Seguridad nocturna", score: 5.5, desc: "Conviene evitar calles poco transitadas de madrugada y prestar atención a pertenencias en el centro." },
           { label: "Ambiente de la ciudad", score: 6.5, desc: "Ciudad caótica y ruidosa, pero con mucha vida en la calle que aporta cierta sensación de seguridad social." },
         ],
@@ -8945,28 +8945,28 @@ export const CITY_INSIGHTS = {
   padua: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Prato_della_Valle.JPG/1920px-Prato_della_Valle.JPG",
     tagline: "La universidad de Galileo Galilei, a 25 minutos en tren de Venecia y sin sus precios.",
-    atmosphere: "Padua huele a espresso en los cafés bajo los soportales del centro, y suena al bullicio estudiantil del Prato della Valle, una de las plazas más grandes de Europa, con canales tranquilos rodeándola por los cuatro costados.",
+    atmosphere: "Padua huele a espresso en los cafés bajo los soportales del centro, y suena al bullicio estudiantil del Prato della Valle, una de las plazas más grandes de Europa, con la Isola Memmia en el centro, rodeada por un canal elíptico.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 7.3,
+        id: "coste", label: "Coste de vida", icon: "💰", score: 6.8,
         summary: "Notablemente más barata que Venecia, con toda la belleza del Véneto a un paso.",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 380–480€, muy por debajo de lo que costaría vivir en Venecia." },
           { label: "Comida y supermercados", score: 7.5, desc: "Mercados locales y supermercados estándar mantienen el gasto en comida razonable." },
-          { label: "Transporte", score: 7.5, desc: "Abono Busitalia Veneto con buen descuento estudiantil para bus y tren regional." },
+          { label: "Transporte", score: 7.5, desc: "Abono urbano de bus y tranvía; el centro se recorre bien a pie o en bici." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Salir de bares en el Prato della Valle es mucho más barato que en la vecina Venecia." },
         ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.3,
-        summary: "Mercado accesible gracias a la enorme población universitaria, aunque con demanda creciente por la cercanía a Venecia.",
+        summary: "Mercado tensionado por la enorme población universitaria y la cercanía a Venecia.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 6.5, desc: "Buena oferta de pisos compartidos gracias a su gran población estudiantil." },
+          { label: "Disponibilidad", score: 6.0, desc: "Oferta amplia de pisos compartidos, pero con mucha demanda al inicio de curso." },
           { label: "Precio", score: 6.5, desc: "380–480€ de media, razonable para el Véneto." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "La Università degli Studi di Padova ofrece listados de alojamiento para exchange students." },
-          { label: "Residencias universitarias", score: 6.0, desc: "Buena oferta de residencias (ESU Padova), aunque muy solicitadas." },
+          { label: "Residencias universitarias", score: 5.0, desc: "Residencias del ESU Padova con plazas limitadas; los Erasmus ordinarios no tienen acceso general a las plazas reservadas." },
         ],
       },
       {

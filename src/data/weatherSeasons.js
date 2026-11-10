@@ -22,12 +22,6 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "12–22°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Excelente. Temperaturas suaves, menos turistas y vida universitaria muy activa.", tags: ["Muy agradable", "Inicio Erasmus", "Menos turistas"] },
     { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "4–13°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Suave para ser invierno. Lluvia frecuente pero raramente nieva. Navidad espectacular.", tags: ["Invierno suave", "Lluvia ocasional", "Navidad única"] },
   ],
-  turin: [
-    { id: "spring", label: "Primavera", months: "Mar–May", temp: "12–21°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Despertar con los Alpes nevados de fondo. Ideal para salidas en bici y terrazas.", tags: ["Alpes nevados", "Bici por la ciudad", "Muy agradable"] },
-    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "24–33°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Caluroso pero menos húmedo que Milán. Escapadas fáciles a los Alpes.", tags: ["Calor seco", "Escapadas montaña", "Ciudad tranquila"] },
-    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "10–20°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño intenso y colorido. Arranque universitario muy activo. Mercados gastronómicos.", tags: ["Inicio Erasmus", "Gastronomía", "Colores épicos"], highlight: true },
-    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "0–7°C",   emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío de verdad pero con ski en los Alpes a 1 hora. Chocolate caliente en cafés históricos.", tags: ["Ski en los Alpes", "Muy frío", "Cafés históricos"] },
-  ],
   cracovia: [
     { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–14°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "La ciudad renace. El casco histórico florece y las terrazas se llenan de estudiantes.", tags: ["Ciudad en flor", "Terrazas", "Muy animado"] },
     { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "13–25°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "El mejor verano de Europa Central. Calor agradable, festivales y noches largas.", tags: ["Temperatura perfecta", "Festivales", "Noches largas"], highlight: true },
@@ -65,10 +59,10 @@ export const CITY_SEASONS = {
     { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "1–6°C",   emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío húmedo. Los mercados de Navidad y la vida interior holandesa lo hacen llevadero.", tags: ["Frío húmedo", "Navidad", "Vida interior"] },
   ],
   munich: [
-    { id: "spring", label: "Primavera", months: "Mar–May", temp: "8–18°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Despertar espectacular con los Alpes de fondo. Jardines ingleses y terrazas de cervecería.", tags: ["Alpes cerca", "Jardín inglés", "Biergärten"] },
-    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "20–28°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Temporada dorada. Oktoberfest en septiembre-octubre, Biergärten a reventar y el Isar.", tags: ["Oktoberfest", "Biergärten", "Río Isar"], highlight: true },
-    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "8–17°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Oktoberfest arranca en septiembre. Otoño bávaro con colores impresionantes.", tags: ["Oktoberfest", "Inicio Erasmus", "Colores bávaros"] },
-    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-4–3°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío con mucha nieve. Mercado navideño Christkindlmarkt top en Alemania. Ski cerca.", tags: ["Nieve frecuente", "Navidad top", "Ski en los Alpes"] },
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–15°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Despertar espectacular con los Alpes de fondo. Jardines ingleses y terrazas de cervecería.", tags: ["Alpes cerca", "Jardín inglés", "Biergärten"] },
+    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "14–24°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Temporada dorada: Biergärten a reventar, baños en el Isar y días largos.", tags: ["Biergärten", "Río Isar", "Días largos"], highlight: true },
+    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "6–14°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Oktoberfest arranca en septiembre. Otoño bávaro con colores impresionantes.", tags: ["Oktoberfest", "Inicio Erasmus", "Colores bávaros"] },
+    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-1–5°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío con mucha nieve. Mercado navideño Christkindlmarkt top en Alemania. Ski cerca.", tags: ["Nieve frecuente", "Navidad top", "Ski en los Alpes"] },
   ],
   berlin: [
     { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–15°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Berlín vuelve a la vida. Parques abarrotados, terrazas y energía creativa por todas partes.", tags: ["Parques llenos", "Terrazas", "Energía creativa"] },
@@ -243,5 +237,11 @@ export const CITY_SEASONS = {
     { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "14–22°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Los Gentse Feesten (10 días de festival callejero gratuito) convierten julio en la mejor época del año.", tags: ["Gentse Feesten", "Días largos", "Mejor época"], highlight: true },
     { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "8–15°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Inicio de curso universitario, el más grande de Bélgica; Overpoort recupera su ritmo habitual.", tags: ["Inicio Erasmus", "Vida estudiantil", "Lluvia frecuente"] },
     { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "2–7°C",   emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío húmedo típico belga, pero el mercado navideño junto al Gravensteen tiene mucho encanto.", tags: ["Mercado navideño", "Frío húmedo", "Raramente nieva"] },
+  ],
+  lyon: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "8–18°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave y cada vez más soleada. Terrazas en la Presqu'île y paseos por los muelles del Ródano.", tags: ["Terrazas", "Muelles del Ródano", "Agradable"] },
+    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "16–27°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos calurosos, con olas de calor. La ciudad vive en los muelles y en el Parc de la Tête d'Or.", tags: ["Calor", "Muelles", "Tête d'Or"] },
+    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "9–17°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso, temperaturas suaves y el Beaujolais nouveau en noviembre.", tags: ["Inicio Erasmus", "Temperaturas suaves", "Beaujolais"], highlight: true },
+    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "2–8°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío y gris, con niebla junto a los ríos. En diciembre, la Fête des Lumières ilumina la ciudad.", tags: ["Fête des Lumières", "Niebla", "Frío"] },
   ],
 };

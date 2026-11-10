@@ -5,7 +5,7 @@ Claude Code hace cada tanda y Codex la revisa con `codex exec` en solo lectura (
 
 ## Dónde vamos
 
-**Siguiente tanda: 4** (Múnich, Lyon, Turín, Nápoles, Padua) (actualizar al cerrar cada tanda).
+**Siguiente tanda: 5** (Coímbra, Copenhague, Dublín, Estocolmo, Helsinki) (actualizar al cerrar cada tanda).
 
 ## Qué se revisa en cada ciudad
 
@@ -31,7 +31,7 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 | 1 | Bolonia (`bolonia`), Roma (`roma`), Milán (`milan`), Florencia (`florencia`), Lisboa (`lisboa`) | ✅ 10-11-2026 |
 | 2 | Oporto (`oporto`), Berlín (`berlin`), París (`paris`), Praga (`praga`), Budapest (`budapest`) | ✅ 10-11-2026 |
 | 3 | Varsovia (`varsovia`), Cracovia (`cracovia`), Viena (`viena`), Ámsterdam (`amsterdam`), Bruselas (`bruselas`) | ✅ 10-11-2026 |
-| 4 | Múnich (`munich`), Lyon (`lyon`), Turín (`turin`), Nápoles (`napoles`), Padua (`padua`) | Pendiente |
+| 4 | Múnich (`munich`), Lyon (`lyon`), Turín (`turin`), Nápoles (`napoles`), Padua (`padua`) | ✅ 10-11-2026 |
 | 5 | Coimbra (`coimbra`), Copenhague (`copenhague`), Dublín (`dublin`), Estocolmo (`estocolmo`), Helsinki (`helsinki`) | Pendiente |
 | 6 | Lovaina (`lovaina`), Gante (`gante`), Utrecht (`utrecht`), Groningen (`groningen`), Rotterdam (`rotterdam`) | Pendiente |
 | 7 | La Haya (`la-haya`), Maastricht (`maastricht`), Hamburgo (`hamburgo`), Colonia (`colonia`), Heidelberg (`heidelberg`) | Pendiente |
@@ -92,3 +92,14 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 - Clima con normales 1991–2020 (IMGW, GeoSphere, KNMI, IRM) y 11 enlaces Erasmus arreglados; nombres oficiales (SGH, Krakow University of Economics).
 - Pendiente: el enlace de Vesalius College (ahora Brussels School of Governance) no se pudo comprobar.
 - Codex: auditoría con fuentes + 1 ronda de revisión sin fallos (solo dejó sin volver a cotejar el clima polaco, que salió de su propia auditoría).
+
+### Tanda 4 — 10-11-2026 (Múnich, Lyon, Turín, Nápoles, Padua)
+- Cambio global: la sección «Las cuatro estaciones» ya no muestra temperaturas genéricas inventadas a las ciudades sin datos (afectaba a 111 fichas, incluida América, con «invierno frío 2–8 °C»). Sin datos reales, la sección no aparece; se añadirán en cada tanda.
+- Fotos: las 5 corresponden a su ciudad.
+- Coste según las universidades (TUM, Lyon 2, Politecnico di Torino, Federico II, UniPD): Múnich 1.200–1.500 €, Lyon 800–1.100 €, Turín 700–1.000 €, Nápoles 750–1.000 €, Padua 800–950 €; notas de coste ajustadas.
+- Transporte: Deutschlandticket 63 € en Múnich, TCL 26 € (estudiantes), GTT 38 € / 25 € Under 26.
+- Corregido lo falso: Harry Klein (cerró en 2023), MBition (no está en Múnich), Bicimia (es de Brescia) y TO Bike (cerró), Ferrari/Lamborghini/«Motor Valley» en Turín, la Circumvesuviana no llega a Amalfi, el abono de Padua no cubre el tren, Oktoberfest en verano, «canales por los cuatro costados» en Padua.
+- Fuera cifras y comparaciones sin fuente («+4.500 internacionales», «40 % con raíces extranjeras», «la más barata/segura de Italia», «a mitad de precio que París») y un falso testimonio en Múnich.
+- Clima: Múnich con normales DWD/OMM y Lyon añadido (Météo-France, Lyon-Bron). Turín: quitado hasta tener normales de una estación urbana (la serie completa de la OMM es de Torino-Bric, a 710 m). Nápoles y Padua: sin normales completas verificadas (pendiente).
+- 4 enlaces Erasmus arreglados (LMU, TUM, HM, UniPD).
+- Codex: auditoría con fuentes + 2 rondas; en la ronda 1 precisó que el récord de seguridad de Múnich es entre ciudades de más de 200.000 habitantes (aplicado).
