@@ -425,18 +425,15 @@ export default function CityMatchPage() {
 
   /** Elegir en orden: toca para numerar (1º, 2º, 3º); vuelve a tocar para quitar y las demás se reordenan. */
   function toggleRanked(q, value) {
+    // Actualización funcional: dos toques muy seguidos nunca pisan el estado.
+    setAnswers((prev) => {
+      const current = picksOf(prev[q.id]);
+      if (current.includes(value)) return { ...prev, [q.id]: current.filter((v) => v !== value) };
+      if (current.length >= MAX_RANKED) return prev;
+      return { ...prev, [q.id]: [...current, value] };
+    });
     const current = picksOf(answers[q.id]);
-    if (current.includes(value)) {
-      setLimitNotice(false);
-      setAnswers({ ...answers, [q.id]: current.filter((v) => v !== value) });
-      return;
-    }
-    if (current.length >= MAX_RANKED) {
-      setLimitNotice(true);
-      return;
-    }
-    setLimitNotice(false);
-    setAnswers({ ...answers, [q.id]: [...current, value] });
+    setLimitNotice(!current.includes(value) && current.length >= MAX_RANKED);
   }
 
   function goBack() {
