@@ -14,9 +14,9 @@
 
 /** @type {Record<string, { population: number, year: number, source: string, area?: string }>} */
 export const CITY_POPULATION = {
-  "bolonia": { population: 387971, year: 2023, source: "ISTAT" },
-  "milan": { population: 1354196, year: 2023, source: "ISTAT" },
-  "roma": { population: 2748109, year: 2023, source: "ISTAT" },
+  "bolonia": { population: 390518, year: 2023, source: "ISTAT" },
+  "milan": { population: 1371499, year: 2023, source: "ISTAT" },
+  "roma": { population: 2754719, year: 2023, source: "ISTAT" },
   "turin": { population: 841600, year: 2023, source: "ISTAT" },
   "cracovia": { population: 804237, year: 2023, source: "GUS" },
   "varsovia": { population: 1862402, year: 2024, source: "GUS" },
@@ -51,7 +51,7 @@ export const CITY_POPULATION = {
   "bucarest": { population: 1716961, year: 2021, source: "INS" },
   "sofia": { population: 1213134, year: 2025, source: "NSI" },
   "ginebra": { population: 211152, year: 2025, source: "OFS" },
-  "florencia": { population: 360930, year: 2023, source: "ISTAT" },
+  "florencia": { population: 363837, year: 2023, source: "ISTAT" },
   "hamburgo": { population: 1869473, year: 2025, source: "Destatis" },
   "gante": { population: 274042, year: 2026, source: "Statbel" },
   "venecia": { population: 250369, year: 2023, source: "ISTAT" },

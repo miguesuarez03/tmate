@@ -379,7 +379,7 @@ export const COMPARE_PHRASES = {
     alojamiento: "Tensionado por el turismo, pero manejable fuera del centro histórico",
     vida_social: "Aperitivo en Oltrarno y una enorme comunidad internacional todo el año",
     integracion: "Muy acostumbrada a estudiantes extranjeros, floresta cosmopolita",
-    movilidad: "Centro totalmente caminable, Toscana entera a un tren regional",
+    movilidad: "Centro caminable; Siena, Pisa y Lucca a un tren regional",
     estilo_vida: "Arte, historia y gastronomía toscana en estado puro",
     empleo: "Limitado fuera del turismo y la cultura, mejor para prácticas creativas",
     seguridad: "Muy segura, cuidado habitual con carteristas en zonas turísticas",

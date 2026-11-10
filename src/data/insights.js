@@ -5,7 +5,7 @@
 export const CITY_INSIGHTS = {
   bolonia: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Torri_di_Bologna%2C_Bologna.jpg/1920px-Torri_di_Bologna%2C_Bologna.jpg",
-    tagline: "La capital universitaria de Italia. Donde la pasta se inventó y el conocimiento nunca para.",
+    tagline: "La capital universitaria de Italia. Tradición gastronómica de primer nivel y un conocimiento que nunca para.",
     atmosphere: "Rojiza, académica, gastronómica y festiva. Bolonia huele a ragù y suena a risas de estudiantes bajo los pórticos.",
     scores: [
       // 1. COSTE DE VIDA
@@ -18,8 +18,8 @@ export const CITY_INSIGHTS = {
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.5, desc: "Habitaciones desde 350–500€. Alta demanda por la universidad, conviene buscar con antelación." },
-          { label: "Comida y supermercados", score: 8.5, desc: "Mercado Quadrilatero: comer bien por 5€. La cultura gastronómica premia al curioso." },
-          { label: "Transporte", score: 8.0, desc: "Bus TPER por 1,30€/viaje. Pase mensual a 35€. La bici funciona perfectamente en el centro." },
+          { label: "Comida y supermercados", score: 8.5, desc: "Mercado Quadrilatero y trattorias de barrio para comer bien sin gastar mucho. La cultura gastronómica premia al curioso." },
+          { label: "Transporte", score: 8.0, desc: "Bus TPER: 2,30€ el billete urbano y 39€ el abono mensual ordinario. La bici funciona perfectamente en el centro." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Cervezas a 3–4€. Mucha oferta gratuita: conciertos, eventos culturales, mercados." },
         ],
       },
@@ -34,7 +34,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Disponibilidad", score: 4.5, desc: "Alta demanda por la gran población universitaria. Las mejores habitaciones se van en semanas." },
           { label: "Precio", score: 6.0, desc: "350–500€ habitación individual. Compartir piso es la norma." },
-          { label: "Facilidad de búsqueda", score: 5.5, desc: "Idealista, Unipol, grupos de Facebook de la universidad. Mejor buscar desde origen." },
+          { label: "Facilidad de búsqueda", score: 5.5, desc: "Idealista, SAIS (el servicio de alojamiento de la Unibo para estudiantes internacionales) y grupos de Facebook de la universidad. Mejor buscar desde origen." },
           { label: "Residencias universitarias", score: 6.5, desc: "Las residencias universitarias de Unibo son buena opción si las pillas a tiempo." },
         ],
       },
@@ -78,7 +78,7 @@ export const CITY_INSIGHTS = {
         color: "#F59E0B",
         subcategories: [
           { label: "Ciudad caminable", score: 9.0, desc: "La mejor forma de moverse. Centro completamente plano y con carril bici. Muy caminable." },
-          { label: "Transporte público", score: 7.5, desc: "Red de autobuses amplia. Pase mensual a 35€. Funciona bien pero no 24h." },
+          { label: "Transporte público", score: 7.5, desc: "Red de autobuses amplia. Abono mensual ordinario a 39€. Funciona bien pero no 24h." },
           { label: "Conexiones nacionales", score: 8.0, desc: "Tren directo a Florencia (35min), Milán (1h), Venecia (1h20). Posición estratégica en el corazón de Italia." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Base perfecta para explorar Italia: Toscana, Veneto, Emilia-Romaña. Todo a menos de 2 horas." },
         ],
@@ -92,7 +92,7 @@ export const CITY_INSIGHTS = {
         summary: "Excelente calidad de vida entre gastronomía, cultura y un ritmo equilibrado. El clima es variable pero los pórticos lo hacen todo más llevadero.",
         color: "#3F7A7D",
         subcategories: [
-          { label: "Clima", score: 7.2, desc: "Veranos muy calurosos (35–40°C en julio-agosto), inviernos fríos con niebla frecuente. Primavera y otoño son espectaculares: 18–25°C perfectos para vivir la ciudad." },
+          { label: "Clima", score: 7.2, desc: "Veranos calurosos y húmedos (máximas medias de 30–31°C, con olas de calor por encima de 35°C), inviernos fríos con niebla frecuente. Primavera y otoño son muy agradables, con máximas de 19–20°C." },
           { label: "Calidad de vida", score: 8.6, desc: "Ritmo de vida equilibrado. Ni demasiado acelerado ni aburrido. Instalaciones universitarias accesibles y mucha vida al aire libre en los parques." },
           { label: "Autenticidad local", score: 9.8, desc: "La mejor ciudad para comer de Italia. Ragù, tortellini, mortadella... auténticos. Museos, teatros, cine al aire libre, mercados. Oferta cultural continua." },
           { label: "Estilo de vida", score: 8.5, desc: "Cine de verano al aire libre, festivales, mercados nocturnos. La ciudad nunca duerme en verano. Sociabilidad local alta." },
@@ -2034,7 +2034,7 @@ export const CITY_INSIGHTS = {
   },
   roma: {
     heroImg: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=1600&q=85",
-    tagline: "La Ciudad Eterna. Donde cada adoquín tiene 3.000 años de historia y el carbonara es religión.",
+    tagline: "La Ciudad Eterna. Casi 2.800 años de historia en cada adoquín y la carbonara como religión.",
     atmosphere: "Caótica, apasionada e hipnótica. Roma huele a espresso y piedra caliente, y suena a motos entre columnas romanas.",
     scores: [
       // 1. COSTE DE VIDA
@@ -2048,7 +2048,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Alojamiento", score: 5.5, desc: "Habitaciones desde 450–650€. Zonas estudiantiles como Pigneto o Nomentano son más asequibles que el centro." },
           { label: "Comida y supermercados", score: 8.0, desc: "Pizza al taglio desde 2€. Mercados de barrio baratos. Comer auténtico y barato es parte de la cultura romana." },
-          { label: "Transporte", score: 7.0, desc: "CityPass mensual a 51€. Metro limitado (solo 3 líneas) pero autobuses y tranvías cubren bien la ciudad." },
+          { label: "Transporte", score: 7.0, desc: "Abono mensual Metrebus Roma a 35€. Metro limitado (solo 3 líneas) pero autobuses y tranvías cubren bien la ciudad." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Cervezas a 4–5€. Mucha vida gratuita: Coliseo exterior, fontanas, Villa Borghese. La ciudad entera es un museo al aire libre." },
         ],
       },
@@ -2073,7 +2073,7 @@ export const CITY_INSIGHTS = {
         label: "Vida social y ambiente",
         icon: "🎉",
         score: 8.9,
-        summary: "Vida social intensa y apasionada. Trastevere, Pigneto y el Testaccio marcan el ritmo nocturno. Una de las comunidades Erasmus más grandes de Europa. 7.000+ internacionales entre todas las universidades.",
+        summary: "Vida social intensa y apasionada. Trastevere, Pigneto y el Testaccio marcan el ritmo nocturno. Gran comunidad internacional repartida entre Sapienza, Roma Tre y LUISS.",
         color: "#8B5CF6",
         subcategories: [
           { label: "Comunidad Erasmus", score: 9.0, desc: "Muchos Erasmus cada año. Sapienza, LUISS, Roma Tre y Cattolica juntas forman una masa crítica enorme. Varios ESN por universidad. Eventos desde la semana de bienvenida: tours, cenas, fiestas de disfraces." },
@@ -2122,7 +2122,7 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.0, desc: "Villa Borghese, Appia Antica, playas a 30 minutos en Ostia. Más verde de lo que parece." },
-          { label: "Clima", score: 8.5, desc: "Clima mediterráneo de manual. Inviernos suaves, veranos calurosos y mucho sol durante todo el año. Verano: 35–38°C en julio y agosto. Caluroso pero seco. La ciudad se vacía en agosto — mucho espacio para los que se quedan. Invierno: 10–15°C. Uno de los inviernos más suaves de Italia continental. Raramente nieva." },
+          { label: "Clima", score: 8.5, desc: "Clima mediterráneo de manual. Inviernos suaves, veranos calurosos y mucho sol durante todo el año. Verano: máximas medias en torno a 30°C, con olas de calor que superan los 35°C. La ciudad se vacía en agosto — mucho espacio para los que se quedan. Invierno: máximas de 12–13°C y mínimas de 3–4°C. Suave para Italia continental; nieva muy rara vez." },
           { label: "Calidad de vida", score: 8.8, desc: "Vivir en Roma es una experiencia que marca para siempre. Historia, comida, belleza y caos en equilibrio perfecto." },
           { label: "Autenticidad local", score: 9.5, desc: "Carbonara, cacio e pepe, supplì, gelato auténtico. La cocina romana es sencilla, potente e irresistible." },
           { label: "Estilo de vida", score: 8.5, desc: "El caos romano se vuelve parte de ti. La ciudad enseña a vivir con más calma y más pasión a la vez." },
@@ -2173,10 +2173,10 @@ export const CITY_INSIGHTS = {
         summary: "La más cara de Italia. Viable con 1.000–1.200€/mes si controlas el ocio y compartes piso.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 5.0, desc: "Habitaciones desde 550–800€. El mercado es muy competitivo. Zona Città Studi es la más asequible para estudiantes." },
-          { label: "Comida y supermercados", score: 7.0, desc: "Supermercados Esselunga muy completos. El aperitivo (18–21h) incluye buffet gratis con la bebida — cena gratuita si sabes usarlo." },
+          { label: "Alojamiento", score: 5.0, desc: "Habitación individual: 600–1.100€/mes según la estimación de la Bocconi. El mercado es muy competitivo; Città Studi es de las zonas más buscadas por estudiantes." },
+          { label: "Comida y supermercados", score: 7.0, desc: "Supermercados Esselunga muy completos. El aperitivo (18–21h) suele incluir picoteo o buffet con la bebida y puede hacer de cena." },
           { label: "Transporte", score: 8.0, desc: "ATM mensual (metro + tram + bus) a 39€. Red muy completa y puntual. Una de las mejores de Italia." },
-          { label: "Ocio y gastos diarios", score: 6.0, desc: "Cervezas a 5–7€ en bares. El aperitivo salva la situación: bebida + buffet por 8–10€. Museos gratis el primer martes de mes." },
+          { label: "Ocio y gastos diarios", score: 6.0, desc: "Cervezas a 5–7€ en bares. El aperitivo salva la situación: bebida con buffet por 7–20€ según el local. Museos cívicos gratis el primer domingo de mes." },
         ],
       },
       // 2. ALOJAMIENTO
@@ -2189,7 +2189,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 4.0, desc: "Alta demanda por la gran población universitaria. Las habitaciones buenas se van en horas. Sin margen de espera." },
-          { label: "Precio", score: 4.5, desc: "550–800€ habitación individual. Compartir piso es casi obligatorio para no arruinarse." },
+          { label: "Precio", score: 4.5, desc: "600–1.100€ por habitación individual (estimación de la Bocconi). Compartir piso es casi obligatorio para no arruinarse." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "Idealista, Uniplaces, Spotahome, grupos de Facebook de Bocconi y Politecnico. Prepara una presentación breve de ti mismo." },
           { label: "Residencias universitarias", score: 6.0, desc: "Las residencias universitarias del Politecnico son la mejor opción. Pídelas en cuanto te acepten." },
         ],
@@ -2233,7 +2233,7 @@ export const CITY_INSIGHTS = {
         summary: "El mejor transporte público de Italia. Metro puntual, tranvías históricos y red de autobuses densa.",
         color: "#F59E0B",
         subcategories: [
-          { label: "Transporte público", score: 9.0, desc: "4 líneas, puntual y limpio. Cubre los puntos clave de la ciudad eficientemente." },
+          { label: "Transporte público", score: 9.0, desc: "5 líneas de metro, puntual y limpio. Cubre los puntos clave de la ciudad eficientemente." },
           { label: "Transporte público", score: 8.5, desc: "Los tranvías históricos son lentos pero encantadores. Los autobuses completan la red perfectamente." },
           { label: "Conexiones nacionales", score: 9.0, desc: "Tren a Turín (45min), Venecia (2h20), Bolonia (1h), Roma (3h). Hub ferroviario de Italia." },
           { label: "Escapadas de fin de semana", score: 9.0, desc: "Excelente posición para escapadas: Tren a Turín (45min), Venecia (2h20), Bolonia (1h), Roma (3h). Hub ferroviario de Italia." },
@@ -2264,7 +2264,7 @@ export const CITY_INSIGHTS = {
         summary: "La mejor ciudad de Italia para prácticas. Moda, finanzas, tech y diseño en el mismo sitio.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Mercado laboral", score: 9.5, desc: "Armani, Versace, Prada, Gucci tienen sede aquí. El mejor sitio del mundo para prácticas en moda." },
+          { label: "Mercado laboral", score: 9.5, desc: "Armani, Versace, Prada y Dolce&Gabbana tienen aquí su sede. Uno de los mejores sitios del mundo para prácticas en moda." },
           { label: "Prácticas", score: 9.0, desc: "Banca, seguros, consulting. Mediobanca, Intesa Sanpaolo, BCG, McKinsey. Hub financiero de Italia." },
           { label: "Empresas relevantes", score: 8.5, desc: "Ecosistema tech creciente. H-Farm, TechStars Milano. Menos que Berlín pero en rápido crecimiento." },
           { label: "Oportunidades para estudiantes", score: 9.2, desc: "La mejor ciudad de Italia para prácticas. Moda, finanzas, tech y diseño en el mismo sitio." },
@@ -2415,7 +2415,7 @@ export const CITY_INSIGHTS = {
   },
   lisboa: {
     heroImg: "https://images.unsplash.com/photo-1548707309-dcebeab9ea9b?w=1600&q=85",
-    tagline: "La ciudad dorada del Atlántico. 300 días de sol, fado en las calles y el mar a 30 minutos.",
+    tagline: "La ciudad dorada del Atlántico. Mucho sol, fado en las calles y el mar a un paso.",
     atmosphere: "Cálida, nostálgica y vibrante. Lisboa huele a pastéis de nata y suena a fado saliendo de tabernas con luz azul.",
     scores: [
       // 1. COSTE DE VIDA
@@ -2423,7 +2423,7 @@ export const CITY_INSIGHTS = {
         id: "coste",
         label: "Coste de vida",
         icon: "💰",
-        score: 7.0,
+        score: 6.5,
         summary: "Asequible para Europa Occidental. Caro para Portugal. 900–1.100€/mes bien vividos.",
         color: "#B45309",
         subcategories: [
@@ -2502,7 +2502,7 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.5, desc: "Surf en Ericeira (45min), playas de Cascais (30min), Serra de Sintra (30min)." },
-          { label: "Clima", score: 9.4, desc: "El mejor clima de Europa Occidental. 300 días de sol. El Atlántico regula la temperatura. Verano: 25–35°C, seco y soleado. La brisa atlántica suaviza el calor. Playas a 30 minutos. Invierno: 12–18°C. El invierno más suave de Europa. Raramente baja de 10°C." },
+          { label: "Clima", score: 9.4, desc: "Clima suave y muy soleado; el Atlántico regula la temperatura. Verano: máximas medias de 27–28°C, seco y soleado, con olas de calor puntuales. La brisa atlántica suaviza el calor. Invierno: máximas de 15–16°C y mínimas en torno a 9°C. Suave y lluvioso, sin nieve." },
           { label: "Calidad de vida", score: 9.0, desc: "Difícil encontrar una ciudad que lo combine todo mejor. Será tu referencia de por vida." },
           { label: "Autenticidad local", score: 9.5, desc: "Pastéis, bacalhau, ginjinha, marisco. La gastronomía más subestimada de Europa." },
           { label: "Estilo de vida", score: 9.0, desc: "Ritmo de vida relajado que invita a disfrutar. La antítesis del estrés." },
@@ -2517,9 +2517,9 @@ export const CITY_INSIGHTS = {
         summary: "Hub tecnológico en crecimiento. Startups, fintech y empresas internacionales que eligen Portugal.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Mercado laboral", score: 8.5, desc: "Web Summit. Farfetch, OutSystems, Feedzai nacieron aquí. Ecosistema tech muy activo." },
+          { label: "Mercado laboral", score: 8.5, desc: "Sede de la Web Summit; OutSystems tiene su sede portuguesa en Linda-a-Velha, en el área metropolitana. Ecosistema tech muy activo." },
           { label: "Prácticas", score: 8.0, desc: "Mercedes, Google, Natixis tienen centros en Lisboa. Muchas oportunidades en inglés." },
-          { label: "Empresas relevantes", score: 7.5, desc: "Convocatorias activas. El IPDJ gestiona muchos programas de prácticas internacionales." },
+          { label: "Empresas relevantes", score: 7.5, desc: "Convocatorias de prácticas activas, sobre todo en tecnología, turismo y servicios." },
           { label: "Oportunidades para estudiantes", score: 7.8, desc: "Hub tecnológico en crecimiento. Startups, fintech y empresas internacionales que eligen Portugal." },
         ],
       },
@@ -2532,7 +2532,7 @@ export const CITY_INSIGHTS = {
         summary: "Una de las capitales más seguras de Europa. Índice de criminalidad muy bajo.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 8.5, desc: "Consistentemente rankeada entre las 10 ciudades más seguras de Europa." },
+          { label: "Seguridad general", score: 8.5, desc: "Segura para estándares europeos; ojo con los carteristas en las zonas turísticas y el tranvía 28." },
           { label: "Seguridad nocturna", score: 8.5, desc: "Las zonas de fiesta son seguras. La gente está tranquila y no hay cultura de violencia." },
           { label: "Turismo masivo", score: 7.5, desc: "Con el turismo han aumentado los carteristas. Atención en trams históricos y zonas muy turísticas." },
         ],
@@ -4692,7 +4692,7 @@ export const CITY_INSIGHTS = {
   },
   florencia: {
     heroImg: "https://images.unsplash.com/photo-1748191024284-86c82f51c531?w=1600&q=85",
-    tagline: "La cuna del Renacimiento. Arte, historia y la Toscana entera a un tren de distancia.",
+    tagline: "La cuna del Renacimiento. Arte, historia y la Toscana a un tren o un bus de distancia.",
     atmosphere: "Bulliciosa de turistas de día, íntima y auténtica en Oltrarno de noche. Florencia huele a cuero de sus talleres artesanos y suena a las campanas del Duomo marcando cada hora.",
     scores: [
       {
@@ -4705,7 +4705,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitaciones desde 400–550€ en el centro; más barato en Campo di Marte o Novoli." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercado de San Lorenzo y Sant'Ambrogio para comprar barato; la trattoria de barrio sigue siendo asequible fuera de zonas turísticas." },
-          { label: "Transporte", score: 7.5, desc: "Abono mensual estudiantil (ATAF) ronda los 25€; el centro se recorre andando en 20 minutos." },
+          { label: "Transporte", score: 7.5, desc: "Abono mensual urbano de bus y tranvía a 42,20€; el centro se recorre andando en 20 minutos." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Aperitivo con bebida + buffet desde 8–10€, la opción de cena más popular entre estudiantes." },
         ],
       },
@@ -4720,7 +4720,7 @@ export const CITY_INSIGHTS = {
           { label: "Disponibilidad", score: 4.5, desc: "Airbnb ha reducido la oferta de larga estancia en el centro; hay que mirar más allá del casco histórico." },
           { label: "Precio", score: 5.0, desc: "400–550€ habitación en zonas bien conectadas; el centro histórico puede duplicar ese precio." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "Grupos de 'Erasmus Firenze' y la oficina de alojamiento de la universidad son los canales más fiables." },
-          { label: "Residencias universitarias", score: 5.5, desc: "La Università di Firenze gestiona plazas limitadas en residencias, con demanda muy alta entre exchange students." },
+          { label: "Residencias universitarias", score: 5.5, desc: "Las residencias las gestiona DSU Toscana; para Erasmus solo hay plazas si quedan libres y la demanda es muy alta." },
         ],
       },
       {
@@ -4756,10 +4756,10 @@ export const CITY_INSIGHTS = {
         label: "Ubicación y movilidad",
         icon: "🚆",
         score: 7.5,
-        summary: "Centro histórico totalmente caminable, con la Toscana entera —Siena, Pisa, Chianti— a un tren regional de distancia.",
+        summary: "Centro histórico totalmente caminable, con Siena, Pisa y Lucca a un tren regional y el Chianti a un bus.",
         color: "#F59E0B",
         subcategories: [
-          { label: "Transporte público", score: 6.5, desc: "Tranvía y bus ATAF, aunque el centro histórico se recorre mejor a pie." },
+          { label: "Transporte público", score: 6.5, desc: "Tranvía y bus urbano (Autolinee Toscane), aunque el centro histórico se recorre mejor a pie." },
           { label: "Ciudad caminable", score: 9.0, desc: "Todo el centro histórico se cruza andando en 20–25 minutos." },
           { label: "Conexiones internacionales", score: 7.5, desc: "Aeropuerto pequeño pero con conexiones; Roma y Milán a menos de 2 horas en tren de alta velocidad." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Siena, Pisa, Lucca y Cinque Terre a un tren regional; el Chianti a un bus de distancia." },

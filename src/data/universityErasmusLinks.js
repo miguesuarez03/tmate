@@ -16,8 +16,7 @@
 export const UNIVERSITY_ERASMUS_LINKS = {
   // ── Bolonia ──────────────────────────────────────────────────────────────
   "Università di Bologna": "https://www.unibo.it/en/international/incoming-exchange-students",
-  "Unibo – Sede Forlì": "https://www.unibo.it/en/international/incoming-exchange-students",
-  "Accademia di Belle Arti": "https://www.ababo.it/cms/lang/en/category/erasmus/",
+  "Accademia di Belle Arti di Bologna": "https://www.ababo.it/cultural-heritage/erasmus-relazioni-internazionali/incoming-students",
 
   // ── Milán ────────────────────────────────────────────────────────────────
   "Politecnico di Milano": "https://www.polimi.it/en/campus-e-servizi/international-mobility/exchange-students-incoming",
@@ -26,10 +25,10 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "NABA": "https://www.naba.it/en/student-services/erasmus-international-exchange-programmes",
 
   // ── Roma ─────────────────────────────────────────────────────────────────
-  "Sapienza — la más grande de Europa": "https://www.uniroma1.it/en/pagina/students-coming-sapienza",
-  "LUISS": "https://www.luiss.edu/students/erasmus-and-exchange-students",
-  "Roma Tre": "https://www.uniroma3.it/en/internazionale/erasmus-incoming/",
-  "Università Cattolica": "https://www.unicatt.it/international-incoming-exchange-students",
+  "Sapienza": "https://www.uniroma1.it/en/pagina/students-coming-sapienza",
+  "LUISS": "https://www.luiss.it/en/international/incoming-exchange-students/erasmus-and-bilateral-exchanges",
+  "Roma Tre": "https://portalestudente.uniroma3.it/en/international-mobility/programma-erasmus-incoming-students-eng/",
+  "Università Cattolica": "https://international.unicatt.it/ucscinternational-semester-programs-exchange-program-in-rome",
 
   // ── Turín ────────────────────────────────────────────────────────────────
   "Università degli Studi di Torino": "https://en.unito.it/international-relations/students-mobility/exchange-students-and-erasmus-mobility",
@@ -76,7 +75,7 @@ export const UNIVERSITY_ERASMUS_LINKS = {
 
   // ── Lisboa (federación de facultades — páginas institucionales generales) ──
   "Universidade de Lisboa": "https://www.ulisboa.pt/en/info/erasmus",
-  "NOVA University Lisbon": "https://www.unl.pt/en/nova/erasmus",
+  "NOVA University Lisbon": "https://www.unl.pt/internacional/mobilidade-internacional/erasmus/",
   "ISCTE": "https://www.iscte-iul.pt/estudantes-incoming",
   "Universidade Católica": "https://www.ucp.pt/international/study-catolica/mobility-students-incoming",
 
@@ -189,7 +188,7 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "HEG Genève": "https://www.hesge.ch/heg/en/international/incoming-students",
 
   // ── Florencia ────────────────────────────────────────────────────────────
-  "Università degli Studi di Firenze": "https://www.unifi.it/changelang-eng/incoming-exchange-students",
+  "Università degli Studi di Firenze": "https://www.unifi.it/en/study-us/university-life/erasmus-and-more/international-mobility/incoming-erasmus-students",
   "Accademia di Belle Arti di Firenze": "https://www.accademia.firenze.it/en/international/erasmus/",
 
   // ── Hamburgo ─────────────────────────────────────────────────────────────
