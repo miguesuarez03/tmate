@@ -5,7 +5,7 @@ Claude Code hace cada tanda y Codex la revisa con `codex exec` en solo lectura (
 
 ## Dónde vamos
 
-**Siguiente tanda: 6** (Lovaina, Gante, Utrecht, Groningen, Rotterdam) (actualizar al cerrar cada tanda).
+**Siguiente tanda: 7** (La Haya, Maastricht, Hamburgo, Colonia, Heidelberg) (actualizar al cerrar cada tanda).
 
 ## Qué se revisa en cada ciudad
 
@@ -47,7 +47,7 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 | 3 | Varsovia (`varsovia`), Cracovia (`cracovia`), Viena (`viena`), Ámsterdam (`amsterdam`), Bruselas (`bruselas`) | ✅ 10-11-2026 |
 | 4 | Múnich (`munich`), Lyon (`lyon`), Turín (`turin`), Nápoles (`napoles`), Padua (`padua`) | ✅ 10-11-2026 |
 | 5 | Coimbra (`coimbra`), Copenhague (`copenhague`), Dublín (`dublin`), Estocolmo (`estocolmo`), Helsinki (`helsinki`) | ✅ 10-11-2026 |
-| 6 | Lovaina (`lovaina`), Gante (`gante`), Utrecht (`utrecht`), Groningen (`groningen`), Rotterdam (`rotterdam`) | Pendiente |
+| 6 | Lovaina (`lovaina`), Gante (`gante`), Utrecht (`utrecht`), Groningen (`groningen`), Rotterdam (`rotterdam`) | ✅ 10-11-2026 |
 | 7 | La Haya (`la-haya`), Maastricht (`maastricht`), Hamburgo (`hamburgo`), Colonia (`colonia`), Heidelberg (`heidelberg`) | Pendiente |
 | 8 | Friburgo (`friburgo`), Leipzig (`leipzig`), Dresde (`dresde`), Tubinga (`tubinga`), Rosenheim (`rosenheim`) | Pendiente |
 | 9 | Toulouse (`toulouse`), Burdeos (`burdeos`), Nantes (`nantes`), Montpellier (`montpellier`), Marsella (`marsella`) | Pendiente |
@@ -127,3 +127,12 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 - Clima: Dublín, Estocolmo y Helsinki con normales 1991–2020 (Met Éireann, SMHI, FMI); Coímbra añadido (IPMA). Copenhague retirado hasta extraer las normales del DMI (Landbohøjskolen, informe DMIRep21-11).
 - 2 enlaces Erasmus: SSE (apuntaba a outgoing) y el nuevo nombre de la Universidade Politécnica de Coimbra.
 - Codex: auditoría con fuentes + 2 rondas; en la ronda 1 añadió la rebaja temporal del SL y matizó lo de Systembolaget (aplicado).
+
+### Tanda 6 — 10-11-2026 (Lovaina, Gante, Utrecht, Groningen, Rotterdam)
+- Fotos: las 5 corresponden a su ciudad.
+- Coste según las universidades (KU Leuven, UGent, UU, RUG, EUR): Lovaina 1.050–1.400 €, Gante 1.200–1.800 €, Utrecht 1.000–1.400 €, Groningen 800–1.000 €, Rotterdam 1.000–1.800 €; notas de coste ajustadas. Gante: el alojamiento ya no se presenta como «abundante» (hay escasez).
+- Corregido lo falso: «la universidad más grande» de Bélgica (UGent) y de Países Bajos (Utrecht), Groningen «un tercio estudiantes / la ciudad más joven de Europa» (es casi una cuarta parte), Kotweb (es Kotwijs/KotatGent), Kences (no alquila habitaciones), sedes de Unilever/ING/Heineken en Rotterdam, RET 8,50 € (ahora 12 €), «la ciudad que se destruyó», tiempos de tren y aeropuerto.
+- Fuera cifras sin fuente: «la mitad de turistas», «+3.000 internacionales», «miles de habitaciones SSH», «más del 50 % con raíces no holandesas».
+- Clima: Gante y Rotterdam con normales 1991–2020 (IRM, KNMI); añadidos Lovaina (IRM), Utrecht (KNMI De Bilt) y Groningen (KNMI Eelde).
+- 5 enlaces Erasmus arreglados (UGent, HOGENT, Artevelde, EUR, Rotterdam UAS).
+- Codex: auditoría con fuentes + 2 rondas; en la ronda 1 pidió usar el coste de la UGent tal cual (Claude había interpolado con Lovaina) y precisar Amsterdam Zuid (aplicado).

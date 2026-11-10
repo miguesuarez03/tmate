@@ -59,8 +59,8 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "The Hague University of Applied Sciences": "https://www.thehagueuniversity.com/about-us/contact/international-office",
 
   // ── Rotterdam ────────────────────────────────────────────────────────────
-  "Erasmus University Rotterdam": "https://www.eur.nl/en/education/exchange-and-study-abroad/incoming-exchange-students",
-  "Rotterdam University of Applied Sciences": "https://www.rotterdamuas.com/study/exchange-programme/",
+  "Erasmus University Rotterdam": "https://www.eur.nl/en/education/practical-matters/going-abroad/exchange/come-rotterdam-exchange",
+  "Rotterdam University of Applied Sciences": "https://www.rotterdamuas.com/study-information/faq-exchange/incoming-exchange-students/application-process/",
 
   // ── Múnich ───────────────────────────────────────────────────────────────
   "Ludwig Maximilian University (LMU)": "https://www.lmu.de/en/study/all-degrees-and-programs/programs-for-international-visiting-students/erasmus-and-lmuexchange/",
@@ -197,9 +197,9 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Technische Universität Hamburg (TUHH)": "https://www.tuhh.de/alt/tuhh/international/incoming-exchange-students.html",
 
   // ── Gante ────────────────────────────────────────────────────────────────
-  "Universiteit Gent (UGent)": "https://www.ugent.be/en/facilities/international/exchange",
-  "HOGENT": "https://www.hogent.be/en/international/incoming-exchange-students/",
-  "Artevelde Hogeschool": "https://www.arteveldehogeschool.be/en/international/incoming-exchange-students",
+  "Universiteit Gent (UGent)": "https://www.ugent.be/prospect/en/administration/application/application-exchange",
+  "HOGENT": "https://www.hogent.be/en/future-student/exchange-programmes/what-is-an-exchange-student/",
+  "Arteveldehogeschool": "https://www.artevelde-uas.be/enrolment/enrolling-exchange-student",
 
   // ── Venecia ──────────────────────────────────────────────────────────────
   "Università Ca' Foscari Venezia": "https://www.unive.it/pag/12522/",

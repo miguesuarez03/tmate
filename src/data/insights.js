@@ -1271,7 +1271,7 @@ export const CITY_INSIGHTS = {
   },
   rotterdam: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/A_view_of_Rotterdam%2C_taken_from_the_roof_of_the_Maassilo%2C_Rotterdam%2C_The_Netherlands.jpg/1920px-A_view_of_Rotterdam%2C_taken_from_the_roof_of_the_Maassilo%2C_Rotterdam%2C_The_Netherlands.jpg",
-    tagline: "La ciudad que se destruyó y se reinventó más bonita. Arquitectura radical, el mayor puerto de Europa y una energía que no para.",
+    tagline: "Reconstruida tras el bombardeo de 1940 y reinventada. Arquitectura radical, el mayor puerto de Europa y una energía que no para.",
     atmosphere: "Futurista, multicultural y sin complejos. Rotterdam huele a mar y obra nueva, y suena a grúas del puerto mezcladas con música de decenas de culturas en cada barrio.",
     scores: [
       // 1. COSTE DE VIDA
@@ -1279,11 +1279,11 @@ export const CITY_INSIGHTS = {
         id: "coste",
         label: "Coste de vida",
         icon: "💰",
-        score: 6.8,
-        summary: "Más asequible que Ámsterdam pero sigue siendo Holanda. Con 800–1.000€/mes se vive bien.",
+        score: 5.0,
+        summary: "Más asequible que Ámsterdam pero sigue siendo Holanda: la Erasmus University calcula 1.000–1.800€/mes.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 550–750€. Más barata que Ámsterdam. Kralingen y Delfshaven son las zonas más asequibles." },
+          { label: "Alojamiento", score: 6.5, desc: "Alojamiento amueblado con suministros de 700–1.000€/mes según la EUR. Más barato que Ámsterdam. Kralingen y Delfshaven son las zonas más asequibles." },
           { label: "Comida y supermercados", score: 7.5, desc: "Markthal — espectacular y con opciones para todos los presupuestos. Mercados del barrio más baratos para el día a día." },
           { label: "Transporte", score: 7.5, desc: "Metro + tranvía + autobús con OV-chipkaart. Muy bien conectada internamente y con el resto de Holanda." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Cervezas a 4–5€. Muchos eventos culturales gratuitos o muy baratos. Escena más underground y menos cara que Ámsterdam." },
@@ -1299,7 +1299,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 6.0, desc: "Más oferta que Ámsterdam pero la demanda crece con la popularidad de la ciudad. Sin margen de relajarse." },
-          { label: "Precio", score: 6.5, desc: "550–750€ habitación. Notablemente más barato que Ámsterdam para una calidad comparable." },
+          { label: "Precio", score: 6.5, desc: "700–1.000€/mes por habitación amueblada con suministros (EUR). Notablemente más barato que Ámsterdam para una calidad comparable." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "Kamernet, Pararius, grupos de Facebook de Erasmus University Rotterdam. Proceso similar al holandés estándar." },
           { label: "Residencias universitarias", score: 6.0, desc: "Consulta residencias universitarias disponibles — pueden ser la opción más cómoda y segura para los primeros meses." },
         ],
@@ -1313,7 +1313,7 @@ export const CITY_INSIGHTS = {
         summary: "Escena nocturna más auténtica y underground que Ámsterdam. Sin turistas, con más personalidad. Comunidad Erasmus activa centrada en Erasmus University. Internacional, profesional y bien organizada.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 8.0, desc: "+3.000 internacionales principalmente en Erasmus University Rotterdam y Rotterdam UAS. ESN Rotterdam organiza eventos regulares. Canal histórico tours, trips a Delft y Gouda, eventos de networking." },
+          { label: "Comunidad Erasmus", score: 8.0, desc: "Comunidad internacional repartida entre la Erasmus University Rotterdam y Rotterdam UAS. ESN Rotterdam organiza eventos regulares. Canal histórico tours, trips a Delft y Gouda, eventos de networking." },
           { label: "Ambiente internacional", score: 8.0, desc: "Ambiente internacional con estudiantes de toda Europa y el mundo." },
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "Rotterdamse Schouwburg, Annabel, Bird. Escena electrónica seria y muy local. Sin el turismo de fiesta de Ámsterdam." },
           { label: "Eventos y actividades", score: 7.5, desc: "North Sea Jazz Festival, Rotterdam Unlimited, Wereldhavendagen. Agenda de eventos de primer nivel internacional." },
@@ -1325,11 +1325,11 @@ export const CITY_INSIGHTS = {
         label: "Integración internacional",
         icon: "🌍",
         score: 8.8,
-        summary: "La ciudad más multicultural de Holanda. El inglés funciona perfectamente y la diversidad es parte del ADN de la ciudad.",
+        summary: "Ciudad muy multicultural. El inglés funciona perfectamente y la diversidad es parte del ADN de la ciudad.",
         color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.5, desc: "Todo el mundo habla inglés. Rotterdam funciona perfectamente en inglés sin necesitar neerlandés." },
-          { label: "Ambiente internacional", score: 9.5, desc: "Más del 50% de la población tiene raíces no holandesas. La ciudad más diversa de los Países Bajos sin discusión." },
+          { label: "Ambiente internacional", score: 9.5, desc: "Ciudad muy diversa: una gran parte de la población tiene raíces migrantes." },
           { label: "Actitud local", score: 8.5, desc: "Rotterdamers directos, trabajadores y sin pretensiones. Menos elitismo que en Ámsterdam. Muy auténticos." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
         ],
@@ -1340,13 +1340,13 @@ export const CITY_INSIGHTS = {
         label: "Ubicación y movilidad",
         icon: "🚆",
         score: 9.0,
-        summary: "Metro moderno, tranvías eficientes y bici por todas partes. A Ámsterdam en 40 minutos, a La Haya en 25.",
+        summary: "Metro moderno, tranvías eficientes y bici por todas partes. A Amsterdam Zuid en unos 40 minutos (Intercity direct, con suplemento), a La Haya en 25.",
         color: "#F59E0B",
         subcategories: [
           { label: "Transporte público", score: 9.0, desc: "Red de metro moderna y eficiente. Cubre bien todos los barrios principales. Puntual y frecuente." },
           { label: "Ciudad caminable", score: 9.5, desc: "Infraestructura ciclista excelente como en toda Holanda. Imprescindible tener bici propia o de alquiler." },
-          { label: "Conexiones nacionales", score: 9.0, desc: "Tren a Ámsterdam (40min), La Haya (25min), Utrecht (35min). Hub de transporte del sur de Holanda." },
-          { label: "Escapadas de fin de semana", score: 9.0, desc: "Excelente posición para escapadas: Tren a Ámsterdam (40min), La Haya (25min), Utrecht (35min). Hub de transporte del sur de Holanda." },
+          { label: "Conexiones nacionales", score: 9.0, desc: "Tren a Amsterdam Zuid (unos 40min en Intercity direct), La Haya (25min), Utrecht (35min). Hub de transporte del sur de Holanda." },
+          { label: "Escapadas de fin de semana", score: 9.0, desc: "Excelente posición para escapadas: Tren a Amsterdam Zuid (unos 40min en Intercity direct), La Haya (25min), Utrecht (35min). Hub de transporte del sur de Holanda." },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -1359,9 +1359,9 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "Espacios naturales y zonas verdes accesibles desde la ciudad." },
-          { label: "Clima", score: 5.5, desc: "Clima oceánico clásico. Lluvia frecuente, viento del mar y veranos agradables pero cortos. Verano: 18–24°C, con días soleados perfectos. Las terrazas del Witte de Withstraat se llenan de vida en verano. Invierno: Gris, húmedo y ventoso. El viento en Rotterdam es especialmente fuerte por la proximidad al puerto y el mar." },
+          { label: "Clima", score: 5.5, desc: "Clima oceánico clásico. Lluvia frecuente, viento del mar y veranos agradables pero cortos. Verano: máximas medias en torno a 22°C, con días soleados perfectos. Las terrazas del Witte de Withstraat se llenan de vida en verano. Invierno: Gris, húmedo y ventoso. El viento en Rotterdam es especialmente fuerte por la proximidad al puerto y el mar." },
           { label: "Calidad de vida", score: 8.3, desc: "Ciudad estimulante, diversa y con una arquitectura que no deja de sorprender. La alternativa auténtica a Ámsterdam." },
-          { label: "Autenticidad local", score: 9.0, desc: "La ciudad más multicultural de Holanda tiene la gastronomía más diversa. Cocina surinamesa, turca, marroquí, indonesia..." },
+          { label: "Autenticidad local", score: 9.0, desc: "Una ciudad muy multicultural, con una gastronomía diversísima. Cocina surinamesa, turca, marroquí, indonesia..." },
           { label: "Estilo de vida", score: 8.0, desc: "Ciudad con energía propia y sin pretensiones. Perfecta para quien busca autenticidad y no turismo de postal." },
         ],
       },
@@ -1375,7 +1375,7 @@ export const CITY_INSIGHTS = {
         color: "#8B5CF6",
         subcategories: [
           { label: "Mercado laboral", score: 9.5, desc: "El mayor puerto de Europa genera miles de oportunidades en logística, supply chain y comercio internacional." },
-          { label: "Prácticas", score: 8.5, desc: "Sede de multinacionales como Unilever, ING, Heineken. Hub financiero y de consultoría del sur de Holanda." },
+          { label: "Prácticas", score: 8.5, desc: "Empresas ligadas al puerto, logística y consultoría, y grandes oficinas como la de Unilever. Hub financiero y de consultoría del sur de Holanda." },
           { label: "Empresas relevantes", score: 8.0, desc: "Ecosistema de startups en crecimiento. RDM Innovation Dock — espacio de innovación ligado al puerto. Mucho potencial." },
           { label: "Oportunidades para estudiantes", score: 8.5, desc: "Hub logístico, portuario y tecnológico de primer nivel europeo. Oportunidades reales en sectores clave." },
         ],
@@ -4937,11 +4937,11 @@ export const CITY_INSIGHTS = {
         id: "coste",
         label: "Coste de vida",
         icon: "💰",
-        score: 7.0,
-        summary: "Más barata que Bruselas o Amberes; con 700–750€/mes se vive con comodidad.",
+        score: 5.5,
+        summary: "Algo más barata que Bruselas, aunque las estimaciones de la UGent para estudiantes de intercambio superan los 1.000€/mes.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 6.5, desc: "Kot estudiantil (habitación tipo estudio) desde 350–500€, abundante gracias a la mayor universidad de Bélgica." },
+          { label: "Alojamiento", score: 6.5, desc: "Kot estudiantil de 400–650€/mes según la UGent; hay escasez y encontrarlo lleva tiempo." },
           { label: "Comida y supermercados", score: 7.5, desc: "Colruyt y Aldi para el día a día; Vrijdagmarkt para comprar barato entre semana." },
           { label: "Transporte", score: 7.5, desc: "La bici sustituye al transporte público en el día a día; abono De Lijn mensual asequible para el resto." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Cerveza de abadía en bar desde 3–4€; Overpoort ofrece las rondas más baratas de la ciudad." },
@@ -4952,12 +4952,12 @@ export const CITY_INSIGHTS = {
         label: "Alojamiento",
         icon: "🏠",
         score: 6.5,
-        summary: "El mercado más fácil de Bélgica gracias a la enorme oferta de kots universitarios — Gante vive literalmente para y por sus estudiantes.",
+        summary: "Hay escasez de alojamiento estudiantil: encontrar kot exige tiempo y empezar pronto.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 7.0, desc: "UGent es la universidad más grande del país y la oferta de kot está pensada específicamente para estudiantes." },
-          { label: "Precio", score: 6.5, desc: "350–500€ por un kot con cocina y baño propios o compartidos, según zona." },
-          { label: "Facilidad de búsqueda", score: 6.5, desc: "Portales como Kotweb y la propia oficina de alojamiento de UGent facilitan mucho la búsqueda." },
+          { label: "Disponibilidad", score: 5.5, desc: "Mucha oferta de kots pensada para estudiantes, pero no basta para la demanda." },
+          { label: "Precio", score: 6.5, desc: "400–650€/mes por un kot con cocina y baño propios o compartidos, según zona." },
+          { label: "Facilidad de búsqueda", score: 6.5, desc: "KotatGent (el portal que recomienda la UGent) y la propia oficina de alojamiento de UGent facilitan mucho la búsqueda." },
           { label: "Residencias universitarias", score: 7.0, desc: "UGent gestiona plazas específicas para exchange students con un proceso bastante claro." },
         ],
       },
@@ -4980,7 +4980,7 @@ export const CITY_INSIGHTS = {
         label: "Integración internacional",
         icon: "🌍",
         score: 8.5,
-        summary: "Con la universidad más grande de Bélgica, Gante está diseñada para recibir estudiantes internacionales, y el inglés funciona en cualquier contexto universitario.",
+        summary: "Con una de las mayores universidades de Bélgica, Gante está diseñada para recibir estudiantes internacionales, y el inglés funciona en cualquier contexto universitario.",
         color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 9.0, desc: "Muy alto entre los jóvenes y en todo el entorno universitario, sin apenas barrera idiomática." },
@@ -4999,7 +4999,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Transporte público", score: 7.0, desc: "De Lijn cubre bus y tranvía, aunque en el día a día la mayoría se mueve en bici." },
           { label: "Ciudad caminable", score: 8.5, desc: "Centro histórico compacto y muy paseable, además de extremadamente ciclable." },
-          { label: "Conexiones internacionales", score: 7.5, desc: "Bruselas (con su aeropuerto internacional) a 30 minutos en tren directo." },
+          { label: "Conexiones internacionales", score: 7.5, desc: "Bruselas a unos 30 minutos en tren directo; su aeropuerto, a unos 55." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Brujas, Bruselas y Amberes a menos de una hora en tren; Lille (Francia) también muy cerca." },
         ],
       },
@@ -5338,11 +5338,11 @@ export const CITY_INSIGHTS = {
     atmosphere: "Lovaina huele a lúpulo y pan recién horneado en cualquier calle del centro, y suena a bicicletas y conversaciones en flamenco e inglés mezcladas en las terrazas del Oude Markt.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 7.3,
+        id: "coste", label: "Coste de vida", icon: "💰", score: 6.0,
         summary: "Más barata que Bruselas o Amberes, con un coste de vida moderado gracias al tamaño manejable de la ciudad.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 400–550€; el 'kot' (habitación de estudiante) es la institución local para vivir barato." },
+          { label: "Alojamiento", score: 6.5, desc: "Habitación en el mercado privado de 490–730€/mes (KU Leuven, 2025–2026); el 'kot' (habitación de estudiante) es la institución local para vivir barato." },
           { label: "Comida y supermercados", score: 7.5, desc: "Supermercados belgas estándar (Colruyt, Aldi) y comedores universitarios muy económicos." },
           { label: "Transporte", score: 8.0, desc: "La bici cubre casi todo; el bus De Lijn para lo demás es barato con tarifa estudiante." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Una cerveza en el Oude Markt ronda 2,50–3€; salir de fiesta aquí es de lo más barato de Bélgica." },
@@ -5354,8 +5354,8 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 7.0, desc: "Con casi la mitad de la población siendo estudiante, la oferta de 'kots' está muy desarrollada." },
-          { label: "Precio", score: 6.5, desc: "400–550€ de media, con habitaciones desde 350€ fuera del centro más inmediato." },
-          { label: "Facilidad de búsqueda", score: 6.5, desc: "KU Leuven tiene un portal de alojamiento de referencia (Kotweb) para estudiantes internacionales." },
+          { label: "Precio", score: 6.5, desc: "490–730€/mes por habitación en el mercado privado, según la KU Leuven." },
+          { label: "Facilidad de búsqueda", score: 6.5, desc: "KU Leuven tiene un portal de alojamiento de referencia (Kotwijs) para estudiantes internacionales." },
           { label: "Residencias universitarias", score: 6.5, desc: "KU Leuven gestiona residencias propias con buena disponibilidad para exchange students que solicitan pronto." },
         ],
       },
@@ -5388,7 +5388,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Transporte público", score: 7.0, desc: "De Lijn cubre bus, pero la mayoría se mueve en bici por lo compacto de la ciudad." },
           { label: "Ciudad caminable", score: 8.5, desc: "Centro totalmente recorrible a pie o en bici en minutos." },
-          { label: "Conexiones internacionales", score: 8.5, desc: "Bruselas-Zaventem a 40 minutos; trenes directos a Bruselas, Amberes y Gante." },
+          { label: "Conexiones internacionales", score: 8.5, desc: "El aeropuerto de Bruselas, a unos 15 minutos en tren; trenes directos a Bruselas, Amberes y Gante." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Bruselas a 25 minutos en tren, ideal para escapadas de un día entre semana." },
         ],
       },
@@ -5429,28 +5429,28 @@ export const CITY_INSIGHTS = {
   },
   utrecht: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Utrecht_from_Dom_Tower.jpg/1920px-Utrecht_from_Dom_Tower.jpg",
-    tagline: "La universidad más grande de los Países Bajos, en una ciudad de canales con la mitad de turistas que Ámsterdam.",
+    tagline: "Una de las grandes universidades de los Países Bajos, en una ciudad de canales con menos turistas que Ámsterdam.",
     atmosphere: "Utrecht huele a café y a lluvia sobre adoquines, y suena al timbre de cientos de bicicletas cruzando los puentes sobre el Oudegracht a cualquier hora del día.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 4.7,
+        id: "coste", label: "Coste de vida", icon: "💰", score: 4.5,
         summary: "Más barata que Ámsterdam, aunque sigue siendo una de las ciudades caras de esta guía dentro del contexto neerlandés.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 4.0, desc: "Habitaciones desde 550–750€; más barato que Ámsterdam pero por encima de la media europea." },
+          { label: "Alojamiento", score: 4.0, desc: "Alojamiento amueblado con suministros de 500–1.100€/mes según la Universidad de Utrecht." },
           { label: "Comida y supermercados", score: 6.0, desc: "Albert Heijn y Jumbo cubren la compra; los precios son ligeramente más bajos que en Ámsterdam." },
-          { label: "Transporte", score: 7.5, desc: "La bici resuelve la mayoría de trayectos sin coste añadido; el tren para salir de la ciudad tiene tarifa estudiante." },
+          { label: "Transporte", score: 7.5, desc: "La bici resuelve la mayoría de trayectos sin coste añadido; el tren para salir de la ciudad se paga aparte (los descuentos de estudiante dependen de requisitos)." },
           { label: "Ocio y gastos diarios", score: 5.5, desc: "Salir de bares en el centro no es barato, aunque más asequible que en la capital." },
         ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 4.0,
-        summary: "Mercado ajustado como en todo el país, aunque algo más accesible que Ámsterdam o Róterdam.",
+        summary: "Mercado con fuerte escasez, como en todo el país: busca antes de viajar.",
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 4.0, desc: "La demanda supera la oferta, como en toda gran ciudad neerlandesa; hay que buscar con muchos meses de antelación." },
-          { label: "Precio", score: 4.0, desc: "550–750€ de media por habitación en el centro o zonas bien conectadas." },
-          { label: "Facilidad de búsqueda", score: 4.5, desc: "SSH Utrecht y Kences gestionan alojamiento para exchange students, aunque las plazas se agotan rápido." },
+          { label: "Precio", score: 4.0, desc: "500–1.100€/mes por alojamiento amueblado con suministros (Universidad de Utrecht)." },
+          { label: "Facilidad de búsqueda", score: 4.5, desc: "SSH Utrecht ofrece alojamiento para estudiantes de intercambio, aunque las plazas se agotan rápido." },
           { label: "Residencias universitarias", score: 4.5, desc: "Universiteit Utrecht colabora con SSH para plazas de residencia, imprescindible solicitarlas nada más admitido." },
         ],
       },
@@ -5460,7 +5460,7 @@ export const CITY_INSIGHTS = {
         color: "#8B5CF6",
         subcategories: [
           { label: "Comunidad Erasmus", score: 8.5, desc: "ESN Utrecht organiza actividades semanales y viajes de fin de semana por el país." },
-          { label: "Ambiente internacional", score: 8.5, desc: "La universidad más grande de los Países Bajos atrae a una enorme comunidad internacional." },
+          { label: "Ambiente internacional", score: 8.5, desc: "Una de las grandes universidades del país atrae a una enorme comunidad internacional." },
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "El centro histórico y Neude concentran bares y vida nocturna estudiantil hasta tarde." },
           { label: "Eventos y actividades", score: 8.5, desc: "Festivales culturales, mercados y una vida universitaria activa durante todo el curso." },
         ],
@@ -5472,7 +5472,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Nivel de inglés", score: 9.5, desc: "Prácticamente toda la población, y en especial el entorno universitario, domina el inglés con fluidez." },
           { label: "Actitud local", score: 8.0, desc: "Los neerlandeses son directos pero abiertos, y muy acostumbrados al estudiante internacional." },
-          { label: "Integración con locales", score: 8.0, desc: "Las asociaciones estudiantiles neerlandesas ('gezelligheid') facilitan la integración más allá del círculo Erasmus." },
+          { label: "Integración con locales", score: 8.0, desc: "Las asociaciones estudiantiles (studentenverenigingen) facilitan la integración más allá del círculo Erasmus." },
           { label: "Facilidad para hacer amigos", score: 9.0, desc: "El tamaño de la comunidad internacional hace muy sencillo construir un grupo social amplio." },
         ],
       },
@@ -5999,15 +5999,15 @@ export const CITY_INSIGHTS = {
   },
   groningen: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/20100523_Grote_Markt_en_Martinitoren_Groningen_NL.jpg/1920px-20100523_Grote_Markt_en_Martinitoren_Groningen_NL.jpg",
-    tagline: "Uno de cada tres habitantes es estudiante — la ciudad más joven de Europa, sobre dos ruedas.",
+    tagline: "Casi uno de cada cuatro habitantes es estudiante: una ciudad joven sobre dos ruedas.",
     atmosphere: "Groningen suena a timbres de bicicleta y risas en el Grote Markt cualquier noche entre semana, y huele a stroopwafel recién hecho en el mercado de los sábados frente a la Martinitoren.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 5.8,
+        id: "coste", label: "Coste de vida", icon: "💰", score: 5.5,
         summary: "Más barata que Ámsterdam o Utrecht, aunque sigue siendo Países Bajos: nada es realmente barato.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 5.0, desc: "Habitación desde 400–550€; el mercado es más accesible que en Ámsterdam gracias al enorme parque de vivienda estudiantil." },
+          { label: "Alojamiento", score: 5.0, desc: "Habitación de 450–650€/mes con gastos incluidos, según la RUG; el mercado es más accesible que en Ámsterdam gracias al enorme parque de vivienda estudiantil." },
           { label: "Comida y supermercados", score: 6.5, desc: "Supermercados como Lidl y Aldi mantienen el gasto en comida razonable comparado con el resto de Países Bajos." },
           { label: "Transporte", score: 7.5, desc: "La bici es gratis una vez comprada — la mayoría de trayectos no necesitan bus ni tren." },
           { label: "Ocio y gastos diarios", score: 5.5, desc: "Salir de bares en el Grote Markt tiene precios estándar neerlandeses, no especialmente baratos." },
@@ -6018,15 +6018,15 @@ export const CITY_INSIGHTS = {
         summary: "Mercado tenso como en todo el país, pero con más oferta específica para estudiantes que otras ciudades neerlandesas.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 5.5, desc: "SSH Studentenhuisvesting gestiona miles de habitaciones específicas para estudiantes internacionales." },
-          { label: "Precio", score: 6.0, desc: "400–550€ de media, sensiblemente por debajo de Ámsterdam, Utrecht o La Haya." },
+          { label: "Disponibilidad", score: 5.5, desc: "SSH Studentenhuisvesting ofrece habitaciones para estudiantes internacionales, pero las plazas son limitadas." },
+          { label: "Precio", score: 6.0, desc: "450–650€/mes con gastos (RUG), sensiblemente por debajo de Ámsterdam, Utrecht o La Haya." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "La RUG tiene un servicio de alojamiento para exchange students que solicitan a tiempo." },
           { label: "Residencias universitarias", score: 5.5, desc: "Buena oferta de residencias SSH, aunque conviene solicitar en cuanto llega la carta de admisión." },
         ],
       },
       {
         id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 9.0,
-        summary: "La proporción de estudiantes más alta de Europa se nota en cada esquina: la vida social nunca se detiene.",
+        summary: "La enorme proporción de estudiantes se nota en cada esquina: la vida social nunca se detiene.",
         color: "#8B5CF6",
         subcategories: [
           { label: "Comunidad Erasmus", score: 9.0, desc: "ESN Groningen es de las asociaciones más activas de Europa, con actividades casi a diario." },
@@ -6043,7 +6043,7 @@ export const CITY_INSIGHTS = {
           { label: "Nivel de inglés", score: 9.5, desc: "Prácticamente toda la ciudad, incluidos comercios y administración, funciona en inglés sin problema." },
           { label: "Actitud local", score: 8.0, desc: "Directos pero cordiales; la enorme proporción de estudiantes hace que lo internacional se sienta normal." },
           { label: "Integración con locales", score: 7.5, desc: "Más fácil que en ciudades grandes gracias al tamaño compacto y la vida universitaria compartida." },
-          { label: "Facilidad para hacer amigos", score: 9.0, desc: "Con un tercio de la ciudad siendo estudiante, hacer amigos es prácticamente automático." },
+          { label: "Facilidad para hacer amigos", score: 9.0, desc: "Con casi una cuarta parte de la ciudad siendo estudiante, hacer amigos es prácticamente automático." },
         ],
       },
       {
@@ -6054,7 +6054,7 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 7.0, desc: "Qbuzz cubre lo poco que no llega la bici; la mayoría de estudiantes casi no lo usan." },
           { label: "Ciudad caminable/ciclable", score: 9.5, desc: "Una de las ciudades más ciclistas del mundo, con infraestructura pensada al detalle para la bici." },
           { label: "Conexiones internacionales", score: 6.5, desc: "Sin aeropuerto propio grande; Schiphol (Ámsterdam) a unas dos horas en tren." },
-          { label: "Escapadas de fin de semana", score: 8.0, desc: "Ámsterdam a hora y media, y el norte rural neerlandés y la costa del Mar de Frisia muy cerca." },
+          { label: "Escapadas de fin de semana", score: 8.0, desc: "Ámsterdam a unas 2 horas, y el norte rural neerlandés y la costa del Mar de Frisia muy cerca." },
         ],
       },
       {
