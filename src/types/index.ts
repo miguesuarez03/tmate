@@ -62,12 +62,6 @@ export interface City extends CityBase {
 
 // ─── Scores e Insights ───────────────────────────────────────────────────────
 
-export interface ScoreReview {
-  text: string;
-  author: string;
-  flag: string;               // emoji bandera
-}
-
 export interface ScoreSubcategory {
   label: string;
   score: number;              // 0-10
@@ -82,7 +76,38 @@ export interface ScoreItem {
   summary: string;
   color: string;              // hex color para UI
   subcategories: ScoreSubcategory[];
-  reviews: ScoreReview[];
+}
+
+// ─── Experiencias reales (src/data/cityExperiences.js) ───────────────────────
+
+/** Experiencia enviada por el formulario y aprobada a mano. Nunca lleva email. */
+export interface CityExperience {
+  name: string;               // nombre o alias elegido por la persona
+  year: number;               // año del intercambio
+  homeUniversity: string;     // universidad de origen
+  text: string;
+  rating?: number;            // 1-5, opcional
+}
+
+/** Experiencia del fundador: real, pero no cuenta como opinión de la gente. */
+export interface FounderExperience {
+  name: string;
+  role: string;
+  studies: string;
+  homeUniversity: string;
+  hostUniversity: string;
+  citySlug: string;
+  photo: string | null;       // ruta en /public (vertical 4:5, 800×1000)
+  story: string[];            // párrafos de la portada
+  short: string;              // versión corta para tarjetas
+}
+
+/** Experiencia lista para pintar: con su ciudad resuelta. */
+export interface ExperienceEntry extends CityExperience {
+  citySlug: string;
+  cityName: string;
+  cityEmoji: string;
+  founder?: boolean;
 }
 
 export interface CityInsights {

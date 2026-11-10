@@ -1,0 +1,266 @@
+# Auditoría legal — MAbroad (www.mabroad.com · repo `tmate`)
+
+**Fecha:** 10 de noviembre de 2026 · **Código revisado:** commit `cccfbc0` (rama `main`) · **Producción revisada:** www.mabroad.com en Chrome, el mismo día (peticiones de red, cookies, `localStorage`/`sessionStorage`/IndexedDB, cabeceras y textos publicados).
+
+**Alcance:** RGPD, LOPDGDD, LSSI-CE, propiedad intelectual (licencias de fotos, vídeo, fuentes y librerías), marcas, información al usuario y otras obligaciones. Es una auditoría técnica, no asesoramiento jurídico. Donde algo es dudoso lo digo, y antes de monetizar conviene que lo revise un abogado.
+
+**Contexto asumido:** web gratuita y sin ingresos de un particular residente en España (sin empresa), dirigida a estudiantes universitarios.
+
+---
+
+## Resumen: las 5 cosas más importantes
+
+1. ✅ **RESUELTO (10/11/2026).** Las opiniones eran relleno generado y se han **borrado** de los datos: las 1.424 de `insights.js` y los 22 testimonios de la portada con sus fotos de Unsplash. También se han quitado las frases que prometían «opiniones de estudiantes». Las experiencias reales viven ahora en `src/data/cityExperiences.js` (vacío, solo entra lo aprobado a mano). Mientras no haya ninguna, la portada muestra «Mi experiencia» (el fundador). La ficha de Rosenheim lleva la experiencia del fundador marcada como «Fundador de MAbroad», y el resto de fichas, «Todavía no hay experiencias de…». «Compartir mi experiencia» envía de verdad por Web3Forms, con casilla de consentimiento obligatoria y un apartado propio en `/privacidad`. *Situación original, para el registro:* **Opiniones y testimonios presentados como «reales» sin que conste su origen, y un formulario que no envía nada.** Las fichas muestran 1.424 «Opiniones reales» con nombre, año y bandera. La portada muestra 22 testimonios con estrellas sobre la propia web («MAbroad me ayudó a elegir Bolonia»), que se presentan como «Historias reales… con sus propias fotos del viaje», aunque las fotos son de Unsplash. Además, el formulario «Compartir mi experiencia» descarta lo que se escribe y responde «Tu experiencia estará disponible pronto». Si no son opiniones reales, es la práctica más arriesgada de la web: es un engaño al usuario, y la Ley de Competencia Desleal (art. 27.7 y 27.8) lo prohíbe expresamente en cuanto hay actividad comercial. ⚠️ *Depende de dónde salieron esas opiniones.*
+2. **No hay aviso legal y no consta quién es el titular.** `/aviso-legal` da 404, el footer no lo enlaza y la política de privacidad solo da un email. Faltan tu nombre y apellidos, tu NIF y tu domicilio (art. 10 LSSI; art. 13.1.a RGPD). Se puede resolver sin tocar el diseño: basta un bloque «Titular» y renombrar el enlace del footer. ⚠️ *Necesito esos datos tuyos.*
+3. **La política de privacidad no cumple el art. 13 del RGPD:** no da bases legales, plazos de conservación, encargados ni transferencias internacionales, y la lista de derechos está incompleta. Tampoco menciona el **asistente del Learning Agreement**, que recoge nombre, email, universidad, grado y asignaturas y los envía a tu Gmail personal. Y describe Web3Forms de forma inexacta: según su DPA, la opera Web3Creative **desde India**, **guarda los envíos hasta 3 años** y pasa la IP y el email a filtros antispam de **EE. UU.** (CleanTalk y Akismet).
+4. **Cookies: hoy no hace falta banner, y se puede mantener así.** Lo he comprobado en producción: no hay ninguna cookie, ni IndexedDB, caché o *service worker*. Todo el almacenamiento local es técnico o son preferencias del usuario, y Vercel Analytics no guarda nada en el dispositivo. Para conservar este estado sin perder diseño: **quitar el código latente de Google Analytics** (con poner una variable de entorno se cargaría sin consentimiento) y **autoalojar Google Fonts** y el JSON del mapa (el aspecto queda idéntico y se eliminan transferencias de IP a terceros).
+5. **Afirmaciones inexactas o que pueden sonar a oficiales.** La cifra «2,4 M Erasmus/año» no cuadra con los datos oficiales: unos 1,5 M participantes en 2024, de todo tipo y no solo estudiantes. «Universidades con convenio Erasmus — centros donde puedes realizar tu intercambio» depende del convenio de *tu* universidad. Se dice que «el Learning Agreement garantiza la convalidación automática» y que en MAbroad «puedes generarlo», cuando el asistente en realidad pide una propuesta por email. Y en Turquía «no hace falta visado» para estudiar. Falta también una frase de independencia respecto a la Comisión Europea, el SEPIE y las universidades.
+
+**Lo que ya está bien:** no hay ninguna cookie. Los créditos de las 118 fotos de Wikimedia están completos (icono ⓘ en cada foto y página `/creditos`). Las cabeceras de seguridad son sólidas. Los disclaimers de la calculadora de beca son correctos. Nominatim solo se usa al pulsar un botón, nunca como autocompletado. Unsplash y Pexels se usan conforme a su licencia. El `Referrer-Policy` evita que la *query* de la URL llegue a terceros.
+
+---
+
+## ⚠️ Datos y decisiones que necesito de ti
+
+| Qué | Para qué |
+|---|---|
+| Nombre y apellidos del titular | Aviso legal (art. 10 LSSI) y responsable del tratamiento (art. 13 RGPD) |
+| NIF | Aviso legal (art. 10.1.e LSSI) |
+| Domicilio | Aviso legal (art. 10.1.a LSSI). Es dudoso si basta un apartado de correos: la ley habla de «residencia o domicilio» |
+| Email de contacto definitivo | Hoy es un Gmail personal con tu apellido. Se recomienda `contacto@mabroad.com` (ver §2) |
+| ~~Origen de las 1.424 opiniones de `insights.js` y de los 22 testimonios de la portada~~ | ✅ Resuelto: eran relleno y se han borrado (ver resumen, punto 1) |
+| Quién diseñó el logo («SVG definitivo del cliente», commit `2a5c622`) | Cesión de derechos por escrito si fue un tercero (ver §5) |
+| Plazos de conservación del feedback y de las solicitudes del Learning Agreement | Política de privacidad (art. 13.2.a RGPD) |
+| Si «Gratis · Siempre» es un compromiso firme | Afirmación publicitaria (ver §6) |
+| Plan de Vercel (Hobby o Pro) | Hobby solo admite uso no comercial (ver nota final) |
+
+**Leyenda.** Gravedad: **alta** (incumplimiento claro o riesgo real para el usuario), **media** (incumplimiento parcial o riesgo moderado), **baja** (mejora o riesgo menor). Impacto en el diseño: **ninguno** (no se ve), **leve** (una línea o un enlace) o **visible** (cambia una sección).
+
+---
+
+## 1. Cookies y almacenamiento
+
+### Inventario (comprobado en el código y en producción)
+
+| Clave | Almacén | Lo pone | Para qué | ¿Requiere consentimiento? |
+|---|---|---|---|---|
+| — | Cookies | — | **Ninguna.** Producción: `cookieStore.getAll()` vacío; sin GA ni píxeles | — |
+| — | IndexedDB, Cache API, Service Worker | — | **Ninguno** | — |
+| `tmate-theme` | localStorage | `index.html`, `src/hooks/useTheme.js` | Tema claro/oscuro elegido | No: preferencia elegida por el usuario (exenta, art. 22.2 LSSI) |
+| `tmate:favorites` | localStorage | `src/lib/cities.js:375` | Ciudades favoritas | No: función pedida por el usuario |
+| `tmate-hero-video-paused` | localStorage | `src/pages/HomePage.jsx:279` | Recordar que pausó el vídeo | No |
+| `tmate_la_checklist` | localStorage | `src/pages/LearningAgreementPage.jsx:220` | Progreso del checklist | No |
+| `tmate_la_wizard_draft` | localStorage | `src/pages/LearningAgreementPage.jsx:312` | Borrador del asistente: **incluye nombre y email** | No (función pedida), pero son datos personales en el dispositivo y hay que mencionarlo |
+| `tmate:compare` | sessionStorage | `src/lib/cities.js:406` | Ciudades en el comparador | No |
+| `tmate:scroll-positions` | sessionStorage | `src/components/ScrollRestoration.jsx:22` | Restaurar el scroll al volver atrás | No |
+
+*(En producción también aparecieron claves de Kaspersky y Dark Reader: son extensiones del navegador del auditor, no de la web).*
+
+### Datos en las URLs
+
+| URL | Qué lleva | Valoración |
+|---|---|---|
+| `/city-match?r=erasmus.bajo.calido.es…` | Respuestas del test: presupuesto, clima, idioma, fiesta, tamaño, prioridades… | No identifica a nadie ni contiene categorías especiales. Quien recibe el enlace ve esas preferencias, como se espera de un enlace compartible |
+| `/comparar?cities=…&view=compare` | Ciudades | Sin datos personales |
+| `/?buscar=texto` | Texto de búsqueda libre | El usuario podría escribir cualquier cosa |
+| Feedback (Web3Forms) | Ruta y URL completa de la página | Ya se avisa en el formulario |
+
+### Hallazgos
+
+| Hallazgo | Dónde | Norma | Gravedad | Solución propuesta | Impacto |
+|---|---|---|---|---|---|
+| Hoy **no hace falta banner**: no hay cookies y todo el almacenamiento local es técnico o son preferencias elegidas | Todo el sitio (verificado en producción) | Art. 22.2 LSSI | — (cumple) | Mantenerlo: no añadir scripts de terceros que pongan cookies sin pasar antes por un sistema de consentimiento | ninguno |
+| **Código latente de Google Analytics**: si alguien define `VITE_GA_MEASUREMENT_ID` en Vercel, gtag.js se carga y pone cookies **sin consentimiento**. La página de privacidad solo ofrecería un *opt-out*, que no es válido | `src/lib/analytics.js`, `src/components/GoogleAnalytics.jsx`, `App.jsx:5`, `PrivacidadPage.jsx:36-82`, `.env.example` | Art. 22.2 LSSI; art. 6–7 RGPD | media | 1) Eliminar GA del código y de la CSP: Vercel Analytics ya cubre la medición. 2) Si se quiere GA, cargarlo solo tras aceptar en un banner con «Rechazar» al mismo nivel que «Aceptar» | ninguno (opción 1) |
+| Vercel Analytics y Speed Insights **no usan cookies ni almacenamiento**: se identifica la visita con un hash diario de la petición, según la documentación de Vercel. Es razonable considerarlo exento de consentimiento, aunque el EDPB (Directrices 2/2023) interpreta el «acceso al terminal» de forma amplia | `App.jsx` (`<Analytics/>`, `<SpeedInsights/>`), peticiones a `/_vercel/insights/view` | Art. 22.2 LSSI; Directrices EDPB 2/2023 (dudoso) | baja | Mantenerlo y explicarlo bien en la política (ya se hace). Riesgo bajo | ninguno |
+| Vercel Analytics recibe la **URL completa con la *query***: comprobado, el envío incluye `?r=…` de City Match. También recibiría `?buscar=` con texto libre | `App.jsx:52` | Art. 5.1.c RGPD (minimización) | baja | Pasar `beforeSend` a `<Analytics>` para quitar la *query* (o dejar solo `cities`) | ninguno |
+| La política de cookies es **inexacta en detalles**: dice que todo va en `localStorage` (el scroll y el comparador van en `sessionStorage`). Omite el comparador, la preferencia del vídeo y que el borrador del Learning Agreement contiene nombre y email | `src/pages/PrivacidadPage.jsx:93-101` | Art. 22.2 LSSI (información clara y completa) | baja | Sustituir el párrafo por una tabla corta clave · para qué · cuánto dura, como la de arriba | ninguno (solo en /privacidad) |
+| El borrador del asistente guarda nombre y email en el navegador hasta que se envía, lo que importa en ordenadores compartidos | `LearningAgreementPage.jsx:366-373` | Art. 5.1.f y 32 RGPD | baja | Mencionarlo en la política y en el asistente («Guardamos el borrador en este navegador»). Opcional: un botón «Borrar borrador» | leve |
+
+---
+
+## 2. Terceros y transferencias de datos
+
+### Inventario de conexiones (producción, portada y fichas)
+
+| Servicio | Dominio | Cuándo | Qué recibe | Cookies | Dónde / transferencia |
+|---|---|---|---|---|---|
+| Vercel (hosting) | `www.mabroad.com` | Siempre | IP, *user-agent*, URL (registros del servidor) | No | Vercel Inc. (EE. UU.). Servido desde el *edge* `fra1` (Fráncfort). Transferencia a EE. UU. ⚠️ comprobar el DPA y la adhesión al Data Privacy Framework |
+| Vercel Web Analytics | `/_vercel/insights` (mismo dominio) | Cada vista | URL completa, *referrer*, UA, IP (para país y hash diario) | No (verificado) | Vercel Inc. (EE. UU.) |
+| Vercel Speed Insights | `/_vercel/speed-insights` | Cada vista | Métricas de rendimiento, URL, UA, IP | No | Vercel Inc. (EE. UU.) |
+| Google Fonts | `fonts.googleapis.com`, `fonts.gstatic.com` | Todas las páginas | IP, UA, origen | No | Google LLC (EE. UU.; adherida al DPF) |
+| Wikimedia Commons | `upload.wikimedia.org` | Fotos de ciudades | IP, UA, origen | No | Wikimedia Foundation (EE. UU.). No he podido confirmar ninguna garantía de transferencia (dudoso) |
+| Unsplash | `images.unsplash.com` | Portada, cabeceras, testimonios | IP, UA, origen | No | Unsplash (grupo Getty Images), CDN global |
+| jsDelivr | `cdn.jsdelivr.net` | Portada (mapa: `world-atlas`) | IP, UA, origen | No | jsDelivr, con CDNs globales |
+| Nominatim (OSMF) | `nominatim.openstreetmap.org` | **Solo** al pulsar «Calcular distancia» en `/beca-erasmus` | Ciudad de origen escrita, IP, UA, origen | No | OpenStreetMap Foundation (Reino Unido) |
+| Web3Forms | `api.web3forms.com` | Al enviar el feedback | Mensaje, email (opcional), ruta y URL, IP y marca de tiempo | No | **Web3Creative, India** (sin decisión de adecuación). Su DPA incorpora las cláusulas contractuales tipo de la UE. Subencargados: AWS, Cloudflare, Hetzner (UE), **CleanTalk y Akismet (EE. UU.; reciben IP y email)**, Microsoft Clarity. **Conserva los envíos hasta 3 años** |
+| Gmail (tu cuenta personal) | — (vía `mailto:`) | Asistente del Learning Agreement, «Escríbenos» de la nota metodológica, bandeja del feedback | Lo que el usuario envía | — | Google (cuenta de consumo, sin contrato de encargado) |
+| Google Analytics | `googletagmanager.com` | **No se carga** en producción (verificado: no está en el bundle) | — | — | Código latente (ver §1) |
+| `vercel.live` / Pusher | — | Permitidos en la CSP; no observados en producción | — | — | Barra de Vercel en *previews* |
+
+*No hay*: tiles de OpenStreetMap ni de Google Maps (el mapa usa Natural Earth vía `world-atlas`), vídeos embebidos (el vídeo de Pexels está autoalojado en `/videos/`), píxeles de redes sociales ni reCAPTCHA.
+
+### Hallazgos
+
+| Hallazgo | Dónde | Norma | Gravedad | Solución propuesta | Impacto |
+|---|---|---|---|---|---|
+| **Web3Forms no está bien descrito**: la política dice que «nos lo reenvía por correo», pero en realidad guarda los envíos hasta 3 años, opera desde India y pasa IP y email a CleanTalk y Akismet (EE. UU.) | `PrivacidadPage.jsx:84-91`; DPA de Web3Forms (v1.0, 13/07/2026) | Art. 13.1.e y f, art. 28 y art. 44–46 RGPD | media | 1) Describirlo en la política como encargado, con la transferencia a India y EE. UU. amparada por cláusulas contractuales tipo. 2) Guardar un PDF del DPA vigente: se acepta solo por usar el servicio. 3) Borrar los envíos del panel de Web3Forms cuando se lean. Alternativa (más trabajo): un formulario propio con una función de Vercel y envío desde un proveedor de la UE | ninguno |
+| **Google Fonts se carga desde los servidores de Google**: la IP de cada visitante llega a Google LLC sin necesidad. Un tribunal alemán lo consideró ilícito (LG München I, 20/01/2022, 3 O 17493/20); en España no consta un criterio de la AEPD (dudoso) | `index.html:36-39` | Art. 6 y 44 RGPD; STJUE *Fashion ID* (C-40/17): quien incrusta contenido de terceros es corresponsable de esa transmisión | media | **Autoalojar** Bricolage Grotesque y Fraunces: los ficheros `woff2` en `/public/fonts` o el paquete `@fontsource`. La licencia OFL lo permite y el aspecto es idéntico. Luego quitar `fonts.googleapis.com` y `fonts.gstatic.com` de la CSP | ninguno |
+| El **JSON del mapa** se pide a jsDelivr | `src/components/WorldMap.jsx:19` | Igual que el anterior | baja | Copiar `countries-110m.json` a `/public` y servirlo desde el propio dominio | ninguno |
+| Las **fotos de Wikimedia y Unsplash se cargan directamente** desde sus servidores (IP del visitante a terceros, también en EE. UU.) | `src/data/cities.js`, `insights.js`, varios CSS | Art. 44 RGPD; *Fashion ID* (dudoso para imágenes) | baja | ⚠️ Decisión: 1) Mantenerlo e informarlo bien en la política (ya se menciona); es lo habitual y el riesgo es bajo. 2) Autoalojar las fotos (las licencias lo permiten): mismo aspecto, pero más peso en el despliegue y más ancho de banda en Vercel | ninguno |
+| **Gmail personal como buzón**: recibe feedback y solicitudes del Learning Agreement con datos académicos. Una cuenta de consumo de Google no incluye contrato de encargado del tratamiento. Además, el email con tu apellido sale publicado en 4 sitios | `FeedbackWidget.jsx:19`, `LearningAgreementPage.jsx:405`, `MethodologyNote.jsx:34`, `PrivacidadPage.jsx:6` | Art. 28 y 32 RGPD | baja | ⚠️ Decisión: crear `contacto@mabroad.com` en un proveedor con DPA (Google Workspace, Zoho Mail con centro de datos en la UE, Proton…), activar 2FA y centralizar el email en una sola constante | ninguno |
+| **Nominatim — límite de uso**: máximo absoluto de 1 petición por segundo **por aplicación**, sumando todos los usuarios | `src/lib/cityCoords.js:89-117` | Política de uso de Nominatim (OSMF) | baja | Hoy cumple: solo se llama al pulsar el botón y hay caché en memoria. Mejora sin coste visual: añadir coordenadas a `ORIGIN_CITIES` (`BecaErasmusPage.jsx:75`) para que las ciudades de la lista no llamen a Nominatim, y usarlo solo para texto libre | ninguno |
+| **Nominatim — identificación**: pide un *Referer* o *User-Agent* que identifique la aplicación | Ídem | Política de uso de Nominatim | baja | El navegador envía `Referer: https://www.mabroad.com/` (por la cabecera `Referrer-Policy`). Probablemente basta, pero la política no lo dice expresamente: es una inferencia | ninguno |
+| **Nominatim — autocompletado**: está prohibido expresamente | `BecaErasmusPage.jsx:316-323` | Política de uso de Nominatim | — (cumple) | El campo de origen autocompleta con una lista local, no con Nominatim. Mantenerlo así | ninguno |
+| **Nominatim/OSM — falta la atribución donde se usa**: la política exige «atribución clara» y la licencia ODbL pide «© colaboradores de OpenStreetMap» con enlace. Solo hay una mención en la nota metodológica de las fichas, no en `/beca-erasmus` | `BecaErasmusPage.jsx:354-358`; `MethodologyNote.jsx:27` | Política de uso de Nominatim; ODbL; página de copyright de OSM | media | Bajo el resultado de la distancia, en letra pequeña: «Geocodificación: Nominatim · © colaboradores de OpenStreetMap (ODbL)», con enlace a `openstreetmap.org/copyright` | leve |
+| **Nominatim — no enviar datos personales**: la política pide no hacerlo | Ídem | Política de uso de Nominatim | baja | Una ciudad no es un dato personal. Si el usuario escribiera su dirección completa, sí lo sería: el *placeholder* («ej. Sevilla») ya orienta bien | ninguno |
+
+---
+
+## 3. Páginas legales
+
+### Lista del art. 13 RGPD frente a la página `/privacidad`
+
+| Requisito (art. 13 RGPD) | ¿Está? | Comentario |
+|---|---|---|
+| Identidad y contacto del responsable (13.1.a) | ❌ | Solo el email. Falta el nombre ⚠️ |
+| Delegado de protección de datos (13.1.b) | n/a | No es obligatorio en tu caso |
+| Finalidades (13.1.c) | ◐ | Están el feedback y la analítica. **Falta el asistente del Learning Agreement** |
+| Base jurídica de cada finalidad (13.1.c) | ❌ | Analítica e hosting: interés legítimo (6.1.f). Feedback: consentimiento (6.1.a), que se da al enviar. Learning Agreement: servicio solicitado (6.1.b) |
+| Intereses legítimos (13.1.d) | ❌ | Explicar: medir el uso de la web de forma agregada y mantenerla segura |
+| Destinatarios y encargados (13.1.e) | ◐ | Vercel y Web3Forms aparecen; falta decir que son encargados. Faltan los subencargados de Web3Forms y el proveedor de email |
+| Transferencias internacionales y garantías (13.1.f) | ❌ | EE. UU. (Vercel, Google, Akismet, CleanTalk) e India (Web3Forms), con cláusulas contractuales tipo o DPF |
+| Plazo de conservación (13.2.a) | ❌ | ⚠️ Decidir. Propuesta: feedback, 12 meses; solicitudes del Learning Agreement, 6 meses después de responder |
+| Derechos (13.2.b) | ◐ | Están acceso, rectificación y supresión. **Faltan limitación, oposición y portabilidad** |
+| Retirar el consentimiento (13.2.c) | ❌ | Añadir para el feedback |
+| Reclamar ante la AEPD (13.2.d) | ✅ | Correcto |
+| Si dar los datos es obligatorio (13.2.e) | ◐ | Se dice que el email es opcional; decir que en el Learning Agreement el email es necesario para responder |
+| Decisiones automatizadas (13.2.f) | n/a | City Match recomienda, no decide nada con efectos jurídicos. Basta una frase |
+
+### Hallazgos
+
+| Hallazgo | Dónde | Norma | Gravedad | Solución propuesta | Impacto |
+|---|---|---|---|---|---|
+| **No hay aviso legal**: `/aviso-legal` da 404 y el footer no lo enlaza. Faltan **nombre y apellidos, NIF y domicilio** ⚠️. El email ya está. Es dudoso si la LSSI te obliga hoy: incluye servicios gratuitos «en la medida en que constituyan una actividad económica» y ahora no hay ingresos. Pero es obligatorio en cuanto monetices, y no cuesta nada tenerlo ya | `src/components/Layout.jsx:434-447`, `src/App.jsx` | Art. 10 LSSI | alta | 1) **Sin tocar el diseño**: añadir un bloque «Titular» al principio de `/privacidad` y renombrar el enlace del footer a «Aviso legal y privacidad» (mismo número de enlaces). 2) Página propia `/aviso-legal`, con el mismo estilo que `/privacidad`, enlazada en el footer. Contenido: titular, NIF, domicilio, email, objeto de la web, carácter orientativo de la información, exención de responsabilidad por enlaces (art. 17 LSSI), propiedad intelectual y ley aplicable. Recordar añadirla a `ALL_ROUTES` y `STATIC_PAGE_META` en `entry-server.jsx` | ninguno (1) / leve (2) |
+| **La política de privacidad no identifica al responsable** | `PrivacidadPage.jsx:113-117` | Art. 13.1.a RGPD; art. 11 LOPDGDD | alta | «Responsable: [nombre y apellidos], NIF [—], [domicilio], contacto: [email]» ⚠️ | ninguno |
+| **Faltan contenidos obligatorios del art. 13** (ver lista: bases jurídicas, conservación, transferencias, derechos completos) | `PrivacidadPage.jsx` | Art. 13 RGPD | alta | Reescribir manteniendo el tono «corto y sin letra pequeña»: una sección por tratamiento (analítica, feedback, Learning Agreement, servicios externos) con *para qué · base · quién lo recibe · cuánto tiempo*. Se puede hacer con una tabla de 4 filas | ninguno (solo /privacidad) |
+| **El asistente del Learning Agreement no aparece en la política** (nombre, email, universidad, grado, asignaturas, créditos) | `LearningAgreementPage.jsx:309-450` | Art. 13 RGPD | alta | Añadir la finalidad «preparar y enviarte una propuesta de equivalencias», con base 6.1.b, conservación ⚠️ y destinatario (tu proveedor de email) | ninguno |
+| «Otros servicios externos» es **inexacto**: dice que se cargan «datos de mapas de jsDelivr y OpenStreetMap», pero OpenStreetMap solo se usa en la calculadora (Nominatim) y recibe la ciudad escrita | `PrivacidadPage.jsx:103-109` | Art. 13 RGPD (información exacta) | baja | Separar: «Nominatim (OpenStreetMap Foundation, Reino Unido) recibe la ciudad de origen que escribes al pulsar *Calcular distancia*». Si se autoalojan las fuentes y el mapa (§2), quitarlos de la lista | ninguno |
+| **Política de cookies**: coincide en lo esencial (no hay cookies) pero tiene imprecisiones | `PrivacidadPage.jsx:93-101` | Art. 22.2 LSSI | baja | Ver §1 | ninguno |
+| **Enlaces**: el footer enlaza «Privacidad y cookies» y «Créditos» ✅. El formulario de feedback enlaza `/privacidad` ✅. **El asistente del Learning Agreement no enlaza nada** ❌. Falta el aviso legal ❌ | `Layout.jsx:441-443`, `FeedbackWidget.jsx:296-299`, `LearningAgreementPage.jsx:590-640` | Art. 10 LSSI; art. 13 RGPD; art. 11 LOPDGDD | media | Añadir información básica y enlace bajo «Enviar solicitud» (ver §4); aviso legal en el footer (arriba) | leve |
+| Footer «© 2025 MAbroad»: MAbroad no tiene personalidad jurídica y el año no es el de lanzamiento | `Layout.jsx:440` | No hay obligación legal (los derechos de autor nacen sin registro) | baja | «© 2026 MAbroad» ya vale, o «© 2026 [tu nombre] · MAbroad» ⚠️ | ninguno |
+
+---
+
+## 4. Formularios: feedback, Learning Agreement y «Compartir mi experiencia»
+
+| Hallazgo | Dónde | Norma | Gravedad | Solución propuesta | Impacto |
+|---|---|---|---|---|---|
+| **Feedback: falta la primera capa informativa** junto al formulario. Hoy pone «Guardamos tu mensaje y la página desde la que lo envías. Privacidad», pero falta quién es el responsable y cómo ejercer los derechos | `FeedbackWidget.jsx:296-299` | Art. 11 LOPDGDD (información por capas); art. 13 RGPD | media | Sustituir esa línea, con el mismo estilo y tamaño, por: «Lo lee [nombre], responsable de MAbroad, para mejorar la web y, si dejas email, responderte. Se envía con Web3Forms. Tus derechos: Privacidad». Texto completo en el anexo | leve (una línea) |
+| **Feedback: base jurídica**. No hace falta casilla: enviar después de leer la información es un acto afirmativo claro | Ídem | Art. 6.1.a y art. 4.11 RGPD | baja | Indicar en la política: «consentimiento, que das al enviar; puedes retirarlo pidiendo que borremos tu mensaje» | ninguno |
+| **Feedback: conservación**. Web3Forms guarda hasta 3 años y además queda copia en Gmail | Ídem; DPA de Web3Forms §8 | Art. 5.1.e y 13.2.a RGPD | media | ⚠️ Fijar un plazo (propuesta: 12 meses) y cumplirlo: borrar del panel de Web3Forms al leer y del buzón al vencer el plazo | ninguno |
+| **Web3Forms como encargado**: hay DPA y se acepta por usar el servicio. Ver §2 | — | Art. 28 RGPD | media | Guardar copia del DPA y mencionarlo en la política | ninguno |
+| **Edad mínima**: el consentimiento de un menor solo vale a partir de los 14 años en España. El público son universitarios, así que el riesgo es bajo | Política | Art. 7 LOPDGDD; art. 8 RGPD | baja | Una frase en la política: «Si tienes menos de 14 años, no nos envíes datos personales» | ninguno |
+| **Asistente del Learning Agreement: recoge datos identificativos y académicos sin ninguna información**. Los envía por `mailto:` a tu Gmail personal y promete una revisión «a mano» | `LearningAgreementPage.jsx:309-450, 590-640, 735-741` | Art. 13 RGPD; art. 11 LOPDGDD | alta | Bajo el botón «Enviar solicitud», en letra pequeña: «Usaremos estos datos solo para prepararte la propuesta y responderte; los borramos a los [6] meses. Privacidad». Añadir la finalidad a la política (§3) | leve |
+| ✅ **RESUELTO**: ahora el formulario envía de verdad por Web3Forms. Pide ciudad, año, universidad de origen, nombre o alias, texto, valoración opcional y email opcional, con casilla obligatoria de consentimiento para publicar y enlace a la privacidad. Al enviar dice «Gracias. La revisaremos antes de publicarla». Ya no pide foto. *Original:* **«Compartir mi experiencia» es un formulario falso**: pide ciudad, estrellas, nombre, texto y foto. Al enviar, **no se manda nada** y responde «¡Gracias por compartir! Tu experiencia estará disponible pronto en la comunidad». No hay tratamiento de datos, pero sí un engaño | `src/pages/HomePage.jsx:718-940` (`handleSubmit`, línea 751) | Arts. 5 y 7 LCD (actos de engaño). Dudoso que aplique sin actividad comercial; en cualquier caso daña la confianza | alta | 1) **Ocultar el botón y el modal** hasta que exista un envío real (la sección de opiniones puede seguir). 2) Si se quiere mantener, cambiar el éxito por un mensaje honesto y enviar de verdad por Web3Forms, con información de privacidad, una licencia de uso del texto y de la foto («nos autorizas a publicarlos en MAbroad»), aviso de que no se suban fotos de terceros sin su permiso y moderación antes de publicar. Si se publica contenido de usuarios, ver el Reglamento de Servicios Digitales (nota final) | visible (1) / leve (2) |
+
+---
+
+## 5. Propiedad intelectual y marcas
+
+| Hallazgo | Dónde | Norma / licencia | Gravedad | Solución propuesta | Impacto |
+|---|---|---|---|---|---|
+| **Fotos de Wikimedia: el sistema de créditos cumple**. Las 118 fotos usadas tienen autor y licencia en `wikimediaPhotos.js` (comprobado: ninguna falta). Llevan icono ⓘ con autor, licencia y enlaces, y la página `/creditos` las lista todas | `src/lib/photoCredits.js`, `PhotoCredit.jsx`, `CreditosPage.jsx` | CC BY / BY-SA 2.0–4.0, CC0, FAL, dominio público; art. 14 TRLPI (derecho de paternidad) | — (cumple) | Mantenerlo y ejecutar siempre `npm run photos:meta` | ninguno |
+| **Atribución pedida por el autor y cortada**: la foto de Brno muestra «User:Sveter (Please credit as "Petr Šmerkl, Wikipedia" in case you…». El autor pide expresamente que se le acredite como «Petr Šmerkl, Wikipedia» | `src/data/wikimediaPhotos.js:99` (`d/d0/Brno_Panorama_Spilberk_2010_02.jpg`) | CC BY-SA 3.0, §4(c) (crédito en la forma que indique el licenciante) | media | Añadir a `AUTHOR_OVERRIDES` (`scripts/wikimedia-photos.mjs:43`) el valor `"Petr Šmerkl, Wikipedia"` y regenerar | ninguno |
+| **El script solo lee el campo `Artist` de Commons**, no `Attribution`, que es donde algunos autores fijan el texto de crédito obligatorio. Además, recorta los nombres a 70 caracteres con «…» | `scripts/wikimedia-photos.mjs:73, 47-56` | CC BY 3.0/4.0 (crédito según indique el licenciante) | baja | Añadir `Attribution` a `iiextmetadatafilter` y usarlo si existe; no recortar (o recortar solo en el ⓘ y dar el texto completo en `/creditos`) | ninguno |
+| **No se indica que las fotos pueden mostrarse recortadas o redimensionadas**. CC 4.0 pide indicar las modificaciones; si recortar cuenta como modificación es dudoso | `CreditosPage.jsx:36-46` | CC BY 4.0 §3(a)(1)(B) (dudoso) | baja | Una frase en `/creditos`: «Algunas fotos se muestran recortadas o redimensionadas» | ninguno |
+| **Título de la obra**: las licencias CC 2.0 y 3.0 piden el título «si se indica». Hoy se enlaza a la ficha de Commons, pero no se muestra el título | `CreditosPage.jsx:60-83` | CC BY / BY-SA 2.0–3.0 §4(b)/(c) | baja | Usar el nombre del fichero como texto del enlace «Ver en Commons» | ninguno |
+| **Compartir igual (BY-SA): no te obliga a licenciar la web**. Solo aplica a obras derivadas. Mostrar la foto tal cual, aunque se recorte con CSS o se pida una miniatura a Wikimedia, no la convierte en derivada. Si alguna vez **editas** una foto (filtros, texto incrustado, composiciones para redes u Open Graph), esa imagen editada tiene que publicarse con CC BY-SA y con crédito | — | CC BY-SA 3.0/4.0 §3(b) | baja (informativa) | Seguir sin editar los ficheros de imagen | ninguno |
+| **Previsualizaciones al compartir** (WhatsApp, redes): la `og:image` de cada ficha es la foto CC de la ciudad y se muestra sin crédito | `src/lib/seo.js:25-30` | CC BY/BY-SA (dudoso: lo muestra la plataforma, no tu web) | baja | ⚠️ Aceptar el riesgo (bajo) o usar la imagen de marca para Open Graph (pierde atractivo al compartir) | ninguno / visible |
+| Miniaturas de 120 px del comparador sin ⓘ | `ComparePage.jsx:286` | CC (crédito «razonable según el medio») | baja | Aceptable: el crédito está en `/creditos`, enlazado desde el footer | ninguno |
+| **Unsplash**: la licencia no exige atribución (se acredita de forma genérica en `/creditos` ✅). Solo prohíbe vender copias sin modificar y recopilar fotos para montar un servicio similar. Enlazar directamente a `images.unsplash.com` sin la API no está regulado en la licencia; las reglas de *hotlinking* son para quien usa la API | `cities.js`, `HomePage.jsx`, CSS | Licencia Unsplash | — (cumple) | Nada. (Las fotos de Unsplash que se presentaban como «fotos del viaje» de los testimonios ya se han eliminado ✅) | ninguno |
+| **Vídeo de Pexels**: la licencia no exige atribución; su origen está documentado en el código (vídeo 32326469, autor A.S. Kacar) ✅. La licencia no garantiza permisos de las personas que aparecen; es una vista aérea, así que el riesgo es nulo | `HomePage.jsx:246-250`, `public/videos/` | Licencia Pexels | baja | Guardar una captura de la página de Pexels con la fecha, como prueba de la licencia | ninguno |
+| **Fuentes** Bricolage Grotesque y Fraunces | `index.html:39` | SIL Open Font License 1.1 | — (cumple) | Autoalojarlas está permitido (§2) | ninguno |
+| **Iconos**: SVG propios, uno por fichero. El de WhatsApp es el logotipo de la marca y se usa para enlazar a un grupo, un uso que Meta suele permitir (dudoso: revisar sus guías de marca cuando existan los grupos) | `src/components/icons/`, `HeroSection.jsx:75-77` | Marca WhatsApp (Meta) | baja | Nada por ahora | ninguno |
+| **Librerías**: MIT (React, React Router, react-simple-maps, Vercel Analytics…), BSD-3 (d3-*), ISC (topojson, world-atlas), Apache-2.0 (Speed Insights). Todas permiten este uso, pero **el bundle no conserva los avisos de copyright**, que esas licencias exigen incluir | `dist/assets/*.js` | MIT, BSD-3-Clause, ISC, Apache-2.0 | baja | Generar en el build un fichero de licencias de terceros (p. ej. `rollup-plugin-license`), servirlo en `/licencias.txt` y enlazarlo desde `/creditos` | ninguno |
+| **Datos del mapa**: `world-atlas` (ISC), derivado de Natural Earth (dominio público) | `WorldMap.jsx:19` | ISC; dominio público | — (cumple) | — | ninguno |
+| **Textos**: no he visto indicios de copia de Wikipedia ni de otras webs (estilo propio, sin marcas de cita ni frases enciclopédicas típicas). **No lo he comparado frase a frase** | `src/data/cities.js`, `insights.js` | Arts. 10 y 17 TRLPI; CC BY-SA (Wikipedia) | baja | ⚠️ Muestreo: buscar entre comillas 10–15 frases de descripciones. Si alguna viene de Wikipedia, reescribirla o atribuirla con CC BY-SA | ninguno |
+| **Logo** («SVG definitivo del cliente»): si lo diseñó otra persona (o una agencia), los derechos de explotación solo son tuyos si te los cedió **por escrito** | `Layout.jsx:18-63`, `public/favicon*`, `og-image.png` | Art. 45 TRLPI (la cesión se formaliza por escrito) | media ⚠️ | Pedir un documento de cesión (exclusiva, mundial, todos los usos) si no lo diseñaste tú | ninguno |
+| **Marca «MAbroad»**: no he comprobado que no esté registrada por otro | — | Ley 17/2001 de Marcas | baja ⚠️ | Buscar en OEPM y EUIPO (TMview) antes de invertir en marca. Registrarla antes de monetizar | ninguno |
+| **Erasmus+, Comisión Europea, SEPIE, universidades**: los nombres se usan de forma descriptiva y **no hay emblema de la UE ni logo de Erasmus+** ✅ (solo el emoji 🇪🇺), ni logos de universidades ✅. Pero **no hay ninguna frase de independencia**, y expresiones como «La guía definitiva», «✅ Destino Erasmus+ · Beca disponible», «tarifas oficiales» o «Universidades con convenio Erasmus» pueden hacer creer que hay relación oficial | `HeroSection.jsx:153`, `NeighborhoodSlider.jsx:36-37`, `BecaErasmusPage.jsx`, `HomePage.jsx:1039` | Art. 37 Ley de Marcas (uso referencial permitido); arts. 5 y 7 LCD (confusión sobre vinculación; dudoso sin actividad comercial) | media | 1) **Sin tocar el diseño**: frase de independencia en el aviso legal y en la letra pequeña de `/beca-erasmus`. 2) Además, una línea discreta en el footer: «MAbroad es un proyecto independiente, sin relación con la Comisión Europea, el SEPIE ni las universidades citadas» | ninguno (1) / leve (2) |
+
+---
+
+## 6. Información y responsabilidad
+
+| Hallazgo | Dónde | Norma | Gravedad | Solución propuesta | Impacto |
+|---|---|---|---|---|---|
+| ✅ **RESUELTO**: borradas de `insights.js`. La columna de la ficha muestra solo experiencias reales aprobadas (o «Todavía no hay experiencias…»), y el subtítulo pasa a ser «Puntuación de 1 a 10 en cada categoría». *Original:* **«Opiniones reales» y «Puntuaciones basadas en experiencias reales de estudiantes»**: 1.424 citas con nombre, tipo de estancia, año y bandera (p. ej. «Carlos, Erasmus 2024»). El comentario del fichero dice «real student reviews», pero no hay ningún origen documentado. Algún dato está desfasado («Deutschlandticket 49 €»), lo que sugiere que no se han verificado | `src/data/insights.js` (campo `reviews`), `InsightDashboard.jsx:56, 164`, `ScoreCard.jsx:38-48` | Arts. 5 y 7 LCD; **art. 27.7 y 27.8 LCD** (reseñas, añadidos por el RDL 24/2021). Aplicables con claridad en cuanto haya actividad comercial; dudoso hoy | alta ⚠️ | Si **no** son reales: 1) Quitar «reales» y los nombres, años y banderas y presentarlas como **consejos** («Lo que conviene saber»): se conserva el contenido y el diseño. 2) Recoger opiniones verificables (formulario real, §4) y mostrar solo esas. Si **sí** son reales: guardar de dónde salió cada una y el permiso para publicarla | leve |
+| ✅ **RESUELTO**: borrados junto con sus fotos. La sección pasa a ser «Mi experiencia» (el fundador) hasta que haya experiencias reales aprobadas. *Original:* **Testimonios de la portada**: 22 opiniones sobre la propia web con estrellas («MAbroad me ayudó a elegir Bolonia…»), en una web recién lanzada, presentadas como «Historias reales de estudiantes… con sus propias fotos del viaje». **Las fotos son de Unsplash** | `HomePage.jsx:102-163, 760-770` | Arts. 5, 7 y 27.8 LCD (testimonios falsos o distorsionados para promocionar); dudoso hoy, claro al monetizar | alta ⚠️ | 1) Si no son reales, **retirar la sección** hasta tener testimonios reales (con permiso escrito). 2) Como mínimo, quitar «reales» y «sus propias fotos». Etiquetarlos como «ejemplos» sigue siendo poco serio para testimonios con estrellas | visible (1) / leve (2) |
+| **Cifra «2,4 M Erasmus/año»** y «más de 2,4 millones de estudiantes hacen Erasmus cada año». El informe anual oficial de 2024 da **unos 1,5 millones de participantes** en movilidad, de todo tipo (también personal y jóvenes), no solo estudiantes | `HomePage.jsx:29, 1150`; `ProcesoPage.jsx:486` | Art. 5 LCD (información falsa); veracidad | media | «1,5 M participantes en 2024» con la fuente en un `title` o en la nota metodológica. O cambiar esa estadística por otra propia (p. ej. nº de universidades) | ninguno |
+| **«Universidades con convenio Erasmus — Centros donde puedes realizar tu intercambio»** y **«✅ Destino Erasmus+ · Beca disponible»**: los convenios son de cada universidad de origen, así que un estudiante concreto puede no tener ninguno con ese centro. Hay nombres desfasados («Beuth Hochschule» se llama BHT desde 2021) | `NeighborhoodSlider.jsx:36-37`, `HeroSection.jsx:153`, `cities.js:353` | Art. 5 LCD; responsabilidad por información inexacta | media | «Universidades con programa Erasmus — comprueba en tu ORI si tu universidad tiene convenio con ellas». Badge: «Destino Erasmus+» (sin «Beca disponible») o «Elegible para beca Erasmus+» | leve |
+| **Learning Agreement**: el FAQ dice «En MAbroad puedes generarlo paso a paso» y «generador de Learning Agreement», pero el asistente no genera el documento: pide por email una propuesta preparada a mano. Además, el asesoramiento sobre convalidaciones no lleva ningún aviso | `HomePage.jsx:432, 436`; `LearningAgreementPage.jsx:735-741` | Art. 5 LCD; responsabilidad civil por consejo (art. 1902 CC, dudoso) | media | FAQ: «te ayudamos a preparar la propuesta de equivalencias». En el asistente: «Es una orientación no vinculante: quien aprueba las equivalencias son tus coordinadores» | leve |
+| **«El Learning Agreement garantiza que las asignaturas que curses fuera se convalidan automáticamente»**. Solo es cierto si las apruebas y el LA está firmado por las tres partes, y conforme a lo acordado | `TiposDeIntercambioPage.jsx:18` | Veracidad (art. 5 LCD) | baja | «…se reconozcan las asignaturas que apruebes, según lo firmado en el LA» | ninguno |
+| **Visados**: «No hace falta visado — te mueves dentro del Espacio Erasmus+ (UE + Noruega, Islandia o Turquía) con tu DNI/pasaporte». Para estudiar más de 90 días en Turquía se suele exigir permiso de residencia, y los estudiantes no comunitarios pueden necesitar visado | `TiposDeIntercambioPage.jsx:17` | Responsabilidad por información inexacta (dudoso; verificar caso a caso) | media ⚠️ | «Si tienes nacionalidad UE, no necesitas visado para la UE/EEE; para Turquía y para estudiantes de fuera de la UE, consulta los requisitos de residencia» | ninguno |
+| **Calculadora de beca**: los avisos son correctos ✅ («Estimación orientativa — las cuantías exactas las confirma tu universidad»). Hay una incoherencia: la nota metodológica dice «tarifas… 2024–2025» y la página «2026-27». «Beca MEC (~600 €/año)» no tiene fuente visible | `BecaErasmusPage.jsx:306, 412, 489`; `MethodologyNote.jsx:26` | Veracidad | baja ⚠️ | Unificar el curso de referencia. Justificar o quitar la cifra del MEC | ninguno |
+| **Datos de ciudades y scores**: la metodología está explicada ✅ y hay fecha de revisión («enero de 2026») ✅. Quedan datos desfasados, p. ej. el Deutschlandticket a 49 € en `cities.js:359, 568, 1168` y en `insights.js` (el precio ha subido) | `MethodologyNote.jsx`, `cities.js`, `insights.js` | Veracidad | baja | Revisar precios con fecha. Mantener la fecha de revisión visible | ninguno |
+| **«Gratis · Siempre»** (portada, `og-image.png`) y «Totalmente gratis» (meta descripción) | `HomePage.jsx:30`, `public/og-image.png`, `index.html:14` | Art. 5 LCD (promesa) | baja ⚠️ | Si vas a monetizar con afiliados o publicidad, sigue siendo gratis para el usuario y vale. Si algún día hay *premium*, cambiarlo a «Gratis» sin «siempre» | ninguno |
+| «La guía definitiva»: exageración publicitaria típica, no medible | `HomePage.jsx:1039`, `index.html:14` | Generalmente admitido | baja | Nada | ninguno |
+| **Enlaces externos** (universidades, Erasmus+, búsqueda de Google): se abren con `noopener noreferrer` ✅. La LSSI exime de responsabilidad por los enlaces si no conoces que el contenido enlazado sea ilícito | `universityErasmusLinks.js`, `HomePage.jsx:1156` | Art. 17 LSSI | baja | Una cláusula sobre enlaces en el aviso legal | ninguno |
+| **Grupos de WhatsApp** (todavía «próximamente»): cuando existan, los miembros verán los números de los demás y alguien tendrá que moderar | `src/data/cityWhatsappGroups.js` | RGPD (si los administras tú); normas de WhatsApp | baja (futuro) | Antes de activarlos: normas del grupo, aviso de que el número es visible (o usar Comunidades / canal de avisos) y quién administra | leve |
+
+---
+
+## 7. Otros
+
+| Hallazgo | Dónde | Norma | Gravedad | Solución propuesta | Impacto |
+|---|---|---|---|---|---|
+| **Accesibilidad — hoy no es obligación legal, sino buena práctica**. La Ley Europea de Accesibilidad (Directiva 2019/882, transpuesta por la **Ley 11/2023**, aplicable desde el 28/06/2025) cubre servicios concretos como el **comercio electrónico**, y las **microempresas que prestan servicios están exentas** (verificar el texto exacto en el BOE). MAbroad no vende nada y eres un particular. El RD 1112/2018 solo obliga al sector público | — | Ley 11/2023; Directiva 2019/882; RD 1112/2018 | baja | Seguir con lo que ya se hace bien (movimiento reducido por niveles, foco en diálogos, `aria-*`). Revisarlo si algún día se vende algo en la web | ninguno |
+| **Cabeceras de seguridad** ✅ (verificadas en producción): HSTS de 2 años, `nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` restrictiva, COOP y **CSP aplicada** (no solo *report-only*) | `vercel.json` | Art. 32 RGPD (seguridad) | — (cumple) | — | ninguno |
+| La CSP **permite dominios que no se usan**: Google Analytics y Tag Manager en `script-src`, `img-src` y `connect-src`, y `vercel.live`/Pusher (solo para la barra de las *previews*) | `vercel.json:18` | Minimización (buena práctica) | baja | Quitar los de Google (junto con GA, §1) y, si se puede, limitar `vercel.live` a las *previews* | ninguno |
+| **Registro de actividades de tratamiento**: la exención para menos de 250 empleados no aplica si el tratamiento «no es ocasional», y el feedback es continuo (dudoso para un particular) | — | Art. 30.5 RGPD | baja | Un documento interno de una página: tratamientos (feedback, Learning Agreement, analítica), datos, base, encargados, plazos y medidas. No se publica | ninguno |
+| **Seguridad de las cuentas** que guardan datos de usuarios (Gmail, Web3Forms, Vercel, GitHub) | — | Art. 32 RGPD | baja | 2FA en todas. Saber que una brecha se notifica a la AEPD en 72 h (art. 33) | ninguno |
+| La clave de Web3Forms es pública por diseño (solo permite enviar a tu buzón). Riesgo de spam, mitigado con el *honeypot* ✅ | `FeedbackWidget.jsx:16, 263-271` | — | baja | Nada | ninguno |
+
+---
+
+## Nota final: qué tener listo antes de monetizar (sin profundizar)
+
+- **Vercel**: el plan Hobby es solo para uso personal no comercial. Con afiliados o publicidad hay que pasar a Pro ⚠️ (comprobar el plan actual).
+- **Banner de cookies**: cualquier píxel de afiliación o publicidad (Meta, TikTok, Google Ads, redes de afiliados que pongan cookies) exige consentimiento previo, con «Rechazar» tan fácil como «Aceptar» (art. 22.2 LSSI, guía de cookies de la AEPD). Con Google Ads en la UE, además, Consent Mode v2.
+- **Aviso legal completo** y condiciones de uso: la LSSI se aplica sin duda en cuanto hay actividad económica.
+- **Publicidad identificable**: marcar enlaces de afiliado y contenidos patrocinados («Enlace de afiliado», «Publicidad») — art. 20 LSSI, Ley General de Publicidad y art. 26 LCD (publicidad encubierta).
+- **Reseñas**: con actividad comercial, el art. 27.7 y 27.8 LCD obliga a verificar que las opiniones son de usuarios reales (ver §6).
+- **Contenido de usuarios** (experiencias, fotos, comentarios): obligaciones del Reglamento de Servicios Digitales (DSA) para servicios de alojamiento, como un mecanismo para notificar contenido ilícito y un punto de contacto. Una parte de ellas no tiene exención para microempresas.
+- **Fiscalidad y alta**: alta censal en Hacienda y, si hay habitualidad, en el RETA. Los ingresos de afiliados de empresas de la UE tienen reglas de IVA específicas. Consultarlo con un gestor ⚠️.
+- **Marca**: registrar «MAbroad» en la OEPM o la EUIPO y asegurar la cesión del logo (§5).
+- **Política de privacidad**: actualizarla con las nuevas finalidades, los anunciantes y redes de afiliación y sus transferencias.
+
+---
+
+## Anexo: textos propuestos (listos para adaptar)
+
+**Primera capa, formulario de feedback** (sustituye a `FeedbackWidget.jsx:296-299`):
+> Lo lee [Nombre Apellidos], responsable de MAbroad, para mejorar la web y, si dejas email, responderte. Se gestiona con Web3Forms y lo borramos a los 12 meses. Tus derechos y más info: **Privacidad**.
+
+**Primera capa, asistente del Learning Agreement** (bajo «Enviar solicitud»):
+> Usaremos estos datos solo para prepararte la propuesta y responderte, y los borraremos a los 6 meses. Es una orientación no vinculante: las equivalencias las aprueban tus coordinadores. **Privacidad**.
+
+**Frase de independencia** (aviso legal, `/beca-erasmus` y, si quieres, footer):
+> MAbroad es un proyecto independiente, sin relación con la Comisión Europea, el SEPIE ni las universidades que aparecen en la web. Erasmus+ es un programa de la Unión Europea.
+
+**Atribución de OpenStreetMap** (bajo el resultado de la distancia):
+> Geocodificación: Nominatim · © colaboradores de [OpenStreetMap](https://www.openstreetmap.org/copyright) (ODbL).
+
+---
+
+## Fuentes consultadas (además del código)
+
+- Política de uso de Nominatim (OSMF): https://operations.osmfoundation.org/policies/nominatim/
+- Copyright y atribución de OpenStreetMap: https://www.openstreetmap.org/copyright
+- DPA de Web3Forms v1.0 (13/07/2026), leído en el navegador: https://web3forms.com/dpa
+- Privacidad de Vercel Web Analytics: https://vercel.com/docs/analytics/privacy-policy
+- Erasmus+, informe anual 2024 (≈1,5 M participantes): https://erasmus-plus.ec.europa.eu/news/almost-15-million-people-went-on-an-erasmus-mobility-in-2024-according-to-latest-report
+- Licencia Unsplash: https://unsplash.com/license · Guía de *hotlinking* (solo API): https://help.unsplash.com/en/articles/2511271-guideline-hotlinking-images
+- Licencia Pexels: https://www.pexels.com/license/
+- Reseñas falsas, art. 27 LCD tras el RDL 24/2021 (análisis de despachos): https://www.cuatrecasas.com/es/spain/propiedad-intelectual/art/resenas-reventa-entradas-nuevos-tipos-art-27-lcd · https://www.garrigues.com/es_ES/noticia/fake-reviews-real-decreto-ley-242021-introduce-nuevas-medidas-evitar-resenas-falsas-bienes-o
+- Ley 11/2023 de accesibilidad (resúmenes; verificar en el BOE): https://www.cuatrecasas.com/es/global/propiedad-intelectual/art/claves-proxima-entrada-vigor-ley-accesibilidad-espana

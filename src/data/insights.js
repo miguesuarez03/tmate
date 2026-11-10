@@ -1,5 +1,6 @@
 // City scores and insights data — extends cities.js
-// Each city has scores 0-10, subcategory breakdowns, and real student reviews
+// Puntuaciones 0-10 por categoría y su desglose. Sin opiniones: las experiencias
+// reales de estudiantes viven aparte, en src/data/cityExperiences.js.
 
 export const CITY_INSIGHTS = {
   bolonia: {
@@ -21,10 +22,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.0, desc: "Bus TPER por 1,30€/viaje. Pase mensual a 35€. La bici funciona perfectamente en el centro." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Cervezas a 3–4€. Mucha oferta gratuita: conciertos, eventos culturales, mercados." },
         ],
-        reviews: [
-          { text: "Con 900€/mes vivía muy bien, comía de lujo y salía todos los fines de semana.", author: "Marta, Erasmus 2023", flag: "🇪🇸" },
-          { text: "El alojamiento fue lo más difícil de conseguir. Empieza a buscar 3 meses antes.", author: "João, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -39,10 +36,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.0, desc: "350–500€ habitación individual. Compartir piso es la norma." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "Idealista, Unipol, grupos de Facebook de la universidad. Mejor buscar desde origen." },
           { label: "Residencias universitarias", score: 6.5, desc: "Las residencias universitarias de Unibo son buena opción si las pillas a tiempo." },
-        ],
-        reviews: [
-          { text: "Tardé 2 meses en encontrar alojamiento desde España. Empieza en marzo para septiembre.", author: "Ana, Erasmus 2023", flag: "🇪🇸" },
-          { text: "Las residencias universitarias de Unibo son buena opción si las pillas a tiempo.", author: "Marco, estudiante local", flag: "🇮🇹" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -59,11 +52,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "Via del Pratello y Via Zamboni son las arterias de la noche. Llenos de jueves a sábado." },
           { label: "Eventos y actividades", score: 8.5, desc: "ESN muy activo. Fiestas temáticas, excursiones, cenas internacionales cada semana. Cine de verano al aire libre, festivales, mercados nocturnos." },
         ],
-        reviews: [
-          { text: "La mejor vida social de mi Erasmus. Cada noche había un plan diferente.", author: "Lucia, Erasmus 2023", flag: "🇩🇪" },
-          { text: "El ESN de Bolonia es de los más activos de Italia. Los primeros días ya tienes amigos.", author: "Pierre, Erasmus 2024", flag: "🇫🇷" },
-          { text: "El ESN organizó mi llegada, me presentó gente y tenía planes cada semana. Increíble.", author: "Klara, Erasmus 2024", flag: "🇩🇪" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -78,9 +66,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 9.0, desc: "Boloñeses muy abiertos y curiosos con los extranjeros. Nada de hostilidad." },
           { label: "Facilidad para hacer amigos", score: 8.8, desc: "Los boloñeses son abiertos y orgullosos de su ciudad. Mezclarse es fácil." },
           { label: "Integración con locales", score: 8.5, desc: "Fácil mezclarse por la alta densidad estudiantil. Los italianos invitan a cenar con facilidad." },
-        ],
-        reviews: [
-          { text: "La gente local me adoptó desde el primer mes. Ahora tengo amigos italianos de por vida.", author: "Sofia, Work&Travel 2023", flag: "🇬🇷" },
         ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
@@ -97,9 +82,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 8.0, desc: "Tren directo a Florencia (35min), Milán (1h), Venecia (1h20). Posición estratégica en el corazón de Italia." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Base perfecta para explorar Italia: Toscana, Veneto, Emilia-Romaña. Todo a menos de 2 horas." },
         ],
-        reviews: [
-          { text: "Compré una bici de segunda mano por 60€ y fue mi mejor inversión del año.", author: "Tomás, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
       {
@@ -114,11 +96,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 8.6, desc: "Ritmo de vida equilibrado. Ni demasiado acelerado ni aburrido. Instalaciones universitarias accesibles y mucha vida al aire libre en los parques." },
           { label: "Autenticidad local", score: 9.8, desc: "La mejor ciudad para comer de Italia. Ragù, tortellini, mortadella... auténticos. Museos, teatros, cine al aire libre, mercados. Oferta cultural continua." },
           { label: "Estilo de vida", score: 8.5, desc: "Cine de verano al aire libre, festivales, mercados nocturnos. La ciudad nunca duerme en verano. Sociabilidad local alta." },
-        ],
-        reviews: [
-          { text: "El mejor año de mi vida. La comida, la gente, la ciudad. Volvería mañana.", author: "Emma, Erasmus 2023", flag: "🇫🇷" },
-          { text: "Bolonia tiene algo especial que no supe definir hasta que me fui.", author: "Rui, Erasmus 2024", flag: "🇵🇹" },
-          { text: "El invierno fue más frío de lo que esperaba, pero la vida estudiantil compensa.", author: "Pedro, Erasmus 2024", flag: "🇵🇹" },
         ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
@@ -135,9 +112,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "Sector agroalimentario líder, startups de foodtech, industria automotriz del Motor Valley." },
           { label: "Oportunidades para estudiantes", score: 7.0, desc: "La comunidad universitaria facilita conexiones. Unibo Career Service muy activo." },
         ],
-        reviews: [
-          { text: "Conseguí prácticas en una startup de foodtech gracias a la red de Erasmus.", author: "Lena, Internship 2024", flag: "🇩🇪" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -151,9 +125,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.0, desc: "Muy segura de día. Centro histórico concurrido y bien vigilado." },
           { label: "Seguridad nocturna", score: 7.5, desc: "Las zonas de fiesta son seguras. Como en cualquier ciudad, atención con pertenencias." },
           { label: "Ambiente de la ciudad", score: 7.5, desc: "Nivel de carteristas bajo comparado con Roma o Florencia. Precaución normal en transporte." },
-        ],
-        reviews: [
-          { text: "Me sentí más segura que en mi ciudad de origen. Nunca tuve ningún problema.", author: "Ingrid, Erasmus 2023", flag: "🇸🇪" },
         ],
       },
     ],
@@ -178,10 +149,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.5, desc: "Deutschlandticket a 49€/mes. Metro, bus, tram 24h los fines de semana." },
           { label: "Ocio y gastos diarios", score: 8.0, desc: "Entrada a clubs: 10–20€. Pero la vida cultural (museos, galerías) tiene mucho gratis." },
         ],
-        reviews: [
-          { text: "Con 1.100€/mes vivía muy bien. Berlín sigue siendo la más asequible de las grandes capitales.", author: "Carlos, Erasmus 2024", flag: "🇪🇸" },
-          { text: "El Deutschlandticket cambió todo. Me moví por toda Alemania por 49€ al mes.", author: "Anna, Work&Travel 2024", flag: "🇵🇱" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -196,9 +163,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.5, desc: "Más barato que otras capitales. WG 450–700€. Posible encontrar algo razonable." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "WG-Gesucht, Immowelt, grupos de Facebook. Ecosistema de búsqueda bien desarrollado." },
           { label: "Residencias universitarias", score: 6.0, desc: "Consulta residencias universitarias disponibles — pueden ser la opción más cómoda y segura para los primeros meses." },
-        ],
-        reviews: [
-          { text: "Tardé 3 semanas pero encontré un alojamiento increíble en Neukölln. WG-Gesucht es clave.", author: "Luisa, Erasmus 2024", flag: "🇧🇷" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -215,11 +179,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 10.0, desc: "Berghain, Tresor, Watergate. La meca del techno mundial. Experiencia única." },
           { label: "Eventos y actividades", score: 9.8, desc: "Festival of Lights, Berlin Music Week, mercados navideños épicos." },
         ],
-        reviews: [
-          { text: "Berlín te cambia la perspectiva de la vida. La libertad que respiras no existe en ningún otro sitio.", author: "Felix, Erasmus 2023", flag: "🇫🇷" },
-          { text: "Entrar al Berghain fue la experiencia más memorable de mi Erasmus.", author: "Yuki, Exchange 2024", flag: "🇯🇵" },
-          { text: "Mi grupo de amigos era de 8 países distintos. Eso no pasa en ningún otro sitio.", author: "Sophie, Erasmus 2023", flag: "🇨🇭" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -235,9 +194,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 8.0, desc: "Los berlineses son directos, no siempre cálidos al principio, pero muy abiertos." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
         ],
-        reviews: [
-          { text: "Nunca necesité el alemán. Todo el mundo cambiaba al inglés antes de que terminara de intentarlo.", author: "Giulia, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -251,9 +207,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 9.5, desc: "Red amplísima. Nunca esperas más de 5 minutos. Funciona 24h viernes y sábado." },
           { label: "Ciudad caminable", score: 9.0, desc: "700km de carril bici. La bici es el transporte más usado por jóvenes." },
           { label: "Conexiones nacionales", score: 10.0, desc: "49€/mes para toda Alemania. El mayor cambio en transporte público europeo en décadas." },
-        ],
-        reviews: [
-          { text: "El transporte de Berlín me hizo olvidar que tenía coche en casa.", author: "Mikael, Erasmus 2024", flag: "🇸🇪" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -271,11 +224,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "La ciudad más multicultural de Alemania. Comida de 80 culturas en cada barrio." },
           { label: "Estilo de vida", score: 8.0, desc: "Ritmo de vida intenso pero con mucho espacio para la introspección y la creatividad." },
         ],
-        reviews: [
-          { text: "Berlín no es una ciudad. Es un estado mental. Salí siendo otra persona.", author: "David, Work&Travel 2023", flag: "🇨🇴" },
-          { text: "La libertad que te da Berlín para ser quien quieras ser es irrepetible.", author: "Alex, Erasmus 2024", flag: "🇬🇧" },
-          { text: "El invierno es duro pero los berlineses saben cómo sobrevivir con buen humor.", author: "Aleksei, Erasmus 2024", flag: "🇷🇺" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -291,9 +239,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 8.5, desc: "Miles de empresas internacionales buscando talento joven. El inglés es suficiente." },
           { label: "Oportunidades para estudiantes", score: 8.9, desc: "El hub de startups más grande de Europa. Oportunidades en tech, creativas y fintech." },
         ],
-        reviews: [
-          { text: "Conseguí trabajo en una startup fintech antes de terminar mi Erasmus. Me quedé 2 años.", author: "Tom, Erasmus→Job 2022", flag: "🇳🇱" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -307,9 +252,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.5, desc: "Ciudad segura. Estadísticas de criminalidad bajas para su tamaño." },
           { label: "Seguridad nocturna", score: 7.0, desc: "Zonas de fiesta bien vigiladas. Atención normal en estaciones de metro de noche." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Prenzlauer Berg y Mitte muy seguros. Más precaución en algunas zonas de Neukölln." },
-        ],
-        reviews: [
-          { text: "Me sentí segura en todo momento, incluso volviendo sola de noche.", author: "Marie, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
       ],
@@ -333,10 +275,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Navigo mensual a 86€ — metro, RER, autobús y tranvía ilimitados en toda la región parisina. Vélib' para complementar." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Cervezas a 5–8€ en bares. Pero museos gratis menores de 26 años (UE) — el Louvre, Orsay, Pompidou gratis siempre." },
         ],
-        reviews: [
-          { text: "Con la residencia CROUS a 430€ y la beca Erasmus+ máxima, París era viable. Sin eso, muy difícil. Planifica bien.", author: "Isabel, Erasmus 2024", flag: "🇪🇸" },
-          { text: "Los museos gratis para menores de 26 me cambiaron la vida. El Louvre un martes por la tarde sin colas. Eso no tiene precio.", author: "Jonas, Erasmus 2023", flag: "🇩🇪" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -351,10 +289,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 4.0, desc: "700–1.100€ habitación en el mercado libre. CROUS desde 400€ — la única opción realmente asequible." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "CROUS (solicitar desde el primer día), PAP, SeLoger, grupos de Facebook de la Sorbonne. Empieza 4 meses antes." },
           { label: "Residencias universitarias", score: 6.0, desc: "La residencia CROUS me la dieron por nota académica. Sin ella no sé cómo habría podido ir. Es el primer trámite que tienes que hacer." },
-        ],
-        reviews: [
-          { text: "La residencia CROUS me la dieron por nota académica. Sin ella no sé cómo habría podido ir. Es el primer trámite que tienes que hacer.", author: "Nadia, Erasmus 2024", flag: "🇵🇱" },
-          { text: "Tardé 3 meses buscando en el mercado libre. Al final encontré algo en Belleville — lejos del centro pero con buena conexión.", author: "Tom, Erasmus 2023", flag: "🇦🇺" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -371,11 +305,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "Oberkampf, Canal Saint-Martin, Le Marais. Terrazas llenas de vida hasta la madrugada. París inventó el arte de la terraza." },
           { label: "Eventos y actividades", score: 10.0, desc: "ESN muy activo en Sorbonne y Sciences Po. Boat parties en el Sena, visitas nocturnas a museos, soirées internacionales." },
         ],
-        reviews: [
-          { text: "La Fête de la Musique el 21 de junio — música gratis en cada esquina de la ciudad hasta el amanecer. No existe nada igual.", author: "Camille, Erasmus 2023", flag: "🇧🇪" },
-          { text: "El Rex Club un viernes es una experiencia que todo amante de la música electrónica tiene que vivir.", author: "Marco, Exchange 2024", flag: "🇮🇹" },
-          { text: "La boat party del ESN en el Sena con la Torre Eiffel de fondo fue la noche más bonita de mi vida.", author: "Valentina, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -391,10 +320,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 8.0, desc: "La comunidad Erasmus es enorme y facilita la vida social. Integrarse con locales requiere esfuerzo pero vale cada segundo." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
         ],
-        reviews: [
-          { text: "Aprendí francés en tres meses por necesidad. Al final fue el mejor regalo que me dio París — y fue obligado.", author: "Lena, Erasmus 2024", flag: "🇩🇪" },
-          { text: "Los parisinos son normales, no el monstruo que todos describen. Si hablas francés aunque sea mal, te tratan genial.", author: "Miguel, Erasmus 2023", flag: "🇪🇸" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -408,9 +333,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 9.5, desc: "16 líneas, 302 estaciones. La red más densa de Europa. Nunca más de 500m de una boca de metro en el centro." },
           { label: "Conexiones nacionales", score: 9.0, desc: "5 líneas de RER que conectan toda la región parisina — Versalles, aeropuertos, Fontainebleau. Todo con el Navigo." },
           { label: "Ciudad caminable", score: 8.5, desc: "20.000 bicis Vélib' por toda la ciudad. La red ciclista de París ha mejorado enormemente en los últimos años." },
-        ],
-        reviews: [
-          { text: "El Navigo mensual a 86€ incluía hasta Versalles en RER. Fui cuatro veces en un semestre. Inmejorable.", author: "Alice, Erasmus 2023", flag: "🇬🇧" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -428,11 +350,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 10.0, desc: "Croissants, baguettes, fromages, vins. La gastronomía francesa es Patrimonio Cultural Inmaterial de la Humanidad. Por algo." },
           { label: "Estilo de vida", score: 8.5, desc: "Cara y con el piso difícil, pero la experiencia de vivir en París transforma. Sales siendo una persona diferente." },
         ],
-        reviews: [
-          { text: "Vivir en París te enseña a apreciar la belleza en lo cotidiano. Un café en una terraza de Oberkampf se convierte en el momento más importante del día.", author: "Sophie, Erasmus 2024", flag: "🇧🇪" },
-          { text: "El Louvre un martes por la tarde vacío, gratis, con 25 años. Eso no lo da ninguna otra ciudad del mundo.", author: "Hugo, Erasmus 2023", flag: "🇧🇷" },
-          { text: "París en primavera es lo más bonito que he visto en mi vida. Los jardines de Luxemburgo en abril son otro mundo.", author: "Elisa, Erasmus 2023", flag: "🇩🇪" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -448,10 +365,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 9.0, desc: "Criteo, Deezer, Dailymotion, Le Monde, Canal+. Ecosistema tech y de medios muy activo en la estación de F." },
           { label: "Oportunidades para estudiantes", score: 9.3, desc: "Hub de moda, lujo, finanzas, medios y consultoría. Las mejores empresas del mundo tienen su sede europea en París." },
         ],
-        reviews: [
-          { text: "Hice prácticas en LVMH. Sin haber estado en París no habría tenido ni la entrevista. La ciudad te abre puertas que no existen en ningún otro sitio.", author: "Clara, Internship 2024", flag: "🇪🇸" },
-          { text: "El CV con 'Sciences Po París' es la llave maestra de Europa. Todo el mundo lo reconoce y lo respeta.", author: "Romain, Erasmus 2023", flag: "🇨🇭" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -465,9 +378,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.5, desc: "Ciudad segura en zonas universitarias y turísticas principales. Sin problemas graves en el día a día estudiantil." },
           { label: "Ambiente de la ciudad", score: 6.0, desc: "Presentes en el metro, Torre Eiffel y zonas muy turísticas. Bolsillos interiores y mochila al pecho en aglomeraciones." },
           { label: "Ambiente de la ciudad", score: 7.0, desc: "Latin Quarter, Le Marais y Montmartre muy seguros. Más precaución en algunas zonas del norte y nordeste de la ciudad." },
-        ],
-        reviews: [
-          { text: "Me intentaron robar en el metro línea 1. Desde entonces, mochila al pecho siempre en el metro. Lección aprendida.", author: "Peter, Erasmus 2024", flag: "🇨🇿" },
         ],
       },
       ],
@@ -491,10 +401,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.5, desc: "Andante mensual a 30€ — metro, autobús y tranvía integrados. La bici funciona bien en zonas planas cerca del río." },
           { label: "Ocio y gastos diarios", score: 8.5, desc: "Cervezas a 1,50–2€. Vino do Porto desde 2€ en bares locales. Mucha vida gratuita en las riberas del Duero." },
         ],
-        reviews: [
-          { text: "Con 700€/mes vivía mejor que con 1.300€ en mi ciudad. Oporto tiene una relación calidad-precio que no existe en Europa occidental.", author: "Lukas, Erasmus 2024", flag: "🇩🇪" },
-          { text: "El menú del día en el barrio de Bonfim: sopa, plato, postre y bebida por 8€. Cada día diferente. Nunca comí tan bien.", author: "Marie, Erasmus 2023", flag: "🇫🇷" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -509,9 +415,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.5, desc: "350–550€ habitación. Notablemente más barato que Lisboa para una calidad de vida comparable." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "Idealista Portugal, Uniplaces, grupos de Facebook de la Universidade do Porto. Proceso más tranquilo que en Lisboa." },
           { label: "Residencias universitarias", score: 6.0, desc: "Consulta residencias universitarias disponibles — pueden ser la opción más cómoda y segura para los primeros meses." },
-        ],
-        reviews: [
-          { text: "Encontré algo genial en Bonfim en dos semanas. Más fácil de lo que esperaba y mucho más barato que Lisboa.", author: "Lena, Erasmus 2024", flag: "🇦🇹" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -528,11 +431,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "La calle de bares más auténtica de Oporto. Sin turistas, llena de locales y estudiantes. Una rareza en Portugal." },
           { label: "Eventos y actividades", score: 10.0, desc: "ESN activo. Queima das Fitas (fiesta universitaria anual) es una de las más grandes de Portugal. ESN trips semanales." },
         ],
-        reviews: [
-          { text: "Galerias de Paris un jueves por la noche es lo más auténtico que he vivido en Europa. Sin turistas, puro Oporto.", author: "Sofia, Erasmus 2023", flag: "🇬🇷" },
-          { text: "La Queima das Fitas fue lo más épico de mi Erasmus. Una semana entera de fiesta con toda la ciudad volcada.", author: "Rafa, Erasmus 2024", flag: "🇪🇸" },
-          { text: "El ESN organizó una visita a una bodega del Duero. Cata de Porto y paisaje increíble por 15€. No existe nada igual.", author: "Pierre, Erasmus 2023", flag: "🇫🇷" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -548,9 +446,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 9.0, desc: "Al ser menos turística que Lisboa, la integración con locales es más fácil y más profunda. Menos burbuja Erasmus." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
         ],
-        reviews: [
-          { text: "Mi vecino portuense me enseñó más de la ciudad en una tarde que el ESN en un mes. La gente de aquí es de otra pasta.", author: "Emma, Erasmus 2024", flag: "🇸🇪" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -565,9 +460,6 @@ export const CITY_INSIGHTS = {
           { label: "Topografía", score: 6.0, desc: "Las colinas de Oporto son legendarias. Subir a pie puede ser agotador — los autobuses y el metro compensan esto." },
           { label: "Conexiones nacionales", score: 8.0, desc: "Tren a Lisboa (2h45), Braga (1h), Vigo (2h). Acceso fácil al norte de Portugal y Galicia española." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Excelente posición para escapadas: Tren a Lisboa (2h45), Braga (1h), Vigo (2h). Acceso fácil al norte de Portugal y Galicia española." },
-        ],
-        reviews: [
-          { text: "Las colinas son brutales pero te pones en forma sin querer. Después de un mes, ya no te das cuenta.", author: "Carlos, Erasmus 2023", flag: "🇧🇷" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -585,11 +477,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.5, desc: "Francesinha, bacalhau à Brás, pastéis de nata, vinho verde. Y el vino do Porto como banda sonora de cada tarde." },
           { label: "Estilo de vida", score: 9.0, desc: "Ritmo de vida perfecto. Sin el estrés de las grandes capitales, con todo lo necesario para vivir muy bien." },
         ],
-        reviews: [
-          { text: "Oporto es la ciudad más bonita en la que he vivido. Y encima la más barata de esta parte de Europa. No tiene explicación.", author: "Tom, Erasmus 2024", flag: "🇬🇧" },
-          { text: "El atardecer desde el Puente de Dom Luís con una copa de Porto en la mano. Eso es vivir.", author: "Léa, Erasmus 2023", flag: "🇫🇷" },
-          { text: "El invierno fue más lluvioso de lo esperado pero nunca frío. Con un buen abrigo y un café, Oporto en invierno tiene su encanto.", author: "Ana, Erasmus 2023", flag: "🇵🇹" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -605,9 +492,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Menos presencia de multinacionales que Lisboa pero algunas como Farfetch tienen centros importantes en Oporto." },
           { label: "Oportunidades para estudiantes", score: 7.2, desc: "Ecosistema en crecimiento. Tech, turismo y startups empiezan a mirar a Oporto como alternativa real a Lisboa." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una startup del UPTEC. Ambiente increíble, equipo joven y todo en inglés. Oporto está despegando.", author: "Marta, Internship 2024", flag: "🇪🇸" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -621,9 +505,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.0, desc: "Muy segura para estándares europeos. Criminalidad baja incluso para Portugal." },
           { label: "Seguridad nocturna", score: 8.5, desc: "Las zonas de fiesta son seguras. Galerias de Paris y la Ribeira muy concurridas y bien vigiladas." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Nivel bajo. Algo de atención en las zonas más turísticas pero nada comparado con ciudades del sur de Europa." },
-        ],
-        reviews: [
-          { text: "Me sentí completamente segura en todo momento, incluso volviendo sola a las 4am. Oporto es muy tranquila.", author: "Ingrid, Erasmus 2024", flag: "🇩🇰" },
         ],
       },
       ],
@@ -647,10 +528,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.5, desc: "STIB mensual a 50€ — metro, tranvía y autobús integrados. La red cubre bien toda la ciudad." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Cervezas belgas artesanales a 3–4€. Muchos eventos institucionales gratuitos. Museos muy asequibles." },
         ],
-        reviews: [
-          { text: "Con 850€/mes vivía bien en Ixelles. Caro para Bélgica pero muy razonable para ser la capital de la UE.", author: "Camille, Internship 2024", flag: "🇫🇷" },
-          { text: "El mercado du Midi los domingos me salvó el presupuesto alimentario. Dos horas allí y tenía comida para la semana.", author: "Marco, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -665,9 +542,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.5, desc: "500–700€ habitación. Más asequible que París pero subiendo con la demanda de instituciones europeas." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "Immoweb, grupos de Facebook de ULB y VUB, Erasmus in Brussels. Proceso más fácil que en ciudades del oeste." },
           { label: "Residencias universitarias", score: 6.0, desc: "Consulta residencias universitarias disponibles — pueden ser la opción más cómoda y segura para los primeros meses." },
-        ],
-        reviews: [
-          { text: "Encontré alojamiento en Etterbeek, a 10 minutos del Parlamento Europeo, en tres semanas. Sin dramas.", author: "Pieter, Internship 2024", flag: "🇳🇱" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -684,11 +558,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "500+ tipos de cerveza belga. Delirium Tremens, Moeder Lambic, À La Mort Subite. La cultura de la cerveza es un arte." },
           { label: "Eventos y actividades", score: 8.5, desc: "ESN activo entre ULB y VUB. Eventos regulares aunque la ciudad dispersa más a la comunidad." },
         ],
-        reviews: [
-          { text: "La cerveza belga me cambió la vida. Cada bar tiene su carta de 50 tipos y el barman te aconseja. Es una cultura aparte.", author: "Jonas, Erasmus 2023", flag: "🇩🇪" },
-          { text: "Place du Châtelain los miércoles por la noche — mercado ambulante, ambiente increíble, muy local.", author: "Sophie, Internship 2024", flag: "🇧🇪" },
-          { text: "La mezcla entre Erasmus y becarios de la UE es única. En una semana tenía amigos que trabajaban en la Comisión Europea.", author: "Giulia, Internship 2023", flag: "🇮🇹" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -704,9 +573,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 8.0, desc: "Los bruselenses son acogedores y acostumbrados a vivir con gente de todo el mundo. Sin xenofobia ni barreras." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
         ],
-        reviews: [
-          { text: "En mi piso éramos de 6 países distintos y hablábamos 4 idiomas. Bruselas normaliza eso totalmente.", author: "Elena, Internship 2024", flag: "🇷🇴" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -720,9 +586,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 8.0, desc: "4 líneas de metro y red de tranvías que cubre bien la ciudad. Puntual y cómodo para el día a día." },
           { label: "Ciudad caminable", score: 7.5, desc: "Villo! (bici compartida) muy útil. La ciudad está mejorando su infraestructura ciclista aunque todavía con trabajo pendiente." },
           { label: "Conexiones nacionales", score: 9.5, desc: "Eurostar a Londres (2h), Thalys a París (1h22) y Ámsterdam (1h48). El hub ferroviario internacional de Europa." },
-        ],
-        reviews: [
-          { text: "En fin de semana podía estar en París en 1h22. Eso cambia totalmente las posibilidades de viajar desde Bruselas.", author: "Lara, Erasmus 2023", flag: "🇪🇸" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -740,11 +603,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.5, desc: "Chocolate Neuhaus, cervezas Trappistes, moules-frites, gaufres de Lieja. La gastronomía más subestimada de Europa." },
           { label: "Estilo de vida", score: 8.0, desc: "Ciudad que no impresiona a primera vista pero enamora con el tiempo. La Bruselas real está escondida para quien la busca." },
         ],
-        reviews: [
-          { text: "Bruselas me tardó en gustar pero al final fue la ciudad que más eché de menos. Tiene algo difícil de explicar.", author: "Sara, Erasmus 2024", flag: "🇵🇹" },
-          { text: "La gastronomía belga es la más infravalorada de Europa. Chocolate, cerveza y mejillones — la trinidad perfecta.", author: "James, Exchange 2023", flag: "🇦🇺" },
-          { text: "El invierno gris fue duro. Pero la vida interior de Bruselas — cafés, museos, cervecerías — lo compensa bien.", author: "Marc, Internship 2023", flag: "🇫🇷" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -760,10 +618,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 8.5, desc: "Muchas empresas internacionales con sede o delegación en Bruselas por la presencia institucional." },
           { label: "Oportunidades para estudiantes", score: 9.2, desc: "La mejor ciudad de Europa para prácticas en instituciones europeas, política y relaciones internacionales." },
         ],
-        reviews: [
-          { text: "Conseguí un Schuman Traineeship en el Parlamento Europeo. Seis meses que definieron mi carrera en política europea.", author: "Clara, Internship 2024", flag: "🇩🇪" },
-          { text: "Si quieres trabajar en Europa, Bruselas es donde tienes que estar. Los contactos que haces aquí no los haces en ningún otro sitio.", author: "Alejandro, Internship 2023", flag: "🇪🇸" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -777,9 +631,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.5, desc: "Ciudad segura en general. Las zonas universitarias e institucionales son muy tranquilas." },
           { label: "Ambiente de la ciudad", score: 6.5, desc: "Molenbeek y algunas zonas del norte requieren más precaución. Ixelles, Uccle y Etterbeek son muy seguros." },
           { label: "Seguridad nocturna", score: 7.5, desc: "El centro y las zonas de fiesta son seguros. Precaución estándar en zonas más periféricas de noche." },
-        ],
-        reviews: [
-          { text: "Viví en Ixelles sin ningún problema. La clave es conocer bien qué zonas evitar, como en cualquier ciudad grande.", author: "Nina, Erasmus 2024", flag: "🇩🇪" },
         ],
       },
       ],
@@ -803,10 +654,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Deutschlandticket a 49€/mes cubre todo — incluyendo el tren a Múnich. Sin coche es completamente viable." },
           { label: "Ocio y gastos diarios", score: 8.0, desc: "Cervezas en biergartens locales a 3–4€. Naturaleza gratuita por todas partes. Sin el precio premium de las grandes ciudades." },
         ],
-        reviews: [
-          { text: "Pagaba 480€ de habitación y en 40 minutos de tren estaba en Múnich. Lo mejor de los dos mundos.", author: "Klaus, Erasmus 2024", flag: "🇦🇹" },
-          { text: "El Deutschlandticket lo cambió todo. Por 49€ al mes tenía Múnich, los Alpes y toda Baviera a mi disposición.", author: "Sarah, Exchange 2023", flag: "🇬🇧" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -821,9 +668,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 8.0, desc: "400–600€ habitación. Considerablemente más barato que Múnich para acceso similar a la región." },
           { label: "Facilidad de búsqueda", score: 8.0, desc: "La propia universidad (TH Rosenheim) tiene bolsa de alojamiento. WG-Gesucht y grupos de Facebook universitarios." },
           { label: "Residencias universitarias", score: 6.0, desc: "Consulta residencias universitarias disponibles — pueden ser la opción más cómoda y segura para los primeros meses." },
-        ],
-        reviews: [
-          { text: "La universidad me ayudó a encontrar alojamiento antes de llegar. En dos semanas tenía todo resuelto. Imposible en Múnich.", author: "Lena, Erasmus 2023", flag: "🇦🇹" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -840,11 +684,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.0, desc: "Varios biergardens tradicionales bávaros. Ambiente muy local y auténtico — sin turistas, sin poses." },
           { label: "Eventos y actividades", score: 9.5, desc: "Salzburgo a 45 minutos, Innsbruck a 1h30, Múnich a 40 minutos. Base perfecta para explorar la región alpina." },
         ],
-        reviews: [
-          { text: "No vine por la vida nocturna — vine por los Alpes. Y fue la mejor decisión de mi vida académica.", author: "Petra, Erasmus 2023", flag: "🇳🇱" },
-          { text: "La comunidad Erasmus era pequeñísima pero nos volvimos familia. 8 personas muy unidas durante todo el semestre.", author: "Nico, Exchange 2024", flag: "🇫🇷" },
-          { text: "Éramos 20 Erasmus y acabamos siendo una familia. Me llevo amigos de por vida de una ciudad que nadie conoce.", author: "Hugo, Erasmus 2024", flag: "🇫🇷" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -860,9 +699,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 8.5, desc: "Al ser tan pequeña, la integración con locales es mucho más profunda que en cualquier gran ciudad." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
         ],
-        reviews: [
-          { text: "Los vecinos me invitaron a su Brotzeit (merienda bávara) la primera semana. En Múnich eso nunca habría pasado.", author: "Mia, Exchange 2023", flag: "🇩🇰" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -876,9 +712,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 9.5, desc: "Ciudad completamente caminable. Del campus al centro en 15 minutos. Bici para los más activos." },
           { label: "Tren a Múnich", score: 9.0, desc: "Tren directo a Múnich cada 30 minutos, 40 minutos de trayecto. Con Deutschlandticket sale gratis del bono mensual." },
           { label: "Escapadas de fin de semana", score: 9.5, desc: "Chiemsee en autobús, estaciones de ski en coche compartido o bus regional. Todo muy accesible." },
-        ],
-        reviews: [
-          { text: "Iba a Múnich tres veces por semana sin pensarlo. El tren es puntual y el Deutschlandticket hace que no cueste nada extra.", author: "Tom, Erasmus 2024", flag: "🇬🇧" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -896,11 +729,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 10.0, desc: "Tradiciones, trajes típicos, Oktoberfest local, biergardens centenarios. Baviera sin filtro turístico." },
           { label: "Estilo de vida", score: 8.0, desc: "Ritmo de vida que combina trabajo, cultura y ocio de forma equilibrada." },
         ],
-        reviews: [
-          { text: "El Erasmus más tranquilo y productivo que podría haber tenido. Estudié más, gasté menos y viví mejor. No cambiaría nada.", author: "Julia, Erasmus 2024", flag: "🇮🇹" },
-          { text: "Rosenheim es para quien quiere un Erasmus diferente. Si buscas fiesta, ve a otro sitio. Si buscas vida, ven aquí.", author: "Christoph, Exchange 2023", flag: "🇦🇹" },
-          { text: "Esquié 8 veces en un semestre por menos de lo que mis amigos gastaban en una noche de fiesta en Múnich.", author: "Marc, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -916,9 +744,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "La universidad tiene buenas conexiones con la industria regional. Perfil principalmente técnico e ingenieril." },
           { label: "Oportunidades para estudiantes", score: 7.0, desc: "Industria local sólida y acceso a todo el ecosistema de Múnich a 40 minutos. Mejor para ingeniería y tecnología." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una empresa de Múnich desde Rosenheim. El tren diario era cómodo y el alquiler era la mitad.", author: "Felix, Internship 2023", flag: "🇩🇪" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -932,9 +757,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.5, desc: "Ciudad pequeña bávara sin ningún problema de seguridad. La criminalidad es prácticamente inexistente." },
           { label: "Seguridad nocturna", score: 9.5, desc: "Completamente segura en todo momento. La tranquilidad de una ciudad pequeña de montaña." },
           { label: "Ambiente de la ciudad", score: 9.5, desc: "Comunidad local cohesionada donde todos se conocen. El ambiente más seguro de esta guía." },
-        ],
-        reviews: [
-          { text: "Nunca pensé en la seguridad ni una sola vez. Es ese tipo de lugar.", author: "Anna, Exchange 2023", flag: "🇸🇪" },
         ],
       },
       ],
@@ -958,10 +780,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 5.5, desc: "Oyster Card imprescindible. El metro más caro de Europa — hasta 6£ por trayecto en hora punta. Pase mensual a 180£." },
           { label: "Ocio y gastos diarios", score: 5.0, desc: "Cervezas a 6–8£. Entrada a clubs 15–25£. Pero museos y galerías nacionales completamente gratis — una ventaja enorme." },
         ],
-        reviews: [
-          { text: "Es brutal de cara. Pero con la beca Erasmus+ máxima y un house share bien buscado, es viable. Justo.", author: "Irene, Erasmus 2024", flag: "🇪🇸" },
-          { text: "Gasté más que en cualquier otro sitio pero lo que gané en inglés, contactos y experiencia no tiene precio.", author: "Marco, Internship 2023", flag: "🇮🇹" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -976,10 +794,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 3.0, desc: "800–1.200£ habitación. Los precios más altos de esta guía. House shares son la única opción para presupuestos Erasmus." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "Rightmove, SpareRoom, Uniplaces. Residencias universitarias son la mejor opción — pídelas en cuanto te acepten." },
           { label: "Residencias universitarias", score: 6.0, desc: "Las residencias de UCL me salvaron. Sin eso no sé si habría podido ir. Solicítalas el primer día sin falta." },
-        ],
-        reviews: [
-          { text: "Las residencias de UCL me salvaron. Sin eso no sé si habría podido ir. Solicítalas el primer día sin falta.", author: "Klara, Erasmus 2024", flag: "🇵🇱" },
-          { text: "Tardé 8 semanas desde Alemania. Muchas estafas en el camino. Usa solo plataformas verificadas.", author: "Jonas, Erasmus 2023", flag: "🇩🇪" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -996,11 +810,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "Fabric, XOYO, Fabric, Village Underground. La escena de clubs más diversa de Europa. Techno, drum & bass, grime, jazz." },
           { label: "Eventos y actividades", score: 8.5, desc: "O2 Arena, Brixton Academy, Royal Albert Hall. Los mejores artistas del mundo pasan por Londres primero." },
         ],
-        reviews: [
-          { text: "Fabric un sábado es una experiencia que todo amante de la música electrónica tiene que vivir al menos una vez.", author: "Alex, Erasmus 2023", flag: "🇩🇪" },
-          { text: "El pub de mi barrio en Hackney se convirtió en mi sala de estar. Ahí hice mis mejores amigos londinenses.", author: "Sienna, Exchange 2024", flag: "🇦🇺" },
-          { text: "La comunidad Erasmus era más pequeña de lo esperado pero la red de contactos que hice vale más que en cualquier otra ciudad.", author: "Beatriz, Internship 2024", flag: "🇧🇷" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -1016,9 +825,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 7.5, desc: "Los londinenses son educados pero reservados — el famoso 'British politeness'. Conectar lleva más tiempo que en el sur." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
         ],
-        reviews: [
-          { text: "Llegué con B2 de inglés y en tres meses pensaba en inglés. La inmersión es total y sin red de seguridad.", author: "Paula, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -1033,9 +839,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 8.5, desc: "Red de autobuses enorme y que llega a todos lados. Más barato que el metro. Los autobuses nocturnos son esenciales." },
           { label: "Ciudad caminable", score: 7.5, desc: "Santander Cycles (Boris Bikes) muy útiles en el centro. La ciudad está mejorando su infraestructura ciclista." },
           { label: "Conexiones nacionales", score: 9.5, desc: "Heathrow, Gatwick, Stansted, Luton. El hub aéreo más importante de Europa. Vuelos a cualquier parte del mundo." },
-        ],
-        reviews: [
-          { text: "El Tube es lento y caro pero lo cubre todo. La Oyster Card es lo primero que debes conseguir al llegar.", author: "Yuki, Exchange 2023", flag: "🇯🇵" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -1053,11 +856,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.5, desc: "La ciudad más diversa gastronómicamente de Europa. Cada cocina del mundo representada al más alto nivel." },
           { label: "Estilo de vida", score: 7.5, desc: "El coste y el ritmo intenso tienen su precio. Pero la experiencia de vivir en Londres es transformadora e irrepetible." },
         ],
-        reviews: [
-          { text: "Londres te come pero también te construye. Salí siendo una persona completamente diferente — más segura, más capaz.", author: "Nina, Erasmus 2024", flag: "🇩🇪" },
-          { text: "Los museos gratuitos me salvaron muchos fines de semana. La oferta cultural gratuita de Londres no existe en ningún otro sitio.", author: "Hugo, Exchange 2023", flag: "🇫🇷" },
-          { text: "El primer mes gris fue duro. Luego salió el sol un martes y todo el parque se llenó de gente en bikini. Los ingleses son únicos.", author: "Carla, Erasmus 2023", flag: "🇪🇸" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -1073,10 +871,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 9.5, desc: "BBC, Sky, Condé Nast, Burberry. Londres es la capital mundial de los medios y la moda anglosajona." },
           { label: "Oportunidades para estudiantes", score: 9.8, desc: "La mejor ciudad del mundo para internships. Finanzas, tech, media, moda, consultoría — todo al más alto nivel." },
         ],
-        reviews: [
-          { text: "Hice prácticas en Goldman Sachs. Sin haber estado en Londres antes no hubiera conseguido ni la entrevista. La ciudad abre puertas.", author: "Thomas, Internship 2024", flag: "🇨🇭" },
-          { text: "El CV con 'Londres' marca la diferencia. Los reclutadores lo notan. Vale cada libra gastada.", author: "Priya, Internship 2023", flag: "🇮🇳" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -1090,9 +884,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.5, desc: "Ciudad segura en términos generales. La mayoría de barrios estudiantiles son tranquilos y bien vigilados." },
           { label: "Seguridad nocturna", score: 7.0, desc: "Zonas de fiesta seguras. Precaución en estaciones de metro solitarias de madrugada y algunas zonas periféricas." },
           { label: "Ambiente de la ciudad", score: 7.0, desc: "Hackney, Stratford, Brixton tienen partes muy seguras y otras más delicadas. Aprende tu barrio bien." },
-        ],
-        reviews: [
-          { text: "Nunca tuve problemas serios pero London te enseña a estar alerta. Es una ciudad grande y hay que conocerla.", author: "Liam, Exchange 2023", flag: "🇮🇪" },
         ],
       },
       ],
@@ -1116,10 +907,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Isarcard mensual a 57€ — metro, autobús, tranvía y tren regional incluidos. Bien conectada internamente." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Cervezas en biergarten a 4–5€. Oktoberfest aparte — allí una Mass (litro) cuesta 15€. Mucha oferta cultural gratuita." },
         ],
-        reviews: [
-          { text: "Es cara pero con la beca Erasmus+ máxima y una WG bien ubicada es viable. Lo más difícil fue encontrar el piso.", author: "Julia, Erasmus 2024", flag: "🇪🇸" },
-          { text: "El English Garden en verano es gratis y es lo mejor de la ciudad. Munich sabe darte mucho sin gastar.", author: "Luca, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -1134,10 +921,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 4.0, desc: "700–1.000€ habitación. Los precios más altos de Alemania. WG compartida es la única opción para presupuestos Erasmus." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "WG-Gesucht es la biblia. Residencias de LMU y TUM muy limitadas — solicítalas el primer día sin falta." },
           { label: "Residencias universitarias", score: 6.0, desc: "La residencia universitaria me la dieron por sorteo. Sin ella no sé si habría podido ir. Fundamental solicitarla a tiempo." },
-        ],
-        reviews: [
-          { text: "Mandé 100 solicitudes en WG-Gesucht en dos meses. Conseguí 3 visitas. Empieza en enero para octubre.", author: "Sofía, Erasmus 2024", flag: "🇦🇷" },
-          { text: "La residencia universitaria me la dieron por sorteo. Sin ella no sé si habría podido ir. Fundamental solicitarla a tiempo.", author: "David, Erasmus 2023", flag: "🇧🇪" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -1154,11 +937,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 10.0, desc: "Rote Sonne, Blitz, Harry Klein. Escena electrónica seria aunque más pequeña que Berlín. Muy buena calidad." },
           { label: "Eventos y actividades", score: 8.0, desc: "ESN activo en LMU y TUM. Eventos desde la semana de bienvenida, excursiones a los Alpes y al lago Starnberg." },
         ],
-        reviews: [
-          { text: "El Oktoberfest fue lo más loco y bonito que he vivido. Nada te prepara para eso. Imprescindible.", author: "Camille, Erasmus 2023", flag: "🇫🇷" },
-          { text: "El Chinesischer Turm en el English Garden un domingo soleado es la imagen perfecta de vivir en Múnich.", author: "Erik, Exchange 2024", flag: "🇸🇪" },
-          { text: "El ESN organizó una mesa reservada en el Oktoberfest la primera semana. Ahí conocí a mis mejores amigos del Erasmus.", author: "Marie, Erasmus 2023", flag: "🇫🇷" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -1174,9 +952,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 8.5, desc: "Ciudad muy internacional — el 40% de la población tiene raíces extranjeras. Fácil encontrar comunidad." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
         ],
-        reviews: [
-          { text: "Los bávaros al principio parecen serios pero en el biergarten se abren totalmente. La cerveza es el idioma universal aquí.", author: "Pedro, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -1190,9 +965,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 9.0, desc: "8 líneas que cubren toda la ciudad. Puntual al minuto, limpio y con frecuencia alta. Referente alemán." },
           { label: "Transporte público", score: 9.0, desc: "Conecta con los lagos (Starnberg, Ammersee) y el aeropuerto. Esencial para escapadas de fin de semana cercanas." },
           { label: "Escapadas de fin de semana", score: 10.0, desc: "Garmisch-Partenkirchen a 1h30 en tren. Esquí, senderismo y lagos alpinos al alcance de cualquier fin de semana." },
-        ],
-        reviews: [
-          { text: "Con el Deutschlandticket fui a Berlín, Hamburgo y Viena en tren. Todo desde Múnich, todo por 49€ al mes.", author: "Anna, Erasmus 2023", flag: "🇩🇪" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -1210,11 +982,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.0, desc: "Weisswurst, Brezel, Schweinshaxe, Weizenbier. La cocina bávara es contundente, deliciosa y muy celebrada." },
           { label: "Estilo de vida", score: 9.0, desc: "Cara pero la calidad de todo — transporte, seguridad, naturaleza, servicios — justifica el precio para muchos." },
         ],
-        reviews: [
-          { text: "Múnich es cara pero te da todo a cambio. Salí con los mejores recuerdos, los mejores contactos y una perspectiva de vida diferente.", author: "Isabelle, Erasmus 2024", flag: "🇧🇪" },
-          { text: "Esquiar los Alpes un sábado y cenar en un biergarten el domingo. Eso es la calidad de vida de Múnich.", author: "Klaus, Exchange 2023", flag: "🇦🇹" },
-          { text: "El English Garden en verano con la gente surfeando en el río Eisbach es lo más surreal y bonito que he visto.", author: "Tom, Erasmus 2023", flag: "🇬🇧" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -1230,9 +997,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 9.0, desc: "Siemens, MBition (Mercedes), Celonis. Ecosistema tech creciente con salarios muy competitivos." },
           { label: "Oportunidades para estudiantes", score: 9.5, desc: "El hub industrial y tecnológico más potente de Alemania. BMW, Siemens, Allianz y un ecosistema tech en auge." },
         ],
-        reviews: [
-          { text: "Hice prácticas en BMW. El nivel técnico y la organización eran impresionantes. Múnich es el sitio para la ingeniería en Europa.", author: "Stefan, Internship 2024", flag: "🇵🇱" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -1246,9 +1010,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.5, desc: "Consistentemente rankeada como una de las ciudades más seguras de Europa. Criminalidad muy baja." },
           { label: "Seguridad nocturna", score: 9.0, desc: "Completamente segura de noche en todas las zonas del centro. Sin barrios conflictivos reales." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Problema muy menor. Solo precaución básica en el Oktoberfest por la aglomeración." },
-        ],
-        reviews: [
-          { text: "La ciudad más segura en la que he vivido en mi vida. Nunca me sentí en peligro ni un solo momento.", author: "Ingrid, Erasmus 2024", flag: "🇳🇴" },
         ],
       },
       ],
@@ -1273,10 +1034,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.0, desc: "OV-chipkaart obligatoria. Tram y autobús bien conectados. La bici propia es la opción más económica y práctica." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Cervezas a 4–5€. Menos opciones de ocio barato que Ámsterdam pero el mar a 15 minutos compensa." },
         ],
-        reviews: [
-          { text: "Es cara, no voy a mentir. Pero la calidad de vida y el nivel de las prácticas en organismos internacionales lo justifican.", author: "Valentina, Internship 2024", flag: "🇦🇷" },
-          { text: "El Haagse Markt me salvó el presupuesto. Fruta, verdura y comida étnica a precios ridículos.", author: "Pieter, estudiante local", flag: "🇳🇱" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -1291,9 +1048,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 5.5, desc: "600–850€ habitación. Caro para lo que se recibe pero está en línea con el mercado holandés." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "Kamernet, Pararius, grupos de Facebook de La Haya University. La búsqueda requiere paciencia y rapidez." },
           { label: "Residencias universitarias", score: 6.0, desc: "Consulta residencias universitarias disponibles — pueden ser la opción más cómoda y segura para los primeros meses." },
-        ],
-        reviews: [
-          { text: "Tardé 6 semanas pero encontré algo en Laak — más asequible y con buena conexión al centro.", author: "Sofia, Internship 2024", flag: "🇪🇸" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -1310,11 +1064,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.0, desc: "Centrum tiene buenos bares. Paard van Troje para conciertos. Menos opciones que Ámsterdam pero sin aglomeraciones." },
           { label: "Eventos y actividades", score: 8.0, desc: "Holland Dance Festival, Parkpop (el festival gratuito más grande de Europa). Agenda cultural muy rica." },
         ],
-        reviews: [
-          { text: "La vida social es diferente — más adulta, más internacional. Me gustó más que la escena universitaria típica.", author: "Nora, Internship 2023", flag: "🇳🇴" },
-          { text: "Scheveningen un viernes por la tarde con colegas de prácticas de diez países. Eso es La Haya.", author: "Kai, Exchange 2024", flag: "🇩🇪" },
-          { text: "La comunidad de becarios de la ONU y tribunales internacionales es increíble. Hice contactos que valen oro.", author: "Julia, Internship 2023", flag: "🇩🇪" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -1330,9 +1079,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 8.5, desc: "Holandeses directos y muy abiertos. Sin rodeos pero muy respetuosos. Fácil hacer amigos reales." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
         ],
-        reviews: [
-          { text: "Nunca me sentí extranjera. En la oficina éramos de 15 países y el inglés era el idioma natural de todos.", author: "Amara, Internship 2024", flag: "🇬🇭" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -1347,9 +1093,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 9.5, desc: "Infraestructura ciclista perfecta como en toda Holanda. La bici propia es la forma más rápida de moverse." },
           { label: "Conexiones nacionales", score: 9.0, desc: "Tren a Ámsterdam (50min), Rotterdam (25min), Leiden (15min). Posición central perfecta en la Randstad." },
           { label: "Escapadas de fin de semana", score: 9.0, desc: "Excelente posición para escapadas: Tren a Ámsterdam (50min), Rotterdam (25min), Leiden (15min). Posición central perfecta en la Randstad." },
-        ],
-        reviews: [
-          { text: "Compré una bici de segunda mano por 80€ y me movía por toda la ciudad en la mitad de tiempo que en tranvía.", author: "Lars, Exchange 2023", flag: "🇸🇪" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -1367,11 +1110,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 10.0, desc: "100+ organizaciones internacionales. La ciudad más diplomática del mundo. Una experiencia de vida sin parangón." },
           { label: "Estilo de vida", score: 8.5, desc: "Ciudad tranquila, ordenada y con todo lo necesario. Perfecta para quien quiere calidad de vida sin el caos de una gran metrópolis." },
         ],
-        reviews: [
-          { text: "La Haya tiene todo lo que necesitas sin el estrés de Ámsterdam. Mar, cultura, trabajo. La combinación perfecta.", author: "Isabelle, Internship 2024", flag: "🇧🇪" },
-          { text: "Ver La joven de la perla de Vermeer en el Mauritshuis y luego tomar una cerveza en la playa. Eso es La Haya.", author: "Tom, Exchange 2023", flag: "🇦🇺" },
-          { text: "El invierno fue durísimo anímicamente. Pero los holandeses tienen una actitud ante el mal tiempo que te contagia.", author: "Miguel, Internship 2023", flag: "🇧🇷" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -1387,10 +1125,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 9.0, desc: "Decenas de ONGs y centros de investigación internacionales con programas de prácticas activos." },
           { label: "Oportunidades para estudiantes", score: 9.5, desc: "La mejor ciudad del mundo para prácticas en organismos internacionales, derecho y relaciones internacionales." },
         ],
-        reviews: [
-          { text: "Hice prácticas en la CPI. Algo que no habría podido hacer en ninguna otra ciudad del mundo. Punto.", author: "Claire, Internship 2024", flag: "🇫🇷" },
-          { text: "Si estudias derecho internacional o RRII, La Haya no es una opción — es una obligación.", author: "Alejandro, Internship 2023", flag: "🇲🇽" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -1404,9 +1138,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.0, desc: "Ciudad muy segura. Criminalidad baja incluso para estándares holandeses." },
           { label: "Seguridad nocturna", score: 8.5, desc: "Sin zonas especialmente conflictivas. El centro es seguro en todo momento." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Problema muy menor. Nada comparable a ciudades más turísticas del sur de Europa." },
-        ],
-        reviews: [
-          { text: "Me sentí completamente segura en todo momento, incluso sola de noche. La Haya es muy tranquila.", author: "Emma, Internship 2024", flag: "🇫🇷" },
         ],
       },
       ],
@@ -1430,10 +1161,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "OV-chipkaart integra metro, tram y autobús. La bici propia elimina casi todos los gastos de transporte." },
           { label: "Ocio y gastos diarios", score: 5.5, desc: "Cervezas a 5–7€. Entrada a clubs 15–25€. La vida nocturna de calidad tiene un precio claro." },
         ],
-        reviews: [
-          { text: "Es cara pero con la beca Erasmus y un piso bien ubicado es viable. Eso sí, el piso fue lo más difícil de mi vida.", author: "Laura, Erasmus 2024", flag: "🇪🇸" },
-          { text: "Tardé 3 meses en encontrar piso desde Madrid. Empecé a buscar en enero para septiembre. No fue suficiente.", author: "João, Erasmus 2023", flag: "🇵🇹" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -1448,10 +1175,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 3.5, desc: "750–1.100€ habitación. Los precios más altos de esta guía con diferencia. Sin techo a la vista." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "Kamernet, HousingAnywhere, grupos de Facebook de UvA. La universidad tiene residencias — solicítalas el primer día." },
           { label: "Residencias universitarias", score: 6.0, desc: "Conseguí residencia universitaria de UvA. Sin eso no sé cómo habría podido ir. Las residencias son oro." },
-        ],
-        reviews: [
-          { text: "Encontrar alojamiento fue lo más estresante de mi vida. Empieza en enero para septiembre y reza. No es broma.", author: "Marta, Erasmus 2024", flag: "🇵🇱" },
-          { text: "Conseguí residencia universitaria de UvA. Sin eso no sé cómo habría podido ir. Las residencias son oro.", author: "Felix, Erasmus 2023", flag: "🇦🇹" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -1468,11 +1191,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "Shelter, Radion, Melkweg, Paradiso. Escena de clubs de primer nivel mundial. Techno, house y todo lo que quieras." },
           { label: "Eventos y actividades", score: 10.0, desc: "ESN muy activo entre UvA y VU. Boat parties por los canales, bike tours, eventos de bienvenida épicos." },
         ],
-        reviews: [
-          { text: "King's Day en Ámsterdam es la experiencia más increíble que he vivido. Nada se le acerca en toda Europa.", author: "Sophie, Erasmus 2023", flag: "🇫🇷" },
-          { text: "La boat party del ESN por los canales fue la noche más memorable del Erasmus. Sin duda.", author: "Lukas, Erasmus 2024", flag: "🇩🇪" },
-          { text: "Mi grupo del ESN era de 12 países distintos. Nunca había tenido amigos de Corea, Brasil e India a la vez.", author: "Hanna, Erasmus 2023", flag: "🇩🇪" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -1488,9 +1206,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 8.5, desc: "Holandeses directos y sin rodeos — puede parecer brusco pero es honestidad. Muy abiertos una vez que conectas." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
         ],
-        reviews: [
-          { text: "Ámsterdam es la ciudad donde más yo misma me he sentido. La libertad y la apertura son reales, no de postal.", author: "Maya, Erasmus 2024", flag: "🇺🇸" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -1505,9 +1220,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 8.5, desc: "Red integrada y eficiente. El tram cubre el centro, el metro conecta con los barrios exteriores." },
           { label: "Conexiones nacionales", score: 9.0, desc: "Tren a Rotterdam (40min), La Haya (50min), Utrecht (30min), Bruselas (2h). Hub ferroviario internacional." },
           { label: "Escapadas de fin de semana", score: 9.0, desc: "Excelente posición para escapadas: Tren a Rotterdam (40min), La Haya (50min), Utrecht (30min), Bruselas (2h). Hub ferroviario internacional." },
-        ],
-        reviews: [
-          { text: "La primera semana me compraron una bici de segunda mano. La segunda semana ya no podía vivir sin ella.", author: "Clara, Erasmus 2023", flag: "🇧🇪" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -1525,11 +1237,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.5, desc: "Rijksmuseum, Van Gogh, Anne Frank, Stedelijk. Concentración de museos de primer nivel mundial por metro cuadrado." },
           { label: "Estilo de vida", score: 8.5, desc: "Cara y con el piso difícil, pero la calidad de vida cotidiana — en bici, con canales, con cultura — es excepcional." },
         ],
-        reviews: [
-          { text: "Ámsterdam te cambia. La libertad que respiras es diferente a todo. Salí siendo otra persona, en el mejor sentido.", author: "Inés, Erasmus 2024", flag: "🇪🇸" },
-          { text: "El Rijksmuseum un martes por la tarde sin colas. Luego en bici hasta el mercado. Eso es vivir en Ámsterdam.", author: "Pierre, Erasmus 2023", flag: "🇫🇷" },
-          { text: "El invierno fue duro pero los cafés, los museos y la vida social de interior lo compensan. Los holandeses son expertos en el hygge.", author: "Elisa, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -1545,9 +1252,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 8.5, desc: "Agencias de diseño, publicidad, moda y media con sede en Ámsterdam. Muy activo para perfiles creativos." },
           { label: "Oportunidades para estudiantes", score: 9.0, desc: "Hub tecnológico, financiero y creativo de primer nivel europeo. Sede de multinacionales y startups top." },
         ],
-        reviews: [
-          { text: "Hice prácticas en Booking.com. El nivel era el de cualquier empresa de Silicon Valley. Ámsterdam es ese tipo de ciudad.", author: "Kim, Internship 2024", flag: "🇰🇷" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -1561,9 +1265,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.0, desc: "Ciudad segura para una capital de su tamaño. Poca violencia. El mayor problema son los hurtos." },
           { label: "Robos de bici", score: 5.5, desc: "Los robos de bicicletas son endémicos. Dos candados mínimo — uno para el cuadro, uno para la rueda. Sin excepción." },
           { label: "Zonas turísticas", score: 7.5, desc: "Carteristas en el Barrio Rojo y zonas muy turísticas. Precaución normal con pertenencias en aglomeraciones." },
-        ],
-        reviews: [
-          { text: "Me robaron la bici en la primera semana. Desde entonces, dos candados y la bici dentro de casa si puedo.", author: "Andrei, Erasmus 2024", flag: "🇷🇴" },
         ],
       },
       ],
@@ -1587,10 +1288,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Metro + tranvía + autobús con OV-chipkaart. Muy bien conectada internamente y con el resto de Holanda." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Cervezas a 4–5€. Muchos eventos culturales gratuitos o muy baratos. Escena más underground y menos cara que Ámsterdam." },
         ],
-        reviews: [
-          { text: "Rotterdam es Ámsterdam sin el precio ni el turismo masivo. Para mí fue la mejor decisión.", author: "Finn, Erasmus 2024", flag: "🇩🇰" },
-          { text: "Con 900€/mes vivía bien. Hubiera necesitado 1.400€ para lo mismo en Ámsterdam.", author: "Sara, Internship 2023", flag: "🇮🇹" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -1605,9 +1302,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.5, desc: "550–750€ habitación. Notablemente más barato que Ámsterdam para una calidad comparable." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "Kamernet, Pararius, grupos de Facebook de Erasmus University Rotterdam. Proceso similar al holandés estándar." },
           { label: "Residencias universitarias", score: 6.0, desc: "Consulta residencias universitarias disponibles — pueden ser la opción más cómoda y segura para los primeros meses." },
-        ],
-        reviews: [
-          { text: "Tardé 5 semanas pero encontré algo genial en Kralingen — zona estudiantil perfecta y más barata que el centro.", author: "Emma, Erasmus 2024", flag: "🇩🇪" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -1624,11 +1318,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "Rotterdamse Schouwburg, Annabel, Bird. Escena electrónica seria y muy local. Sin el turismo de fiesta de Ámsterdam." },
           { label: "Eventos y actividades", score: 7.5, desc: "North Sea Jazz Festival, Rotterdam Unlimited, Wereldhavendagen. Agenda de eventos de primer nivel internacional." },
         ],
-        reviews: [
-          { text: "Witte de Withstraat un jueves por la noche es uno de mis mejores recuerdos del Erasmus. Sin turistas, todo local.", author: "Hanna, Erasmus 2023", flag: "🇫🇮" },
-          { text: "El North Sea Jazz es increíble. Pasé tres días escuchando música de primer nivel mundial a precios razonables.", author: "Marcus, Exchange 2024", flag: "🇧🇷" },
-          { text: "La comunidad era más pequeña que en otras ciudades pero mucho más unida. Todos nos conocíamos.", author: "Lena, Erasmus 2023", flag: "🇦🇹" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -1644,9 +1333,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 8.5, desc: "Rotterdamers directos, trabajadores y sin pretensiones. Menos elitismo que en Ámsterdam. Muy auténticos." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
         ],
-        reviews: [
-          { text: "Rotterdam es la ciudad más diversa en la que he vivido. Cada barrio es un país diferente y todos conviven perfectamente.", author: "Aisha, Erasmus 2024", flag: "🇸🇳" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -1661,9 +1347,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 9.5, desc: "Infraestructura ciclista excelente como en toda Holanda. Imprescindible tener bici propia o de alquiler." },
           { label: "Conexiones nacionales", score: 9.0, desc: "Tren a Ámsterdam (40min), La Haya (25min), Utrecht (35min). Hub de transporte del sur de Holanda." },
           { label: "Escapadas de fin de semana", score: 9.0, desc: "Excelente posición para escapadas: Tren a Ámsterdam (40min), La Haya (25min), Utrecht (35min). Hub de transporte del sur de Holanda." },
-        ],
-        reviews: [
-          { text: "El metro de Rotterdam es de los mejores de Holanda. Puntual, limpio y conecta todo perfectamente.", author: "Joost, Erasmus 2023", flag: "🇳🇱" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -1681,11 +1364,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.0, desc: "La ciudad más multicultural de Holanda tiene la gastronomía más diversa. Cocina surinamesa, turca, marroquí, indonesia..." },
           { label: "Estilo de vida", score: 8.0, desc: "Ciudad con energía propia y sin pretensiones. Perfecta para quien busca autenticidad y no turismo de postal." },
         ],
-        reviews: [
-          { text: "Rotterdam es la ciudad más honesta que he vivido. Sin poses, sin turistas, con arquitectura que te rompe los esquemas.", author: "David, Erasmus 2024", flag: "🇬🇧" },
-          { text: "La Markthal para desayunar un domingo. Eso es Rotterdam en una imagen.", author: "Léa, Exchange 2023", flag: "🇫🇷" },
-          { text: "El invierno fue el mayor reto. Pero cuando salía el sol en mayo y la gente llenaba las terrazas, todo tenía sentido.", author: "Carlos, Exchange 2023", flag: "🇨🇱" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -1701,9 +1379,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 8.0, desc: "Ecosistema de startups en crecimiento. RDM Innovation Dock — espacio de innovación ligado al puerto. Mucho potencial." },
           { label: "Oportunidades para estudiantes", score: 8.5, desc: "Hub logístico, portuario y tecnológico de primer nivel europeo. Oportunidades reales en sectores clave." },
         ],
-        reviews: [
-          { text: "Hice prácticas en el departamento de supply chain del puerto. Una experiencia imposible de replicar en ningún otro sitio de Europa.", author: "Erik, Internship 2024", flag: "🇸🇪" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -1717,9 +1392,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.0, desc: "Ciudad segura para su tamaño. La diversidad no equivale a inseguridad — Rotterdam lo demuestra cada día." },
           { label: "Seguridad nocturna", score: 8.0, desc: "El centro y Witte de Withstraat son seguros de noche. Precaución estándar en zonas más periféricas." },
           { label: "Ambiente de la ciudad", score: 7.5, desc: "Delfshaven y Kralingen muy seguros. Algo más de precaución en algunas partes del sur de la ciudad." },
-        ],
-        reviews: [
-          { text: "Me sentí segura en todo momento. Rotterdam tiene fama de dura pero la realidad es mucho más tranquila.", author: "Giulia, Erasmus 2024", flag: "🇮🇹" },
         ],
       },
       ],
@@ -1743,10 +1415,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 9.5, desc: "Pase mensual metro + autobús + tranvía a 15€. El más barato de esta guía para una capital con metro." },
           { label: "Ocio y gastos diarios", score: 9.0, desc: "Cervezas a 1,50–2€. Ruin bars con entrada gratuita muchas noches. Baños termales por 15–20€." },
         ],
-        reviews: [
-          { text: "Con 450€/mes vivía mejor que con 1.100€ en Barcelona. Budapest es otro planeta en términos de precio.", author: "Núria, Erasmus 2024", flag: "🇪🇸" },
-          { text: "El pase de transporte a 15€ al mes me pareció un error. No era un error.", author: "Thomas, Erasmus 2023", flag: "🇩🇪" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -1761,9 +1429,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 8.5, desc: "250–400€ habitación. Pisos enteros desde 600€. Todavía muy asequible para la calidad ofrecida." },
           { label: "Facilidad de búsqueda", score: 7.5, desc: "Albérlet.hu, grupos de Facebook de Corvinus y ELTE, Erasmus in Budapest. Proceso ágil desde el extranjero." },
           { label: "Residencias universitarias", score: 6.0, desc: "Consulta residencias universitarias disponibles — pueden ser la opción más cómoda y segura para los primeros meses." },
-        ],
-        reviews: [
-          { text: "Encontré un alojamiento en el Distrito VII, a 5 minutos de Szimpla, por 350€. En ningún otro sitio de Europa sería posible.", author: "Lukas, Erasmus 2024", flag: "🇨🇿" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -1780,11 +1445,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 10.0, desc: "Szimpla Kert, Instant, Fogasház. Bares en edificios en ruinas con salas temáticas, arte y ambiente imposible de copiar." },
           { label: "Eventos y actividades", score: 10.0, desc: "ESN muy activo. Erasmus parties legendarias, cruceros por el Danubio, visitas a los baños termales en grupo." },
         ],
-        reviews: [
-          { text: "Szimpla Kert un domingo por la mañana con mercadillo incluido. No existe nada igual en Europa.", author: "Camille, Erasmus 2023", flag: "🇫🇷" },
-          { text: "Las Erasmus parties en Budapest son legendarias. Gente de 30 países en el mismo sitio cada semana.", author: "Marco, Erasmus 2024", flag: "🇮🇹" },
-          { text: "El ESN organizó una noche en los baños termales en la primera semana. Ahí hice los amigos del Erasmus.", author: "Sofia, Erasmus 2023", flag: "🇬🇷" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -1800,9 +1460,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 8.0, desc: "La enorme comunidad Erasmus hace fácil la vida social. Integrarse con locales lleva más tiempo pero vale la pena." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
         ],
-        reviews: [
-          { text: "Los húngaros parecen serios al principio pero son de las personas más generosas que he conocido.", author: "Ana, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -1817,9 +1474,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 9.0, desc: "Los tranvías de Budapest son icónicos. La línea 2 junto al Danubio es una de las rutas más bonitas de Europa." },
           { label: "Conexiones nacionales", score: 8.5, desc: "Tren a Viena (2h30), Praga (7h), Bratislava (2h30). Posición central en Europa perfecta para viajar." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Excelente posición para escapadas: Tren a Viena (2h30), Praga (7h), Bratislava (2h30). Posición central en Europa perfecta para viajar." },
-        ],
-        reviews: [
-          { text: "El tranvía nocturno junto al Danubio a las 2am es una de las experiencias más bonitas de mi Erasmus.", author: "Ingrid, Erasmus 2023", flag: "🇸🇪" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -1837,11 +1491,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Gulasch, lángos, kürtőskalács. Cocina húngara contundente y deliciosa. Restaurantes excelentes a precios mínimos." },
           { label: "Estilo de vida", score: 9.0, desc: "La combinación de precio bajo, belleza extrema y vida social intensa hace que el bienestar sea altísimo." },
         ],
-        reviews: [
-          { text: "Budapest tiene algo mágico que no sé explicar. Solo sé que me fui llorando y que volvería mañana.", author: "Alice, Erasmus 2023", flag: "🇫🇷" },
-          { text: "Los baños termales un domingo por la mañana se convirtieron en mi ritual semanal. No hay mejor forma de vivir.", author: "Erik, Erasmus 2024", flag: "🇳🇴" },
-          { text: "El invierno en los baños termales de Széchenyi, con nieve cayendo alrededor, fue lo más especial del año.", author: "Elisa, Erasmus 2024", flag: "🇮🇹" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -1857,9 +1506,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "El boom turístico ha creado muchas oportunidades en hostelería, guías y servicios de experiencias." },
           { label: "Oportunidades para estudiantes", score: 7.2, desc: "Hub regional en crecimiento. Finanzas, tech y empresas internacionales con sede en Budapest." },
         ],
-        reviews: [
-          { text: "Hice prácticas en un SSC de una multinacional americana. Todo en inglés, equipo de 15 nacionalidades. Muy buen nivel.", author: "Kristof, Internship 2023", flag: "🇸🇰" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -1873,9 +1519,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Ciudad segura para estándares europeos. Poca violencia. El mayor riesgo son hurtos en zonas turísticas." },
           { label: "Seguridad nocturna", score: 8.0, desc: "Las zonas de ruin bars son seguras y muy concurridas. Precaución estándar volviendo solo de madrugada." },
           { label: "Ambiente de la ciudad", score: 7.5, desc: "Presentes en el metro y zonas turísticas como el Distrito VII. Bolsillos interiores recomendados." },
-        ],
-        reviews: [
-          { text: "Me robaron la cartera en el metro en hora punta. Lo típico de las ciudades turísticas. Desde entonces, bolsillo interior.", author: "Jan, Erasmus 2023", flag: "🇵🇱" },
         ],
       },
       ],
@@ -1899,10 +1542,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 9.5, desc: "Pase mensual metro + tranvía + autobús a 20€. Red 24h los fines de semana. Increíble relación calidad-precio." },
           { label: "Ocio y gastos diarios", score: 9.0, desc: "Cervezas a 1–2€. Entrada a clubs entre 5–10€. La vida nocturna más barata de una capital bella de Europa." },
         ],
-        reviews: [
-          { text: "Salía tres noches por semana y no gastaba más de 30€ en total. En París eso es una copa.", author: "Antoine, Erasmus 2024", flag: "🇫🇷" },
-          { text: "La cerveza más barata que el agua no es un mito. Es literalmente verdad en los bares locales.", author: "James, Exchange 2023", flag: "🇬🇧" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -1917,9 +1556,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.0, desc: "300–500€ habitación. Ha subido pero todavía muy por debajo de capitales occidentales." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "Sreality.cz, grupos de Facebook de Charles University, Erasmus in Prague. Empieza 2–3 meses antes." },
           { label: "Residencias universitarias", score: 6.0, desc: "Consulta residencias universitarias disponibles — pueden ser la opción más cómoda y segura para los primeros meses." },
-        ],
-        reviews: [
-          { text: "Tardé un mes pero encontré algo genial en Žižkov. Alejado del centro turístico pero con mejor ambiente.", author: "Hannah, Erasmus 2024", flag: "🇦🇺" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -1936,11 +1572,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "Bares en sótanos medievales, cervecerías artesanales, terrazas junto al Moldava. Para todos los gustos y a precios mínimos." },
           { label: "Eventos y actividades", score: 9.0, desc: "ESN muy activo. Pub crawls legendarios, cenas internacionales, trips a Dresde y Viena casi cada fin de semana." },
         ],
-        reviews: [
-          { text: "Náplavka en verano es lo más bonito que he visto en Europa. Música, cerveza y el Moldava de fondo.", author: "Klara, Erasmus 2023", flag: "🇩🇪" },
-          { text: "El pub crawl del ESN fue la primera noche — y ahí conocí a mis mejores amigos del Erasmus.", author: "Valentina, Erasmus 2024", flag: "🇮🇹" },
-          { text: "El ESN organizaba trips cada fin de semana. Fui a Viena, Dresde y Bratislava por menos de 50€ cada vez.", author: "Rafa, Erasmus 2023", flag: "🇪🇸" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -1956,9 +1587,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "La burbuja turística es real en el centro. Salir a barrios como Žižkov o Vinohrady abre la puerta a la Praga real." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
         ],
-        reviews: [
-          { text: "Al principio parecían fríos pero con tiempo descubrí que son muy divertidos y sarcásticos. Me encantaron.", author: "Pedro, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -1973,9 +1601,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 9.5, desc: "Red de tranvías icónica y eficiente. Funciona 24h. Recorrer Praga en tranvía es una experiencia en sí misma." },
           { label: "Conexiones nacionales", score: 9.0, desc: "Tren a Viena (4h), Berlín (4h30), Budapest (7h). Posición central perfecta para escapadas de fin de semana." },
           { label: "Escapadas de fin de semana", score: 9.0, desc: "Excelente posición para escapadas: Tren a Viena (4h), Berlín (4h30), Budapest (7h). Posición central perfecta para escapadas de fin de semana." },
-        ],
-        reviews: [
-          { text: "El tranvía nocturno de Praga es puntual a las 3am. Algo que muchas ciudades del oeste no pueden decir.", author: "Mikael, Erasmus 2023", flag: "🇫🇮" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -1993,11 +1618,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "Svíčková, gulasch, trdelník. Cocina checa contundente. Y una escena foodie moderna en auge en Vinohrady." },
           { label: "Estilo de vida", score: 9.0, desc: "Precio bajo, ciudad preciosa, vida social intensa, buena oferta cultural. La fórmula perfecta del Erasmus." },
         ],
-        reviews: [
-          { text: "Praga es la ciudad más bonita en la que he estado. Y encima barata. Y encima con buena cerveza. No existe nada mejor.", author: "Oliver, Exchange 2024", flag: "🇬🇧" },
-          { text: "Cada vez que tenía un día libre me perdía por un barrio nuevo. En 6 meses no la terminé de descubrir.", author: "Lucia, Erasmus 2023", flag: "🇨🇴" },
-          { text: "Los mercados navideños de Praga son lo más bonito que he visto en Europa. Vale la pena el frío.", author: "Elisa, Erasmus 2023", flag: "🇩🇪" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -2013,9 +1633,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "Ecosistema startup en crecimiento. Menos maduro que Varsovia pero con mucho potencial y ambiente innovador." },
           { label: "Oportunidades para estudiantes", score: 7.5, desc: "Hub regional sólido. Tech, finanzas y centros de servicios de multinacionales con fuerte presencia." },
         ],
-        reviews: [
-          { text: "Hice prácticas en Kiwi.com — una startup checa de viajes increíble. Ambiente joven, inglés al 100% y muy buen nivel técnico.", author: "Pavel, Internship 2024", flag: "🇸🇰" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -2029,9 +1646,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Una de las capitales más seguras de Europa Central. Criminalidad muy baja para su tamaño." },
           { label: "Timos turísticos", score: 6.5, desc: "El mayor riesgo son los taxistas sin taxímetro y los cambios de moneda ilegales. Usa Bolt y casas de cambio oficiales." },
           { label: "Seguridad nocturna", score: 8.5, desc: "Las zonas de fiesta son seguras. Precaución normal con pertenencias en el pub crawl y lugares concurridos." },
-        ],
-        reviews: [
-          { text: "Me intentaron cobrar 50€ por un trayecto de taxi de 5 minutos. Usa Bolt siempre. Sin excepción.", author: "Luisa, Erasmus 2023", flag: "🇧🇷" },
         ],
       },
       ],
@@ -2055,10 +1669,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 9.5, desc: "Pase mensual de tranvía y autobús a 20€. La ciudad entera caminable desde el centro." },
           { label: "Ocio y gastos diarios", score: 9.0, desc: "Noche entera con 20–30€. Shots a 1€, cervezas a 1,50€. La vida nocturna más barata de Europa occidental." },
         ],
-        reviews: [
-          { text: "Con 400€/mes vivía mejor que en España con 1.000€. No exagero. Cracovia te cambia la perspectiva del dinero.", author: "Sergio, Erasmus 2024", flag: "🇪🇸" },
-          { text: "El primer mes no me creía los precios. Pensaba que algo fallaba. No fallaba nada.", author: "Lucie, Erasmus 2023", flag: "🇫🇷" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -2073,9 +1683,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 9.0, desc: "200–350€ habitación. Pisos enteros desde 500€. Los precios más bajos de esta guía." },
           { label: "Facilidad de búsqueda", score: 7.5, desc: "OLX.pl, grupos de Facebook de la Jagiellonian, Erasmus in Krakow. Proceso sencillo desde el extranjero." },
           { label: "Residencias universitarias", score: 6.0, desc: "Consulta residencias universitarias disponibles — pueden ser la opción más cómoda y segura para los primeros meses." },
-        ],
-        reviews: [
-          { text: "Encontré un alojamiento entero por 500€ al mes con dos compañeras. En mi ciudad eso es una habitación.", author: "Giulia, Erasmus 2024", flag: "🇮🇹" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -2092,11 +1699,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "Kazimierz tiene cientos de bares en sótanos medievales. Cada uno con su ambiente. La calle Szeroka es imprescindible." },
           { label: "Eventos y actividades", score: 9.5, desc: "ESN muy activo. Pub crawls, cenas internacionales, excursiones a Zakopane y Auschwitz cada semana." },
         ],
-        reviews: [
-          { text: "Las noches en Kazimierz son irrepetibles. Cada bar es diferente, todo es barato y la gente es increíble.", author: "Tom, Erasmus 2023", flag: "🇬🇧" },
-          { text: "El Juwenalia fue lo más loco que he vivido en mi vida. Tres días de fiesta con toda la ciudad.", author: "Marta, Erasmus 2024", flag: "🇩🇪" },
-          { text: "El ESN organizaba algo cada dos días. Nunca me aburrí ni me sentí solo un solo momento.", author: "Pierre, Erasmus 2023", flag: "🇫🇷" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -2112,9 +1714,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 8.0, desc: "La enorme comunidad Erasmus facilita la vida. Integrarse con locales requiere más esfuerzo pero vale la pena." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
         ],
-        reviews: [
-          { text: "Al principio pensé que eran fríos. Luego me invitaron a la casa de su familia en Navidad. Son de otra pasta.", author: "Isabel, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -2129,9 +1728,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 9.5, desc: "El centro histórico entero es caminable. Del Rynek a Kazimierz en 15 minutos. La mejor forma de moverse." },
           { label: "Conexiones nacionales", score: 8.0, desc: "Tren a Varsovia (2h20), Praga (7h), Viena (7h). Autobuses FlixBus muy baratos a toda Europa." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Excelente posición para escapadas: Tren a Varsovia (2h20), Praga (7h), Viena (7h). Autobuses FlixBus muy baratos a toda Europa." },
-        ],
-        reviews: [
-          { text: "En tres meses apenas usé el tranvía. Todo estaba a 15 minutos a pie.", author: "Anna, Erasmus 2023", flag: "🇸🇪" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -2149,11 +1745,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Pierogi, żurek, bigos. Cocina polaca contundente y deliciosa. Restaurantes excelentes a precios irrisorios." },
           { label: "Estilo de vida", score: 9.0, desc: "Tamaño perfecto: grande para tener de todo, pequeña para no perderse. La ciudad ideal para el Erasmus." },
         ],
-        reviews: [
-          { text: "Cracovia tiene el tamaño perfecto. En 20 minutos llegas a cualquier sitio y siempre hay algo nuevo que descubrir.", author: "Rafa, Erasmus 2024", flag: "🇪🇸" },
-          { text: "La visita a Auschwitz fue lo más impactante de mi Erasmus. Necesaria y transformadora.", author: "Hannah, Exchange 2023", flag: "🇺🇸" },
-          { text: "El invierno fue duro pero también mágico. Cracovia nevada es de postal. Compra buen abrigo.", author: "Elena, Erasmus 2023", flag: "🇬🇷" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -2169,9 +1760,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.0, desc: "Ecosistema startup menos maduro que Varsovia pero en crecimiento. Buenas opciones para perfiles técnicos." },
           { label: "Oportunidades para estudiantes", score: 6.8, desc: "Mercado laboral en crecimiento. Mejor para prácticas en empresas polacas que para multinacionales top." },
         ],
-        reviews: [
-          { text: "Hice prácticas en el centro de IBM de Cracovia. Todo en inglés, equipo internacional. No esperaba ese nivel.", author: "Mikkel, Internship 2024", flag: "🇩🇰" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -2185,9 +1773,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.0, desc: "Índice de criminalidad muy bajo. Ciudad tranquila y segura para estándares europeos." },
           { label: "Seguridad nocturna", score: 8.5, desc: "Kazimierz y el Rynek son seguros incluso de madrugada. Presencia policial discreta pero efectiva." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Problema muy menor. Nada comparable a ciudades del sur o del oeste de Europa." },
-        ],
-        reviews: [
-          { text: "Volví sola a las 4am caminando por el centro docenas de veces. Nunca tuve ningún problema.", author: "Katja, Erasmus 2024", flag: "🇩🇪" },
         ],
       },
       ],
@@ -2211,10 +1796,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 9.0, desc: "Metro + autobús + tranvía por 22€/mes. Red amplia y moderna. Una de las más baratas de Europa." },
           { label: "Ocio y gastos diarios", score: 8.5, desc: "Cervezas a 2–3€. Vida nocturna barata y variada. Muchos eventos culturales gratuitos." },
         ],
-        reviews: [
-          { text: "Con 600€/mes vivía cómodo y ahorraba. En Madrid eso no me daría ni para el piso.", author: "Diego, Erasmus 2024", flag: "🇪🇸" },
-          { text: "La relación calidad-precio de Varsovia es imbatible para una capital europea de este tamaño.", author: "Lena, Internship 2023", flag: "🇩🇪" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -2229,9 +1810,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 8.0, desc: "300–450€ habitación. Subiendo año a año pero todavía muy asequible para una capital." },
           { label: "Facilidad de búsqueda", score: 7.5, desc: "OLX.pl, Otodom, grupos de Facebook de la Universidad de Varsovia. El proceso es más ágil que en ciudades del oeste." },
           { label: "Residencias universitarias", score: 6.0, desc: "Consulta residencias universitarias disponibles — pueden ser la opción más cómoda y segura para los primeros meses." },
-        ],
-        reviews: [
-          { text: "Encontré alojamiento en dos semanas desde Países Bajos. Sin dramas, sin competencia brutal. Muy diferente a Ámsterdam.", author: "Joost, Erasmus 2024", flag: "🇳🇱" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -2248,11 +1826,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "Smolna, Jasna 1, Pogłos. Escena electrónica seria y en crecimiento. Muy por encima de lo que la gente espera." },
           { label: "Eventos y actividades", score: 8.5, desc: "ESN activo. Eventos regulares entre la comunidad internacional. La ciudad tiene mucho que ofrecer más allá del campus." },
         ],
-        reviews: [
-          { text: "Varsovia tiene una escena de clubs que no esperaba. Smolna es de lo mejor que he visto en Europa.", author: "Axel, Erasmus 2023", flag: "🇫🇷" },
-          { text: "Los rooftops con vistas al skyline son una experiencia única. Nada que envidiar a ciudades más famosas.", author: "Sara, Exchange 2024", flag: "🇮🇹" },
-          { text: "El buddy system del ESN fue increíble. Mi compañero polaco me enseñó la ciudad entera en la primera semana.", author: "Clara, Erasmus 2023", flag: "🇧🇪" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -2268,9 +1841,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 8.0, desc: "La ciudad atrae cada vez más expatriados y estudiantes internacionales. El ambiente es cosmopolita y abierto." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
         ],
-        reviews: [
-          { text: "Al principio me costó conectar con locales pero en el trabajo de prácticas hice amigos polacos increíbles.", author: "Nina, Internship 2024", flag: "🇳🇱" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -2285,9 +1855,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 8.5, desc: "Red densa que cubre toda la ciudad. Funciona las 24h con servicios nocturnos. Muy fiable." },
           { label: "Conexiones nacionales", score: 8.5, desc: "Tren a Cracovia (2h20), Gdansk (3h), Berlín (6h). Aeropuerto Chopin con vuelos lowcost a toda Europa." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Excelente posición para escapadas: Tren a Cracovia (2h20), Gdansk (3h), Berlín (6h). Aeropuerto Chopin con vuelos lowcost a toda Europa." },
-        ],
-        reviews: [
-          { text: "El metro de Varsovia es mejor que el de muchas ciudades occidentales. Nunca esperé más de 3 minutos.", author: "Felix, Erasmus 2023", flag: "🇦🇹" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -2305,11 +1872,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "Pierogi, żurek, barszcz. Pero también una escena foodie moderna con restaurantes de todo el mundo." },
           { label: "Estilo de vida", score: 8.0, desc: "Ritmo intenso de capital pero con precios que no asfixian. La combinación perfecta para el Erasmus ambicioso." },
         ],
-        reviews: [
-          { text: "El Museo del Levantamiento de Varsovia me dejó sin palabras. Nunca había entendido tanto la historia de un país.", author: "Sophie, Exchange 2024", flag: "🇨🇭" },
-          { text: "Varsovia tiene esa energía de ciudad que no ha llegado a su techo todavía. Todo está pasando ahora.", author: "Carlos, Internship 2023", flag: "🇲🇽" },
-          { text: "El invierno fue lo más duro. Pero los varsovianoss saben vivir con él — te contagian su energía.", author: "Marco, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -2325,9 +1887,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 8.5, desc: "Samsung, Google, Accenture, Deloitte tienen centros importantes en Varsovia. Muchas prácticas en inglés." },
           { label: "Oportunidades para estudiantes", score: 8.5, desc: "El hub de empleo más potente de Polonia. Finanzas, tech, consultoría y multinacionales con base en Varsovia." },
         ],
-        reviews: [
-          { text: "Hice prácticas en Accenture Varsovia todo en inglés. El nivel era el mismo que en cualquier oficina de Londres.", author: "Petra, Internship 2024", flag: "🇨🇿" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -2341,9 +1900,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Una de las capitales más seguras de Europa Central. Criminalidad baja para una ciudad de 2 millones." },
           { label: "Seguridad nocturna", score: 8.0, desc: "Zonas de fiesta bien vigiladas. Precaución normal en estaciones de metro de madrugada." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Śródmieście y Mokotów muy seguros. Precaución estándar en algunas zonas periféricas." },
-        ],
-        reviews: [
-          { text: "Me sentí segura en todo momento. Varsovia tiene fama de dura pero la realidad es muy diferente.", author: "Maria, Erasmus 2024", flag: "🇵🇹" },
         ],
       },
       ],
@@ -2367,10 +1923,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.5, desc: "GTT mensual a 35€. Metro + autobuses + tranvías. Red compacta y eficiente para el tamaño de la ciudad." },
           { label: "Ocio y gastos diarios", score: 8.0, desc: "Cervezas a 3–4€. Aperitivo turinés (el original, antes que Milán) con buffet incluido. Mucha oferta cultural gratuita." },
         ],
-        reviews: [
-          { text: "Con 700€/mes vivía mejor que amigos míos en Milán con 1.200€. Turín es el secreto mejor guardado de Italia.", author: "Pablo, Erasmus 2024", flag: "🇪🇸" },
-          { text: "El mercado de Porta Palazzo me cambió la vida. Fruta, queso y pan fresco por nada. Cada sábado era una fiesta.", author: "Mia, Erasmus 2023", flag: "🇩🇰" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -2385,9 +1937,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 8.0, desc: "300–450€ habitación. De las más baratas entre ciudades universitarias italianas de tamaño comparable." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "Idealista, Subito.it, grupos de Facebook del Politecnico di Torino y UniTo. Proceso más relajado que en otras ciudades." },
           { label: "Residencias universitarias", score: 6.0, desc: "Consulta residencias universitarias disponibles — pueden ser la opción más cómoda y segura para los primeros meses." },
-        ],
-        reviews: [
-          { text: "Encontré alojamiento en una semana desde Berlín. Algo impensable en Milán o Roma.", author: "Jana, Erasmus 2024", flag: "🇩🇪" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -2404,11 +1953,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "San Salvario y Vanchiglia concentran la vida estudiantil. El aperitivo turinés es el original — más cuidado y con más producto que el milanés." },
           { label: "Eventos y actividades", score: 8.5, desc: "ESN activo con eventos regulares. La comunidad es más íntima — fácil hacer amigos de verdad, no solo conocidos." },
         ],
-        reviews: [
-          { text: "San Salvario de noche tiene una energía especial. Más íntimo que Roma, más auténtico que Milán.", author: "Beatriz, Erasmus 2023", flag: "🇵🇹" },
-          { text: "La comunidad Erasmus era pequeña pero unida. Acabamos siendo como una familia.", author: "Erik, Exchange 2024", flag: "🇸🇪" },
-          { text: "Éramos pocos Erasmus pero nos conocíamos todos. Fue la experiencia más auténtica que podría haber tenido.", author: "Sofía, Erasmus 2023", flag: "🇬🇷" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -2423,9 +1967,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 8.5, desc: "Turineses elegantes y discretos. No invasivos pero muy generosos cuando te conocen. Relaciones más profundas." },
           { label: "Integración con locales", score: 8.5, desc: "Al ser menos turística, la integración real con locales es más fácil. Menos burbuja Erasmus." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
-        ],
-        reviews: [
-          { text: "Los turineses son más tímidos que los romanos pero mucho más auténticos. Mis mejores amigos italianos son de Turín.", author: "Camille, Erasmus 2024", flag: "🇫🇷" },
         ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
@@ -2443,9 +1984,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 8.5, desc: "Tren a Milán (45min), Génova (2h), Lyon (3h30). Aeropuerto de Caselle con vuelos lowcost." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Excelente posición para escapadas: Tren a Milán (45min), Génova (2h), Lyon (3h30). Aeropuerto de Caselle con vuelos lowcost." },
         ],
-        reviews: [
-          { text: "Me compré una bici usada por 50€ y me moví por toda la ciudad sin gastar un euro más en transporte.", author: "Lars, Erasmus 2023", flag: "🇳🇴" },
-        ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
       {
@@ -2462,11 +2000,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.0, desc: "Cuna del vermut, del grissini y del bicerin. Chocolate Venchi y Guido Gobino. Gastronomía piamontesa de altísimo nivel." },
           { label: "Estilo de vida", score: 8.5, desc: "Ritmo de vida equilibrado. Sin el caos de Roma ni el estrés de Milán. La ciudad ideal para estudiar y disfrutar." },
         ],
-        reviews: [
-          { text: "Turín tiene todo lo que necesitas sin el ruido de las ciudades grandes. Mi Erasmus ideal.", author: "Lena, Erasmus 2024", flag: "🇦🇹" },
-          { text: "El Museo Egizio me dejó sin palabras. Y el bicerin del café Al Bicerin es lo más rico que he probado en Europa.", author: "James, Exchange 2023", flag: "🇺🇸" },
-          { text: "El invierno fue frío pero fui a esquiar tres veces por 30€ todo incluido. En Roma eso es imposible.", author: "Marco, Erasmus 2023", flag: "🇪🇸" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -2482,9 +2015,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "I3P (incubadora del Politecnico) es una de las mejores de Italia. Ecosistema joven pero con mucho potencial." },
           { label: "Oportunidades para estudiantes", score: 7.5, desc: "Motor industrial de Italia. Automoción, aeroespacial y tech con un ecosistema de startups en rápido crecimiento." },
         ],
-        reviews: [
-          { text: "Hice prácticas en Stellantis gracias al Politecnico. Una experiencia técnica imposible de conseguir en otra ciudad italiana.", author: "Klaus, Internship 2024", flag: "🇩🇪" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -2498,9 +2028,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Ciudad tranquila con baja incidencia de delitos. Muy segura para estándares de ciudades universitarias italianas." },
           { label: "Seguridad nocturna", score: 8.0, desc: "San Salvario y Vanchiglia son seguros de noche. Precaución normal en zonas periféricas." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Nivel muy bajo comparado con Roma o Milán. No es un problema habitual para los estudiantes." },
-        ],
-        reviews: [
-          { text: "Nunca me sentí en peligro en ningún momento, ni de día ni de noche. Turín es muy tranquila.", author: "Ingrid, Erasmus 2024", flag: "🇩🇰" },
         ],
       },
       ],
@@ -2524,10 +2051,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.0, desc: "CityPass mensual a 51€. Metro limitado (solo 3 líneas) pero autobuses y tranvías cubren bien la ciudad." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Cervezas a 4–5€. Mucha vida gratuita: Coliseo exterior, fontanas, Villa Borghese. La ciudad entera es un museo al aire libre." },
         ],
-        reviews: [
-          { text: "Con 900€/mes vivía bien en Pigneto. Lejos del centro turístico pero con buena conexión.", author: "Clara, Erasmus 2023", flag: "🇩🇪" },
-          { text: "La pizza al taglio me salvó el presupuesto. 2€ y estás lleno. Roma sabe cuidarte si sabes buscar.", author: "Andrés, Erasmus 2024", flag: "🇨🇴" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -2542,10 +2065,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 5.5, desc: "450–650€ habitación. Pigneto, Nomentano y Ostiense son las zonas más asequibles para estudiantes." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "Idealista, Uniplaces, grupos de Facebook de Sapienza y LUISS. Empieza 3 meses antes mínimo." },
           { label: "Residencias universitarias", score: 6.0, desc: "Las residencias de Sapienza son muy limitadas. No cuentes con ellas y busca por libre desde el principio." },
-        ],
-        reviews: [
-          { text: "Busqué desde España durante 2 meses. Al final encontré algo en Pigneto — perfecto, aunque lejos del campus.", author: "María, Erasmus 2024", flag: "🇪🇸" },
-          { text: "Las residencias de Sapienza son muy limitadas. No cuentes con ellas y busca por libre desde el principio.", author: "Giulio, estudiante local", flag: "🇮🇹" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -2562,11 +2081,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "Trastevere para bares de calle, Testaccio para clubs, Pigneto para ambiente alternativo y local." },
           { label: "Eventos y actividades", score: 9.5, desc: "ESN muy activo entre las universidades romanas. Fiestas en terrazas, cenas internacionales, trips a la costa." },
         ],
-        reviews: [
-          { text: "Una noche en Trastevere con italianos y estudiantes de doce países. Eso es Roma.", author: "Léa, Erasmus 2023", flag: "🇫🇷" },
-          { text: "El verano romano es incomparable. Cada plaza es un salón de estar y cada fuente un sitio de encuentro.", author: "Niklas, Exchange 2024", flag: "🇫🇮" },
-          { text: "El ESN de Roma Tre organizó una cena internacional la primera semana. Ahí hice mis mejores amigos del Erasmus.", author: "Klara, Erasmus 2023", flag: "🇨🇿" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -2582,9 +2096,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 8.5, desc: "Fácil conectar a través de la comida, el fútbol (Roma vs Lazio) y la vida de barrio. La cultura romana engancha." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
         ],
-        reviews: [
-          { text: "La familia de mi compañera de piso me invitó a cenar cada domingo. Roma te adopta si te dejas.", author: "Irina, Erasmus 2024", flag: "🇷🇴" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -2599,9 +2110,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 6.5, desc: "Red extensa pero poco puntual. La app Moovit es esencial. Mejor evitar horas punta." },
           { label: "Ciudad caminable", score: 8.5, desc: "El centro histórico es perfectamente caminable. La bici funciona en zonas planas pero el tráfico es un reto." },
           { label: "Conexiones nacionales", score: 7.5, desc: "Termini conecta con toda Italia. AVE a Nápoles (1h10), Florencia (1h30), Milán (3h)." },
-        ],
-        reviews: [
-          { text: "El transporte es el caos de Roma. Al final me compré una bicicleta y fue la mejor decisión.", author: "Tom, Erasmus 2023", flag: "🇬🇧" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -2619,11 +2127,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.5, desc: "Carbonara, cacio e pepe, supplì, gelato auténtico. La cocina romana es sencilla, potente e irresistible." },
           { label: "Estilo de vida", score: 8.5, desc: "El caos romano se vuelve parte de ti. La ciudad enseña a vivir con más calma y más pasión a la vez." },
         ],
-        reviews: [
-          { text: "Roma no es perfecta pero tiene algo que ninguna otra ciudad tiene. No sé definirlo, solo sé que lo echo de menos.", author: "Emma, Erasmus 2023", flag: "🇸🇪" },
-          { text: "El mejor año de mi vida. El carbonara, las noches en Trastevere y el Coliseo al atardecer. Punto.", author: "Javier, Erasmus 2024", flag: "🇪🇸" },
-          { text: "Fui en febrero pensando que haría frío. Estaba en manga corta. El clima de Roma es un regalo.", author: "Petra, Erasmus 2024", flag: "🇸🇰" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -2639,9 +2142,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 5.5, desc: "Ecosistema tech menos desarrollado que Milán. Creciendo pero todavía limitado en comparación." },
           { label: "Oportunidades para estudiantes", score: 7.0, desc: "Buenas oportunidades en medios, cultura, política y organismos internacionales. Menos tech que Milán." },
         ],
-        reviews: [
-          { text: "Hice prácticas en la FAO gracias a un programa de LUISS. Una experiencia que no habría tenido en ningún otro sitio.", author: "Valentina, Internship 2024", flag: "🇦🇷" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -2655,9 +2155,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.5, desc: "La violencia es rara. Los problemas más comunes son hurtos y carteristas, no agresiones." },
           { label: "Ambiente de la ciudad", score: 6.0, desc: "Más frecuentes que en Bolonia o Turín. Especial atención en el metro, autobuses llenos y zonas turísticas muy concurridas." },
           { label: "Seguridad nocturna", score: 7.5, desc: "Trastevere y Testaccio son seguros y muy concurridos. Precaución normal en zonas más oscuras." },
-        ],
-        reviews: [
-          { text: "Me robaron el móvil en el autobús 40. Lleva los objetos de valor en bolsillos interiores siempre.", author: "Hugo, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
       ],
@@ -2681,10 +2178,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.0, desc: "ATM mensual (metro + tram + bus) a 39€. Red muy completa y puntual. Una de las mejores de Italia." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Cervezas a 5–7€ en bares. El aperitivo salva la situación: bebida + buffet por 8–10€. Museos gratis el primer martes de mes." },
         ],
-        reviews: [
-          { text: "El aperitivo fue mi salvavidas. Con 10€ tomaba algo y cenaba. Cinco noches a la semana.", author: "Carla, Erasmus 2024", flag: "🇪🇸" },
-          { text: "Es cara, no te van a engañar. Pero las prácticas en Bocconi lo compensan con creces.", author: "Luca, Internship 2023", flag: "🇩🇪" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -2699,10 +2192,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 4.5, desc: "550–800€ habitación individual. Compartir piso es casi obligatorio para no arruinarse." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "Idealista, Uniplaces, Spotahome, grupos de Facebook de Bocconi y Politecnico. Prepara una presentación breve de ti mismo." },
           { label: "Residencias universitarias", score: 6.0, desc: "Las residencias universitarias del Politecnico son la mejor opción. Pídelas en cuanto te acepten." },
-        ],
-        reviews: [
-          { text: "Mandé 60 mensajes en Idealista antes de conseguir visita. Empieza antes de lo que creas necesario.", author: "Elena, Erasmus 2023", flag: "🇩🇪" },
-          { text: "Las residencias universitarias del Politecnico son la mejor opción. Pídelas en cuanto te acepten.", author: "Rui, Erasmus 2024", flag: "🇵🇹" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -2719,11 +2208,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "Navigli es el epicentro. De jueves a sábado los canales se llenan de gente. Ambiente único en Europa." },
           { label: "Eventos y actividades", score: 8.5, desc: "ESN muy activo en Bocconi, Politecnico y Statale. Fiestas temáticas, spritz tours y cenas internacionales." },
         ],
-        reviews: [
-          { text: "Navigli de noche es una de las cosas más bonitas que he vivido en Europa. Imprescindible.", author: "Sophie, Erasmus 2023", flag: "🇫🇷" },
-          { text: "Los eventos del ESN de Bocconi son increíbles. Muy bien organizados y con gente de todo el mundo.", author: "Jonas, Erasmus 2024", flag: "🇸🇪" },
-          { text: "La comunidad internacional de Bocconi es brutal. Hice contactos que hoy son colegas en cinco países.", author: "Marta, Erasmus 2022", flag: "🇪🇸" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -2739,9 +2223,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 8.5, desc: "La alta concentración de estudiantes internacionales facilita la integración. La comunidad Erasmus es enorme." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
         ],
-        reviews: [
-          { text: "Al principio me pareció fría, pero con el tiempo descubrí que los milaneses son muy leales como amigos.", author: "Ana, Erasmus 2023", flag: "🇵🇹" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -2756,9 +2237,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 8.5, desc: "Los tranvías históricos son lentos pero encantadores. Los autobuses completan la red perfectamente." },
           { label: "Conexiones nacionales", score: 9.0, desc: "Tren a Turín (45min), Venecia (2h20), Bolonia (1h), Roma (3h). Hub ferroviario de Italia." },
           { label: "Escapadas de fin de semana", score: 9.0, desc: "Excelente posición para escapadas: Tren a Turín (45min), Venecia (2h20), Bolonia (1h), Roma (3h). Hub ferroviario de Italia." },
-        ],
-        reviews: [
-          { text: "Con el pase ATM me moví por toda la ciudad sin estrés. Muy distinto a Roma.", author: "Michael, Erasmus 2024", flag: "🇬🇧" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -2776,11 +2254,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.0, desc: "Aperitivo, risotto alla milanese, panettone. Y cocina del mundo en cada barrio." },
           { label: "Estilo de vida", score: 7.5, desc: "Ritmo intenso y exigente. Perfecta para quien quiere crecer, más difícil si buscas relax." },
         ],
-        reviews: [
-          { text: "Milán te exige pero te da todo a cambio. Salí siendo mejor profesional y persona.", author: "David, Internship 2023", flag: "🇫🇷" },
-          { text: "La ciudad más estimulante en la que he vivido. No para quien quiera tranquilidad.", author: "Yuki, Exchange 2024", flag: "🇯🇵" },
-          { text: "El verano fue sofocante pero la primavera milanesa es espectacular. Parque Sempione lleno de vida.", author: "Andrea, Erasmus 2024", flag: "🇨🇴" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -2796,9 +2269,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 8.5, desc: "Ecosistema tech creciente. H-Farm, TechStars Milano. Menos que Berlín pero en rápido crecimiento." },
           { label: "Oportunidades para estudiantes", score: 9.2, desc: "La mejor ciudad de Italia para prácticas. Moda, finanzas, tech y diseño en el mismo sitio." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una consultora del top 3 mundial gracias a la red de Bocconi. Imposible en otra ciudad italiana.", author: "Chiara, Internship 2024", flag: "🇮🇹" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -2812,9 +2282,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.0, desc: "Muy segura en zonas universitarias y del centro. Poca violencia para una metrópolis." },
           { label: "Seguridad nocturna", score: 7.5, desc: "Navigli y Isola son seguros. Más precaución en Centrale y algunas zonas periféricas." },
           { label: "Ambiente de la ciudad", score: 7.5, desc: "Nivel moderado. Atención en el metro y alrededores de la Stazione Centrale." },
-        ],
-        reviews: [
-          { text: "Nunca me sentí en peligro. Solo precaución normal en el metro hora punta.", author: "Lisa, Erasmus 2023", flag: "🇳🇱" },
         ],
       },
       ],
@@ -2838,10 +2305,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 9.5, desc: "Wiener Linien anual por 365€ — 1€ al día para metro, tranvía y autobús ilimitados. El mejor precio-calidad de esta guía." },
           { label: "Ocio y gastos diarios", score: 8.0, desc: "Ópera desde 3€ de pie. Museos asequibles. Muchos conciertos gratuitos. La cultura de primer nivel no tiene por qué ser cara." },
         ],
-        reviews: [
-          { text: "El pase anual de transporte a 365€ fue lo más inteligente que hice. Un euro al día para moverse por toda la ciudad.", author: "Ana, Erasmus 2024", flag: "🇪🇸" },
-          { text: "La ópera a 3€ de pie fue mi actividad del miércoles durante todo el semestre. Viena te da cultura de lujo por nada.", author: "François, Erasmus 2023", flag: "🇫🇷" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -2856,9 +2319,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.5, desc: "500–750€ habitación. Más asequible que Múnich o Ámsterdam para una calidad comparable." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "WG-Gesucht, Willhaben, grupos de Facebook de la Universidad de Viena. Proceso más relajado que en Alemania." },
           { label: "Residencias universitarias", score: 6.0, desc: "Consulta residencias universitarias disponibles — pueden ser la opción más cómoda y segura para los primeros meses." },
-        ],
-        reviews: [
-          { text: "Encontré alojamiento en Favoriten en tres semanas desde Cracovia. Más fácil de lo que esperaba comparado con lo que me contaron de Múnich.", author: "Jana, Erasmus 2024", flag: "🇵🇱" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -2875,11 +2335,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "Los arcos bajo el cinturón ferroviario del Gürtel albergan decenas de bares únicos. Ambiente local e internacional mezclado." },
           { label: "Eventos y actividades", score: 9.0, desc: "ESN activo. Bolas universitarias (sí, bailes de gala), cenas internacionales, trips a Budapest y Bratislava." },
         ],
-        reviews: [
-          { text: "Fui a un baile universitario de gala y fue lo más surrealista y bonito de mi Erasmus. Viena es única en eso.", author: "Klara, Erasmus 2023", flag: "🇩🇪" },
-          { text: "Los Gürtelbars son increíbles — cada arco es un bar diferente y todos tienen personalidad propia.", author: "Matteo, Erasmus 2024", flag: "🇮🇹" },
-          { text: "ESN Viena organiza los mejores eventos de todos los Erasmus que conozco. Los bailes de gala son una experiencia de otra época.", author: "Sofia, Erasmus 2023", flag: "🇬🇷" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -2895,9 +2350,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 8.5, desc: "Ciudad histórica de encuentro de culturas del Imperio. La diversidad es parte de su historia y presente." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
         ],
-        reviews: [
-          { text: "Los vieneses son formales al principio pero con tiempo son muy abiertos. Me invitaron a un Heuriger (taberna de vino) y fue increíble.", author: "Petra, Erasmus 2024", flag: "🇨🇿" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -2912,9 +2364,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 9.5, desc: "Red de tranvías histórica e icónica. El Ring de noche en tranvía es una de las experiencias más bonitas de la ciudad." },
           { label: "Conexiones nacionales", score: 9.0, desc: "Tren a Budapest (2h30), Bratislava (1h), Múnich (4h), Praga (4h). La posición más central de Europa Central." },
           { label: "Escapadas de fin de semana", score: 9.0, desc: "Excelente posición para escapadas: Tren a Budapest (2h30), Bratislava (1h), Múnich (4h), Praga (4h). La posición más central de Europa Central." },
-        ],
-        reviews: [
-          { text: "El transporte de Viena es el mejor que he usado en mi vida. Nunca esperé más de 3 minutos. Nunca llegué tarde.", author: "Lars, Erasmus 2023", flag: "🇩🇰" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -2932,11 +2381,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.0, desc: "Wiener Schnitzel, Tafelspitz, Sachertorte, Apfelstrudel. Y la cultura del Kaffeehaus — café y periódico como ritual diario." },
           { label: "Estilo de vida", score: 9.5, desc: "Transporte perfecto, seguridad máxima, cultura accesible, gastronomía de nivel. La fórmula que nadie ha superado." },
         ],
-        reviews: [
-          { text: "Viena es la ciudad más completa en la que he vivido. Tiene todo y funciona todo. El número 1 es merecido.", author: "Oliver, Erasmus 2024", flag: "🇬🇧" },
-          { text: "El Naschmarkt los sábados, la ópera los miércoles, el Prater los domingos. Mi rutina perfecta durante 6 meses.", author: "Céline, Erasmus 2023", flag: "🇧🇪" },
-          { text: "El Donauinsel en verano con 100.000 personas de picnic es lo más bonito que he visto. Viena sabe vivir el verano.", author: "Lena, Erasmus 2023", flag: "🇩🇪" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -2952,9 +2396,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.5, desc: "Ecosistema startup en crecimiento. Bitpanda, Runtastic (Adidas), Shpock nacieron aquí. Potencial real." },
           { label: "Oportunidades para estudiantes", score: 8.0, desc: "Hub de negocios de Europa Central. Finanzas, consultoría, ONGs internacionales y empresas regionales con sede en Viena." },
         ],
-        reviews: [
-          { text: "Hice prácticas en la ONU Viena. Una experiencia que abrió puertas que no sabía que existían.", author: "Valentina, Internship 2024", flag: "🇨🇴" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -2968,9 +2409,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.5, desc: "Top 3 mundial de ciudades más seguras según múltiples rankings. Criminalidad excepcionalmente baja." },
           { label: "Seguridad nocturna", score: 9.5, desc: "Completamente segura de noche en todas las zonas. Sin barrios conflictivos. Una de las ciudades más tranquilas de Europa." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Nivel muy bajo. Solo precaución básica en el metro y zonas turísticas muy concurridas." },
-        ],
-        reviews: [
-          { text: "Viena es la ciudad más segura en la que he estado. Nunca sentí ningún tipo de peligro en ningún momento.", author: "Emma, Erasmus 2024", flag: "🇸🇪" },
         ],
       },
       ],
@@ -2994,10 +2432,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 9.0, desc: "Pase mensual Navegante a 40€. Metro, tram, autobús. Los barcos sobre el Tajo incluidos." },
           { label: "Ocio y gastos diarios", score: 8.0, desc: "Cervezas a 2–3€. Mucha vida gratuita en miradores, playas urbanas y festivales de verano." },
         ],
-        reviews: [
-          { text: "Con 1.000€/mes vivía de lujo comparado con lo que habría pagado en París.", author: "Camille, Erasmus 2024", flag: "🇫🇷" },
-          { text: "El alquiler se disparó pero si buscas bien en barrios menos turísticos, está bien.", author: "Tiago, estudiante local", flag: "🇵🇹" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -3012,9 +2446,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 5.5, desc: "500–700€ habitación. Caro para Portugal. Mejor en Mouraria, Intendente o Arroios." },
           { label: "Plataformas", score: 7.0, desc: "Idealista Portugal, Uniplaces, grupos de Facebook de internacionales." },
           { label: "Residencias universitarias", score: 6.0, desc: "Consulta residencias universitarias disponibles — pueden ser la opción más cómoda y segura para los primeros meses." },
-        ],
-        reviews: [
-          { text: "Buscando en el grupo de Facebook 'Erasmus Lisboa' encontré alojamiento en 4 días.", author: "Sofía, Erasmus 2024", flag: "🇪🇸" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -3031,10 +2462,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "Bairro Alto (bares de calle), Cais do Sodré (discotecas), LX Factory (eventos). Para todos." },
           { label: "Eventos y actividades", score: 8.5, desc: "Fado en vivo, rooftops con vistas, mercados nocturnos en verano." },
         ],
-        reviews: [
-          { text: "Las noches de verano en Lisboa son mágicas. Empieza en el Bairro Alto y termina en el Cais.", author: "Hannah, Erasmus 2023", flag: "🇩🇪" },
-          { text: "Fui por Erasmus y me quedé 6 meses extra. La comunidad internacional es adictiva.", author: "Marco, Erasmus 2023", flag: "🇩🇪" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -3050,9 +2477,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 9.5, desc: "La ciudad más acogedora de la Península. Histórica apertura al mundo." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
         ],
-        reviews: [
-          { text: "Los lisboetas son los más amables que he conocido en Europa. Me invitaron a cenar el primer día.", author: "Nadia, Erasmus 2024", flag: "🇦🇹" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -3066,9 +2490,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 9.0, desc: "Navegante Metropolitano a 40€/mes. Metro, tram, autobuses y ferries en un solo bono." },
           { label: "Topografía", score: 6.5, desc: "Las 7 colinas son bonitas pero duras a pie. Los eléctricos históricos son lentos. GIRA (bici compartida) es útil en zonas planas." },
           { label: "Conexiones nacionales", score: 8.5, desc: "Trenes a Oporto (3h) y a Faro (3,5h). Autocarres baratos para Sevilla y Madrid." },
-        ],
-        reviews: [
-          { text: "Con el Navegante tenía el mundo. Hasta los ferries estaban incluidos.", author: "Erik, Erasmus 2023", flag: "🇳🇴" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -3086,11 +2507,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.5, desc: "Pastéis, bacalhau, ginjinha, marisco. La gastronomía más subestimada de Europa." },
           { label: "Estilo de vida", score: 9.0, desc: "Ritmo de vida relajado que invita a disfrutar. La antítesis del estrés." },
         ],
-        reviews: [
-          { text: "Lisboa te enseña a vivir. La velocidad, la comida, la gente, el mar. Es perfecta.", author: "Raphaelle, Erasmus 2024", flag: "🇫🇷" },
-          { text: "Ninguna ciudad del mundo tiene lo que tiene Lisboa a ese precio. Todavía.", author: "Jake, Digital Nomad 2023", flag: "🇺🇸" },
-          { text: "Vengo de Finlandia. El clima de Lisboa fue lo que me convenció para quedarme.", author: "Paavo, Work&Travel 2023", flag: "🇫🇮" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -3106,9 +2522,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.5, desc: "Convocatorias activas. El IPDJ gestiona muchos programas de prácticas internacionales." },
           { label: "Oportunidades para estudiantes", score: 7.8, desc: "Hub tecnológico en crecimiento. Startups, fintech y empresas internacionales que eligen Portugal." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una startup del Web Summit. Me ficharon al terminar el Erasmus.", author: "Rafael, Erasmus→Job 2023", flag: "🇧🇷" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -3122,9 +2535,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Consistentemente rankeada entre las 10 ciudades más seguras de Europa." },
           { label: "Seguridad nocturna", score: 8.5, desc: "Las zonas de fiesta son seguras. La gente está tranquila y no hay cultura de violencia." },
           { label: "Turismo masivo", score: 7.5, desc: "Con el turismo han aumentado los carteristas. Atención en trams históricos y zonas muy turísticas." },
-        ],
-        reviews: [
-          { text: "La ciudad más segura en la que he vivido. Volví sola de noche siempre sin problema.", author: "Aisha, Erasmus 2024", flag: "🇬🇧" },
         ],
       },
       ],
@@ -3148,10 +2558,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 6.5, desc: "SL-kortet mensual ≈930 SEK (~83€). Caro pero cubre metro, bus, tren de cercanías y ferris a las islas." },
           { label: "Ocio y gastos diarios", score: 4.5, desc: "Una cerveza en bar puede costar 8–9€. Sistema Ölkontroll estricto — el alcohol en tienda solo en Systembolaget." },
         ],
-        reviews: [
-          { text: "Llegué pensando que sería como cualquier capital europea y el primer mes de compra me hizo recalcular todo el presupuesto.", author: "Diego, Erasmus 2024", flag: "🇪🇸" },
-          { text: "Con la beca máxima y compartiendo piso se puede, pero hay que dejar la vida social cara para ocasiones puntuales.", author: "Elena, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -3166,10 +2572,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 3.0, desc: "500–750€ habitación. Corridor rooms (habitación con cocina/baño compartidos) son la opción más asequible." },
           { label: "Facilidad de búsqueda", score: 3.0, desc: "SSSB, Bostad Direkt y Blocket Bostad. Regístrate en SSSB en cuanto tengas la carta de admisión, no antes de llegar." },
           { label: "Residencias universitarias", score: 5.5, desc: "KTH y Stockholms Universitet gestionan cupos de corridor rooms para exchange students — solicítalo el primer día posible." },
-        ],
-        reviews: [
-          { text: "Me registré en SSSB el día que me admitieron, meses antes de llegar. Sin eso no habría encontrado nada a tiempo.", author: "Marcus, Exchange 2023", flag: "🇩🇪" },
-          { text: "Acabé en un corridor room compartiendo cocina con 12 personas. Al principio parece caótico pero acabas haciendo grandes amigos ahí mismo.", author: "Camille, Erasmus 2024", flag: "🇫🇷" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -3186,10 +2588,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 6.5, desc: "Bares y clubs en Södermalm y Stureplan, pero caros y con colas largas los findes. Las fiestas estudiantiles (nations, gasque) son más accesibles." },
           { label: "Eventos y actividades", score: 8.0, desc: "Saunas junto al agua, patinaje sobre hielo en invierno, baño en el archipiélago en verano — el ocio local pesa tanto como la fiesta." },
         ],
-        reviews: [
-          { text: "Cuesta un poco romper el hielo con los suecos, pero en cuanto entras en su círculo la amistad es sólida y duradera.", author: "Tomás, Erasmus 2024", flag: "🇵🇹" },
-          { text: "Las sittningar de ESN fueron lo más divertido del semestre — cenas con disfraz, canciones y mucho ambiente.", author: "Greta, Exchange 2023", flag: "🇦🇹" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -3205,9 +2603,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.0, desc: "Compartir corridor con suecos o unirte a una nation estudiantil son las vías más rápidas de integración real." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "Fácil con la comunidad internacional desde el primer día; con locales requiere paciencia y contextos compartidos (deporte, fika)." },
         ],
-        reviews: [
-          { text: "El inglés no es un problema en absoluto. El reto real es pasar de conocidos a amigos con los suecos.", author: "Bruno, Erasmus 2023", flag: "🇧🇷" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -3222,9 +2617,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.0, desc: "Muy ciclable pese al frío — carriles bici todo el año, incluso con nieve. Bici propia o Lime/Voi de alquiler." },
           { label: "Conexiones internacionales", score: 8.5, desc: "Arlanda conecta con toda Europa; ferris a Helsinki y las islas Åland son una excursión clásica de fin de semana." },
           { label: "Escapadas de fin de semana", score: 9.0, desc: "Archipiélago de Estocolmo (30.000 islas) a un ferry de distancia; Uppsala a 40 minutos en tren." },
-        ],
-        reviews: [
-          { text: "El metro de Estocolmo parece un museo de arte subterráneo. Y siempre llega puntual, cosa que no había vivido en ningún otro sitio.", author: "Nadia, Exchange 2024", flag: "🇳🇱" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -3242,10 +2634,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "El 'lagom' y el 'fika' no son clichés turísticos, son la forma de vida real de la ciudad." },
           { label: "Estilo de vida", score: 8.5, desc: "Ritmo tranquilo, mucho deporte al aire libre y una cultura del diseño que se respira en cada edificio." },
         ],
-        reviews: [
-          { text: "En junio salía de clase a las 21h y todavía había luz de sobra para bañarme en el lago Mälaren. Surrealista y maravilloso.", author: "Lucía, Erasmus 2024", flag: "🇪🇸" },
-          { text: "El invierno es duro de verdad, pero la sauna y el mys (la versión sueca del hygge) te hacen quererlo igualmente.", author: "Adam, Exchange 2023", flag: "🇵🇱" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -3261,9 +2649,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 9.0, desc: "KTH y su parque tecnológico conectan directamente a estudiantes de ingeniería con empresas del sector." },
           { label: "Oportunidades para estudiantes", score: 8.0, desc: "Networking constante vía eventos universitarios, hackathons y el propio KTH Innovation." },
         ],
-        reviews: [
-          { text: "Hice unas prácticas de verano en una startup fintech gracias a un contacto de la universidad. La escena tech aquí es brutal.", author: "Rafael, Internship 2024", flag: "🇧🇷" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -3277,9 +2662,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja para estándares de capital europea. Zonas universitarias completamente tranquilas." },
           { label: "Seguridad nocturna", score: 8.5, desc: "El metro funciona con normalidad hasta tarde y las calles están bien iluminadas incluso en invierno." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada, limpia y con un civismo generalizado que se nota desde el primer día." },
-        ],
-        reviews: [
-          { text: "Nunca me sentí insegura, ni de noche ni volviendo sola del metro. Rarísimo comparado con otras capitales.", author: "Valentina, Erasmus 2023", flag: "🇦🇷" },
         ],
       },
     ],
@@ -3303,10 +2685,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 6.5, desc: "La bici sustituye al transporte público en el día a día. Rejsekort para trayectos ocasionales en metro/tren/bus." },
           { label: "Ocio y gastos diarios", score: 4.5, desc: "Cerveza en bar 6–7€. El alcohol en tienda es más asequible que en Suecia o Noruega, sin sistema de monopolio estatal." },
         ],
-        reviews: [
-          { text: "Es cara, no lo voy a negar, pero al no necesitar transporte público (todo en bici) el gasto mensual se equilibra bastante.", author: "Iker, Erasmus 2024", flag: "🇪🇸" },
-          { text: "Cociné en casa casi todos los días. Comer fuera aquí es un lujo ocasional, no una rutina.", author: "Sofia, Exchange 2023", flag: "🇮🇹" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -3321,10 +2699,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 3.5, desc: "550–800€ habitación. Kollegier (residencias) y bofællesskaber (pisos compartidos) son las opciones más razonables." },
           { label: "Facilidad de búsqueda", score: 3.5, desc: "Housing Foundation Copenhagen gestiona cupos para exchange students — es la vía más fiable, aplica el primer día posible." },
           { label: "Residencias universitarias", score: 5.0, desc: "KU, CBS y DTU colaboran con Housing Foundation, pero las plazas se agotan rápido, sobre todo para el semestre de otoño." },
-        ],
-        reviews: [
-          { text: "Apliqué a Housing Foundation el mismo día que me admitieron. Aun así, tardé semanas en tener respuesta.", author: "Mateus, Exchange 2024", flag: "🇵🇹" },
-          { text: "Acabé en un kollegium a 25 minutos en bici del centro. No es lo ideal pero en Copenhague 25 minutos en bici no es nada.", author: "Anaïs, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -3341,10 +2715,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 6.5, desc: "Vesterbro y Nørrebro concentran los bares; caros pero con ambiente joven. Las fiestas de kollegium son un clásico." },
           { label: "Eventos y actividades", score: 8.5, desc: "Baño en el puerto en verano, festivales de música, Tivoli Gardens y una vida al aire libre constante en bici." },
         ],
-        reviews: [
-          { text: "Aquí la vida social pasa más por un picnic junto al canal con una cerveza que por un club. Y se agradece.", author: "Nikos, Erasmus 2024", flag: "🇬🇷" },
-          { text: "El baño en el puerto en pleno centro de una capital europea sigue pareciéndome una locura maravillosa.", author: "Alba, Exchange 2023", flag: "🇪🇸" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -3360,9 +2730,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "Unirte a un kollegium con daneses o a un club deportivo universitario acelera mucho la integración real." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "Muy fácil con la enorme comunidad internacional; con locales requiere iniciativa y paciencia." },
         ],
-        reviews: [
-          { text: "Con la comunidad internacional hice amigos en la primera semana. Con daneses tardé meses, pero mereció la pena.", author: "Jonas, Erasmus 2023", flag: "🇩🇪" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -3377,9 +2744,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 8.5, desc: "Metro automático 24h, trenes S-tog y buses cubren lo que la bici no alcanza, especialmente en invierno." },
           { label: "Conexiones internacionales", score: 9.0, desc: "El puente de Öresund conecta en tren directo con Malmö (Suecia) en 35 minutos — una escapada nórdica constante." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Malmö y Lund a un salto de tren; Roskilde y sus fiordos a 30 minutos." },
-        ],
-        reviews: [
-          { text: "Vendí la idea de comprar un abono de transporte a los dos días. La bici te lleva a todos lados más rápido.", author: "Pietro, Erasmus 2024", flag: "🇮🇹" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -3397,10 +2761,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "El hygge (bienestar cotidiano con velas, café y buena compañía) es una forma de vida real, no un concepto turístico." },
           { label: "Estilo de vida", score: 8.5, desc: "Ritmo pausado, mucha vida en bici y al aire libre, y un diseño escandinavo presente en cada edificio y mueble." },
         ],
-        reviews: [
-          { text: "Llegué escéptico con lo del hygge y salí siendo un converso total. Las velas y el café de media tarde cambian el humor de cualquiera.", author: "Thomas, Exchange 2023", flag: "🇧🇪" },
-          { text: "El equilibrio vida-estudio aquí es real. Nadie te mira raro por salir de clase a las 16h a montar en bici.", author: "Carla, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -3416,9 +2776,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 8.5, desc: "El clúster de ciencias de la vida de Copenhague-Malmö (Medicon Valley) es uno de los más importantes de Europa." },
           { label: "Oportunidades para estudiantes", score: 8.0, desc: "Networking constante vía DTU Skylab, eventos de CBS y el ecosistema startup de la región de Øresund." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una empresa de diseño sostenible gracias a un contacto de CBS. El foco en sostenibilidad aquí es real, no de cara a la galería.", author: "Émile, Internship 2024", flag: "🇫🇷" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -3432,9 +2789,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.0, desc: "Índice de criminalidad muy bajo, incluso en comparación con otras capitales nórdicas." },
           { label: "Seguridad nocturna", score: 8.5, desc: "Volver en bici de noche por carriles bien iluminados es completamente normal y seguro." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada, confiada — los propios daneses dejan carritos de bebé sin vigilancia en la puerta de las cafeterías." },
-        ],
-        reviews: [
-          { text: "Ver carritos de bebé aparcados fuera de un café mientras los padres toman algo dentro me dejó helada. Nivel de confianza que no había visto nunca.", author: "Ana, Erasmus 2023", flag: "🇵🇹" },
         ],
       },
     ],
@@ -3458,10 +2812,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.0, desc: "Abono HSL mensual ≈65€ para toda la red, incluidos los ferris a Suomenlinna. Descuento estudiantil significativo." },
           { label: "Ocio y gastos diarios", score: 5.5, desc: "Una cerveza en bar 6-7€, pero la sauna pública (10-15€) es el plan social más habitual y barato en comparación." },
         ],
-        reviews: [
-          { text: "Comía en el comedor de la universidad casi todos los días por menos de 3€. Con Kela Card el presupuesto de comida baja muchísimo.", author: "Laura, Erasmus 2024", flag: "🇪🇸" },
-          { text: "Más barata que Estocolmo o Copenhague, pero sigue siendo una capital nórdica — el presupuesto hay que cuidarlo igual.", author: "Milan, Exchange 2023", flag: "🇨🇿" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -3476,9 +2826,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 5.0, desc: "450–650€ habitación en HOAS. El mercado privado es notablemente más caro y competido." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "El portal de HOAS es el canal principal — regístrate en cuanto tengas la carta de admisión de tu universidad." },
           { label: "Residencias universitarias", score: 6.5, desc: "HOAS ofrece habitaciones individuales y compartidas repartidas por toda la ciudad, bien conectadas en transporte." },
-        ],
-        reviews: [
-          { text: "HOAS fue mucho más sencillo que lo que había oído sobre Estocolmo. En un par de meses tenía alojamiento confirmado.", author: "Giulia, Erasmus 2024", flag: "🇮🇹" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -3495,10 +2842,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 6.0, desc: "Kallio concentra los bares estudiantiles; más tranquila que otras capitales pero con ambiente auténtico." },
           { label: "Eventos y actividades", score: 7.5, desc: "Vappu (1 de mayo) es la fiesta estudiantil del año; saunas, islas del archipiélago y auroras boreales en invierno." },
         ],
-        reviews: [
-          { text: "Compartir sauna con gente que acababas de conocer rompe el hielo (literalmente) más rápido que cualquier fiesta.", author: "Kacper, Erasmus 2023", flag: "🇵🇱" },
-          { text: "Vappu es una locura maravillosa — toda la ciudad estudiantil sale a la calle con gorros blancos de graduación.", author: "Noor, Exchange 2024", flag: "🇳🇱" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -3514,9 +2857,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "La sauna y los clubes deportivos universitarios son la vía más rápida de romper el hielo con finlandeses." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "Comunidad internacional muy acogedora desde el primer día vía ESN y las universidades." },
         ],
-        reviews: [
-          { text: "Al principio pensé que los finlandeses eran fríos. Luego entendí que solo hablan cuando tienen algo que decir. Amistades muy sinceras.", author: "Diego, Erasmus 2024", flag: "🇦🇷" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -3531,9 +2871,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.0, desc: "Ciudad compacta y muy ciclable; el mal tiempo invernal es lo único que frena el uso de bici en esa época." },
           { label: "Conexiones internacionales", score: 8.0, desc: "Ferry directo a Tallin (2h) y a Estocolmo (overnight); vuelos baratos a toda Escandinavia y Báltico." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Suomenlinna en ferry de 15 minutos; Tallin como escapada clásica de fin de semana." },
-        ],
-        reviews: [
-          { text: "El ferry a Tallin por 20-30€ ida y vuelta se convirtió en nuestro plan de findes recurrente.", author: "Emma, Exchange 2023", flag: "🇩🇪" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -3551,10 +2888,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "La sauna (más de 3.000 en la ciudad) no es un cliché turístico, es una institución social real y cotidiana." },
           { label: "Estilo de vida", score: 8.0, desc: "Ritmo pausado, diseño funcional en cada rincón (Aalto, Marimekko, Iittala) y un contacto constante con la naturaleza." },
         ],
-        reviews: [
-          { text: "La sauna semanal se convirtió en mi ritual favorito del Erasmus. Un lujo silencioso que no sabía que necesitaba.", author: "Hugo, Erasmus 2024", flag: "🇫🇷" },
-          { text: "Ver auroras boreales desde las afueras de la ciudad en pleno invierno fue de las experiencias más increíbles de mi vida.", author: "Chiara, Exchange 2023", flag: "🇮🇹" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -3570,9 +2903,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.5, desc: "Slush, uno de los mayores eventos startup de Europa, se celebra anualmente en Helsinki." },
           { label: "Oportunidades para estudiantes", score: 8.0, desc: "Ecosistema de innovación muy accesible para estudiantes vía Aalto Ventures Program y eventos universitarios." },
         ],
-        reviews: [
-          { text: "Asistí a Slush como estudiante y acabé con contactos que me llevaron a unas prácticas de verano en una startup local.", author: "Rodrigo, Internship 2024", flag: "🇧🇷" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -3586,9 +2916,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.5, desc: "Finlandia lidera consistentemente los rankings globales de menor corrupción y mayor confianza institucional." },
           { label: "Seguridad nocturna", score: 9.0, desc: "Volver de noche caminando o en transporte público es completamente normal, incluso para mujeres solas." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada, silenciosa y con un civismo generalizado que sorprende a quien llega de capitales más grandes." },
-        ],
-        reviews: [
-          { text: "Nunca en mi vida me he sentido tan segura como caminando sola de madrugada por Helsinki.", author: "Martina, Erasmus 2023", flag: "🇪🇸" },
         ],
       },
     ],
@@ -3612,10 +2939,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 6.5, desc: "Abono Ruter mensual ≈50€, con buen descuento estudiantil, cubre metro, tram, bus y ferris del fiordo." },
           { label: "Ocio y gastos diarios", score: 3.0, desc: "Una cerveza en bar puede rondar los 9-10€, de las más caras de Europa. El vinmonopolet regula la venta de alcohol fuerte." },
         ],
-        reviews: [
-          { text: "Es cara de verdad, más que Estocolmo o Copenhague en mi experiencia. Pero la naturaleza gratis compensa buena parte del gasto en ocio.", author: "Sara, Erasmus 2024", flag: "🇮🇹" },
-          { text: "Cociné en casa prácticamente todo el semestre. Salir a comer fuera aquí es un lujo puntual, no una opción habitual.", author: "Tomás, Exchange 2023", flag: "🇪🇸" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -3630,9 +2953,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 4.0, desc: "500–750€ habitación en residencias SiO. El mercado privado es notablemente más caro." },
           { label: "Facilidad de búsqueda", score: 4.5, desc: "SiO es prácticamente el único canal recomendable — solicita en cuanto tengas la carta de admisión." },
           { label: "Residencias universitarias", score: 5.5, desc: "Kringsjå y Sogn Student Villages son las más habituales para exchange students, con cocina y baño compartidos." },
-        ],
-        reviews: [
-          { text: "Viví en Sogn Student Village y fue de las mejores decisiones. Cocina compartida con gente de toda Europa, ambiente muy internacional.", author: "Louise, Exchange 2024", flag: "🇫🇷" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -3649,10 +2969,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 6.0, desc: "Grünerløkka concentra los bares con más ambiente; caros pero con buen ambiente joven." },
           { label: "Eventos y actividades", score: 7.5, desc: "Esquí de fondo a un tranvía del centro, senderismo en Nordmarka y baño en el fiordo en verano." },
         ],
-        reviews: [
-          { text: "Cambié salir de fiesta por salir a esquiar de fondo un domingo por la mañana. Nunca pensé que echaría de menos algo así.", author: "Piotr, Erasmus 2023", flag: "🇵🇱" },
-          { text: "La comunidad Erasmus era pequeña pero muy unida. Las rutas de senderismo organizadas por ESN son de lo mejor del semestre.", author: "Camille, Exchange 2024", flag: "🇫🇷" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -3668,9 +2984,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "Unirte a un buddy group de la universidad o a actividades al aire libre acelera mucho la integración." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "Muy fácil con la comunidad internacional; con locales requiere paciencia y actividades compartidas." },
         ],
-        reviews: [
-          { text: "El programa de buddy de UiO me ayudó muchísimo a romper el hielo con estudiantes noruegos desde la primera semana.", author: "Elena, Erasmus 2024", flag: "🇬🇷" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -3685,9 +2998,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.0, desc: "Centro compacto y ciclable en las estaciones cálidas; en invierno la bici da paso al transporte público." },
           { label: "Naturaleza a un trayecto", score: 9.5, desc: "La línea de metro T-bane lleva directamente a Nordmarka — de la ciudad al bosque en 20-30 minutos." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Los fiordos noruegos y Bergen a un vuelo corto o tren panorámico; estaciones de esquí a 1-2 horas." },
-        ],
-        reviews: [
-          { text: "Coger el metro para ir directo al bosque a esquiar de fondo un martes por la tarde fue de lo más surrealista y maravilloso que he vivido.", author: "Ben, Exchange 2023", flag: "🇩🇪" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -3705,10 +3015,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "El friluftsliv (vida al aire libre) no es un concepto de marketing — es la forma en que los noruegos viven su tiempo libre." },
           { label: "Estilo de vida", score: 8.5, desc: "Ritmo pausado, mucho deporte al aire libre y una relación con la naturaleza que impregna toda la cultura." },
         ],
-        reviews: [
-          { text: "Vivir a 20 minutos en metro de un bosque donde puedes esquiar de fondo gratis cambió mi forma de entender la calidad de vida.", author: "Marta, Erasmus 2024", flag: "🇵🇹" },
-          { text: "El friluftsliv es real. Los noruegos literalmente organizan su semana alrededor de estar al aire libre.", author: "Jonas, Exchange 2023", flag: "🇩🇪" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -3724,9 +3030,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 8.0, desc: "Equinor, Telenor y un ecosistema tecnológico creciente en torno a energías renovables." },
           { label: "Oportunidades para estudiantes", score: 8.5, desc: "Salarios estudiantiles altos comparados con el resto de Europa, aunque el coste de vida los absorbe en gran parte." },
         ],
-        reviews: [
-          { text: "Trabajé unas horas a la semana en un café durante el semestre y el sueldo por hora era muy superior al de mi país.", author: "Andrei, Erasmus 2024", flag: "🇷🇴" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -3740,9 +3043,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.0, desc: "Noruega aparece consistentemente entre los primeros puestos de los índices globales de paz y seguridad." },
           { label: "Seguridad nocturna", score: 8.5, desc: "Volver de noche por el centro o en transporte público es completamente normal y seguro." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada y tranquila, con un nivel de confianza social muy alto entre sus habitantes." },
-        ],
-        reviews: [
-          { text: "Me sorprendió ver a estudiantes dejando el portátil sin vigilancia en la biblioteca durante horas. Nivel de confianza muy distinto al de mi país.", author: "Clara, Erasmus 2023", flag: "🇪🇸" },
         ],
       },
     ],
@@ -3766,10 +3066,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 5.5, desc: "Strætó (bus urbano) cubre la ciudad con descuento estudiantil; para el Círculo Dorado hace falta coche compartido o tour." },
           { label: "Ocio y gastos diarios", score: 3.5, desc: "Una cerveza en bar puede rondar los 9-10€. Las piscinas geotermales de barrio, en cambio, son una ganga a 6-8€." },
         ],
-        reviews: [
-          { text: "El presupuesto de comida fue el mayor shock. Cocinar en casa y compartir coche para las excursiones fue clave para sobrevivir el semestre.", author: "Andrea, Erasmus 2024", flag: "🇮🇹" },
-          { text: "Cara sí, pero la piscina geotermal de mi barrio costaba menos que un café en muchas capitales europeas. Todo es cuestión de elegir bien los gastos.", author: "Kevin, Exchange 2023", flag: "🇩🇪" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -3784,9 +3080,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 4.5, desc: "500–750€ habitación en el centro (101 Reykjavík). Barrios como Hlíðar son algo más asequibles." },
           { label: "Facilidad de búsqueda", score: 4.5, desc: "Grupos de Facebook de exchange students en Reikiavik y el portal de vivienda de cada universidad son los canales principales." },
           { label: "Residencias universitarias", score: 5.0, desc: "Ambas universidades tienen convenios con residencias, pero conviene solicitarlas en cuanto llega la admisión — las plazas son limitadas." },
-        ],
-        reviews: [
-          { text: "Con un grupo de Facebook de exchange students encontré piso en tres semanas. La comunidad es pequeña pero se ayuda mucho entre sí.", author: "Julie, Exchange 2024", flag: "🇫🇷" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -3803,10 +3096,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 5.5, desc: "El centro (101 Reykjavík) concentra la vida nocturna, cara pero con ambiente auténtico los findes." },
           { label: "Eventos y actividades", score: 7.0, desc: "Tours de auroras boreales, excursiones a glaciares y piscinas geotermales son el plan constante, más que el bar." },
         ],
-        reviews: [
-          { text: "Al ser tan pocos Erasmus acabamos siendo una familia real. Viajamos juntos a ver auroras boreales cada pocas semanas.", author: "Noah, Erasmus 2023", flag: "🇳🇱" },
-          { text: "La vida nocturna del centro es cara pero tiene un ambiente muy genuino, sin el postureo de otras capitales.", author: "Bianca, Exchange 2024", flag: "🇷🇴" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -3822,9 +3111,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.0, desc: "Las piscinas geotermales de barrio son, sorprendentemente, el mejor sitio para socializar con islandeses." },
           { label: "Facilidad para hacer amigos", score: 6.5, desc: "Comunidad internacional pequeña pero cercana; con locales lleva algo más de tiempo pero es alcanzable." },
         ],
-        reviews: [
-          { text: "En la piscina de mi barrio acabé charlando con jubilados islandeses cada semana. Es el verdadero punto de encuentro social aquí.", author: "Rebecca, Exchange 2023", flag: "🇬🇧" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -3839,9 +3125,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.5, desc: "El centro (101 Reykjavík) es pequeño y perfectamente caminable o ciclable." },
           { label: "Excursiones por la isla", score: 5.0, desc: "No hay trenes en Islandia — coche compartido, alquiler o tours organizados son imprescindibles para el Círculo Dorado y más allá." },
           { label: "Conexiones internacionales", score: 6.0, desc: "El aeropuerto de Keflavík conecta con Europa y EE.UU., pero los vuelos suelen ser más caros que en el continente." },
-        ],
-        reviews: [
-          { text: "Compartir coche con otros Erasmus se convirtió en el plan de cada fin de semana. Sin coche, ver la isla de verdad es muy difícil.", author: "Léa, Erasmus 2024", flag: "🇫🇷" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -3859,10 +3142,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.0, desc: "Cultura de sagas, piscinas geotermales de barrio y una relación con la naturaleza que define toda la identidad islandesa." },
           { label: "Estilo de vida", score: 8.5, desc: "Ritmo tranquilo con la naturaleza siempre como protagonista, muy alejado del ajetreo de las grandes capitales." },
         ],
-        reviews: [
-          { text: "Ver mi primera aurora boreal desde las afueras de la ciudad, sin necesidad de ningún tour, fue el momento que definió todo mi Erasmus.", author: "Sofía, Erasmus 2024", flag: "🇪🇸" },
-          { text: "Bañarme en una piscina geotermal humeante mientras nevaba alrededor es de las experiencias más surrealistas que he vivido nunca.", author: "Matteo, Exchange 2023", flag: "🇮🇹" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -3878,9 +3157,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Islandia es referencia mundial en energía 100% renovable (geotérmica e hidroeléctrica), un sector con fuerte proyección." },
           { label: "Oportunidades para estudiantes", score: 6.5, desc: "El turismo ofrece trabajos estudiantiles a tiempo parcial relativamente accesibles y bien pagados." },
         ],
-        reviews: [
-          { text: "El mercado es pequeño, pero conseguí un trabajo a tiempo parcial en turismo que me ayudó bastante con el presupuesto.", author: "Oscar, Erasmus 2023", flag: "🇸🇪" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -3894,9 +3170,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 10.0, desc: "Islandia lleva más de una década siendo el país más pacífico del mundo según el Índice Global de Paz." },
           { label: "Seguridad nocturna", score: 9.5, desc: "Caminar de noche por cualquier zona de Reikiavik es completamente normal y seguro, sin excepción." },
           { label: "Ambiente de la ciudad", score: 9.5, desc: "Comunidad pequeña donde el nivel de confianza social es prácticamente absoluto." },
-        ],
-        reviews: [
-          { text: "Nunca cerré la puerta de casa con llave en todo el semestre. Es literalmente ese tipo de sitio.", author: "Freya, Exchange 2024", flag: "🇩🇰" },
         ],
       },
     ],
@@ -3920,10 +3193,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 6.0, desc: "Leap Card con descuento estudiantil cubre bus, DART y tranvía Luas. Razonable dentro del contexto irlandés." },
           { label: "Ocio y gastos diarios", score: 3.0, desc: "Una pinta de Guinness ronda los 6-7€, de las más caras de Europa. La vida de pub, aun así, sigue siendo el plan social central." },
         ],
-        reviews: [
-          { text: "El alojamiento es el gran shock. Llegué sin piso cerrado y tardé semanas en encontrar algo mínimamente razonable de precio.", author: "Martina, Erasmus 2024", flag: "🇮🇹" },
-          { text: "Es cara, sin duda, pero la vida social compensa. Un par de pintas en un pub con música en vivo valen cada euro.", author: "Rui, Exchange 2023", flag: "🇵🇹" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -3938,9 +3207,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 2.5, desc: "700–1.000€ habitación. De los precios más altos de toda esta guía en relación al tamaño de la ciudad." },
           { label: "Facilidad de búsqueda", score: 3.5, desc: "Daft.ie es el portal principal. Las oficinas internacionales de TCD y UCD ofrecen orientación, aunque plazas limitadas." },
           { label: "Residencias universitarias", score: 4.0, desc: "TCD y UCD tienen residencias propias con cupos para exchange students — solicítalas en cuanto llegue la admisión." },
-        ],
-        reviews: [
-          { text: "Empecé a buscar 5 meses antes y aun así fue estresante. Aquí la búsqueda de piso empieza mucho antes que en cualquier otro destino.", author: "Hannah, Exchange 2024", flag: "🇩🇪" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -3957,10 +3223,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "Temple Bar concentra el ambiente más turístico; los pubs de barrio ofrecen música en vivo auténtica cada noche de la semana." },
           { label: "Eventos y actividades", score: 8.0, desc: "Sesiones de música tradicional irlandesa, eventos literarios y festivales al aire libre en verano." },
         ],
-        reviews: [
-          { text: "En Dublín el pub no es un plan de viernes, es un plan de cualquier día. La música en vivo espontánea en cualquier bar es una pasada.", author: "Sofia, Erasmus 2023", flag: "🇬🇷" },
-          { text: "La comunidad Erasmus aquí es enorme y muy activa. Nunca sentí que faltara ambiente ni un solo fin de semana.", author: "Lucas, Exchange 2024", flag: "🇫🇷" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -3976,9 +3238,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "El pub es la vía más rápida de integración real — basta con sentarte en la barra y dejarte llevar por la conversación." },
           { label: "Facilidad para hacer amigos", score: 8.5, desc: "Ciudad muy sociable donde hacer amigos, tanto internacionales como locales, resulta sorprendentemente fácil." },
         ],
-        reviews: [
-          { text: "Llegué con miedo a mi nivel de inglés y en dos semanas ya charlaba sin parar con desconocidos en cualquier pub. Los irlandeses lo ponen fácil.", author: "Valeria, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -3993,9 +3252,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.5, desc: "Centro compacto y muy caminable; el DART conecta bien con la costa norte y sur." },
           { label: "Conexiones nacionales", score: 7.0, desc: "Buses y trenes conectan con Galway, Cork y los Acantilados de Moher en escapadas de fin de semana." },
           { label: "Conexiones internacionales", score: 7.5, desc: "Vuelos baratos a toda Europa desde el aeropuerto de Dublín, uno de los más conectados de las Islas Británicas." },
-        ],
-        reviews: [
-          { text: "El DART hacia la costa sur (Dalkey, Howth) se convirtió en mi escapada de findes favorita, a menos de 30 minutos del centro.", author: "Ben, Exchange 2023", flag: "🇬🇧" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -4013,9 +3269,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "La tradición literaria y musical irlandesa impregna toda la ciudad, no solo las zonas turísticas." },
           { label: "Estilo de vida", score: 7.5, desc: "Ritmo social intenso centrado en la conversación, la música y el pub como espacio comunitario real." },
         ],
-        reviews: [
-          { text: "Visitar la casa de Joyce y luego acabar la noche en un pub con música tradicional resume perfectamente lo que es vivir en Dublín.", author: "Chiara, Erasmus 2024", flag: "🇮🇹" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -4031,9 +3284,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 9.5, desc: "Google, Meta, LinkedIn, Stripe y Airbnb tienen su sede europea en Dublín." },
           { label: "Oportunidades para estudiantes", score: 8.5, desc: "Perfil multilingüe muy valorado en el sector tech dublinés, con demanda constante de hablantes de otros idiomas europeos." },
         ],
-        reviews: [
-          { text: "Conseguí unas prácticas en una tech company gracias a mi combinación de idiomas. Aquí ser hablante de español o italiano es un activo real.", author: "Pablo, Internship 2024", flag: "🇪🇸" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -4047,9 +3297,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.0, desc: "Segura para estándares de capital europea, con los cuidados normales en cualquier gran ciudad." },
           { label: "Seguridad nocturna", score: 7.0, desc: "Precaución razonable en Temple Bar y alrededores tarde de noche los fines de semana, como en cualquier zona de fiesta." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ambiente generalmente tranquilo y acogedor, con la vida social muy volcada en espacios públicos como el pub." },
-        ],
-        reviews: [
-          { text: "Me sentí segura la mayor parte del tiempo, con el cuidado normal los findes en Temple Bar por la afluencia de gente.", author: "Nora, Erasmus 2023", flag: "🇩🇪" },
         ],
       },
     ],
@@ -4073,10 +3320,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 6.5, desc: "Abono Lothian Buses o tranvía con descuento estudiantil; el centro es totalmente caminable de todas formas." },
           { label: "Ocio y gastos diarios", score: 4.0, desc: "Una pinta en pub ronda 5-6£. Los eventos del Fringe suelen tener entradas económicas para estudiantes." },
         ],
-        reviews: [
-          { text: "Vivir aquí en agosto es caro por el Fringe, pero el resto del año el presupuesto se relaja bastante.", author: "Elin, Exchange 2024", flag: "🇸🇪" },
-          { text: "Cociné en casa la mayor parte del tiempo y usé el increíble catálogo de eventos gratuitos de la universidad para el ocio.", author: "Marc, Erasmus 2023", flag: "🇫🇷" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -4091,9 +3334,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 3.0, desc: "650–950€ habitación. Old Town y zonas céntricas son notablemente más caras que Marchmont o Leith." },
           { label: "Facilidad de búsqueda", score: 4.0, desc: "El portal de accommodation.ed.ac.uk es el canal principal — solicita en cuanto tengas la admisión confirmada." },
           { label: "Residencias universitarias", score: 5.0, desc: "Ambas universidades ofrecen residencias con cupos para exchange students, aunque limitados en semestres únicos." },
-        ],
-        reviews: [
-          { text: "Al ser de año completo tuve alojamiento garantizado por la universidad, lo cual simplificó todo muchísimo.", author: "Ingrid, Exchange 2024", flag: "🇳🇴" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -4110,10 +3350,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "Cowgate y Grassmarket concentran los pubs con más ambiente estudiantil, con ceilidhs (bailes tradicionales) incluidos." },
           { label: "Eventos y actividades", score: 9.0, desc: "El Fringe Festival en agosto convierte la ciudad entera en escenario, con miles de espectáculos accesibles para estudiantes." },
         ],
-        reviews: [
-          { text: "Vivir el Fringe desde dentro, como estudiante local, es una experiencia que no se olvida. La ciudad entera respira teatro.", author: "Alessia, Erasmus 2024", flag: "🇮🇹" },
-          { text: "Fui a mi primer ceilidh (baile tradicional escocés) organizado por la universidad y acabé haciendo algunos de mis mejores amigos ahí.", author: "Diego, Exchange 2023", flag: "🇦🇷" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -4129,9 +3365,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "Las sociedades estudiantiles (societies) son la vía más rápida de conectar con estudiantes locales." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "Comunidad internacional enorme facilita amistades desde el primer día, con locales requiriendo algo más de iniciativa." },
         ],
-        reviews: [
-          { text: "Los escoceses son mucho más abiertos y habladores de lo que esperaba. Se nota la diferencia con otras partes de Reino Unido.", author: "Léna, Erasmus 2024", flag: "🇫🇷" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -4146,9 +3379,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.5, desc: "El centro histórico es compacto y perfectamente caminable, con Arthur's Seat como mirador natural a pie de ciudad." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Highlands, Loch Ness y la Isla de Skye a pocas horas en coche compartido o tour organizado." },
           { label: "Conexiones internacionales", score: 7.0, desc: "El aeropuerto de Edimburgo conecta bien con Europa, aunque con menos rutas directas que Londres." },
-        ],
-        reviews: [
-          { text: "Una excursión de fin de semana a las Highlands con otros exchange students fue de lo mejor del semestre — paisajes que no había visto nunca.", author: "Kasper, Exchange 2023", flag: "🇩🇰" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -4166,9 +3396,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Tradición literaria (cuna de Conan Doyle y J.K. Rowling escribió aquí sus primeros libros) y cultura gaélica muy presente." },
           { label: "Estilo de vida", score: 8.0, desc: "Ritmo académico serio combinado con una vida cultural y festivalera de primer nivel mundial." },
         ],
-        reviews: [
-          { text: "Subir a Arthur's Seat al amanecer antes de clase se convirtió en mi ritual favorito del semestre. Ver una ciudad entera desde un volcán es único.", author: "Paula, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -4184,9 +3411,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.5, desc: "Sede de importantes gestoras financieras (Standard Life, Baillie Gifford) y un ecosistema creciente de startups de IA." },
           { label: "Oportunidades para estudiantes", score: 7.0, desc: "El sector cultural y de eventos ofrece trabajos estudiantiles accesibles, especialmente durante el Fringe Festival." },
         ],
-        reviews: [
-          { text: "Trabajé como voluntario en el Fringe Festival y acabé con contactos en el sector cultural que no esperaba conseguir de Erasmus.", author: "Tom, Erasmus 2023", flag: "🇩🇪" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -4200,9 +3424,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Índice de criminalidad bajo comparado con otras grandes ciudades del Reino Unido." },
           { label: "Seguridad nocturna", score: 8.0, desc: "Volver de noche por zonas estudiantiles como Marchmont es generalmente tranquilo y seguro." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada y con un fuerte sentido comunitario, especialmente en el entorno universitario." },
-        ],
-        reviews: [
-          { text: "Me sentí muy segura durante todo el semestre, incluso volviendo sola de noche desde la biblioteca.", author: "Greta, Exchange 2024", flag: "🇦🇹" },
         ],
       },
     ],
@@ -4226,10 +3447,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.0, desc: "Con carné ISIC/ESN el billete baja de 1,40€ a 0,60€. Muy asequible para moverse por toda la ciudad." },
           { label: "Ocio y gastos diarios", score: 8.5, desc: "Cervezas a 3-4€, entrada a clubs asequible. La vida de terraza mediterránea es barata y constante." },
         ],
-        reviews: [
-          { text: "Con 600€ al mes vivía muy bien, salía varias veces por semana y todavía ahorraba para viajar por las islas.", author: "Nikolas, Erasmus 2024", flag: "🇩🇪" },
-          { text: "El presupuesto aquí es de los más generosos de toda Europa. Comía fuera casi a diario sin preocuparme por el dinero.", author: "Camille, Exchange 2023", flag: "🇫🇷" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -4244,9 +3461,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.0, desc: "250–400€ habitación en barrios estudiantiles como Exarchia o Pangrati, de los más bajos de esta guía." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "Spitogatos y grupos de Facebook de exchange students son los canales principales de búsqueda." },
           { label: "Residencias universitarias", score: 5.5, desc: "Oferta limitada de residencias oficiales; la mayoría de exchange students buscan piso compartido por su cuenta." },
-        ],
-        reviews: [
-          { text: "Encontré piso en Pangrati sin demasiado esfuerzo y a un precio que en cualquier otra capital europea sería impensable.", author: "Marco, Erasmus 2023", flag: "🇮🇹" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -4263,10 +3477,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "Gazi y Psiri concentran clubs y bares con ambiente hasta la madrugada, a precios muy asequibles." },
           { label: "Eventos y actividades", score: 8.5, desc: "Excursiones a islas cercanas (Egina, Hydra) organizadas por ESN son de los planes más populares del semestre." },
         ],
-        reviews: [
-          { text: "Las excursiones de ESN a las islas los fines de semana fueron de lo mejor de mi Erasmus. Playa por la mañana, fiesta por la noche.", author: "Théo, Erasmus 2024", flag: "🇫🇷" },
-          { text: "La vida nocturna en Gazi no tiene nada que envidiar a otras capitales europeas, y el precio es una fracción.", author: "Sara, Exchange 2023", flag: "🇪🇸" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -4282,9 +3492,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "Aprender algunas frases básicas de griego abre muchas puertas y acelera notablemente la integración." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "Comunidad internacional muy accesible desde el primer día; con locales requiere algo de iniciativa." },
         ],
-        reviews: [
-          { text: "En cuanto intenté hablar unas palabras de griego, la actitud de la gente cambió por completo. Son muy cálidos con quien lo intenta.", author: "Julia, Erasmus 2024", flag: "🇵🇱" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -4299,9 +3506,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 6.0, desc: "El centro histórico es caminable, aunque el tráfico y las aceras irregulares pueden ser un reto." },
           { label: "Playas a un tranvía", score: 8.5, desc: "El tranvía conecta el centro con Vouliagmeni y otras playas de la Riviera de Atenas en menos de una hora." },
           { label: "Conexiones internacionales", score: 7.0, desc: "El aeropuerto de Atenas conecta bien con toda Europa; ferris a las islas griegas desde el puerto de El Pireo." },
-        ],
-        reviews: [
-          { text: "Salir de clase e ir directamente a la playa en tranvía sin cambiar de plan fue una de las cosas más surrealistas de mi Erasmus.", author: "Anke, Exchange 2023", flag: "🇩🇪" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -4319,10 +3523,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.0, desc: "Vivir rodeado de historia de 2.500 años, desde el Ágora hasta el Partenón, sin que resulte nunca artificial." },
           { label: "Estilo de vida", score: 8.5, desc: "Café largo en terraza, siesta veraniega y vida social que se alarga hasta bien entrada la noche." },
         ],
-        reviews: [
-          { text: "Ver el atardecer desde el monte Licabeto con toda la ciudad y la Acrópolis iluminada de fondo es algo que no olvidaré nunca.", author: "Valentina, Erasmus 2024", flag: "🇮🇹" },
-          { text: "Vivir a cinco minutos andando de ruinas de 2.500 años y tratarlas como algo normal cambia tu perspectiva de la historia.", author: "Oskar, Exchange 2023", flag: "🇸🇪" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -4338,9 +3538,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 5.5, desc: "Grecia es potencia mundial en transporte marítimo, con importantes navieras con sede en Atenas y El Pireo." },
           { label: "Oportunidades para estudiantes", score: 5.5, desc: "El turismo ofrece trabajos estudiantiles estacionales, especialmente en temporada alta de verano." },
         ],
-        reviews: [
-          { text: "El mercado laboral no es el punto fuerte de Atenas, pero para un semestre de experiencia académica y cultural es perfecto.", author: "Fernando, Erasmus 2023", flag: "🇵🇹" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -4354,9 +3551,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.5, desc: "Segura para estándares de gran capital europea, con las precauciones normales de cualquier ciudad grande." },
           { label: "Seguridad nocturna", score: 6.0, desc: "Algunas zonas como Omonia requieren algo más de atención de noche; el resto del centro es tranquilo." },
           { label: "Ambiente de la ciudad", score: 7.0, desc: "Ambiente generalmente cálido y acogedor, con la vida callejera activa hasta tarde en verano." },
-        ],
-        reviews: [
-          { text: "Me sentí segura en general, evitando simplemente algunas calles de noche que ya me habían recomendado los locales.", author: "Ines, Erasmus 2024", flag: "🇩🇪" },
         ],
       },
     ],
@@ -4380,10 +3574,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.0, desc: "Abono estudiantil de ZET (tranvía y bus) muy asequible, con buena cobertura de toda la ciudad." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Café en terraza por 1,50-2€, cervezas a 2-3€. La cultura de la terraza hace el ocio diario muy barato." },
         ],
-        reviews: [
-          { text: "Con 500€ al mes vivía perfectamente, incluyendo café diario en terraza y alguna escapada a la costa.", author: "Lena, Erasmus 2024", flag: "🇩🇪" },
-          { text: "El presupuesto aquí me permitió viajar por los Balcanes varios fines de semana sin preocupación económica.", author: "Tomás, Exchange 2023", flag: "🇪🇸" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -4398,9 +3588,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.5, desc: "250–380€ habitación, de los precios más bajos de toda esta guía." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "Grupos de Facebook de exchange students y portales locales (Njuškalo) son los canales principales." },
           { label: "Residencias universitarias", score: 6.0, desc: "University of Zagreb ofrece plazas en varios halls de residencia, con proceso de solicitud dentro de la aplicación de intercambio." },
-        ],
-        reviews: [
-          { text: "Encontré piso en Donji Grad en menos de dos semanas sin apenas estrés. Un cambio total respecto a lo que había oído de otras ciudades.", author: "Paolo, Erasmus 2023", flag: "🇮🇹" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -4417,10 +3604,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 6.5, desc: "Tkalčićeva concentra bares y terrazas con ambiente; la escena de clubs es más modesta que en otras capitales." },
           { label: "Eventos y actividades", score: 7.5, desc: "El mercado navideño de Zagreb ha sido galardonado varias veces como el mejor de Europa." },
         ],
-        reviews: [
-          { text: "La cultura de café en terraza aquí es sagrada. Pasas horas charlando con un solo café y a nadie le importa.", author: "Nadia, Exchange 2024", flag: "🇳🇱" },
-          { text: "El mercado navideño superó todas mis expectativas. Entiendo perfectamente por qué lo premian año tras año.", author: "Erik, Erasmus 2023", flag: "🇩🇪" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -4436,9 +3619,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "El café en terraza y los eventos universitarios son las vías más naturales de conectar con estudiantes locales." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "Comunidad internacional acogedora desde el primer día, con ESN facilitando bastante el proceso." },
         ],
-        reviews: [
-          { text: "Al ser menos habitual como destino Erasmus, sentí una curiosidad genuina de los locales hacia nosotros, muy distinta a otras capitales saturadas de turismo.", author: "Clara, Erasmus 2024", flag: "🇫🇷" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -4453,9 +3633,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.5, desc: "Centro compacto y muy caminable, con la Ciudad Alta accesible también por funicular histórico." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Split, Zadar y las islas dálmatas a 4-5 horas en autobús — clásico plan de fin de semana largo." },
           { label: "Conexiones internacionales", score: 6.5, desc: "El aeropuerto de Zagreb conecta con Europa, aunque con menos rutas directas que otras capitales de esta guía." },
-        ],
-        reviews: [
-          { text: "Un fin de semana largo en Split con otros Erasmus fue de lo mejor del semestre — playa de verdad a pocas horas de la universidad.", author: "Mikkel, Exchange 2023", flag: "🇩🇰" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -4473,9 +3650,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "La Ciudad Alta conserva su estética austrohúngara intacta, sin la masificación turística de otras capitales." },
           { label: "Estilo de vida", score: 7.5, desc: "Café en terraza, paseos por la Ciudad Alta y escapadas frecuentes a la costa definen el ritmo de vida." },
         ],
-        reviews: [
-          { text: "Pasear por la Ciudad Alta al atardecer, con las luces encendiéndose una a una, es de las postales más bonitas que me llevo del Erasmus.", author: "Beatriz, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -4491,9 +3665,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.0, desc: "Ecosistema tecnológico incipiente, con Zagreb consolidándose como hub emergente en la región." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "El turismo, en auge tras la entrada en el euro, ofrece trabajos estudiantiles estacionales." },
         ],
-        reviews: [
-          { text: "El mercado laboral no es el punto fuerte, pero encontré unas prácticas cortas en una startup local gracias a contactos de la universidad.", author: "Ivo, Erasmus 2023", flag: "🇸🇮" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -4507,9 +3678,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Índice de criminalidad bajo, con un ambiente urbano generalmente tranquilo y confiado." },
           { label: "Seguridad nocturna", score: 7.5, desc: "Volver de noche por el centro o Tkalčićeva es habitualmente tranquilo y seguro." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad ordenada y relajada, sin la masificación turística que genera fricciones en otras capitales." },
-        ],
-        reviews: [
-          { text: "Nunca me sentí insegura ni de día ni de noche. Zagreb tiene un ambiente muy tranquilo comparado con otras capitales europeas.", author: "Marion, Exchange 2024", flag: "🇫🇷" },
         ],
       },
     ],
@@ -4533,10 +3701,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.0, desc: "El centro es peatonal, así que apenas se necesita transporte; LPP tiene abono estudiantil muy económico para el resto." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Café en terraza junto al río por 1,50-2€. Ocio muy asequible comparado con capitales occidentales." },
         ],
-        reviews: [
-          { text: "Con 550€ al mes vivía con holgura, incluyendo escapadas frecuentes a Bled y los Alpes cercanos.", author: "Sanne, Erasmus 2024", flag: "🇳🇱" },
-          { text: "El presupuesto aquí es de los más generosos de Europa. Ni de lejos gasté lo que gastaban mis amigos en otras capitales.", author: "Rafael, Exchange 2023", flag: "🇵🇹" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -4551,9 +3715,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.0, desc: "280–420€ habitación, de los precios más bajos de esta guía." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "Grupos de Facebook de exchange students y el portal Nepremicnine.net son los canales principales." },
           { label: "Residencias universitarias", score: 6.5, desc: "University of Ljubljana ofrece plazas en dormitorios estudiantiles, con proceso dentro de la solicitud de intercambio." },
-        ],
-        reviews: [
-          { text: "Encontré piso compartido cerca del centro en menos de un mes, sin apenas competencia con otros estudiantes.", author: "Milena, Exchange 2024", flag: "🇷🇸" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -4570,10 +3731,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 6.0, desc: "Metelkova, un antiguo cuartel militar convertido en zona alternativa, concentra buena parte del ambiente nocturno." },
           { label: "Eventos y actividades", score: 7.0, desc: "Excursiones de día al lago Bled y Bohinj son de los planes más recurrentes y valorados del semestre." },
         ],
-        reviews: [
-          { text: "La comunidad Erasmus aquí es pequeña pero de las más unidas que he vivido. Acabamos siendo un grupo muy cercano en pocas semanas.", author: "Louis, Erasmus 2023", flag: "🇧🇪" },
-          { text: "Metelkova tiene un ambiente alternativo y underground que no esperaba encontrar en una capital tan tranquila.", author: "Ana, Exchange 2024", flag: "🇪🇸" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -4589,9 +3746,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "El tamaño reducido de la ciudad facilita encontrarte con las mismas caras y acabar conociendo gente local." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "Comunidad internacional acogedora, con locales requiriendo algo de iniciativa pero muy accesibles." },
         ],
-        reviews: [
-          { text: "Al ser una ciudad tan pequeña, acabé reconociendo caras por la calle en pocas semanas. Da una sensación de comunidad muy especial.", author: "Fien, Erasmus 2024", flag: "🇧🇪" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -4606,9 +3760,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 6.5, desc: "LPP (bus) cubre el resto de la ciudad, aunque apenas se necesita dentro del centro." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Lago Bled a 50 minutos, Bohinj y los Alpes Julianos a poco más — de las escapadas más accesibles de esta guía." },
           { label: "Conexiones internacionales", score: 6.0, desc: "El aeropuerto de Liubliana tiene menos rutas directas que otras capitales, aunque Venecia y Zagreb quedan cerca en coche." },
-        ],
-        reviews: [
-          { text: "Ir al lago Bled un sábado por la mañana y volver a tiempo para cenar se convirtió en nuestro plan de cabecera.", author: "Iris, Exchange 2023", flag: "🇳🇱" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -4626,10 +3777,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Ciudad pequeña sin masificación turística, donde la vida local y la estudiantil se mezclan con naturalidad." },
           { label: "Estilo de vida", score: 9.0, desc: "Ritmo pausado, mucho contacto con la naturaleza y una ciudad completamente recorrible a pie o en bici." },
         ],
-        reviews: [
-          { text: "Es probablemente la ciudad más tranquila y verde en la que he vivido. El castillo con su bosque dentro de la ciudad es un lujo diario.", author: "Théo, Erasmus 2024", flag: "🇫🇷" },
-          { text: "Poder ir en bici a todos lados y respirar aire limpio en una capital europea me hizo replantearme cómo debería ser vivir en una ciudad.", author: "Marija, Exchange 2023", flag: "🇧🇬" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -4645,9 +3792,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.0, desc: "Ecosistema tecnológico incipiente, con Liubliana consolidándose poco a poco como hub regional." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "El tamaño reducido del mercado limita las oportunidades, pero también la competencia por ellas." },
         ],
-        reviews: [
-          { text: "El mercado laboral es pequeño, pero encontré unas prácticas cortas en una empresa tecnológica local gracias a la propia universidad.", author: "Karin, Erasmus 2024", flag: "🇩🇪" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -4661,9 +3805,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.5, desc: "Eslovenia aparece consistentemente entre los países más seguros y pacíficos de Europa." },
           { label: "Seguridad nocturna", score: 8.5, desc: "Caminar de noche por el centro peatonal es completamente normal y seguro, sin excepción." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad tranquila y ordenada, con un ritmo pausado que se nota en el ambiente general." },
-        ],
-        reviews: [
-          { text: "Nunca sentí ni la más mínima preocupación por mi seguridad, ni de día ni de noche, en todo el semestre.", author: "Nora, Exchange 2023", flag: "🇩🇰" },
         ],
       },
     ],
@@ -4687,10 +3828,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.5, desc: "Transporte público gratuito para residentes registrados en Tallin — una ventaja única en Europa." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Cervezas y salidas asequibles; el mercado navideño de invierno es un plan gratuito y muy popular." },
         ],
-        reviews: [
-          { text: "El transporte público gratuito una vez te registras como residente es una pasada — nunca pagué un billete en todo el semestre.", author: "Filip, Erasmus 2024", flag: "🇵🇱" },
-          { text: "Con 550€/mes vivía con comodidad, incluyendo salidas frecuentes con otros exchange students.", author: "Elena, Exchange 2023", flag: "🇷🇴" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -4705,9 +3842,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.0, desc: "300–450€ habitación, de los más bajos de toda esta guía." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "Academic Hostel y plataformas locales como City24 son los canales principales de búsqueda." },
           { label: "Residencias universitarias", score: 6.5, desc: "TalTech y TLU ofrecen alojamiento gestionado (Academic Hostel) para exchange students, por orden de solicitud." },
-        ],
-        reviews: [
-          { text: "Academic Hostel fue muy sencillo de gestionar y el precio, comparado con lo que pagaban mis amigos en otras capitales, era una ganga.", author: "Timo, Exchange 2024", flag: "🇩🇪" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -4724,9 +3858,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 6.5, desc: "Casco antiguo y Telliskivi Creative City concentran bares y ambiente joven a precios razonables." },
           { label: "Eventos y actividades", score: 7.0, desc: "Mercados navideños, festivales de música y el distrito creativo de Telliskivi ofrecen planes constantes." },
         ],
-        reviews: [
-          { text: "Al ser pocos Erasmus acabamos siendo un grupo muy unido. Descubrir Telliskivi Creative City con ellos fue de lo mejor del semestre.", author: "Marta, Erasmus 2023", flag: "🇵🇱" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -4742,9 +3873,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "Los eventos de TalTech y TLU son la vía más rápida de conectar con estudiantes estonios." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "Comunidad internacional pequeña pero cercana desde el primer día." },
         ],
-        reviews: [
-          { text: "Los estonios tardan en abrirse, pero cuando lo hacen la amistad es muy genuina y duradera.", author: "Hugo, Exchange 2024", flag: "🇫🇷" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -4759,9 +3887,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.0, desc: "El casco antiguo y el centro son totalmente caminables, compactos y bien conectados." },
           { label: "Conexiones internacionales", score: 7.5, desc: "Ferry a Helsinki en 2 horas; vuelos baratos a los países bálticos y nórdicos." },
           { label: "Escapadas de fin de semana", score: 7.0, desc: "Helsinki, Riga y el resto de capitales bálticas a un trayecto corto en ferry o bus." },
-        ],
-        reviews: [
-          { text: "Coger el ferry a Helsinki un sábado por la mañana y volver por la noche se convirtió en un plan recurrente y muy asequible.", author: "Ines, Erasmus 2023", flag: "🇩🇪" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -4779,9 +3904,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "El casco medieval mejor conservado del norte de Europa convive de forma natural con startups y coworkings." },
           { label: "Estilo de vida", score: 7.5, desc: "Ritmo tranquilo, mentalidad digital y una identidad de país pequeño con ambición tecnológica grande." },
         ],
-        reviews: [
-          { text: "Vivir entre torres medievales y startups tecnológicas al mismo tiempo es una combinación que no había visto en ningún otro destino.", author: "Diego, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -4797,9 +3919,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.5, desc: "Skype nació en Tallin, y empresas como Bolt y Wise mantienen fuerte presencia en la ciudad." },
           { label: "Oportunidades para estudiantes", score: 6.5, desc: "Ecosistema startup accesible para estudiantes de perfil técnico, con eventos y hackathons frecuentes." },
         ],
-        reviews: [
-          { text: "Asistí a un hackathon organizado por una startup local y acabé con contactos que me llevaron a una entrevista de prácticas.", author: "Léo, Internship 2023", flag: "🇫🇷" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -4813,9 +3932,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Estonia se sitúa consistentemente entre los países más seguros y con menos corrupción de Europa." },
           { label: "Seguridad nocturna", score: 8.0, desc: "Volver de noche por el casco antiguo o zonas estudiantiles es tranquilo y seguro." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada y con un fuerte sentido cívico, reflejo de su digitalización administrativa." },
-        ],
-        reviews: [
-          { text: "Me sentí completamente segura durante todo el semestre, incluso paseando sola de noche por el casco antiguo.", author: "Alba, Erasmus 2024", flag: "🇪🇸" },
         ],
       },
     ],
@@ -4839,10 +3955,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Abono estudiantil de transporte muy económico para una ciudad de tamaño compacto." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Cervezas y salidas asequibles; la escena de café de Užupis es un plan barato y constante." },
         ],
-        reviews: [
-          { text: "Con 500€ al mes vivía cómodamente, incluyendo salidas frecuentes con el grupo de Erasmus.", author: "Marco, Erasmus 2024", flag: "🇮🇹" },
-          { text: "El presupuesto aquí da para mucho más que en el resto de Europa. Comer fuera casi a diario no era un problema.", author: "Sara, Exchange 2023", flag: "🇪🇸" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -4857,9 +3969,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.5, desc: "280–420€ habitación, de los más bajos de toda esta guía." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "Aruodas.lt y grupos de Facebook de exchange students son los canales principales de búsqueda." },
           { label: "Residencias universitarias", score: 6.5, desc: "VU y VILNIUS TECH ofrecen residencias con cupos para exchange students, gestionadas por orden de solicitud." },
-        ],
-        reviews: [
-          { text: "Viví en una residencia de VILNIUS TECH y las cenas internacionales en los pasillos fueron de lo mejor del semestre.", author: "Andrej, Exchange 2023", flag: "🇸🇰" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -4876,9 +3985,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 6.5, desc: "Casco antiguo y Užupis concentran bares con ambiente joven y precios muy razonables." },
           { label: "Eventos y actividades", score: 7.5, desc: "El día de la independencia de la 'República de Užupis' (1 de abril) es un evento único con mucho humor local." },
         ],
-        reviews: [
-          { text: "Celebrar el día de Užupis con toda su parodia de burocracia y humor fue una de las experiencias más divertidas y originales de mi Erasmus.", author: "Camille, Erasmus 2024", flag: "🇫🇷" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -4894,9 +4000,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "Los eventos universitarios y las cenas de residencia son la vía más natural de conectar con lituanos." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "Comunidad internacional cercana y en crecimiento, con buen ambiente desde el primer día." },
         ],
-        reviews: [
-          { text: "Los lituanos parecen fríos al principio, pero en cuanto muestras interés genuino por su cultura se abren por completo.", author: "Noah, Exchange 2024", flag: "🇳🇱" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -4911,9 +4014,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.0, desc: "El casco antiguo barroco es totalmente caminable, compacto y muy bien conservado." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "El castillo de Trakai, sobre un lago, está a menos de una hora — una de las excursiones más icónicas de la región." },
           { label: "Conexiones internacionales", score: 6.5, desc: "Vuelos baratos a las capitales bálticas y nórdicas; menos rutas directas que otras capitales europeas." },
-        ],
-        reviews: [
-          { text: "El castillo de Trakai, con el lago alrededor, fue una de las excursiones más bonitas que hice en todo mi Erasmus.", author: "Julia, Erasmus 2023", flag: "🇩🇪" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -4931,9 +4031,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Užupis, con su constitución propia llena de humor, es de las experiencias urbanas más originales de Europa." },
           { label: "Estilo de vida", score: 7.5, desc: "Ritmo tranquilo, mucha vida de café y una identidad creativa que se nota especialmente en el barrio bohemio." },
         ],
-        reviews: [
-          { text: "Vivir cerca de Užupis y su 'constitución' llena de humor (como el derecho a ser feliz o el derecho de un gato a no querer a su dueño) me cambió la forma de ver una ciudad.", author: "Elena, Erasmus 2024", flag: "🇷🇴" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -4949,9 +4046,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Sector fintech en expansión, con Vilna posicionándose como alternativa a otros hubs bálticos." },
           { label: "Oportunidades para estudiantes", score: 6.5, desc: "Ecosistema startup accesible, aunque con menos densidad que Tallin o Riga." },
         ],
-        reviews: [
-          { text: "Hice unas prácticas cortas en una fintech local gracias a un contacto de la universidad — el sector está creciendo rápido.", author: "Tobias, Internship 2023", flag: "🇩🇪" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -4965,9 +4059,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Lituania se sitúa entre los países más seguros de Europa del Este, con criminalidad baja." },
           { label: "Seguridad nocturna", score: 8.0, desc: "Volver de noche por el casco antiguo o Užupis es tranquilo y seguro." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada y de ritmo pausado, con un ambiente generalmente relajado." },
-        ],
-        reviews: [
-          { text: "Me sentí segura en todo momento, incluso volviendo sola de noche desde el centro a mi residencia.", author: "Beatriz, Erasmus 2024", flag: "🇵🇹" },
         ],
       },
     ],
@@ -4991,10 +4082,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.0, desc: "Abono estudiantil de tranvía y bus muy asequible para una ciudad de tamaño manejable." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Cervezas y salidas económicas; el tren a Jurmala (playa báltica) cuesta apenas unos euros." },
         ],
-        reviews: [
-          { text: "Con 550€ al mes vivía cómodamente, incluyendo escapadas frecuentes a Jurmala en verano.", author: "Karolina, Erasmus 2024", flag: "🇵🇱" },
-          { text: "El Mercado Central es una pasada — producto fresco baratísimo en unos hangares históricos enormes.", author: "Tobias, Exchange 2023", flag: "🇩🇪" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -5009,9 +4096,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.0, desc: "280–420€ habitación, de los más bajos de toda esta guía." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "City24.lv y grupos de Facebook de exchange students son los canales principales." },
           { label: "Residencias universitarias", score: 6.5, desc: "LU y RTU ofrecen residencias con cupos para exchange students, gestionadas por orden de solicitud." },
-        ],
-        reviews: [
-          { text: "Encontré piso en Āgenskalns sin demasiado esfuerzo y a un precio muy razonable para estar a 15 minutos del centro.", author: "Louis, Exchange 2024", flag: "🇫🇷" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -5028,9 +4112,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 6.5, desc: "Casco antiguo concentra bares con ambiente estudiantil a precios muy razonables." },
           { label: "Eventos y actividades", score: 7.0, desc: "Excursiones a Jurmala en verano y mercados navideños en invierno son los planes más populares del semestre." },
         ],
-        reviews: [
-          { text: "Las excursiones de ESN a Jurmala los fines de semana de verano fueron de lo mejor de mi Erasmus — playa báltica a 30 minutos del centro.", author: "Elena, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -5046,9 +4127,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "Los eventos de LU y RTU son la vía más rápida de conectar con estudiantes letones." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "Comunidad internacional cercana desde el primer día, con locales requiriendo algo más de tiempo." },
         ],
-        reviews: [
-          { text: "Los letones tardan en abrirse, similar a estonios y lituanos, pero la amistad una vez hecha es muy genuina.", author: "Mateus, Exchange 2024", flag: "🇵🇹" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -5063,9 +4141,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.0, desc: "El casco antiguo y el barrio Art Nouveau son totalmente caminables y muy compactos." },
           { label: "Jurmala a un tren", score: 8.5, desc: "Tren directo a Jurmala en 30 minutos — playa báltica de arena fina, muy popular en verano." },
           { label: "Conexiones internacionales", score: 6.5, desc: "Vuelos baratos a las capitales bálticas y nórdicas; aeropuerto con buena conectividad regional." },
-        ],
-        reviews: [
-          { text: "Ir a la playa de Jurmala en tren después de clase se convirtió en un plan de verano recurrente y muy fácil.", author: "Nadia, Erasmus 2024", flag: "🇳🇱" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -5083,9 +4158,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "El barrio de Alberta iela concentra la mayor densidad de arquitectura Art Nouveau de toda Europa." },
           { label: "Estilo de vida", score: 7.0, desc: "Ritmo tranquilo, mucha vida de café y una identidad báltica elegante que se nota en cada fachada." },
         ],
-        reviews: [
-          { text: "Pasear por Alberta iela y ver esas fachadas Art Nouveau cada día de camino a clase fue un lujo que no esperaba de un Erasmus.", author: "Giulia, Erasmus 2024", flag: "🇮🇹" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -5101,9 +4173,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Riga se posiciona como hub logístico báltico, con un ecosistema IT en crecimiento sostenido." },
           { label: "Oportunidades para estudiantes", score: 6.5, desc: "Mercado accesible para perfiles técnicos, aunque con menos densidad startup que Tallin." },
         ],
-        reviews: [
-          { text: "Hice unas prácticas cortas en una empresa logística local gracias a un contacto de la universidad — el sector está en pleno crecimiento.", author: "Emil, Internship 2023", flag: "🇸🇪" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -5117,9 +4186,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.0, desc: "Letonia se sitúa entre los países más seguros de Europa del Este, con criminalidad baja." },
           { label: "Seguridad nocturna", score: 7.5, desc: "Volver de noche por el casco antiguo o el barrio Art Nouveau es generalmente tranquilo y seguro." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad ordenada y elegante, con un ambiente generalmente relajado y cívico." },
-        ],
-        reviews: [
-          { text: "Me sentí segura durante todo el semestre, incluso paseando sola de noche por el casco antiguo.", author: "Marta, Erasmus 2023", flag: "🇵🇱" },
         ],
       },
     ],
@@ -5143,10 +4209,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Abono estudiantil de tranvía y bus muy económico para una ciudad de tamaño compacto." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Cervezas y salidas asequibles; escapadas a Viena son el único gasto extra que sube el presupuesto." },
         ],
-        reviews: [
-          { text: "Con 550€ al mes vivía cómodamente, incluyendo alguna escapada mensual a Viena en tren.", author: "Filip, Erasmus 2024", flag: "🇵🇱" },
-          { text: "El presupuesto aquí rinde mucho más que en Viena, a solo una hora de distancia. La combinación es perfecta.", author: "Elena, Exchange 2023", flag: "🇷🇴" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -5161,9 +4223,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.0, desc: "300–450€ habitación, de los más bajos de Centroeuropa." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "Nehnutelnosti.sk y grupos de Facebook de exchange students son los canales principales." },
           { label: "Residencias universitarias", score: 6.5, desc: "UK y STU ofrecen residencias con cupos para exchange students, gestionadas por orden de solicitud." },
-        ],
-        reviews: [
-          { text: "Encontré piso en Ružinov sin demasiado esfuerzo y a un precio muy razonable para estar a 15 minutos del centro en tranvía.", author: "Andrej, Exchange 2024", flag: "🇸🇰" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -5180,10 +4239,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "El casco antiguo, tan compacto, concentra toda la vida nocturna a poca distancia caminando." },
           { label: "Eventos y actividades", score: 7.5, desc: "Escapadas organizadas a Viena, Budapest y los castillos eslovacos son planes constantes de fin de semana." },
         ],
-        reviews: [
-          { text: "La comunidad Erasmus aquí es enorme para lo pequeña que es la ciudad. Nunca faltó plan ni un solo fin de semana.", author: "Sofia, Erasmus 2023", flag: "🇬🇷" },
-          { text: "El casco antiguo es tan pequeño que te cruzas con la misma gente de Erasmus constantemente — se genera una comunidad muy unida rápido.", author: "Lucas, Exchange 2024", flag: "🇫🇷" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -5199,9 +4254,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "El curso gratuito de eslovaco para Erasmus+ es una buena vía de integración con locales." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "El sistema de buddy de ESN facilita mucho el contacto inicial con estudiantes locales." },
         ],
-        reviews: [
-          { text: "Mi buddy de ESN me ayudó desde el primer día con todo, desde el alojamiento hasta hacerme sentir parte de la ciudad enseguida.", author: "Marco, Erasmus 2024", flag: "🇮🇹" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -5216,9 +4268,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 7.5, desc: "Tranvía y bus cubren bien el resto de la ciudad, con buen descuento estudiantil." },
           { label: "Viena a 1 hora", score: 9.5, desc: "Tren directo a Viena en apenas 1 hora — muchos Erasmus hacen escapadas de un día entero sin planificación previa." },
           { label: "Conexiones regionales", score: 8.5, desc: "Budapest a 2,5 horas y Praga a 4 — base perfecta para descubrir Centroeuropa entera durante el semestre." },
-        ],
-        reviews: [
-          { text: "Iba a Viena casi cada dos semanas sin pensarlo demasiado — el tren es rápido, barato y directo desde el centro.", author: "Ben, Exchange 2023", flag: "🇩🇪" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -5236,9 +4285,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 7.5, desc: "Menos turística que Praga o Viena, con un ambiente más local y auténtico en el día a día." },
           { label: "Estilo de vida", score: 7.5, desc: "Ritmo tranquilo, con la posibilidad constante de escapar a otras capitales sin apenas planificación." },
         ],
-        reviews: [
-          { text: "Desde el castillo se ven Austria y, en días claros, hasta Hungría. Es una sensación única tener tres países a la vista al mismo tiempo.", author: "Chiara, Erasmus 2024", flag: "🇮🇹" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -5254,9 +4300,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "Presencia de multinacionales atraídas por costes laborales competitivos y proximidad a Viena." },
           { label: "Oportunidades para estudiantes", score: 7.0, desc: "Mercado accesible para perfiles multilingües, especialmente en servicios compartidos de multinacionales." },
         ],
-        reviews: [
-          { text: "Conseguí unas prácticas en un centro de servicios de una multinacional gracias a mi perfil multilingüe. Aquí valoran mucho hablar varios idiomas.", author: "Pablo, Internship 2023", flag: "🇪🇸" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -5270,9 +4313,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.0, desc: "Eslovaquia se sitúa entre los países más seguros de Centroeuropa, con criminalidad baja." },
           { label: "Seguridad nocturna", score: 7.5, desc: "Volver de noche por el casco antiguo, tan compacto, es tranquilo y seguro." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad pequeña y ordenada, con un ambiente generalmente relajado y cívico." },
-        ],
-        reviews: [
-          { text: "Me sentí segura en todo momento, ayudada también por lo pequeño y manejable que es el centro de la ciudad.", author: "Ana, Erasmus 2024", flag: "🇵🇹" },
         ],
       },
     ],
@@ -5296,10 +4336,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.0, desc: "Abono de metro y bus estudiantil muy económico para una ciudad grande y extensa." },
           { label: "Ocio y gastos diarios", score: 8.5, desc: "Cervezas a 2-3€, entrada a clubs muy barata. La vida nocturna del Centro Vechi es asequible incluso saliendo a menudo." },
         ],
-        reviews: [
-          { text: "Con 450€ al mes vivía genial, salía todos los findes y todavía ahorraba para viajar por Rumanía.", author: "Diego, Erasmus 2024", flag: "🇦🇷" },
-          { text: "El presupuesto aquí rinde más que en cualquier otro destino que consideré. Se puede vivir muy bien con poco.", author: "Sara, Exchange 2023", flag: "🇮🇹" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -5314,9 +4350,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 8.0, desc: "200–350€ habitación, de los más bajos de toda Europa para una capital de este tamaño." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "Storia.ro y grupos de Facebook de exchange students son los canales principales de búsqueda." },
           { label: "Residencias universitarias", score: 6.5, desc: "UB y UPB ofrecen residencias con cupos para exchange students, gestionadas por orden de solicitud." },
-        ],
-        reviews: [
-          { text: "Encontí piso en Cotroceni en pocos días y a un precio que en cualquier capital occidental habría sido impensable.", author: "Lucas, Exchange 2024", flag: "🇫🇷" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -5333,10 +4366,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "El Centro Vechi concentra decenas de bares y clubs con ambiente hasta la madrugada a precios muy bajos." },
           { label: "Eventos y actividades", score: 8.0, desc: "Festivales de música, rooftops en verano y una escena cultural en pleno crecimiento." },
         ],
-        reviews: [
-          { text: "La vida nocturna del Centro Vechi no tiene nada que envidiar a otras capitales europeas, y el precio es una fracción de lo que pagaba en mi país.", author: "Théo, Erasmus 2023", flag: "🇫🇷" },
-          { text: "Nunca esperé que Bucarest tuviera tanta energía nocturna. Cada noche de la semana hay algo diferente que hacer en el Centro Vechi.", author: "Marta, Exchange 2024", flag: "🇵🇱" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -5352,9 +4381,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.0, desc: "El idioma latino facilita algo la comprensión para hispanohablantes e italianos." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "Comunidad internacional accesible desde el primer día, con locales muy dispuestos a ayudar." },
         ],
-        reviews: [
-          { text: "Al ser español, entender rumano básico fue sorprendentemente más fácil de lo esperado por la raíz latina común.", author: "Pablo, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -5369,9 +4395,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 5.5, desc: "Ciudad extensa donde el metro es casi imprescindible para moverse entre zonas alejadas." },
           { label: "Conexiones nacionales", score: 6.5, desc: "Trenes y buses conectan con el resto de Rumanía, incluida Transilvania y sus castillos." },
           { label: "Conexiones internacionales", score: 6.0, desc: "Vuelos baratos a otras capitales del Este; menos rutas directas que capitales occidentales." },
-        ],
-        reviews: [
-          { text: "El metro es rapidísimo y baratísimo. Sin él, moverse por una ciudad tan extensa habría sido mucho más complicado.", author: "Nadia, Exchange 2023", flag: "🇳🇱" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -5389,9 +4412,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 7.5, desc: "El contraste entre el Arco del Triunfo, la arquitectura Belle Époque y el Palacio del Parlamento define el carácter único de la ciudad." },
           { label: "Estilo de vida", score: 7.0, desc: "Ritmo intenso, con una vida social muy activa y un coste que permite disfrutar sin grandes preocupaciones." },
         ],
-        reviews: [
-          { text: "Ver el Arco del Triunfo y minutos después el gigantesco Palacio del Parlamento resume perfectamente los contrastes de esta ciudad.", author: "Giulia, Erasmus 2024", flag: "🇮🇹" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -5407,9 +4427,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "Presencia de grandes tecnológicas internacionales atraídas por talento técnico y costes competitivos." },
           { label: "Oportunidades para estudiantes", score: 6.5, desc: "Mercado accesible para perfiles técnicos, especialmente en desarrollo de software." },
         ],
-        reviews: [
-          { text: "Hice unas prácticas en una empresa de software gracias a un contacto de UPB. El sector tech aquí es mucho más grande de lo que esperaba.", author: "Rodrigo, Internship 2024", flag: "🇧🇷" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -5423,9 +4440,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.5, desc: "Segura para estándares de gran capital, con las precauciones normales de cualquier ciudad extensa." },
           { label: "Seguridad nocturna", score: 6.0, desc: "El Centro Vechi es seguro y muy transitado; conviene algo más de atención en zonas periféricas de noche." },
           { label: "Ambiente de la ciudad", score: 7.0, desc: "Ambiente generalmente cálido y acogedor, con la vida callejera activa hasta tarde." },
-        ],
-        reviews: [
-          { text: "Me sentí segura la mayor parte del tiempo, con la precaución normal de cualquier gran ciudad al volver de noche.", author: "Valentina, Erasmus 2023", flag: "🇪🇸" },
         ],
       },
     ],
@@ -5449,10 +4463,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.5, desc: "Abono de metro y bus estudiantil muy económico, con acceso directo a las pistas de Vitosha." },
           { label: "Ocio y gastos diarios", score: 8.5, desc: "Cervezas a 2€, entrada a clubs muy barata. El forfait de esquí en Vitosha es de los más baratos de Europa." },
         ],
-        reviews: [
-          { text: "Con 400€ al mes vivía muy bien, incluyendo esquiar varias veces al mes en Vitosha sin gastar apenas.", author: "Karolina, Erasmus 2024", flag: "🇵🇱" },
-          { text: "El presupuesto aquí es el más generoso de todos los destinos que consideré para mi Erasmus.", author: "Marco, Exchange 2023", flag: "🇮🇹" },
-        ],
       },
       // 2. ALOJAMIENTO
       {
@@ -5467,9 +4477,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 8.0, desc: "180–320€ habitación, de los más bajos de toda Europa para una capital." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "Imot.bg y grupos de Facebook de exchange students son los canales principales." },
           { label: "Residencias universitarias", score: 6.5, desc: "Sofia University y TU-Sofia ofrecen residencias en Studentski grad, con cupos limitados para exchange students." },
-        ],
-        reviews: [
-          { text: "Encontré piso en Lozenets sin apenas esfuerzo y a un precio que en cualquier otra capital habría sido impensable.", author: "Louis, Exchange 2024", flag: "🇫🇷" },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -5486,9 +4493,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 6.5, desc: "El centro concentra bares y clubs con ambiente estudiantil a precios muy bajos." },
           { label: "Eventos y actividades", score: 7.0, desc: "Excursiones a Vitosha para esquiar o hacer senderismo son de los planes más populares del semestre." },
         ],
-        reviews: [
-          { text: "Al ser pocos Erasmus acabamos siendo un grupo muy unido. Ir a esquiar juntos a Vitosha varias veces al mes fue de lo mejor del semestre.", author: "Elena, Erasmus 2023", flag: "🇷🇴" },
-        ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
       {
@@ -5504,9 +4508,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.0, desc: "El curso gratuito de búlgaro de Sofia University es una buena vía de integración con locales." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "Comunidad internacional accesible desde el primer día, con locales dispuestos a ayudar." },
         ],
-        reviews: [
-          { text: "Los búlgaros son mucho más cálidos de lo que esperaba. En cuanto mostré interés por su cultura, la conexión fue inmediata.", author: "Julia, Erasmus 2024", flag: "🇩🇪" },
-        ],
       },
       // 5. UBICACIÓN Y MOVILIDAD
       {
@@ -5521,9 +4522,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.0, desc: "El centro histórico es compacto y caminable, con Vitosha visible desde casi cualquier punto." },
           { label: "Vitosha a 30 minutos", score: 9.0, desc: "Transporte público directo a las pistas de esquí de Vitosha — único caso de capital europea con esta accesibilidad." },
           { label: "Conexiones internacionales", score: 6.0, desc: "Vuelos baratos a otras capitales del Este; menos rutas directas que capitales occidentales." },
-        ],
-        reviews: [
-          { text: "Esquié por la mañana en Vitosha y estaba en clase por la tarde el mismo día. No conozco otra capital del mundo donde esto sea posible.", author: "Anke, Exchange 2023", flag: "🇩🇪" },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -5541,9 +4539,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Más de 7.000 años de historia continua, entre las capitales más antiguas de Europa, sin artificio turístico." },
           { label: "Estilo de vida", score: 7.5, desc: "Ritmo tranquilo, con la montaña siempre presente como parte del día a día, incluso entre semana." },
         ],
-        reviews: [
-          { text: "Vivir en una capital con 7.000 años de historia y tener una estación de esquí a 30 minutos es una combinación que no imaginé posible.", author: "Chiara, Erasmus 2024", flag: "🇮🇹" },
-        ],
       },
       // 7. EMPLEO Y OPORTUNIDADES
       {
@@ -5559,9 +4554,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Presencia de multinacionales tecnológicas atraídas por costes competitivos y talento técnico." },
           { label: "Oportunidades para estudiantes", score: 6.5, desc: "Mercado accesible para perfiles técnicos, especialmente en desarrollo de software." },
         ],
-        reviews: [
-          { text: "Hice unas prácticas cortas en una empresa de software gracias a un contacto de TU-Sofia. El sector tech está en pleno crecimiento aquí.", author: "Tobias, Internship 2023", flag: "🇩🇪" },
-        ],
       },
       // 8. SEGURIDAD
       {
@@ -5575,9 +4567,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.0, desc: "Segura para estándares de capital europea, con criminalidad moderada." },
           { label: "Seguridad nocturna", score: 6.5, desc: "El centro es tranquilo y transitado; conviene algo más de atención en zonas periféricas de noche." },
           { label: "Ambiente de la ciudad", score: 7.5, desc: "Ambiente generalmente relajado y cívico, con la montaña como refugio constante." },
-        ],
-        reviews: [
-          { text: "Me sentí segura durante todo el semestre, con la precaución normal de cualquier capital al volver de noche.", author: "Marta, Erasmus 2024", flag: "🇵🇱" },
         ],
       },
     ],
@@ -5600,10 +4589,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 6.0, desc: "Unireso, gratuito los primeros días vía hoteles y residencias; el abono mensual ronda 45 CHF (~48€)." },
           { label: "Ocio y gastos diarios", score: 2.0, desc: "Una cerveza en bar puede costar 8–10€. Salir a cenar fuera es un lujo puntual, no una rutina." },
         ],
-        reviews: [
-          { text: "Llegué con el presupuesto Erasmus estándar y a la semana ya sabía que no iba a alcanzar ni de lejos.", author: "Marta, Erasmus 2024", flag: "🇪🇸" },
-          { text: "Ginebra se vive bien si compartes piso y cocinas en casa. Si sales a cenar cada fin de semana, quiebras.", author: "Luca, Exchange 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "alojamiento",
@@ -5617,9 +4602,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 1.5, desc: "900–1.200€ habitación en la propia Ginebra; baja a 500–700€ cruzando a Francia." },
           { label: "Facilidad de búsqueda", score: 2.5, desc: "La Cité Universitaire y la Fondation des Étudiants gestionan cupos limitados — solicítalo en cuanto tengas la admisión." },
           { label: "Residencias universitarias", score: 4.0, desc: "UNIGE tiene plazas para exchange students, pero muy limitadas y con lista de espera larga." },
-        ],
-        reviews: [
-          { text: "Acabé viviendo en Annemasse, Francia, y cruzando la frontera en tren cada mañana. Ahorré la mitad del alquiler.", author: "Hugo, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
       {
@@ -5635,9 +4617,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 5.0, desc: "Oferta de clubs limitada y cara; Les Pâquis concentra los bares más animados y asequibles." },
           { label: "Eventos y actividades", score: 7.0, desc: "Fêtes de Genève en agosto, conferencias internacionales abiertas al público y salidas de senderismo constantes." },
         ],
-        reviews: [
-          { text: "No es la ciudad para la fiesta desenfrenada, pero la calidad de la gente que conoces (de medio mundo) compensa.", author: "Sofia, Exchange 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "integracion",
@@ -5652,9 +4631,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.0, desc: "Más fácil integrarse con la enorme comunidad internacional que con los locales de toda la vida." },
           { label: "Facilidad para hacer amigos", score: 8.5, desc: "La rotación de estudiantes de posgrado y diplomáticos jóvenes hace fácil conocer gente nueva constantemente." },
         ],
-        reviews: [
-          { text: "Nunca había estado en un sitio donde en una misma mesa había gente de ocho nacionalidades distintas. Así es el día a día aquí.", author: "Karim, Erasmus 2023", flag: "🇹🇳" },
-        ],
       },
       {
         id: "movilidad",
@@ -5668,9 +4644,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.0, desc: "Centro compacto y muy paseable, con carriles bici en expansión constante." },
           { label: "Conexiones internacionales", score: 9.5, desc: "Aeropuerto a 10 minutos del centro en tren; Lyon, Milán y Zúrich a un tren directo." },
           { label: "Escapadas de fin de semana", score: 9.5, desc: "Chamonix, Annecy y los Alpes a menos de una hora; Lyon a 2 horas en tren." },
-        ],
-        reviews: [
-          { text: "En un mismo fin de semana esquié por la mañana y cené junto al lago por la noche. La ubicación es un privilegio.", author: "Elena, Exchange 2024", flag: "🇪🇸" },
         ],
       },
       {
@@ -5687,9 +4660,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 6.5, desc: "Ciudad más internacional que 'auténticamente suiza'; para ver la Suiza tradicional hay que salir de la ciudad." },
           { label: "Estilo de vida", score: 8.0, desc: "Ritmo tranquilo, deporte al aire libre y una cultura del trabajo muy seria." },
         ],
-        reviews: [
-          { text: "El primer día de clase vi el Mont Blanc nevado desde la orilla del lago. Ese impacto de belleza no se olvida.", author: "Nina, Erasmus 2023", flag: "🇩🇪" },
-        ],
       },
       {
         id: "empleo",
@@ -5704,9 +4674,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 8.5, desc: "Sede de bancos privados, empresas de trading de materias primas y organismos internacionales." },
           { label: "Oportunidades para estudiantes", score: 8.5, desc: "IHEID conecta directamente a sus estudiantes con organismos internacionales vía prácticas y seminarios." },
         ],
-        reviews: [
-          { text: "Conseguí unas prácticas en una ONG gracias a un contacto de un seminario de la universidad. Aquí el networking internacional es constante.", author: "Bruno, Internship 2024", flag: "🇧🇷" },
-        ],
       },
       {
         id: "seguridad",
@@ -5719,9 +4686,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.5, desc: "Criminalidad muy baja, incluso en comparación con otras ciudades suizas." },
           { label: "Seguridad nocturna", score: 9.0, desc: "Calles tranquilas y bien iluminadas a cualquier hora, transporte nocturno fiable los fines de semana." },
           { label: "Ambiente de la ciudad", score: 9.5, desc: "Ciudad extremadamente ordenada, limpia y con un civismo generalizado." },
-        ],
-        reviews: [
-          { text: "Nunca en mi vida me he sentido tan segura caminando sola de noche como en Ginebra.", author: "Camille, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
     ],
@@ -5744,10 +4708,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Abono mensual estudiantil (ATAF) ronda los 25€; el centro se recorre andando en 20 minutos." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Aperitivo con bebida + buffet desde 8–10€, la opción de cena más popular entre estudiantes." },
         ],
-        reviews: [
-          { text: "Fuera del centro histórico los precios bajan mucho. Viví en Campo di Marte pagando la mitad que un compañero cerca del Duomo.", author: "Clara, Erasmus 2024", flag: "🇪🇸" },
-          { text: "El aperitivo salva el presupuesto de cualquier estudiante en Florencia.", author: "Marco, Exchange 2023", flag: "🇩🇪" },
-        ],
       },
       {
         id: "alojamiento",
@@ -5761,9 +4721,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 5.0, desc: "400–550€ habitación en zonas bien conectadas; el centro histórico puede duplicar ese precio." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "Grupos de 'Erasmus Firenze' y la oficina de alojamiento de la universidad son los canales más fiables." },
           { label: "Residencias universitarias", score: 5.5, desc: "La Università di Firenze gestiona plazas limitadas en residencias, con demanda muy alta entre exchange students." },
-        ],
-        reviews: [
-          { text: "Busca fuera del anillo turístico. A 15 minutos andando del Duomo hay barrios mucho más asequibles y con más vida local.", author: "Giulia, Erasmus 2023", flag: "🇮🇹" },
         ],
       },
       {
@@ -5779,9 +4736,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "Santo Spirito y Oltrarno concentran bares con ambiente hasta tarde; discotecas algo más caras que la media italiana." },
           { label: "Eventos y actividades", score: 8.0, desc: "Catas de vino, clases de cocina toscana y excursiones de fin de semana organizadas constantemente." },
         ],
-        reviews: [
-          { text: "El aperitivo en Piazza Santo Spirito al atardecer es de las mejores rutinas que he tenido en un Erasmus.", author: "Ana, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "integracion",
@@ -5796,9 +4750,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.0, desc: "Fácil hacer amigos italianos en la universidad, algo más lento fuera de ese entorno." },
           { label: "Facilidad para hacer amigos", score: 8.5, desc: "La enorme comunidad internacional hace muy fácil el primer círculo de amistades." },
         ],
-        reviews: [
-          { text: "Los italianos de Florencia están acostumbrados a Erasmus desde hace generaciones. Te reciben con normalidad y calidez.", author: "Thomas, Exchange 2023", flag: "🇫🇷" },
-        ],
       },
       {
         id: "movilidad",
@@ -5812,9 +4763,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 9.0, desc: "Todo el centro histórico se cruza andando en 20–25 minutos." },
           { label: "Conexiones internacionales", score: 7.5, desc: "Aeropuerto pequeño pero con conexiones; Roma y Milán a menos de 2 horas en tren de alta velocidad." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Siena, Pisa, Lucca y Cinque Terre a un tren regional; el Chianti a un bus de distancia." },
-        ],
-        reviews: [
-          { text: "Cogí el tren un sábado por la mañana y comí en Siena antes de volver a Florencia para cenar. La Toscana entera está a tu alcance.", author: "Léa, Erasmus 2024", flag: "🇫🇷" },
         ],
       },
       {
@@ -5831,9 +4779,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Pese al turismo masivo, Oltrarno conserva talleres artesanos y vida de barrio auténtica." },
           { label: "Estilo de vida", score: 9.0, desc: "El aperitivo, la Toscana y el arte definen un ritmo de vida difícil de replicar en otro sitio." },
         ],
-        reviews: [
-          { text: "Iba a clase pasando por delante del Duomo cada mañana. Nunca dejó de impresionarme, ni el último día.", author: "Julia, Erasmus 2023", flag: "🇩🇪" },
-        ],
       },
       {
         id: "empleo",
@@ -5848,9 +4793,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.0, desc: "Gucci y otras firmas de moda tienen presencia y talleres en la región." },
           { label: "Oportunidades para estudiantes", score: 6.5, desc: "La Accademia di Belle Arti conecta con talleres artesanos y estudios de diseño locales." },
         ],
-        reviews: [
-          { text: "Hice unas prácticas en un taller de restauración de arte que me cambió la forma de ver mi carrera.", author: "Valentina, Internship 2024", flag: "🇦🇷" },
-        ],
       },
       {
         id: "seguridad",
@@ -5863,9 +4805,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Criminalidad baja, normal para una ciudad italiana de su tamaño." },
           { label: "Seguridad nocturna", score: 8.0, desc: "Centro histórico tranquilo de noche, con buena iluminación y ambiente estudiantil." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, aunque masificada de turistas en las horas centrales del día." },
-        ],
-        reviews: [
-          { text: "El único cuidado real es con el bolso en zonas como el Ponte Vecchio. Por lo demás, me sentí muy segura siempre.", author: "Marta, Erasmus 2023", flag: "🇪🇸" },
         ],
       },
     ],
@@ -5888,10 +4827,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.0, desc: "Deutschlandticket (49€) cubre HVV y trenes regionales por toda Alemania." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Cerveza en bar 4–5€, más barata que en el sur de Alemania." },
         ],
-        reviews: [
-          { text: "Más barata que Múnich con casi la misma calidad de vida. Buena relación calidad-precio para Alemania.", author: "Diego, Erasmus 2024", flag: "🇪🇸" },
-          { text: "El Deutschlandticket es una pasada: viajé a Berlín y Bremen varios fines de semana sin gasto extra.", author: "Alicia, Exchange 2023", flag: "🇵🇹" },
-        ],
       },
       {
         id: "alojamiento",
@@ -5905,9 +4840,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 5.0, desc: "450–600€ habitación de media, algo menos en Eimsbüttel o barrios fuera del anillo central." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "Studierendenwerk Hamburg gestiona residencias para exchange students, con demanda alta." },
           { label: "Residencias universitarias", score: 5.5, desc: "Plazas limitadas pero gestionadas de forma bastante ordenada por la universidad." },
-        ],
-        reviews: [
-          { text: "Contesté a 20 anuncios de WG Gesucht en la primera semana. Al final encontré piso, pero hay que ser constante.", author: "Paul, Exchange 2024", flag: "🇫🇷" },
         ],
       },
       {
@@ -5923,9 +4855,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "St. Pauli (Reeperbahn) ofrece música en directo y clubs para todos los gustos, toda la semana." },
           { label: "Eventos y actividades", score: 7.5, desc: "Fischmarkt dominical, festivales junto al puerto y conciertos en la Elbphilharmonie a precios estudiantiles." },
         ],
-        reviews: [
-          { text: "El Fischmarkt de los domingos a las 6 de la mañana, después de salir de fiesta, es una experiencia hamburguesa que hay que vivir.", author: "Marco, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "integracion",
@@ -5940,9 +4869,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.0, desc: "Compartir WG con alemanes es la vía más rápida de integración real." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "Fácil con la comunidad internacional desde el primer día, algo más lento con locales." },
         ],
-        reviews: [
-          { text: "Cuesta un poco romper el hielo con los hamburgueses, pero cuando lo haces la amistad es sólida.", author: "Rita, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "movilidad",
@@ -5956,9 +4882,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.5, desc: "El centro y Sternschanze son muy paseables; la ciudad es grande pero está muy bien conectada." },
           { label: "Conexiones internacionales", score: 8.5, desc: "Aeropuerto internacional bien conectado; Berlín a 1h50 en tren de alta velocidad." },
           { label: "Escapadas de fin de semana", score: 9.0, desc: "Lübeck, la costa del Báltico y Bremen a un trayecto corto en tren." },
-        ],
-        reviews: [
-          { text: "Con el Deutschlandticket viajé por media Alemania sin pagar nada extra de transporte. Una ganga total.", author: "Sara, Exchange 2023", flag: "🇪🇸" },
         ],
       },
       {
@@ -5975,9 +4898,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "Identidad portuaria y hanseática muy marcada, lejos del cliché turístico del sur de Alemania." },
           { label: "Estilo de vida", score: 8.0, desc: "Mezcla de disciplina alemana y espíritu portuario abierto al mundo." },
         ],
-        reviews: [
-          { text: "El mirador gratuito de la Elbphilharmonie sobre el puerto es de las mejores vistas urbanas que he visto en Europa.", author: "Noah, Erasmus 2024", flag: "🇳🇱" },
-        ],
       },
       {
         id: "empleo",
@@ -5992,9 +4912,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 8.5, desc: "Segundo puerto más grande de Europa y sede de grandes grupos mediáticos alemanes." },
           { label: "Oportunidades para estudiantes", score: 8.0, desc: "TUHH conecta muy bien con la industria naval y aeroespacial de la región." },
         ],
-        reviews: [
-          { text: "Hice prácticas relacionadas con logística portuaria gracias a un contacto de la universidad. La industria aquí es enorme.", author: "Felix, Internship 2023", flag: "🇦🇹" },
-        ],
       },
       {
         id: "seguridad",
@@ -6007,9 +4924,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Criminalidad baja para estándares de una gran ciudad europea." },
           { label: "Seguridad nocturna", score: 7.5, desc: "St. Pauli de madrugada requiere el cuidado normal de cualquier zona de fiesta intensa; el resto de la ciudad es tranquilo." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada y con un buen nivel de civismo generalizado." },
-        ],
-        reviews: [
-          { text: "Me sentí segura en todo momento, incluso volviendo sola de la Reeperbahn de madrugada en transporte público.", author: "Emma, Erasmus 2024", flag: "🇩🇪" },
         ],
       },
     ],
@@ -6032,10 +4946,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "La bici sustituye al transporte público en el día a día; abono De Lijn mensual asequible para el resto." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Cerveza de abadía en bar desde 3–4€; Overpoort ofrece las rondas más baratas de la ciudad." },
         ],
-        reviews: [
-          { text: "Con una bici de segunda mano y cocinando en casa, viví muy bien con 700€ al mes.", author: "Inés, Erasmus 2024", flag: "🇪🇸" },
-          { text: "Las cervezas belgas en Overpoort son baratísimas comparadas con Bruselas o Amberes.", author: "Tom, Exchange 2023", flag: "🇳🇱" },
-        ],
       },
       {
         id: "alojamiento",
@@ -6049,9 +4959,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.5, desc: "350–500€ por un kot con cocina y baño propios o compartidos, según zona." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "Portales como Kotweb y la propia oficina de alojamiento de UGent facilitan mucho la búsqueda." },
           { label: "Residencias universitarias", score: 7.0, desc: "UGent gestiona plazas específicas para exchange students con un proceso bastante claro." },
-        ],
-        reviews: [
-          { text: "Encontrar kot en Gante es mucho más fácil que en Bruselas o Lovaina. La ciudad está hecha para estudiantes.", author: "Marie, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
       {
@@ -6067,9 +4974,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "Overpoort concentra decenas de bares estudiantiles con ambiente garantizado cualquier noche entre semana." },
           { label: "Eventos y actividades", score: 8.5, desc: "Gentse Feesten en julio: diez días de festival callejero gratuito con conciertos y teatro." },
         ],
-        reviews: [
-          { text: "Overpoort un jueves por la noche parece un festival permanente de estudiantes. Nunca vi nada parecido.", author: "Andrea, Erasmus 2024", flag: "🇮🇹" },
-        ],
       },
       {
         id: "integracion",
@@ -6084,9 +4988,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "Compartir kot o unirte a un club estudiantil (studentenclub) son las vías más rápidas de integración." },
           { label: "Facilidad para hacer amigos", score: 9.0, desc: "La vida social gira en torno a la universidad, lo que facilita mucho el primer círculo de amistades." },
         ],
-        reviews: [
-          { text: "Nunca tuve problemas de idioma. Todo el mundo en la universidad habla inglés perfectamente.", author: "Hannah, Exchange 2023", flag: "🇩🇪" },
-        ],
       },
       {
         id: "movilidad",
@@ -6100,9 +5001,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.5, desc: "Centro histórico compacto y muy paseable, además de extremadamente ciclable." },
           { label: "Conexiones internacionales", score: 7.5, desc: "Bruselas (con su aeropuerto internacional) a 30 minutos en tren directo." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Brujas, Bruselas y Amberes a menos de una hora en tren; Lille (Francia) también muy cerca." },
-        ],
-        reviews: [
-          { text: "Me compré una bici de segunda mano la primera semana. Es literalmente la única forma sensata de moverse por Gante.", author: "Lucas, Erasmus 2024", flag: "🇧🇷" },
         ],
       },
       {
@@ -6119,9 +5017,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.0, desc: "El mismo encanto medieval que Brujas (canales, gremios, castillo) pero con vida local real, no solo turismo." },
           { label: "Estilo de vida", score: 8.5, desc: "Bici, cerveza de abadía y un ritmo estudiantil que marca el pulso de toda la ciudad." },
         ],
-        reviews: [
-          { text: "Gante es como Brujas pero viva de verdad, no un decorado para turistas. Se nota que aquí vive gente, no solo pasa.", author: "Chiara, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "empleo",
@@ -6136,9 +5031,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "Puerto de Gante (uno de los mayores de Bélgica) y varias empresas de ciencias de la vida." },
           { label: "Oportunidades para estudiantes", score: 7.0, desc: "Buen acceso a prácticas en investigación gracias al peso académico de UGent." },
         ],
-        reviews: [
-          { text: "Hice unas prácticas en un laboratorio vinculado a la universidad. El polo biotech de Gante es más grande de lo que parece.", author: "Simon, Internship 2024", flag: "🇳🇱" },
-        ],
       },
       {
         id: "seguridad",
@@ -6151,9 +5043,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Criminalidad baja, sensiblemente menor que en Bruselas." },
           { label: "Seguridad nocturna", score: 8.0, desc: "Overpoort y el centro se mantienen animados y transitados incluso de madrugada entre semana." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada, limpia y con un ambiente estudiantil que la mantiene viva y segura." },
-        ],
-        reviews: [
-          { text: "Me sentí más segura en Gante que en cualquier otra ciudad belga que visité durante mi Erasmus.", author: "Beatriz, Erasmus 2023", flag: "🇵🇹" },
         ],
       },
     ],
@@ -6173,9 +5062,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 4.0, desc: "El abono ACTV de vaporetto para residentes/estudiantes ronda 25–35€/mes, pero un billete suelto para un turista cuesta 9,50€." },
           { label: "Ocio y gastos diarios", score: 4.5, desc: "Un spritz en Cannaregio cuesta la mitad que uno en Piazza San Marco." },
         ],
-        reviews: [
-          { text: "El primer mes miré pisos sin entender que estaba en una isla distinta cada vez. Mestre me salvó el presupuesto.", author: "Clara, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 3.5,
@@ -6186,9 +5072,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 3.0, desc: "500–700€ en Cannaregio o Dorsoduro; 350–450€ cruzando a Mestre." },
           { label: "Facilidad de búsqueda", score: 4.0, desc: "Ca' Foscari y el IUAV tienen oficinas de alojamiento para exchange students, aunque las plazas son limitadas." },
           { label: "Residencias universitarias", score: 3.5, desc: "Pocas plazas y muy solicitadas; conviene pedirlas nada más tener la admisión." },
-        ],
-        reviews: [
-          { text: "Encontré piso gracias a un grupo de Facebook de exalumnos Erasmus. Sin eso, no lo hubiera conseguido a tiempo.", author: "Tomás, Erasmus 2023", flag: "🇵🇹" },
         ],
       },
       {
@@ -6201,9 +5084,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 5.0, desc: "La vida nocturna se concentra en pocos bares de Dorsoduro y Cannaregio; para clubes grandes hay que ir a Mestre o Padua." },
           { label: "Eventos y actividades", score: 7.0, desc: "El Carnaval de Venecia y la Biennale marcan el calendario social de toda la ciudad." },
         ],
-        reviews: [
-          { text: "Cada aperitivo con amigos tenía de fondo un canal distinto. Es imposible aburrirte visualmente aquí.", author: "Sofia, Erasmus 2023", flag: "🇩🇪" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
@@ -6215,9 +5095,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "Más fácil en Mestre, donde vive la mayoría de la población residente real." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "El grupo Erasmus, aunque pequeño, es muy cohesionado precisamente por serlo." },
         ],
-        reviews: [
-          { text: "Al principio todos te tratan como turista. Cuando te ven cada día en el mismo bacaro, eso cambia.", author: "Hugo, Erasmus 2024", flag: "🇫🇷" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 6.5,
@@ -6228,9 +5105,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.5, desc: "Todo el centro histórico se recorre a pie; no hay coches ni bicis." },
           { label: "Conexiones internacionales", score: 7.0, desc: "Aeropuerto Marco Polo bien conectado; estación de Santa Lucia con trenes directos a Milán, Florencia y Roma." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Verona, Padua, Trieste y los Dolomitas, todos a un tren de menos de dos horas." },
-        ],
-        reviews: [
-          { text: "Cambié de mentalidad de transporte por completo: aquí planificas por horarios de barco, no de metro.", author: "Marie, Erasmus 2023", flag: "🇧🇪" },
         ],
       },
       {
@@ -6244,9 +5118,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 7.0, desc: "Hay que alejarse de San Marco y el Rialto para encontrar la Venecia habitada de verdad." },
           { label: "Estilo de vida", score: 9.5, desc: "Vivir a diario entre canales, puentes y palazzi es una experiencia que no se repite en ninguna otra ciudad." },
         ],
-        reviews: [
-          { text: "Cada vez que volvía a casa de noche cruzando puentes vacíos, pensaba que no iba a vivir en un sitio así nunca más.", author: "Laura, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 5.5,
@@ -6258,9 +5129,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 5.0, desc: "Pocas grandes empresas en la propia isla; el tejido industrial del Véneto está en tierra firme (Mestre, Padua, Treviso)." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "La Biennale de Arte y Arquitectura ofrece prácticas puntuales muy valoradas en el sector cultural." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una fundación de arte ligada a la Biennale. Para arquitectura o historia del arte, esta ciudad es un imán.", author: "Nico, Internship 2023", flag: "🇦🇷" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.7,
@@ -6270,9 +5138,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja; los descuideros en zonas turísticas masificadas son el principal riesgo." },
           { label: "Seguridad nocturna", score: 8.5, desc: "Calles estrechas pero seguras incluso de madrugada, salvo cuidado extra cerca de la estación." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, aunque saturada de turistas en las horas centrales del día." },
-        ],
-        reviews: [
-          { text: "Nunca tuve un solo susto caminando de noche, ni siquiera perdida en un callejón sin salida a las 2 de la madrugada.", author: "Beatriz, Erasmus 2023", flag: "🇵🇹" },
         ],
       },
     ],
@@ -6292,9 +5157,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Abono TCL joven ronda 32€/mes, con descuentos adicionales para estudiantes." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Salir de bares y restaurantes es más barato que en París, aunque sigue siendo Francia." },
         ],
-        reviews: [
-          { text: "Comía mejor que en España gastando lo mismo, gracias a los bouchons y los menús del mediodía.", author: "Marta, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.0,
@@ -6305,9 +5167,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.0, desc: "400–550€ de media por habitación; algo más en Presqu'île, menos en la periferia bien conectada." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "CROUS y las oficinas internacionales de Lyon 2/Lyon 3 ayudan con listados y garantías." },
           { label: "Residencias universitarias", score: 6.0, desc: "El CROUS ofrece plazas para exchange students, aunque conviene solicitarlas con mucha antelación." },
-        ],
-        reviews: [
-          { text: "El CROUS me consiguió una residencia a 15 minutos en tranvía del campus por menos de 400€.", author: "Giulia, Erasmus 2023", flag: "🇮🇹" },
         ],
       },
       {
@@ -6320,9 +5179,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.0, desc: "La Guillotière y Croix-Rousse concentran bares estudiantiles hasta tarde entre semana." },
           { label: "Eventos y actividades", score: 8.5, desc: "Fête des Lumières en diciembre, Nuits Sonores en primavera y un calendario cultural constante." },
         ],
-        reviews: [
-          { text: "La Fête des Lumières convierte la ciudad entera en una instalación artística durante cuatro días. Inolvidable.", author: "Sven, Exchange 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8,
@@ -6334,9 +5190,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "Las asociaciones estudiantiles (BDE) facilitan mucho conocer estudiantes franceses, no solo Erasmus." },
           { label: "Facilidad para hacer amigos", score: 8.5, desc: "El tamaño de la comunidad internacional hace muy fácil construir un grupo desde la primera semana." },
         ],
-        reviews: [
-          { text: "Con un B1 de francés ya me defendía perfectamente para clase y para el día a día.", author: "Diego, Erasmus 2023", flag: "🇪🇸" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.8,
@@ -6347,9 +5200,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.0, desc: "Centro compacto entre los dos ríos, muy paseable, con carriles bici en expansión." },
           { label: "Conexiones internacionales", score: 9.0, desc: "TGV a París en 2 horas, a Ginebra en 2, y aeropuerto con vuelos directos a toda Europa." },
           { label: "Escapadas de fin de semana", score: 9.5, desc: "Los Alpes, la Provenza y Annecy, todos a menos de dos horas." },
-        ],
-        reviews: [
-          { text: "Un fin de semana esquiaba en los Alpes y el siguiente estaba en la Provenza. La ubicación de Lyon es un privilegio.", author: "Ana, Exchange 2024", flag: "🇵🇹" },
         ],
       },
       {
@@ -6363,9 +5213,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Menos turística que París; la vida cotidiana lionesa es muy accesible para quien vive aquí." },
           { label: "Estilo de vida", score: 9.0, desc: "La gastronomía marca el ritmo social: comer bien y con calma es parte de la cultura local." },
         ],
-        reviews: [
-          { text: "Descubrí que se puede vivir para comer bien sin gastar una fortuna. Los bouchons son otra categoría de vida.", author: "Camille, Erasmus 2023", flag: "🇧🇪" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 8.0,
@@ -6377,9 +5224,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.5, desc: "Sanofi, bioMérieux y numerosas startups tech tienen sede o gran presencia en la ciudad." },
           { label: "Oportunidades para estudiantes", score: 8.0, desc: "Ferias de empleo universitarias frecuentes y buena conexión con el tejido industrial regional." },
         ],
-        reviews: [
-          { text: "Conseguí unas prácticas en biotecnología gracias a la red de antiguos alumnos de mi escuela en Lyon.", author: "Chiara, Internship 2024", flag: "🇮🇹" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 7.5,
@@ -6389,9 +5233,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.5, desc: "Criminalidad moderada, concentrada en zonas concretas fuera del circuito estudiantil habitual." },
           { label: "Seguridad nocturna", score: 7.0, desc: "El centro y Croix-Rousse son seguros; conviene evitar ciertas zonas de la periferia de madrugada." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad ordenada, con un civismo generalizado y buena iluminación en el centro." },
-        ],
-        reviews: [
-          { text: "Nunca tuve un problema serio de seguridad en dos años viviendo cerca de La Guillotière.", author: "Pedro, Erasmus 2023", flag: "🇪🇸" },
         ],
       },
     ],
@@ -6411,9 +5252,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "El Deutschlandticket (49€/mes) cubre KVB y trenes regionales por todo el país." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Una Kölsch en brauhaus ronda 2€; salir de fiesta en Carnaval dispara el gasto puntualmente." },
         ],
-        reviews: [
-          { text: "El Deutschlandticket cambió mi manera de viajar: iba a Düsseldorf o Bonn cualquier tarde entre semana sin pensarlo.", author: "Lucía, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 5.5,
@@ -6424,9 +5262,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 5.5, desc: "400–550€ de media por habitación, algo más caro en Ehrenfeld o el Belgisches Viertel." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "Studierendenwerk Köln ofrece habitaciones en residencia, con listas de espera considerables." },
           { label: "Residencias universitarias", score: 6.0, desc: "Buena red de residencias gestionadas por el Studierendenwerk, aunque limitadas para exchange students." },
-        ],
-        reviews: [
-          { text: "Encontré piso en un WG con alemanes gracias a WG-Gesucht, aunque tardé casi un mes en conseguirlo.", author: "Tomasz, Erasmus 2023", flag: "🇵🇱" },
         ],
       },
       {
@@ -6439,9 +5274,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "Ehrenfeld y el Belgisches Viertel concentran la vida de bares; el Karneval multiplica todo por diez en febrero." },
           { label: "Eventos y actividades", score: 8.5, desc: "El Karneval (Rosenmontag) es la fiesta callejera más grande de Alemania." },
         ],
-        reviews: [
-          { text: "Viví el Rosenmontag disfrazado en medio de un millón de personas en la calle. No hay nada comparable en Alemania.", author: "Manon, Exchange 2024", flag: "🇫🇷" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
@@ -6453,9 +5285,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "El Carnaval es un gran ecualizador social — todo el mundo participa, locales e internacionales." },
           { label: "Facilidad para hacer amigos", score: 8.5, desc: "El tamaño de la comunidad Erasmus y el ambiente festivo facilitan mucho el contacto social." },
         ],
-        reviews: [
-          { text: "En Carnaval hasta el alemán más reservado se disfraza y te habla. Es la mejor época para hacer amigos locales.", author: "Bruno, Erasmus 2023", flag: "🇧🇷" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.7,
@@ -6466,9 +5295,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.5, desc: "Centro compacto alrededor de la catedral, aunque la ciudad se extiende bastante más allá." },
           { label: "Conexiones internacionales", score: 9.5, desc: "Aeropuerto propio y trenes ICE directos a Fráncfort, Bruselas, Ámsterdam y París." },
           { label: "Escapadas de fin de semana", score: 9.5, desc: "Düsseldorf, Bonn y el valle del Rin a menos de una hora; Bruselas o Ámsterdam en tren directo." },
-        ],
-        reviews: [
-          { text: "Con el Deutschlandticket iba a Bonn a estudiar a orillas del Rin cualquier día entre semana.", author: "Ines, Erasmus 2024", flag: "🇦🇹" },
         ],
       },
       {
@@ -6482,9 +5308,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Cultura local muy marcada — Kölsch, Karneval y un dialecto propio que se defiende con orgullo." },
           { label: "Estilo de vida", score: 8.0, desc: "Mezcla de museos de primer nivel (Museo Ludwig) con la vida sencilla de los brauhaus de barrio." },
         ],
-        reviews: [
-          { text: "Colonia tiene una identidad muy fuerte, distinta al resto de Alemania. Se nota en cómo hablan de su propia ciudad.", author: "Erik, Erasmus 2023", flag: "🇳🇴" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 8.0,
@@ -6496,9 +5319,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 8.0, desc: "RTL Group, sede de medios, y un ecosistema de seguros y banca consolidado en la región renana." },
           { label: "Oportunidades para estudiantes", score: 8.0, desc: "El tamaño de la universidad da acceso a una red de antiguos alumnos amplia en toda Alemania." },
         ],
-        reviews: [
-          { text: "El sector de medios en Colonia es enorme. Hice prácticas en una productora de televisión sin buscarlo demasiado.", author: "Julia, Internship 2024", flag: "🇨🇿" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
@@ -6508,9 +5328,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.0, desc: "Criminalidad baja, típica de una gran ciudad alemana bien gestionada." },
           { label: "Seguridad nocturna", score: 7.5, desc: "Zonas de fiesta seguras, aunque el Carnaval multiplica la aglomeración y conviene ir con cuidado extra." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada y limpia, con transporte nocturno fiable los fines de semana." },
-        ],
-        reviews: [
-          { text: "Me sentí segura en todo momento, incluso volviendo sola de madrugada del Belgisches Viertel.", author: "Alice, Erasmus 2023", flag: "🇬🇧" },
         ],
       },
     ],
@@ -6530,9 +5347,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.0, desc: "La bici cubre casi todo; el bus De Lijn para lo demás es barato con tarifa estudiante." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Una cerveza en el Oude Markt ronda 2,50–3€; salir de fiesta aquí es de lo más barato de Bélgica." },
         ],
-        reviews: [
-          { text: "Con 700€/mes vivía holgada, algo impensable en Bruselas a 25 minutos de aquí.", author: "Martina, Erasmus 2024", flag: "🇮🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.5,
@@ -6543,9 +5357,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.5, desc: "400–550€ de media, con habitaciones desde 350€ fuera del centro más inmediato." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "KU Leuven tiene un portal de alojamiento de referencia (Kotweb) para estudiantes internacionales." },
           { label: "Residencias universitarias", score: 6.5, desc: "KU Leuven gestiona residencias propias con buena disponibilidad para exchange students que solicitan pronto." },
-        ],
-        reviews: [
-          { text: "Kotweb, el portal de la universidad, me hizo encontrar habitación desde España sin pisar la ciudad.", author: "Rafael, Erasmus 2023", flag: "🇪🇸" },
         ],
       },
       {
@@ -6558,9 +5369,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "El Oude Markt, 'el bar más largo del mundo', reúne decenas de bares en una sola plaza." },
           { label: "Eventos y actividades", score: 9.0, desc: "Cada facultad y asociación estudiantil organiza eventos propios durante todo el año académico." },
         ],
-        reviews: [
-          { text: "El Oude Markt un jueves cualquiera parece Nochevieja. Nunca había visto una plaza tan volcada en la vida estudiantil.", author: "Femke, Exchange 2024", flag: "🇳🇱" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.3,
@@ -6572,9 +5380,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "Más fácil integrarse con estudiantes belgas de otras regiones que con los residentes de toda la vida, dado el tamaño de la ciudad universitaria." },
           { label: "Facilidad para hacer amigos", score: 9.0, desc: "Con la mitad de la ciudad siendo estudiante, hacer amigos es prácticamente automático." },
         ],
-        reviews: [
-          { text: "Nunca necesité el neerlandés para el día a día universitario — el inglés es la lengua franca aquí.", author: "Giorgio, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.0,
@@ -6585,9 +5390,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.5, desc: "Centro totalmente recorrible a pie o en bici en minutos." },
           { label: "Conexiones internacionales", score: 8.5, desc: "Bruselas-Zaventem a 40 minutos; trenes directos a Bruselas, Amberes y Gante." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Bruselas a 25 minutos en tren, ideal para escapadas de un día entre semana." },
-        ],
-        reviews: [
-          { text: "Iba a Bruselas después de clase para una tarde de museos y volvía a cenar a Lovaina sin problema.", author: "Anaïs, Erasmus 2024", flag: "🇫🇷" },
         ],
       },
       {
@@ -6601,9 +5403,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 7.5, desc: "Arquitectura gótica y flamenca bien conservada en un centro histórico compacto." },
           { label: "Estilo de vida", score: 8.5, desc: "Vida universitaria en su forma más pura: bici, biblioteca y Oude Markt en un radio de 15 minutos." },
         ],
-        reviews: [
-          { text: "Es la ciudad universitaria por excelencia. Todo gira en torno al calendario académico y eso se nota en el ambiente.", author: "Karolina, Erasmus 2023", flag: "🇵🇱" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 7.0,
@@ -6615,9 +5414,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "AB InBev (origen de Stella Artois) e imec, entre los nombres con más peso en la región." },
           { label: "Oportunidades para estudiantes", score: 7.0, desc: "Programas de investigación y spin-offs universitarias abren puertas a prácticas técnicas." },
         ],
-        reviews: [
-          { text: "Hice unas prácticas de investigación en un laboratorio afiliado a imec. El nivel técnico de KU Leuven se nota.", author: "David, Internship 2024", flag: "🇬🇧" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.7,
@@ -6627,9 +5423,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja, sensiblemente menor que en Bruselas o Amberes." },
           { label: "Seguridad nocturna", score: 8.0, desc: "El Oude Markt se mantiene animado y vigilado incluso de madrugada entre semana." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada, limpia y con un ambiente estudiantil constante que la mantiene viva y segura." },
-        ],
-        reviews: [
-          { text: "Volver caminando o en bici de madrugada desde el Oude Markt nunca me generó ninguna inquietud.", author: "Sara, Erasmus 2023", flag: "🇪🇸" },
         ],
       },
     ],
@@ -6649,9 +5442,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "La bici resuelve la mayoría de trayectos sin coste añadido; el tren para salir de la ciudad tiene tarifa estudiante." },
           { label: "Ocio y gastos diarios", score: 5.5, desc: "Salir de bares en el centro no es barato, aunque más asequible que en la capital." },
         ],
-        reviews: [
-          { text: "Pagué un 20-25% menos de alquiler que amigos que hicieron el Erasmus en Ámsterdam, por una ciudad casi igual de bonita.", author: "Noa, Erasmus 2024", flag: "🇮🇱" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 4.0,
@@ -6662,9 +5452,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 4.0, desc: "550–750€ de media por habitación en el centro o zonas bien conectadas." },
           { label: "Facilidad de búsqueda", score: 4.5, desc: "SSH Utrecht y Kences gestionan alojamiento para exchange students, aunque las plazas se agotan rápido." },
           { label: "Residencias universitarias", score: 4.5, desc: "Universiteit Utrecht colabora con SSH para plazas de residencia, imprescindible solicitarlas nada más admitido." },
-        ],
-        reviews: [
-          { text: "Solicité la residencia el mismo día que confirmé mi plaza Erasmus y aun así estuve en lista de espera semanas.", author: "Théo, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
       {
@@ -6677,9 +5464,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "El centro histórico y Neude concentran bares y vida nocturna estudiantil hasta tarde." },
           { label: "Eventos y actividades", score: 8.5, desc: "Festivales culturales, mercados y una vida universitaria activa durante todo el curso." },
         ],
-        reviews: [
-          { text: "La cantidad de eventos organizados por asociaciones estudiantiles no tiene comparación con mi universidad de origen.", author: "Mateus, Exchange 2024", flag: "🇧🇷" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.7,
@@ -6691,9 +5475,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 8.0, desc: "Las asociaciones estudiantiles neerlandesas ('gezelligheid') facilitan la integración más allá del círculo Erasmus." },
           { label: "Facilidad para hacer amigos", score: 9.0, desc: "El tamaño de la comunidad internacional hace muy sencillo construir un grupo social amplio." },
         ],
-        reviews: [
-          { text: "Nunca tuve que usar el neerlandés para nada esencial. El nivel de inglés aquí es de los más altos que he visto en Europa.", author: "Robert, Erasmus 2023", flag: "🇩🇪" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 9.0,
@@ -6704,9 +5485,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.5, desc: "Centro compacto y peatonal, con el mayor aparcamiento de bicis del mundo junto a la estación central." },
           { label: "Conexiones internacionales", score: 9.0, desc: "Considerada la ciudad más central de los Países Bajos; Ámsterdam, Róterdam y La Haya a menos de 40 minutos." },
           { label: "Escapadas de fin de semana", score: 9.5, desc: "Ámsterdam a 25 minutos, Róterdam y La Haya a 40 — el país entero es una escapada de un día." },
-        ],
-        reviews: [
-          { text: "Vivía a 25 minutos de Ámsterdam en tren y pagaba mucho menos de alquiler. Fue la mejor decisión de ubicación.", author: "Sara, Erasmus 2024", flag: "🇮🇹" },
         ],
       },
       {
@@ -6720,9 +5498,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "Menos masificada que Ámsterdam, con un centro histórico que se vive más que se fotografía." },
           { label: "Estilo de vida", score: 9.0, desc: "Los 'werven' (muelles a dos niveles) dan a la ciudad un carácter único incluso dentro de los Países Bajos." },
         ],
-        reviews: [
-          { text: "Utrecht tiene toda la magia de Ámsterdam sin la masificación turística. Prefiero mil veces haber vivido aquí.", author: "Léa, Erasmus 2023", flag: "🇫🇷" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 8.0,
@@ -6734,9 +5509,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.5, desc: "Rabobank tiene su sede aquí, junto a numerosas farmacéuticas y startups tecnológicas." },
           { label: "Oportunidades para estudiantes", score: 8.5, desc: "La proximidad a Ámsterdam y Róterdam amplía enormemente las oportunidades de prácticas." },
         ],
-        reviews: [
-          { text: "Conseguí unas prácticas en una startup tech en Ámsterdam viviendo en Utrecht, gracias al tren directo.", author: "Filip, Internship 2024", flag: "🇵🇱" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.5,
@@ -6746,9 +5518,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Criminalidad baja, como en la mayoría de grandes ciudades neerlandesas." },
           { label: "Seguridad nocturna", score: 8.0, desc: "Calles bien iluminadas y transitadas incluso de madrugada gracias al gran número de estudiantes." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad muy ordenada, limpia y con un fuerte sentido cívico." },
-        ],
-        reviews: [
-          { text: "Volver en bici de madrugada por el centro nunca me hizo sentir insegura, ni una sola vez en el curso.", author: "Marina, Erasmus 2023", flag: "🇪🇸" },
         ],
       },
     ],
@@ -6768,9 +5537,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "La bici cubre casi toda la ciudad sin coste; Skånetrafiken para salir de Lund tiene tarifa estudiante." },
           { label: "Ocio y gastos diarios", score: 5.0, desc: "Salir de fiesta es caro para estándares europeos, aunque las 'naciones' estudiantiles ofrecen alternativas más baratas." },
         ],
-        reviews: [
-          { text: "El alcohol fuera del Systembolaget y de las naciones estudiantiles es carísimo. Aprendes rápido a organizarte.", author: "Marco, Erasmus 2024", flag: "🇮🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 5.0,
@@ -6781,9 +5547,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 5.0, desc: "450–600€ de media por habitación en corredor o pequeño estudio estudiantil." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "El sistema centralizado de AF Bostäder simplifica mucho la búsqueda frente a otras ciudades europeas." },
           { label: "Residencias universitarias", score: 6.5, desc: "La mayoría de exchange students consigue plaza en residencias específicas para estudiantes internacionales." },
-        ],
-        reviews: [
-          { text: "El sistema de AF Bostäder es el más organizado que he visto para alojamiento Erasmus. Todo por un portal único.", author: "Freya, Exchange 2023", flag: "🇩🇰" },
         ],
       },
       {
@@ -6796,9 +5559,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "Las 13 'naciones' estudiantiles organizan fiestas, cenas y clubes propios cada semana." },
           { label: "Eventos y actividades", score: 9.0, desc: "Tradiciones centenarias como la Valborg (30 de abril) reúnen a toda la ciudad estudiantil." },
         ],
-        reviews: [
-          { text: "Unirme a una 'nation' fue la mejor decisión del intercambio. Cada semana había una fiesta temática distinta.", author: "Jonas, Erasmus 2023", flag: "🇩🇪" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8,
@@ -6810,9 +5570,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.0, desc: "Las 'naciones' son el puente principal para conocer estudiantes suecos, no solo internacionales." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "El sistema de naciones estructura la vida social de forma que resulta fácil integrarse desde el primer día." },
         ],
-        reviews: [
-          { text: "Al principio los suecos parecen distantes, pero en la 'nation' esa barrera desaparece rápido.", author: "Iris, Erasmus 2024", flag: "🇳🇱" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.3,
@@ -6823,9 +5580,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.5, desc: "Centro histórico pequeño, recorrible a pie o en bici en minutos." },
           { label: "Conexiones internacionales", score: 9.0, desc: "Aeropuerto de Copenhague a 45 minutos; Malmö a 15 minutos en tren." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Copenhague a 35 minutos cruzando el puente de Öresund — otro país en menos de una hora." },
-        ],
-        reviews: [
-          { text: "Iba a Copenhague de compras un sábado cualquiera como quien va a la ciudad de al lado.", author: "Paula, Erasmus 2023", flag: "🇪🇸" },
         ],
       },
       {
@@ -6839,9 +5593,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "Calles empedradas medievales y una identidad universitaria de siglos que se respira en cada rincón." },
           { label: "Estilo de vida", score: 8.5, desc: "El 'fika' (la pausa del café) y el sistema de naciones marcan un ritmo de vida propio y muy agradable." },
         ],
-        reviews: [
-          { text: "El invierno con apenas seis horas de luz fue duro, pero el sistema de naciones compensa con creces.", author: "Rui, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 7.0,
@@ -6853,9 +5604,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "Sony Mobile tuvo su centro de I+D aquí, y Ericsson tiene fuerte presencia en la región." },
           { label: "Oportunidades para estudiantes", score: 7.0, desc: "La región de Öresund (Lund-Malmö-Copenhague) es uno de los polos de innovación más fuertes del norte de Europa." },
         ],
-        reviews: [
-          { text: "Hice prácticas de ingeniería aprovechando la red de la región de Öresund, que conecta Suecia y Dinamarca.", author: "Klara, Internship 2023", flag: "🇨🇿" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.8,
@@ -6865,9 +5613,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja, como es habitual en las ciudades universitarias suecas de tamaño medio." },
           { label: "Seguridad nocturna", score: 8.5, desc: "Calles seguras y bien iluminadas, con mucho movimiento estudiantil incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad extremadamente ordenada y tranquila, con un fuerte sentido de comunidad universitaria." },
-        ],
-        reviews: [
-          { text: "Nunca me sentí insegura ni una sola vez, ni siquiera volviendo sola de una fiesta de 'nation' de madrugada.", author: "Valentina, Erasmus 2023", flag: "🇮🇹" },
         ],
       },
     ],
@@ -6887,9 +5632,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 6.5, desc: "El abono IVB con descuento estudiantil incluye los buses de esquí en temporada." },
           { label: "Ocio y gastos diarios", score: 5.0, desc: "Los forfaits de esquí, aunque con descuento estudiantil, son un gasto recurrente en invierno." },
         ],
-        reviews: [
-          { text: "El presupuesto se dispara un poco en invierno por el material de esquí, pero mereció totalmente la pena.", author: "Hugo, Erasmus 2024", flag: "🇫🇷" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 5.5,
@@ -6900,9 +5642,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 5.5, desc: "450–600€ de media por habitación en zonas bien conectadas con el centro." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "OeAD y la propia universidad ofrecen listados de alojamiento para estudiantes internacionales." },
           { label: "Residencias universitarias", score: 6.0, desc: "Varias residencias gestionadas por OeAD con buena disponibilidad para exchange students." },
-        ],
-        reviews: [
-          { text: "La residencia OeAD me quedaba a diez minutos andando de la facultad y del teleférico. Perfecta ubicación.", author: "Larissa, Erasmus 2023", flag: "🇩🇪" },
         ],
       },
       {
@@ -6915,9 +5654,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 6.0, desc: "Oferta de bares y clubes más reducida que en grandes capitales, concentrada en el Altstadt." },
           { label: "Eventos y actividades", score: 7.5, desc: "Eventos deportivos, mercadillos navideños y festivales de montaña marcan el calendario social." },
         ],
-        reviews: [
-          { text: "Aquí la vida social gira en torno al deporte: esquiar en grupo cada fin de semana crea vínculos muy rápido.", author: "Tomás, Exchange 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
@@ -6929,9 +5665,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "Los clubes deportivos y de montaña son la mejor vía de integración con la población local." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "El tamaño reducido de la comunidad internacional hace el grupo Erasmus muy cercano entre sí." },
         ],
-        reviews: [
-          { text: "Apuntarme al club de esquí de la universidad me dio acceso directo a un grupo de amigos locales.", author: "Ola, Erasmus 2023", flag: "🇸🇪" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.5,
@@ -6942,9 +5675,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.0, desc: "Centro histórico compacto, muy paseable y con los Alpes visibles desde casi cualquier calle." },
           { label: "Conexiones internacionales", score: 7.0, desc: "Aeropuerto propio con vuelos limitados; Múnich a 2 horas en tren para más conexiones." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Estaciones de esquí a 20-30 minutos; los lagos y valles tiroleses a un bus de distancia en verano." },
-        ],
-        reviews: [
-          { text: "Coger el teleférico Nordkette después de clase para ver el atardecer sobre la ciudad fue una rutina inolvidable.", author: "Carla, Erasmus 2024", flag: "🇪🇸" },
         ],
       },
       {
@@ -6958,9 +5688,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Fuerte identidad tirolesa, con tradiciones de montaña muy presentes en la vida cotidiana." },
           { label: "Estilo de vida", score: 9.5, desc: "Combinar clases universitarias con esquí o senderismo cada semana es la gran singularidad de esta ciudad." },
         ],
-        reviews: [
-          { text: "Nunca pensé que podría esquiar entre semana y aun así llegar a tiempo a un seminario por la tarde.", author: "Noah, Erasmus 2023", flag: "🇧🇪" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 7.3,
@@ -6972,9 +5699,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Sector turístico y de equipamiento deportivo con fuerte presencia regional." },
           { label: "Oportunidades para estudiantes", score: 7.5, desc: "MCI Management Center Innsbruck conecta bien con empresas para prácticas de gestión y turismo." },
         ],
-        reviews: [
-          { text: "Hice prácticas en gestión turística de montaña, un sector en el que Innsbruck es un referente europeo.", author: "Petra, Internship 2024", flag: "🇸🇮" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 9.3,
@@ -6984,9 +5708,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.5, desc: "Criminalidad muy baja, en línea con el resto de ciudades austriacas de tamaño medio." },
           { label: "Seguridad nocturna", score: 9.0, desc: "Calles seguras y tranquilas a cualquier hora, incluso en el Altstadt de madrugada." },
           { label: "Ambiente de la ciudad", score: 9.5, desc: "Ciudad extremadamente ordenada, limpia y con un ambiente general muy relajado." },
-        ],
-        reviews: [
-          { text: "Es probablemente la ciudad donde me he sentido más segura de toda Europa, de día y de noche.", author: "Emma, Erasmus 2023", flag: "🇬🇧" },
         ],
       },
     ],
@@ -7006,9 +5727,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "El bus urbano Promet tiene tarifa estudiante económica; el centro se recorre andando." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Salir de bares en la Riva es más barato que en Italia o Francia, aunque sube bastante en julio y agosto." },
         ],
-        reviews: [
-          { text: "En invierno vivía con muy poco dinero; en verano todo sube porque la ciudad se llena de turistas.", author: "Ana, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.5,
@@ -7019,9 +5737,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.0, desc: "300–450€ de media por habitación fuera de las zonas más turísticas del centro histórico." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "La Universidad de Split ofrece listados básicos; los grupos de Facebook locales son muy útiles." },
           { label: "Residencias universitarias", score: 6.0, desc: "Existen residencias, aunque con plazas limitadas para estudiantes de intercambio." },
-        ],
-        reviews: [
-          { text: "Encontré piso en un grupo de Facebook local a un precio muy razonable para vivir a cinco minutos del mar.", author: "Luca, Erasmus 2023", flag: "🇮🇹" },
         ],
       },
       {
@@ -7034,9 +5749,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "Bares y clubes de playa muy activos en verano; oferta más reducida en temporada baja." },
           { label: "Eventos y actividades", score: 8.0, desc: "Ultra Europe y otros festivales de música atraen a miles de jóvenes de toda Europa en verano." },
         ],
-        reviews: [
-          { text: "Un fin de semana estábamos en la playa de Bačvice y al siguiente en un festival de música en la misma ciudad.", author: "Louis, Exchange 2024", flag: "🇧🇪" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.8,
@@ -7048,9 +5760,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.0, desc: "La comunidad de estudiantes locales es más reducida; hace falta algo más de iniciativa para integrarse." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "El grupo Erasmus, aunque pequeño, se vuelve muy unido por el tamaño manejable de la ciudad." },
         ],
-        reviews: [
-          { text: "Al ser un grupo Erasmus pequeño, terminamos siendo un grupo de amigos muy cercano en pocas semanas.", author: "Greta, Erasmus 2023", flag: "🇩🇪" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 6.5,
@@ -7061,9 +5770,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.5, desc: "El casco histórico, dentro del propio palacio de Diocleciano, es totalmente peatonal." },
           { label: "Conexiones internacionales", score: 6.0, desc: "El aeropuerto reduce vuelos fuera de temporada alta; hay que planificar con antelación en invierno." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Ferries a Hvar, Brač y Vis en menos de una hora; Dubrovnik y Zadar a un bus de distancia." },
-        ],
-        reviews: [
-          { text: "Cada fin de semana de buen tiempo cogíamos el ferry a una isla distinta. Es un privilegio único de esta ciudad.", author: "Mia, Erasmus 2024", flag: "🇦🇹" },
         ],
       },
       {
@@ -7077,9 +5783,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Fuera de la Riva más turística, la Split local mantiene tradiciones dálmatas muy vivas." },
           { label: "Estilo de vida", score: 8.5, desc: "Vivir dentro de las ruinas de un palacio romano de 1.700 años, usado a diario como si fuera cualquier centro histórico." },
         ],
-        reviews: [
-          { text: "Ir a clase caminando entre columnas romanas de verdad, cada día, sigue pareciéndome surrealista.", author: "Ines, Erasmus 2023", flag: "🇵🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 5.8,
@@ -7091,9 +5794,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 5.5, desc: "Sector naval y turístico con más peso que la industria tecnológica o financiera." },
           { label: "Oportunidades para estudiantes", score: 6.5, desc: "El turismo ofrece trabajos de temporada muy accesibles para estudiantes internacionales en verano." },
         ],
-        reviews: [
-          { text: "Compaginé el intercambio con un trabajo de verano en un chiringuito de playa. Fácil de conseguir y bien pagado en temporada.", author: "Otto, Internship 2024", flag: "🇫🇮" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.3,
@@ -7103,9 +5803,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Criminalidad baja, típica de las ciudades medianas de la costa croata." },
           { label: "Seguridad nocturna", score: 8.0, desc: "La Riva y el centro histórico se mantienen seguros y transitados hasta tarde en verano." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad tranquila fuera de los meses de máxima afluencia turística." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema de seguridad, ni en el centro más turístico ni en los barrios residenciales.", author: "Clara, Erasmus 2023", flag: "🇪🇸" },
         ],
       },
     ],
@@ -7125,9 +5822,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.5, desc: "El bus OASTH tiene tarifa estudiante muy económica; el centro se recorre andando sin problema." },
           { label: "Ocio y gastos diarios", score: 9.0, desc: "La vida nocturna más barata de esta guía: una copa puede costar 3-4€ en zonas no turísticas." },
         ],
-        reviews: [
-          { text: "Con 400€/mes vivía perfectamente, saliendo varias noches por semana. En ninguna otra ciudad Erasmus me hubiera cundido tanto.", author: "Diego, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.5,
@@ -7138,9 +5832,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 8.0, desc: "200–300€ de media por habitación, de los precios más bajos de toda esta guía." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "Portales locales y grupos de Facebook de estudiantes facilitan bastante la búsqueda." },
           { label: "Residencias universitarias", score: 6.5, desc: "Existen residencias, aunque limitadas frente al enorme número de estudiantes de la ciudad." },
-        ],
-        reviews: [
-          { text: "Encontré una habitación estupenda por 250€ al mes a diez minutos andando de la facultad.", author: "Marta, Erasmus 2023", flag: "🇵🇹" },
         ],
       },
       {
@@ -7153,9 +5844,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "Ladadika y el centro concentran bares y clubes con un ambiente que se extiende toda la semana." },
           { label: "Eventos y actividades", score: 9.0, desc: "Festivales de cine, música y una vida cultural muy activa durante todo el año académico." },
         ],
-        reviews: [
-          { text: "La vida nocturna aquí no se detiene ni entre semana. Nunca había visto un ambiente estudiantil tan intenso.", author: "Sven, Exchange 2024", flag: "🇸🇪" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
@@ -7167,9 +5855,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.0, desc: "Fácil de entablar amistad gracias al carácter abierto griego, aunque el idioma es una barrera inicial." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "El tamaño de la comunidad Erasmus y el carácter local hacen sencillo construir un grupo social amplio." },
         ],
-        reviews: [
-          { text: "Los griegos te invitan a su mesa la primera semana. Es de las culturas más acogedoras que he conocido en un Erasmus.", author: "Noor, Erasmus 2023", flag: "🇳🇱" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 6.8,
@@ -7180,9 +5865,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.5, desc: "El paseo marítimo y el centro son muy paseables, aunque la ciudad se extiende bastante más allá." },
           { label: "Conexiones internacionales", score: 6.5, desc: "Aeropuerto con vuelos limitados fuera de temporada alta; Atenas a 4-5 horas en tren o bus." },
           { label: "Escapadas de fin de semana", score: 7.5, desc: "Meteora, el Monte Olimpo y las playas de Calcídica, todas a un bus de distancia." },
-        ],
-        reviews: [
-          { text: "Un fin de semana visitamos Meteora en autobús desde Salónica. Un paisaje que no olvidaré nunca.", author: "Ben, Erasmus 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -7196,9 +5878,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Segunda ciudad de Grecia, con una identidad propia menos turística que Atenas." },
           { label: "Estilo de vida", score: 8.5, desc: "La cultura del café y el paseo marítimo marcan un ritmo de vida social muy intenso y accesible." },
         ],
-        reviews: [
-          { text: "El paseo marítimo hasta la Torre Blanca al atardecer se convirtió en mi ritual diario. Gratis y precioso.", author: "Alessia, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 5.5,
@@ -7210,9 +5889,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 5.0, desc: "Menor presencia de multinacionales que en otras ciudades de esta guía; economía más local." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "Las prácticas suelen estar más orientadas a investigación universitaria que a empresa privada." },
         ],
-        reviews: [
-          { text: "No vine buscando prácticas de empresa — vine por la experiencia académica y social, y en eso Salónica no decepciona.", author: "Yusuf, Erasmus 2024", flag: "🇹🇷" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 7.0,
@@ -7222,9 +5898,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.0, desc: "Criminalidad moderada-baja, similar a otras grandes ciudades del sur de Europa." },
           { label: "Seguridad nocturna", score: 6.5, desc: "El centro y el paseo marítimo son seguros; conviene la precaución habitual en zonas menos transitadas." },
           { label: "Ambiente de la ciudad", score: 7.5, desc: "Ciudad animada y vivida, con un ambiente generalmente relajado." },
-        ],
-        reviews: [
-          { text: "Me sentí segura paseando de noche por el paseo marítimo, siempre lleno de gente hasta tarde.", author: "Chloé, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
     ],
@@ -7244,9 +5917,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.0, desc: "Abono ANM (metro, bus y funicular) con tarifa estudiante muy económica." },
           { label: "Ocio y gastos diarios", score: 8.0, desc: "Salir de bares y restaurantes cuesta una fracción de lo que costaría en el norte de Italia." },
         ],
-        reviews: [
-          { text: "Una pizza margherita auténtica costaba 4-5€. Comía mejor y más barato que en cualquier otra ciudad italiana.", author: "Sofía, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.3,
@@ -7257,9 +5927,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.0, desc: "300–400€ de media por habitación, muy por debajo de Roma o Milán." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "La Federico II ofrece listados básicos; conviene visitar el piso o pedir referencias antes de comprometerse." },
           { label: "Residencias universitarias", score: 5.5, desc: "Plazas limitadas frente al enorme número de estudiantes de la Federico II." },
-        ],
-        reviews: [
-          { text: "Elegir Vomero en vez del centro histórico más caótico marcó la diferencia en tranquilidad para estudiar.", author: "Théo, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
       {
@@ -7272,9 +5939,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "Los Quartieri Spagnoli y Chiaia concentran una vida nocturna intensa y muy asequible." },
           { label: "Eventos y actividades", score: 8.5, desc: "Fiestas callejeras, mercados navideños únicos (San Gregorio Armeno) y un calendario cultural constante." },
         ],
-        reviews: [
-          { text: "La calle es el verdadero salón social de Nápoles. Todo pasa fuera, en la calle, a cualquier hora.", author: "Max, Exchange 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
@@ -7286,9 +5950,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "Fácil hacer amigos locales gracias al carácter extrovertido napolitano." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "El tamaño de la comunidad Erasmus y el carácter local hacen la integración social relativamente rápida." },
         ],
-        reviews: [
-          { text: "Los primeros días el caos me abrumó, pero la calidez de la gente compensó cualquier choque cultural.", author: "Alicia, Erasmus 2023", flag: "🇲🇽" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 5.8,
@@ -7299,9 +5960,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 6.5, desc: "El centro histórico se recorre a pie, aunque el tráfico y el ruido son constantes." },
           { label: "Conexiones internacionales", score: 6.5, desc: "Aeropuerto de Capodichino bien conectado; trenes de alta velocidad a Roma en poco más de una hora." },
           { label: "Escapadas de fin de semana", score: 9.0, desc: "Pompeya, Herculano, Capri y la Costa Amalfitana en Circumvesuviana o ferry, todos a menos de una hora." },
-        ],
-        reviews: [
-          { text: "El transporte urbano es caótico, pero un fin de semana en Capri o Sorrento compensa cualquier queja.", author: "Ingrid, Erasmus 2024", flag: "🇳🇴" },
         ],
       },
       {
@@ -7315,9 +5973,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.5, desc: "Probablemente la ciudad más auténtica y menos 'aburguesada' de toda esta guía." },
           { label: "Estilo de vida", score: 9.0, desc: "Vivir la Italia real, sin filtros turísticos, con la mejor pizza y café del país como constante diaria." },
         ],
-        reviews: [
-          { text: "Nápoles no es una ciudad fácil, pero es la más auténtica que he vivido. No se parece a ninguna otra ciudad italiana.", author: "Bianca, Erasmus 2023", flag: "🇧🇷" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 5.8,
@@ -7329,9 +5984,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 5.5, desc: "Sector turístico y del patrimonio cultural con más peso que la industria o la tecnología." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "Los yacimientos arqueológicos de la región (Pompeya, Herculano) ofrecen prácticas específicas en arqueología y conservación." },
         ],
-        reviews: [
-          { text: "Hice unas prácticas relacionadas con la conservación de Pompeya. Para arqueología, esta región no tiene rival.", author: "Marek, Internship 2024", flag: "🇨🇿" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 6.0,
@@ -7341,9 +5993,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.0, desc: "Criminalidad menor (carteristas, hurtos) más frecuente que en el norte de Italia; la violencia grave no afecta al circuito estudiantil habitual." },
           { label: "Seguridad nocturna", score: 5.5, desc: "Conviene evitar calles poco transitadas de madrugada y prestar atención a pertenencias en el centro." },
           { label: "Ambiente de la ciudad", score: 6.5, desc: "Ciudad caótica y ruidosa, pero con mucha vida en la calle que aporta cierta sensación de seguridad social." },
-        ],
-        reviews: [
-          { text: "Con las precauciones normales de cualquier gran ciudad (bolso cerrado, cuidado con el móvil), nunca tuve problemas serios.", author: "Léon, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
     ],
@@ -7363,9 +6012,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "La bici es gratis una vez comprada — la mayoría de trayectos no necesitan bus ni tren." },
           { label: "Ocio y gastos diarios", score: 5.5, desc: "Salir de bares en el Grote Markt tiene precios estándar neerlandeses, no especialmente baratos." },
         ],
-        reviews: [
-          { text: "Comparado con lo que gastaban mis amigos en Ámsterdam, aquí el presupuesto me cundía muchísimo más.", author: "Elena, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 5.5,
@@ -7376,9 +6022,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.0, desc: "400–550€ de media, sensiblemente por debajo de Ámsterdam, Utrecht o La Haya." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "La RUG tiene un servicio de alojamiento garantizado para exchange students que solicitan a tiempo." },
           { label: "Residencias universitarias", score: 5.5, desc: "Buena oferta de residencias SSH, aunque conviene solicitar en cuanto llega la carta de admisión." },
-        ],
-        reviews: [
-          { text: "Al solicitar la plaza de intercambio ya pude reservar habitación por SSH. Mucho más tranquilo que buscar por mi cuenta.", author: "Bram, Erasmus 2023", flag: "🇧🇪" },
         ],
       },
       {
@@ -7391,9 +6034,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "El Grote Markt y sus bares llenos entre semana son la postal más repetida del Erasmus en Groningen." },
           { label: "Eventos y actividades", score: 9.0, desc: "Asociaciones estudiantiles centenarias (Vindicat, entre otras) organizan eventos constantes durante todo el curso." },
         ],
-        reviews: [
-          { text: "Nunca viví en una ciudad donde salir un martes fuera tan normal como salir un sábado.", author: "Noa, Erasmus 2024", flag: "🇮🇱" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.5,
@@ -7405,9 +6045,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "Más fácil que en ciudades grandes gracias al tamaño compacto y la vida universitaria compartida." },
           { label: "Facilidad para hacer amigos", score: 9.0, desc: "Con un tercio de la ciudad siendo estudiante, hacer amigos es prácticamente automático." },
         ],
-        reviews: [
-          { text: "Llegué sin hablar neerlandés y nunca lo necesité para nada del día a día. Todo el mundo cambia a inglés de forma natural.", author: "Diego, Erasmus 2023", flag: "🇦🇷" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.0,
@@ -7418,9 +6055,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable/ciclable", score: 9.5, desc: "Una de las ciudades más ciclistas del mundo, con infraestructura pensada al detalle para la bici." },
           { label: "Conexiones internacionales", score: 6.5, desc: "Sin aeropuerto propio grande; Schiphol (Ámsterdam) a unas dos horas en tren." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Ámsterdam a hora y media, y el norte rural neerlandés y la costa del Mar de Frisia muy cerca." },
-        ],
-        reviews: [
-          { text: "En dos semanas ya me movía en bici de forma más natural que en coche en mi ciudad. Aquí todo está pensado para ello.", author: "Sara, Erasmus 2024", flag: "🇮🇹" },
         ],
       },
       {
@@ -7434,9 +6068,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 7.5, desc: "Sin la masificación turística de Ámsterdam; se vive como una ciudad neerlandesa real." },
           { label: "Estilo de vida", score: 8.0, desc: "Vida sencilla marcada por la bici, los canales y una comunidad estudiantil que lo domina casi todo." },
         ],
-        reviews: [
-          { text: "Es la típica ciudad que no está en el radar de nadie hasta que vives ahí, y luego no quieres irte.", author: "Fynn, Erasmus 2023", flag: "🇩🇪" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.5,
@@ -7448,9 +6079,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.0, desc: "Sector energético (gas natural, energías renovables) con peso en la región de Groninga." },
           { label: "Oportunidades para estudiantes", score: 7.5, desc: "Muchos estudiantes compaginan estudios con trabajos a tiempo parcial gracias a la flexibilidad neerlandesa." },
         ],
-        reviews: [
-          { text: "Encontré un trabajo a tiempo parcial en un café en dos semanas. Aquí es muy normal compaginarlo con clases.", author: "Alice, Erasmus 2024", flag: "🇫🇷" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.7,
@@ -7460,9 +6088,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja; los robos de bicicleta son el principal quebradero de cabeza." },
           { label: "Seguridad nocturna", score: 8.5, desc: "Volver caminando o en bici de madrugada por el centro es completamente normal y seguro." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, limpia y tranquila fuera del ambiente animado del Grote Markt." },
-        ],
-        reviews: [
-          { text: "Lo único que me robaron en todo el año fue la bici, como a todo el mundo. Aparte de eso, cero problemas.", author: "Martina, Erasmus 2023", flag: "🇪🇸" },
         ],
       },
     ],
@@ -7482,9 +6107,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.5, desc: "Ciudad pequeña y caminable; el abono de bus apenas se necesita fuera de días de lluvia." },
           { label: "Ocio y gastos diarios", score: 9.0, desc: "Salir de tascas y bares en la Baixa cuesta una fracción de lo que costaría en Lisboa." },
         ],
-        reviews: [
-          { text: "Con el mismo presupuesto que en mi ciudad, aquí vivía como un rey. Es de las ciudades Erasmus más baratas que existen.", author: "Pablo, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 8.0,
@@ -7495,9 +6117,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 8.5, desc: "200–300€ de media, de los alquileres más bajos de toda esta guía." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "Entrar en una república requiere proceso propio (praxe); para exchange students hay listados en la universidad." },
           { label: "Residencias universitarias", score: 8.0, desc: "SASUC (Serviços de Ação Social) ofrece residencias asequibles y bien valoradas." },
-        ],
-        reviews: [
-          { text: "Vivir en una república fue la experiencia más auténtica de todo mi Erasmus: tradiciones, cenas comunales y una familia instantánea.", author: "Camille, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
       {
@@ -7510,9 +6129,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "República crawls y bares de la Baixa concentran la vida nocturna estudiantil." },
           { label: "Eventos y actividades", score: 8.5, desc: "Queima das Fitas en mayo: una semana entera de conciertos y tradiciones académicas únicas en Europa." },
         ],
-        reviews: [
-          { text: "La Queima das Fitas es de esas experiencias que no se pueden explicar, solo vivir. Toda la ciudad se convierte en una fiesta universitaria.", author: "Jonas, Erasmus 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
@@ -7524,9 +6140,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.0, desc: "El tamaño reducido de la ciudad facilita coincidir una y otra vez con la misma gente." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "Las repúblicas y el circuito universitario reducido hacen fácil integrarse rápido." },
         ],
-        reviews: [
-          { text: "Al ser una ciudad pequeña, en un mes ya me conocía con los dueños de las tascas y con medio grupo de mi facultad.", author: "Lena, Erasmus 2023", flag: "🇦🇹" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 6.5,
@@ -7537,9 +6150,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 6.0, desc: "Todo se recorre a pie, pero las cuestas del centro histórico son exigentes." },
           { label: "Conexiones internacionales", score: 6.0, desc: "Sin aeropuerto propio; Oporto y Lisboa, ambos con vuelos internacionales, a menos de dos horas." },
           { label: "Escapadas de fin de semana", score: 7.5, desc: "Serra da Estrela, Aveiro y la costa de Figueira da Foz, todas a poco más de una hora." },
-        ],
-        reviews: [
-          { text: "Las cuestas hacia la universidad al principio matan, pero en un mes ya ni las notaba.", author: "Rui, Erasmus 2024", flag: "🇧🇷" },
         ],
       },
       {
@@ -7553,9 +6163,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.0, desc: "Una de las ciudades universitarias con más tradición e identidad propia de toda Europa." },
           { label: "Estilo de vida", score: 8.5, desc: "Vivir entre siglos de historia académica, con las repúblicas como forma de vida propia." },
         ],
-        reviews: [
-          { text: "Es la única ciudad donde he sentido que la universidad ES la ciudad, y no al revés.", author: "Valeria, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 5.0,
@@ -7567,9 +6174,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 4.5, desc: "Sin grandes sedes corporativas; economía centrada en la universidad y el turismo cultural." },
           { label: "Oportunidades para estudiantes", score: 5.5, desc: "El Instituto Pedro Nunes, parque tecnológico ligado a la universidad, ofrece algunas prácticas en startups locales." },
         ],
-        reviews: [
-          { text: "No es una ciudad para hacer prácticas ambiciosas, pero para estudiar y vivir la experiencia Erasmus es perfecta.", author: "Katarzyna, Erasmus 2024", flag: "🇵🇱" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.8,
@@ -7579,9 +6183,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja; la vida gira en torno a la universidad y el ambiente es tranquilo." },
           { label: "Seguridad nocturna", score: 8.5, desc: "Las cuestas del centro histórico están tranquilas incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad pequeña, ordenada y con fuerte sensación de comunidad universitaria." },
-        ],
-        reviews: [
-          { text: "Nunca me sentí insegura ni una sola vez, ni siquiera volviendo sola de madrugada por las callejuelas de la Alta.", author: "Marion, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
     ],
@@ -7601,9 +6202,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 6.5, desc: "La bici cubre la mayoría de trayectos; el abono UL sale rentable con descuento de estudiante." },
           { label: "Ocio y gastos diarios", score: 5.5, desc: "Las naciones ofrecen comida y bebida a precio estudiante, mucho más barato que un bar normal." },
         ],
-        reviews: [
-          { text: "Comer y beber en las naciones era mucho más barato que salir en la ciudad — aprendí rápido a aprovecharlo.", author: "Marco, Erasmus 2024", flag: "🇮🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 4.5,
@@ -7614,9 +6212,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 5.0, desc: "450–600€ de media, algo más asequible que Estocolmo pero aún alto para Erasmus estudiantes con presupuesto ajustado." },
           { label: "Facilidad de búsqueda", score: 4.0, desc: "Registrarse en la cola de Studentbostäder el mismo día de la admisión es clave para tener opciones." },
           { label: "Residencias universitarias", score: 5.0, desc: "Existen plazas garantizadas para exchange students a través de la universidad, aunque limitadas." },
-        ],
-        reviews: [
-          { text: "Me apunté a la cola de vivienda el día que me admitieron, meses antes de llegar, y aun así fue justo.", author: "Emma, Erasmus 2023", flag: "🇩🇰" },
         ],
       },
       {
@@ -7629,9 +6224,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "Las 13 naciones organizan gasques (cenas de gala) y fiestas temáticas durante todo el año." },
           { label: "Eventos y actividades", score: 9.0, desc: "Valborg el 30 de abril reúne a decenas de miles de personas en la mayor fiesta de primavera de Suecia." },
         ],
-        reviews: [
-          { text: "Unirme a una nación fue la mejor decisión del intercambio: cenas de gala, fiestas y amigos para toda la vida.", author: "Iris, Erasmus 2024", flag: "🇳🇱" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8,
@@ -7643,9 +6235,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "Más fácil dentro del entorno de las naciones que en el contexto social general." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La estructura de naciones facilita conocer gente de forma constante y estructurada." },
         ],
-        reviews: [
-          { text: "Al principio cuesta romper el hielo con suecos fuera de la universidad, pero dentro de la nación todo fluye solo.", author: "Thiago, Erasmus 2023", flag: "🇵🇹" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.0,
@@ -7656,9 +6245,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable/ciclable", score: 9.0, desc: "Ciudad plana y compacta, pensada para moverse en bici todo el año." },
           { label: "Conexiones internacionales", score: 7.0, desc: "Aeropuerto de Arlanda a solo 20 minutos, con vuelos a toda Europa." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Estocolmo a 40 minutos en tren; el archipiélago sueco muy accesible en verano." },
-        ],
-        reviews: [
-          { text: "Vivir a 40 minutos de Estocolmo con el precio de Uppsala fue el mejor equilibrio posible.", author: "Hanna, Erasmus 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -7672,9 +6258,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "Fuera del circuito de naciones, se vive la Suecia académica real, lejos del turismo." },
           { label: "Estilo de vida", score: 8.5, desc: "El equilibrio entre tradición centenaria, naturaleza y vida social de naciones es único en Europa." },
         ],
-        reviews: [
-          { text: "El invierno oscuro pega fuerte al principio, pero la vida de nación y el fika constante lo compensan todo.", author: "Julia, Erasmus 2023", flag: "🇨🇿" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.5,
@@ -7686,9 +6269,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Uppsala BIO agrupa un clúster relevante de empresas de biotecnología en la región." },
           { label: "Oportunidades para estudiantes", score: 6.5, desc: "El sistema sueco facilita compaginar estudios con trabajos a tiempo parcial." },
         ],
-        reviews: [
-          { text: "Hice unas prácticas de verano en una empresa de biotech ligada a la universidad. La reputación científica de Uppsala abre puertas.", author: "Aleksander, Internship 2024", flag: "🇵🇱" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.8,
@@ -7698,9 +6278,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja; la vida gira en torno al campus y las naciones." },
           { label: "Seguridad nocturna", score: 8.5, desc: "Volver a casa de madrugada, incluso en invierno, se siente completamente seguro." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada, limpia y con fuerte sensación de comunidad universitaria." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ni el más mínimo susto, ni siquiera volviendo a las tantas de una gasque en pleno invierno.", author: "Chiara, Erasmus 2024", flag: "🇮🇹" },
         ],
       },
     ],
@@ -7720,9 +6297,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 6.5, desc: "El Deutschlandticket (49€) cubre tranvía y bus por toda la ciudad y buena parte del país." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Salir de bares y biergartens tiene precios estándar del sur de Alemania." },
         ],
-        reviews: [
-          { text: "No es de las ciudades alemanas más baratas, pero el Deutschlandticket compensa mucho en excursiones.", author: "Inés, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 5.5,
@@ -7733,9 +6307,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 5.5, desc: "450–600€ de media, moderado para el sur de Alemania." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "Conviene empezar a buscar con varios meses de antelación, sobre todo antes del semestre de invierno." },
           { label: "Residencias universitarias", score: 5.5, desc: "Buena calidad, pero con listas de espera habituales para exchange students que llegan tarde." },
-        ],
-        reviews: [
-          { text: "Empecé a buscar piso cuatro meses antes de llegar y aun así fue ajustado. Hay que moverse pronto.", author: "Adam, Erasmus 2023", flag: "🇵🇱" },
         ],
       },
       {
@@ -7748,9 +6319,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.0, desc: "Vida nocturna más tranquila que en ciudades grandes, concentrada en Stühlinger y el centro." },
           { label: "Eventos y actividades", score: 8.0, desc: "Mercados navideños, el festival de vino local y actividades al aire libre marcan el calendario social." },
         ],
-        reviews: [
-          { text: "El grupo de Erasmus se organizaba constantemente para ir a esquiar o hacer senderismo los fines de semana. Es un estilo de vida muy activo.", author: "Julien, Erasmus 2024", flag: "🇫🇷" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
@@ -7762,9 +6330,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.0, desc: "El tamaño mediano de la ciudad facilita coincidir de forma habitual con la misma gente." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "El programa Tandem de la universidad conecta estudiantes internacionales con locales de forma estructurada." },
         ],
-        reviews: [
-          { text: "El programa Tandem con un estudiante alemán me ayudó tanto con el idioma como para hacer mi primer amigo local de verdad.", author: "Nora, Erasmus 2023", flag: "🇳🇴" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.0,
@@ -7775,9 +6340,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable/ciclable", score: 8.5, desc: "Centro histórico peatonal y excelente infraestructura ciclista en toda la ciudad." },
           { label: "Conexiones internacionales", score: 7.0, desc: "Aeropuerto de Basilea-Mulhouse-Friburgo (EuroAirport) a menos de una hora." },
           { label: "Escapadas de fin de semana", score: 9.0, desc: "Estrasburgo, Basilea y la Selva Negra, todas a menos de una hora en tren o bus." },
-        ],
-        reviews: [
-          { text: "Un sábado en Basilea, otro en Estrasburgo, y de vuelta a casa a dormir. Estar en la frontera de tres países cambia el fin de semana por completo.", author: "Kacper, Erasmus 2024", flag: "🇵🇱" },
         ],
       },
       {
@@ -7791,9 +6353,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "Ciudad universitaria alemana genuina, sin masificación turística salvo en el centro histórico en verano." },
           { label: "Estilo de vida", score: 9.0, desc: "Combinación única de vida universitaria, sostenibilidad y naturaleza de montaña a un paso." },
         ],
-        reviews: [
-          { text: "Nunca pensé que Alemania pudiera tener tanto sol. Entre el clima y la Selva Negra, es la ciudad alemana más agradable que he vivido.", author: "Beatriz, Erasmus 2023", flag: "🇵🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 7.0,
@@ -7805,9 +6364,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Clúster fuerte en energías renovables y tecnología medioambiental." },
           { label: "Oportunidades para estudiantes", score: 7.5, desc: "La reputación de Friburgo en sostenibilidad atrae prácticas específicas en ese sector." },
         ],
-        reviews: [
-          { text: "Hice prácticas relacionadas con energía solar cerca del Fraunhofer ISE. Para quien estudia medioambiente o energías renovables, Friburgo es un polo importante.", author: "Sven, Internship 2024", flag: "🇸🇪" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 9.0,
@@ -7817,9 +6373,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.5, desc: "Criminalidad muy baja, entre las tasas más reducidas de las ciudades universitarias alemanas." },
           { label: "Seguridad nocturna", score: 8.5, desc: "El centro histórico y los alrededores del campus son seguros incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada, limpia y tranquila, con fuerte identidad ecologista." },
-        ],
-        reviews: [
-          { text: "Es probablemente la ciudad alemana donde me he sentido más segura en cualquier horario, sin excepción.", author: "Greta, Erasmus 2023", flag: "🇦🇹" },
         ],
       },
     ],
@@ -7839,9 +6392,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Abono TAN joven con descuento estudiante notable, cubre tranvía, bus y busway." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Salir de bares y restaurantes es más barato que en Lyon o París, manteniendo buena oferta cultural." },
         ],
-        reviews: [
-          { text: "Con el presupuesto que tenía pensado para París, aquí vivía holgadamente y salía todas las semanas.", author: "Bianca, Erasmus 2024", flag: "🇷🇴" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.3,
@@ -7852,9 +6402,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.5, desc: "400–500€ de media, entre los más asequibles de las grandes ciudades francesas." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "El CROUS gestiona residencias con demanda alta; conviene solicitar cuanto antes." },
           { label: "Residencias universitarias", score: 6.0, desc: "Plazas CROUS limitadas para exchange students; muchos optan por colocation privada." },
-        ],
-        reviews: [
-          { text: "Encontrar colocation llevó su tiempo, pero los precios eran razonables comparados con lo que pedían mis amigos en Lyon o París.", author: "Mateo, Erasmus 2023", flag: "🇪🇸" },
         ],
       },
       {
@@ -7867,9 +6414,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "Bouffay y la Île de Nantes concentran una vida nocturna animada y variada." },
           { label: "Eventos y actividades", score: 9.0, desc: "Le Voyage à Nantes convierte la ciudad entera en un recorrido artístico gratuito cada verano." },
         ],
-        reviews: [
-          { text: "Nantes tiene el tamaño perfecto: grande para tener planes todos los días, pequeña para no perderte en ella.", author: "Sofia, Erasmus 2024", flag: "🇬🇷" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8,
@@ -7881,9 +6425,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "El tamaño mediano de la ciudad facilita coincidir con la misma gente y crear vínculos." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La vida asociativa estudiantil, muy activa, facilita conocer gente rápido." },
         ],
-        reviews: [
-          { text: "Con un francés básico me apañaba perfectamente. Los nanteses fueron mucho más abiertos de lo que esperaba de Francia.", author: "Anna, Erasmus 2023", flag: "🇩🇪" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.5,
@@ -7894,9 +6435,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable/ciclable", score: 8.0, desc: "Centro compacto y muy ciclable, con carriles bici en expansión constante." },
           { label: "Conexiones internacionales", score: 6.0, desc: "Aeropuerto de Nantes Atlantique con vuelos europeos limitados; París a dos horas en TGV." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "La Baule, Pornic y la costa atlántica bretona a menos de una hora." },
-        ],
-        reviews: [
-          { text: "Coger el tranvía hasta la playa más cercana un fin de semana cualquiera fue una de mis sorpresas favoritas del Erasmus.", author: "Duarte, Erasmus 2024", flag: "🇵🇹" },
         ],
       },
       {
@@ -7910,9 +6448,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Ciudad con identidad artística y creativa propia, lejos del circuito turístico masivo." },
           { label: "Estilo de vida", score: 9.0, desc: "El equilibrio entre creatividad, tamaño manejable y cercanía al mar hace de Nantes un destino muy vivible." },
         ],
-        reviews: [
-          { text: "Es la ciudad francesa que más me sorprendió: arte por todas partes, buen ambiente y sin el caos de las grandes capitales.", author: "Lorenzo, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 7.0,
@@ -7924,9 +6459,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Presencia de Airbus, Beneteau y un ecosistema digital en expansión (La Cantine Numérique)." },
           { label: "Oportunidades para estudiantes", score: 7.0, desc: "El ecosistema de startups nantés ofrece prácticas variadas más allá del sector clásico." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una startup digital cerca de la Île de Nantes. Sorprende lo activo que es el ecosistema tech para el tamaño de la ciudad.", author: "Erik, Internship 2024", flag: "🇳🇴" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
@@ -7936,9 +6468,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.0, desc: "Criminalidad moderada-baja para el estándar de una gran ciudad francesa." },
           { label: "Seguridad nocturna", score: 7.5, desc: "El Bouffay y la Île de Nantes son seguros de noche, con presencia policial habitual en zonas de ocio." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada y con mucha vida cultural, coherente con su fama de ser muy habitable." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad, ni siquiera en las noches de más ambiente en el Bouffay.", author: "Clémence, Erasmus 2023", flag: "🇧🇪" },
         ],
       },
     ],
@@ -7958,9 +6487,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.5, desc: "MPK con abono estudiantil muy económico cubre tranvía y bus por toda la ciudad." },
           { label: "Ocio y gastos diarios", score: 9.0, desc: "Salir de bares en el Rynek es de las opciones más baratas de toda Europa occidental y central." },
         ],
-        reviews: [
-          { text: "Con lo que gastaba en una semana en mi ciudad, aquí me duraba fácilmente el mes.", author: "Iker, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.8,
@@ -7971,9 +6497,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 8.0, desc: "250–350€ de media, entre los alquileres más bajos de toda esta guía." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "Portales locales (OLX, otodom) y grupos de Facebook de Erasmus facilitan la búsqueda." },
           { label: "Residencias universitarias", score: 7.5, desc: "Buena disponibilidad de residencias (domy studenckie) a precios muy bajos." },
-        ],
-        reviews: [
-          { text: "Encontré habitación en una semana por menos de lo que pagaba de fianza en mi ciudad de origen.", author: "Théo, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
       {
@@ -7986,9 +6509,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "El Rynek y sus alrededores concentran una vida nocturna barata y muy animada." },
           { label: "Eventos y actividades", score: 8.0, desc: "Juwenalia (fiesta universitaria de mayo) reúne a toda la ciudad estudiantil durante días." },
         ],
-        reviews: [
-          { text: "La comunidad Erasmus aquí es enorme y muy unida — cada noche había algo organizado por ESN.", author: "Greta, Erasmus 2024", flag: "🇱🇹" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.8,
@@ -8000,9 +6520,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.0, desc: "Requiere algo más de esfuerzo que en otras ciudades, aunque el círculo universitario ayuda." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "El tamaño de la comunidad Erasmus hace que hacer amigos internacionales sea muy rápido." },
         ],
-        reviews: [
-          { text: "Con los locales cuesta un poco más al principio, pero dentro del círculo universitario e internacional todo es muy fácil.", author: "Rafael, Erasmus 2023", flag: "🇧🇷" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.0,
@@ -8013,9 +6530,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.5, desc: "El centro histórico y las islas del Óder se recorren fácilmente a pie." },
           { label: "Conexiones internacionales", score: 5.5, desc: "Aeropuerto con oferta de vuelos limitada; Berlín a unas cuatro horas en tren o bus." },
           { label: "Escapadas de fin de semana", score: 7.5, desc: "Cracovia y Poznań a menos de tres horas, y los Sudetes a un salto en bus." },
-        ],
-        reviews: [
-          { text: "El tranvía te deja prácticamente en cualquier sitio de la ciudad por céntimos. Muy fácil moverse sin coche.", author: "Nils, Erasmus 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -8029,9 +6543,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Menos masificada turísticamente que Cracovia, con identidad propia muy marcada." },
           { label: "Estilo de vida", score: 9.0, desc: "La combinación de belleza arquitectónica, vida estudiantil intensa y precios bajos es difícil de igualar." },
         ],
-        reviews: [
-          { text: "Es de las ciudades más bonitas que he visto en Europa central, y encima con precios de otra época.", author: "Alessia, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.0,
@@ -8043,9 +6554,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.0, desc: "Hub relevante de desarrollo de software y centros de servicios compartidos." },
           { label: "Oportunidades para estudiantes", score: 5.5, desc: "Salarios locales moderados comparados con Europa occidental, aunque el coste de vida lo compensa." },
         ],
-        reviews: [
-          { text: "Hice unas prácticas en un centro de IT internacional. El ambiente tech de Breslavia es más grande de lo que esperaba.", author: "Guillermo, Internship 2024", flag: "🇲🇽" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
@@ -8055,9 +6563,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.0, desc: "Criminalidad baja; los hurtos ocasionales en el Rynek son el principal riesgo." },
           { label: "Seguridad nocturna", score: 7.5, desc: "El centro histórico y sus alrededores son seguros incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, limpia y con fuerte ambiente universitario." },
-        ],
-        reviews: [
-          { text: "Volviendo de fiesta a las tantas nunca sentí inseguridad, ni siquiera en las zonas menos turísticas.", author: "Marina, Erasmus 2023", flag: "🇬🇷" },
         ],
       },
     ],
@@ -8077,9 +6582,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.5, desc: "El transporte público (bus, tranvía, trolebús) es barato y con buena cobertura." },
           { label: "Ocio y gastos diarios", score: 9.5, desc: "Salir de bares y clubs en Centru es de lo más barato de toda esta guía." },
         ],
-        reviews: [
-          { text: "Con el presupuesto que llevaba pensado para un mes, aquí me duraba fácilmente seis semanas.", author: "Nuno, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.8,
@@ -8090,9 +6592,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 8.0, desc: "200–300€ de media, aunque ha subido con el crecimiento del sector tecnológico local." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "Grupos de Facebook y portales locales (OLX) facilitan encontrar piso rápido." },
           { label: "Residencias universitarias", score: 7.5, desc: "La Babeș-Bolyai ofrece residencias muy económicas, aunque con demanda alta." },
-        ],
-        reviews: [
-          { text: "En una semana ya tenía habitación, y el precio era una fracción de lo que pagaba en España por algo similar.", author: "Konstantina, Erasmus 2023", flag: "🇬🇷" },
         ],
       },
       {
@@ -8105,9 +6604,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "Piața Unirii y Centru concentran bares y clubes con ambiente hasta el amanecer." },
           { label: "Eventos y actividades", score: 9.0, desc: "El festival Untold, uno de los mayores de Europa, convierte la ciudad en epicentro musical cada agosto." },
         ],
-        reviews: [
-          { text: "Vine a estudiar y me encontré con una de las ciudades con mejor ambiente nocturno que he vivido, y encima con Untold de fondo.", author: "Mihail, Erasmus 2024", flag: "🇧🇬" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.5,
@@ -8119,9 +6615,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.0, desc: "Requiere algo de esfuerzo, aunque el ambiente universitario facilita mucho el contacto." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "La vida social intensa y barata hace fácil coincidir y hacer amigos rápidamente." },
         ],
-        reviews: [
-          { text: "Al principio pensé que sería difícil integrarme, pero entre el ambiente universitario y la hospitalidad local, en un mes ya me sentía en casa.", author: "Amara, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 6.0,
@@ -8132,9 +6625,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.0, desc: "El centro histórico se recorre fácilmente a pie." },
           { label: "Conexiones internacionales", score: 5.0, desc: "El aeropuerto de Cluj tiene vuelos low-cost a varias ciudades europeas, aunque con menos frecuencia que grandes hubs." },
           { label: "Escapadas de fin de semana", score: 5.0, desc: "Los Cárpatos y Transilvania rural están cerca, aunque el transporte a otras ciudades rumanas puede ser lento." },
-        ],
-        reviews: [
-          { text: "El transporte dentro de la ciudad va genial, pero para salir de Rumanía conviene mirar bien los vuelos con antelación.", author: "Otto, Erasmus 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -8148,9 +6638,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 7.5, desc: "Combina tradición transilvana con una escena tech y cultural moderna en pleno crecimiento." },
           { label: "Estilo de vida", score: 7.5, desc: "Ambiente joven, dinámico y en plena expansión, con precios que aún no reflejan ese crecimiento." },
         ],
-        reviews: [
-          { text: "Es una ciudad que está despegando ahora mismo — se nota la energía de startup en el ambiente, pero con precios todavía muy bajos.", author: "Lukas, Erasmus 2023", flag: "🇨🇿" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.8,
@@ -8162,9 +6649,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "Presencia de Bosch, Betfair, Endava y decenas de startups tecnológicas locales." },
           { label: "Oportunidades para estudiantes", score: 6.5, desc: "Salarios locales moderados, aunque las prácticas en tech ofrecen buena experiencia y crecimiento rápido del sector." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una empresa de software local. El ecosistema tech de Cluj crece a un ritmo que sorprende para el tamaño de la ciudad.", author: "Pavlína, Internship 2024", flag: "🇨🇿" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 7.5,
@@ -8174,9 +6658,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.5, desc: "Criminalidad baja; los hurtos ocasionales en zonas de ocio son el principal riesgo." },
           { label: "Seguridad nocturna", score: 7.0, desc: "El centro y Centru son seguros de noche, con buena presencia de gente hasta tarde." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad en crecimiento, ordenada y con ambiente universitario muy vivo." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio, ni siquiera saliendo de fiesta hasta altas horas casi todos los fines de semana.", author: "Santiago, Erasmus 2023", flag: "🇦🇷" },
         ],
       },
     ],
@@ -8196,9 +6677,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 6.0, desc: "Ciudad compacta y caminable; el bus local cubre lo que quede fuera de alcance a pie." },
           { label: "Ocio y gastos diarios", score: 4.5, desc: "Una pinta en un pub del centro ronda 5,50–6,50€, en línea con el resto de Irlanda." },
         ],
-        reviews: [
-          { text: "Es cara, sí, pero mucho menos que Dublín. Compensa con creces por el ambiente que tiene.", author: "Paula, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 4.0,
@@ -8209,9 +6687,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 4.0, desc: "550–700€ de media, alto para el tamaño de la ciudad." },
           { label: "Facilidad de búsqueda", score: 3.5, desc: "Conviene empezar a buscar con seis meses de antelación como mínimo." },
           { label: "Residencias universitarias", score: 5.0, desc: "La University of Galway ofrece residencias en campus, muy solicitadas por su fiabilidad." },
-        ],
-        reviews: [
-          { text: "Empecé a buscar alojamiento en enero para llegar en septiembre y aun así lo cerré por los pelos. No lo dejes para el último momento.", author: "Milan, Erasmus 2023", flag: "🇸🇮" },
         ],
       },
       {
@@ -8224,9 +6699,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.0, desc: "Quay Street y el Latin Quarter concentran pubs con música en directo cada noche de la semana." },
           { label: "Eventos y actividades", score: 8.5, desc: "El Galway International Arts Festival y el Galway Races llenan la ciudad de ambiente en verano." },
         ],
-        reviews: [
-          { text: "Cada pub tiene su propia sesión de música en directo. No hace falta salir de fiesta para tener plan cada noche.", author: "Océane, Erasmus 2024", flag: "🇫🇷" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
@@ -8238,9 +6710,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "El pub es la vía número uno de integración real con la comunidad local." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "El ambiente social constante en pubs y sesiones de música facilita conocer gente rápido." },
         ],
-        reviews: [
-          { text: "Con solo hablar inglés ya tenía medio camino hecho, pero lo que de verdad ayudó fue ir siempre al mismo pub hasta hacerme habitual.", author: "Serena, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 6.0,
@@ -8251,9 +6720,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.0, desc: "Centro pequeño y totalmente caminable, con el paseo de Salthill a un paso." },
           { label: "Conexiones internacionales", score: 4.0, desc: "Sin aeropuerto internacional propio relevante; Dublín, a 2h30 en bus, es el hub principal." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Los acantilados de Moher, Connemara y las Islas Aran, todas a menos de una hora y media." },
-        ],
-        reviews: [
-          { text: "Depender de Dublín para volar fuera es un poco pesado, pero para explorar la costa oeste irlandesa, Galway es la base perfecta.", author: "Anton, Erasmus 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -8267,9 +6733,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.0, desc: "Considerada la capital cultural de Irlanda, con tradiciones musicales genuinas y muy vivas." },
           { label: "Estilo de vida", score: 8.5, desc: "El ritmo pausado, la música y el paisaje atlántico crean una experiencia difícil de replicar en otra ciudad." },
         ],
-        reviews: [
-          { text: "El paisaje y la música tradicional te atrapan desde el primer día. Es la Irlanda auténtica que todo el mundo busca y pocos encuentran.", author: "Marek, Erasmus 2023", flag: "🇸🇰" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.0,
@@ -8281,9 +6744,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Galway es uno de los mayores clústeres de dispositivos médicos de Europa (Boston Scientific, Medtronic)." },
           { label: "Oportunidades para estudiantes", score: 5.5, desc: "Menos oferta que en Dublín, aunque con calidad alta en sectores especializados." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una empresa de dispositivos médicos. No sabía que Galway era un polo tan fuerte en ese sector hasta que llegué.", author: "Isabela, Internship 2024", flag: "🇧🇷" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.3,
@@ -8293,9 +6753,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Criminalidad baja; ambiente tranquilo típico de una ciudad de tamaño mediano." },
           { label: "Seguridad nocturna", score: 8.0, desc: "Volver del pub de madrugada por el centro se siente seguro casi siempre." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad acogedora y con fuerte sentido de comunidad, tanto local como estudiantil." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema de seguridad, ni siquiera volviendo sola de los pubs entre semana.", author: "Freya, Erasmus 2023", flag: "🇳🇴" },
         ],
       },
     ],
@@ -8315,9 +6772,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 3.5, desc: "El abono de transporte para estudiantes ayuda, pero los billetes sueltos son caros para el estándar europeo." },
           { label: "Ocio y gastos diarios", score: 2.5, desc: "Salir de bares y restaurantes en Lausana es de lo más caro de Europa occidental." },
         ],
-        reviews: [
-          { text: "Llegué sabiendo que Suiza era cara, pero aun así el primer mes de compra en el supermercado fue un shock.", author: "Ana, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 3.5,
@@ -8328,9 +6782,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 2.5, desc: "750–950€ de media, entre los más altos de toda esta guía." },
           { label: "Facilidad de búsqueda", score: 4.0, desc: "El FMEL (Fondation Maisons pour Étudiants Lausanne) ofrece residencias específicas para estudiantes." },
           { label: "Residencias universitarias", score: 5.0, desc: "Buena calidad en el campus de Dorigny, aunque muy solicitadas y conviene reservar pronto." },
-        ],
-        reviews: [
-          { text: "Conseguir plaza en una residencia de la FMEL fue la única forma de no arruinarme el primer semestre.", author: "Mateusz, Erasmus 2023", flag: "🇵🇱" },
         ],
       },
       {
@@ -8343,9 +6794,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 6.0, desc: "El Flon concentra la vida nocturna, aunque los precios limitan salir con la frecuencia de otras ciudades." },
           { label: "Eventos y actividades", score: 6.5, desc: "Actividades al aire libre (esquí, vela en el lago, senderismo) sustituyen buena parte de la vida nocturna clásica." },
         ],
-        reviews: [
-          { text: "La vida social aquí es distinta: menos fiesta y más planes en el lago o en la montaña, pero igual de intensa.", author: "Sebastián, Erasmus 2024", flag: "🇨🇴" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
@@ -8357,9 +6805,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "Requiere algo de esfuerzo y francés básico fuera del entorno puramente universitario." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "La enorme comunidad internacional de la EPFL facilita hacer amigos de decenas de nacionalidades." },
         ],
-        reviews: [
-          { text: "En la EPFL el inglés es más que suficiente. Para el día a día fuera del campus, un francés básico ayuda mucho.", author: "Priya, Erasmus 2023", flag: "🇮🇳" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.5,
@@ -8370,9 +6815,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.0, desc: "La ciudad se levanta en fuertes pendientes desde el lago; el metro compensa las cuestas." },
           { label: "Conexiones internacionales", score: 8.5, desc: "Aeropuertos de Ginebra y Zúrich accesibles en tren; red ferroviaria suiza entre las mejores del mundo." },
           { label: "Escapadas de fin de semana", score: 9.0, desc: "Ginebra, Montreux, Berna y los Alpes franceses, todos a menos de una hora." },
-        ],
-        reviews: [
-          { text: "La puntualidad del transporte suizo hay que vivirla para creerla. Nunca esperé más de dos minutos por un tren o un bus.", author: "Felix, Erasmus 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -8386,9 +6828,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 7.5, desc: "Ciudad suiza genuina, con identidad propia más allá del entorno universitario internacional." },
           { label: "Estilo de vida", score: 9.0, desc: "Pocas ciudades universitarias del mundo ofrecen nadar en un lago alpino entre clase y clase." },
         ],
-        reviews: [
-          { text: "Estudiar con vistas al lago Lemán y a los Alpes cada día es algo que no olvidaré nunca, por caro que sea vivir aquí.", author: "Charlotte, Erasmus 2023", flag: "🇫🇷" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 8.0,
@@ -8400,9 +6839,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.5, desc: "Ecosistema de startups tecnológicas y presencia de Nestlé, Logitech y Philip Morris International en la región." },
           { label: "Oportunidades para estudiantes", score: 8.0, desc: "El campus EPFL Innovation Park facilita el contacto directo con empresas emergentes." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una startup del EPFL Innovation Park. Para ingeniería y tecnología, difícilmente hay mejor sitio en Europa continental.", author: "Henrik, Internship 2024", flag: "🇸🇪" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 9.0,
@@ -8412,9 +6848,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.5, desc: "Criminalidad extremadamente baja, entre las más bajas de toda Europa." },
           { label: "Seguridad nocturna", score: 9.0, desc: "Volver a casa de madrugada, incluso solo, se siente completamente seguro en cualquier barrio." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad extremadamente ordenada, limpia y tranquila." },
-        ],
-        reviews: [
-          { text: "Es probablemente la ciudad donde más segura me he sentido en mi vida, a cualquier hora y en cualquier barrio.", author: "Ingrid, Erasmus 2023", flag: "🇳🇴" },
         ],
       },
     ],
@@ -8434,9 +6867,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.0, desc: "Ciudad muy ciclable; Skånetrafiken cubre el resto con buen descuento estudiantil." },
           { label: "Ocio y gastos diarios", score: 5.5, desc: "Salir de bares en Suecia tiene precios altos, algo suavizados por la vida social gratuita al aire libre." },
         ],
-        reviews: [
-          { text: "Es cara para el estándar español, pero mucho más llevadera que Estocolmo, donde vivían mis amigos de intercambio.", author: "Andrés, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 5.3,
@@ -8447,9 +6877,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 5.5, desc: "450–600€ de media, moderado para el estándar sueco." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "Conviene registrarse en las colas de vivienda en cuanto se confirma la plaza de intercambio." },
           { label: "Residencias universitarias", score: 5.5, desc: "Malmö University ofrece opciones de residencia para exchange students, aunque limitadas." },
-        ],
-        reviews: [
-          { text: "Comparado con lo que me contaban de Estocolmo, encontrar piso en Malmö fue relativamente sencillo.", author: "Ida, Erasmus 2023", flag: "🇩🇰" },
         ],
       },
       {
@@ -8462,9 +6889,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "Möllevången y el centro concentran bares y una vida nocturna variada." },
           { label: "Eventos y actividades", score: 8.0, desc: "El Malmöfestivalen en agosto es uno de los mayores festivales urbanos gratuitos de Escandinavia." },
         ],
-        reviews: [
-          { text: "Poder cruzar a Copenhague un jueves cualquiera para tomar algo y volver esa misma noche cambia por completo el concepto de vida social.", author: "Louise, Erasmus 2024", flag: "🇧🇪" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.3,
@@ -8476,9 +6900,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "Malmö University tiene un fuerte enfoque internacional que facilita mucho el contacto con locales y otros internacionales." },
           { label: "Facilidad para hacer amigos", score: 8.5, desc: "El ambiente joven y multicultural hace que integrarse sea rápido y natural." },
         ],
-        reviews: [
-          { text: "Es la ciudad sueca donde más 'en casa' me sentí como extranjero, por lo mezclada y abierta que es.", author: "Youssef, Erasmus 2023", flag: "🇲🇦" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.5,
@@ -8489,9 +6910,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable/ciclable", score: 8.5, desc: "Ciudad plana y muy ciclable, con infraestructura de bici de nivel escandinavo." },
           { label: "Conexiones internacionales", score: 9.0, desc: "El aeropuerto de Copenhague-Kastrup está a menos de 30 minutos en tren, con vuelos a todo el mundo." },
           { label: "Escapadas de fin de semana", score: 9.5, desc: "Copenhague a 35 minutos en tren por el puente de Öresund; Lund a 15 minutos." },
-        ],
-        reviews: [
-          { text: "Vivir a 35 minutos de otra capital europea distinta es algo que no tiene ninguna otra ciudad de esta lista. Lo aproveché casi cada semana.", author: "Tomasz, Erasmus 2024", flag: "🇵🇱" },
         ],
       },
       {
@@ -8505,9 +6923,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 7.5, desc: "Combina tradición sueca con una identidad multicultural muy propia de Malmö." },
           { label: "Estilo de vida", score: 8.5, desc: "El acceso diario a dos países distintos hace de Malmö una experiencia de vida única en Europa." },
         ],
-        reviews: [
-          { text: "Malmö tiene lo mejor de Suecia sin perder la energía de Copenhague a un paso. Es un combo que no esperaba encontrar.", author: "Rosa, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.8,
@@ -8519,9 +6934,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "La región de Öresund (Malmö-Copenhague) concentra un clúster relevante de biotech y ciencias de la vida." },
           { label: "Oportunidades para estudiantes", score: 7.0, desc: "El acceso al mercado laboral danés, a solo 35 minutos, multiplica las oportunidades disponibles." },
         ],
-        reviews: [
-          { text: "Al final hice prácticas del lado danés, en Copenhague, gracias a lo fácil que es cruzar el puente cada día.", author: "Viktor, Internship 2024", flag: "🇭🇷" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 7.3,
@@ -8531,9 +6943,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.0, desc: "Malmö tiene fama mediática de inseguridad mayor que otras ciudades suecas, aunque el entorno universitario y turístico apenas se ve afectado." },
           { label: "Seguridad nocturna", score: 7.0, desc: "El centro y Möllevången son seguros de noche; conviene informarse sobre zonas concretas a evitar." },
           { label: "Ambiente de la ciudad", score: 7.5, desc: "Ciudad ordenada y en constante mejora urbana, con inversión activa en espacio público." },
-        ],
-        reviews: [
-          { text: "Había oído cosas exageradas sobre Malmö antes de llegar. En la práctica, en las zonas donde vive un estudiante, nunca tuve ningún problema.", author: "Elif, Erasmus 2023", flag: "🇹🇷" },
         ],
       },
     ],
@@ -8553,9 +6962,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 6.5, desc: "La bici cubre casi todo; Midttrafik tiene buen descuento estudiantil para el resto." },
           { label: "Ocio y gastos diarios", score: 4.0, desc: "Salir de bares en Dinamarca es caro en cualquier ciudad, Aarhus incluida." },
         ],
-        reviews: [
-          { text: "Comparado con lo que gastaban mis amigos en Copenhague, aquí el presupuesto me cundía bastante más.", author: "Martina, Erasmus 2024", flag: "🇮🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 4.0,
@@ -8566,9 +6972,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 4.5, desc: "500–650€ de media, por debajo de Copenhague pero alto para el estándar general." },
           { label: "Facilidad de búsqueda", score: 4.0, desc: "Conviene registrarse en las colas de vivienda en cuanto se confirma la plaza de intercambio." },
           { label: "Residencias universitarias", score: 4.5, desc: "AU ofrece plazas garantizadas para exchange students, aunque limitadas y muy solicitadas." },
-        ],
-        reviews: [
-          { text: "Me registré en la cola de colegio mayor en cuanto tuve la admisión, meses antes de llegar, y aun así fue justo.", author: "Bastian, Erasmus 2023", flag: "🇩🇪" },
         ],
       },
       {
@@ -8581,9 +6984,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.0, desc: "Latinerkvarteret concentra bares y ambiente estudiantil entre semana." },
           { label: "Eventos y actividades", score: 8.5, desc: "Aarhus Festuge en agosto/septiembre llena la ciudad de conciertos y arte callejero durante diez días." },
         ],
-        reviews: [
-          { text: "Con solo un cuarto de la ciudad siendo estudiante, hacer planes cualquier día de la semana era facilísimo.", author: "Noor, Erasmus 2024", flag: "🇳🇱" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.5,
@@ -8595,9 +6995,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "El sistema de 'buddy' de la universidad conecta a cada exchange student con un local desde el primer día." },
           { label: "Facilidad para hacer amigos", score: 9.0, desc: "El tamaño compacto de la ciudad y la alta proporción de estudiantes facilita mucho el contacto." },
         ],
-        reviews: [
-          { text: "Mi 'buddy' danesa me integró en su grupo de amigos desde la primera semana. No esperaba que fuera tan fácil.", author: "Chiara, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.5,
@@ -8608,9 +7005,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable/ciclable", score: 9.5, desc: "Una de las ciudades más ciclistas de Dinamarca, con infraestructura de nivel danés en todas partes." },
           { label: "Conexiones internacionales", score: 6.5, desc: "Aeropuerto de Aarhus con vuelos limitados; Billund y Copenhague son los hubs principales." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Copenhague a tres horas en tren; la costa oeste danesa y sus playas de dunas, muy cerca." },
-        ],
-        reviews: [
-          { text: "En dos semanas ya me movía en bici por toda la ciudad de forma completamente natural, con lluvia o sin ella.", author: "Diego, Erasmus 2024", flag: "🇪🇸" },
         ],
       },
       {
@@ -8624,9 +7018,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "Sin la masificación turística de Copenhague; se vive como una ciudad danesa real." },
           { label: "Estilo de vida", score: 8.5, desc: "Diseño, playas urbanas y bici a partes iguales, con el tamaño perfecto para no perderse en ella." },
         ],
-        reviews: [
-          { text: "Poder ir a la playa en bici entre clase y clase es algo que no había vivido en ninguna otra ciudad universitaria.", author: "Elena, Erasmus 2023", flag: "🇬🇷" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 7.0,
@@ -8638,9 +7029,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "Presencia de Vestas (energía eólica), Systematic y un ecosistema tech en expansión." },
           { label: "Oportunidades para estudiantes", score: 7.5, desc: "El sistema danés facilita compaginar estudios con trabajos a tiempo parcial." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una empresa de energía eólica cerca del puerto. El sector renovable tiene mucho peso aquí.", author: "Lukas, Internship 2024", flag: "🇦🇹" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 9.0,
@@ -8650,9 +7038,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja, entre las tasas más bajas de las ciudades universitarias europeas." },
           { label: "Seguridad nocturna", score: 8.5, desc: "Volver en bici de madrugada por el centro se siente completamente seguro." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada, limpia y con fuerte sensación de comunidad." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ni el más mínimo susto, ni siquiera volviendo sola en bici de madrugada.", author: "Paula, Erasmus 2023", flag: "🇵🇹" },
         ],
       },
     ],
@@ -8672,9 +7057,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 6.5, desc: "El Deutschlandticket (49€) cubre tranvía y bus por toda la ciudad y buena parte del país." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Salir en el centro histórico tiene precios algo elevados por el turismo, aunque razonables fuera de él." },
         ],
-        reviews: [
-          { text: "El alquiler fue lo que más me sorprendió — para ser una ciudad tan pequeña, los precios compiten con ciudades mucho más grandes.", author: "Filipa, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 5.0,
@@ -8685,9 +7067,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 5.0, desc: "480–620€ de media, alto para el tamaño de la ciudad." },
           { label: "Facilidad de búsqueda", score: 4.5, desc: "Conviene empezar a buscar con al menos cuatro o cinco meses de antelación." },
           { label: "Residencias universitarias", score: 5.5, desc: "Buena calidad en las residencias, aunque muy solicitadas por la reputación de la universidad." },
-        ],
-        reviews: [
-          { text: "Empecé a buscar piso cinco meses antes de llegar y aun así fue muy ajustado. Es de las ciudades alemanas más difíciles para encontrar alojamiento.", author: "Kacper, Erasmus 2023", flag: "🇵🇱" },
         ],
       },
       {
@@ -8700,9 +7079,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 6.5, desc: "Vida nocturna más tranquila que en ciudades grandes, concentrada en la Altstadt y Bergheim." },
           { label: "Eventos y actividades", score: 7.5, desc: "Heidelberger Schlossbeleuchtung (iluminación del castillo con fuegos artificiales) es un evento único varias veces al año." },
         ],
-        reviews: [
-          { text: "No es la ciudad para fiesta desenfrenada, pero el ambiente académico y los paseos junto al Neckar compensan de sobra.", author: "Andrea, Erasmus 2024", flag: "🇮🇹" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
@@ -8714,9 +7090,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.0, desc: "El tamaño mediano de la ciudad facilita coincidir de forma habitual con la misma gente." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "El programa Tandem de la universidad conecta estudiantes internacionales con locales." },
         ],
-        reviews: [
-          { text: "El programa Tandem me ayudó tanto con el alemán como para hacer mi primer amigo local de verdad.", author: "Sven, Erasmus 2023", flag: "🇸🇪" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.0,
@@ -8727,9 +7100,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.0, desc: "Centro histórico peatonal, aunque las cuestas hacia el castillo exigen algo de esfuerzo." },
           { label: "Conexiones internacionales", score: 7.5, desc: "Aeropuerto de Frankfurt, uno de los mayores hubs de Europa, a menos de una hora." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Estrasburgo, Fráncfort y la Selva Negra, todas a menos de dos horas." },
-        ],
-        reviews: [
-          { text: "Tener el aeropuerto de Fráncfort tan cerca facilitó muchísimo viajar por toda Europa los fines de semana largos.", author: "Marek, Erasmus 2024", flag: "🇨🇿" },
         ],
       },
       {
@@ -8743,9 +7113,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 7.5, desc: "El turismo es intenso en el centro histórico, pero los barrios residenciales mantienen ambiente local genuino." },
           { label: "Estilo de vida", score: 9.5, desc: "Vivir con el castillo y el Philosophenweg como paisaje diario es difícil de igualar en cualquier otra ciudad alemana." },
         ],
-        reviews: [
-          { text: "Cada paseo por el Philosophenweg al atardecer parecía sacado de una postal. Es la ciudad más bonita en la que he vivido.", author: "Camille, Erasmus 2023", flag: "🇫🇷" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 7.0,
@@ -8757,9 +7124,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "SAP, uno de los mayores gigantes tecnológicos de Europa, tiene su sede a solo 15 minutos en Walldorf." },
           { label: "Oportunidades para estudiantes", score: 7.0, desc: "La reputación científica de Heidelberg atrae prácticas muy competitivas en biotecnología e investigación." },
         ],
-        reviews: [
-          { text: "Hice prácticas en un laboratorio ligado al EMBL. Para ciencias de la vida, pocas ciudades europeas tienen tanto prestigio como Heidelberg.", author: "Ines, Internship 2024", flag: "🇦🇹" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 9.0,
@@ -8769,9 +7133,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.5, desc: "Criminalidad muy baja, entre las más reducidas de las ciudades universitarias alemanas." },
           { label: "Seguridad nocturna", score: 8.5, desc: "El centro histórico y los alrededores del campus son seguros incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada, limpia y tranquila, con fuerte identidad académica." },
-        ],
-        reviews: [
-          { text: "Es probablemente la ciudad alemana donde me he sentido más segura, a cualquier hora del día o de la noche.", author: "Beatriz, Erasmus 2023", flag: "🇪🇸" },
         ],
       },
     ],
@@ -8791,9 +7152,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Abono Tisséo joven con buen descuento estudiantil para metro, tranvía y bus." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Salir de bares y restaurantes es más barato que en París o la costa atlántica francesa." },
         ],
-        reviews: [
-          { text: "Con el presupuesto que llevaba calculado, aquí vivía cómodamente y salía cada fin de semana.", author: "Tomás, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.0,
@@ -8804,9 +7162,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.0, desc: "420–520€ de media, entre los más asequibles de las grandes ciudades francesas." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "El CROUS gestiona residencias con demanda alta; conviene solicitar cuanto antes." },
           { label: "Residencias universitarias", score: 5.5, desc: "Plazas CROUS limitadas; muchos exchange students optan por colocation privada." },
-        ],
-        reviews: [
-          { text: "Encontrar colocation llevó unas semanas, pero los precios eran razonables comparados con lo que me contaban de Burdeos o Lyon.", author: "Alessia, Erasmus 2023", flag: "🇮🇹" },
         ],
       },
       {
@@ -8819,9 +7174,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "Saint-Cyprien y el centro concentran una vida nocturna intensa entre semana." },
           { label: "Eventos y actividades", score: 8.5, desc: "Rio Loco, festival de músicas del mundo en junio, es uno de los grandes eventos del año." },
         ],
-        reviews: [
-          { text: "Con más de 100.000 estudiantes en la ciudad, siempre había algo organizado, cualquier noche de la semana.", author: "Greta, Erasmus 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8,
@@ -8833,9 +7185,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "La vida asociativa estudiantil, muy activa, facilita el contacto con locales." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "El tamaño de la comunidad internacional en ingeniería y aeronáutica facilita hacer amigos rápido." },
         ],
-        reviews: [
-          { text: "Con un francés básico ya me apañaba de sobra. Los toulousains fueron mucho más abiertos de lo que esperaba de Francia.", author: "Rui, Erasmus 2023", flag: "🇧🇷" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.5,
@@ -8846,9 +7195,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable/ciclable", score: 7.5, desc: "Centro compacto y muy ciclable, con carriles bici en constante expansión." },
           { label: "Conexiones internacionales", score: 6.5, desc: "Aeropuerto de Toulouse-Blagnac con buena oferta de vuelos europeos gracias a la industria aeronáutica local." },
           { label: "Escapadas de fin de semana", score: 7.5, desc: "Los Pirineos, Carcasona y la costa mediterránea, todas a menos de dos horas." },
-        ],
-        reviews: [
-          { text: "Un fin de semana esquiando en los Pirineos y al siguiente en la playa mediterránea — la ubicación de Toulouse es un lujo.", author: "Henrik, Erasmus 2024", flag: "🇸🇪" },
         ],
       },
       {
@@ -8862,9 +7208,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "Identidad propia muy marcada, entre la tradición occitana y el peso de la industria aeroespacial." },
           { label: "Estilo de vida", score: 9.0, desc: "El ladrillo rosa, el ambiente estudiantil y el sol del sur de Francia crean un equilibrio muy atractivo." },
         ],
-        reviews: [
-          { text: "El ambiente de Toulouse es distinto a cualquier otra ciudad francesa que haya visitado: relajado, rosa y con mucha energía estudiantil.", author: "Julia, Erasmus 2023", flag: "🇨🇿" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 8.0,
@@ -8876,9 +7219,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 8.5, desc: "Sede de Airbus y de un enorme clúster de empresas aeroespaciales y tecnológicas." },
           { label: "Oportunidades para estudiantes", score: 7.5, desc: "Las prácticas en el sector aeroespacial son de las más demandadas y mejor valoradas de Francia." },
         ],
-        reviews: [
-          { text: "Hice prácticas relacionadas con Airbus a través de la universidad. Para ingeniería aeroespacial, no hay mejor ciudad en Europa continental.", author: "Otto, Internship 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 7.8,
@@ -8888,9 +7228,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.5, desc: "Criminalidad moderada-baja para el estándar de una gran ciudad francesa." },
           { label: "Seguridad nocturna", score: 7.5, desc: "Saint-Cyprien y el Capitole son seguros de noche, con ambiente animado hasta tarde." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad ordenada y con mucha vida universitaria, coherente con su tamaño y dinamismo." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad, ni siquiera en las noches de más ambiente en Saint-Cyprien.", author: "Marion, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
     ],
@@ -8910,9 +7247,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.0, desc: "Abono TBM joven con buen descuento estudiantil para tranvía y bus." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Salir de bares y catas de vino tiene precios moderados, algo más altos en el centro histórico." },
         ],
-        reviews: [
-          { text: "Burdeos se ha puesto de moda y se nota en los precios, pero sigue siendo mucho más asequible que París.", author: "Sofia, Erasmus 2024", flag: "🇬🇷" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 5.3,
@@ -8923,9 +7257,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 5.5, desc: "480–580€ de media, en aumento constante por la popularidad de la ciudad." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "Conviene empezar a buscar con varios meses de antelación, sobre todo cerca del campus de Pessac." },
           { label: "Residencias universitarias", score: 5.5, desc: "El CROUS ofrece plazas, aunque cada vez más solicitadas por el aumento de estudiantes internacionales." },
-        ],
-        reviews: [
-          { text: "Empecé a buscar piso con bastante antelación porque ya me habían avisado de que el mercado se había puesto difícil en los últimos años.", author: "Nikolai, Erasmus 2023", flag: "🇩🇰" },
         ],
       },
       {
@@ -8938,9 +7269,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.0, desc: "Place de la Victoire es el epicentro indiscutible de la vida nocturna estudiantil." },
           { label: "Eventos y actividades", score: 8.5, desc: "Bordeaux Fête le Vin cada dos años convierte los muelles en una fiesta enológica masiva." },
         ],
-        reviews: [
-          { text: "No esperaba que una ciudad tan elegante tuviera un ambiente estudiantil tan intenso en Place de la Victoire.", author: "Théo, Erasmus 2024", flag: "🇧🇪" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8,
@@ -8952,9 +7280,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "El tamaño mediano de la ciudad facilita coincidir de forma habitual con la misma gente." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La vida asociativa estudiantil, muy activa, facilita conocer gente rápido." },
         ],
-        reviews: [
-          { text: "Con un francés básico me apañaba perfectamente, y los bordeleses fueron mucho más cercanos de lo que esperaba.", author: "Amelia, Erasmus 2023", flag: "🇬🇧" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.8,
@@ -8965,9 +7290,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable/ciclable", score: 8.0, desc: "Centro compacto, peatonal en gran parte, con carriles bici en constante expansión." },
           { label: "Conexiones internacionales", score: 6.5, desc: "Aeropuerto de Bordeaux-Mérignac con buena oferta de vuelos europeos; París a 2h en TGV." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Arcachon y su duna, Saint-Émilion y el País Vasco francés, todos a menos de dos horas." },
-        ],
-        reviews: [
-          { text: "El TGV a París en dos horas y la playa de Arcachon a menos de una hora hacen de Burdeos una base perfecta para explorar Francia.", author: "Marco, Erasmus 2024", flag: "🇮🇹" },
         ],
       },
       {
@@ -8981,9 +7303,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "Ciudad con identidad propia muy marcada por siglos de tradición vinícola." },
           { label: "Estilo de vida", score: 9.5, desc: "Pocas ciudades combinan tanta elegancia arquitectónica con un ambiente estudiantil tan vivo." },
         ],
-        reviews: [
-          { text: "Es la ciudad francesa que más me sorprendió: elegante, con muy buen ambiente y viñedos de fama mundial a un paso.", author: "Lorenzo, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 7.3,
@@ -8995,9 +7314,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "Presencia de Dassault Aviation, grandes casas de vino y un clúster digital en crecimiento (Darwin Écosystème)." },
           { label: "Oportunidades para estudiantes", score: 7.5, desc: "El sector vitivinícola y el ecosistema de startups ofrecen prácticas variadas más allá del sector clásico." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una casa de vino de Saint-Émilion durante la vendimia. Una experiencia única que solo se puede vivir aquí.", author: "Freya, Internship 2024", flag: "🇳🇴" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
@@ -9007,9 +7323,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.0, desc: "Criminalidad moderada-baja para el estándar de una gran ciudad francesa." },
           { label: "Seguridad nocturna", score: 7.5, desc: "Place de la Victoire y el centro son seguros de noche, con presencia habitual de gente hasta tarde." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada y elegante, coherente con su fama de ser muy habitable." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad, ni siquiera en las noches de más ambiente en Place de la Victoire.", author: "Clémence, Erasmus 2023", flag: "🇧🇪" },
         ],
       },
     ],
@@ -9029,9 +7342,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Abono AMAT con tarifa estudiante muy económica; el centro se recorre bien a pie." },
           { label: "Ocio y gastos diarios", score: 8.5, desc: "Salir de bares y restaurantes cuesta una fracción de lo que costaría en el norte de Italia." },
         ],
-        reviews: [
-          { text: "Con lo que gastaba en una semana en mi ciudad, aquí me duraba fácilmente el mes entero.", author: "Vasco, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.5,
@@ -9042,9 +7352,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 8.0, desc: "220–320€ de media, de los alquileres más bajos de toda esta guía." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "La Università di Palermo ofrece listados básicos; conviene visitar el piso antes de comprometerse." },
           { label: "Residencias universitarias", score: 6.0, desc: "Plazas limitadas frente al número de estudiantes de la universidad." },
-        ],
-        reviews: [
-          { text: "Elegir Politeama en vez del centro histórico más caótico marcó la diferencia en tranquilidad para estudiar.", author: "Léa, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
       {
@@ -9057,9 +7364,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "Vucciria y el centro histórico concentran una vida nocturna callejera intensa y muy barata." },
           { label: "Eventos y actividades", score: 8.5, desc: "El Festino de Santa Rosalia en julio llena la ciudad de procesiones y fiesta callejera." },
         ],
-        reviews: [
-          { text: "La calle es el verdadero centro social de Palermo. Todo pasa fuera, en el mercado o en la plaza, a cualquier hora.", author: "Max, Exchange 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.8,
@@ -9071,9 +7375,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.0, desc: "Fácil hacer amigos locales gracias al carácter extrovertido siciliano." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "El tamaño de la comunidad Erasmus y el carácter local hacen la integración relativamente rápida." },
         ],
-        reviews: [
-          { text: "Los primeros días el caos y el calor me abrumaron, pero la calidez de la gente compensó cualquier choque cultural.", author: "Malena, Erasmus 2023", flag: "🇦🇷" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 5.5,
@@ -9084,9 +7385,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 6.5, desc: "El centro histórico se recorre a pie, aunque el tráfico es intenso en las horas punta." },
           { label: "Conexiones internacionales", score: 5.5, desc: "Aeropuerto Falcone-Borsellino bien conectado con Italia continental y algunas capitales europeas." },
           { label: "Escapadas de fin de semana", score: 5.5, desc: "Cefalù, Agrigento y las Islas Eolias, aunque el resto de Italia solo se alcanza en avión o ferry largo." },
-        ],
-        reviews: [
-          { text: "Moverse por Sicilia sin coche es un poco más lento, pero cada escapada a la costa merece completamente la pena.", author: "Ingrid, Erasmus 2024", flag: "🇳🇴" },
         ],
       },
       {
@@ -9100,9 +7398,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.5, desc: "Probablemente la ciudad más auténtica de toda esta guía, lejos de cualquier filtro turístico." },
           { label: "Estilo de vida", score: 9.0, desc: "Vivir la Sicilia real, con mercados árabes, playas y patrimonio único como constante diaria." },
         ],
-        reviews: [
-          { text: "Palermo no es una ciudad fácil, pero es de las más auténticas que he vivido en toda Europa. No se parece a ninguna otra.", author: "Bianca, Erasmus 2023", flag: "🇧🇷" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 4.8,
@@ -9114,9 +7409,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 4.5, desc: "Economía centrada en turismo, agricultura y servicios públicos; poca industria o tecnología." },
           { label: "Oportunidades para estudiantes", score: 5.5, desc: "El patrimonio arqueológico siciliano ofrece prácticas específicas en conservación y arqueología." },
         ],
-        reviews: [
-          { text: "No es una ciudad para hacer prácticas ambiciosas, pero para vivir la experiencia Erasmus más auténtica de Italia, es insuperable.", author: "Katarzyna, Erasmus 2024", flag: "🇵🇱" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 6.3,
@@ -9126,9 +7418,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.0, desc: "Criminalidad menor (carteristas, hurtos) más frecuente que en el norte de Italia; la violencia grave no afecta al circuito estudiantil." },
           { label: "Seguridad nocturna", score: 6.0, desc: "Conviene evitar calles poco transitadas de madrugada y prestar atención a pertenencias en el centro." },
           { label: "Ambiente de la ciudad", score: 7.0, desc: "Ciudad caótica y ruidosa, pero con mucha vida en la calle que aporta cierta sensación de seguridad social." },
-        ],
-        reviews: [
-          { text: "Con las precauciones normales de cualquier gran ciudad del sur de Europa, nunca tuve problemas serios.", author: "Léon, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
     ],
@@ -9148,9 +7437,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.5, desc: "ZTM con abono estudiantil muy económico cubre tranvía y bus por toda la ciudad." },
           { label: "Ocio y gastos diarios", score: 8.5, desc: "Salir de bares en el casco histórico es de las opciones más baratas de toda Europa occidental y central." },
         ],
-        reviews: [
-          { text: "Con lo que gastaba en una semana en mi ciudad, aquí me duraba fácilmente el mes.", author: "Iker, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.5,
@@ -9161,9 +7447,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.5, desc: "280–380€ de media, entre los alquileres más bajos de toda esta guía." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "Portales locales (OLX, otodom) y grupos de Facebook de Erasmus facilitan la búsqueda." },
           { label: "Residencias universitarias", score: 7.0, desc: "Buena disponibilidad de residencias (domy studenckie) a precios muy bajos." },
-        ],
-        reviews: [
-          { text: "Encontré habitación en una semana por menos de lo que pagaba de fianza en mi ciudad de origen.", author: "Théo, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
       {
@@ -9176,9 +7459,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.0, desc: "El casco histórico y Wrzeszcz concentran una vida nocturna barata y animada." },
           { label: "Eventos y actividades", score: 8.5, desc: "El Festival de Santo Domingo en agosto es uno de los mercadillos y ferias urbanas más grandes de Europa." },
         ],
-        reviews: [
-          { text: "La comunidad Erasmus aquí es más pequeña que en Cracovia, pero mucho más unida — y con playa a un tranvía de distancia.", author: "Greta, Erasmus 2024", flag: "🇱🇹" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
@@ -9190,9 +7470,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "Requiere algo de esfuerzo, aunque el círculo universitario ayuda mucho." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "El tamaño de la comunidad Erasmus hace que hacer amigos internacionales sea rápido." },
         ],
-        reviews: [
-          { text: "Con los locales cuesta un poco más al principio, pero dentro del círculo universitario todo es muy fácil.", author: "Rafael, Erasmus 2023", flag: "🇧🇷" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.3,
@@ -9203,9 +7480,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.5, desc: "El casco histórico se recorre fácilmente a pie, con el paseo del Motława como eje central." },
           { label: "Conexiones internacionales", score: 6.0, desc: "Aeropuerto de Gdańsk con buena oferta de vuelos low-cost a Europa occidental." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Sopot y sus playas a 20 minutos en SKM; Varsovia a menos de tres horas en tren." },
-        ],
-        reviews: [
-          { text: "El tren SKM te deja en la playa de Sopot en 20 minutos por céntimos. Es la combinación de ciudad y playa más fácil que he vivido.", author: "Nils, Erasmus 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -9219,9 +7493,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Menos masificada turísticamente que Cracovia, con identidad báltica y hanseática muy propia." },
           { label: "Estilo de vida", score: 9.0, desc: "La combinación de casco histórico reconstruido, historia reciente y playa es única en esta guía." },
         ],
-        reviews: [
-          { text: "Es de las ciudades más bonitas que he visto en Polonia, y encima con playa. No sé por qué no se habla más de ella.", author: "Alessia, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.5,
@@ -9233,9 +7504,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Hub relevante de desarrollo de software y del sector marítimo-portuario." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "Salarios locales moderados comparados con Europa occidental, aunque el coste de vida lo compensa." },
         ],
-        reviews: [
-          { text: "Hice unas prácticas en una empresa de logística portuaria. El sector marítimo tiene mucho peso en la región.", author: "Guillermo, Internship 2024", flag: "🇲🇽" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.3,
@@ -9245,9 +7513,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Criminalidad baja; los hurtos ocasionales en zonas turísticas son el principal riesgo." },
           { label: "Seguridad nocturna", score: 8.0, desc: "El casco histórico y sus alrededores son seguros incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, limpia y con fuerte ambiente universitario y costero." },
-        ],
-        reviews: [
-          { text: "Volviendo de fiesta a las tantas nunca sentí inseguridad, ni siquiera en las zonas menos turísticas.", author: "Marina, Erasmus 2023", flag: "🇬🇷" },
         ],
       },
     ],
@@ -9267,9 +7532,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 5.5, desc: "El transporte público es limitado; muchos estudiantes acaban usando coche o moto." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Salir de bares y restaurantes en el lado turco es notablemente más barato que en el sur." },
         ],
-        reviews: [
-          { text: "Cruzar al lado norte para comer o tomar algo te ahorra bastante dinero, y la comida es igual de buena.", author: "Sofía, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.0,
@@ -9280,9 +7542,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.0, desc: "350–450€ de media, moderado para el Mediterráneo." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "Portales locales y grupos de Facebook de Erasmus facilitan encontrar piso." },
           { label: "Residencias universitarias", score: 5.5, desc: "Oferta limitada de residencias; muchos estudiantes optan por piso compartido." },
-        ],
-        reviews: [
-          { text: "Encontré piso compartido cerca del campus sin muchas complicaciones ni precios desorbitados.", author: "Konstantina, Erasmus 2023", flag: "🇬🇷" },
         ],
       },
       {
@@ -9295,9 +7554,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 6.0, desc: "Ledra Street y el centro concentran bares, aunque la vida nocturna es más intensa en Larnaca o Ayia Napa." },
           { label: "Eventos y actividades", score: 7.0, desc: "Festivales culturales que celebran tanto la tradición griega como la turca marcan el calendario social." },
         ],
-        reviews: [
-          { text: "La vida nocturna aquí es más tranquila que en otras capitales, pero cruzar la frontera para tomar algo es una experiencia que no tiene ninguna otra ciudad.", author: "Jonas, Erasmus 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.5,
@@ -9309,9 +7565,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 5.5, desc: "La complejidad política de la ciudad puede hacer la integración algo más lenta que en otras capitales." },
           { label: "Facilidad para hacer amigos", score: 6.0, desc: "El tamaño reducido de la comunidad Erasmus favorece grupos pequeños y unidos." },
         ],
-        reviews: [
-          { text: "Entender la historia de la división de la ciudad lleva tiempo, pero una vez lo haces, todo tiene mucho más sentido.", author: "Lena, Erasmus 2023", flag: "🇦🇹" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 5.5,
@@ -9322,9 +7575,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 6.5, desc: "El centro histórico amurallado se recorre bien a pie, aunque el resto de la ciudad requiere transporte." },
           { label: "Conexiones internacionales", score: 5.0, desc: "Sin aeropuerto propio; Larnaca, a 45 minutos, es el aeropuerto principal de la isla." },
           { label: "Escapadas de fin de semana", score: 6.5, desc: "Las playas del sur y las Troodos Mountains, ambas a menos de una hora en coche." },
-        ],
-        reviews: [
-          { text: "Sin coche la vida se complica bastante en Chipre. Compartir coche con otros Erasmus fue la solución que mejor nos funcionó.", author: "Rui, Erasmus 2024", flag: "🇧🇷" },
         ],
       },
       {
@@ -9338,9 +7588,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Una experiencia histórica y cultural completamente única, sin equivalente en el resto de Europa." },
           { label: "Estilo de vida", score: 7.5, desc: "Vivir entre dos culturas separadas por una frontera es una experiencia que marca cualquier Erasmus." },
         ],
-        reviews: [
-          { text: "Cruzar la Línea Verde para ir a clase de mañana es de esas cosas que solo puedes vivir aquí. Es un choque cultural distinto a todo lo demás.", author: "Valeria, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.0,
@@ -9352,9 +7599,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.0, desc: "Presencia de empresas de servicios financieros y un sector tecnológico incipiente." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "El inglés generalizado facilita encontrar prácticas o trabajos a tiempo parcial." },
         ],
-        reviews: [
-          { text: "Hice unas prácticas en una empresa de servicios financieros. El sector es más grande de lo que esperaba para el tamaño de la isla.", author: "Pavlína, Internship 2024", flag: "🇨🇿" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
@@ -9364,9 +7608,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Criminalidad baja pese a la división de la ciudad; la Línea Verde está estrictamente controlada por la ONU." },
           { label: "Seguridad nocturna", score: 7.5, desc: "El centro y Ledra Street son seguros de noche, aunque conviene informarse sobre la zona de amortiguación." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad tranquila y ordenada, con un ambiente único marcado por su historia reciente." },
-        ],
-        reviews: [
-          { text: "Nunca me sentí insegura, ni siquiera cerca de la zona de amortiguación. Está muy controlada y señalizada.", author: "Marion, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
     ],
@@ -9386,9 +7627,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 6.0, desc: "Malta Public Transport con abono estudiantil económico cubre toda la isla." },
           { label: "Ocio y gastos diarios", score: 4.5, desc: "Salir en Sliema o Paceville tiene precios elevados, típicos de zona turística e internacional." },
         ],
-        reviews: [
-          { text: "El alojamiento fue lo más caro con diferencia. El resto del día a día es más llevadero.", author: "Ana, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 3.8,
@@ -9399,9 +7637,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 3.5, desc: "500–650€ de media, alto para el tamaño de la isla." },
           { label: "Facilidad de búsqueda", score: 4.0, desc: "La University of Malta ofrece listados de alojamiento, aunque conviene reservar con antelación." },
           { label: "Residencias universitarias", score: 4.5, desc: "Existen residencias cerca del campus de Msida, aunque limitadas y muy solicitadas." },
-        ],
-        reviews: [
-          { text: "Reservé alojamiento antes de llegar porque me habían avisado de que el mercado estaba muy tensionado. Hice bien.", author: "Mateusz, Erasmus 2023", flag: "🇵🇱" },
         ],
       },
       {
@@ -9414,9 +7649,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "Paceville concentra la vida nocturna internacional de toda la isla, con ambiente hasta el amanecer." },
           { label: "Eventos y actividades", score: 7.0, desc: "Fiestas de pueblo (festas) con fuegos artificiales llenan el calendario social durante el verano." },
         ],
-        reviews: [
-          { text: "Con todo en inglés, la integración social fue inmediata desde la primera semana de clase.", author: "Louise, Erasmus 2024", flag: "🇧🇪" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
@@ -9428,9 +7660,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "La isla pequeña facilita coincidir una y otra vez con la misma gente." },
           { label: "Facilidad para hacer amigos", score: 8.5, desc: "La enorme comunidad internacional hace que hacer amigos de decenas de nacionalidades sea inmediato." },
         ],
-        reviews: [
-          { text: "Nunca tuve ninguna barrera de idioma, ni una sola vez, en todo el intercambio.", author: "Serena, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 6.0,
@@ -9441,9 +7670,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 6.5, desc: "La Valeta es pequeña y peatonal, aunque el resto de la isla requiere bus o coche." },
           { label: "Conexiones internacionales", score: 6.0, desc: "El aeropuerto de Malta conecta con buena parte de Europa, aunque con menos frecuencia que grandes hubs." },
           { label: "Escapadas de fin de semana", score: 6.0, desc: "Gozo y Comino, imprescindibles en ferry; el resto de Europa requiere vuelo." },
-        ],
-        reviews: [
-          { text: "El bus a veces se satura en verano por el turismo, pero para moverse por la isla es suficiente y muy barato.", author: "Anton, Erasmus 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -9457,9 +7683,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 7.0, desc: "El turismo y la comunidad internacional son muy intensos, aunque la isla mantiene identidad propia." },
           { label: "Estilo de vida", score: 9.0, desc: "Pocos destinos Erasmus ofrecen tanto sol, mar y vida internacional en inglés a la vez." },
         ],
-        reviews: [
-          { text: "Vivir con playa y sol prácticamente todo el año, estudiando en inglés, es algo que no tiene ningún otro destino de esta lista.", author: "Rosa, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.8,
@@ -9471,9 +7694,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "Malta es uno de los hubs europeos de iGaming, con decenas de empresas del sector con sede en la isla." },
           { label: "Oportunidades para estudiantes", score: 7.0, desc: "El inglés como idioma de trabajo facilita encontrar empleo a tiempo parcial en el sector servicios." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una empresa de iGaming con sede en Malta. El sector tiene un peso enorme para lo pequeña que es la isla.", author: "Viktor, Internship 2024", flag: "🇭🇷" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.5,
@@ -9483,9 +7703,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja, típica de una isla pequeña y turística." },
           { label: "Seguridad nocturna", score: 8.0, desc: "Paceville puede ponerse intenso en fin de semana, aunque sin problemas graves de seguridad." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Isla ordenada, limpia y con fuerte presencia de comunidad internacional." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema de seguridad, ni siquiera en las noches más intensas de Paceville.", author: "Elif, Erasmus 2023", flag: "🇹🇷" },
         ],
       },
     ],
@@ -9505,9 +7722,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 3.0, desc: "El abono de transporte para estudiantes ayuda, pero los billetes sueltos son de los más caros de Europa." },
           { label: "Ocio y gastos diarios", score: 1.5, desc: "Salir de bares y restaurantes en Zúrich es, con diferencia, lo más caro de toda esta guía." },
         ],
-        reviews: [
-          { text: "Sabía que Suiza era cara, pero Zúrich superó cualquier expectativa. El primer mes de compra fue un shock total.", author: "Ana, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 2.0,
@@ -9518,9 +7732,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 1.0, desc: "900–1.150€ de media, el alquiler más alto de toda esta guía." },
           { label: "Facilidad de búsqueda", score: 2.5, desc: "La Wohnungsvermittlung (oficina de vivienda de ETH/UZH) ayuda, aunque las plazas son muy limitadas." },
           { label: "Residencias universitarias", score: 3.5, desc: "Buena calidad, pero con listas de espera larguísimas para exchange students." },
-        ],
-        reviews: [
-          { text: "Conseguir plaza en una residencia de la ETH fue la única forma de no arruinarme el semestre entero.", author: "Mateusz, Erasmus 2023", flag: "🇵🇱" },
         ],
       },
       {
@@ -9533,9 +7744,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 5.5, desc: "Niederdorf concentra la vida nocturna, aunque los precios limitan salir con la frecuencia de otras ciudades." },
           { label: "Eventos y actividades", score: 6.5, desc: "Street Parade en agosto, una de las mayores fiestas de música electrónica al aire libre de Europa." },
         ],
-        reviews: [
-          { text: "La vida social aquí cuesta mucho dinero, pero el nivel de la Street Parade compensa cualquier gasto una vez al año.", author: "Sebastián, Erasmus 2024", flag: "🇨🇴" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
@@ -9547,9 +7755,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "Requiere algo de esfuerzo y alemán básico fuera del entorno puramente universitario." },
           { label: "Facilidad para hacer amigos", score: 8.5, desc: "La enorme comunidad internacional de la ETH facilita hacer amigos de decenas de nacionalidades." },
         ],
-        reviews: [
-          { text: "En la ETH el inglés es más que suficiente. Para el día a día fuera del campus, un alemán básico ayuda mucho.", author: "Priya, Erasmus 2023", flag: "🇮🇳" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 9.3,
@@ -9560,9 +7765,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.5, desc: "Centro compacto y muy caminable, con el lago y el río Limmat cruzando la ciudad." },
           { label: "Conexiones internacionales", score: 9.0, desc: "El aeropuerto de Zúrich es uno de los mejor conectados de Europa central." },
           { label: "Escapadas de fin de semana", score: 9.5, desc: "Lucerna, los Alpes y Milán, todas a menos de tres horas en tren." },
-        ],
-        reviews: [
-          { text: "La puntualidad del transporte suizo hay que vivirla para creerla. Nunca esperé más de dos minutos por un tren o un bus.", author: "Felix, Erasmus 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -9576,9 +7778,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 7.5, desc: "Ciudad suiza genuina, con identidad propia más allá del entorno financiero e internacional." },
           { label: "Estilo de vida", score: 9.5, desc: "Pocas ciudades del mundo combinan tanta eficiencia, seguridad y belleza natural en un mismo lugar." },
         ],
-        reviews: [
-          { text: "Es carísimo, pero entiendes por qué Zúrich siempre está primero en los rankings de calidad de vida en cuanto llegas.", author: "Charlotte, Erasmus 2023", flag: "🇫🇷" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 9.3,
@@ -9590,9 +7789,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 9.5, desc: "Sede de Google Zúrich (el mayor centro de ingeniería de Google fuera de EE.UU.), UBS, Credit Suisse y Zurich Insurance." },
           { label: "Oportunidades para estudiantes", score: 9.0, desc: "Los salarios suizos, incluso en prácticas, están entre los más altos que puede conseguir un estudiante en Europa." },
         ],
-        reviews: [
-          { text: "Hice prácticas en Google Zúrich a través de la ETH. El nivel de las oportunidades disponibles aquí no tiene comparación en Europa continental.", author: "Henrik, Internship 2024", flag: "🇸🇪" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 9.5,
@@ -9602,9 +7798,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.5, desc: "Criminalidad extremadamente baja, entre las más bajas del mundo." },
           { label: "Seguridad nocturna", score: 9.5, desc: "Volver a casa de madrugada, incluso solo, se siente completamente seguro en cualquier barrio." },
           { label: "Ambiente de la ciudad", score: 9.5, desc: "Ciudad extremadamente ordenada, limpia y tranquila." },
-        ],
-        reviews: [
-          { text: "Es probablemente la ciudad donde más segura me he sentido en mi vida, a cualquier hora y en cualquier barrio.", author: "Ingrid, Erasmus 2023", flag: "🇳🇴" },
         ],
       },
     ],
@@ -9624,9 +7817,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 9.0, desc: "El tranvía y trolebús de DPMB tienen abono estudiantil de los más baratos de Europa." },
           { label: "Ocio y gastos diarios", score: 9.5, desc: "Cerveza checa a menos de 1,50€ y salir de bares es de lo más barato de toda esta guía." },
         ],
-        reviews: [
-          { text: "Con el presupuesto que llevaba pensado para un mes, aquí me duraba fácilmente seis semanas.", author: "Nuno, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 8.3,
@@ -9637,9 +7827,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 8.5, desc: "180–280€ de media, entre los alquileres más bajos de toda esta guía." },
           { label: "Facilidad de búsqueda", score: 7.5, desc: "Portales locales y grupos de Facebook de Erasmus facilitan encontrar piso rápido." },
           { label: "Residencias universitarias", score: 8.0, desc: "Masaryk University y VUT ofrecen residencias muy económicas y con buena disponibilidad." },
-        ],
-        reviews: [
-          { text: "En pocos días ya tenía habitación, y el precio era una fracción de lo que pagaba en España por algo similar.", author: "Konstantina, Erasmus 2023", flag: "🇬🇷" },
         ],
       },
       {
@@ -9652,9 +7839,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "El centro histórico y Veveří concentran bares y clubs con ambiente hasta tarde entre semana." },
           { label: "Eventos y actividades", score: 8.5, desc: "Ignis Brunensis, uno de los mayores festivales de fuegos artificiales de Europa, cada primavera." },
         ],
-        reviews: [
-          { text: "Con tantísimos estudiantes en la ciudad, siempre había plan cualquier noche entre semana, sin necesidad de ir muy lejos.", author: "Mihail, Erasmus 2024", flag: "🇧🇬" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
@@ -9666,9 +7850,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "Requiere algo de esfuerzo, aunque el ambiente universitario facilita el contacto." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "La enorme proporción de estudiantes hace fácil coincidir y hacer amigos rápidamente." },
         ],
-        reviews: [
-          { text: "Con el ambiente universitario tan grande, en un mes ya tenía un grupo de amigos de medio mundo.", author: "Amara, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.0,
@@ -9679,9 +7860,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.0, desc: "El centro histórico se recorre fácilmente a pie, con el Špilberk como referencia visual constante." },
           { label: "Conexiones internacionales", score: 6.5, desc: "Aeropuerto con oferta limitada; Viena, a 90 minutos en bus, es el hub internacional más cercano." },
           { label: "Escapadas de fin de semana", score: 9.0, desc: "Praga, Viena y Bratislava, las tres a menos de dos horas y media en tren o bus." },
-        ],
-        reviews: [
-          { text: "Tener Viena, Bratislava y Praga a menos de dos horas y media convierte cada fin de semana en una posible escapada distinta.", author: "Erik, Erasmus 2024", flag: "🇳🇴" },
         ],
       },
       {
@@ -9695,9 +7873,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Mucho menos turística que Praga, con identidad moravia propia y muy marcada." },
           { label: "Estilo de vida", score: 8.5, desc: "La combinación de belleza checa, vida estudiantil intensa y precios bajísimos es difícil de igualar." },
         ],
-        reviews: [
-          { text: "Es Praga sin las multitudes de turistas, con la misma belleza arquitectónica y la mitad de precio. Una sorpresa total.", author: "Alessia, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.8,
@@ -9709,9 +7884,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "Sede de Red Hat, Kiwi.com y un ecosistema de startups tecnológicas en expansión." },
           { label: "Oportunidades para estudiantes", score: 6.5, desc: "Salarios locales moderados comparados con Europa occidental, aunque el coste de vida lo compensa con creces." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una empresa de software local. El ecosistema tech de Brno es más grande de lo que esperaba para el tamaño de la ciudad.", author: "Pavlína, Internship 2024", flag: "🇨🇿" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.5,
@@ -9721,9 +7893,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Criminalidad baja, entre las tasas más reducidas de las ciudades universitarias checas." },
           { label: "Seguridad nocturna", score: 8.0, desc: "El centro histórico y Veveří son seguros incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada, limpia y con fuerte ambiente universitario." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio, ni siquiera saliendo de fiesta hasta altas horas casi todos los fines de semana.", author: "Santiago, Erasmus 2023", flag: "🇦🇷" },
         ],
       },
     ],
@@ -9743,9 +7912,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.0, desc: "Abono CTS joven con buen descuento estudiantil para tranvía y bus." },
           { label: "Ocio y gastos diarios", score: 6.3, desc: "Salir de bares tiene precios moderados, algo más altos en la Petite France turística." },
         ],
-        reviews: [
-          { text: "No es de las ciudades francesas más baratas, pero tampoco cara. El equilibrio calidad-precio es muy bueno.", author: "Marta, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 5.8,
@@ -9756,9 +7922,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.0, desc: "420–540€ de media, moderado para una ciudad de este perfil internacional." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "El CROUS y portales locales facilitan la búsqueda para exchange students." },
           { label: "Residencias universitarias", score: 5.5, desc: "Plazas CROUS disponibles, aunque limitadas frente a la demanda internacional." },
-        ],
-        reviews: [
-          { text: "Encontré piso compartido en Krutenau sin muchas complicaciones, aunque empecé a buscar con dos meses de antelación.", author: "Jonas, Erasmus 2023", flag: "🇩🇪" },
         ],
       },
       {
@@ -9771,9 +7934,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "Krutenau concentra bares y ambiente estudiantil entre semana." },
           { label: "Eventos y actividades", score: 8.5, desc: "El mercado navideño de diciembre convierte la ciudad entera en un evento social." },
         ],
-        reviews: [
-          { text: "La mezcla de nacionalidades aquí es brutal, gracias a las instituciones europeas. Hice amigos de medio continente.", author: "Elena, Erasmus 2024", flag: "🇬🇷" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.5,
@@ -9785,9 +7945,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "El tamaño mediano de la ciudad facilita el contacto habitual con la misma gente." },
           { label: "Facilidad para hacer amigos", score: 8.5, desc: "La enorme comunidad internacional hace fácil integrarse desde el primer día." },
         ],
-        reviews: [
-          { text: "Con un francés básico y algo de inglés me apañé de sobra desde el primer día.", author: "Nuno, Erasmus 2023", flag: "🇵🇹" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.5,
@@ -9798,9 +7955,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable/ciclable", score: 9.0, desc: "Vélhop y una infraestructura ciclista excelente hacen innecesario el coche." },
           { label: "Conexiones internacionales", score: 8.0, desc: "TGV directo a París en 1h45; aeropuerto de Basilea-Mulhouse a menos de dos horas." },
           { label: "Escapadas de fin de semana", score: 9.0, desc: "Alemania (Kehl, Friburgo) y Suiza a un paso, además de toda la ruta del vino de Alsacia." },
-        ],
-        reviews: [
-          { text: "Cruzar a Alemania en bici para comprar algo o simplemente pasear fue de mis costumbres favoritas del Erasmus.", author: "Camille, Erasmus 2024", flag: "🇧🇪" },
         ],
       },
       {
@@ -9814,9 +7968,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "La tradición alsaciana, mezcla de Francia y Alemania, le da una identidad única." },
           { label: "Estilo de vida", score: 9.0, desc: "Vivir en la capital simbólica de Europa, entre dos culturas, es una experiencia irrepetible." },
         ],
-        reviews: [
-          { text: "Es la única ciudad donde sientes que vives en dos países a la vez. La mezcla franco-alemana se nota en todo.", author: "Sofia, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 7.3,
@@ -9828,9 +7979,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "Presencia de instituciones europeas y empresas alemanas por la cercanía transfronteriza." },
           { label: "Oportunidades para estudiantes", score: 7.5, desc: "Las prácticas institucionales europeas son de las más codiciadas de Francia." },
         ],
-        reviews: [
-          { text: "Hice prácticas relacionadas con el Consejo de Europa. Para relaciones internacionales, esta ciudad es un imán.", author: "Diego, Internship 2024", flag: "🇦🇷" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 7.8,
@@ -9840,9 +7988,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.8, desc: "Criminalidad moderada-baja para el estándar de una ciudad francesa de este tamaño." },
           { label: "Seguridad nocturna", score: 7.5, desc: "Krutenau y la Petite France son seguros de noche, con ambiente animado hasta tarde." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad ordenada, con fuerte presencia institucional que aporta tranquilidad general." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad en todo el año que viví allí.", author: "Léa, Erasmus 2023", flag: "🇧🇪" },
         ],
       },
     ],
@@ -9862,9 +8007,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Abono TaM joven con buen descuento estudiantil para tranvía y bus." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Salir de bares y terrazas es más barato que en la costa vecina de la Provenza." },
         ],
-        reviews: [
-          { text: "Con el sol y los precios que tiene, es de las mejores relaciones calidad-precio del sur de Francia.", author: "Giulia, Erasmus 2024", flag: "🇮🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.0,
@@ -9875,9 +8017,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.0, desc: "400–500€ de media, razonable para el sur de Francia." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "El CROUS gestiona residencias con demanda alta; conviene solicitar cuanto antes." },
           { label: "Residencias universitarias", score: 5.5, desc: "Buena oferta de residencias CROUS, aunque muy solicitadas por el gran volumen de estudiantes." },
-        ],
-        reviews: [
-          { text: "Encontrar colocation fue rápido gracias a la enorme oferta estudiantil de la ciudad.", author: "Hugo, Erasmus 2023", flag: "🇧🇪" },
         ],
       },
       {
@@ -9890,9 +8029,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "El Écusson y Beaux-Arts concentran una vida nocturna intensa y variada." },
           { label: "Eventos y actividades", score: 8.5, desc: "El Carnaval y la Comédie du Livre marcan el calendario cultural de la ciudad." },
         ],
-        reviews: [
-          { text: "Nunca viví en una ciudad donde salir cualquier día de la semana fuera tan fácil como aquí.", author: "Mateo, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
@@ -9904,9 +8040,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "El tamaño mediano de la ciudad facilita coincidir de forma habitual con la misma gente." },
           { label: "Facilidad para hacer amigos", score: 8.5, desc: "La enorme proporción de estudiantes hace fácil hacer amigos internacionales rápido." },
         ],
-        reviews: [
-          { text: "Con un francés básico ya me apañaba de sobra, y los locales fueron mucho más cercanos de lo que esperaba.", author: "Ana, Erasmus 2023", flag: "🇵🇹" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.5,
@@ -9917,9 +8050,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable/ciclable", score: 8.0, desc: "Centro compacto y muy ciclable, con carriles bici en constante expansión." },
           { label: "Conexiones internacionales", score: 6.0, desc: "Aeropuerto de Montpellier con oferta limitada; Barcelona a menos de tres horas en tren." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Playas de Palavas y La Grande-Motte a 20 minutos; los Pirineos y Barcelona, cerca." },
-        ],
-        reviews: [
-          { text: "Coger el tranvía a la playa entre clase y clase se convirtió en costumbre. Es un lujo que no tiene ninguna otra ciudad de esta guía.", author: "Erik, Erasmus 2024", flag: "🇸🇪" },
         ],
       },
       {
@@ -9933,9 +8063,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 7.5, desc: "Ciudad moderna y en expansión, con menos peso histórico que otras del sur de Francia." },
           { label: "Estilo de vida", score: 9.0, desc: "La combinación de sol, playa y vida universitaria constante es difícil de igualar en Francia." },
         ],
-        reviews: [
-          { text: "Entre el sol, la playa y el ambiente estudiantil, esta ciudad tiene el mejor equilibrio de todo el sur de Francia.", author: "Valeria, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.8,
@@ -9947,9 +8074,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Clúster de biotecnología y salud relevante para el tamaño de la ciudad." },
           { label: "Oportunidades para estudiantes", score: 7.0, desc: "El sector turístico y de servicios ofrece trabajos a tiempo parcial con facilidad." },
         ],
-        reviews: [
-          { text: "Hice prácticas relacionadas con biotecnología cerca del campus de medicina. El sector salud tiene mucho peso aquí.", author: "Sven, Internship 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 7.5,
@@ -9959,9 +8083,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.5, desc: "Criminalidad moderada-baja para el estándar de una gran ciudad francesa." },
           { label: "Seguridad nocturna", score: 7.0, desc: "El Écusson es seguro de noche, con ambiente animado hasta tarde." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad joven y ordenada, con buena sensación de seguridad general." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad en todo el año.", author: "Théo, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
     ],
@@ -9981,9 +8102,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.0, desc: "Abono RTM joven con descuento estudiantil para metro, tranvía y bus." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Salir de bares en el Vieux-Port es más caro que en el resto de la ciudad." },
         ],
-        reviews: [
-          { text: "Comparado con lo que gastaban mis amigos en París, aquí vivía con mucha más holgura.", author: "Amara, Erasmus 2024", flag: "🇮🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.3,
@@ -9994,9 +8112,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.5, desc: "400–500€ de media, por debajo de otras grandes ciudades francesas." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "Aix-Marseille Université ofrece listados básicos de alojamiento para exchange students." },
           { label: "Residencias universitarias", score: 5.5, desc: "Plazas CROUS limitadas frente al enorme número de estudiantes de la ciudad." },
-        ],
-        reviews: [
-          { text: "Elegir La Plaine en vez del extremo del Vieux-Port marcó la diferencia en ambiente y precio.", author: "Léon, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
       {
@@ -10009,9 +8124,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.0, desc: "Cours Julien y el Vieux-Port concentran una vida nocturna variada y animada." },
           { label: "Eventos y actividades", score: 8.0, desc: "La Fiesta de las Calanques y numerosos festivales de verano marcan el calendario social." },
         ],
-        reviews: [
-          { text: "Es la ciudad francesa con más mezcla cultural que he vivido. Cada barrio tiene su propia identidad.", author: "Karim, Erasmus 2024", flag: "🇲🇦" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
@@ -10023,9 +8135,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.0, desc: "El carácter extrovertido local facilita hacer amigos fuera del circuito Erasmus." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "La comunidad Erasmus, aunque más pequeña que en otras ciudades francesas, es muy unida." },
         ],
-        reviews: [
-          { text: "Al principio el ritmo intenso de la ciudad abruma, pero la calidez marsellesa compensa cualquier choque cultural.", author: "Beatriz, Erasmus 2023", flag: "🇵🇹" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.0,
@@ -10036,9 +8145,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 6.5, desc: "El Vieux-Port y el centro se recorren bien a pie, aunque la ciudad es extensa." },
           { label: "Conexiones internacionales", score: 6.5, desc: "Aeropuerto de Marseille Provence con buena oferta de vuelos europeos." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Las Calanques, Aix-en-Provence y Cassis, todas a menos de una hora." },
-        ],
-        reviews: [
-          { text: "Tener las Calanques a un bus de distancia cambió por completo mi forma de entender los fines de semana.", author: "Ingrid, Erasmus 2024", flag: "🇳🇴" },
         ],
       },
       {
@@ -10052,9 +8158,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.0, desc: "Una de las ciudades francesas con identidad más propia y menos parisina." },
           { label: "Estilo de vida", score: 9.0, desc: "El acceso a calas de postal a un bus del centro es único en toda esta guía." },
         ],
-        reviews: [
-          { text: "Vivir a un bus de calas como las de las Calanques es algo que no había vivido en ninguna otra ciudad universitaria.", author: "Marco, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.5,
@@ -10066,9 +8169,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Puerto de Marsella-Fos, uno de los más grandes del Mediterráneo, y un ecosistema tech creciente." },
           { label: "Oportunidades para estudiantes", score: 6.5, desc: "El turismo y la logística portuaria ofrecen trabajos a tiempo parcial con facilidad." },
         ],
-        reviews: [
-          { text: "Hice prácticas relacionadas con logística portuaria. El puerto tiene un peso económico enorme en la región.", author: "Otto, Internship 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 6.3,
@@ -10078,9 +8178,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.0, desc: "Criminalidad concentrada en barrios muy concretos, alejados del circuito estudiantil habitual." },
           { label: "Seguridad nocturna", score: 6.0, desc: "El Vieux-Port y el centro son seguros de noche; conviene informarse sobre zonas a evitar." },
           { label: "Ambiente de la ciudad", score: 7.0, desc: "Ciudad intensa y ruidosa, pero con mucha vida en la calle que aporta sensación de comunidad." },
-        ],
-        reviews: [
-          { text: "La fama de Marsella es peor que la realidad que vive un estudiante. Con sentido común, nunca tuve problemas.", author: "Clara, Erasmus 2023", flag: "🇪🇸" },
         ],
       },
     ],
@@ -10100,9 +8197,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Abono Ilévia joven con buen descuento estudiantil para el metro automático." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Salir de bares tiene precios razonables, con influencia belga en la oferta cervecera." },
         ],
-        reviews: [
-          { text: "De las ciudades francesas donde mejor me cundió el presupuesto, y con conexiones a media Europa.", author: "Freya, Erasmus 2024", flag: "🇳🇴" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.3,
@@ -10113,9 +8207,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.5, desc: "380–480€ de media, entre los más bajos de las grandes ciudades francesas." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "El CROUS y portales locales facilitan bastante la búsqueda." },
           { label: "Residencias universitarias", score: 6.0, desc: "Buena oferta de residencias CROUS gracias al tamaño de la población estudiantil." },
-        ],
-        reviews: [
-          { text: "Encontrar piso en Lille fue de lo más sencillo de todo mi Erasmus, con precios muy razonables.", author: "Alessandro, Erasmus 2023", flag: "🇮🇹" },
         ],
       },
       {
@@ -10128,9 +8219,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "Vieux-Lille y Wazemmes concentran una vida nocturna intensa y variada." },
           { label: "Eventos y actividades", score: 9.0, desc: "La Braderie de Lille en septiembre es uno de los grandes eventos populares de Francia." },
         ],
-        reviews: [
-          { text: "La Braderie de Lille es una experiencia que hay que vivir al menos una vez: dos días de fiesta y mercadillo sin parar.", author: "Marion, Erasmus 2024", flag: "🇫🇷" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
@@ -10142,9 +8230,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "El carácter abierto local facilita hacer amigos fuera del circuito Erasmus." },
           { label: "Facilidad para hacer amigos", score: 8.5, desc: "La enorme población estudiantil hace muy fácil integrarse rápido." },
         ],
-        reviews: [
-          { text: "La fama de hospitalarios de la gente de Lille es totalmente merecida. Me hicieron sentir en casa desde el primer día.", author: "Pavlína, Erasmus 2023", flag: "🇨🇿" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 9.0,
@@ -10155,9 +8240,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable/ciclable", score: 8.0, desc: "Centro compacto y muy caminable, con infraestructura ciclista en expansión." },
           { label: "Conexiones internacionales", score: 9.5, desc: "Eurostar a Londres en 1h20, TGV a Bruselas en 35 min y a París en 1h." },
           { label: "Escapadas de fin de semana", score: 9.5, desc: "Bruselas, Londres, Ámsterdam y París, todas al alcance de un fin de semana corto." },
-        ],
-        reviews: [
-          { text: "Un fin de semana en Londres, otro en Bruselas y vuelta a clase el lunes. No hay ciudad universitaria mejor conectada que esta.", author: "Isabela, Erasmus 2024", flag: "🇧🇷" },
         ],
       },
       {
@@ -10171,9 +8253,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Arquitectura e identidad flamenca únicas dentro de Francia, herencia de siglos de historia compartida." },
           { label: "Estilo de vida", score: 8.5, desc: "La combinación de identidad flamenca, ambiente estudiantil y conexiones europeas es única en Francia." },
         ],
-        reviews: [
-          { text: "La arquitectura de ladrillo flamenco le da a Lille una identidad que no se parece a ninguna otra ciudad francesa.", author: "Nikolai, Erasmus 2023", flag: "🇩🇰" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 7.5,
@@ -10185,9 +8264,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.5, desc: "Sede de Auchan, Decathlon, OVHcloud y un ecosistema digital en expansión (Euratechnologies)." },
           { label: "Oportunidades para estudiantes", score: 7.5, desc: "La cercanía con Bélgica y el Reino Unido multiplica las oportunidades de prácticas transfronterizas." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una empresa digital en Euratechnologies. El ecosistema tech de Lille es más grande de lo que esperaba.", author: "Julia, Internship 2024", flag: "🇵🇱" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 7.5,
@@ -10197,9 +8273,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.5, desc: "Criminalidad moderada-baja para el estándar de una gran ciudad francesa." },
           { label: "Seguridad nocturna", score: 7.0, desc: "Vieux-Lille y el centro son seguros de noche, con ambiente animado hasta tarde." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad ordenada y acogedora, coherente con la fama de hospitalidad de sus habitantes." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad en todo el año.", author: "Duarte, Erasmus 2023", flag: "🇵🇹" },
         ],
       },
     ],
@@ -10219,9 +8292,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.0, desc: "El Deutschlandticket (49€) cubre tranvía y bus por toda la ciudad y el país." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Salir de bares y restaurantes es notablemente más barato que en el oeste de Alemania." },
         ],
-        reviews: [
-          { text: "Comparado con lo que gastaban mis amigos en Múnich, aquí vivía con mucha más holgura.", author: "Kacper, Erasmus 2024", flag: "🇵🇱" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.8,
@@ -10232,9 +8302,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.0, desc: "320–420€ de media, de los más bajos entre las grandes ciudades alemanas." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "El Studentenwerk Dresden gestiona residencias con buena disponibilidad." },
           { label: "Residencias universitarias", score: 6.5, desc: "Buena oferta de residencias, aunque conviene solicitar con antelación." },
-        ],
-        reviews: [
-          { text: "Encontré piso en la Neustadt en poco más de una semana, con un precio muy por debajo de lo que esperaba.", author: "Nora, Erasmus 2023", flag: "🇳🇴" },
         ],
       },
       {
@@ -10247,9 +8314,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.0, desc: "La Äußere Neustadt concentra bares, música en directo y clubs alternativos." },
           { label: "Eventos y actividades", score: 7.5, desc: "El mercado navideño Striezelmarkt, uno de los más antiguos de Alemania, marca diciembre." },
         ],
-        reviews: [
-          { text: "La Äußere Neustadt tiene un ambiente muy parecido al Berlín alternativo, pero mucho más tranquilo y barato.", author: "Amelia, Erasmus 2024", flag: "🇬🇧" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
@@ -10261,9 +8325,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "Requiere algo de esfuerzo, aunque el ambiente universitario facilita el contacto." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "La comunidad Erasmus, aunque más pequeña, es muy unida y activa." },
         ],
-        reviews: [
-          { text: "Con los locales cuesta un poco más romper el hielo que en el oeste de Alemania, pero una vez lo haces, son muy leales.", author: "Rafael, Erasmus 2023", flag: "🇧🇷" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.8,
@@ -10274,9 +8335,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.0, desc: "El centro histórico reconstruido se recorre fácilmente a pie." },
           { label: "Conexiones internacionales", score: 6.0, desc: "Aeropuerto con oferta limitada; Berlín y Praga, ambos con más vuelos, a menos de dos horas." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Praga a menos de dos horas en tren, y la Suiza Sajona a 30 minutos para senderismo." },
-        ],
-        reviews: [
-          { text: "Tener Praga a menos de dos horas y la Suiza Sajona a 30 minutos hace de Dresde una base perfecta para explorar.", author: "Elif, Erasmus 2024", flag: "🇹🇷" },
         ],
       },
       {
@@ -10290,9 +8348,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "La reconstrucción barroca convive con una identidad sajona muy propia." },
           { label: "Estilo de vida", score: 9.5, desc: "Vivir rodeado de una reconstrucción arquitectónica tan cuidada es una experiencia única en Europa." },
         ],
-        reviews: [
-          { text: "Saber que cada piedra de la Frauenkirche fue numerada y recolocada tras la guerra hace que pasear por Dresde sea casi emocionante.", author: "Bianca, Erasmus 2023", flag: "🇷🇴" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.8,
@@ -10304,9 +8359,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "Sede de fábricas de semiconductores de Infineon, Bosch y GlobalFoundries." },
           { label: "Oportunidades para estudiantes", score: 6.5, desc: "El sector de semiconductores ofrece prácticas muy valoradas en ingeniería." },
         ],
-        reviews: [
-          { text: "Hice prácticas relacionadas con semiconductores. El 'Silicon Saxony' es un polo tecnológico real, aunque poco conocido fuera de Alemania.", author: "Viktor, Internship 2024", flag: "🇭🇷" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.3,
@@ -10316,9 +8368,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Criminalidad baja, entre las tasas más reducidas de las ciudades universitarias alemanas." },
           { label: "Seguridad nocturna", score: 8.0, desc: "La Äußere Neustadt y el centro histórico son seguros incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, limpia y con fuerte identidad cultural." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad, ni siquiera volviendo sola de madrugada.", author: "Paula, Erasmus 2023", flag: "🇵🇹" },
         ],
       },
     ],
@@ -10338,9 +8387,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.0, desc: "El Deutschlandticket (49€) cubre tranvía y bus por toda la ciudad y el país." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Salir de clubs y bares es notablemente más barato que en Berlín, con oferta similar." },
         ],
-        reviews: [
-          { text: "Es literalmente el Berlín que mis amigos mayores describían de hace quince años, pero con alquileres reales.", author: "Filipa, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.3,
@@ -10351,9 +8397,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.5, desc: "350–450€ de media, aunque en aumento por la creciente popularidad de la ciudad." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "El Studentenwerk Leipzig gestiona residencias con buena disponibilidad." },
           { label: "Residencias universitarias", score: 6.0, desc: "Buena oferta de residencias, aunque conviene solicitar con antelación." },
-        ],
-        reviews: [
-          { text: "Encontré piso en Plagwitz sin muchas complicaciones, aunque me avisaron de que cada vez está más solicitado.", author: "Mihail, Erasmus 2023", flag: "🇧🇬" },
         ],
       },
       {
@@ -10366,9 +8409,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "Clubs legendarios como el Institut für Zukunft rivalizan con los de Berlín." },
           { label: "Eventos y actividades", score: 8.5, desc: "La Spinnerei abre sus galerías al público y organiza eventos culturales constantes." },
         ],
-        reviews: [
-          { text: "La vida nocturna de Leipzig no tiene nada que envidiar a Berlín, y las colas para entrar son mucho más cortas.", author: "Greta, Erasmus 2024", flag: "🇱🇹" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
@@ -10380,9 +8420,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.0, desc: "El ambiente creativo y alternativo facilita conectar con locales de mentalidad abierta." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La escena cultural compartida hace muy fácil hacer amigos con intereses similares." },
         ],
-        reviews: [
-          { text: "El ambiente creativo de la ciudad hace que sea muy fácil conectar con gente, tanto local como internacional.", author: "Santiago, Erasmus 2023", flag: "🇦🇷" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.0,
@@ -10393,9 +8430,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable/ciclable", score: 8.0, desc: "Ciudad plana y muy ciclable, con infraestructura en constante expansión." },
           { label: "Conexiones internacionales", score: 6.5, desc: "Aeropuerto con oferta limitada; Berlín, con más vuelos, a poco más de una hora en tren." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Berlín a 1h15 en tren ICE, y Dresde a menos de una hora." },
-        ],
-        reviews: [
-          { text: "Tener Berlín a poco más de una hora en tren, sin sus precios, es de las mejores combinaciones de esta guía.", author: "Henrik, Erasmus 2024", flag: "🇸🇪" },
         ],
       },
       {
@@ -10409,9 +8443,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Escena creativa genuina, sin la masificación y gentrificación que ya vive Berlín." },
           { label: "Estilo de vida", score: 9.0, desc: "Vivir en la ciudad que muchos consideran el próximo gran polo creativo de Europa, todavía a precio accesible." },
         ],
-        reviews: [
-          { text: "Todo el mundo dice que Leipzig es lo que era Berlín antes de que se pusiera de moda. Después de vivir aquí, entiendo por qué.", author: "Malena, Erasmus 2023", flag: "🇦🇷" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 7.0,
@@ -10423,9 +8454,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "Hub logístico de DHL y plantas de producción de BMW y Porsche en la región." },
           { label: "Oportunidades para estudiantes", score: 7.5, desc: "La escena creativa y de medios ofrece prácticas específicas en diseño, arte y cultura." },
         ],
-        reviews: [
-          { text: "Hice prácticas en un estudio creativo cerca de la Spinnerei. El ecosistema creativo de Leipzig tiene mucho más peso del que parece desde fuera.", author: "Tomasz, Internship 2024", flag: "🇵🇱" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 7.8,
@@ -10435,9 +8463,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.5, desc: "Criminalidad moderada-baja, con alguna concentración puntual en zonas muy concretas." },
           { label: "Seguridad nocturna", score: 7.5, desc: "Connewitz y Plagwitz son seguros de noche, con ambiente animado hasta tarde." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad ordenada y creativa, con fuerte sensación de comunidad alternativa." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad, ni siquiera saliendo de clubs hasta la madrugada.", author: "Erik, Erasmus 2023", flag: "🇳🇴" },
         ],
       },
     ],
@@ -10457,9 +8482,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 6.5, desc: "El Deutschlandticket (49€) cubre bus por toda la ciudad y regionales por el país." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Salir en el centro histórico tiene precios moderados, típicos del sur de Alemania." },
         ],
-        reviews: [
-          { text: "El alquiler fue lo que más me sorprendió — para ser una ciudad tan pequeña, la demanda universitaria dispara los precios.", author: "Inés, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 5.0,
@@ -10470,9 +8492,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 4.5, desc: "480–620€ de media, alto para el tamaño de la ciudad." },
           { label: "Facilidad de búsqueda", score: 4.5, desc: "Conviene empezar a buscar con al menos cuatro o cinco meses de antelación." },
           { label: "Residencias universitarias", score: 5.5, desc: "Buena calidad, aunque muy solicitadas por la reputación de la universidad." },
-        ],
-        reviews: [
-          { text: "Empecé a buscar piso cinco meses antes de llegar y aun así fue muy ajustado. Es de las ciudades alemanas más difíciles para encontrar alojamiento.", author: "Adam, Erasmus 2023", flag: "🇵🇱" },
         ],
       },
       {
@@ -10485,9 +8504,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "El Marktplatz y la Altstadt concentran bares con ambiente estudiantil constante." },
           { label: "Eventos y actividades", score: 8.0, desc: "Las carreras de Stocherkähne en verano son uno de los eventos más divertidos del calendario." },
         ],
-        reviews: [
-          { text: "Con un tercio de la ciudad siendo estudiante, siempre hay ambiente, cualquier día de la semana.", author: "Chiara, Erasmus 2024", flag: "🇮🇹" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.3,
@@ -10499,9 +8515,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.0, desc: "El tamaño pequeño de la ciudad facilita coincidir de forma habitual con la misma gente." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "Con un tercio de la ciudad siendo estudiante, hacer amigos es prácticamente automático." },
         ],
-        reviews: [
-          { text: "Al ser una ciudad tan pequeña y tan universitaria, en un mes ya me conocía con medio grupo de mi facultad.", author: "Diego, Erasmus 2023", flag: "🇦🇷" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.3,
@@ -10512,9 +8525,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.5, desc: "Centro pequeño y totalmente caminable, aunque con cuestas notables hacia el castillo." },
           { label: "Conexiones internacionales", score: 5.5, desc: "Sin aeropuerto propio; Stuttgart, a menos de una hora, es el hub principal." },
           { label: "Escapadas de fin de semana", score: 7.5, desc: "Stuttgart a menos de una hora, y la Selva Negra a un paso para senderismo." },
-        ],
-        reviews: [
-          { text: "Es tan pequeña que todo se hace a pie o en bici, y Stuttgart está ahí mismo para lo que necesites de ciudad grande.", author: "Sara, Erasmus 2024", flag: "🇬🇷" },
         ],
       },
       {
@@ -10528,9 +8538,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Pueblo-universidad genuino, con tradiciones estudiantiles centenarias muy vivas." },
           { label: "Estilo de vida", score: 9.5, desc: "Vivir entre casas de colores sobre el Neckar, con la universidad como centro de todo, es único en Alemania." },
         ],
-        reviews: [
-          { text: "Es la ciudad más bonita en la que he vivido. Cada día, cruzar el puente sobre el Neckar con las casas de colores de fondo parecía un postal.", author: "Camille, Erasmus 2023", flag: "🇫🇷" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.8,
@@ -10542,9 +8549,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Institutos Max Planck y centros de investigación de referencia mundial en la ciudad." },
           { label: "Oportunidades para estudiantes", score: 7.0, desc: "La reputación científica de Tubinga atrae prácticas de investigación muy competitivas." },
         ],
-        reviews: [
-          { text: "Hice prácticas en un instituto Max Planck. Para investigación científica, pocas ciudades pequeñas tienen tanto prestigio.", author: "Aleksander, Internship 2024", flag: "🇵🇱" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 9.0,
@@ -10554,9 +8558,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.5, desc: "Criminalidad muy baja, entre las más reducidas de las ciudades universitarias alemanas." },
           { label: "Seguridad nocturna", score: 9.0, desc: "El centro histórico y sus alrededores son seguros incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada, pintoresca y con fuerte identidad académica." },
-        ],
-        reviews: [
-          { text: "Es probablemente la ciudad alemana donde me he sentido más segura, a cualquier hora del día o de la noche.", author: "Beatriz, Erasmus 2023", flag: "🇵🇹" },
         ],
       },
     ],
@@ -10576,9 +8577,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.5, desc: "MPK con abono estudiantil muy económico cubre tranvía y bus por toda la ciudad." },
           { label: "Ocio y gastos diarios", score: 9.0, desc: "Salir de bares en el Stary Rynek es de las opciones más baratas de toda Europa occidental y central." },
         ],
-        reviews: [
-          { text: "Con lo que gastaba en una semana en mi ciudad, aquí me duraba fácilmente el mes.", author: "Vasco, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.8,
@@ -10589,9 +8587,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.5, desc: "250–350€ de media, entre los alquileres más bajos de toda esta guía." },
           { label: "Facilidad de búsqueda", score: 7.5, desc: "Portales locales y grupos de Facebook de Erasmus facilitan la búsqueda." },
           { label: "Residencias universitarias", score: 7.5, desc: "Buena disponibilidad de residencias (domy studenckie) a precios muy bajos." },
-        ],
-        reviews: [
-          { text: "Encontré habitación en pocos días por menos de lo que pagaba de fianza en mi ciudad de origen.", author: "Katarzyna, Erasmus 2023", flag: "🇩🇪" },
         ],
       },
       {
@@ -10604,9 +8599,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "El Stary Rynek concentra bares y clubs con ambiente hasta tarde entre semana." },
           { label: "Eventos y actividades", score: 8.5, desc: "Juwenalia (fiesta universitaria de mayo) reúne a toda la ciudad estudiantil durante días." },
         ],
-        reviews: [
-          { text: "La comunidad Erasmus aquí es enorme y muy activa — cada noche había algo organizado por ESN.", author: "Marina, Erasmus 2024", flag: "🇬🇷" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
@@ -10618,9 +8610,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "Requiere algo de esfuerzo, aunque el ambiente universitario facilita mucho el contacto." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "El tamaño de la comunidad Erasmus hace que hacer amigos internacionales sea muy rápido." },
         ],
-        reviews: [
-          { text: "Con los locales cuesta un poco más al principio, pero dentro del círculo universitario e internacional todo es muy fácil.", author: "Rui, Erasmus 2023", flag: "🇧🇷" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.5,
@@ -10631,9 +8620,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.5, desc: "El Stary Rynek y el centro se recorren fácilmente a pie." },
           { label: "Conexiones internacionales", score: 6.0, desc: "Aeropuerto con vuelos low-cost limitados; Berlín a menos de tres horas en tren o bus." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Berlín y Varsovia, ambas a menos de tres horas, y Wrocław a poco más de dos." },
-        ],
-        reviews: [
-          { text: "El tranvía te deja prácticamente en cualquier sitio de la ciudad por céntimos. Muy fácil moverse sin coche.", author: "Nils, Erasmus 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -10647,9 +8633,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "Menos masificada turísticamente que Cracovia, con identidad propia muy marcada." },
           { label: "Estilo de vida", score: 8.5, desc: "La combinación de belleza renacentista, vida estudiantil intensa y precios bajos es difícil de igualar." },
         ],
-        reviews: [
-          { text: "Es de las ciudades más bonitas que he visto en Polonia, y con precios de otra época.", author: "Alessia, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.3,
@@ -10661,9 +8644,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Sede de GlaxoSmithKline, Volkswagen Poznań y numerosos centros de servicios internacionales." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "Salarios locales moderados comparados con Europa occidental, aunque el coste de vida lo compensa." },
         ],
-        reviews: [
-          { text: "Hice unas prácticas en un centro de servicios compartidos internacional. El sector tiene mucho peso en la economía local.", author: "Guillermo, Internship 2024", flag: "🇲🇽" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.3,
@@ -10673,9 +8653,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Criminalidad baja; los hurtos ocasionales en zonas de ocio son el principal riesgo." },
           { label: "Seguridad nocturna", score: 8.0, desc: "El Stary Rynek y sus alrededores son seguros incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, limpia y con fuerte ambiente universitario." },
-        ],
-        reviews: [
-          { text: "Volviendo de fiesta a las tantas nunca sentí inseguridad, ni siquiera en las zonas menos turísticas.", author: "Léon, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
     ],
@@ -10695,9 +8672,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.5, desc: "ZTM Silesia cubre bus y tranvía por toda la conurbación con un único abono económico." },
           { label: "Ocio y gastos diarios", score: 9.5, desc: "Salir de bares y clubs es de lo más barato de toda esta guía." },
         ],
-        reviews: [
-          { text: "Con el presupuesto que llevaba pensado para un mes, aquí me duraba fácilmente seis semanas.", author: "Nuno, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 8.0,
@@ -10708,9 +8682,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 8.5, desc: "220–320€ de media, de los alquileres más bajos de toda esta guía." },
           { label: "Facilidad de búsqueda", score: 7.5, desc: "Portales locales y grupos de Facebook de Erasmus facilitan encontrar piso rápido." },
           { label: "Residencias universitarias", score: 7.5, desc: "La Universidad de Silesia ofrece residencias muy económicas y con buena disponibilidad." },
-        ],
-        reviews: [
-          { text: "En pocos días ya tenía habitación, y el precio era una fracción de lo que pagaba en España por algo similar.", author: "Konstantina, Erasmus 2023", flag: "🇬🇷" },
         ],
       },
       {
@@ -10723,9 +8694,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.0, desc: "El centro y Koszutka concentran bares y clubs con ambiente muy asequible." },
           { label: "Eventos y actividades", score: 8.5, desc: "El Spodek acoge conciertos internacionales y festivales de música constantemente." },
         ],
-        reviews: [
-          { text: "No esperaba tanta vida cultural en una ciudad conocida por su pasado minero. El Spodek trae conciertos de primer nivel todo el año.", author: "Mihail, Erasmus 2024", flag: "🇧🇬" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.8,
@@ -10737,9 +8705,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.0, desc: "Requiere algo más de esfuerzo que en otras ciudades polacas con más tradición Erasmus." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "La comunidad Erasmus, aunque más pequeña, es cohesionada precisamente por serlo." },
         ],
-        reviews: [
-          { text: "Al ser menos conocida como destino Erasmus, la comunidad internacional es más pequeña pero también más unida.", author: "Amara, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.5,
@@ -10750,9 +8715,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.0, desc: "El centro se recorre bien a pie, con el Spodek como referencia visual constante." },
           { label: "Conexiones internacionales", score: 6.5, desc: "Aeropuerto de Katowice-Pyrzowice con buena oferta de vuelos low-cost europeos." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Cracovia a poco más de una hora, y los Tatras eslovacos a menos de dos." },
-        ],
-        reviews: [
-          { text: "Tener Cracovia tan cerca y un aeropuerto con vuelos baratos hace que moverse por Europa desde aquí sea muy fácil.", author: "Freya, Erasmus 2024", flag: "🇳🇴" },
         ],
       },
       {
@@ -10766,9 +8728,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "Identidad minera y de Silesia muy marcada, sin la masificación turística de Cracovia." },
           { label: "Estilo de vida", score: 7.0, desc: "Ver una ciudad reinventarse de minera a Ciudad Creativa de la Música UNESCO en tiempo real es fascinante." },
         ],
-        reviews: [
-          { text: "Es una ciudad que sorprende: llegas esperando una ciudad industrial gris y te encuentras con museos, arte y una escena musical viva.", author: "Lukas, Erasmus 2023", flag: "🇨🇿" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 7.0,
@@ -10780,9 +8739,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.5, desc: "Hub tecnológico emergente con presencia de IBM, Accenture y numerosas startups locales." },
           { label: "Oportunidades para estudiantes", score: 6.5, desc: "Salarios locales moderados comparados con Europa occidental, aunque el coste de vida lo compensa." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una empresa de IT internacional. El ecosistema tecnológico de Katowice crece muy rápido.", author: "Pavlína, Internship 2024", flag: "🇨🇿" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
@@ -10792,9 +8748,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.0, desc: "Criminalidad baja, típica de una ciudad polaca de tamaño medio." },
           { label: "Seguridad nocturna", score: 7.5, desc: "El centro y sus alrededores son seguros incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada y en constante renovación urbana." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad en todo el año que viví allí.", author: "Santiago, Erasmus 2023", flag: "🇦🇷" },
         ],
       },
     ],
@@ -10814,9 +8767,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.0, desc: "Ciudad compacta y caminable; el bus urbano apenas se necesita fuera de días de lluvia." },
           { label: "Ocio y gastos diarios", score: 9.0, desc: "Salir de bares y restaurantes cuesta una fracción de lo que costaría en Lisboa u Oporto." },
         ],
-        reviews: [
-          { text: "Con el mismo presupuesto que en mi ciudad, aquí vivía holgadamente y salía cada fin de semana.", author: "Pablo, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 8.0,
@@ -10827,9 +8777,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 8.5, desc: "220–320€ de media, de los alquileres más bajos de toda esta guía." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "La Universidade do Minho ofrece listados básicos de alojamiento para exchange students." },
           { label: "Residencias universitarias", score: 7.5, desc: "Buena disponibilidad de residencias universitarias a precios muy bajos." },
-        ],
-        reviews: [
-          { text: "Encontré piso en pocos días, con un precio que en Lisboa hubiera sido imposible de imaginar.", author: "Camille, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
       {
@@ -10842,9 +8789,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "El centro histórico concentra bares y ambiente estudiantil entre semana." },
           { label: "Eventos y actividades", score: 8.5, desc: "La Semana Santa de Braga, de las más vividas de Portugal, marca el calendario cultural." },
         ],
-        reviews: [
-          { text: "Con la mayor proporción de estudiantes del país, la vida social aquí es constante, cualquier día de la semana.", author: "Jonas, Erasmus 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.3,
@@ -10856,9 +8800,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.0, desc: "El tamaño mediano de la ciudad facilita coincidir de forma habitual con la misma gente." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "La enorme proporción de estudiantes hace fácil integrarse rápido." },
         ],
-        reviews: [
-          { text: "Al ser una ciudad tan universitaria, en un mes ya me conocía con medio grupo de mi facultad.", author: "Lena, Erasmus 2023", flag: "🇦🇹" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 6.5,
@@ -10869,9 +8810,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.5, desc: "El centro histórico se recorre fácilmente a pie." },
           { label: "Conexiones internacionales", score: 5.5, desc: "Sin aeropuerto propio; Oporto, con vuelos internacionales, a menos de una hora." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Oporto a menos de una hora en tren, y el Parque Nacional da Peneda-Gerês, a un paso." },
-        ],
-        reviews: [
-          { text: "Tener Oporto tan cerca compensa cualquier limitación de conexiones directas desde Braga.", author: "Rui, Erasmus 2024", flag: "🇧🇷" },
         ],
       },
       {
@@ -10885,9 +8823,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "Tradición religiosa barroca genuina, sin la masificación turística de Lisboa u Oporto." },
           { label: "Estilo de vida", score: 8.0, desc: "La combinación de patrimonio barroco y vida universitaria joven es única en Portugal." },
         ],
-        reviews: [
-          { text: "Es la ciudad portuguesa que más me sorprendió: tradición religiosa por todas partes, pero con un ambiente universitario muy vivo.", author: "Valeria, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 5.5,
@@ -10899,9 +8834,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 5.5, desc: "Fuerte tradición textil regional y un sector tecnológico emergente ligado a la universidad." },
           { label: "Oportunidades para estudiantes", score: 5.5, desc: "Menos oferta que en Lisboa u Oporto, aunque en crecimiento gracias al polo tecnológico universitario." },
         ],
-        reviews: [
-          { text: "No es una ciudad para hacer prácticas muy ambiciosas, pero para estudiar y vivir la experiencia Erasmus es perfecta.", author: "Malena, Erasmus 2024", flag: "🇦🇷" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.8,
@@ -10911,9 +8843,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja; la vida gira en torno a la universidad y el ambiente es tranquilo." },
           { label: "Seguridad nocturna", score: 8.5, desc: "El centro histórico está tranquilo incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad pequeña, ordenada y con fuerte sensación de comunidad universitaria." },
-        ],
-        reviews: [
-          { text: "Nunca me sentí insegura ni una sola vez, ni siquiera volviendo sola de madrugada por el centro histórico.", author: "Marion, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
     ],
@@ -10933,9 +8862,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "El bus urbano de AMTAB cubre bien la ciudad a precio muy bajo." },
           { label: "Ocio y gastos diarios", score: 8.5, desc: "Salir de bares y restaurantes cuesta una fracción de lo que costaría en el norte de Italia." },
         ],
-        reviews: [
-          { text: "Con lo que gastaba en una semana en mi ciudad, aquí me duraba fácilmente el mes.", author: "Iker, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.3,
@@ -10946,9 +8872,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 8.0, desc: "280–380€ de media, entre los más bajos del sur de Italia." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "La Università di Bari ofrece listados básicos; conviene visitar el piso antes de comprometerse." },
           { label: "Residencias universitarias", score: 6.5, desc: "Plazas limitadas frente al número de estudiantes de la universidad." },
-        ],
-        reviews: [
-          { text: "Elegir Murat en vez de Bari Vecchia marcó la diferencia en tranquilidad para estudiar, aunque perdí algo de ambiente.", author: "Théo, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
       {
@@ -10961,9 +8884,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "Bari Vecchia y el Lungomare concentran una vida nocturna callejera intensa y muy asequible." },
           { label: "Eventos y actividades", score: 8.0, desc: "La Festa di San Nicola en mayo llena la ciudad de procesiones y fiesta callejera." },
         ],
-        reviews: [
-          { text: "La calle es el verdadero centro social de Bari. Todo pasa fuera, en el Lungomare o en Bari Vecchia, a cualquier hora.", author: "Max, Exchange 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.5,
@@ -10975,9 +8895,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.0, desc: "Fácil hacer amigos locales gracias al carácter extrovertido del sur de Italia." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "El tamaño de la comunidad Erasmus y el carácter local hacen la integración relativamente rápida." },
         ],
-        reviews: [
-          { text: "Los primeros días el ritmo pausado del sur me desconcertó, pero la calidez de la gente compensó cualquier choque cultural.", author: "Malena, Erasmus 2023", flag: "🇦🇷" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 6.0,
@@ -10988,9 +8905,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 6.5, desc: "Bari Vecchia y el centro se recorren bien a pie, aunque el tráfico es intenso en el ensanche." },
           { label: "Conexiones internacionales", score: 6.0, desc: "Aeropuerto de Bari-Palese con buena oferta de vuelos europeos low-cost." },
           { label: "Escapadas de fin de semana", score: 7.0, desc: "Polignano a Mare, Alberobello y Matera, todas a menos de una hora." },
-        ],
-        reviews: [
-          { text: "El transporte urbano es un poco lento, pero un fin de semana en Polignano a Mare o Matera compensa cualquier queja.", author: "Ingrid, Erasmus 2024", flag: "🇳🇴" },
         ],
       },
       {
@@ -11004,9 +8918,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.5, desc: "Probablemente una de las ciudades más auténticas y menos turísticas de toda Italia." },
           { label: "Estilo de vida", score: 9.0, desc: "Vivir el sur de Italia real, sin filtros turísticos, con orecchiette y mar como constante diaria." },
         ],
-        reviews: [
-          { text: "Bari no está en el radar de nadie, y precisamente por eso es de las ciudades italianas más auténticas que he vivido.", author: "Bianca, Erasmus 2023", flag: "🇧🇷" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 5.0,
@@ -11018,9 +8929,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 5.0, desc: "Sector agroalimentario y turístico con más peso que la industria o la tecnología." },
           { label: "Oportunidades para estudiantes", score: 5.5, desc: "El turismo creciente de la región de Puglia ofrece trabajos a tiempo parcial en verano." },
         ],
-        reviews: [
-          { text: "No es una ciudad para hacer prácticas muy ambiciosas, pero para vivir la experiencia Erasmus más auténtica de Italia, es insuperable.", author: "Katarzyna, Erasmus 2024", flag: "🇵🇱" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 6.8,
@@ -11030,9 +8938,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.5, desc: "Criminalidad menor (carteristas, hurtos) más frecuente que en el norte de Italia." },
           { label: "Seguridad nocturna", score: 6.5, desc: "Conviene evitar callejones poco transitados de Bari Vecchia de madrugada." },
           { label: "Ambiente de la ciudad", score: 7.5, desc: "Ciudad con mucha vida en la calle, lo que aporta cierta sensación de seguridad social." },
-        ],
-        reviews: [
-          { text: "Con las precauciones normales de cualquier ciudad del sur de Europa, nunca tuve problemas serios.", author: "Léon, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
     ],
@@ -11052,9 +8957,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Abono Busitalia Veneto con buen descuento estudiantil para bus y tren regional." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Salir de bares en el Prato della Valle es mucho más barato que en la vecina Venecia." },
         ],
-        reviews: [
-          { text: "Vivir en Padua y visitar Venecia cuando quieras, sin pagar los precios de vivir allí, es la mejor decisión que tomé.", author: "Marta, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.3,
@@ -11065,9 +8967,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.5, desc: "380–480€ de media, razonable para el Véneto." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "La Università degli Studi di Padova ofrece listados de alojamiento para exchange students." },
           { label: "Residencias universitarias", score: 6.0, desc: "Buena oferta de residencias (ESU Padova), aunque muy solicitadas." },
-        ],
-        reviews: [
-          { text: "Encontrar piso en Padua fue mucho más sencillo y barato que lo que me contaban mis amigos que buscaban en Venecia.", author: "Tomás, Erasmus 2023", flag: "🇵🇹" },
         ],
       },
       {
@@ -11080,9 +8979,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.0, desc: "El Prato della Valle y el centro concentran una vida nocturna estudiantil animada." },
           { label: "Eventos y actividades", score: 8.0, desc: "La tradición de las 'lauree' (graduaciones) callejeras es un espectáculo en sí mismo." },
         ],
-        reviews: [
-          { text: "Ver las graduaciones callejeras con coronas de laurel y cánticos por toda la ciudad es de las tradiciones más divertidas que he visto.", author: "Sofia, Erasmus 2024", flag: "🇬🇷" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8,
@@ -11094,9 +8990,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "El tamaño mediano de la ciudad facilita coincidir de forma habitual con la misma gente." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La enorme tradición universitaria hace muy fácil integrarse rápido." },
         ],
-        reviews: [
-          { text: "La universidad tiene tanta tradición internacional que integrarse se siente natural desde el primer día.", author: "Hugo, Erasmus 2023", flag: "🇫🇷" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.3,
@@ -11107,9 +9000,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable/ciclable", score: 8.5, desc: "Ciudad completamente llana, ideal para moverse en bici." },
           { label: "Conexiones internacionales", score: 7.5, desc: "Aeropuerto de Venecia a menos de una hora, con vuelos a toda Europa." },
           { label: "Escapadas de fin de semana", score: 9.5, desc: "Venecia a 25 minutos, Verona a 45, y las Dolomitas a menos de dos horas." },
-        ],
-        reviews: [
-          { text: "Ir a Venecia un martes cualquiera por la tarde, como quien va a otro barrio, es un lujo que no tiene precio.", author: "Julien, Erasmus 2024", flag: "🇫🇷" },
         ],
       },
       {
@@ -11123,9 +9013,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "Ciudad universitaria genuina, sin la masificación turística de su vecina Venecia." },
           { label: "Estilo de vida", score: 9.0, desc: "La combinación de historia científica, tradición universitaria y cercanía a Venecia es única en Italia." },
         ],
-        reviews: [
-          { text: "Estudiar donde enseñó Galileo, con Venecia a 25 minutos, es de esas cosas que solo se pueden vivir en Padua.", author: "Beatriz, Erasmus 2023", flag: "🇵🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.8,
@@ -11137,9 +9024,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Tejido industrial y de pequeñas y medianas empresas muy denso en toda la región." },
           { label: "Oportunidades para estudiantes", score: 6.5, desc: "El sector biomédico y farmacéutico ofrece prácticas de buena calidad ligadas a la universidad." },
         ],
-        reviews: [
-          { text: "Hice prácticas relacionadas con investigación biomédica. La tradición científica de la universidad abre muchas puertas.", author: "Nico, Internship 2024", flag: "🇦🇷" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.3,
@@ -11149,9 +9033,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Criminalidad baja, entre las tasas más reducidas de las ciudades universitarias italianas." },
           { label: "Seguridad nocturna", score: 8.0, desc: "El centro y el Prato della Valle son seguros incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, limpia y con fuerte ambiente universitario." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad en todo el año que viví allí.", author: "Léa, Erasmus 2023", flag: "🇧🇪" },
         ],
       },
     ],
@@ -11171,9 +9052,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Abono AMT con descuento estudiantil para bus, metro y los ascensores públicos de la ciudad." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Salir de bares y restaurantes es más barato que en las grandes ciudades del norte de Italia." },
         ],
-        reviews: [
-          { text: "Con el presupuesto que llevaba pensado para Milán, aquí vivía mucho más holgado y con el mar a un paso.", author: "Andrés, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.5,
@@ -11184,9 +9062,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.5, desc: "380–480€ de media, moderado para una ciudad del norte de Italia." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "La Università di Genova ofrece listados básicos de alojamiento para exchange students." },
           { label: "Residencias universitarias", score: 6.0, desc: "Oferta limitada de residencias frente al número de estudiantes de la ciudad." },
-        ],
-        reviews: [
-          { text: "Elegir Foce en vez de los caruggi más laberínticos marcó la diferencia en tranquilidad y luz natural.", author: "Léon, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
       {
@@ -11199,9 +9074,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "Los caruggi y el puerto antiguo concentran bares con ambiente hasta tarde." },
           { label: "Eventos y actividades", score: 7.5, desc: "El Salone Nautico y numerosos festivales de verano marcan el calendario cultural." },
         ],
-        reviews: [
-          { text: "La vida social aquí es más tranquila que en Milán, pero con el puerto y el mar de fondo, cualquier plan se disfruta el doble.", author: "Marek, Erasmus 2024", flag: "🇸🇰" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
@@ -11213,9 +9085,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "Requiere algo más de esfuerzo que en otras ciudades italianas más turísticas." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "El tamaño de la comunidad Erasmus, aunque pequeño, es muy cohesionado." },
         ],
-        reviews: [
-          { text: "Los genoveses tienen fama de cerrados, pero en cuanto ven que te interesas por la ciudad, se abren por completo.", author: "Alicia, Erasmus 2023", flag: "🇲🇽" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.3,
@@ -11226,9 +9095,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.0, desc: "Los caruggi se recorren mejor a pie, aunque la ciudad tiene mucho desnivel." },
           { label: "Conexiones internacionales", score: 7.0, desc: "Aeropuerto de Génova con buena oferta de vuelos europeos." },
           { label: "Escapadas de fin de semana", score: 9.0, desc: "Cinque Terre, Portofino y toda la Riviera ligur, todas a menos de una hora en tren." },
-        ],
-        reviews: [
-          { text: "Vivir a menos de una hora de las Cinque Terre convierte cualquier fin de semana en una escapada de postal.", author: "Freya, Erasmus 2024", flag: "🇳🇴" },
         ],
       },
       {
@@ -11242,9 +9108,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Menos masificada turísticamente que Florencia o Venecia, con identidad marinera muy propia." },
           { label: "Estilo de vida", score: 8.5, desc: "Perderte por el centro histórico medieval más grande de Europa es una experiencia diaria única." },
         ],
-        reviews: [
-          { text: "Génova es la Italia que no sale en las postales típicas, y precisamente por eso es de las más auténticas que he vivido.", author: "Laura, Erasmus 2023", flag: "🇪🇸" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.3,
@@ -11256,9 +9119,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Puerto de Génova, uno de los más grandes del Mediterráneo, con fuerte tejido logístico." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "El sector naval y logístico ofrece prácticas específicas ligadas a la universidad." },
         ],
-        reviews: [
-          { text: "Hice prácticas relacionadas con logística portuaria. El puerto de Génova tiene un peso histórico y económico enorme.", author: "Erik, Internship 2024", flag: "🇸🇪" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 7.5,
@@ -11268,9 +9128,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.5, desc: "Criminalidad moderada-baja para el estándar de una ciudad portuaria italiana." },
           { label: "Seguridad nocturna", score: 7.0, desc: "Los caruggi conviene conocerlos bien de noche; el resto del centro es tranquilo." },
           { label: "Ambiente de la ciudad", score: 7.5, desc: "Ciudad auténtica y con mucha vida marinera, con buena sensación de seguridad general." },
-        ],
-        reviews: [
-          { text: "Con las precauciones normales de cualquier centro histórico laberíntico, nunca tuve problemas serios.", author: "Clémence, Erasmus 2023", flag: "🇧🇪" },
         ],
       },
     ],
@@ -11290,9 +9147,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Las escalinatas mecánicas y el minimetrò cubren bien la ciudad a precio bajo." },
           { label: "Ocio y gastos diarios", score: 8.0, desc: "Salir de bares y restaurantes es notablemente más barato que en la Toscana vecina." },
         ],
-        reviews: [
-          { text: "Comparado con lo que gastaban mis amigos en Florencia, aquí vivía con mucha más holgura.", author: "Rosa, Erasmus 2024", flag: "🇮🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.0,
@@ -11303,9 +9157,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.0, desc: "320–420€ de media, razonable para el centro de Italia." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "La Università per Stranieri tiene experiencia gestionando alojamiento para extranjeros." },
           { label: "Residencias universitarias", score: 6.5, desc: "Buena oferta de residencias, con experiencia específica en estudiantes internacionales." },
-        ],
-        reviews: [
-          { text: "Al ser una ciudad acostumbrada a recibir extranjeros para estudiar italiano, encontrar piso fue muy sencillo.", author: "Viktor, Erasmus 2023", flag: "🇭🇷" },
         ],
       },
       {
@@ -11318,9 +9169,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "El centro storico concentra bares con ambiente estudiantil e internacional constante." },
           { label: "Eventos y actividades", score: 8.5, desc: "Umbria Jazz en julio y Eurochocolate en octubre, dos de los grandes festivales de Italia." },
         ],
-        reviews: [
-          { text: "Nunca había estado en una ciudad italiana tan internacional. La Università per Stranieri hace que conocer gente de todo el mundo sea automático.", author: "Amelia, Erasmus 2024", flag: "🇬🇧" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.3,
@@ -11332,9 +9180,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "El tamaño mediano de la ciudad facilita coincidir de forma habitual con la misma gente." },
           { label: "Facilidad para hacer amigos", score: 8.5, desc: "La enorme comunidad internacional hace que hacer amigos de decenas de nacionalidades sea inmediato." },
         ],
-        reviews: [
-          { text: "Es la ciudad italiana con más experiencia en recibir extranjeros que he visto. Todo está pensado para que te sientas integrado desde el primer día.", author: "Priya, Erasmus 2023", flag: "🇮🇳" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 6.5,
@@ -11345,9 +9190,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.5, desc: "El centro histórico, en lo alto de la colina, se recorre bien a pie una vez arriba." },
           { label: "Conexiones internacionales", score: 5.5, desc: "Aeropuerto de Perugia con oferta limitada; Roma, con más vuelos, a menos de dos horas." },
           { label: "Escapadas de fin de semana", score: 7.5, desc: "Asís a 30 minutos, y toda la Umbría y la Toscana cercana a un paso en coche." },
-        ],
-        reviews: [
-          { text: "Las escalinatas mecánicas para subir al centro son un invento genial — nunca pensé que echaría de menos algo así.", author: "Ingrid, Erasmus 2024", flag: "🇳🇴" },
         ],
       },
       {
@@ -11361,9 +9203,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "Tradición medieval genuina, con menos masificación turística que la Toscana vecina." },
           { label: "Estilo de vida", score: 9.0, desc: "La combinación de colinas verdes, historia medieval y comunidad internacional es única en Italia." },
         ],
-        reviews: [
-          { text: "Vivir en una colina medieval rodeada de verde, con gente de todo el mundo, es una experiencia que no olvidaré nunca.", author: "Santiago, Erasmus 2023", flag: "🇦🇷" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 5.5,
@@ -11375,9 +9214,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 5.0, desc: "Sin grandes sedes corporativas; economía centrada en universidad y turismo." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "El sector de enseñanza del italiano para extranjeros ofrece oportunidades específicas." },
         ],
-        reviews: [
-          { text: "No es una ciudad para hacer prácticas muy ambiciosas, pero para estudiar italiano y cultura, no hay mejor sitio en el país.", author: "Konstantina, Erasmus 2024", flag: "🇬🇷" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.5,
@@ -11387,9 +9223,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja, entre las tasas más reducidas de las ciudades universitarias italianas." },
           { label: "Seguridad nocturna", score: 8.0, desc: "El centro storico es seguro incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, tranquila y con fuerte ambiente universitario internacional." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad en todo el año que viví allí.", author: "Marion, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
     ],
@@ -11409,9 +9242,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 4.5, desc: "Metrolink con abono estudiantil ayuda, aunque el transporte británico sigue siendo caro." },
           { label: "Ocio y gastos diarios", score: 4.0, desc: "Una pinta en el Northern Quarter ronda 5-6 libras, en línea con el resto del Reino Unido." },
         ],
-        reviews: [
-          { text: "Es cara para el estándar español, pero mucho más asequible que Londres, donde vivían mis amigos de intercambio.", author: "Andrés, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 3.8,
@@ -11422,9 +9252,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 3.5, desc: "550–700€ de media, alto para el estándar europeo aunque bajo comparado con Londres." },
           { label: "Facilidad de búsqueda", score: 4.0, desc: "Las universidades ofrecen alojamiento garantizado para exchange students que solicitan a tiempo." },
           { label: "Residencias universitarias", score: 4.5, desc: "Buena oferta de residencias, aunque conviene solicitar plaza nada más tener la admisión." },
-        ],
-        reviews: [
-          { text: "Reservé residencia universitaria en cuanto tuve la admisión. Sin eso, buscar piso privado hubiera sido mucho más caro y complicado.", author: "Bastian, Erasmus 2023", flag: "🇩🇪" },
         ],
       },
       {
@@ -11437,9 +9264,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "El Northern Quarter y Fallowfield concentran música en directo y vida nocturna toda la semana." },
           { label: "Eventos y actividades", score: 8.5, desc: "Los derbis United-City y los conciertos constantes marcan el calendario social de la ciudad." },
         ],
-        reviews: [
-          { text: "La vida nocturna de Mánchester no tiene nada que envidiar a Londres, y el ambiente de música en directo es incomparable.", author: "Noor, Erasmus 2024", flag: "🇳🇱" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.8,
@@ -11451,9 +9275,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 8.0, desc: "El ambiente de pub y música en directo facilita mucho el contacto con locales." },
           { label: "Facilidad para hacer amigos", score: 9.0, desc: "Una de las poblaciones universitarias más grandes de Europa hace muy fácil hacer amigos." },
         ],
-        reviews: [
-          { text: "Los mancunianos son de los ingleses más simpáticos y directos que he conocido. Nunca me sentí fuera de lugar.", author: "Chiara, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.8,
@@ -11464,9 +9285,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.5, desc: "El centro se recorre bien a pie, con el Northern Quarter y la universidad cerca." },
           { label: "Conexiones internacionales", score: 8.0, desc: "Aeropuerto de Mánchester, el más grande fuera de Londres, con vuelos a toda Europa." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Liverpool, el Distrito de los Lagos y Londres, todos a menos de tres horas." },
-        ],
-        reviews: [
-          { text: "Tener un aeropuerto tan grande con vuelos baratos a toda Europa hizo que viajar cada fin de semana fuera muy fácil.", author: "Léa, Erasmus 2024", flag: "🇧🇪" },
         ],
       },
       {
@@ -11480,9 +9298,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Identidad obrera e industrial reconvertida en música y deporte de primer nivel mundial." },
           { label: "Estilo de vida", score: 9.0, desc: "Vivir donde nació el Madchester y compartir ciudad con dos de los mejores clubes del mundo es único." },
         ],
-        reviews: [
-          { text: "El ambiente de fútbol y música aquí no se parece a nada que haya vivido antes. Es una identidad cultural muy fuerte.", author: "Ingrid, Erasmus 2023", flag: "🇳🇴" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 8.5,
@@ -11494,9 +9309,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 8.5, desc: "Sede de MediaCityUK (BBC, ITV) y un ecosistema tecnológico y financiero en auge." },
           { label: "Oportunidades para estudiantes", score: 8.0, desc: "Salarios británicos, incluso en prácticas, están entre los más altos de Europa." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una empresa de medios en MediaCityUK. El nivel de oportunidades en Mánchester es mucho más alto de lo que esperaba fuera de Londres.", author: "Adam, Internship 2024", flag: "🇵🇱" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 7.0,
@@ -11506,9 +9318,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.0, desc: "Criminalidad moderada, típica de una gran ciudad británica de este tamaño." },
           { label: "Seguridad nocturna", score: 6.5, desc: "El Northern Quarter y Fallowfield son seguros de noche, con ambiente animado hasta tarde." },
           { label: "Ambiente de la ciudad", score: 7.5, desc: "Ciudad dinámica y con mucha vida en la calle en cualquier horario." },
-        ],
-        reviews: [
-          { text: "Con las precauciones normales de cualquier gran ciudad, nunca tuve problemas serios de seguridad.", author: "Duarte, Erasmus 2023", flag: "🇵🇹" },
         ],
       },
     ],
@@ -11528,9 +9337,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 5.0, desc: "El Subway y el bus cubren bien la ciudad, con descuento estudiantil disponible." },
           { label: "Ocio y gastos diarios", score: 4.5, desc: "Una pinta en el West End ronda 4,50-5,50 libras, algo más barato que en Edimburgo." },
         ],
-        reviews: [
-          { text: "Es de las ciudades del Reino Unido donde mejor me cundió el presupuesto, sobre todo comparado con Edimburgo o Londres.", author: "Paula, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 4.3,
@@ -11541,9 +9347,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 4.5, desc: "500–650€ de media, entre los más bajos de las grandes ciudades universitarias del Reino Unido." },
           { label: "Facilidad de búsqueda", score: 4.0, desc: "Las universidades ofrecen alojamiento garantizado para exchange students que solicitan a tiempo." },
           { label: "Residencias universitarias", score: 4.5, desc: "Buena oferta de residencias en el West End, cerca del campus principal." },
-        ],
-        reviews: [
-          { text: "Comparado con lo que me contaban de Edimburgo, encontrar piso en Glasgow fue relativamente sencillo.", author: "Milan, Erasmus 2023", flag: "🇸🇮" },
         ],
       },
       {
@@ -11556,9 +9359,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "El West End y Ashton Lane concentran música en directo y pubs con siglos de historia." },
           { label: "Eventos y actividades", score: 8.5, desc: "Celtic Connections y numerosos festivales de música marcan el calendario cultural." },
         ],
-        reviews: [
-          { text: "Me dijeron que Glasgow tenía mejor ambiente de pubs que Edimburgo, y no exageraban en absoluto.", author: "Marek, Erasmus 2024", flag: "🇸🇰" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
@@ -11570,9 +9370,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "El ambiente de pub facilita mucho el contacto real con la comunidad local." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "El carácter abierto de la ciudad hace fácil hacer amigos tanto locales como internacionales." },
         ],
-        reviews: [
-          { text: "Los escoceses de Glasgow son de la gente más cálida y divertida que he conocido en todo mi Erasmus.", author: "Serena, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.0,
@@ -11583,9 +9380,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.5, desc: "El West End y el centro se recorren bien a pie." },
           { label: "Conexiones internacionales", score: 6.5, desc: "Aeropuerto de Glasgow con buena oferta de vuelos europeos." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Edimburgo a menos de una hora en tren, y las Highlands escocesas a un bus de distancia." },
-        ],
-        reviews: [
-          { text: "El Subway circular es simpatiquísimo y muy práctico. Tener Edimburgo a menos de una hora es un lujo añadido.", author: "Anton, Erasmus 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -11599,9 +9393,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.0, desc: "Menos turística que Edimburgo, con una identidad obrera y artística mucho más genuina." },
           { label: "Estilo de vida", score: 8.5, desc: "Arte, música y el mejor ambiente de pubs del Reino Unido, con carácter propio muy marcado." },
         ],
-        reviews: [
-          { text: "Glasgow tiene el carácter que Edimburgo perdió con el turismo masivo. Es la Escocia real.", author: "Youssef, Erasmus 2023", flag: "🇲🇦" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 7.5,
@@ -11613,9 +9404,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.5, desc: "Uno de los mayores hubs financieros del Reino Unido fuera de Londres." },
           { label: "Oportunidades para estudiantes", score: 7.5, desc: "Salarios británicos, incluso en prácticas, están entre los más altos de Europa." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una empresa financiera del centro. El sector tiene mucho más peso del que se suele reconocer fuera de Escocia.", author: "Tomasz, Internship 2024", flag: "🇵🇱" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 7.0,
@@ -11625,9 +9413,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.0, desc: "Criminalidad moderada, concentrada en zonas alejadas del circuito estudiantil habitual." },
           { label: "Seguridad nocturna", score: 7.0, desc: "El West End es seguro de noche, con ambiente animado hasta tarde." },
           { label: "Ambiente de la ciudad", score: 7.5, desc: "Ciudad con carácter y mucha vida en la calle, con buena sensación de comunidad." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad, ni siquiera volviendo sola de los pubs entre semana.", author: "Freya, Erasmus 2023", flag: "🇳🇴" },
         ],
       },
     ],
@@ -11647,9 +9432,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 4.5, desc: "El bus cubre bien la ciudad, aunque el transporte británico sigue siendo caro en general." },
           { label: "Ocio y gastos diarios", score: 4.0, desc: "Una pinta en Stokes Croft ronda 5-6 libras, en línea con el resto del Reino Unido." },
         ],
-        reviews: [
-          { text: "Es cara para el estándar español, pero mucho más asequible que Londres, y con muchísimo mejor ambiente creativo.", author: "Ana, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 3.5,
@@ -11660,9 +9442,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 3.0, desc: "580–730€ de media, alto para el estándar europeo aunque por debajo de Londres." },
           { label: "Facilidad de búsqueda", score: 4.0, desc: "Las universidades ofrecen alojamiento garantizado para exchange students que solicitan a tiempo." },
           { label: "Residencias universitarias", score: 4.0, desc: "Buena oferta de residencias, aunque muy solicitadas por el gran número de estudiantes." },
-        ],
-        reviews: [
-          { text: "Reservé residencia universitaria en cuanto tuve la admisión. Buscar piso privado en Bristol se complica rápido si no te mueves pronto.", author: "Mateusz, Erasmus 2023", flag: "🇵🇱" },
         ],
       },
       {
@@ -11675,9 +9454,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "Stokes Croft y el puerto flotante (Harbourside) concentran una vida nocturna alternativa muy activa." },
           { label: "Eventos y actividades", score: 8.5, desc: "El Bristol Balloon Fiesta en agosto es uno de los mayores festivales de globos de Europa." },
         ],
-        reviews: [
-          { text: "El ambiente creativo e independiente de Bristol es de lo más auténtico que he visto en el Reino Unido.", author: "Sebastián, Erasmus 2024", flag: "🇨🇴" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
@@ -11689,9 +9465,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "El ambiente creativo e independiente facilita conectar con locales de mentalidad abierta." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La escena cultural compartida hace fácil hacer amigos con intereses similares." },
         ],
-        reviews: [
-          { text: "El ambiente alternativo de Bristol atrae a gente muy abierta, tanto local como internacional. Hacer amigos fue muy natural.", author: "Priya, Erasmus 2023", flag: "🇮🇳" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 6.8,
@@ -11702,9 +9475,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable/ciclable", score: 7.0, desc: "Centro compacto y bastante ciclable, con el puerto flotante como eje central." },
           { label: "Conexiones internacionales", score: 6.5, desc: "Aeropuerto de Bristol con buena oferta de vuelos europeos low-cost." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Londres a 1h40 en tren, y Gales y Bath a menos de una hora." },
-        ],
-        reviews: [
-          { text: "Tener Londres a menos de dos horas y Bath y Gales tan cerca hace de Bristol una base perfecta para explorar el suroeste de Inglaterra.", author: "Henrik, Erasmus 2024", flag: "🇸🇪" },
         ],
       },
       {
@@ -11718,9 +9488,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Identidad independiente y creativa muy genuina, lejos del circuito turístico tradicional." },
           { label: "Estilo de vida", score: 9.0, desc: "El ambiente creativo, el arte urbano y el puente colgante de Clifton crean una identidad única en Inglaterra." },
         ],
-        reviews: [
-          { text: "Bristol tiene el mejor ambiente creativo e independiente que he visto en el Reino Unido, sin el precio ni el caos de Londres.", author: "Isabela, Erasmus 2023", flag: "🇧🇷" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 7.8,
@@ -11732,9 +9499,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 8.0, desc: "Sede de Aardman Animations, Airbus UK y un ecosistema tecnológico en expansión." },
           { label: "Oportunidades para estudiantes", score: 7.5, desc: "Salarios británicos, incluso en prácticas, están entre los más altos de Europa." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una empresa de animación digital. El sector creativo-tecnológico de Bristol es mucho más grande de lo que parece desde fuera.", author: "Greta, Internship 2024", flag: "🇱🇹" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 7.3,
@@ -11744,9 +9508,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.5, desc: "Criminalidad moderada, típica de una ciudad británica de este tamaño." },
           { label: "Seguridad nocturna", score: 7.0, desc: "Stokes Croft y Clifton son seguros de noche, con ambiente animado hasta tarde." },
           { label: "Ambiente de la ciudad", score: 7.5, desc: "Ciudad creativa y con mucha vida en la calle, con buena sensación de comunidad." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad en todo el año que viví allí.", author: "Nuno, Erasmus 2023", flag: "🇵🇹" },
         ],
       },
     ],
@@ -11766,9 +9527,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 3.0, desc: "El abono de transporte para estudiantes ayuda, pero los billetes sueltos son de los más caros de Europa." },
           { label: "Ocio y gastos diarios", score: 1.5, desc: "Salir de bares y restaurantes en Basilea es de lo más caro de Europa occidental." },
         ],
-        reviews: [
-          { text: "Sabía que Suiza era cara, pero Basilea superó cualquier expectativa. Cruzar a Francia a comprar se convirtió en rutina.", author: "Filipa, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 2.3,
@@ -11779,9 +9537,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 1.5, desc: "850–1.050€ de media, entre los más altos de toda esta guía." },
           { label: "Facilidad de búsqueda", score: 2.5, desc: "La Universität Basel ofrece algo de ayuda con alojamiento, aunque las plazas son muy limitadas." },
           { label: "Residencias universitarias", score: 3.0, desc: "Oferta muy limitada; muchos estudiantes optan por alojarse en Francia o Alemania." },
-        ],
-        reviews: [
-          { text: "Al final me alojé en Saint-Louis, del lado francés, y cruzaba cada día en tranvía. Era la única forma de que me cuadrara el presupuesto.", author: "Kacper, Erasmus 2023", flag: "🇵🇱" },
         ],
       },
       {
@@ -11794,9 +9549,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 5.5, desc: "Kleinbasel concentra la vida nocturna, aunque los precios limitan salir con frecuencia." },
           { label: "Eventos y actividades", score: 7.0, desc: "Art Basel en junio y el Fasnacht (carnaval) en primavera son eventos de talla mundial." },
         ],
-        reviews: [
-          { text: "La vida social aquí cuesta dinero, pero el Fasnacht y Art Basel son experiencias que compensan cualquier gasto una vez al año.", author: "Diego, Erasmus 2024", flag: "🇦🇷" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.3,
@@ -11808,9 +9560,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "Requiere algo de esfuerzo y alemán básico fuera del entorno puramente farmacéutico o universitario." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La enorme comunidad internacional facilita hacer amigos de decenas de nacionalidades." },
         ],
-        reviews: [
-          { text: "Gracias a Novartis y Roche, Basilea tiene una comunidad internacional enorme. Nunca me sentí fuera de lugar.", author: "Sven, Erasmus 2023", flag: "🇸🇪" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 9.3,
@@ -11821,9 +9570,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.5, desc: "Centro compacto y muy caminable, con el Rin cruzando la ciudad." },
           { label: "Conexiones internacionales", score: 9.5, desc: "El aeropuerto de Basilea-Mulhouse-Friburgo, compartido con Francia, es único en Europa." },
           { label: "Escapadas de fin de semana", score: 10.0, desc: "Francia y Alemania a un tranvía; Zúrich, Friburgo y Estrasburgo a menos de una hora." },
-        ],
-        reviews: [
-          { text: "Estar a un tranvía de dos países distintos cambia por completo el concepto de fin de semana. No hay ciudad mejor conectada en toda esta guía.", author: "Charlotte, Erasmus 2024", flag: "🇫🇷" },
         ],
       },
       {
@@ -11837,9 +9583,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 7.5, desc: "Identidad suiza genuina, enriquecida por la influencia constante de Francia y Alemania." },
           { label: "Estilo de vida", score: 9.0, desc: "Vivir en la frontera exacta de tres países y flotar por el Rin en verano es una experiencia única en Europa." },
         ],
-        reviews: [
-          { text: "Nadar por el Rin en verano con el Wickelfisch, cruzando media ciudad con la corriente, es de las experiencias más divertidas de todo mi Erasmus.", author: "Julia, Erasmus 2023", flag: "🇨🇿" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 9.0,
@@ -11851,9 +9594,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 9.5, desc: "Sede mundial de Novartis y Roche, dos de las mayores farmacéuticas del planeta." },
           { label: "Oportunidades para estudiantes", score: 8.5, desc: "Las prácticas en el sector farmacéutico de Basilea son de las más codiciadas de Europa." },
         ],
-        reviews: [
-          { text: "Hice prácticas en el sector farmacéutico gracias a la universidad. Para ciencias de la vida, no hay mejor sitio en Europa continental.", author: "Aleksander, Internship 2024", flag: "🇵🇱" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 9.3,
@@ -11863,9 +9603,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.5, desc: "Criminalidad extremadamente baja, entre las más bajas de toda Europa." },
           { label: "Seguridad nocturna", score: 9.0, desc: "Volver a casa de madrugada, incluso solo, se siente completamente seguro en cualquier barrio." },
           { label: "Ambiente de la ciudad", score: 9.5, desc: "Ciudad extremadamente ordenada, limpia y tranquila." },
-        ],
-        reviews: [
-          { text: "Es probablemente la ciudad donde más segura me he sentido en mi vida, a cualquier hora y en cualquier barrio.", author: "Beatriz, Erasmus 2023", flag: "🇵🇹" },
         ],
       },
     ],
@@ -11885,9 +9622,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 3.5, desc: "El abono de transporte para estudiantes ayuda, aunque los billetes sueltos siguen siendo caros." },
           { label: "Ocio y gastos diarios", score: 2.0, desc: "Salir de bares y restaurantes en Berna es de lo más caro de Europa occidental." },
         ],
-        reviews: [
-          { text: "Es cara como toda Suiza, pero algo más llevadera que lo que me contaban mis amigos en Zúrich o Ginebra.", author: "Ana, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 3.0,
@@ -11898,9 +9632,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 2.5, desc: "750–950€ de media, entre los alquileres más altos de toda esta guía." },
           { label: "Facilidad de búsqueda", score: 3.5, desc: "La Universität Bern ofrece algo de ayuda con alojamiento para exchange students." },
           { label: "Residencias universitarias", score: 4.0, desc: "Oferta limitada de residencias, aunque de buena calidad y bien ubicadas." },
-        ],
-        reviews: [
-          { text: "Conseguir plaza en una residencia universitaria fue la única forma de mantener el presupuesto bajo control.", author: "Mateusz, Erasmus 2023", flag: "🇵🇱" },
         ],
       },
       {
@@ -11913,9 +9644,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 5.5, desc: "La vida nocturna es discreta comparada con ciudades más grandes; el Aare sustituye buena parte del ocio en verano." },
           { label: "Eventos y actividades", score: 6.5, desc: "La Zibelemärit (feria de la cebolla) y el Gurtenfestival marcan el calendario social." },
         ],
-        reviews: [
-          { text: "La vida social aquí es diferente: menos fiesta nocturna y más planes flotando por el Aare con amigos en verano.", author: "Sebastián, Erasmus 2024", flag: "🇨🇴" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
@@ -11927,9 +9655,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "Requiere algo de esfuerzo y alemán básico fuera del entorno puramente universitario." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "La comunidad internacional, aunque más pequeña, es cohesionada precisamente por serlo." },
         ],
-        reviews: [
-          { text: "Con los locales cuesta un poco más romper el hielo, pero la comunidad internacional universitaria compensa de sobra.", author: "Priya, Erasmus 2023", flag: "🇮🇳" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.8,
@@ -11940,9 +9665,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 9.0, desc: "El casco histórico, con seis kilómetros de soportales, se recorre extraordinariamente bien a pie." },
           { label: "Conexiones internacionales", score: 8.0, desc: "Aeropuertos de Zúrich y Ginebra accesibles en menos de una hora en tren." },
           { label: "Escapadas de fin de semana", score: 9.0, desc: "Zúrich, Lucerna y el Oberland bernés, con sus Alpes, a menos de una hora." },
-        ],
-        reviews: [
-          { text: "La puntualidad del transporte suizo hay que vivirla para creerla. Nunca esperé más de dos minutos por un tranvía.", author: "Felix, Erasmus 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -11956,9 +9678,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Casco histórico medieval completo y genuino, Patrimonio de la Humanidad." },
           { label: "Estilo de vida", score: 9.5, desc: "Vivir en una capital medieval entera, con osos de verdad en el centro, es único en el mundo." },
         ],
-        reviews: [
-          { text: "Ver osos de verdad viviendo en pleno centro de la capital es de esas cosas que solo pasan en Berna.", author: "Charlotte, Erasmus 2023", flag: "🇫🇷" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 8.0,
@@ -11970,9 +9689,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.5, desc: "Sede de la administración federal suiza y numerosas organizaciones y embajadas." },
           { label: "Oportunidades para estudiantes", score: 8.0, desc: "Los salarios suizos, incluso en prácticas, están entre los más altos que puede conseguir un estudiante en Europa." },
         ],
-        reviews: [
-          { text: "Hice prácticas relacionadas con la administración federal. Para relaciones internacionales o ciencia política, la capital ofrece mucho.", author: "Henrik, Internship 2024", flag: "🇸🇪" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 9.3,
@@ -11982,9 +9698,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.5, desc: "Criminalidad extremadamente baja, entre las más bajas del mundo." },
           { label: "Seguridad nocturna", score: 9.0, desc: "Volver a casa de madrugada, incluso solo, se siente completamente seguro en cualquier barrio." },
           { label: "Ambiente de la ciudad", score: 9.5, desc: "Ciudad extremadamente ordenada, limpia y tranquila." },
-        ],
-        reviews: [
-          { text: "Es probablemente la ciudad donde más segura me he sentido en mi vida, a cualquier hora y en cualquier barrio.", author: "Ingrid, Erasmus 2023", flag: "🇳🇴" },
         ],
       },
     ],
@@ -12004,9 +9717,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 9.0, desc: "Istanbulkart cubre ferry, metro, tranvía y bus a precios muy bajos." },
           { label: "Ocio y gastos diarios", score: 9.5, desc: "Salir de bares y restaurantes cuesta una fracción de lo que costaría en cualquier ciudad europea occidental." },
         ],
-        reviews: [
-          { text: "Con el presupuesto de un mes en España, aquí vivía holgadamente durante dos meses.", author: "Nuno, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 8.5,
@@ -12017,9 +9727,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 9.0, desc: "150–250€ de media, de los alquileres más bajos de toda esta guía." },
           { label: "Facilidad de búsqueda", score: 7.5, desc: "Portales locales y grupos de Facebook de Erasmus facilitan bastante la búsqueda." },
           { label: "Residencias universitarias", score: 7.5, desc: "Buena oferta de residencias en las universidades más grandes, a precios muy bajos." },
-        ],
-        reviews: [
-          { text: "Encontré piso en Kadıköy en pocos días, con un precio que en cualquier capital europea sería impensable.", author: "Konstantina, Erasmus 2023", flag: "🇬🇷" },
         ],
       },
       {
@@ -12032,9 +9739,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "Kadıköy y Beyoğlu concentran una vida nocturna que no para en ninguna noche de la semana." },
           { label: "Eventos y actividades", score: 9.0, desc: "Festivales de música, arte y una escena cultural constante en una ciudad de 15 millones de personas." },
         ],
-        reviews: [
-          { text: "La energía de esta ciudad no se parece a nada que haya vivido. Siempre hay algo pasando, a cualquier hora del día o de la noche.", author: "Mihail, Erasmus 2024", flag: "🇧🇬" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.5,
@@ -12046,9 +9750,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.0, desc: "El tamaño descomunal de la ciudad puede hacer la integración más lenta al principio." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "La calidez local y la comunidad Erasmus hacen que hacer amigos sea relativamente rápido pese al tamaño de la ciudad." },
         ],
-        reviews: [
-          { text: "Al principio el tamaño de la ciudad abruma, pero la hospitalidad turca hace que te sientas acogido muy rápido.", author: "Amara, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 6.5,
@@ -12059,9 +9760,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 6.0, desc: "Barrios como Kadıköy o Beyoğlu se recorren bien a pie, aunque la ciudad en conjunto es enorme." },
           { label: "Conexiones internacionales", score: 7.5, desc: "Aeropuerto de Estambul, uno de los más grandes del mundo, con vuelos a todos los continentes." },
           { label: "Escapadas de fin de semana", score: 6.0, desc: "Capadocia y la costa egea requieren vuelo interno, aunque muy asequible." },
-        ],
-        reviews: [
-          { text: "Cruzar el Bósforo en ferry cada día para ir a clase es de las mejores rutinas de transporte que he tenido nunca.", author: "Otto, Erasmus 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -12075,9 +9773,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.5, desc: "Milenios de historia bizantina y otomana condensados en cada barrio de la ciudad." },
           { label: "Estilo de vida", score: 10.0, desc: "Ser la única ciudad del mundo repartida entre dos continentes es una experiencia irrepetible en cualquier otro lugar." },
         ],
-        reviews: [
-          { text: "Cruzar de Europa a Asia en 20 minutos, cada día, cambia por completo tu forma de entender la geografía.", author: "Bianca, Erasmus 2023", flag: "🇷🇴" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.0,
@@ -12089,9 +9784,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Sede de los principales bancos y grupos empresariales turcos, además de un ecosistema startup creciente." },
           { label: "Oportunidades para estudiantes", score: 5.5, desc: "Salarios locales bajos comparados con Europa occidental, aunque el coste de vida lo compensa con creces." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una startup local. El ecosistema tecnológico de Estambul crece muy rápido, aunque los salarios locales son bajos.", author: "Pavlína, Internship 2024", flag: "🇨🇿" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 6.0,
@@ -12101,9 +9793,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.0, desc: "Criminalidad menor (carteristas, hurtos) más frecuente en zonas turísticas muy concurridas." },
           { label: "Seguridad nocturna", score: 6.0, desc: "Kadıköy y Beşiktaş son razonablemente seguros de noche; conviene informarse sobre otras zonas." },
           { label: "Ambiente de la ciudad", score: 6.5, desc: "Ciudad intensa y con mucha vida en la calle a cualquier hora, lo que aporta cierta sensación de seguridad social." },
-        ],
-        reviews: [
-          { text: "Con las precauciones normales de cualquier megaciudad, nunca tuve problemas serios en todo el año.", author: "Santiago, Erasmus 2023", flag: "🇦🇷" },
         ],
       },
     ],
@@ -12123,9 +9812,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.5, desc: "La ciudad es completamente llana; la bici hace casi innecesario el transporte público." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Salir de bares fuera de la zona turística de la torre tiene precios muy razonables." },
         ],
-        reviews: [
-          { text: "Comparado con lo que gastaban mis amigos en Florencia, aquí vivía con mucha más holgura.", author: "Marta, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.0,
@@ -12136,9 +9822,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.5, desc: "300–400€ de media, de los más bajos entre las ciudades universitarias de la Toscana." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "La Università di Pisa ofrece listados básicos de alojamiento para exchange students." },
           { label: "Residencias universitarias", score: 6.5, desc: "Buena oferta de residencias, especialmente ligadas a la Scuola Normale Superiore." },
-        ],
-        reviews: [
-          { text: "Encontré piso en pocos días, con un precio muy por debajo de lo que me esperaba para una ciudad tan turística.", author: "Tomás, Erasmus 2023", flag: "🇵🇹" },
         ],
       },
       {
@@ -12151,9 +9834,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.0, desc: "El centro storico concentra bares con ambiente estudiantil entre semana." },
           { label: "Eventos y actividades", score: 8.5, desc: "El Gioco del Ponte, batalla medieval sobre el Arno, es un evento único en junio." },
         ],
-        reviews: [
-          { text: "Con tantísimos estudiantes en una ciudad tan pequeña, siempre había algo que hacer, cualquier día de la semana.", author: "Giulia, Erasmus 2024", flag: "🇮🇹" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8,
@@ -12165,9 +9845,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "El tamaño reducido de la ciudad facilita coincidir de forma habitual con la misma gente." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La enorme proporción de estudiantes hace muy fácil integrarse rápido." },
         ],
-        reviews: [
-          { text: "Al ser una ciudad tan pequeña y tan universitaria, en un mes ya conocía a medio grupo de mi facultad.", author: "Hugo, Erasmus 2023", flag: "🇫🇷" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.5,
@@ -12178,9 +9855,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable/ciclable", score: 9.0, desc: "Completamente llana, ideal para moverse en bici en cualquier época del año." },
           { label: "Conexiones internacionales", score: 8.0, desc: "El aeropuerto de Pisa es uno de los mayores hubs low-cost de Italia." },
           { label: "Escapadas de fin de semana", score: 7.5, desc: "Florencia a menos de una hora, y Cinque Terre y Lucca, ambas cerca." },
-        ],
-        reviews: [
-          { text: "Tener un aeropuerto con vuelos tan baratos a toda Europa hizo que viajar cada fin de semana fuera muy fácil.", author: "Ingrid, Erasmus 2024", flag: "🇳🇴" },
         ],
       },
       {
@@ -12194,9 +9868,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "Fuera de la Piazza dei Miracoli, la ciudad mantiene un ambiente local muy genuino." },
           { label: "Estilo de vida", score: 9.0, desc: "Vivir donde enseñó Galileo, con la Torre Inclinada como paisaje diario, es único en el mundo." },
         ],
-        reviews: [
-          { text: "Al principio la torre parece solo un icono turístico, pero vivir con ella de fondo cada día acaba siendo especial.", author: "Beatriz, Erasmus 2023", flag: "🇵🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.0,
@@ -12208,9 +9879,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 5.5, desc: "Sin grandes sedes corporativas; economía centrada en universidad y turismo." },
           { label: "Oportunidades para estudiantes", score: 6.5, desc: "La reputación científica de Pisa atrae prácticas de investigación de alto nivel." },
         ],
-        reviews: [
-          { text: "Hice prácticas de investigación ligadas al CNR. Para ciencias, la reputación de Pisa abre muchas puertas.", author: "Nico, Internship 2024", flag: "🇦🇷" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.5,
@@ -12220,9 +9888,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja, entre las más reducidas de las ciudades universitarias italianas." },
           { label: "Seguridad nocturna", score: 8.0, desc: "El centro storico es seguro incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, tranquila y con fuerte ambiente universitario." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad en todo el año que viví allí.", author: "Léa, Erasmus 2023", flag: "🇧🇪" },
         ],
       },
     ],
@@ -12242,9 +9907,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "El centro histórico se recorre entero a pie; el bus apenas se necesita." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Salir de bares en la Piazza del Campo es algo más caro por el turismo, aunque razonable." },
         ],
-        reviews: [
-          { text: "Es algo más cara que otras ciudades universitarias italianas, pero la belleza del centro compensa cualquier extra.", author: "Amelia, Erasmus 2024", flag: "🇬🇧" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.5,
@@ -12255,9 +9917,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.5, desc: "350–450€ de media, razonable para el estándar toscano." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "La Università di Siena ofrece listados de alojamiento para exchange students." },
           { label: "Residencias universitarias", score: 6.5, desc: "Buena oferta de residencias, con precios asequibles." },
-        ],
-        reviews: [
-          { text: "Encontrar piso en el centro histórico lleva algo de tiempo por las restricciones de la ciudad, pero merece la pena.", author: "Rui, Erasmus 2023", flag: "🇧🇷" },
         ],
       },
       {
@@ -12270,9 +9929,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.0, desc: "La vida nocturna es más tranquila que en ciudades grandes, concentrada en el centro." },
           { label: "Eventos y actividades", score: 9.0, desc: "El Palio di Siena, dos veces al año, es de los eventos más singulares de toda Europa." },
         ],
-        reviews: [
-          { text: "Vivir el Palio desde dentro, con toda la ciudad dividida en contradas rivales, es una experiencia que no se puede explicar sin vivirla.", author: "Sofia, Erasmus 2024", flag: "🇬🇷" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.3,
@@ -12284,9 +9940,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.0, desc: "Adoptar una contrada es la mejor forma de integrarse realmente en la vida local." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "El tamaño pequeño de la ciudad facilita conocer a la misma gente de forma habitual." },
         ],
-        reviews: [
-          { text: "Me adoptó una contrada gracias a un amigo local, y eso cambió por completo mi experiencia de integración.", author: "Diego, Erasmus 2023", flag: "🇦🇷" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 6.0,
@@ -12297,9 +9950,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.5, desc: "El centro histórico, aunque con cuestas, se recorre bien a pie." },
           { label: "Conexiones internacionales", score: 5.0, desc: "Sin aeropuerto propio; Florencia y Pisa, con más vuelos, a menos de una hora y media." },
           { label: "Escapadas de fin de semana", score: 7.5, desc: "Florencia, San Gimignano y toda la Toscana rural, todas a un paso." },
-        ],
-        reviews: [
-          { text: "Depender de Florencia o Pisa para volar fuera es un poco pesado, pero para explorar la Toscana, Siena es la base perfecta.", author: "Anton, Erasmus 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -12313,9 +9963,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.5, desc: "Tradición de contradas centenaria, viva y genuina, no un espectáculo para turistas." },
           { label: "Estilo de vida", score: 9.5, desc: "Vivir en una ciudad medieval intacta, con el Palio como ritmo vital, es único en el mundo." },
         ],
-        reviews: [
-          { text: "Es la ciudad más bonita en la que he vivido. Cada rincón parece sacado de un cuadro renacentista.", author: "Camille, Erasmus 2023", flag: "🇫🇷" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 5.3,
@@ -12327,9 +9974,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 5.0, desc: "Sede histórica del Monte dei Paschi di Siena, uno de los bancos más antiguos del mundo." },
           { label: "Oportunidades para estudiantes", score: 5.5, desc: "El sector turístico y vinícola ofrece trabajos a tiempo parcial con facilidad en temporada alta." },
         ],
-        reviews: [
-          { text: "No es una ciudad para hacer prácticas muy ambiciosas, pero para estudiar y vivir la experiencia Erasmus más auténtica de la Toscana, es insuperable.", author: "Malena, Erasmus 2024", flag: "🇦🇷" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.8,
@@ -12339,9 +9983,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja, entre las más reducidas de las ciudades universitarias italianas." },
           { label: "Seguridad nocturna", score: 8.5, desc: "El centro histórico es seguro incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada, tranquila y con fuerte identidad de contrada y comunidad." },
-        ],
-        reviews: [
-          { text: "Nunca me sentí insegura ni una sola vez, ni siquiera volviendo sola de madrugada por el centro histórico.", author: "Marion, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
     ],
@@ -12361,9 +10002,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "El bus urbano de Trieste Trasporti cubre bien la ciudad a precio bajo." },
           { label: "Ocio y gastos diarios", score: 8.0, desc: "Salir de café en tradición vienesa o de bares es más barato que en Venecia o Milán." },
         ],
-        reviews: [
-          { text: "Comparado con lo que gastaban mis amigos en Venecia, aquí vivía con mucha más holgura.", author: "Nuno, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.0,
@@ -12374,9 +10012,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.5, desc: "320–420€ de media, entre los más bajos del norte de Italia." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "La Università di Trieste ofrece listados básicos de alojamiento para exchange students." },
           { label: "Residencias universitarias", score: 6.5, desc: "Buena oferta de residencias, incluyendo las ligadas a la SISSA." },
-        ],
-        reviews: [
-          { text: "Encontré piso en el Borgo Teresiano sin muchas complicaciones, con un precio muy razonable.", author: "Camille, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
       {
@@ -12389,9 +10024,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 6.5, desc: "La vida nocturna es más discreta que en otras ciudades italianas, con buenos cafés históricos." },
           { label: "Eventos y actividades", score: 7.5, desc: "La Barcolana, la regata de vela más grande del mundo, llena la ciudad cada octubre." },
         ],
-        reviews: [
-          { text: "La vida social aquí es más tranquila y literaria que en otras ciudades italianas, con un ambiente muy propio.", author: "Elif, Erasmus 2024", flag: "🇹🇷" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
@@ -12403,9 +10035,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.0, desc: "El tamaño mediano de la ciudad facilita coincidir de forma habitual con la misma gente." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "La comunidad científica internacional de la SISSA facilita mucho conocer gente de todo el mundo." },
         ],
-        reviews: [
-          { text: "La mezcla de culturas italiana, eslovena y austrohúngara se nota en todo, y hace la integración muy interesante.", author: "Priya, Erasmus 2023", flag: "🇮🇳" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 6.8,
@@ -12416,9 +10045,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.5, desc: "El centro se recorre bien a pie, con la Piazza Unità d'Italia como eje central." },
           { label: "Conexiones internacionales", score: 5.5, desc: "Aeropuerto con oferta limitada; Venecia y Liubliana, ambos aeropuertos alternativos, a menos de dos horas." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Eslovenia a 20 minutos, Croacia a un paso, y Venecia a menos de dos horas." },
-        ],
-        reviews: [
-          { text: "Cruzar a Eslovenia un fin de semana cualquiera, casi sin darte cuenta, es de las cosas que más me gustaron de vivir en Trieste.", author: "Erik, Erasmus 2024", flag: "🇸🇪" },
         ],
       },
       {
@@ -12432,9 +10058,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.0, desc: "Identidad única en Italia, mezcla de tradición italiana, austrohúngara y eslava." },
           { label: "Estilo de vida", score: 9.0, desc: "Vivir en la única ciudad italiana con alma centroeuropea, junto al mar, es una experiencia irrepetible." },
         ],
-        reviews: [
-          { text: "Trieste no se parece a ninguna otra ciudad italiana que haya visitado. Tiene un alma centroeuropea muy particular.", author: "Bianca, Erasmus 2023", flag: "🇷🇴" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.3,
@@ -12446,9 +10069,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.0, desc: "Sede histórica de Assicurazioni Generali, una de las mayores aseguradoras de Europa." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "El sector científico y de seguros ofrece prácticas específicas de buen nivel." },
         ],
-        reviews: [
-          { text: "Hice prácticas relacionadas con investigación científica ligada a la SISSA. Para física teórica, esta ciudad tiene un prestigio enorme.", author: "Viktor, Internship 2024", flag: "🇭🇷" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.3,
@@ -12458,9 +10078,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Criminalidad muy baja, entre las más reducidas de las ciudades italianas." },
           { label: "Seguridad nocturna", score: 8.0, desc: "El centro y la Piazza Unità d'Italia son seguros incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, tranquila y con fuerte identidad cultural." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad en todo el año que viví allí.", author: "Duarte, Erasmus 2023", flag: "🇵🇹" },
         ],
       },
     ],
@@ -12480,9 +10097,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "El bus urbano de TEP cubre bien la ciudad a precio razonable." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Salir de bares y restaurantes es más barato que en Bolonia, con calidad gastronómica superior." },
         ],
-        reviews: [
-          { text: "Comer aquí es una ganga considerando que es una de las capitales gastronómicas del mundo.", author: "Sofia, Erasmus 2024", flag: "🇬🇷" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.5,
@@ -12493,9 +10107,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.0, desc: "350–450€ de media, razonable para la región de la Emilia-Romaña." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "La Università di Parma ofrece listados básicos de alojamiento para exchange students." },
           { label: "Residencias universitarias", score: 6.0, desc: "Buena oferta de residencias, aunque conviene solicitar con antelación." },
-        ],
-        reviews: [
-          { text: "Encontré piso en Oltretorrente sin muchas complicaciones, con un precio muy razonable.", author: "Hugo, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
       {
@@ -12508,9 +10119,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "Oltretorrente concentra bares y ambiente estudiantil entre semana." },
           { label: "Eventos y actividades", score: 8.0, desc: "El Festival Verdi y numerosos eventos gastronómicos marcan el calendario cultural." },
         ],
-        reviews: [
-          { text: "La vida social aquí gira mucho en torno a la comida, y eso hace que salir con amigos sea siempre un planazo.", author: "Max, Exchange 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.3,
@@ -12522,9 +10130,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.0, desc: "El tamaño mediano de la ciudad facilita coincidir de forma habitual con la misma gente." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "La vida social ligada a la gastronomía facilita mucho el contacto con locales." },
         ],
-        reviews: [
-          { text: "Compartir mesa y comida es la mejor forma de integrarte aquí. La gastronomía es literalmente el idioma social.", author: "Alicia, Erasmus 2023", flag: "🇲🇽" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.0,
@@ -12535,9 +10140,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable/ciclable", score: 8.0, desc: "Ciudad llana y compacta, ideal para moverse en bici." },
           { label: "Conexiones internacionales", score: 5.5, desc: "Sin aeropuerto propio relevante; Bolonia y Milán, con más vuelos, a menos de una hora." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Bolonia, Milán y Módena, todas a menos de una hora en tren." },
-        ],
-        reviews: [
-          { text: "Tener Milán y Bolonia tan cerca hace de Parma una base perfecta sin pagar sus precios de alquiler.", author: "Freya, Erasmus 2024", flag: "🇳🇴" },
         ],
       },
       {
@@ -12551,9 +10153,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Tradición gastronómica genuina, sin la masificación turística de otras ciudades italianas." },
           { label: "Estilo de vida", score: 9.0, desc: "Vivir en la Ciudad Creativa de la Gastronomía de la UNESCO es un privilegio culinario diario." },
         ],
-        reviews: [
-          { text: "Nunca pensé que viviría en un sitio donde comer tan bien fuera tan normal y tan barato a la vez.", author: "Laura, Erasmus 2023", flag: "🇪🇸" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.5,
@@ -12565,9 +10164,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "Sede de Barilla y Parmalat, dos de los gigantes agroalimentarios de Italia." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "El sector agroalimentario ofrece prácticas específicas muy valoradas en la región." },
         ],
-        reviews: [
-          { text: "Hice prácticas relacionadas con la industria agroalimentaria. La 'Food Valley' de Parma tiene mucho peso económico real.", author: "Tomasz, Internship 2024", flag: "🇵🇱" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.3,
@@ -12577,9 +10173,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Criminalidad muy baja, entre las más reducidas de las ciudades universitarias italianas." },
           { label: "Seguridad nocturna", score: 8.0, desc: "El centro y Oltretorrente son seguros incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, elegante y con fuerte identidad gastronómica." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad en todo el año que viví allí.", author: "Clémence, Erasmus 2023", flag: "🇧🇪" },
         ],
       },
     ],
@@ -12599,9 +10192,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "El funicular y el bus urbano de ATB cubren bien la ciudad a precio razonable." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Salir de bares en la Città Alta es más barato que en Milán, con mejor ambiente." },
         ],
-        reviews: [
-          { text: "Vivir aquí y visitar Milán cuando quería, sin pagar sus precios de alquiler, fue la mejor decisión de mi Erasmus.", author: "Andrés, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.5,
@@ -12612,9 +10202,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.0, desc: "350–450€ de media, razonable para la cercanía con Milán." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "La Università degli Studi di Bergamo ofrece listados básicos de alojamiento." },
           { label: "Residencias universitarias", score: 6.0, desc: "Oferta limitada de residencias frente al número de estudiantes de la ciudad." },
-        ],
-        reviews: [
-          { text: "Elegir la Città Bassa en vez de la Alta fue más práctico y económico, aunque perdí algo de encanto.", author: "Léon, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
       {
@@ -12627,9 +10214,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.0, desc: "La Città Alta y Città Bassa concentran bares con ambiente estudiantil." },
           { label: "Eventos y actividades", score: 7.5, desc: "El Bergamo Jazz Festival y numerosos eventos culturales marcan el calendario." },
         ],
-        reviews: [
-          { text: "La vida social aquí es más tranquila que en Milán, pero con la ventaja de poder ir cuando quieras sin vivir en su caos.", author: "Marek, Erasmus 2024", flag: "🇸🇰" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
@@ -12641,9 +10225,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "Requiere algo de esfuerzo, aunque el ambiente universitario facilita el contacto." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "El tamaño de la comunidad Erasmus, aunque pequeño, es muy cohesionado." },
         ],
-        reviews: [
-          { text: "Con los locales cuesta un poco más al principio, pero dentro del círculo universitario todo es muy fácil.", author: "Rafael, Erasmus 2023", flag: "🇧🇷" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.5,
@@ -12654,9 +10235,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.5, desc: "La Città Alta se recorre bien a pie, aunque con cuestas notables." },
           { label: "Conexiones internacionales", score: 8.5, desc: "El aeropuerto de Bérgamo es uno de los mayores hubs low-cost de Italia." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Milán a menos de una hora, y los lagos de Como e Iseo, ambos muy cerca." },
-        ],
-        reviews: [
-          { text: "El aeropuerto de Bérgamo con vuelos tan baratos hizo que viajar por toda Europa fuera muy fácil y barato.", author: "Ingrid, Erasmus 2024", flag: "🇳🇴" },
         ],
       },
       {
@@ -12670,9 +10248,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "La Città Alta mantiene un ambiente medieval genuino, menos masificado que otras ciudades italianas." },
           { label: "Estilo de vida", score: 8.5, desc: "Vivir entre dos ciudades superpuestas, con Milán y los lagos a un paso, es un equilibrio único." },
         ],
-        reviews: [
-          { text: "Tener la Città Alta medieval y Milán a la vez, sin vivir en el caos de esta última, es un combo que no esperaba encontrar.", author: "Rosa, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.8,
@@ -12684,9 +10259,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Numerosas pequeñas y medianas empresas industriales en toda la provincia." },
           { label: "Oportunidades para estudiantes", score: 7.0, desc: "La cercanía a Milán multiplica las oportunidades de prácticas en la capital económica de Italia." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una empresa en Milán viviendo en Bérgamo. Es una combinación que funciona muy bien y ahorra mucho dinero.", author: "Guillermo, Internship 2024", flag: "🇲🇽" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.3,
@@ -12696,9 +10268,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Criminalidad muy baja, entre las más reducidas de las ciudades del norte de Italia." },
           { label: "Seguridad nocturna", score: 8.0, desc: "La Città Alta y la Città Bassa son seguras incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, pintoresca y con fuerte identidad local." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad en todo el año que viví allí.", author: "Santiago, Erasmus 2023", flag: "🇦🇷" },
         ],
       },
     ],
@@ -12718,9 +10287,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.5, desc: "La ciudad es completamente llana; la bici hace casi innecesario el transporte público." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Salir de bares es notablemente más barato que en Bolonia." },
         ],
-        reviews: [
-          { text: "Comparado con lo que gastaban mis amigos en Bolonia, aquí vivía con mucha más holgura.", author: "Filipa, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.3,
@@ -12731,9 +10297,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.5, desc: "300–400€ de media, de los alquileres más bajos de la Emilia-Romaña." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "La Università di Ferrara ofrece listados básicos de alojamiento para exchange students." },
           { label: "Residencias universitarias", score: 7.0, desc: "Buena oferta de residencias a precios muy bajos." },
-        ],
-        reviews: [
-          { text: "Encontré piso en pocos días, con un precio mucho más bajo del que esperaba para una ciudad tan bonita.", author: "Kacper, Erasmus 2023", flag: "🇵🇱" },
         ],
       },
       {
@@ -12746,9 +10309,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.0, desc: "El centro storico concentra bares con ambiente estudiantil tranquilo." },
           { label: "Eventos y actividades", score: 8.0, desc: "El Ferrara Buskers Festival, dedicado a músicos callejeros, es uno de los mayores de Europa." },
         ],
-        reviews: [
-          { text: "Moverte en bici por toda la ciudad con amigos se convierte en la forma número uno de hacer vida social aquí.", author: "Jonas, Erasmus 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
@@ -12760,9 +10320,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.0, desc: "El tamaño manejable de la ciudad facilita coincidir de forma habitual con la misma gente." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "El ambiente tranquilo y ciclista facilita hacer amigos de forma orgánica." },
         ],
-        reviews: [
-          { text: "Al ser una ciudad pequeña y tranquila, en pocas semanas ya me conocía con medio grupo de mi facultad.", author: "Lena, Erasmus 2023", flag: "🇦🇹" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.0,
@@ -12773,9 +10330,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable/ciclable", score: 9.5, desc: "Completamente llana y con excelente infraestructura ciclista, de las mejores de Italia." },
           { label: "Conexiones internacionales", score: 5.5, desc: "Sin aeropuerto propio; Bolonia, con más vuelos, a menos de una hora." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Bolonia y Venecia, ambas a menos de una hora en tren." },
-        ],
-        reviews: [
-          { text: "Nunca había vivido en una ciudad tan pensada para la bici. Se recorre entera sin cansarte nada.", author: "Sara, Erasmus 2024", flag: "🇬🇷" },
         ],
       },
       {
@@ -12789,9 +10343,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Menos masificada turísticamente que otras ciudades del Véneto o la Toscana, con identidad propia." },
           { label: "Estilo de vida", score: 9.0, desc: "Vivir en la primera 'ciudad ideal' renacentista de Europa, recorriéndola en bici, es único." },
         ],
-        reviews: [
-          { text: "Ferrara es de esas ciudades que no están en el radar de nadie, y precisamente por eso conserva un encanto renacentista intacto.", author: "Valeria, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 5.5,
@@ -12803,9 +10354,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 5.5, desc: "Sin grandes sedes corporativas; economía regional ligada a la agricultura de la llanura padana." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "Bolonia, a menos de una hora, multiplica las oportunidades de prácticas disponibles." },
         ],
-        reviews: [
-          { text: "No es una ciudad para hacer prácticas muy ambiciosas, pero para estudiar tranquilo con Bolonia cerca, es ideal.", author: "Katarzyna, Erasmus 2024", flag: "🇵🇱" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.5,
@@ -12815,9 +10363,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja, entre las más reducidas de las ciudades universitarias italianas." },
           { label: "Seguridad nocturna", score: 8.5, desc: "El centro histórico es seguro incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, tranquila y con fuerte identidad renacentista." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad, ni siquiera volviendo sola de madrugada en bici.", author: "Beatriz, Erasmus 2023", flag: "🇵🇹" },
         ],
       },
     ],
@@ -12837,9 +10382,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.0, desc: "No hay coches en el centro histórico; todo se recorre a pie." },
           { label: "Ocio y gastos diarios", score: 8.5, desc: "Salir de bares en un pueblo de este tamaño es de lo más barato de esta guía." },
         ],
-        reviews: [
-          { text: "Con el presupuesto que llevaba pensado para un mes, aquí me duraba fácilmente seis semanas.", author: "Nuno, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.5,
@@ -12850,9 +10392,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 8.0, desc: "250–350€ de media, de los más bajos de toda esta guía." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "La Università di Urbino Carlo Bo gestiona buena parte del alojamiento estudiantil." },
           { label: "Residencias universitarias", score: 7.5, desc: "Buena oferta de residencias, con precios muy bajos para el estándar italiano." },
-        ],
-        reviews: [
-          { text: "Encontrar piso aquí fue lo más sencillo de todo mi Erasmus, con precios ridículamente bajos.", author: "Konstantina, Erasmus 2023", flag: "🇬🇷" },
         ],
       },
       {
@@ -12865,9 +10404,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.0, desc: "Las pocas calles del centro concentran toda la vida nocturna, muy intensa para su tamaño." },
           { label: "Eventos y actividades", score: 7.5, desc: "La Festa del Duca, con desfile renacentista, revive la historia de la ciudad cada agosto." },
         ],
-        reviews: [
-          { text: "Al ser un pueblo tan pequeño, te acabas encontrando con todo el mundo cada noche en las mismas dos o tres calles. Se crea una comunidad muy fuerte.", author: "Mihail, Erasmus 2024", flag: "🇧🇬" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.8,
@@ -12879,9 +10415,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.0, desc: "El tamaño del pueblo hace inevitable, y fácil, coincidir con la misma gente constantemente." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "Con tan pocos lugares de encuentro, hacer amigos es prácticamente automático." },
         ],
-        reviews: [
-          { text: "En un pueblo tan pequeño, en dos semanas ya conocía a la mitad de los estudiantes internacionales.", author: "Amara, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 5.0,
@@ -12892,9 +10425,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.0, desc: "El centro histórico, aunque con muchas cuestas, se recorre entero a pie en minutos." },
           { label: "Conexiones internacionales", score: 3.5, desc: "Sin tren ni aeropuerto propio; hay que coger bus hasta Pesaro o Rímini para conectar." },
           { label: "Escapadas de fin de semana", score: 6.0, desc: "La costa adriática (Pesaro, Rímini) y San Marino, a menos de una hora en bus." },
-        ],
-        reviews: [
-          { text: "La falta de tren es lo único que le pondría a Urbino. Hay que organizarse bien para moverte fuera del pueblo.", author: "Rui, Erasmus 2024", flag: "🇧🇷" },
         ],
       },
       {
@@ -12908,9 +10438,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.5, desc: "Un pueblo renacentista genuino, prácticamente sin cambios desde el siglo XV." },
           { label: "Estilo de vida", score: 9.5, desc: "Vivir dentro de una ciudad-museo Patrimonio de la Humanidad, siendo estudiante, es una experiencia irrepetible." },
         ],
-        reviews: [
-          { text: "Es como vivir dentro de un museo renacentista, pero con vida universitaria de verdad. No hay nada parecido en Italia.", author: "Santiago, Erasmus 2023", flag: "🇦🇷" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 4.5,
@@ -12922,9 +10449,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 4.0, desc: "Sin empresas relevantes fuera del sector educativo y turístico local." },
           { label: "Oportunidades para estudiantes", score: 5.5, desc: "Las prácticas suelen requerir desplazarse a Pesaro, Rímini o ciudades más grandes." },
         ],
-        reviews: [
-          { text: "No es una ciudad para hacer prácticas, pero para vivir la experiencia Erasmus más íntima e histórica de Italia, es insuperable.", author: "Malena, Erasmus 2024", flag: "🇦🇷" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 9.0,
@@ -12934,9 +10458,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.5, desc: "Criminalidad prácticamente inexistente, típica de un pueblo pequeño." },
           { label: "Seguridad nocturna", score: 9.0, desc: "Las calles del centro son completamente seguras a cualquier hora." },
           { label: "Ambiente de la ciudad", score: 9.5, desc: "Pueblo tranquilo, ordenado y con fuerte sentido de comunidad." },
-        ],
-        reviews: [
-          { text: "Es probablemente el lugar más seguro en el que he vivido nunca, a cualquier hora del día o de la noche.", author: "Marion, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
     ],
@@ -12956,9 +10477,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "El centro histórico se recorre a pie; el bus urbano cubre el resto a precio bajo." },
           { label: "Ocio y gastos diarios", score: 8.5, desc: "Salir de bares y restaurantes cuesta una fracción de lo que costaría en el norte de Italia." },
         ],
-        reviews: [
-          { text: "Con lo que gastaba en una semana en mi ciudad, aquí me duraba fácilmente el mes, y con playa incluida.", author: "Vasco, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.5,
@@ -12969,9 +10487,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 8.0, desc: "250–350€ de media, de los alquileres más bajos de Italia." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "La Università del Salento ofrece listados básicos de alojamiento para exchange students." },
           { label: "Residencias universitarias", score: 6.5, desc: "Oferta limitada de residencias frente al número de estudiantes de la ciudad." },
-        ],
-        reviews: [
-          { text: "Encontré piso en el centro barroco a un precio que en el norte de Italia sería impensable.", author: "Théo, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
       {
@@ -12984,9 +10499,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.0, desc: "El centro histórico barroco concentra bares con ambiente hasta tarde en verano." },
           { label: "Eventos y actividades", score: 8.0, desc: "La Notte della Taranta, festival de música tradicional, es uno de los eventos del verano en el Salento." },
         ],
-        reviews: [
-          { text: "El ambiente en verano, entre el barroco de la ciudad y las playas del Salento, es de las mejores combinaciones de toda Italia.", author: "Giulia, Erasmus 2024", flag: "🇮🇹" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.5,
@@ -12998,9 +10510,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.0, desc: "Fácil hacer amigos locales gracias al carácter extrovertido del Salento." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "El tamaño de la comunidad Erasmus y el carácter local hacen la integración relativamente rápida." },
         ],
-        reviews: [
-          { text: "La calidez de la gente del Salento es de las cosas que más me sorprendieron. Te hacen sentir en casa desde el primer día.", author: "Malena, Erasmus 2023", flag: "🇦🇷" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 5.5,
@@ -13011,9 +10520,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.0, desc: "El centro histórico barroco se recorre bien a pie." },
           { label: "Conexiones internacionales", score: 5.5, desc: "Aeropuertos de Bari y Brindisi, ambos a menos de una hora, con oferta low-cost." },
           { label: "Escapadas de fin de semana", score: 7.5, desc: "Las playas del Salento, de las más bonitas de Italia, a menos de 30 minutos." },
-        ],
-        reviews: [
-          { text: "Compartir coche o moto con otros Erasmus para llegar a las playas se convirtió en rutina, y mereció totalmente la pena.", author: "Erik, Erasmus 2024", flag: "🇸🇪" },
         ],
       },
       {
@@ -13027,9 +10533,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "El Salento mantiene una identidad muy propia, con menos masificación que otras zonas de Italia." },
           { label: "Estilo de vida", score: 9.0, desc: "La combinación de barroco espectacular y playas de postal a 20 minutos es única en Italia." },
         ],
-        reviews: [
-          { text: "Estudiar rodeada de barroco dorado y tener playas de aguas turquesas a 20 minutos es un lujo que no esperaba encontrar en Italia.", author: "Bianca, Erasmus 2023", flag: "🇧🇷" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 4.8,
@@ -13041,9 +10544,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 4.5, desc: "Sector turístico con más peso que la industria o la tecnología." },
           { label: "Oportunidades para estudiantes", score: 5.5, desc: "El turismo creciente del Salento ofrece trabajos a tiempo parcial en verano." },
         ],
-        reviews: [
-          { text: "No es una ciudad para hacer prácticas muy ambiciosas, pero para vivir la experiencia Erasmus más bonita y barata de Italia, es insuperable.", author: "Katarzyna, Erasmus 2024", flag: "🇵🇱" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 7.5,
@@ -13053,9 +10553,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.5, desc: "Criminalidad moderada-baja para el estándar del sur de Italia." },
           { label: "Seguridad nocturna", score: 7.0, desc: "El centro histórico barroco es seguro incluso de madrugada en verano." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad ordenada y con mucha vida en la calle en temporada alta." },
-        ],
-        reviews: [
-          { text: "Con las precauciones normales de cualquier ciudad del sur de Europa, nunca tuve problemas serios.", author: "Léon, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
     ],
@@ -13075,9 +10572,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "El metro y bus de AMT cubren la ciudad con tarifa estudiante muy económica." },
           { label: "Ocio y gastos diarios", score: 8.5, desc: "Salir de bares en Via Plebiscito es de las opciones más baratas de toda Italia." },
         ],
-        reviews: [
-          { text: "Con lo que gastaba en una semana en mi ciudad, aquí me duraba fácilmente el mes.", author: "Iker, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.5,
@@ -13088,9 +10582,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 8.0, desc: "250–350€ de media, de los alquileres más bajos de Italia." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "La Università di Catania ofrece listados básicos; conviene visitar el piso antes de comprometerse." },
           { label: "Residencias universitarias", score: 6.0, desc: "Plazas limitadas frente al enorme número de estudiantes de la ciudad." },
-        ],
-        reviews: [
-          { text: "Elegir Ognina en vez del centro más ruidoso marcó la diferencia en tranquilidad para estudiar.", author: "Léa, Erasmus 2023", flag: "🇧🇪" },
         ],
       },
       {
@@ -13103,9 +10594,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "Via Plebiscito y Via Landolina concentran una vida nocturna intensa y muy asequible." },
           { label: "Eventos y actividades", score: 8.0, desc: "La Festa di Sant'Agata en febrero es una de las fiestas religiosas más multitudinarias de Italia." },
         ],
-        reviews: [
-          { text: "La vida nocturna de Catania no tiene nada que envidiar a ciudades mucho más grandes. Via Plebiscito nunca duerme.", author: "Max, Exchange 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.8,
@@ -13117,9 +10605,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.0, desc: "Fácil hacer amigos locales gracias al carácter extrovertido siciliano." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "El tamaño de la comunidad Erasmus y el carácter local hacen la integración relativamente rápida." },
         ],
-        reviews: [
-          { text: "Los primeros días el caos me abrumó un poco, pero la calidez de la gente compensó cualquier choque cultural.", author: "Alicia, Erasmus 2023", flag: "🇲🇽" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 5.8,
@@ -13130,9 +10615,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 6.5, desc: "El centro histórico se recorre bien a pie, aunque el tráfico es intenso en las horas punta." },
           { label: "Conexiones internacionales", score: 7.0, desc: "Aeropuerto de Catania-Fontanarossa, el más grande de Sicilia, con buena oferta de vuelos." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "El Etna, Taormina y Siracusa, todas a menos de una hora." },
-        ],
-        reviews: [
-          { text: "El transporte urbano es un poco lento, pero un fin de semana en Taormina o subiendo al Etna compensa cualquier queja.", author: "Ingrid, Erasmus 2024", flag: "🇳🇴" },
         ],
       },
       {
@@ -13146,9 +10628,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.0, desc: "Sicilia auténtica, con menos masificación turística que Palermo o Taormina." },
           { label: "Estilo de vida", score: 9.0, desc: "Vivir bajo un volcán activo, con playas y una vida callejera constante, es una experiencia única." },
         ],
-        reviews: [
-          { text: "Ver el Etna activo desde la ventana de mi habitación era algo que nunca dejó de sorprenderme durante todo el año.", author: "Laura, Erasmus 2023", flag: "🇪🇸" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 4.8,
@@ -13160,9 +10639,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 5.0, desc: "Presencia de STMicroelectronics, que ha dado a Catania el apodo de 'Etna Valley'." },
           { label: "Oportunidades para estudiantes", score: 5.5, desc: "El sector tecnológico ligado a STMicroelectronics ofrece prácticas específicas en ingeniería." },
         ],
-        reviews: [
-          { text: "Hice prácticas relacionadas con semiconductores gracias a STMicroelectronics. El apodo de 'Etna Valley' tiene fundamento real.", author: "Nico, Internship 2024", flag: "🇦🇷" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 6.3,
@@ -13172,9 +10648,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.0, desc: "Criminalidad menor (carteristas, hurtos) más frecuente que en el norte de Italia." },
           { label: "Seguridad nocturna", score: 5.5, desc: "Conviene evitar calles poco transitadas de madrugada y prestar atención a pertenencias en el centro." },
           { label: "Ambiente de la ciudad", score: 7.0, desc: "Ciudad caótica y ruidosa, pero con mucha vida en la calle que aporta cierta sensación de seguridad social." },
-        ],
-        reviews: [
-          { text: "Con las precauciones normales de cualquier gran ciudad del sur de Italia, nunca tuve problemas serios.", author: "Léon, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
     ],
@@ -13194,9 +10667,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "CTM cubre bus y el metro ligero (metrotranvía) a precio razonable." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Salir de bares en el Poetto o Marina es más barato que en otras capitales costeras europeas." },
         ],
-        reviews: [
-          { text: "Vivir con playa urbana a este precio no lo encuentras en ninguna otra capital de Europa.", author: "Andrés, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.8,
@@ -13207,9 +10677,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.0, desc: "300–420€ de media, razonable para una capital regional con costa." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "La Università di Cagliari ofrece listados básicos de alojamiento para exchange students." },
           { label: "Residencias universitarias", score: 6.5, desc: "Oferta moderada de residencias, con precios asequibles." },
-        ],
-        reviews: [
-          { text: "Elegir Castello por las vistas o Poetto por la playa fue mi mayor dilema al buscar piso, y no me arrepiento de ninguna opción.", author: "Marek, Erasmus 2023", flag: "🇸🇰" },
         ],
       },
       {
@@ -13222,9 +10689,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "El Poetto en verano y Marina el resto del año concentran la vida nocturna." },
           { label: "Eventos y actividades", score: 7.5, desc: "Sant'Efisio en mayo, una de las procesiones más multitudinarias de Cerdeña." },
         ],
-        reviews: [
-          { text: "La vida social aquí gira mucho en torno al Poetto en verano — es casi como vivir de vacaciones permanentes.", author: "Sofia, Erasmus 2024", flag: "🇬🇷" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.8,
@@ -13236,9 +10700,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "El carácter insular hace que la integración lleve algo más de tiempo que en el continente." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "El ambiente relajado y playero facilita hacer amigos de forma orgánica." },
         ],
-        reviews: [
-          { text: "Cerdeña tiene una identidad propia muy fuerte, distinta al resto de Italia. Lleva algo de tiempo integrarse del todo, pero merece la pena.", author: "Hugo, Erasmus 2023", flag: "🇫🇷" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 5.5,
@@ -13249,9 +10710,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 6.5, desc: "Castello y Marina se recorren bien a pie, aunque con cuestas notables hacia el Castello." },
           { label: "Conexiones internacionales", score: 5.5, desc: "Aeropuerto de Cagliari-Elmas con buena oferta de vuelos a Italia continental." },
           { label: "Escapadas de fin de semana", score: 4.5, desc: "Al ser una isla, moverse a otras ciudades de Cerdeña requiere coche; el resto de Italia, avión o ferry." },
-        ],
-        reviews: [
-          { text: "Ten en cuenta que al ser una isla, salir de fin de semana a otra ciudad italiana implica avión o ferry, no un simple tren.", author: "Freya, Erasmus 2024", flag: "🇳🇴" },
         ],
       },
       {
@@ -13265,9 +10723,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Identidad sarda muy marcada, distinta a la del resto de Italia." },
           { label: "Estilo de vida", score: 9.5, desc: "Vivir en la única capital europea con una playa urbana de esta calidad es un privilegio único." },
         ],
-        reviews: [
-          { text: "Poder ir a una playa de arena blanca caminando desde el centro de una capital europea es algo que no tiene ninguna otra ciudad de esta guía.", author: "Rosa, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 5.3,
@@ -13279,9 +10734,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 5.0, desc: "Sector turístico y energético con más peso que la industria o la tecnología." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "El turismo creciente ofrece trabajos a tiempo parcial con facilidad en temporada alta." },
         ],
-        reviews: [
-          { text: "No es una ciudad para hacer prácticas muy ambiciosas, pero para vivir la experiencia Erasmus más playera de Italia, es insuperable.", author: "Viktor, Internship 2024", flag: "🇭🇷" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
@@ -13291,9 +10743,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.0, desc: "Criminalidad baja, típica de una capital regional de tamaño mediano." },
           { label: "Seguridad nocturna", score: 7.5, desc: "Marina y el Poetto son seguros de noche, con ambiente animado hasta tarde en verano." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, relajada y con fuerte sentido de comunidad." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad en todo el año que viví allí.", author: "Clémence, Erasmus 2023", flag: "🇧🇪" },
         ],
       },
     ],
@@ -13313,9 +10762,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 6.0, desc: "La bici cubre la mayoría de trayectos; el bus regional cubre el resto." },
           { label: "Ocio y gastos diarios", score: 5.0, desc: "Salir de bares tiene precios estándar neerlandeses, algo suavizados por la cercanía belga." },
         ],
-        reviews: [
-          { text: "No es de las ciudades neerlandesas más baratas, pero cruzar a Bélgica para comprar o salir ayuda a compensar el presupuesto.", author: "Elena, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 3.8,
@@ -13326,9 +10772,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 4.0, desc: "550–700€ de media, alto para el estándar europeo." },
           { label: "Facilidad de búsqueda", score: 4.0, desc: "Maastricht University ofrece ayuda con alojamiento, aunque las plazas son limitadas." },
           { label: "Residencias universitarias", score: 4.5, desc: "Existen plazas gestionadas por la universidad, aunque conviene solicitar con mucha antelación." },
-        ],
-        reviews: [
-          { text: "Me registré en el sistema de alojamiento de la universidad en cuanto tuve la admisión, meses antes de llegar.", author: "Bram, Erasmus 2023", flag: "🇧🇪" },
         ],
       },
       {
@@ -13341,9 +10784,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "El Vrijthof y el centro concentran bares con ambiente internacional constante." },
           { label: "Eventos y actividades", score: 8.0, desc: "El Vrijthof acoge conciertos y mercados navideños que reúnen a toda la comunidad estudiantil." },
         ],
-        reviews: [
-          { text: "Nunca había estado en una ciudad tan internacional. En mi clase había gente de más de 20 países distintos.", author: "Noa, Erasmus 2024", flag: "🇮🇱" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 9.3,
@@ -13355,9 +10795,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 8.0, desc: "La identidad fronteriza de la ciudad, entre Bélgica, Alemania y Holanda, la hace muy abierta." },
           { label: "Facilidad para hacer amigos", score: 9.5, desc: "Con tantísimos estudiantes internacionales, hacer amigos de todo el mundo es prácticamente automático." },
         ],
-        reviews: [
-          { text: "Es la ciudad más fácil para integrarte que he vivido. Todo, absolutamente todo, está pensado para el estudiante internacional.", author: "Diego, Erasmus 2023", flag: "🇦🇷" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.5,
@@ -13368,9 +10805,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable/ciclable", score: 9.0, desc: "Ciudad compacta y muy ciclable, con la bici como medio de transporte por defecto." },
           { label: "Conexiones internacionales", score: 8.0, desc: "Aeropuertos de Bruselas, Colonia-Bonn y Düsseldorf, todos a menos de dos horas." },
           { label: "Escapadas de fin de semana", score: 9.5, desc: "Bruselas, Lieja y Aquisgrán, todas a menos de una hora en tren o bus." },
-        ],
-        reviews: [
-          { text: "Cruzar a Bélgica en bici para tomar algo un martes cualquiera se convirtió en una de mis costumbres favoritas.", author: "Camille, Erasmus 2024", flag: "🇫🇷" },
         ],
       },
       {
@@ -13384,9 +10818,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Identidad fronteriza única, con más influencia belga y alemana que el resto de Holanda." },
           { label: "Estilo de vida", score: 9.0, desc: "Vivir en la ciudad más internacional de los Países Bajos, entre tres culturas, es una experiencia irrepetible." },
         ],
-        reviews: [
-          { text: "Maastricht no se parece al resto de Holanda. Tiene un ambiente mucho más borgoñón, casi belga.", author: "Sofia, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 7.5,
@@ -13398,9 +10829,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "Fuerte presencia del sector salud (Maastricht UMC+) y de instituciones ligadas a la UE." },
           { label: "Oportunidades para estudiantes", score: 8.0, desc: "El método PBL, muy valorado por empresas internacionales, facilita conseguir prácticas de calidad." },
         ],
-        reviews: [
-          { text: "Hice prácticas relacionadas con instituciones europeas. La reputación del método PBL de Maastricht abre muchas puertas.", author: "Otto, Internship 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.7,
@@ -13410,9 +10838,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja, típica de una ciudad neerlandesa de tamaño mediano." },
           { label: "Seguridad nocturna", score: 8.5, desc: "El Vrijthof y el centro son seguros incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, elegante y con fuerte ambiente internacional." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad en todo el año que viví allí.", author: "Beatriz, Erasmus 2023", flag: "🇵🇹" },
         ],
       },
     ],
@@ -13432,9 +10857,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Abono TAG joven con buen descuento estudiantil para tranvía y bus." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Salir de bares tiene precios moderados, con el forfait de esquí como gasto extra habitual." },
         ],
-        reviews: [
-          { text: "Con lo que gastaba en una ciudad tecnológica y de montaña, el presupuesto me cundió mejor de lo esperado.", author: "Marta, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.0,
@@ -13445,9 +10867,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.0, desc: "420–520€ de media, razonable para una ciudad tecnológica de este nivel." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "El CROUS gestiona residencias con demanda alta; conviene solicitar cuanto antes." },
           { label: "Residencias universitarias", score: 6.0, desc: "Buena oferta de residencias CROUS gracias al tamaño de la población estudiantil." },
-        ],
-        reviews: [
-          { text: "Encontrar colocation llevó algo de tiempo, pero los precios eran razonables comparados con otras ciudades tecnológicas francesas.", author: "Jonas, Erasmus 2023", flag: "🇩🇪" },
         ],
       },
       {
@@ -13460,9 +10879,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.0, desc: "El hyper-centre concentra bares con ambiente estudiantil animado." },
           { label: "Eventos y actividades", score: 8.0, desc: "Esquiar los fines de semana de invierno es una costumbre habitual entre estudiantes." },
         ],
-        reviews: [
-          { text: "El grupo de Erasmus se organizaba constantemente para ir a esquiar. Es un estilo de vida muy activo y distinto a cualquier otra ciudad francesa.", author: "Julien, Erasmus 2024", flag: "🇫🇷" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
@@ -13474,9 +10890,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "El ambiente de montaña y deporte facilita mucho el contacto con locales." },
           { label: "Facilidad para hacer amigos", score: 8.5, desc: "Las actividades de montaña compartidas hacen muy fácil hacer amigos rápido." },
         ],
-        reviews: [
-          { text: "Con un francés básico me apañé de sobra. El sector tecnológico internacional hace que el inglés esté muy extendido.", author: "Amelia, Erasmus 2023", flag: "🇬🇧" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.0,
@@ -13487,9 +10900,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable/ciclable", score: 8.0, desc: "Centro compacto y muy ciclable, con carriles bici en constante expansión." },
           { label: "Conexiones internacionales", score: 7.0, desc: "Aeropuerto de Grenoble-Alpes-Isère con vuelos estacionales; Lyon, con más oferta, a menos de una hora." },
           { label: "Escapadas de fin de semana", score: 9.5, desc: "Estaciones de esquí de los Alpes, algunas a menos de 30 minutos del centro." },
-        ],
-        reviews: [
-          { text: "Poder esquiar por la mañana y estar de vuelta en clase por la tarde no es una exageración aquí. Es real.", author: "Kacper, Erasmus 2024", flag: "🇵🇱" },
         ],
       },
       {
@@ -13503,9 +10913,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "Combina tradición alpina con una identidad tecnológica muy moderna." },
           { label: "Estilo de vida", score: 9.5, desc: "Pocas ciudades universitarias del mundo ofrecen esquiar y estudiar tecnología de primer nivel en el mismo lugar." },
         ],
-        reviews: [
-          { text: "Tener montañas por todos lados, con teleférico incluido para subir a un fuerte con vistas, cambió por completo mi forma de entender la vida universitaria.", author: "Nora, Erasmus 2023", flag: "🇳🇴" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 8.0,
@@ -13517,9 +10924,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 8.0, desc: "Sede de STMicroelectronics, el CEA-Leti y numerosas startups deep-tech." },
           { label: "Oportunidades para estudiantes", score: 7.5, desc: "Las prácticas en el sector tecnológico y de semiconductores son de las más valoradas de Francia." },
         ],
-        reviews: [
-          { text: "Hice prácticas relacionadas con semiconductores en el ecosistema tecnológico local. Para ingeniería, Grenoble es un polo de primer nivel en Europa.", author: "Priya, Internship 2024", flag: "🇮🇳" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 7.8,
@@ -13529,9 +10933,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.5, desc: "Criminalidad moderada-baja para el estándar de una ciudad francesa de este tamaño." },
           { label: "Seguridad nocturna", score: 7.5, desc: "El hyper-centre es seguro de noche, con ambiente animado hasta tarde." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad ordenada y dinámica, con buena sensación de seguridad general." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad en todo el año.", author: "Théo, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
     ],
@@ -13551,9 +10952,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Abono ATV con descuento estudiantil para bus urbano." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Salir de bares en la zona de Veronetta es más barato que en el centro turístico." },
         ],
-        reviews: [
-          { text: "Comparado con lo que gastaban mis amigos en Venecia, aquí vivía con bastante más holgura.", author: "Giulia, Erasmus 2024", flag: "🇮🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.0,
@@ -13564,9 +10962,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.0, desc: "400–500€ de media, razonable para el Véneto." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "La Università di Verona ofrece listados básicos de alojamiento para exchange students." },
           { label: "Residencias universitarias", score: 6.0, desc: "Buena oferta de residencias (ESU), aunque conviene solicitar con antelación." },
-        ],
-        reviews: [
-          { text: "Elegir Veronetta en vez del centro histórico turístico marcó la diferencia en precio y ambiente estudiantil.", author: "Tomás, Erasmus 2023", flag: "🇵🇹" },
         ],
       },
       {
@@ -13579,9 +10974,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.0, desc: "Veronetta concentra bares con ambiente estudiantil animado toda la semana." },
           { label: "Eventos y actividades", score: 8.5, desc: "La ópera de verano en la Arena di Verona es un evento cultural de primer nivel mundial." },
         ],
-        reviews: [
-          { text: "Ver ópera en directo en un anfiteatro romano de 2000 años de antigüedad es de esas experiencias que no se olvidan.", author: "Sofia, Erasmus 2024", flag: "🇬🇷" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
@@ -13593,9 +10985,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.0, desc: "Veronetta, lejos del circuito turístico, ofrece un contacto más genuino con locales." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "La comunidad Erasmus, activa y consolidada, facilita mucho hacer amigos rápido." },
         ],
-        reviews: [
-          { text: "En el centro turístico todos te tratan un poco como visitante, pero en Veronetta, entre estudiantes, todo cambia.", author: "Rui, Erasmus 2023", flag: "🇧🇷" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.3,
@@ -13606,9 +10995,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable/ciclable", score: 8.0, desc: "Centro histórico compacto y muy ciclable, con el Adigio como referencia." },
           { label: "Conexiones internacionales", score: 7.5, desc: "Aeropuerto de Verona-Villafranca con buena oferta de vuelos europeos." },
           { label: "Escapadas de fin de semana", score: 9.5, desc: "Venecia a 20 minutos en tren, y el lago di Garda a menos de 30 minutos." },
-        ],
-        reviews: [
-          { text: "Ir a Venecia un martes cualquiera por 20 minutos de tren, sin pagar sus precios de alojamiento, es un lujo total.", author: "Julien, Erasmus 2024", flag: "🇫🇷" },
         ],
       },
       {
@@ -13622,9 +11008,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 7.5, desc: "El centro histórico, muy turístico, contrasta con la Verona más local de Veronetta." },
           { label: "Estilo de vida", score: 9.0, desc: "Vivir en la ciudad de Romeo y Julieta, con ópera romana y Venecia a un paso, es único." },
         ],
-        reviews: [
-          { text: "Entre la Arena, el balcón de Julieta y el lago di Garda cerca, Verona tiene una identidad romántica que no se repite en ningún otro sitio.", author: "Laura, Erasmus 2023", flag: "🇪🇸" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.8,
@@ -13636,9 +11019,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Fuerte peso del turismo, la logística y las bodegas de vino de la región del Amarone." },
           { label: "Oportunidades para estudiantes", score: 7.0, desc: "El sector turístico y vinícola ofrece prácticas y trabajos a tiempo parcial con facilidad." },
         ],
-        reviews: [
-          { text: "Hice prácticas relacionadas con turismo cultural. El peso del sector en Verona es enorme para el tamaño de la ciudad.", author: "Erik, Internship 2024", flag: "🇸🇪" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.3,
@@ -13648,9 +11028,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Criminalidad muy baja, entre las más reducidas de las ciudades italianas." },
           { label: "Seguridad nocturna", score: 8.0, desc: "Veronetta y el centro son seguros incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, elegante y con fuerte identidad cultural." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad en todo el año que viví allí.", author: "Marion, Erasmus 2023", flag: "🇫🇷" },
         ],
       },
     ],
@@ -13670,9 +11047,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 6.5, desc: "Abono Västtrafik con buen descuento estudiantil para tranvía y bus." },
           { label: "Ocio y gastos diarios", score: 4.5, desc: "Salir de bares tiene precios altos, típicos del estándar sueco." },
         ],
-        reviews: [
-          { text: "Es cara para el estándar español, pero mucho más llevadera que lo que me contaban mis amigos en Estocolmo.", author: "Andrés, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 3.8,
@@ -13683,9 +11057,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 4.0, desc: "500–650€ de media, moderado para el estándar sueco." },
           { label: "Facilidad de búsqueda", score: 3.8, desc: "Conviene registrarse en la cola de vivienda en cuanto se confirma la admisión." },
           { label: "Residencias universitarias", score: 4.5, desc: "Buena oferta de residencias, aunque conviene solicitar con mucha antelación." },
-        ],
-        reviews: [
-          { text: "Me apunté a la cola de vivienda meses antes de llegar, y aun así fue ajustado, aunque menos que en Estocolmo.", author: "Emma, Erasmus 2023", flag: "🇩🇰" },
         ],
       },
       {
@@ -13698,9 +11069,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "Linné y Haga concentran bares con ambiente estudiantil animado." },
           { label: "Eventos y actividades", score: 8.5, desc: "El Göteborg Film Festival en enero es el mayor festival de cine de Escandinavia." },
         ],
-        reviews: [
-          { text: "El Göteborg Film Festival en pleno invierno es un evento que le da vida a la ciudad justo cuando más se necesita.", author: "Iris, Erasmus 2024", flag: "🇳🇱" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8,
@@ -13712,9 +11080,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "Requiere algo de esfuerzo, aunque el ambiente universitario facilita el contacto." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "La comunidad internacional de Chalmers facilita mucho hacer amigos de todo el mundo." },
         ],
-        reviews: [
-          { text: "Con los suecos cuesta un poco romper el hielo al principio, pero dentro del ambiente universitario todo fluye con naturalidad.", author: "Thiago, Erasmus 2023", flag: "🇵🇹" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.5,
@@ -13725,9 +11090,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable/ciclable", score: 8.0, desc: "Ciudad compacta y muy ciclable, con buena infraestructura." },
           { label: "Conexiones internacionales", score: 7.5, desc: "Aeropuerto de Gotemburgo-Landvetter con buena oferta de vuelos europeos." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "El archipiélago de Gotemburgo, con decenas de islas, a un ferry del centro." },
-        ],
-        reviews: [
-          { text: "Tener un archipiélago entero a un ferry de distancia del centro fue una de mis mayores sorpresas positivas.", author: "Hanna, Erasmus 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -13741,9 +11103,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "Menos turística que Estocolmo, con identidad costera y portuaria muy propia." },
           { label: "Estilo de vida", score: 8.5, desc: "Diseño escandinavo, canales y archipiélago hacen de Gotemburgo un destino muy completo." },
         ],
-        reviews: [
-          { text: "Gotemburgo tiene todo lo bueno de Suecia sin la masificación de Estocolmo. Es una combinación que no esperaba encontrar.", author: "Chiara, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 8.0,
@@ -13755,9 +11114,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 8.0, desc: "Sede de Volvo Cars, Volvo Group y presencia relevante de AstraZeneca." },
           { label: "Oportunidades para estudiantes", score: 7.5, desc: "El sistema sueco facilita compaginar estudios con trabajos a tiempo parcial." },
         ],
-        reviews: [
-          { text: "Hice prácticas en Volvo a través de Chalmers. Para ingeniería automotriz, difícilmente hay mejor sitio en Escandinavia.", author: "Aleksander, Internship 2024", flag: "🇵🇱" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
@@ -13767,9 +11123,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.0, desc: "Criminalidad baja, típica de una ciudad sueca de tamaño mediano." },
           { label: "Seguridad nocturna", score: 7.5, desc: "Linné y Haga son seguros de noche, con ambiente animado hasta tarde." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, limpia y con fuerte sensación de comunidad." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad en todo el año que viví allí.", author: "Julia, Erasmus 2023", flag: "🇨🇿" },
         ],
       },
     ],
@@ -13789,9 +11142,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 5.5, desc: "Merseyrail y el bus cubren bien la ciudad, con descuento estudiantil disponible." },
           { label: "Ocio y gastos diarios", score: 5.0, desc: "Una pinta en el centro ronda 4-5 libras, de las más baratas del Reino Unido." },
         ],
-        reviews: [
-          { text: "Es de las ciudades del Reino Unido donde mejor me cundió el presupuesto, incluso mejor que en Mánchester.", author: "Paula, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 4.8,
@@ -13802,9 +11152,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 5.0, desc: "480–620€ de media, entre los más bajos de las grandes ciudades universitarias del Reino Unido." },
           { label: "Facilidad de búsqueda", score: 4.5, desc: "Las universidades ofrecen alojamiento garantizado para exchange students que solicitan a tiempo." },
           { label: "Residencias universitarias", score: 5.0, desc: "Buena oferta de residencias, especialmente cerca del campus principal." },
-        ],
-        reviews: [
-          { text: "Comparado con lo que me contaban de Londres, encontrar piso en Liverpool fue relativamente sencillo y barato.", author: "Milan, Erasmus 2023", flag: "🇸🇮" },
         ],
       },
       {
@@ -13817,9 +11164,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "El Cavern Quarter y Baltic Triangle concentran música en directo y vida nocturna toda la semana." },
           { label: "Eventos y actividades", score: 9.0, desc: "Los partidos del Liverpool FC y el Everton marcan el calendario social de toda la ciudad." },
         ],
-        reviews: [
-          { text: "La identidad musical y futbolística de esta ciudad se respira en cada esquina. No hay ambiente comparable en el Reino Unido.", author: "Noor, Erasmus 2024", flag: "🇳🇱" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
@@ -13831,9 +11175,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 8.0, desc: "El ambiente de pub y fútbol facilita muchísimo el contacto con la comunidad local." },
           { label: "Facilidad para hacer amigos", score: 8.5, desc: "El carácter extrovertido de la ciudad hace muy fácil hacer amigos tanto locales como internacionales." },
         ],
-        reviews: [
-          { text: "Los scousers son de la gente más cálida y divertida que he conocido en todo mi Erasmus, sin excepción.", author: "Serena, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.0,
@@ -13844,9 +11185,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.0, desc: "El centro y el Albert Dock se recorren bien a pie." },
           { label: "Conexiones internacionales", score: 6.0, desc: "Aeropuerto de Liverpool John Lennon con oferta de vuelos europeos low-cost." },
           { label: "Escapadas de fin de semana", score: 7.5, desc: "Mánchester a menos de una hora, y el Distrito de los Lagos y Gales del Norte, a un paso." },
-        ],
-        reviews: [
-          { text: "Tener Mánchester tan cerca y un aeropuerto con vuelos baratos hizo que moverme por el Reino Unido fuera muy fácil.", author: "Anton, Erasmus 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -13860,9 +11198,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.0, desc: "Identidad obrera, musical y portuaria muy genuina, sin la masificación de Londres." },
           { label: "Estilo de vida", score: 8.5, desc: "Vivir donde nacieron los Beatles, con dos clubes de fútbol históricos, es una experiencia cultural única." },
         ],
-        reviews: [
-          { text: "Liverpool tiene una identidad cultural que no se parece a ninguna otra ciudad del Reino Unido. Se nota en la música, el fútbol y la gente.", author: "Youssef, Erasmus 2023", flag: "🇲🇦" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 7.0,
@@ -13874,9 +11209,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "Fuerte presencia del sector salud, logística portuaria y un ecosistema creativo en expansión." },
           { label: "Oportunidades para estudiantes", score: 7.5, desc: "Salarios británicos, incluso en prácticas, están entre los más altos de Europa." },
         ],
-        reviews: [
-          { text: "Hice prácticas en el sector creativo ligado a la música. El ecosistema cultural de Liverpool tiene mucho peso económico real.", author: "Adam, Internship 2024", flag: "🇵🇱" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 6.8,
@@ -13886,9 +11218,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.5, desc: "Criminalidad moderada, concentrada en zonas alejadas del circuito estudiantil habitual." },
           { label: "Seguridad nocturna", score: 6.5, desc: "El centro y el Baltic Triangle son seguros de noche, con ambiente animado hasta tarde." },
           { label: "Ambiente de la ciudad", score: 7.5, desc: "Ciudad con mucha vida en la calle y fuerte sensación de comunidad, pese a algunos contrastes." },
-        ],
-        reviews: [
-          { text: "Con las precauciones normales de cualquier gran ciudad, nunca tuve problemas serios de seguridad.", author: "Duarte, Erasmus 2023", flag: "🇵🇹" },
         ],
       },
     ],
@@ -13908,9 +11237,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 5.0, desc: "El bus cubre bien la ciudad, con descuento estudiantil disponible." },
           { label: "Ocio y gastos diarios", score: 4.5, desc: "Una pinta en el centro ronda 4,50-5,50 libras, en línea con el norte de Inglaterra." },
         ],
-        reviews: [
-          { text: "Es de las ciudades del Reino Unido donde mejor me cundió el presupuesto para el nivel de vida estudiantil que ofrece.", author: "Andrés, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 4.3,
@@ -13921,9 +11247,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 4.5, desc: "500–650€ de media, entre los más bajos de las grandes ciudades universitarias británicas." },
           { label: "Facilidad de búsqueda", score: 4.0, desc: "Las universidades ofrecen alojamiento garantizado para exchange students que solicitan a tiempo." },
           { label: "Residencias universitarias", score: 4.5, desc: "Buena oferta de residencias, especialmente en Hyde Park y alrededores." },
-        ],
-        reviews: [
-          { text: "Reservé residencia universitaria en cuanto tuve la admisión, y el proceso fue mucho más sencillo de lo que esperaba.", author: "Bastian, Erasmus 2023", flag: "🇩🇪" },
         ],
       },
       {
@@ -13936,9 +11259,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "El Otley Run y el centro comercial concentran una vida nocturna intensa toda la semana." },
           { label: "Eventos y actividades", score: 8.5, desc: "El Leeds Festival, uno de los grandes festivales de música del Reino Unido, cada agosto." },
         ],
-        reviews: [
-          { text: "Hacer el Otley Run al menos una vez es casi obligatorio si estudias en Leeds. Es una tradición muy divertida.", author: "Noor, Erasmus 2024", flag: "🇳🇱" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
@@ -13950,9 +11270,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "El ambiente de pub y el enorme tamaño de la comunidad estudiantil facilitan mucho el contacto." },
           { label: "Facilidad para hacer amigos", score: 8.5, desc: "Con tantísimos estudiantes en la ciudad, hacer amigos es prácticamente automático." },
         ],
-        reviews: [
-          { text: "Con tantísimos estudiantes en la ciudad, integrarse fue de lo más fácil y natural de todo mi Erasmus.", author: "Chiara, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.0,
@@ -13963,9 +11280,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.5, desc: "El centro y Headingley se recorren bien a pie." },
           { label: "Conexiones internacionales", score: 6.5, desc: "Aeropuerto de Leeds Bradford con buena oferta de vuelos europeos." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Los Yorkshire Dales, York y Mánchester, todos a menos de una hora." },
-        ],
-        reviews: [
-          { text: "Tener los Yorkshire Dales tan cerca para hacer senderismo de fin de semana fue una de mis mejores sorpresas.", author: "Léa, Erasmus 2024", flag: "🇧🇪" },
         ],
       },
       {
@@ -13979,9 +11293,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "Identidad de Yorkshire muy marcada, con menos turismo que otras ciudades británicas." },
           { label: "Estilo de vida", score: 8.5, desc: "La mayor población estudiantil fuera de Londres crea un ambiente universitario incomparable." },
         ],
-        reviews: [
-          { text: "Leeds tiene el ambiente estudiantil más intenso que he visto en el Reino Unido, con mucho menos coste que Londres.", author: "Ingrid, Erasmus 2023", flag: "🇳🇴" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 7.5,
@@ -13993,9 +11304,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.5, desc: "Sede regional de numerosos bancos, aseguradoras y despachos legales de primer nivel." },
           { label: "Oportunidades para estudiantes", score: 7.5, desc: "Salarios británicos, incluso en prácticas, están entre los más altos de Europa." },
         ],
-        reviews: [
-          { text: "Hice prácticas en un despacho legal del centro financiero de Leeds. El sector tiene mucho más peso del que se suele reconocer fuera del Reino Unido.", author: "Tomasz, Internship 2024", flag: "🇵🇱" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 7.0,
@@ -14005,9 +11313,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.0, desc: "Criminalidad moderada, típica de una ciudad británica de este tamaño." },
           { label: "Seguridad nocturna", score: 6.5, desc: "El centro y Headingley son seguros de noche, con ambiente animado hasta tarde." },
           { label: "Ambiente de la ciudad", score: 7.5, desc: "Ciudad dinámica y con mucha vida estudiantil en cualquier horario." },
-        ],
-        reviews: [
-          { text: "Con las precauciones normales de cualquier gran ciudad, nunca tuve problemas serios de seguridad.", author: "Nuno, Erasmus 2023", flag: "🇵🇹" },
         ],
       },
     ],
@@ -14027,9 +11332,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 6.0, desc: "El bus urbano de Föli cubre bien la ciudad, con descuento estudiantil." },
           { label: "Ocio y gastos diarios", score: 4.5, desc: "Salir de bares tiene precios altos, típicos del norte de Europa, aunque por debajo de Helsinki." },
         ],
-        reviews: [
-          { text: "Comparado con lo que gastaban mis amigos en Helsinki, aquí vivía con bastante más holgura.", author: "Marek, Erasmus 2024", flag: "🇸🇰" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 4.5,
@@ -14040,9 +11342,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 4.5, desc: "450–550€ de media, moderado para el estándar finlandés." },
           { label: "Facilidad de búsqueda", score: 4.5, desc: "Conviene registrarse en la cola de TYS en cuanto se confirma la plaza de intercambio." },
           { label: "Residencias universitarias", score: 5.0, desc: "Buena oferta de residencias TYS, con buena reputación entre estudiantes internacionales." },
-        ],
-        reviews: [
-          { text: "Me registré en TYS nada más tener la admisión, y conseguí habitación sin demasiados problemas.", author: "Ida, Erasmus 2023", flag: "🇩🇰" },
         ],
       },
       {
@@ -14055,9 +11354,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "Los bares flotantes del río Aura son el plan por excelencia en primavera y verano." },
           { label: "Eventos y actividades", score: 8.0, desc: "Ruisrock, uno de los festivales de música más antiguos de Europa, se celebra en una isla cercana." },
         ],
-        reviews: [
-          { text: "Los bares flotantes del río Aura en primavera son de las experiencias más divertidas de todo mi Erasmus.", author: "Louise, Erasmus 2024", flag: "🇧🇪" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.5,
@@ -14069,9 +11365,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "Requiere algo de esfuerzo y paciencia, aunque el ambiente universitario ayuda mucho." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad universitaria, muy activa, facilita hacer amigos internacionales rápido." },
         ],
-        reviews: [
-          { text: "Con los finlandeses cuesta un poco romper el hielo al principio, pero una vez lo haces, son de los amigos más leales que he tenido.", author: "Priya, Erasmus 2023", flag: "🇮🇳" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.0,
@@ -14082,9 +11375,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable/ciclable", score: 7.5, desc: "Ciudad compacta y bastante ciclable, con el río Aura como eje central." },
           { label: "Conexiones internacionales", score: 6.0, desc: "Aeropuerto con oferta limitada; Helsinki, con más vuelos, a menos de dos horas." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "El archipiélago de Turku, con miles de islas, y ferry a Estocolmo desde el propio puerto." },
-        ],
-        reviews: [
-          { text: "El ferry a Estocolmo desde el propio puerto de Turku es toda una experiencia, casi como un crucero de una noche.", author: "Henrik, Erasmus 2024", flag: "🇸🇪" },
         ],
       },
       {
@@ -14098,9 +11388,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "Antigua capital de Finlandia, con una identidad histórica muy marcada." },
           { label: "Estilo de vida", score: 8.5, desc: "La combinación de historia, río Aura y archipiélago hace de Turku un destino muy completo." },
         ],
-        reviews: [
-          { text: "Turku tiene un equilibrio entre historia, naturaleza y vida universitaria que me sorprendió gratamente.", author: "Malena, Erasmus 2023", flag: "🇦🇷" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.5,
@@ -14112,9 +11399,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Sede de un clúster de biotecnología relevante y de los astilleros Meyer Turku." },
           { label: "Oportunidades para estudiantes", score: 6.5, desc: "El sistema finlandés facilita compaginar estudios con trabajos a tiempo parcial." },
         ],
-        reviews: [
-          { text: "Hice prácticas en biotecnología ligadas a la universidad. El clúster científico de Turku tiene más peso del que parece desde fuera.", author: "Viktor, Internship 2024", flag: "🇭🇷" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 9.0,
@@ -14124,9 +11408,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.5, desc: "Criminalidad muy baja, entre las más reducidas de las ciudades universitarias europeas." },
           { label: "Seguridad nocturna", score: 8.5, desc: "El centro y las orillas del río Aura son seguros incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada, limpia y con fuerte sensación de comunidad." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad, ni siquiera volviendo sola de los bares flotantes de madrugada.", author: "Freya, Erasmus 2023", flag: "🇳🇴" },
         ],
       },
     ],
@@ -14146,9 +11427,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.0, desc: "Abono STAR con buen descuento estudiantil para metro y bus." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "La Rue Saint-Michel ofrece precios muy competitivos para salir de bares." },
         ],
-        reviews: [
-          { text: "Comparado con lo que gastaban mis amigos en Nantes, aquí vivía con bastante más holgura.", author: "Bianca, Erasmus 2024", flag: "🇷🇴" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.8,
@@ -14159,9 +11437,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.0, desc: "350–450€ de media, entre los más bajos de las grandes ciudades francesas." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "El CROUS gestiona residencias con buena disponibilidad para el tamaño de la ciudad." },
           { label: "Residencias universitarias", score: 6.5, desc: "Buena oferta de residencias, especialmente en Villejean." },
-        ],
-        reviews: [
-          { text: "Encontrar colocation fue de lo más sencillo, con una oferta enorme gracias a la cantidad de estudiantes de la ciudad.", author: "Mateo, Erasmus 2023", flag: "🇪🇸" },
         ],
       },
       {
@@ -14174,9 +11449,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "La Rue Saint-Michel, apodada 'la Rue de la Soif', concentra bares con ambiente constante." },
           { label: "Eventos y actividades", score: 9.0, desc: "Les Trans Musicales en diciembre es uno de los grandes festivales de música de Francia." },
         ],
-        reviews: [
-          { text: "Con uno de cada cuatro habitantes siendo estudiante, siempre hay ambiente en la Rue Saint-Michel, cualquier día de la semana.", author: "Sofia, Erasmus 2024", flag: "🇬🇷" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
@@ -14188,9 +11460,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 7.5, desc: "El tamaño de la ciudad y la enorme población estudiantil facilitan mucho el contacto." },
           { label: "Facilidad para hacer amigos", score: 8.5, desc: "Con una cuarta parte de la ciudad siendo estudiante, hacer amigos es prácticamente automático." },
         ],
-        reviews: [
-          { text: "Con un francés básico me apañaba de sobra, y los rennais fueron mucho más cercanos de lo que esperaba.", author: "Amelia, Erasmus 2023", flag: "🇬🇧" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.5,
@@ -14201,9 +11470,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable/ciclable", score: 7.5, desc: "Centro compacto y bastante ciclable, con carriles bici en expansión." },
           { label: "Conexiones internacionales", score: 6.5, desc: "Aeropuerto con oferta limitada; París, con más vuelos, a 1h25 en TGV." },
           { label: "Escapadas de fin de semana", score: 9.0, desc: "Saint-Malo, el Mont Saint-Michel y toda la costa bretona, a menos de una hora." },
-        ],
-        reviews: [
-          { text: "Tener Saint-Malo y el Mont Saint-Michel a menos de una hora convierte cualquier fin de semana en una escapada de postal.", author: "Duarte, Erasmus 2024", flag: "🇵🇹" },
         ],
       },
       {
@@ -14217,9 +11483,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Identidad bretona muy marcada, con tradiciones propias distintas al resto de Francia." },
           { label: "Estilo de vida", score: 8.5, desc: "Vivir en la capital de Bretaña, con una cuarta parte de la ciudad siendo estudiante, es un ambiente único." },
         ],
-        reviews: [
-          { text: "Rennes tiene una identidad bretona muy fuerte que no se parece al resto de Francia. Me encantó descubrirla.", author: "Lorenzo, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 7.0,
@@ -14231,9 +11494,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "Sede de Orange Labs y un ecosistema digital en expansión ('French Tech Rennes')." },
           { label: "Oportunidades para estudiantes", score: 7.0, desc: "El sector tecnológico digital ofrece prácticas variadas más allá del sector clásico." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una startup digital de Rennes. El ecosistema tech de la ciudad es más grande de lo que esperaba.", author: "Erik, Internship 2024", flag: "🇳🇴" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
@@ -14243,9 +11503,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.0, desc: "Criminalidad moderada-baja para el estándar de una gran ciudad francesa." },
           { label: "Seguridad nocturna", score: 7.5, desc: "La Rue Saint-Michel y el centro son seguros de noche, con ambiente animado hasta tarde." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada y con mucha vida estudiantil en cualquier horario." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad, ni siquiera en las noches de más ambiente en la Rue Saint-Michel.", author: "Clémence, Erasmus 2023", flag: "🇧🇪" },
         ],
       },
     ],
@@ -14265,9 +11522,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 9.0, desc: "El bus urbano de Tüke Busz cubre bien la ciudad a precios muy bajos." },
           { label: "Ocio y gastos diarios", score: 9.5, desc: "Salir de bares y restaurantes cuesta una fracción de lo que costaría en Europa occidental." },
         ],
-        reviews: [
-          { text: "Con el presupuesto de un mes en España, aquí vivía holgadamente durante casi dos meses.", author: "Nuno, Erasmus 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 8.3,
@@ -14278,9 +11532,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 8.5, desc: "180–280€ de media, de los alquileres más bajos de toda esta guía." },
           { label: "Facilidad de búsqueda", score: 8.0, desc: "Portales locales y grupos de Facebook de Erasmus facilitan la búsqueda." },
           { label: "Residencias universitarias", score: 8.0, desc: "Buena disponibilidad de residencias a precios muy bajos." },
-        ],
-        reviews: [
-          { text: "Encontré habitación en pocos días por menos de lo que pagaba de fianza en mi ciudad de origen.", author: "Konstantina, Erasmus 2023", flag: "🇬🇷" },
         ],
       },
       {
@@ -14293,9 +11544,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.0, desc: "El centro y la Széchenyi tér concentran bares con ambiente estudiantil animado." },
           { label: "Eventos y actividades", score: 8.5, desc: "El Zsolnay Light Festival y numerosos eventos culturales marcan el calendario del año." },
         ],
-        reviews: [
-          { text: "La comunidad Erasmus aquí es enorme y muy unida — cada noche había algo organizado por ESN.", author: "Marina, Erasmus 2024", flag: "🇬🇷" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.0,
@@ -14307,9 +11555,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "Requiere algo de esfuerzo, aunque el ambiente universitario facilita mucho el contacto." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "El tamaño de la comunidad Erasmus hace que hacer amigos internacionales sea muy rápido." },
         ],
-        reviews: [
-          { text: "Con los locales cuesta un poco más al principio, pero dentro del círculo universitario e internacional todo es muy fácil.", author: "Rui, Erasmus 2023", flag: "🇧🇷" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 6.0,
@@ -14320,9 +11565,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.5, desc: "El centro histórico se recorre fácilmente a pie." },
           { label: "Conexiones internacionales", score: 4.5, desc: "Sin aeropuerto propio relevante; Budapest, a dos horas y media, es el hub principal." },
           { label: "Escapadas de fin de semana", score: 6.5, desc: "Budapest a dos horas y media, y Croacia a un paso en coche." },
-        ],
-        reviews: [
-          { text: "Depender de Budapest para volar fuera es un poco pesado, pero para explorar el sur de Hungría, Pécs es la base perfecta.", author: "Anton, Erasmus 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -14336,9 +11578,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "Menos masificada turísticamente que Budapest, con identidad propia muy marcada." },
           { label: "Estilo de vida", score: 8.5, desc: "La combinación de patrimonio único, clima suave y precios bajísimos es difícil de igualar." },
         ],
-        reviews: [
-          { text: "Es de las ciudades más infravaloradas de Europa central. Tiene patrimonio único y un clima sorprendentemente agradable.", author: "Alessia, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 5.3,
@@ -14350,9 +11589,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 5.0, desc: "Sin grandes sedes corporativas; economía centrada en universidad y sector público." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "El sector universitario y de salud ofrece algunas oportunidades de prácticas locales." },
         ],
-        reviews: [
-          { text: "No es una ciudad para hacer prácticas muy ambiciosas, pero para estudiar y vivir la experiencia Erasmus más barata de Europa, es insuperable.", author: "Katarzyna, Erasmus 2024", flag: "🇵🇱" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.5,
@@ -14362,9 +11598,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Criminalidad muy baja, entre las más reducidas de las ciudades universitarias de Europa central." },
           { label: "Seguridad nocturna", score: 8.0, desc: "El centro histórico es seguro incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, limpia y con fuerte ambiente universitario." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad en todo el año que viví allí.", author: "Santiago, Erasmus 2023", flag: "🇦🇷" },
         ],
       },
     ],
@@ -14384,9 +11617,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.0, desc: "El trolebús y bus de Kauno Autobusai cubren bien la ciudad a precio bajo." },
           { label: "Ocio y gastos diarios", score: 9.0, desc: "Salir de bares en la Laisvės alėja es de lo más barato de Europa del Este." },
         ],
-        reviews: [
-          { text: "Con lo que gastaba en una semana en mi ciudad, aquí me duraba fácilmente el mes.", author: "Iker, Erasmus 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.8,
@@ -14397,9 +11627,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 8.0, desc: "220–320€ de media, por debajo de Vilna para un tamaño de ciudad similar." },
           { label: "Facilidad de búsqueda", score: 7.5, desc: "Portales locales y grupos de Facebook de Erasmus facilitan encontrar piso rápido." },
           { label: "Residencias universitarias", score: 7.5, desc: "Buena disponibilidad de residencias en Vytautas Magnus University y KTU." },
-        ],
-        reviews: [
-          { text: "Encontré habitación en pocos días, con un precio bastante más bajo del que me esperaba para una ciudad tan bonita.", author: "Konstantina, Erasmus 2023", flag: "🇬🇷" },
         ],
       },
       {
@@ -14412,9 +11639,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "La Laisvės alėja y el casco antiguo concentran bares con ambiente estudiantil." },
           { label: "Eventos y actividades", score: 8.0, desc: "Kaunas 2022 (Capital Europea de la Cultura) dejó un calendario cultural muy activo." },
         ],
-        reviews: [
-          { text: "La Laisvės alėja, la avenida peatonal más larga de los países bálticos, es el epicentro de la vida social de la ciudad.", author: "Mihail, Erasmus 2024", flag: "🇧🇬" },
-        ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.8,
@@ -14426,9 +11650,6 @@ export const CITY_INSIGHTS = {
           { label: "Integración con locales", score: 6.5, desc: "Requiere algo de esfuerzo, aunque el ambiente universitario facilita el contacto." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "El tamaño de la comunidad Erasmus, aunque más pequeño que en Vilna, es muy cohesionado." },
         ],
-        reviews: [
-          { text: "Al ser menos conocida como destino Erasmus que Vilna, la comunidad internacional es más pequeña pero también más unida.", author: "Amara, Erasmus 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 6.8,
@@ -14439,9 +11660,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 7.5, desc: "El casco antiguo y la Laisvės alėja se recorren fácilmente a pie." },
           { label: "Conexiones internacionales", score: 5.5, desc: "Aeropuerto de Kaunas con oferta de vuelos low-cost limitada pero en crecimiento." },
           { label: "Escapadas de fin de semana", score: 7.5, desc: "Vilna a poco más de una hora, y el balneario costero de Palanga a un paso." },
-        ],
-        reviews: [
-          { text: "Tener Vilna a poco más de una hora hace que las escapadas de fin de semana sean muy fáciles.", author: "Erik, Erasmus 2024", flag: "🇳🇴" },
         ],
       },
       {
@@ -14455,9 +11673,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "Mucho menos turística que Vilna, con identidad histórica y modernista muy propia." },
           { label: "Estilo de vida", score: 8.5, desc: "Vivir rodeado de la mayor colección de arquitectura Art Déco y Bauhaus de Europa del Este es único." },
         ],
-        reviews: [
-          { text: "No esperaba encontrar tanta arquitectura modernista de los años 20 y 30 en una ciudad tan poco conocida.", author: "Lukas, Erasmus 2023", flag: "🇨🇿" },
-        ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.3,
@@ -14469,9 +11684,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Sede de numerosos centros de servicios compartidos y un ecosistema de startups en crecimiento." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "Salarios locales moderados comparados con Europa occidental, aunque el coste de vida lo compensa." },
         ],
-        reviews: [
-          { text: "Hice unas prácticas en un centro de servicios compartidos internacional. El sector tiene mucho peso en la economía local.", author: "Guillermo, Internship 2024", flag: "🇲🇽" },
-        ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.5,
@@ -14481,9 +11693,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Criminalidad muy baja, entre las más reducidas de las ciudades universitarias bálticas." },
           { label: "Seguridad nocturna", score: 8.0, desc: "El centro y la Laisvės alėja son seguros incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, limpia y con fuerte identidad histórica." },
-        ],
-        reviews: [
-          { text: "Nunca tuve ningún problema serio de seguridad en todo el año que viví allí.", author: "Santiago, Erasmus 2023", flag: "🇦🇷" },
         ],
       },
     ],
@@ -14506,10 +11715,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.0, desc: "Metro y CPTM eficientes, billete unitario sobre 1€. El Bilhete Único mensual sale muy a cuenta." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Cerveza a 2-3€ en bares de barrio. Mucha oferta cultural gratuita: museos con entrada libre algunos días, parques, ferias." },
         ],
-        reviews: [
-          { text: "Con 650€/mes viví bien en Pinheiros, compartiendo piso y comiendo fuera varias veces por semana.", author: "Lucía, Study Abroad 2024", flag: "🇪🇸" },
-          { text: "La comida es tan barata y buena que gasté más en restaurantes de lo que pensaba, pero mereció la pena.", author: "Thomas, Intercambio 2023", flag: "🇫🇷" },
-        ],
       },
       {
         id: "alojamiento",
@@ -14523,9 +11728,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.0, desc: "350-470€ habitación individual en zonas centrales bien conectadas." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "QuintoAndar y grupos de Facebook de la USP son los canales más usados por internacionales." },
           { label: "Residencias universitarias", score: 5.5, desc: "La USP tiene plazas limitadas de residencia (CRUSP); conviene solicitarlas con mucha antelación." },
-        ],
-        reviews: [
-          { text: "Elegí Vila Mariana por estar a 15 minutos de la USP en metro, la mejor decisión del intercambio.", author: "Martina, Intercambio 2023", flag: "🇦🇷" },
         ],
       },
       {
@@ -14541,10 +11743,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "Vila Madalena y Baixo Augusta concentran la mejor vida nocturna, de bares de esquina a clubes hasta el amanecer." },
           { label: "Eventos y actividades", score: 8.5, desc: "Bienal de São Paulo, Virada Cultural, ferias de rua todos los fines de semana." },
         ],
-        reviews: [
-          { text: "Nunca me faltó plan: cada barrio tiene su propia escena de bares y música en vivo.", author: "Diego, Study Abroad 2024", flag: "🇲🇽" },
-          { text: "La Virada Cultural, con la ciudad de fiesta 24 horas seguidas, es una experiencia única.", author: "Anna, Intercambio 2023", flag: "🇩🇪" },
-        ],
       },
       {
         id: "integracion",
@@ -14558,9 +11756,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 7.0, desc: "Paulistanos ocupados pero amables; el trato es más directo que en el resto de Brasil." },
           { label: "Facilidad para hacer amigos", score: 6.5, desc: "Cuesta un poco más que en ciudades pequeñas por el tamaño, pero las asociaciones universitarias ayudan mucho." },
           { label: "Integración con locales", score: 7.0, desc: "Los compañeros de la USP suelen incluir a los internacionales en salidas y grupos de estudio." },
-        ],
-        reviews: [
-          { text: "Al principio la ciudad impone por lo grande que es, pero en la universidad hice amigos rápido.", author: "Julia, Intercambio 2024", flag: "🇵🇹" },
         ],
       },
       {
@@ -14576,9 +11771,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 8.5, desc: "El mayor aeropuerto de Brasil (Guarulhos) conecta con todo el país y el resto del continente." },
           { label: "Escapadas de fin de semana", score: 7.5, desc: "Litoral norte (Ilhabela, Ubatuba) y Campos do Jordão a 3-4 horas en bus." },
         ],
-        reviews: [
-          { text: "El metro te salva la vida en esta ciudad, evita el coche o el Uber en hora punta.", author: "Fabio, Study Abroad 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -14592,9 +11784,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 7.0, desc: "Ritmo trepidante tipo gran capital, con parques como el Ibirapuera para desconectar." },
           { label: "Autenticidad local", score: 8.5, desc: "La escena gastronómica más rica y diversa de Latinoamérica, con influencias italianas, japonesas y nordestinas." },
           { label: "Estilo de vida", score: 8.0, desc: "Museos, teatro, música en vivo cada noche de la semana. Nunca faltan planes culturales." },
-        ],
-        reviews: [
-          { text: "Comí mejor en São Paulo que en ninguna otra ciudad en la que he vivido.", author: "Camille, Intercambio 2024", flag: "🇫🇷" },
         ],
       },
       {
@@ -14610,9 +11799,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 8.0, desc: "Fuerte ecosistema de startups y fintechs, además de la banca tradicional brasileña." },
           { label: "Oportunidades para estudiantes", score: 7.5, desc: "Networking constante gracias al tamaño del mercado y a las ferias de empleo universitarias." },
         ],
-        reviews: [
-          { text: "Conseguí unas prácticas en una fintech en la Faria Lima gracias a un contacto de la FGV.", author: "Simón, Internship 2024", flag: "🇨🇴" },
-        ],
       },
       {
         id: "seguridad",
@@ -14625,9 +11811,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.0, desc: "Segura en las zonas universitarias y de clase media de día; el hurto oportunista es el riesgo principal." },
           { label: "Seguridad nocturna", score: 5.0, desc: "Evita caminar solo de madrugada fuera de zonas concurridas; usa apps de transporte por la noche." },
           { label: "Ambiente de la ciudad", score: 5.5, desc: "Evita el centro histórico (República, Cracolândia) de noche; el resto de la ciudad es manejable con sentido común." },
-        ],
-        reviews: [
-          { text: "Nunca tuve un problema grave, pero aprendí rápido a no llevar el móvil en la mano por la calle.", author: "Hannah, Study Abroad 2023", flag: "🇺🇸" },
         ],
       },
     ],
@@ -14650,9 +11833,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 6.5, desc: "Metro limitado a la Zona Sul y Centro; billete sobre 1,20€. El resto de la ciudad depende del bus." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Cerveza en el quiosco de playa desde 2€. La playa en sí es ocio gratuito casi todo el año." },
         ],
-        reviews: [
-          { text: "Vivir cerca de la playa en Botafogo me costó menos de lo que esperaba compartiendo piso.", author: "Valeria, Intercambio 2023", flag: "🇦🇷" },
-        ],
       },
       {
         id: "alojamiento",
@@ -14666,9 +11846,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 5.5, desc: "300-450€ habitación individual en Zona Sur bien conectada." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "QuintoAndar y grupos de Facebook de la PUC-Rio y UFRJ son los más usados." },
           { label: "Residencias universitarias", score: 6.0, desc: "La PUC-Rio, en Gávea, tiene alojamiento propio limitado para internacionales; conviene reservarlo con antelación." },
-        ],
-        reviews: [
-          { text: "Botafogo es el equilibrio perfecto: cerca de todo, seguro y sin los precios de Ipanema.", author: "Noah, Study Abroad 2024", flag: "🇺🇸" },
         ],
       },
       {
@@ -14684,10 +11861,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "De los bares de Lapa a los blocos de rua del Carnaval, la vida nocturna no tiene descanso." },
           { label: "Eventos y actividades", score: 9.0, desc: "Carnaval, Réveillon en Copacabana, shows de samba y funk en vivo cada semana." },
         ],
-        reviews: [
-          { text: "Vivir el Carnaval como estudiante en Río es indescriptible, cambia tu forma de ver la fiesta.", author: "Elena, Intercambio 2024", flag: "🇮🇹" },
-          { text: "Lapa los viernes por la noche es un espectáculo de música en directo en cada esquina.", author: "Bruno, Study Abroad 2023", flag: "🇵🇹" },
-        ],
       },
       {
         id: "integracion",
@@ -14701,9 +11874,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 8.5, desc: "Cariocas famosos por su calidez y su facilidad para hacer amigos rápido." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La vida de playa y las salidas en grupo hacen que socializar sea muy natural." },
           { label: "Integración con locales", score: 6.0, desc: "Mezclarse a fondo pide tiempo y algo de portugués, pero el trato inicial es siempre cálido." },
-        ],
-        reviews: [
-          { text: "Mis compañeros de la PUC-Rio me llevaron a la playa el primer fin de semana, sin conocerme de nada.", author: "Charlotte, Intercambio 2023", flag: "🇫🇷" },
         ],
       },
       {
@@ -14719,9 +11889,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 7.0, desc: "Buenas conexiones aéreas y de bus con el resto de Brasil y Sudamérica." },
           { label: "Escapadas de fin de semana", score: 7.5, desc: "Petrópolis, Búzios e Ilha Grande a 2-3 horas en bus para desconectar." },
         ],
-        reviews: [
-          { text: "Con vivir en la Zona Sur no necesité coche en todo el intercambio, todo estaba a pie o en metro.", author: "Miguel, Study Abroad 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -14735,9 +11902,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 9.0, desc: "El estilo de vida carioca gira en torno a la playa, el deporte al aire libre y la vida social." },
           { label: "Autenticidad local", score: 9.5, desc: "Samba, bossa nova, feijoada y una identidad cultural fortísima presente en cada esquina." },
           { label: "Estilo de vida", score: 9.0, desc: "Trilhas al Corcovado o al Pan de Azúcar, fútbol de playa, vida al aire libre constante." },
-        ],
-        reviews: [
-          { text: "Estudiar de mañana e ir a la playa de Ipanema por la tarde fue mi rutina durante seis meses. Inolvidable.", author: "Sofía, Intercambio 2024", flag: "🇲🇽" },
         ],
       },
       {
@@ -14753,9 +11917,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Energía, medios, turismo y un ecosistema creciente de startups." },
           { label: "Oportunidades para estudiantes", score: 6.5, desc: "Menos denso que São Paulo, pero con oportunidades reales en sectores clave de la ciudad." },
         ],
-        reviews: [
-          { text: "Hice unas prácticas de verano en una ONG ambiental centrada en la Bahía de Guanabara.", author: "Klaus, Internship 2023", flag: "🇩🇪" },
-        ],
       },
       {
         id: "seguridad",
@@ -14768,9 +11929,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 5.5, desc: "La Zona Sur (Copacabana, Ipanema, Botafogo, Gávea) es la más segura y donde vive la mayoría de estudiantes." },
           { label: "Seguridad nocturna", score: 4.5, desc: "Evita playas de noche y calles poco transitadas; muévete en grupo o en apps de transporte." },
           { label: "Ambiente de la ciudad", score: 5.0, desc: "El robo oportunista (celular, cámara) es el riesgo más común; no lleves objetos de valor a la vista." },
-        ],
-        reviews: [
-          { text: "Con las precauciones normales de cualquier gran ciudad no tuve ningún problema en seis meses.", author: "Isabelle, Intercambio 2023", flag: "🇫🇷" },
         ],
       },
     ],
@@ -14793,9 +11951,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 6.5, desc: "Buses conectan la isla, pero muchos estudiantes optan por bici o patinete para playas cercanas." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "La playa es el plan gratuito por excelencia; alquiler de tabla de surf desde 15€/día." },
         ],
-        reviews: [
-          { text: "Viví en Trindade a cinco minutos andando de la UFSC y ahorré bastante en transporte.", author: "Renata, Intercambio 2024", flag: "🇦🇷" },
-        ],
       },
       {
         id: "alojamiento",
@@ -14809,9 +11964,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.5, desc: "250-400€ habitación individual según cercanía a la playa o a la universidad." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "Grupos de Facebook de la UFSC y QuintoAndar son los canales más habituales." },
           { label: "Residencias universitarias", score: 6.0, desc: "La UFSC tiene residencias universitarias (moradia estudantil) con plazas limitadas y muy solicitadas." },
-        ],
-        reviews: [
-          { text: "Busca piso fuera de diciembre-febrero, cuando los precios se disparan por el turismo de verano.", author: "Paul, Study Abroad 2023", flag: "🇩🇪" },
         ],
       },
       {
@@ -14827,9 +11979,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "Lagoa da Conceição concentra bares y música en vivo junto al agua casi todas las noches." },
           { label: "Eventos y actividades", score: 8.0, desc: "Campeonatos de surf, festivales de música en la playa y eventos de la UFSC durante todo el año." },
         ],
-        reviews: [
-          { text: "La vida social gira en torno a la Lagoa: cenar, tomar algo y acabar bailando junto al agua.", author: "Théo, Intercambio 2024", flag: "🇫🇷" },
-        ],
       },
       {
         id: "integracion",
@@ -14843,9 +11992,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 8.0, desc: "Florianopolitanos relajados y abiertos, con fuerte identidad de \"gente de isla\"." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "El surf y la playa son excusa perfecta para hacer amigos rápido, locales e internacionales." },
           { label: "Integración con locales", score: 7.0, desc: "La UFSC organiza actividades de bienvenida para intercambio muy activas." },
-        ],
-        reviews: [
-          { text: "Aprendí a hacer surf con compañeros locales de la UFSC el primer mes, fue la mejor forma de integrarme.", author: "Laura, Study Abroad 2024", flag: "🇪🇸" },
         ],
       },
       {
@@ -14861,9 +12007,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 6.5, desc: "Aeropuerto con vuelos directos a São Paulo, Río y otras capitales brasileñas." },
           { label: "Escapadas de fin de semana", score: 7.5, desc: "Litoral de Santa Catarina y Balneário Camboriú a 1-2 horas en bus." },
         ],
-        reviews: [
-          { text: "En temporada alta el tráfico entre puentes se complica bastante, mejor moverse en bici si puedes.", author: "Yannick, Intercambio 2023", flag: "🇧🇪" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -14877,9 +12020,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 9.0, desc: "Ritmo de vida tranquilo comparado con otras ciudades brasileñas de tamaño similar." },
           { label: "Autenticidad local", score: 8.5, desc: "Fuerte cultura açoriana en la gastronomía y en la pesca artesanal de la isla." },
           { label: "Estilo de vida", score: 9.5, desc: "Surf, senderismo, stand-up paddle en la laguna: la vida al aire libre es la norma, no la excepción." },
-        ],
-        reviews: [
-          { text: "Nunca había vivido tan cerca de la naturaleza estudiando en una ciudad universitaria.", author: "Greta, Study Abroad 2024", flag: "🇸🇪" },
         ],
       },
       {
@@ -14895,9 +12035,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.5, desc: "Software, videojuegos y fintech son los sectores más dinámicos de la isla." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "Mercado más pequeño que São Paulo, pero con oportunidades reales en tecnología." },
         ],
-        reviews: [
-          { text: "Hice unas prácticas en una startup de software cerca de Trindade gracias a un profesor de la UFSC.", author: "Erik, Internship 2023", flag: "🇳🇴" },
-        ],
       },
       {
         id: "seguridad",
@@ -14910,9 +12047,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.0, desc: "La isla en sí es bastante segura, especialmente Trindade, Centro y Lagoa da Conceição." },
           { label: "Seguridad nocturna", score: 7.0, desc: "Zonas de fiesta como Lagoa son seguras hasta tarde; precaución normal al volver solo." },
           { label: "Ambiente de la ciudad", score: 7.5, desc: "Algunas zonas del continente (parte no insular) tienen más incidencia de robos; la vida estudiantil se concentra en la isla." },
-        ],
-        reviews: [
-          { text: "Es de las ciudades brasileñas donde más segura me sentí caminando de noche.", author: "Chiara, Intercambio 2024", flag: "🇮🇹" },
         ],
       },
     ],
@@ -14935,9 +12069,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Ciudad pequeña y muy caminable en el centro; taxis y mototaxis económicos para el resto." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Cerveza en la calle desde 1,5€. La playa y el paseo por la muralla al atardecer son gratis." },
         ],
-        reviews: [
-          { text: "Viviendo en Manga gasté mucho menos que mis compañeros que se quedaron en el centro amurallado.", author: "Andrea, Intercambio 2024", flag: "🇦🇷" },
-        ],
       },
       {
         id: "alojamiento",
@@ -14951,9 +12082,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.5, desc: "200-350€ habitación individual según cercanía al centro histórico." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "Grupos de Facebook de la UTB y Universidad de Cartagena, y portales locales como Fincaraiz." },
           { label: "Residencias universitarias", score: 6.0, desc: "La UTB ofrece apoyo para encontrar alojamiento a estudiantes internacionales, aunque sin residencia propia amplia." },
-        ],
-        reviews: [
-          { text: "Getsemaní tiene el equilibrio perfecto entre ambiente y precio, muy cerca de todo a pie.", author: "Leon, Study Abroad 2023", flag: "🇩🇪" },
         ],
       },
       {
@@ -14969,9 +12097,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.0, desc: "Getsemaní y la Plaza de la Trinidad concentran la mejor vida nocturna, con música en directo cada noche." },
           { label: "Eventos y actividades", score: 7.5, desc: "Festival Internacional de Música y Hay Festival atraen actividad cultural de primer nivel." },
         ],
-        reviews: [
-          { text: "La Plaza de la Trinidad en Getsemaní un viernes por la noche es pura energía caribeña.", author: "Nadia, Intercambio 2024", flag: "🇫🇷" },
-        ],
       },
       {
         id: "integracion",
@@ -14985,9 +12110,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 8.0, desc: "Cartageneros extrovertidos y orgullosos de su ciudad, con gran facilidad para el trato cercano." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "El calor humano caribeño hace que socializar sea rápido y natural." },
           { label: "Integración con locales", score: 6.5, desc: "El turismo masivo en el centro puede distanciar un poco; la vida real de la ciudad está en barrios como Manga o Getsemaní." },
-        ],
-        reviews: [
-          { text: "Mis compañeros de la UTB me integraron enseguida en salidas de fin de semana a las islas.", author: "Marco, Study Abroad 2023", flag: "🇮🇹" },
         ],
       },
       {
@@ -15003,9 +12125,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 6.5, desc: "Aeropuerto Rafael Núñez con vuelos directos a Bogotá y otras ciudades colombianas." },
           { label: "Escapadas de fin de semana", score: 7.5, desc: "Islas del Rosario, Playa Blanca y Barranquilla a poca distancia en lancha o bus." },
         ],
-        reviews: [
-          { text: "Todo lo importante lo tenía a pie desde Getsemaní, el calor es lo único que te frena.", author: "Julien, Intercambio 2024", flag: "🇫🇷" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -15019,9 +12138,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 8.5, desc: "Ritmo de vida pausado, muy centrado en la calle, la plaza y el mar." },
           { label: "Autenticidad local", score: 9.0, desc: "Patrimonio de la Humanidad con arquitectura colonial, música champeta y una identidad caribeña fortísima." },
           { label: "Estilo de vida", score: 8.5, desc: "Playa, música en vivo y vida social al aire libre casi todos los días del año." },
-        ],
-        reviews: [
-          { text: "Pasear por la muralla al atardecer con el mar de fondo se convirtió en mi ritual diario.", author: "Beatriz, Intercambio 2023", flag: "🇵🇹" },
         ],
       },
       {
@@ -15037,9 +12153,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 5.5, desc: "Puerto de Cartagena, cadenas hoteleras y sector petroquímico en Mamonal." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "Mercado pequeño pero con proyectos de voluntariado y turismo sostenible activos." },
         ],
-        reviews: [
-          { text: "Hice un voluntariado con una ONG de turismo comunitario en las Islas del Rosario, muy recomendable.", author: "Sara, Volunteering 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "seguridad",
@@ -15052,9 +12165,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.0, desc: "Centro amurallado, Getsemaní, Bocagrande y Manga son zonas seguras y muy transitadas." },
           { label: "Seguridad nocturna", score: 6.0, desc: "Getsemaní es segura de noche por su ambiente concurrido; evita calles solitarias fuera de estas zonas." },
           { label: "Ambiente de la ciudad", score: 6.5, desc: "El hurto de móviles y carteras es el riesgo principal, como en cualquier ciudad turística; barrios periféricos requieren más precaución." },
-        ],
-        reviews: [
-          { text: "Con las precauciones normales de cualquier ciudad turística no tuve ningún incidente.", author: "Felipe, Study Abroad 2023", flag: "🇨🇱" },
         ],
       },
     ],
@@ -15077,9 +12187,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.0, desc: "Ciudad pequeña y caminable en el centro; combis (minibuses) cuestan menos de 0,5€ el trayecto." },
           { label: "Ocio y gastos diarios", score: 8.5, desc: "Cerveza artesanal desde 2€. Muchos museos y sitios arqueológicos tienen descuento con carnet de estudiante." },
         ],
-        reviews: [
-          { text: "Con 400€/mes viví de sobra, incluyendo alguna escapada al Valle Sagrado casi cada mes.", author: "Camila, Intercambio 2024", flag: "🇨🇱" },
-        ],
       },
       {
         id: "alojamiento",
@@ -15093,9 +12200,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.5, desc: "150-280€ habitación individual según cercanía al centro y a la UNSAAC." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "Grupos de Facebook de la UNSAAC y anuncios locales; conviene buscar in situ los primeros días." },
           { label: "Residencias universitarias", score: 6.0, desc: "La UNSAAC no tiene una residencia amplia para internacionales; casi todos alquilan habitación en casa de familia o piso compartido." },
-        ],
-        reviews: [
-          { text: "San Blas es empinado pero tiene las mejores vistas de la ciudad, mereció la pena cada cuesta.", author: "Tobias, Study Abroad 2023", flag: "🇦🇹" },
         ],
       },
       {
@@ -15111,9 +12215,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 6.5, desc: "Plaza de Armas y calles cercanas concentran bares con música en vivo; ambiente más calmado que en ciudades costeras." },
           { label: "Eventos y actividades", score: 7.5, desc: "Inti Raymi en junio y otras fiestas andinas tradicionales son experiencias únicas para estudiantes internacionales." },
         ],
-        reviews: [
-          { text: "Vivir el Inti Raymi como estudiante en Cusco fue de las experiencias más fuertes de mi intercambio.", author: "Ines, Intercambio 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "integracion",
@@ -15127,9 +12228,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 7.5, desc: "Cusqueños orgullosos de su historia y muy dispuestos a compartirla con quien se interesa de verdad." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "La UNSAAC tiene un ambiente cercano al ser una ciudad universitaria de tamaño medio." },
           { label: "Integración con locales", score: 6.5, desc: "El componente turístico del centro puede distanciar un poco; los barrios como Wanchaq muestran la Cusco más local." },
-        ],
-        reviews: [
-          { text: "Mis compañeros de la UNSAAC me enseñaron una Cusco muy distinta a la de los folletos turísticos.", author: "Rodrigo, Study Abroad 2023", flag: "🇧🇷" },
         ],
       },
       {
@@ -15145,9 +12243,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 6.0, desc: "Aeropuerto con vuelos directos a Lima; tren y bus como alternativa más lenta." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Valle Sagrado, Machu Picchu, Montaña de 7 Colores y Laguna Humantay a poca distancia." },
         ],
-        reviews: [
-          { text: "Los primeros días subir cuestas en San Blas cansa mucho más de lo normal por la altura, luego te acostumbras.", author: "Manon, Intercambio 2024", flag: "🇫🇷" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -15161,9 +12256,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 8.5, desc: "Ritmo de vida pausado, muy alejado del estrés de las grandes capitales." },
           { label: "Autenticidad local", score: 9.5, desc: "Capital histórica del Imperio inca, con arquitectura, gastronomía y tradiciones quechuas vivas en el día a día." },
           { label: "Estilo de vida", score: 9.0, desc: "Senderismo, historia y naturaleza a la vuelta de la esquina; fines de semana entre ruinas incas y montañas." },
-        ],
-        reviews: [
-          { text: "Ninguna otra ciudad de mi intercambio tenía tanta historia caminando cinco minutos desde mi piso.", author: "Oskar, Study Abroad 2023", flag: "🇵🇱" },
         ],
       },
       {
@@ -15179,9 +12271,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 5.0, desc: "Agencias de turismo, hoteles boutique y cooperativas artesanales locales." },
           { label: "Oportunidades para estudiantes", score: 5.5, desc: "El voluntariado social y educativo en comunidades andinas es la vía más habitual para internacionales." },
         ],
-        reviews: [
-          { text: "Hice un voluntariado enseñando inglés en una escuela del Valle Sagrado, muy enriquecedor.", author: "Alma, Volunteering 2024", flag: "🇸🇪" },
-        ],
       },
       {
         id: "seguridad",
@@ -15194,9 +12283,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.5, desc: "Centro histórico y San Blas son zonas seguras y muy transitadas por turistas y estudiantes." },
           { label: "Seguridad nocturna", score: 6.5, desc: "La Plaza de Armas y sus alrededores son seguros de noche; evita calles solitarias fuera del centro." },
           { label: "Ambiente de la ciudad", score: 7.0, desc: "El robo de bolsillo en mercados turísticos es el riesgo más común; el mal de altura requiere más atención que la seguridad." },
-        ],
-        reviews: [
-          { text: "Me sentí más segura en Cusco que en muchas ciudades europeas, el reto real fue la altura, no la seguridad.", author: "Wiktoria, Intercambio 2023", flag: "🇵🇱" },
         ],
       },
     ],
@@ -15219,10 +12305,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "MetroCard/OMNY: unos 132$/mes ilimitado. El metro funciona 24h y cubre casi toda la ciudad." },
           { label: "Ocio y gastos diarios", score: 3.5, desc: "Copas desde 10–15€, entradas de Broadway carísimas salvo lotería. Los museos con 'pay what you wish' ayudan mucho." },
         ],
-        reviews: [
-          { text: "Con 2.800€/mes vivía en Queens, compartiendo piso y cocinando casi siempre en casa.", author: "Marta, Study Abroad 2024", flag: "🇪🇸" },
-          { text: "El alquiler es brutal. Busca en Astoria o Brooklyn, no en Manhattan, si quieres que el dinero te dure.", author: "Diego, Intercambio 2023", flag: "🇲🇽" },
-        ],
       },
       {
         id: "alojamiento",
@@ -15236,9 +12318,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 1.5, desc: "Habitación individual desde 1.400€ en Manhattan; 900–1.300€ en Brooklyn o Queens." },
           { label: "Facilidad de búsqueda", score: 3.5, desc: "StreetEasy, grupos de Facebook de la universidad, agencias con fee. Cuidado con estafas de depósito." },
           { label: "Residencias universitarias", score: 4.5, desc: "Columbia y NYU ofrecen dorms para intercambio, caras pero seguras y bien ubicadas." },
-        ],
-        reviews: [
-          { text: "Encontré piso desde España a través de un grupo de Facebook de mi universidad, tardé 6 semanas.", author: "Laura, Study Abroad 2023", flag: "🇪🇸" },
         ],
       },
       {
@@ -15254,10 +12333,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "Del Lower East Side a Brooklyn, siempre hay un plan: clubs, rooftops, jazz bars." },
           { label: "Eventos y actividades", score: 9.0, desc: "Conciertos, festivales de cine, mercados, Broadway. La oferta cultural no tiene fin." },
         ],
-        reviews: [
-          { text: "Nunca me aburrí ni un solo fin de semana. Siempre había algo nuevo que descubrir.", author: "Chiara, Exchange 2023", flag: "🇮🇹" },
-          { text: "Hice amigos de 10 países distintos en el primer mes gracias a la asociación internacional de mi universidad.", author: "Hyun, Study Abroad 2024", flag: "🇰🇷" },
-        ],
       },
       {
         id: "integracion",
@@ -15271,9 +12346,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 7.0, desc: "Los neoyorquinos son directos y van rápido, no siempre cálidos a primera vista pero abiertos si te acercas." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "La vida universitaria ayuda mucho; fuera de ese circuito cuesta algo más que en ciudades más pequeñas." },
           { label: "Integración con locales", score: 7.5, desc: "La diversidad de la ciudad hace que encajar sea fácil, vengas de donde vengas." },
-        ],
-        reviews: [
-          { text: "Al principio el ritmo abruma, pero en un mes ya te mueves como uno más.", author: "Paula, Intercambio 2024", flag: "🇦🇷" },
         ],
       },
       {
@@ -15289,9 +12361,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 8.5, desc: "Tres aeropuertos internacionales (JFK, Newark, LaGuardia) y trenes Amtrak a Boston o Washington D.C." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Boston, Washington D.C. o Filadelfia a pocas horas en autobús o tren." },
         ],
-        reviews: [
-          { text: "Nunca eché de menos un coche. El metro te lleva a todos lados, aunque a veces con retrasos.", author: "Thomas, Exchange 2023", flag: "🇩🇪" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -15305,10 +12374,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 8.0, desc: "Ritmo altísimo, poco espacio para el descanso, pero la ciudad da tanto que compensa a la mayoría." },
           { label: "Autenticidad local", score: 9.5, desc: "Cada barrio es un mundo: Chinatown, Little Italy, Harlem. Museos de talla mundial, muchos gratis con carnet." },
           { label: "Estilo de vida", score: 8.5, desc: "Cultura, gastronomía de todo el planeta, arte callejero, parques. Nueva York no para nunca." },
-        ],
-        reviews: [
-          { text: "Es agotador y maravilloso a partes iguales. No hay ciudad que se le parezca.", author: "Camille, Study Abroad 2023", flag: "🇫🇷" },
-          { text: "El invierno es más duro de lo que pensaba, pero la ciudad compensa cualquier queja.", author: "Bruno, Intercambio 2024", flag: "🇧🇷" },
         ],
       },
       {
@@ -15324,9 +12389,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 9.5, desc: "Desde bancos de inversión hasta startups de medios, pasando por la sede central de la ONU." },
           { label: "Oportunidades para estudiantes", score: 9.0, desc: "Networking constante: eventos, ferias de empleo y redes de antiguos alumnos muy potentes." },
         ],
-        reviews: [
-          { text: "Conseguí unas prácticas en una agencia de medios gracias al career center de mi universidad.", author: "Elena, Internship 2023", flag: "🇪🇸" },
-        ],
       },
       {
         id: "seguridad",
@@ -15339,9 +12401,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.5, desc: "Los índices de criminalidad llevan años en mínimos históricos en las zonas céntricas." },
           { label: "Seguridad nocturna", score: 6.5, desc: "El metro de madrugada requiere algo más de atención, como en cualquier gran ciudad." },
           { label: "Ambiente de la ciudad", score: 7.0, desc: "Carteristas en zonas muy turísticas (Times Square); precauciones básicas bastan." },
-        ],
-        reviews: [
-          { text: "Me sentí segura en todo momento, incluso volviendo sola de noche en metro.", author: "Sara, Exchange 2024", flag: "🇮🇹" },
         ],
       },
     ],
@@ -15364,9 +12423,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.0, desc: "Pase T con descuento estudiantil, unos 40–60$/mes." },
           { label: "Ocio y gastos diarios", score: 5.0, desc: "Muchos eventos universitarios gratis o con descuento, pero salir de fiesta o al centro es caro." },
         ],
-        reviews: [
-          { text: "Compartiendo piso en Allston, con 2.400€/mes vivía cómodo sin lujos.", author: "Marcos, Study Abroad 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento",
@@ -15380,9 +12436,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 3.0, desc: "900–1.500€ por habitación según zona, más caro cerca de Back Bay o Fenway." },
           { label: "Facilidad de búsqueda", score: 4.5, desc: "Grupos de Facebook por universidad, portales como Zillow o Craigslist con cuidado." },
           { label: "Residencias universitarias", score: 6.0, desc: "BU y Northeastern ofrecen dorms para estudiantes de intercambio, buena opción para el primer semestre." },
-        ],
-        reviews: [
-          { text: "La universidad me ayudó a encontrar dorm para el primer semestre, después me mudé a un piso compartido.", author: "Julia, Exchange 2023", flag: "🇩🇪" },
         ],
       },
       {
@@ -15398,10 +12451,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "Menos intensa que Nueva York, pero Allston y Fenway tienen ambiente universitario constante." },
           { label: "Eventos y actividades", score: 8.5, desc: "Partidos de los Red Sox en Fenway Park, eventos universitarios, festivales de otoño." },
         ],
-        reviews: [
-          { text: "Ir a un partido de los Red Sox con el grupo de intercambio fue de lo mejor del semestre.", author: "Nina, Study Abroad 2023", flag: "🇸🇪" },
-          { text: "La comunidad internacional en Northeastern es enorme, hice amigos de todas partes desde el primer día.", author: "Rafael, Exchange 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "integracion",
@@ -15415,9 +12464,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 7.5, desc: "Los bostonianos tienen fama de fríos al principio, pero se abren con el tiempo y son leales." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "El entorno universitario hace que sea fácil conocer gente, sobre todo dentro del campus." },
           { label: "Integración con locales", score: 7.0, desc: "Fuera del circuito universitario, cuesta un poco más que en ciudades más pequeñas." },
-        ],
-        reviews: [
-          { text: "Al principio cuesta romper el hielo, pero los bostonianos son de los amigos más fieles que hice.", author: "Anna, Intercambio 2023", flag: "🇵🇱" },
         ],
       },
       {
@@ -15433,9 +12479,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 7.5, desc: "Aeropuerto Logan bien conectado, trenes Amtrak a Nueva York (4h) y Washington D.C." },
           { label: "Escapadas de fin de semana", score: 7.0, desc: "Cape Cod, las montañas de Vermont y Nueva York a pocas horas en autobús o tren." },
         ],
-        reviews: [
-          { text: "Con la bici y el T me moví por toda la ciudad sin ningún problema durante el semestre.", author: "Lukas, Exchange 2024", flag: "🇦🇹" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -15449,10 +12492,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 8.5, desc: "Ciudad tranquila para su tamaño, con mucho verde y un ritmo más pausado que Nueva York." },
           { label: "Autenticidad local", score: 8.0, desc: "Historia revolucionaria por todas partes (Freedom Trail), mezcla de tradición y vida universitaria." },
           { label: "Estilo de vida", score: 8.5, desc: "Cultura, deporte universitario y una identidad de Nueva Inglaterra muy marcada." },
-        ],
-        reviews: [
-          { text: "El otoño en Boston es de las cosas más bonitas que he visto, los colores son irreales.", author: "Emma, Study Abroad 2023", flag: "🇬🇧" },
-          { text: "El invierno pega fuerte, pero la vida de campus hace que se lleve mejor.", author: "Marco, Intercambio 2024", flag: "🇮🇹" },
         ],
       },
       {
@@ -15468,9 +12507,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 8.0, desc: "Moderna, Biogen, Fidelity, además de decenas de startups en Kendall Square." },
           { label: "Oportunidades para estudiantes", score: 8.5, desc: "Northeastern es pionera en programas de prácticas integradas ('co-op'), muy valorados." },
         ],
-        reviews: [
-          { text: "Conseguí unas prácticas en un laboratorio de Kendall Square gracias a un contacto de mi universidad.", author: "Inés, Internship 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "seguridad",
@@ -15483,9 +12519,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Índices de criminalidad bajos comparados con otras grandes ciudades de EEUU." },
           { label: "Seguridad nocturna", score: 7.5, desc: "Las zonas universitarias son tranquilas de noche, precaución normal en el T de madrugada." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad ordenada y tranquila, con mucha presencia de policía universitaria en los campus." },
-        ],
-        reviews: [
-          { text: "Nunca me sentí insegura, ni siquiera volviendo tarde de la biblioteca.", author: "Charlotte, Exchange 2023", flag: "🇫🇷" },
         ],
       },
     ],
@@ -15508,9 +12541,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 6.5, desc: "Pase mensual de la CTA con descuento estudiantil, unos 55$/mes ilimitado." },
           { label: "Ocio y gastos diarios", score: 5.0, desc: "Museos gratis un día al mes con residencia, mucha vida cultural sin pagar entrada." },
         ],
-        reviews: [
-          { text: "Con 1.900€/mes viví muy bien en Hyde Park, cerca del campus.", author: "Pablo, Study Abroad 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento",
@@ -15524,9 +12554,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.5, desc: "700–1.100€ por habitación según barrio, mucho más barato en el South Side." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "Apartments.com, grupos de Facebook universitarios. Conviene visitar el barrio antes de firmar." },
           { label: "Residencias universitarias", score: 6.0, desc: "UChicago y Northwestern ofrecen dorms para estudiantes de intercambio bien ubicadas." },
-        ],
-        reviews: [
-          { text: "Encontrar piso fue mucho más fácil y barato que lo que me contaban amigos en Nueva York.", author: "Valentina, Exchange 2023", flag: "🇨🇴" },
         ],
       },
       {
@@ -15542,10 +12569,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "Wicker Park y Logan Square concentran bares, música en directo y clubes de blues y jazz históricos." },
           { label: "Eventos y actividades", score: 9.0, desc: "Lollapalooza, festivales de blues y jazz, mercados junto al lago en verano." },
         ],
-        reviews: [
-          { text: "Ver blues en directo en un club del South Side fue una de las mejores experiencias de mi año.", author: "Louis, Exchange 2023", flag: "🇫🇷" },
-          { text: "Lollapalooza fue el cierre perfecto del verano antes de empezar las clases.", author: "Mei, Study Abroad 2024", flag: "🇹🇼" },
-        ],
       },
       {
         id: "integracion",
@@ -15559,9 +12582,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 8.0, desc: "Los 'Midwestern nice' tienen fama merecida: amables, directos y hospitalarios." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "La vida de campus ayuda mucho, especialmente en Hyde Park y Evanston." },
           { label: "Integración con locales", score: 6.5, desc: "Ciudad muy segmentada por barrios, hace falta algo de esfuerzo para salir del círculo universitario." },
-        ],
-        reviews: [
-          { text: "La gente en Chicago es de lo más amable que me he encontrado en Estados Unidos.", author: "Sven, Intercambio 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -15577,9 +12597,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 8.0, desc: "O'Hare, uno de los grandes hubs aéreos del país, conecta con casi cualquier destino." },
           { label: "Escapadas de fin de semana", score: 7.0, desc: "Milwaukee, Indianápolis o las Dunas del Lago Michigan a pocas horas en coche." },
         ],
-        reviews: [
-          { text: "La L me llevaba a todos lados, aunque el frío en la parada elevada en enero es otra historia.", author: "Ola, Exchange 2024", flag: "🇳🇴" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -15593,10 +12610,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 8.5, desc: "Ciudad ordenada, con mucho parque y acceso directo al lago Michigan, sensación de espacio poco común en una gran urbe." },
           { label: "Autenticidad local", score: 8.8, desc: "Cuna del rascacielos moderno, del blues eléctrico y de la pizza deep dish. Identidad propia muy marcada." },
           { label: "Estilo de vida", score: 8.5, desc: "Verano en el lago, invierno de sofá y comida reconfortante. Un ritmo de vida muy equilibrado." },
-        ],
-        reviews: [
-          { text: "El verano junto al lago Michigan compensa cualquier queja sobre el invierno.", author: "Fernanda, Study Abroad 2023", flag: "🇧🇷" },
-          { text: "La arquitectura de Chicago es una razón en sí misma para elegir esta ciudad.", author: "Tom, Exchange 2024", flag: "🇬🇧" },
         ],
       },
       {
@@ -15612,9 +12625,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 8.0, desc: "Grandes consultoras, bancos regionales y un ecosistema industrial histórico en el Medio Oeste." },
           { label: "Oportunidades para estudiantes", score: 7.8, desc: "Career fairs muy activos, especialmente en negocios, finanzas e ingeniería." },
         ],
-        reviews: [
-          { text: "Conseguí prácticas en consultoría gracias a la red de alumni de mi universidad en Chicago.", author: "Ignacio, Internship 2023", flag: "🇪🇸" },
-        ],
       },
       {
         id: "seguridad",
@@ -15627,9 +12637,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.0, desc: "La percepción de inseguridad de Chicago se concentra en zonas muy específicas, alejadas del circuito universitario y turístico habitual." },
           { label: "Seguridad nocturna", score: 6.0, desc: "El Loop, Wicker Park y Hyde Park (con seguridad propia de UChicago) son tranquilos de noche." },
           { label: "Ambiente de la ciudad", score: 6.8, desc: "Infórmate de qué barrios evitar de noche, como en cualquier gran ciudad de EEUU." },
-        ],
-        reviews: [
-          { text: "En el campus y las zonas donde nos movíamos nunca tuve ningún problema de seguridad.", author: "Greta, Exchange 2024", flag: "🇸🇪" },
         ],
       },
     ],
@@ -15652,9 +12659,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 3.5, desc: "Sin coche, dependes del Metro o de apps de transporte, que suman rápido al presupuesto mensual." },
           { label: "Ocio y gastos diarios", score: 5.5, desc: "Playas y senderismo son gratis, pero el ocio nocturno y los conciertos son caros." },
         ],
-        reviews: [
-          { text: "Compartiendo coche y piso con otros estudiantes, viví con 2.300€/mes sin agobios.", author: "Carla, Study Abroad 2023", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento",
@@ -15668,9 +12672,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 2.5, desc: "800–1.500€ por habitación según barrio, mucho más caro cerca de la costa." },
           { label: "Facilidad de búsqueda", score: 4.5, desc: "Grupos de Facebook de la universidad, Zillow, Westside Rentals. Visitar antes de firmar es clave." },
           { label: "Residencias universitarias", score: 6.0, desc: "USC y UCLA tienen dorms para estudiantes internacionales, prácticos y bien conectados al campus." },
-        ],
-        reviews: [
-          { text: "Viví en la residencia de UCLA el primer semestre, después me mudé a un piso compartido en Westwood.", author: "Renata, Exchange 2024", flag: "🇧🇷" },
         ],
       },
       {
@@ -15686,10 +12687,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "De Hollywood a Downtown, la vida nocturna está muy repartida por toda la ciudad, hace falta moverse." },
           { label: "Eventos y actividades", score: 8.5, desc: "Partidos de fútbol americano universitario, premieres de cine, festivales de música todo el año." },
         ],
-        reviews: [
-          { text: "Ir a un partido de fútbol americano de USC con todo el estadio coreando fue una pasada.", author: "Julien, Exchange 2023", flag: "🇫🇷" },
-          { text: "La vida social gira mucho en torno al campus, pero también hay muchísimo que hacer fuera.", author: "Isabella, Study Abroad 2024", flag: "🇮🇹" },
-        ],
       },
       {
         id: "integracion",
@@ -15703,9 +12700,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 7.5, desc: "Gente relajada y abierta, aunque la cultura del coche reduce el contacto casual en la calle." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "El campus es el centro social: fuera de él cuesta más que en ciudades más compactas." },
           { label: "Integración con locales", score: 6.5, desc: "La ciudad es tan extensa que mantener el círculo social requiere organización y coche." },
-        ],
-        reviews: [
-          { text: "En el campus fue fácil integrarse, fuera de él la vida depende mucho de tener coche.", author: "Kenji, Intercambio 2024", flag: "🇯🇵" },
         ],
       },
       {
@@ -15721,9 +12715,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 8.0, desc: "LAX es uno de los grandes hubs aéreos del mundo, con vuelos directos a todas partes." },
           { label: "Escapadas de fin de semana", score: 7.5, desc: "San Diego, Las Vegas o el Gran Cañón a pocas horas en coche, ideales para escapadas." },
         ],
-        reviews: [
-          { text: "Al final compartí coche con compañeros de piso, sin eso la vida en Los Ángeles es muy limitada.", author: "Noah, Exchange 2023", flag: "🇳🇱" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -15737,10 +12728,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 8.5, desc: "Playas, senderismo en las montañas de Santa Mónica y una vida al aire libre difícil de igualar." },
           { label: "Autenticidad local", score: 8.0, desc: "Hollywood, la industria del cine y una escena creativa que impregna toda la ciudad." },
           { label: "Estilo de vida", score: 8.5, desc: "Cultura fitness, comida saludable y una obsesión sana por el bienestar muy propia de California." },
-        ],
-        reviews: [
-          { text: "Estudiar con playa y montaña a 20 minutos del campus no tiene comparación.", author: "Lívia, Study Abroad 2023", flag: "🇵🇹" },
-          { text: "El clima de Los Ángeles es el mejor argumento para elegir esta ciudad, sin dudarlo.", author: "Matteo, Exchange 2024", flag: "🇮🇹" },
         ],
       },
       {
@@ -15756,9 +12743,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 8.5, desc: "Disney, Netflix, Warner Bros, Riot Games y decenas de startups en Silicon Beach." },
           { label: "Oportunidades para estudiantes", score: 8.0, desc: "Networking constante en un sector que valora mucho el talento joven y los contactos." },
         ],
-        reviews: [
-          { text: "Conseguí unas prácticas en una productora gracias a un profesor de USC. Impensable en otro sitio.", author: "Solène, Internship 2024", flag: "🇫🇷" },
-        ],
       },
       {
         id: "seguridad",
@@ -15771,9 +12755,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.5, desc: "Los campus de USC y UCLA cuentan con seguridad propia, las zonas cercanas son tranquilas." },
           { label: "Seguridad nocturna", score: 6.0, desc: "Con coche, moverte de noche es sencillo y seguro; a pie, mejor evitar ciertas zonas del centro." },
           { label: "Ambiente de la ciudad", score: 6.8, desc: "Infórmate sobre qué barrios evitar, la ciudad es enorme y varía mucho de una zona a otra." },
-        ],
-        reviews: [
-          { text: "En el campus y Westwood siempre me sentí segura, incluso volviendo tarde de la biblioteca.", author: "Alma, Exchange 2023", flag: "🇸🇪" },
         ],
       },
     ],
@@ -15796,9 +12777,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.0, desc: "Muni y BART con descuento estudiantil, unos 75$/mes." },
           { label: "Ocio y gastos diarios", score: 4.5, desc: "Salir cuesta caro, pero el Golden Gate Park y muchos museos tienen entrada gratuita o reducida." },
         ],
-        reviews: [
-          { text: "Es la ciudad más cara en la que he vivido. Con 3.000€/mes iba muy justa compartiendo piso.", author: "Andrea, Study Abroad 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento",
@@ -15812,9 +12790,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 1.5, desc: "1.300–2.000€ por habitación en zonas céntricas, algo menos en el Sunset o el Richmond." },
           { label: "Facilidad de búsqueda", score: 3.0, desc: "Grupos de Facebook universitarios, Craigslist con mucho cuidado, agencias especializadas en estudiantes." },
           { label: "Residencias universitarias", score: 5.5, desc: "USF y SF State ofrecen dorms, más caras que la media nacional pero más seguras para empezar." },
-        ],
-        reviews: [
-          { text: "Encontrar piso fue lo más estresante del intercambio. Empieza a buscar con 4 meses de antelación.", author: "Guilherme, Exchange 2023", flag: "🇧🇷" },
         ],
       },
       {
@@ -15830,10 +12805,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.0, desc: "El Mission y SoMa concentran bares y música en directo; la ciudad se acuesta algo antes que Nueva York." },
           { label: "Eventos y actividades", score: 7.5, desc: "Outside Lands, Bay to Breakers, ferias tecnológicas y hackathons constantes." },
         ],
-        reviews: [
-          { text: "El ambiente en el campus de USF era muy internacional, hice amigos de todas partes.", author: "Freya, Exchange 2024", flag: "🇩🇰" },
-          { text: "Bay to Breakers es de las cosas más locas y divertidas que he vivido en un campus.", author: "Diego, Study Abroad 2023", flag: "🇦🇷" },
-        ],
       },
       {
         id: "integracion",
@@ -15847,9 +12818,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 8.0, desc: "Ciudad abierta, progresista y acostumbrada a la diversidad de todo tipo." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "El ecosistema tech y universitario facilita el networking y hacer contactos rápido." },
           { label: "Integración con locales", score: 7.0, desc: "Muchos residentes son también recién llegados de otras partes de EEUU o del mundo, lo que facilita encajar." },
-        ],
-        reviews: [
-          { text: "Es una ciudad de gente que ha venido de fuera, así que encajar como internacional es fácil.", author: "Priya, Intercambio 2024", flag: "🇮🇳" },
         ],
       },
       {
@@ -15865,9 +12833,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 7.5, desc: "SFO conecta con todo el mundo, y Silicon Valley está a menos de una hora en Caltrain." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Napa Valley, Yosemite o Lake Tahoe a pocas horas en coche, de los mejores alrededores de esta guía." },
         ],
-        reviews: [
-          { text: "El BART me llevaba a Berkeley en 20 minutos, aproveché para visitar el campus varias veces.", author: "Oskar, Exchange 2023", flag: "🇸🇪" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -15881,10 +12846,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 8.0, desc: "Naturaleza a un paso: playas, el Golden Gate Park y las montañas de Marin al otro lado del puente." },
           { label: "Autenticidad local", score: 9.0, desc: "Colinas icónicas, cable cars, arquitectura victoriana y una identidad cultural muy marcada." },
           { label: "Estilo de vida", score: 8.5, desc: "Mentalidad innovadora, vida al aire libre y una obsesión por el bienestar y la sostenibilidad." },
-        ],
-        reviews: [
-          { text: "El clima sorprende: hacía más frío en agosto que en cualquier mes de invierno en mi país.", author: "Clara, Study Abroad 2023", flag: "🇫🇷" },
-          { text: "Las vistas desde Twin Peaks o el Golden Gate justifican cualquier cuesta que tengas que subir.", author: "Matteo, Exchange 2024", flag: "🇮🇹" },
         ],
       },
       {
@@ -15900,9 +12861,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 9.5, desc: "Prácticamente todas las grandes tecnológicas del mundo tienen oficina en la bahía." },
           { label: "Oportunidades para estudiantes", score: 9.0, desc: "Hackathons, meetups y networking constante en un ecosistema que valora mucho el talento internacional." },
         ],
-        reviews: [
-          { text: "Conseguí unas prácticas en una startup gracias a un hackathon organizado por mi universidad.", author: "Jonas, Internship 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "seguridad",
@@ -15915,9 +12873,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.0, desc: "La mayoría de la ciudad es tranquila, pero hay zonas muy concretas (Tenderloin) con problemas visibles de indigencia y consumo de drogas." },
           { label: "Seguridad nocturna", score: 5.5, desc: "Evita el Tenderloin de noche; el resto de la ciudad es razonablemente seguro con precaución normal." },
           { label: "Ambiente de la ciudad", score: 6.0, desc: "La desigualdad es muy visible en algunas zonas del centro, algo que sorprende a muchos estudiantes al llegar." },
-        ],
-        reviews: [
-          { text: "Al principio impresiona ver tanta desigualdad tan cerca del corazón tech, pero aprendes qué zonas evitar.", author: "Camille, Exchange 2023", flag: "🇫🇷" },
         ],
       },
     ],
@@ -15940,10 +12895,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Metropolitano y apps de taxi muy baratas, 1-2€ por trayecto corto." },
           { label: "Ocio y gastos diarios", score: 8.0, desc: "Cerveza artesanal a 4€, cena de ceviche completa por 8-10€." },
         ],
-        reviews: [
-          { text: "Con 700€ al mes comía en los mejores restaurantes de vez en cuando y aún ahorraba.", author: "Marta, Study Abroad 2024", flag: "🇪🇸" },
-          { text: "Es la ciudad donde más barato he comido bien en toda Sudamérica.", author: "Diego, Intercambio 2023", flag: "🇲🇽" },
-        ],
       },
       {
         id: "alojamiento",
@@ -15957,9 +12908,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 8.0, desc: "250-450€ por habitación individual en buena zona. Muy por debajo de otras capitales de la región." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "Urbania, Facebook Marketplace y grupos de universidades. Recomendable llegar unos días antes para ver el piso en persona." },
           { label: "Seguridad del barrio", score: 6.5, desc: "Elige bien la zona: Miraflores, San Isidro y Barranco son mucho más seguros que el resto de la ciudad." },
-        ],
-        reviews: [
-          { text: "Busca piso en Miraflores o Barranco, aunque sea un poco más caro. Vale la pena por la tranquilidad.", author: "Sofía, Intercambio 2024", flag: "🇨🇴" },
         ],
       },
       {
@@ -15975,9 +12923,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "Barranco es el epicentro: bares, discotecas y música en vivo hasta la madrugada de jueves a sábado." },
           { label: "Eventos y gastronomía", score: 8.5, desc: "Festivales gastronómicos como Mistura, ferias de arte y conciertos todo el año." },
         ],
-        reviews: [
-          { text: "Barranco de noche es una fiesta constante, con muchísimo ambiente y gente de toda Sudamérica.", author: "Lucas, Work & Travel 2024", flag: "🇦🇷" },
-        ],
       },
       {
         id: "integracion",
@@ -15990,9 +12935,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 8.5, desc: "Gente muy amable y orgullosa de mostrar su cultura y gastronomía a los extranjeros." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "Fácil relacionarse con estudiantes universitarios, algo más costoso salir del círculo universitario." },
           { label: "Choque cultural", score: 6.0, desc: "El caos urbano y el tráfico sorprenden al principio, hay que adaptarse a otro ritmo." },
-        ],
-        reviews: [
-          { text: "Los peruanos te acogen enseguida y siempre buscan que pruebes su comida. Me sentí como en casa.", author: "Elena, Volunteering 2023", flag: "🇪🇸" },
         ],
       },
       {
@@ -16008,9 +12950,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 8.5, desc: "Vuelos baratos y frecuentes a Cusco, Arequipa o la selva. El aeropuerto Jorge Chávez es el gran hub del país." },
           { label: "Escapadas de fin de semana", score: 7.0, desc: "Machu Picchu, las Islas Ballestas o el desierto de Ica, todo accesible en un fin de semana largo." },
         ],
-        reviews: [
-          { text: "El tráfico de Lima es un caos, pero desde aquí puedes volar a cualquier parte de Perú por muy poco dinero.", author: "Hugo, Intercambio 2024", flag: "🇫🇷" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -16025,10 +12964,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 8.0, desc: "Malecón de Miraflores, parques junto al mar y una oferta cultural en constante crecimiento." },
           { label: "Autenticidad", score: 8.5, desc: "Mercados, huacas preincaicas en medio de la ciudad y una identidad cultural muy marcada." },
         ],
-        reviews: [
-          { text: "Comer en Lima cambió mi forma de entender la gastronomía. Cada barrio tiene su propia joya escondida.", author: "Noah, Study Abroad 2023", flag: "🇺🇸" },
-          { text: "El malecón de Miraflores al atardecer es de los sitios más bonitos donde he vivido.", author: "Camille, Intercambio 2024", flag: "🇫🇷" },
-        ],
       },
       {
         id: "empleo",
@@ -16042,9 +12977,6 @@ export const CITY_INSIGHTS = {
           { label: "Prácticas", score: 6.5, desc: "Empresas locales y organismos internacionales ofrecen prácticas, sobre todo en Lima Moderna." },
           { label: "Voluntariado", score: 8.0, desc: "Amplia oferta de voluntariado social y ambiental, muy accesible para estudiantes internacionales." },
         ],
-        reviews: [
-          { text: "Hice un voluntariado en un comedor comunitario de Villa El Salvador, una experiencia que me marcó.", author: "Anna, Volunteering 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "seguridad",
@@ -16057,9 +12989,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.5, desc: "Miraflores, San Isidro y Barranco son seguros con las precauciones normales de cualquier gran ciudad." },
           { label: "Seguridad nocturna", score: 5.5, desc: "Evita caminar solo de noche fuera de las zonas turísticas y usa taxis por app en vez de coger uno en la calle." },
           { label: "Robos menores", score: 5.5, desc: "El hurto de móviles y los carteristas son habituales en zonas concurridas y transporte público." },
-        ],
-        reviews: [
-          { text: "Nunca tuve problemas serios, pero siempre usaba apps de taxi de noche y era discreta con el móvil.", author: "Paula, Intercambio 2023", flag: "🇪🇸" },
         ],
       },
     ],
@@ -16082,9 +13011,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.0, desc: "El Metro cuesta 0,35$ el trayecto, de los más baratos de la región." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Vida nocturna y ocio a precios similares a EEUU en zonas como Calle Uruguay." },
         ],
-        reviews: [
-          { text: "Es más cara que el resto de Centroamérica, pero el nivel de servicios y seguridad lo compensa.", author: "Laura, Internship 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento",
@@ -16097,9 +13023,6 @@ export const CITY_INSIGHTS = {
           { label: "Disponibilidad", score: 7.0, desc: "Muchos edificios de apartamentos modernos, fácil encontrar habitación amueblada rápido." },
           { label: "Precio", score: 6.0, desc: "350-550$ habitación en zona bien conectada, algo caro para el resto de la región." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "Encuentra24 y grupos de Facebook de universidades funcionan bien para buscar piso desde origen." },
-        ],
-        reviews: [
-          { text: "Encontré piso en El Cangrejo en menos de una semana, muy bien conectado y con seguridad en el edificio.", author: "Marco, Intercambio 2023", flag: "🇮🇹" },
         ],
       },
       {
@@ -16114,9 +13037,6 @@ export const CITY_INSIGHTS = {
           { label: "Ambiente universitario", score: 6.0, desc: "Las universidades privadas como QLU y FSU Panama tienen buena vida de campus, aunque más reducida que otras capitales." },
           { label: "Fiesta y vida nocturna", score: 7.0, desc: "Calle Uruguay y Casco Viejo concentran bares, rooftops y discotecas de jueves a sábado." },
         ],
-        reviews: [
-          { text: "Panamá es más tranquila que otras capitales latinoamericanas entre semana, pero el fin de semana Casco Viejo se llena.", author: "Julia, Work & Travel 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "integracion",
@@ -16129,9 +13049,6 @@ export const CITY_INSIGHTS = {
           { label: "Nivel de inglés", score: 8.0, desc: "Ampliamente hablado en zonas de negocios y universidades privadas, gracias al peso histórico de EEUU en el país." },
           { label: "Actitud local", score: 7.5, desc: "Panameños abiertos y acostumbrados a la diversidad por el propio Canal." },
           { label: "Facilidad para hacer amigos", score: 6.5, desc: "Buen ambiente en universidades privadas, aunque la ciudad está más orientada al trabajo que a la vida social." },
-        ],
-        reviews: [
-          { text: "Todo el mundo habla algo de inglés y la mezcla de nacionalidades en la ciudad es enorme.", author: "Tom, Study Abroad 2023", flag: "🇺🇸" },
         ],
       },
       {
@@ -16147,9 +13064,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones internacionales", score: 9.5, desc: "Tocumen es el hub aéreo más importante de Latinoamérica, con vuelos directos a decenas de países." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Islas de Bocas del Toro, San Blas o playas del Pacífico a pocas horas." },
         ],
-        reviews: [
-          { text: "Desde Panamá puedes volar a casi cualquier país de América en pocas horas, es el mejor hub del continente.", author: "Valentina, Internship 2024", flag: "🇨🇴" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -16164,9 +13078,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 7.0, desc: "Infraestructura moderna, centros comerciales y servicios de nivel internacional." },
           { label: "Autenticidad", score: 6.0, desc: "Ciudad más moderna que tradicional; el Casco Viejo colonial es la principal excepción." },
         ],
-        reviews: [
-          { text: "Ver el Canal de Panamá en directo, con los barcos pasando entre las esclusas, es algo que no olvidaré.", author: "Ben, Intercambio 2023", flag: "🇬🇧" },
-        ],
       },
       {
         id: "empleo",
@@ -16180,9 +13091,6 @@ export const CITY_INSIGHTS = {
           { label: "Prácticas", score: 7.0, desc: "Empresas de logística, banca y comercio exterior ofrecen prácticas a estudiantes internacionales." },
           { label: "Sector Canal y logística", score: 8.5, desc: "La Zona Libre de Colón y el Canal generan gran demanda de profesionales en comercio internacional." },
         ],
-        reviews: [
-          { text: "Conseguí prácticas en una naviera gracias al peso del Canal en la economía del país.", author: "Sara, Internship 2024", flag: "🇲🇽" },
-        ],
       },
       {
         id: "seguridad",
@@ -16195,9 +13103,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.0, desc: "El Cangrejo, Bella Vista y San Francisco son seguros con las precauciones habituales." },
           { label: "Seguridad nocturna", score: 6.0, desc: "Evita zonas como Curundú o el extremo del Casco Viejo de noche; el resto de zonas turísticas están bien vigiladas." },
           { label: "Percepción", score: 6.5, desc: "Más segura que otras capitales de la región, aunque con desigualdad notable entre barrios." },
-        ],
-        reviews: [
-          { text: "Me sentí segura en las zonas donde vivía y estudiaba, aunque los locales te avisan de qué barrios evitar.", author: "Chiara, Intercambio 2024", flag: "🇮🇹" },
         ],
       },
     ],
@@ -16220,9 +13125,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Buses muy baratos, menos de 1$ por trayecto dentro de la ciudad." },
           { label: "Ocio", score: 6.0, desc: "Salir de fiesta o cenar fuera tiene precios similares a Europa del Este." },
         ],
-        reviews: [
-          { text: "Es más cara de lo que esperaba, sobre todo la comida importada, pero comer en sodas locales es muy barato.", author: "Nora, Study Abroad 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "alojamiento",
@@ -16235,9 +13137,6 @@ export const CITY_INSIGHTS = {
           { label: "Disponibilidad", score: 7.0, desc: "Amplia oferta de habitaciones y estudios cerca de la UCR y universidades privadas." },
           { label: "Precio", score: 6.5, desc: "300-500$ habitación individual según zona; Escazú y Santa Ana son las más caras." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "Encuentra24 y grupos de Facebook de universidades son el punto de partida habitual." },
-        ],
-        reviews: [
-          { text: "Viví en San Pedro, a un paso de la UCR, con muchísimo ambiente estudiantil.", author: "Carla, Intercambio 2023", flag: "🇨🇱" },
         ],
       },
       {
@@ -16252,9 +13151,6 @@ export const CITY_INSIGHTS = {
           { label: "Ambiente universitario", score: 7.5, desc: "San Pedro, junto a la UCR, es el barrio estudiantil por excelencia, con bares y vida nocturna activa." },
           { label: "Fiesta y gastronomía", score: 7.5, desc: "Barrio Escalante: la calle de moda con la mejor oferta gastronómica y coctelería de la ciudad." },
         ],
-        reviews: [
-          { text: "San Pedro de noche está lleno de estudiantes, es imposible no hacer amigos rápido.", author: "Ethan, Study Abroad 2023", flag: "🇺🇸" },
-        ],
       },
       {
         id: "integracion",
@@ -16268,9 +13164,6 @@ export const CITY_INSIGHTS = {
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "Fácil integrarse en el entorno universitario, algo más lento fuera de él." },
           { label: "Nivel de inglés", score: 6.5, desc: "Bastante extendido en zonas turísticas y universitarias, aunque el español sigue siendo necesario en el día a día." },
         ],
-        reviews: [
-          { text: "El pura vida no es solo una frase, es una forma de vivir. Los ticos te hacen sentir en casa desde el primer día.", author: "Manon, Volunteering 2024", flag: "🇫🇷" },
-        ],
       },
       {
         id: "movilidad",
@@ -16283,9 +13176,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 5.5, desc: "El centro de San José no está pensado para pasear; la vida pasa en los barrios de alrededor." },
           { label: "Transporte público", score: 6.5, desc: "Buses frecuentes y baratos, aunque sin un sistema de metro o tren urbano." },
           { label: "Escapadas de fin de semana", score: 9.0, desc: "Manuel Antonio, Arenal, Monteverde o Tortuguero, todos a menos de 4 horas en bus." },
-        ],
-        reviews: [
-          { text: "Cada fin de semana podíamos ir a un volcán o a una playa distinta, la variedad de naturaleza cerca es brutal.", author: "Erik, Intercambio 2023", flag: "🇸🇪" },
         ],
       },
       {
@@ -16301,10 +13191,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 8.0, desc: "Ritmo pausado, aire limpio y una cultura de bienestar muy marcada." },
           { label: "Autenticidad", score: 7.5, desc: "El 'pura vida' impregna la forma de relacionarse y de vivir el día a día." },
         ],
-        reviews: [
-          { text: "Fui de excursión casi todos los fines de semana y nunca me cansé de la naturaleza de este país.", author: "Isabel, Study Abroad 2024", flag: "🇪🇸" },
-          { text: "El clima del Valle Central es un regalo, ni frío ni calor agobiante en todo el año.", author: "Lukas, Volunteering 2023", flag: "🇦🇹" },
-        ],
       },
       {
         id: "empleo",
@@ -16318,9 +13204,6 @@ export const CITY_INSIGHTS = {
           { label: "Prácticas", score: 6.5, desc: "ONGs de conservación y ecoturismo ofrecen muchas oportunidades de prácticas y voluntariado." },
           { label: "Voluntariado ambiental", score: 9.0, desc: "Uno de los destinos líderes del mundo en voluntariado de conservación y vida silvestre." },
         ],
-        reviews: [
-          { text: "Hice un voluntariado con tortugas marinas en la costa Caribe, una de las mejores experiencias de mi vida.", author: "Greta, Volunteering 2024", flag: "🇳🇱" },
-        ],
       },
       {
         id: "seguridad",
@@ -16333,9 +13216,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.5, desc: "Escalante, San Pedro y Escazú son seguros con las precauciones habituales." },
           { label: "Seguridad nocturna", score: 5.5, desc: "Evita el centro (Avenida Central) de noche; la vida social se concentra en otros barrios más seguros." },
           { label: "Percepción", score: 6.5, desc: "Es uno de los países más estables y seguros de Centroamérica, sin ejército desde 1948." },
-        ],
-        reviews: [
-          { text: "Nunca fui al centro de noche, pero en San Pedro y Escalante me sentí siempre tranquila.", author: "Alice, Intercambio 2023", flag: "🇮🇹" },
         ],
       },
     ],
@@ -16358,9 +13238,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 6.5, desc: "Bus urbano por 1,5€ el trayecto; la ciudad es compacta y muy caminable." },
           { label: "Ocio", score: 5.5, desc: "Salir de fiesta o al cine tiene precios parecidos a España." },
         ],
-        reviews: [
-          { text: "Es caro comparado con el resto de Sudamérica, pero la calidad de vida y la tranquilidad lo compensan.", author: "Bruno, Intercambio 2024", flag: "🇧🇷" },
-        ],
       },
       {
         id: "alojamiento",
@@ -16373,9 +13250,6 @@ export const CITY_INSIGHTS = {
           { label: "Disponibilidad", score: 6.5, desc: "Buena oferta de habitaciones cerca de la UdelaR, sin grandes picos de demanda." },
           { label: "Precio", score: 5.5, desc: "350-550€ habitación individual, el precio más alto de la región junto con Panamá." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "Gallito Luis y grupos de Facebook universitarios son el punto de partida habitual." },
-        ],
-        reviews: [
-          { text: "Encontrar piso fue tranquilo y sin sorpresas, muy distinto a la presión que había vivido en otras ciudades.", author: "Renata, Study Abroad 2023", flag: "🇧🇷" },
         ],
       },
       {
@@ -16390,9 +13264,6 @@ export const CITY_INSIGHTS = {
           { label: "Ambiente universitario", score: 6.5, desc: "La UdelaR concentra mucha vida estudiantil en Cordón, aunque con un ritmo tranquilo entre semana." },
           { label: "Fiesta y cultura", score: 7.0, desc: "Ciudad Vieja y el barrio de la Aguada tienen buena oferta de bares, tango y música en vivo." },
         ],
-        reviews: [
-          { text: "No es la vida nocturna más intensa de la región, pero el ambiente entre amigos con mate y asado es único.", author: "Julien, Intercambio 2024", flag: "🇫🇷" },
-        ],
       },
       {
         id: "integracion",
@@ -16406,9 +13277,6 @@ export const CITY_INSIGHTS = {
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "Fácil integrarse en el entorno universitario y en actividades sociales cotidianas como el mate en el parque." },
           { label: "Choque cultural", score: 8.5, desc: "País estable, laico y con un ritmo de vida muy parecido al europeo, poco choque cultural." },
         ],
-        reviews: [
-          { text: "Me adapté rapidísimo, es de los países de la región donde menos culture shock sentí.", author: "Ana, Intercambio 2023", flag: "🇪🇸" },
-        ],
       },
       {
         id: "movilidad",
@@ -16421,9 +13289,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 8.0, desc: "Centro, Ciudad Vieja y la rambla se recorren perfectamente a pie o en bici." },
           { label: "Transporte público", score: 6.5, desc: "Red de buses amplia, aunque sin metro; suficiente para moverse por toda la ciudad." },
           { label: "Escapadas de fin de semana", score: 7.5, desc: "Colonia del Sacramento (1h), Punta del Este (2h) o Buenos Aires en ferry, todo muy accesible." },
-        ],
-        reviews: [
-          { text: "Fuimos a Colonia del Sacramento en bus un domingo cualquiera, está a nada de Montevideo.", author: "Marie, Study Abroad 2024", flag: "🇫🇷" },
         ],
       },
       {
@@ -16439,9 +13304,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 9.0, desc: "Una de las capitales con mejor calidad de vida de Latinoamérica: laica, estable y con baja desigualdad relativa." },
           { label: "Autenticidad", score: 8.0, desc: "Cultura del mate, el candombe y el fútbol como hilo conductor de la vida social." },
         ],
-        reviews: [
-          { text: "Tomar mate en la rambla al atardecer se convirtió en mi ritual diario, es la ciudad más relajante que he vivido.", author: "Fiona, Intercambio 2023", flag: "🇮🇪" },
-        ],
       },
       {
         id: "empleo",
@@ -16455,9 +13317,6 @@ export const CITY_INSIGHTS = {
           { label: "Prácticas", score: 6.0, desc: "Menos volumen de prácticas que en capitales más grandes, pero de buena calidad en empresas consolidadas." },
           { label: "Software y tecnología", score: 7.5, desc: "Uruguay es el mayor exportador de software per cápita de Latinoamérica." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una empresa de software en Zonamerica, un polo tecnológico muy profesional.", author: "Tobias, Internship 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "seguridad",
@@ -16470,9 +13329,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Ciudad Vieja, Pocitos y Cordón son muy seguros a cualquier hora del día." },
           { label: "Seguridad nocturna", score: 8.0, desc: "Se puede caminar de noche en la mayoría de zonas con normalidad, algo excepcional en la región." },
           { label: "Percepción", score: 9.0, desc: "Consistentemente valorada como una de las ciudades más seguras y estables de Latinoamérica." },
-        ],
-        reviews: [
-          { text: "Es la ciudad donde más segura me he sentido caminando sola de noche en toda Latinoamérica.", author: "Sophie, Intercambio 2024", flag: "🇨🇭" },
         ],
       },
     ],
@@ -16495,9 +13351,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.0, desc: "El nuevo Metro de Quito y los buses cuestan 0,45$ el trayecto." },
           { label: "Ocio", score: 7.5, desc: "Salir de fiesta o al cine, precios muy accesibles comparado con Europa." },
         ],
-        reviews: [
-          { text: "Con 500$ al mes vivía cómodamente, comía fuera casi a diario y me sobraba para viajar.", author: "Paz, Intercambio 2024", flag: "🇨🇱" },
-        ],
       },
       {
         id: "alojamiento",
@@ -16510,9 +13363,6 @@ export const CITY_INSIGHTS = {
           { label: "Disponibilidad", score: 8.0, desc: "Amplia oferta de habitaciones y pisos compartidos, sobre todo cerca de la PUCE y la USFQ." },
           { label: "Precio", score: 8.5, desc: "200-400$ habitación individual, de los más bajos de esta lista de ciudades." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "Plusvalía, OLX y grupos de Facebook universitarios son el punto de partida habitual." },
-        ],
-        reviews: [
-          { text: "En La Floresta encontré piso rapidísimo y muy barato, rodeado de cafés y arte urbano.", author: "Louise, Study Abroad 2023", flag: "🇫🇷" },
         ],
       },
       {
@@ -16527,9 +13377,6 @@ export const CITY_INSIGHTS = {
           { label: "Ambiente universitario", score: 7.0, desc: "Buen ambiente en la PUCE y la USFQ, con clubes, eventos y vida de campus activa en Cumbayá." },
           { label: "Fiesta y vida nocturna", score: 7.0, desc: "La Mariscal (conocida como 'Gringolandia') concentra bares y discotecas para estudiantes extranjeros." },
         ],
-        reviews: [
-          { text: "En La Mariscal siempre coincides con gente de intercambio de todo el mundo, es muy fácil hacer amigos.", author: "Ryan, Study Abroad 2024", flag: "🇺🇸" },
-        ],
       },
       {
         id: "integracion",
@@ -16543,9 +13390,6 @@ export const CITY_INSIGHTS = {
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "Fácil integrarse en el entorno universitario, especialmente en la USFQ con su enfoque internacional." },
           { label: "Choque cultural", score: 6.5, desc: "La altitud y el ritmo más pausado de la ciudad sorprenden los primeros días." },
         ],
-        reviews: [
-          { text: "Al principio cuesta un poco romper el hielo, pero en unas semanas ya tenía un grupo de amigos ecuatorianos genial.", author: "Klara, Volunteering 2023", flag: "🇨🇿" },
-        ],
       },
       {
         id: "movilidad",
@@ -16558,9 +13402,6 @@ export const CITY_INSIGHTS = {
           { label: "Ciudad caminable", score: 5.5, desc: "El centro histórico es caminable, pero la altitud (2.850m) cansa al principio." },
           { label: "Transporte público", score: 6.5, desc: "El Metro de Quito, inaugurado en 2023, conecta el sur y el norte de la ciudad de forma rápida." },
           { label: "Conexiones nacionales", score: 8.0, desc: "Vuelos baratos a Galápagos, y acceso rápido a la Amazonía y los Andes en bus." },
-        ],
-        reviews: [
-          { text: "Los primeros días la altitud te deja sin aire al subir una cuesta, pero el cuerpo se adapta rápido.", author: "Jonas, Intercambio 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -16576,10 +13417,6 @@ export const CITY_INSIGHTS = {
           { label: "Naturaleza y volcanes", score: 9.0, desc: "Rodeada de volcanes activos como el Cotopaxi y el Pichincha, con el teleférico subiendo hasta los 4.000m." },
           { label: "Autenticidad", score: 8.5, desc: "Mercados indígenas, arquitectura colonial y una identidad andina muy marcada." },
         ],
-        reviews: [
-          { text: "El centro histórico de Quito de noche, iluminado, es de lo más bonito que he visto en Latinoamérica.", author: "Marta, Intercambio 2023", flag: "🇪🇸" },
-          { text: "Subir en teleférico al Pichincha un domingo cualquiera y ver toda la ciudad y los volcanes es un lujo.", author: "Diego, Study Abroad 2024", flag: "🇲🇽" },
-        ],
       },
       {
         id: "empleo",
@@ -16593,9 +13430,6 @@ export const CITY_INSIGHTS = {
           { label: "Prácticas", score: 5.5, desc: "Algunas oportunidades en organismos internacionales y ONGs con sede en Quito." },
           { label: "Voluntariado", score: 8.0, desc: "Muy buena oferta de voluntariado en conservación, comunidades andinas y proyectos en la Amazonía." },
         ],
-        reviews: [
-          { text: "Hice un voluntariado en un proyecto de conservación cerca del Cotopaxi, una experiencia increíble fuera de la ciudad.", author: "Emma, Volunteering 2024", flag: "🇬🇧" },
-        ],
       },
       {
         id: "seguridad",
@@ -16608,9 +13442,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.0, desc: "La Floresta, Cumbayá y las zonas universitarias son razonablemente seguras de día." },
           { label: "Seguridad nocturna", score: 5.5, desc: "Evita el centro histórico solo de noche y usa taxis por app en vez de coger uno en la calle." },
           { label: "Robos menores", score: 6.0, desc: "El hurto y los tirones son el principal riesgo, más que la violencia; precaución habitual en transporte público." },
-        ],
-        reviews: [
-          { text: "Con las precauciones normales — nada de valor a la vista, taxis por app de noche — no tuve ningún problema.", author: "Nina, Intercambio 2024", flag: "🇸🇪" },
         ],
       },
     ],
@@ -16633,10 +13464,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 5.0, desc: "Metrorail y Metromover cubren poco; muchos estudiantes acaban dependiendo de Uber o coche." },
           { label: "Ocio y gastos diarios", score: 5.5, desc: "Las playas son gratis, pero salir de fiesta en South Beach o Brickell no lo es." },
         ],
-        reviews: [
-          { text: "Con 1.600€/mes vivía cómodo compartiendo piso en Wynwood, pero sin coche cuesta moverse.", author: "Diego, Study Abroad 2024", flag: "🇦🇷" },
-          { text: "El alquiler subió muchísimo en los últimos años, busca piso con antelación.", author: "Carla, Intercambio 2023", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento",
@@ -16650,9 +13477,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 3.5, desc: "Habitación individual desde 900€ en Brickell o Coral Gables; más barato en zonas alejadas del centro." },
           { label: "Facilidad de búsqueda", score: 4.5, desc: "Zillow, Facebook Marketplace y grupos de universidad son los canales habituales." },
           { label: "Residencias universitarias", score: 5.0, desc: "FIU y UM ofrecen residencias, pero las plazas para intercambio se agotan rápido." },
-        ],
-        reviews: [
-          { text: "Reservé residencia en FIU desde España tres meses antes y aun así fue justo.", author: "Marta, Intercambio 2024", flag: "🇪🇸" },
         ],
       },
       {
@@ -16668,10 +13492,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "South Beach, Brickell y Wynwood tienen oferta para cada estilo, de rooftop bars a discotecas latinas." },
           { label: "Eventos y actividades", score: 8.5, desc: "Art Walk de Wynwood, conciertos al aire libre y eventos de playa todo el año." },
         ],
-        reviews: [
-          { text: "La vida social en Miami es constante, siempre hay un plan de playa o de fiesta.", author: "Julia, Study Abroad 2023", flag: "🇧🇷" },
-          { text: "Hice amigos de toda Latinoamérica casi al instante, el ambiente hispano ayuda mucho.", author: "Tomás, Intercambio 2024", flag: "🇨🇴" },
-        ],
       },
       {
         id: "integracion",
@@ -16685,9 +13505,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 8.0, desc: "Ciudad joven y acostumbrada a la inmigración latina, muy abierta con el extranjero." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "Comunidad estudiantil algo más dispersa que en ciudades europeas por la dependencia del coche." },
           { label: "Integración con locales", score: 8.0, desc: "La Pequeña Habana y otras zonas latinas hacen sentir como en casa a los hispanohablantes." },
-        ],
-        reviews: [
-          { text: "Al hablar español desde el primer día ya me sentía integrado, algo que no esperaba en EEUU.", author: "Pablo, Intercambio 2023", flag: "🇪🇸" },
         ],
       },
       {
@@ -16703,9 +13520,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 6.5, desc: "Aeropuerto internacional con vuelos directos a toda Latinoamérica y Europa." },
           { label: "Escapadas de fin de semana", score: 7.0, desc: "Keys, Orlando y las Bahamas están a pocas horas en coche o ferry." },
         ],
-        reviews: [
-          { text: "Sin coche o bici, moverse por Miami es complicado. Uber se convierte en gasto fijo.", author: "Sara, Study Abroad 2024", flag: "🇲🇽" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -16719,9 +13533,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 8.0, desc: "Playas, aire libre y buen clima constante compensan el ritmo de vida algo más individualista." },
           { label: "Autenticidad local", score: 8.5, desc: "Mezcla única de cultura cubana, latinoamericana y estadounidense, muy distinta al resto de EEUU." },
           { label: "Estilo de vida", score: 9.0, desc: "Playa, deporte al aire libre y vida social giran en torno al buen tiempo constante." },
-        ],
-        reviews: [
-          { text: "Vivir con playa urbana a 15 minutos cambia por completo el día a día.", author: "Valentina, Study Abroad 2023", flag: "🇦🇷" },
         ],
       },
       {
@@ -16737,9 +13548,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.5, desc: "Bancos, aerolíneas, empresas de comercio internacional y un ecosistema startup cada vez mayor." },
           { label: "Oportunidades para estudiantes", score: 7.0, desc: "El bilingüismo español-inglés es una ventaja competitiva clara en el mercado laboral local." },
         ],
-        reviews: [
-          { text: "Conseguí prácticas en una empresa de comercio con Latinoamérica gracias a hablar los dos idiomas.", author: "Nicolás, Internship 2024", flag: "🇨🇱" },
-        ],
       },
       {
         id: "seguridad",
@@ -16752,9 +13560,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.5, desc: "Zonas como Brickell, Coral Gables o el campus de FIU son seguras; otras periferias requieren más cuidado." },
           { label: "Seguridad nocturna", score: 6.5, desc: "South Beach y Brickell están vigiladas y concurridas de noche." },
           { label: "Ambiente de la ciudad", score: 7.0, desc: "Como en cualquier gran ciudad de EEUU, evitar ciertas zonas fuera del circuito estudiantil." },
-        ],
-        reviews: [
-          { text: "Nunca tuve problemas de seguridad en las zonas donde nos movíamos habitualmente.", author: "Elena, Intercambio 2023", flag: "🇪🇸" },
         ],
       },
     ],
@@ -16777,10 +13582,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.0, desc: "Pase mensual TTC (metro, tranvía, bus) por unos 100€, con descuento para estudiantes." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Salir cuesta más que en Europa, pero hay mucha oferta cultural gratuita o barata." },
         ],
-        reviews: [
-          { text: "Con 1.500€/mes viví bien compartiendo piso cerca de la universidad.", author: "Lucía, Intercambio 2024", flag: "🇪🇸" },
-          { text: "El alquiler es lo que más se nota, busca piso con tiempo y no dejes la búsqueda para el último mes.", author: "Fabio, Study Abroad 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "alojamiento",
@@ -16794,9 +13595,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 3.0, desc: "Un estudio pequeño puede superar los 1.500€/mes en zonas céntricas." },
           { label: "Facilidad de búsqueda", score: 4.0, desc: "Facebook Marketplace, Kijiji y los portales de vivienda de cada universidad son los más usados." },
           { label: "Residencias universitarias", score: 5.0, desc: "UofT, TMU y York ofrecen residencia a estudiantes internacionales, aunque hay que solicitarla pronto." },
-        ],
-        reviews: [
-          { text: "Pedí residencia en cuanto me admitieron y aun así estuve en lista de espera.", author: "Andrea, Intercambio 2023", flag: "🇲🇽" },
         ],
       },
       {
@@ -16812,10 +13610,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "King West y Ossington concentran la vida nocturna; menos intensa que en ciudades europeas pero variada." },
           { label: "Eventos y actividades", score: 8.5, desc: "Festivales de cine, música y comida casi cada fin de semana en verano." },
         ],
-        reviews: [
-          { text: "En ningún otro sitio he conocido gente de tantos países distintos tan rápido.", author: "Noa, Study Abroad 2024", flag: "🇮🇱" },
-          { text: "Los festivales de verano en el waterfront son un planazo constante.", author: "Bruno, Intercambio 2023", flag: "🇧🇷" },
-        ],
       },
       {
         id: "integracion",
@@ -16829,9 +13623,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 9.0, desc: "Ciudad acostumbrada a la inmigración de todo el mundo; muy poca fricción cultural." },
           { label: "Facilidad para hacer amigos", score: 8.5, desc: "La diversidad hace que cualquier perfil encuentre su grupo con facilidad." },
           { label: "Integración con locales", score: 9.0, desc: "Toronto está construida sobre la inmigración; ser extranjero es la norma, no la excepción." },
-        ],
-        reviews: [
-          { text: "Nunca me sentí 'la extranjera' porque literalmente todos lo eran de algún sitio.", author: "Camila, Intercambio 2024", flag: "🇨🇴" },
         ],
       },
       {
@@ -16847,9 +13638,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 7.0, desc: "Aeropuerto Pearson con vuelos directos a toda Norteamérica y Europa; tren a Montreal y Ottawa." },
           { label: "Escapadas de fin de semana", score: 7.5, desc: "Niagara Falls a 1h30, Montreal y Ottawa en tren para escapadas de varios días." },
         ],
-        reviews: [
-          { text: "El PATH bajo tierra salva el invierno, puedes moverte por el centro sin pisar la nieve.", author: "Iker, Intercambio 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -16863,9 +13651,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 8.5, desc: "Ciudad limpia, segura y bien organizada, con parques y vida al aire libre en verano." },
           { label: "Autenticidad local", score: 8.5, desc: "Cada barrio tiene identidad propia según su comunidad; gastronomía global auténtica." },
           { label: "Estilo de vida", score: 8.5, desc: "Equilibrio entre ritmo de gran ciudad y calidad de vida; mucha oferta cultural durante todo el año." },
-        ],
-        reviews: [
-          { text: "El invierno es duro de verdad, pero la ciudad se prepara muy bien para ello.", author: "Martina, Study Abroad 2023", flag: "🇦🇷" },
         ],
       },
       {
@@ -16881,9 +13666,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 8.5, desc: "Grandes bancos canadienses, consultoras internacionales y un ecosistema tech creciente (Shopify, entre otras)." },
           { label: "Oportunidades para estudiantes", score: 8.0, desc: "El inglés fluido y la experiencia internacional se valoran mucho en el mercado local." },
         ],
-        reviews: [
-          { text: "Conseguí unas prácticas de marketing gracias al career center de mi universidad de acogida.", author: "Hugo, Internship 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "seguridad",
@@ -16896,9 +13678,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Índices de criminalidad bajos comparados con otras grandes ciudades de EEUU." },
           { label: "Seguridad nocturna", score: 8.0, desc: "Zonas de ocio y transporte nocturno razonablemente seguros, con la precaución habitual." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada y bien iluminada; sensación de seguridad alta incluso de noche." },
-        ],
-        reviews: [
-          { text: "Me sentí muy segura moviéndome sola de noche, algo que no siempre puedo decir en otras ciudades grandes.", author: "Paula, Intercambio 2023", flag: "🇪🇸" },
         ],
       },
     ],
@@ -16921,10 +13700,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.0, desc: "Compass Card para SkyTrain, bus y SeaBus; pase mensual con descuento estudiantil." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Senderismo, playas y parques son gratis; el ocio nocturno sí es caro." },
         ],
-        reviews: [
-          { text: "La vivienda se come el presupuesto, pero toda la naturaleza gratis compensa muchísimo.", author: "Marc, Intercambio 2024", flag: "🇫🇷" },
-          { text: "Compartir piso con más gente fue la única forma de que el presupuesto cuadrase.", author: "Sofía, Study Abroad 2023", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento",
@@ -16938,9 +13713,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 2.5, desc: "Un estudio puede superar los 1.700€/mes en zonas centrales como el West End." },
           { label: "Facilidad de búsqueda", score: 4.0, desc: "Facebook Marketplace y los portales de vivienda de las propias universidades son lo más fiable." },
           { label: "Residencias universitarias", score: 4.5, desc: "UBC tiene bastante residencia para intercambio, aunque hay que solicitarla nada más ser admitido." },
-        ],
-        reviews: [
-          { text: "Conseguí residencia en UBC solicitándola el primer día que se abrió el plazo.", author: "Diego, Intercambio 2023", flag: "🇦🇷" },
         ],
       },
       {
@@ -16956,9 +13728,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 6.0, desc: "Vida nocturna más discreta que en Toronto o Montreal; Gastown y Granville St. concentran lo poco que hay." },
           { label: "Eventos y actividades", score: 7.5, desc: "Senderismo en grupo, deportes de nieve y de agua sustituyen buena parte del ocio nocturno." },
         ],
-        reviews: [
-          { text: "La vida social gira más en torno al senderismo y al esquí que a la fiesta, y me encantó ese cambio.", author: "Elena, Study Abroad 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "integracion",
@@ -16972,9 +13741,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 8.0, desc: "Gente amable pero algo más reservada; hay que dar el primer paso para hacer amigos." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "Los clubes deportivos y de senderismo son la mejor vía para conocer gente." },
           { label: "Integración con locales", score: 7.8, desc: "Fácil integrarse en la vida diaria, aunque los círculos cercanos tardan algo más en formarse." },
-        ],
-        reviews: [
-          { text: "Cuesta un poco más romper el hielo que en otras ciudades, pero una vez dentro los grupos son sólidos.", author: "Renato, Intercambio 2023", flag: "🇮🇹" },
         ],
       },
       {
@@ -16990,9 +13756,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 7.0, desc: "Aeropuerto internacional con vuelos directos a Asia, EEUU y Europa." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Whistler a 1h30, Victoria en ferry y parques nacionales a poca distancia." },
         ],
-        reviews: [
-          { text: "En dos horas estás esquiando en Whistler o haciendo senderismo en las North Shore Mountains.", author: "Clara, Intercambio 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -17006,10 +13769,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 9.8, desc: "De las ciudades mejor valoradas del mundo en calidad de vida; naturaleza integrada en el día a día." },
           { label: "Autenticidad local", score: 8.5, desc: "Cultura outdoor genuina, con fuerte identidad medioambiental y comunidades muy diversas." },
           { label: "Estilo de vida", score: 9.5, desc: "Esquí, surf, senderismo y vida saludable definen el día a día de cualquier estudiante." },
-        ],
-        reviews: [
-          { text: "Nunca había vivido en un sitio donde la naturaleza formara tanto parte de la rutina diaria.", author: "Iván, Study Abroad 2023", flag: "🇲🇽" },
-          { text: "Esquiar por la mañana y volver a cenar a la ciudad el mismo día todavía me parece surrealista.", author: "Anna, Intercambio 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -17025,9 +13784,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "Estudios de videojuegos, efectos visuales y startups tecnológicas destacan en la ciudad." },
           { label: "Oportunidades para estudiantes", score: 7.5, desc: "Buena demanda de perfiles bilingües inglés-francés o inglés-mandarín." },
         ],
-        reviews: [
-          { text: "Hice prácticas en un estudio de videojuegos gracias a los contactos de la universidad.", author: "Leo, Internship 2024", flag: "🇦🇷" },
-        ],
       },
       {
         id: "seguridad",
@@ -17040,9 +13796,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.5, desc: "Zonas universitarias y residenciales muy seguras; el Downtown Eastside es la excepción a evitar de noche." },
           { label: "Seguridad nocturna", score: 7.5, desc: "Gastown y Granville St. están vigiladas, aunque conviene evitar calles adyacentes de noche." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad tranquila y ordenada en la gran mayoría de sus barrios." },
-        ],
-        reviews: [
-          { text: "Me sentí segura casi todo el tiempo, solo evitaba una zona muy concreta del centro de noche.", author: "Beatriz, Intercambio 2023", flag: "🇪🇸" },
         ],
       },
     ],
@@ -17065,10 +13818,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Pase mensual OPUS del STM (metro y bus) con descuento estudiantil, en torno a 60€." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Festivales gratuitos casi todo el año; salir de fiesta es más barato que en el resto de Canadá." },
         ],
-        reviews: [
-          { text: "Con 1.100€/mes vivía muy bien, Montreal es claramente el Canadá más asequible.", author: "Nora, Intercambio 2024", flag: "🇫🇷" },
-          { text: "Los precios de alquiler son mucho más razonables que en Toronto o Vancouver.", author: "Bruno, Study Abroad 2023", flag: "🇵🇹" },
-        ],
       },
       {
         id: "alojamiento",
@@ -17082,9 +13831,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.5, desc: "Habitación individual desde 500€; pisos compartidos con varios estudiantes bajan aún más el coste." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "Kijiji, Facebook Marketplace y los grupos de McGill, Concordia o UdeM para buscar piso." },
           { label: "Residencias universitarias", score: 6.0, desc: "McGill y Concordia ofrecen residencia para estudiantes de intercambio con solicitud temprana." },
-        ],
-        reviews: [
-          { text: "Encontré piso en el Plateau en pocas semanas, mucho más fácil que lo que contaban de Toronto.", author: "Valeria, Intercambio 2023", flag: "🇲🇽" },
         ],
       },
       {
@@ -17100,10 +13846,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "El Plateau, Mile End y St-Laurent concentran bares y discotecas para todos los gustos." },
           { label: "Eventos y actividades", score: 9.5, desc: "Festival de Jazz, Just for Laughs, Osheaga, Igloofest en invierno: la ciudad de los festivales por excelencia." },
         ],
-        reviews: [
-          { text: "Nunca me había reído tanto en un intercambio, los festivales no paran en todo el año.", author: "Chiara, Study Abroad 2024", flag: "🇮🇹" },
-          { text: "El ambiente universitario es enorme, siempre hay algo organizado por alguna de las universidades.", author: "Martín, Intercambio 2023", flag: "🇦🇷" },
-        ],
       },
       {
         id: "integracion",
@@ -17117,9 +13859,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 9.0, desc: "Quebequenses cálidos y orgullosos de su cultura, muy abiertos con el estudiante extranjero." },
           { label: "Facilidad para hacer amigos", score: 8.5, desc: "La enorme población estudiantil hace muy fácil integrarse en grupos internacionales o locales." },
           { label: "Integración con locales", score: 9.0, desc: "Ambiente universitario mezclado con locales; fácil hacer amigos quebequenses además de otros internacionales." },
-        ],
-        reviews: [
-          { text: "El francés de Quebec cuesta al principio, pero en un par de meses ya lo seguía sin problema.", author: "Léa, Intercambio 2024", flag: "🇫🇷" },
         ],
       },
       {
@@ -17135,9 +13874,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 7.5, desc: "Tren a Toronto (5h) y Nueva York (10h); vuelos directos a Europa desde el aeropuerto Trudeau." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Quebec City a 3h, los Laurentians para esquiar a menos de 1h." },
         ],
-        reviews: [
-          { text: "El RESO es un mundo aparte, puedes vivir medio invierno sin pisar la nieve si hace falta.", author: "Óscar, Intercambio 2023", flag: "🇪🇸" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -17151,10 +13887,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 8.5, desc: "Ritmo de vida relajado para ser Norteamérica, con parques, terrazas y vida de barrio." },
           { label: "Autenticidad local", score: 9.0, desc: "Cultura quebequense única, gastronomía con influencia francesa (poutine, bagels de Montreal, cretons)." },
           { label: "Estilo de vida", score: 8.5, desc: "Vida de barrio muy marcada, terrazas en verano y festivales de nieve en invierno como Igloofest." },
-        ],
-        reviews: [
-          { text: "El invierno impresiona la primera vez, pero la ciudad está tan preparada que se disfruta igual.", author: "Giulia, Study Abroad 2023", flag: "🇮🇹" },
-          { text: "La mezcla de cultura francesa y norteamericana es lo que hace única a Montreal.", author: "Thiago, Intercambio 2024", flag: "🇧🇷" },
         ],
       },
       {
@@ -17170,9 +13902,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "Ubisoft, Warner Bros Games y otras grandes de videojuegos tienen estudios en la ciudad." },
           { label: "Oportunidades para estudiantes", score: 6.5, desc: "El bilingüismo francés-inglés multiplica las opciones laborales en la ciudad." },
         ],
-        reviews: [
-          { text: "Conseguí unas prácticas en un estudio de videojuegos, el sector está en auge en Montreal.", author: "Adrián, Internship 2023", flag: "🇪🇸" },
-        ],
       },
       {
         id: "seguridad",
@@ -17185,9 +13914,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Índices de criminalidad bajos; zonas estudiantiles y el centro son muy seguras." },
           { label: "Seguridad nocturna", score: 8.5, desc: "El Plateau y Mile End son seguros incluso de madrugada, con calles concurridas." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad tranquila y acogedora, de las mejor valoradas en seguridad por estudiantes internacionales." },
-        ],
-        reviews: [
-          { text: "Me sentí completamente segura moviéndome sola de noche durante todo el año.", author: "Irene, Intercambio 2024", flag: "🇪🇸" },
         ],
       },
     ],
@@ -17210,10 +13936,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 9.5, desc: "El metro cuesta unos 0,25€ el trayecto; de los transportes públicos más baratos del planeta." },
           { label: "Ocio y gastos diarios", score: 8.5, desc: "Museos gratis los domingos, cultura y ocio a precios muy por debajo de EEUU o Europa." },
         ],
-        reviews: [
-          { text: "Con 600€/mes viví de maravilla, comiendo fuera casi a diario.", author: "Clara, Intercambio 2024", flag: "🇪🇸" },
-          { text: "Es la ciudad donde más me ha rendido el presupuesto de todo mi año fuera.", author: "Giovanni, Study Abroad 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "alojamiento",
@@ -17227,9 +13949,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 8.0, desc: "Habitación individual desde 250€; un piso entero puede rondar los 500–700€." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "Facebook Marketplace, Vivanuncios e Inmuebles24 son los portales más usados." },
           { label: "Residencias universitarias", score: 6.5, desc: "UNAM y otras universidades ofrecen algunas plazas de residencia, aunque limitadas para intercambio." },
-        ],
-        reviews: [
-          { text: "Encontrar piso en Condesa fue fácil y muy barato comparado con lo que pagaba en España.", author: "Mateo, Intercambio 2023", flag: "🇦🇷" },
         ],
       },
       {
@@ -17245,10 +13964,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "Roma, Condesa y la Zona Rosa concentran bares, mezcalerías y discotecas para cualquier estilo." },
           { label: "Eventos y actividades", score: 9.5, desc: "Museos, mercados, música en vivo y una agenda cultural que no para en toda la semana." },
         ],
-        reviews: [
-          { text: "La vida social y cultural es imparable, cada semana descubría un plan nuevo.", author: "Bianca, Study Abroad 2024", flag: "🇧🇷" },
-          { text: "La escena de bares y música en Roma y Condesa no tiene nada que envidiar a ninguna capital europea.", author: "Simón, Intercambio 2023", flag: "🇨🇴" },
-        ],
       },
       {
         id: "integracion",
@@ -17262,9 +13977,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 8.0, desc: "Gente muy cálida y hospitalaria con el estudiante extranjero." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "Fácil hacer amigos mexicanos y de otras nacionalidades gracias al ambiente universitario." },
           { label: "Integración con locales", score: 7.0, desc: "La ciudad es enorme y las distancias pueden dificultar mantener un grupo social estable." },
-        ],
-        reviews: [
-          { text: "Hablar el mismo idioma hace que la integración sea instantánea comparado con otros destinos.", author: "Lucas, Intercambio 2024", flag: "🇪🇸" },
         ],
       },
       {
@@ -17280,9 +13992,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 6.0, desc: "Aeropuerto internacional con vuelos directos a toda Latinoamérica, EEUU y Europa." },
           { label: "Escapadas de fin de semana", score: 7.5, desc: "Puebla, Teotihuacán y Valle de Bravo a poca distancia para escapadas cortas." },
         ],
-        reviews: [
-          { text: "El tráfico es el gran reto de la ciudad, calcula siempre más tiempo del que crees para moverte.", author: "Manuela, Study Abroad 2023", flag: "🇨🇴" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -17296,10 +14005,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 7.5, desc: "Ciudad intensa y con mucho tráfico, pero con una vida de barrio y cultural excepcional." },
           { label: "Autenticidad local", score: 9.5, desc: "Museos de talla mundial, centro histórico Patrimonio UNESCO y una de las mejores gastronomías del mundo." },
           { label: "Estilo de vida", score: 8.0, desc: "Mercados, arte callejero, música en vivo y una identidad cultural muy fuerte en cada barrio." },
-        ],
-        reviews: [
-          { text: "La oferta cultural y gastronómica es una de las mejores que he visto en cualquier ciudad del mundo.", author: "Francesca, Intercambio 2024", flag: "🇮🇹" },
-          { text: "La altitud se nota los primeros días, pero luego el clima templado es un regalo todo el año.", author: "Pedro, Study Abroad 2023", flag: "🇵🇹" },
         ],
       },
       {
@@ -17315,9 +14020,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "Fuerte sector financiero, consultoría y un ecosistema tecnológico cada vez mayor." },
           { label: "Oportunidades para estudiantes", score: 6.5, desc: "El español nativo o avanzado es clave para acceder a la mayoría de las ofertas." },
         ],
-        reviews: [
-          { text: "Hice unas prácticas de marketing en una startup local gracias a los contactos de la universidad.", author: "Alejandro, Internship 2024", flag: "🇦🇷" },
-        ],
       },
       {
         id: "seguridad",
@@ -17330,9 +14032,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 5.5, desc: "Ciudad enorme con seguridad muy desigual; imprescindible informarse bien de las zonas antes de instalarse." },
           { label: "Seguridad nocturna", score: 5.5, desc: "Roma y Condesa son razonablemente seguras de noche; evitar zonas desconocidas fuera del circuito habitual." },
           { label: "Ambiente de la ciudad", score: 6.5, desc: "Los estudiantes que se mueven por las zonas recomendadas no suelen tener incidentes relevantes." },
-        ],
-        reviews: [
-          { text: "En las zonas donde vivía y me movía (Condesa y Roma) nunca tuve ningún problema serio.", author: "Alba, Intercambio 2023", flag: "🇪🇸" },
         ],
       },
     ],
@@ -17355,10 +14054,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.8, desc: "Mi Teleférico cuesta 3 Bs (~0,40€) por trayecto; el minibús urbano, menos aún." },
           { label: "Ocio y gastos diarios", score: 8.5, desc: "Cerveza artesanal desde 2€, entrada a peñas folclóricas desde 3€." },
         ],
-        reviews: [
-          { text: "Con 380€/mes viví de sobra, incluyendo teleférico a diario y salidas de fin de semana.", author: "Marina, Study Abroad 2024", flag: "🇪🇸" },
-          { text: "Lo que más me sorprendió fue lo lejos que llega el dinero comparado con Europa.", author: "Thomas, Intercambio 2023", flag: "🇩🇪" },
-        ],
       },
       {
         id: "alojamiento",
@@ -17372,9 +14067,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 9.0, desc: "Habitación individual desde 100€/mes; piso completo en Zona Sur desde 300€." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "Mejor buscar sobre el terreno los primeros días; pocas plataformas fiables online." },
           { label: "Residencias universitarias", score: 6.5, desc: "La UMSA y la UCB tienen convenios puntuales de alojamiento, conviene preguntar con antelación en la oficina de relaciones internacionales." },
-        ],
-        reviews: [
-          { text: "Encontré piso en 4 días buscando in situ en Sopocachi, mucho más fácil de lo que esperaba.", author: "Julia, Intercambio 2023", flag: "🇦🇷" },
         ],
       },
       {
@@ -17390,10 +14082,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 6.5, desc: "Sopocachi concentra bares y discotecas; las peñas folclóricas son una experiencia distinta a cualquier discoteca europea." },
           { label: "Eventos y actividades", score: 8.0, desc: "El Gran Poder (mayo/junio) y el carnaval de Oruro (a 3h) son citas culturales imprescindibles." },
         ],
-        reviews: [
-          { text: "El grupo de intercambio era pequeño pero eso hizo que nos hiciéramos súper amigos enseguida.", author: "Carla, Study Abroad 2023", flag: "🇨🇴" },
-          { text: "Ver el Gran Poder en directo fue una de las experiencias culturales más fuertes que he vivido.", author: "Nico, Intercambio 2024", flag: "🇮🇹" },
-        ],
       },
       {
         id: "integracion",
@@ -17407,9 +14095,6 @@ export const CITY_INSIGHTS = {
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "El grupo reducido de estudiantes internacionales favorece vínculos cercanos, tanto con locales como con otros extranjeros." },
           { label: "Nivel de inglés", score: 5.5, desc: "El inglés apenas se habla fuera de círculos universitarios; el español es imprescindible." },
           { label: "Integración con locales", score: 8.5, desc: "Compañeros de universidad suelen invitar a comer o a salir desde las primeras semanas." },
-        ],
-        reviews: [
-          { text: "Mis compañeros de la UMSA me adoptaron desde el primer día, comidas familiares incluidas.", author: "Sofía, Intercambio 2024", flag: "🇲🇽" },
         ],
       },
       {
@@ -17425,9 +14110,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 6.5, desc: "El aeropuerto de El Alto conecta con el resto de Bolivia y la región; buses a Copacabana y el Lago Titicaca en 3h." },
           { label: "Escapadas de fin de semana", score: 7.5, desc: "Lago Titicaca, Valle de la Luna y el Camino de la Muerte, todo a menos de un día." },
         ],
-        reviews: [
-          { text: "Mi Teleférico es probablemente el mejor transporte público que he usado en mi vida — y las vistas no tienen precio.", author: "Hugo, Intercambio 2023", flag: "🇫🇷" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -17441,10 +14123,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 8.5, desc: "El primer mes exige adaptación a la altitud, pero después el ritmo de vida es tranquilo y muy asequible." },
           { label: "Autenticidad local", score: 9.5, desc: "Mercados de brujas, cultura aymara viva, salteñas y api por las mañanas. Nada está adaptado al turista." },
           { label: "Entorno natural", score: 9.5, desc: "El Illimani, el Valle de la Luna y el Altiplano rodean la ciudad; pocas capitales del mundo tienen un entorno tan espectacular." },
-        ],
-        reviews: [
-          { text: "Los primeros días cuesta respirar, literalmente, pero el paisaje compensa cualquier dolor de cabeza.", author: "Elena, Study Abroad 2024", flag: "🇮🇹" },
-          { text: "Nunca había vivido en un sitio donde el paisaje te deja sin palabras cada día al salir de casa.", author: "Bruno, Intercambio 2023", flag: "🇧🇷" },
         ],
       },
       {
@@ -17460,9 +14138,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 5.0, desc: "Sector cooperativista, textil (alpaca) y turismo son los más activos para colaboraciones puntuales." },
           { label: "Oportunidades para estudiantes", score: 5.3, desc: "La oficina de relaciones internacionales de la UMSA y la UCB ayuda a conectar con proyectos de voluntariado y prácticas." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una ONG local gracias a un contacto de la universidad, fue la mejor parte del intercambio.", author: "Diego, Internship 2023", flag: "🇦🇷" },
-        ],
       },
       {
         id: "seguridad",
@@ -17475,9 +14150,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.8, desc: "El centro y Zona Sur son seguros de día; el hurto oportunista (carteristas) es el riesgo más común, no la violencia." },
           { label: "Seguridad nocturna", score: 5.8, desc: "Evita caminar solo de noche fuera de Sopocachi o Zona Sur; usa radiotaxi en vez de coger uno en la calle." },
           { label: "Ambiente de la ciudad", score: 7.0, desc: "Las protestas y bloqueos (paros) son frecuentes en Bolivia y pueden afectar al transporte; conviene seguir las noticias locales." },
-        ],
-        reviews: [
-          { text: "Nunca tuve un problema serio, pero sí me enseñaron a pedir siempre el taxi por teléfono de noche.", author: "Laura, Intercambio 2024", flag: "🇪🇸" },
         ],
       },
     ],
@@ -17500,10 +14172,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.5, desc: "Bus urbano a menos de 0,50€ el trayecto; toda la ciudad es recorrible en poco dinero." },
           { label: "Ocio y gastos diarios", score: 8.0, desc: "Cerveza desde 1,50€; el tereré con amigos, el plan social por excelencia, es prácticamente gratis." },
         ],
-        reviews: [
-          { text: "Con 400€/mes me sobraba dinero para viajar los findes por el interior del país.", author: "Paula, Study Abroad 2024", flag: "🇪🇸" },
-          { text: "Es de las ciudades más baratas en las que he vivido, y eso que ya había estado en varias de la región.", author: "Renato, Intercambio 2023", flag: "🇧🇷" },
-        ],
       },
       {
         id: "alojamiento",
@@ -17517,9 +14185,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 9.0, desc: "De los alquileres más baratos de la región para estudiantes, especialmente fuera de Villa Morra." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "Portales locales e inmobiliarias de barrio funcionan mejor que las apps internacionales." },
           { label: "Residencias universitarias", score: 6.0, desc: "La oferta de residencias es limitada; la mayoría de estudiantes internacionales opta por piso compartido." },
-        ],
-        reviews: [
-          { text: "Mi universidad me ayudó a encontrar piso antes de llegar, todo muy sencillo y barato.", author: "Inés, Intercambio 2023", flag: "🇺🇾" },
         ],
       },
       {
@@ -17535,9 +14200,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 6.0, desc: "Villa Morra y la Costanera concentran los bares; la oferta de discotecas es menor que en otras capitales sudamericanas." },
           { label: "Eventos y actividades", score: 7.5, desc: "El Ykua Bolaños, las fiestas patronales y el carnaval de Encarnación (a 4h) son citas culturales destacadas." },
         ],
-        reviews: [
-          { text: "No esperaba una vida nocturna espectacular pero encontré algo mejor: sobremesas eternas con tereré.", author: "Martina, Intercambio 2024", flag: "🇦🇷" },
-        ],
       },
       {
         id: "integracion",
@@ -17551,9 +14213,6 @@ export const CITY_INSIGHTS = {
           { label: "Facilidad para hacer amigos", score: 8.5, desc: "Al ser un destino poco masificado, los locales muestran mucha curiosidad genuina por los extranjeros." },
           { label: "Nivel de inglés", score: 5.0, desc: "El inglés se habla poco; el español (y algo de guaraní) es necesario para el día a día." },
           { label: "Integración con locales", score: 8.8, desc: "Compartir tereré con la guampa y la bombilla es el ritual social que abre todas las puertas." },
-        ],
-        reviews: [
-          { text: "En mi primera semana ya tenía amigos paraguayos invitándome a su casa los domingos.", author: "Valentina, Intercambio 2023", flag: "🇨🇱" },
         ],
       },
       {
@@ -17569,9 +14228,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 6.5, desc: "Buses cómodos a Encarnación, Ciudad del Este y las Cataratas del Iguazú (Argentina/Brasil), a 4–5h." },
           { label: "Escapadas de fin de semana", score: 6.5, desc: "Cataratas del Iguazú, San Bernardino (lago Ypacaraí) y Encarnación son las escapadas clásicas." },
         ],
-        reviews: [
-          { text: "Fuimos a Iguazú un fin de semana largo en bus por muy poco dinero, se hace fácil desde Asunción.", author: "Rodrigo, Intercambio 2024", flag: "🇨🇴" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -17585,10 +14241,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 8.0, desc: "Ciudad tranquila, sin las prisas de otras capitales, ideal para quien busca una experiencia menos abrumadora." },
           { label: "Autenticidad local", score: 9.0, desc: "Guaraní hablado a diario, chipa, tereré y una identidad cultural muy poco influida por el turismo masivo." },
           { label: "Entorno natural", score: 6.8, desc: "La Costanera junto al río Paraguay y el cercano lago Ypacaraí ofrecen escapadas naturales cerca de la ciudad." },
-        ],
-        reviews: [
-          { text: "El calor de enero es duro, pero el resto del año el clima es un regalo.", author: "Clara, Study Abroad 2024", flag: "🇪🇸" },
-          { text: "Es una ciudad que no busca impresionar a nadie, y eso la hace muy auténtica.", author: "Bruno, Intercambio 2023", flag: "🇵🇹" },
         ],
       },
       {
@@ -17604,9 +14256,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 5.0, desc: "Sector agroexportador y de servicios son los más dinámicos, aunque poco orientados a estudiantes extranjeros." },
           { label: "Oportunidades para estudiantes", score: 5.5, desc: "Las oficinas de relaciones internacionales ayudan a conectar con proyectos de cooperación y voluntariado." },
         ],
-        reviews: [
-          { text: "Colaboré con una ONG de educación gracias a un convenio con mi universidad, muy buena experiencia.", author: "Andrea, Volunteering 2023", flag: "🇪🇸" },
-        ],
       },
       {
         id: "seguridad",
@@ -17619,9 +14268,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.5, desc: "Asunción tiene fama merecida de ser tranquila; los delitos violentos son poco frecuentes en las zonas habituales de estudiantes." },
           { label: "Seguridad nocturna", score: 7.0, desc: "Villa Morra, Carmelitas y la Costanera son seguras de noche; conviene la prudencia habitual en zonas menos conocidas." },
           { label: "Ambiente de la ciudad", score: 7.5, desc: "Ambiente relajado y sin las tensiones de otras capitales latinoamericanas más grandes." },
-        ],
-        reviews: [
-          { text: "Me sentí más segura en Asunción que en muchas ciudades europeas, sinceramente.", author: "Noa, Intercambio 2024", flag: "🇮🇱" },
         ],
       },
     ],
@@ -17644,10 +14290,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "TransMetro y Transurbano cuestan menos de 0,25€ el trayecto en las rutas seguras; Uber es la alternativa más usada." },
           { label: "Ocio y gastos diarios", score: 8.0, desc: "Cerveza artesanal desde 2,5€; buena oferta de ocio en Zona Viva a precios razonables." },
         ],
-        reviews: [
-          { text: "Viviendo en Zona 15 con 550€/mes me sobraba para viajar los fines de semana por el país.", author: "Marc, Study Abroad 2023", flag: "🇫🇷" },
-          { text: "Es más caro que otras capitales de la región si quieres vivir en zona segura, pero sigue siendo barato para lo que ofrece.", author: "Camila, Intercambio 2024", flag: "🇲🇽" },
-        ],
       },
       {
         id: "alojamiento",
@@ -17661,9 +14303,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.0, desc: "Más caro que Asunción o La Paz, especialmente en Zona 14, pero razonable comparado con Europa." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "Portales como MapaInmueble y grupos de Facebook de expatriados funcionan bien." },
           { label: "Residencias universitarias", score: 7.5, desc: "URL y UFM tienen programas de alojamiento con familias o residencias recomendadas para estudiantes internacionales." },
-        ],
-        reviews: [
-          { text: "La universidad me recomendó zonas concretas antes de llegar, eso lo simplificó todo.", author: "Lucas, Intercambio 2023", flag: "🇪🇸" },
         ],
       },
       {
@@ -17679,9 +14318,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 6.5, desc: "Zona Viva (Zona 10) concentra bares y discotecas; buen ambiente los fines de semana." },
           { label: "Eventos y actividades", score: 7.0, desc: "Ferias gastronómicas, mercados de artesanía y eventos culturales en Antigua Guatemala, a solo 45 minutos." },
         ],
-        reviews: [
-          { text: "El grupo de intercambio era pequeño, pero eso hizo que hiciéramos planes juntos constantemente.", author: "Elena, Intercambio 2024", flag: "🇮🇹" },
-        ],
       },
       {
         id: "integracion",
@@ -17695,9 +14331,6 @@ export const CITY_INSIGHTS = {
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "Las universidades privadas facilitan mucho el contacto con estudiantes locales de perfil internacional." },
           { label: "Nivel de inglés", score: 6.5, desc: "En las zonas universitarias y de negocios el inglés se habla razonablemente bien." },
           { label: "Integración con locales", score: 8.0, desc: "Compañeros de universidad suelen organizar salidas y viajes conjuntos desde el principio." },
-        ],
-        reviews: [
-          { text: "Mis compañeros de la URL me llevaron a Antigua el primer fin de semana, la integración fue inmediata.", author: "Javier, Intercambio 2023", flag: "🇪🇸" },
         ],
       },
       {
@@ -17713,9 +14346,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 6.5, desc: "Aeropuerto La Aurora conecta con toda la región; buses cómodos a Antigua, Atitlán y la costa." },
           { label: "Escapadas de fin de semana", score: 7.0, desc: "Antigua Guatemala (45 min), Lago de Atitlán (3h) y Tikal (vuelo corto) son destinos habituales de fin de semana." },
         ],
-        reviews: [
-          { text: "Uso Uber para todo dentro de la ciudad, es barato y evita muchos dolores de cabeza.", author: "Sara, Intercambio 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -17729,10 +14359,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 7.0, desc: "Buena calidad de vida dentro de las zonas seguras, con oferta gastronómica y cultural creciente." },
           { label: "Autenticidad local", score: 8.5, desc: "Mercados, textiles mayas y gastronomía tradicional muy presentes en cuanto sales del centro financiero." },
           { label: "Entorno natural", score: 7.5, desc: "Volcanes activos (Pacaya, Fuego, Agua) visibles desde la ciudad y accesibles en excursiones de un día." },
-        ],
-        reviews: [
-          { text: "El clima es un regalo constante, nunca hace ni demasiado calor ni demasiado frío.", author: "Ana, Study Abroad 2023", flag: "🇦🇷" },
-          { text: "Subir al volcán Pacaya un fin de semana y ver lava de cerca fue una de las experiencias más top del intercambio.", author: "Tobias, Intercambio 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -17748,9 +14374,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 5.5, desc: "Cooperación internacional y ONGs muy presentes, con muchas oportunidades de voluntariado remunerado o prácticas." },
           { label: "Oportunidades para estudiantes", score: 6.5, desc: "Career services de las universidades privadas están bastante desarrollados para el nivel regional." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una ONG de desarrollo rural a través de la universidad, muy formativo.", author: "Nuria, Internship 2023", flag: "🇪🇸" },
-        ],
       },
       {
         id: "seguridad",
@@ -17763,9 +14386,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 5.5, desc: "Ciudad de Guatemala tiene fama de insegura, pero el riesgo se concentra fuera de las zonas habituales de estudiantes y turistas." },
           { label: "Seguridad nocturna", score: 5.0, desc: "Muévete siempre en taxi o Uber de noche, incluso distancias cortas; evita caminar solo fuera de zonas seguras." },
           { label: "Ambiente de la ciudad", score: 7.0, desc: "Dentro de zonas 10, 14, 15 y 16 el ambiente es tranquilo, con seguridad privada visible en la mayoría de edificios." },
-        ],
-        reviews: [
-          { text: "Siguiendo las recomendaciones de la universidad sobre zonas y horarios, nunca tuve un problema serio.", author: "Ignacio, Intercambio 2024", flag: "🇨🇱" },
         ],
       },
     ],
@@ -17788,10 +14408,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.0, desc: "El transporte público es limitado; la mayoría de estudiantes usa Uber, desde unos 3€ por trayecto corto." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Buena oferta gastronómica y de ocio en Zona Rosa a precios razonables para el nivel regional." },
         ],
-        reviews: [
-          { text: "Con 600€/mes viví cómodamente, incluyendo Ubers frecuentes y algún finde de surf.", author: "Diego, Study Abroad 2024", flag: "🇦🇷" },
-          { text: "Las pupusas son casi gratis y están en todas partes, eso ayuda mucho al presupuesto.", author: "Lea, Intercambio 2023", flag: "🇫🇷" },
-        ],
       },
       {
         id: "alojamiento",
@@ -17805,9 +14421,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.0, desc: "Más caro que Guatemala en zonas premium, pero razonable comparado con capitales occidentales." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "Facebook Marketplace y agencias locales especializadas en extranjeros funcionan bien." },
           { label: "Residencias universitarias", score: 6.5, desc: "La UCA, en Antiguo Cuscatlán, tiene convenios con alojamientos cercanos al campus recomendados para intercambio." },
-        ],
-        reviews: [
-          { text: "Encontré piso en Antiguo Cuscatlán a 10 minutos andando de la UCA, muy cómodo.", author: "Martina, Intercambio 2023", flag: "🇺🇾" },
         ],
       },
       {
@@ -17823,9 +14436,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.0, desc: "San Benito (Zona Rosa) concentra la vida nocturna de la capital, con buen ambiente los fines de semana." },
           { label: "Eventos y actividades", score: 7.5, desc: "Ferias gastronómicas, festivales de surf en la costa y la Ruta de las Flores marcan la agenda social." },
         ],
-        reviews: [
-          { text: "Los findes se viven en El Tunco, no en San Salvador — y eso es parte de lo mejor de la experiencia.", author: "Facundo, Intercambio 2024", flag: "🇦🇷" },
-        ],
       },
       {
         id: "integracion",
@@ -17839,9 +14449,6 @@ export const CITY_INSIGHTS = {
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "La comunidad universitaria de la UCA facilita mucho el contacto con estudiantes locales." },
           { label: "Nivel de inglés", score: 6.5, desc: "El inglés se habla razonablemente en zonas universitarias y de negocios." },
           { label: "Integración con locales", score: 7.5, desc: "Es habitual que compañeros de universidad inviten a excursiones a la playa o al volcán desde el principio." },
-        ],
-        reviews: [
-          { text: "Mis compañeros de la UCA me llevaron a surfear el primer fin de semana, integración inmediata.", author: "Paula, Intercambio 2023", flag: "🇪🇸" },
         ],
       },
       {
@@ -17857,9 +14464,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 6.5, desc: "El Salvador es pequeño: playas, volcanes y Ruta de las Flores están a menos de 2 horas de la capital." },
           { label: "Escapadas de fin de semana", score: 7.0, desc: "El Tunco, El Zonte, Santa Ana (volcán y lago Coatepeque) y Ruta de las Flores son destinos habituales de un día o fin de semana." },
         ],
-        reviews: [
-          { text: "En un país tan pequeño, cualquier plan de fin de semana está a menos de dos horas.", author: "Bianca, Intercambio 2024", flag: "🇧🇷" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -17873,10 +14477,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 8.0, desc: "Buena calidad de vida en las zonas donde vive la mayoría de estudiantes, con oferta gastronómica en auge." },
           { label: "Autenticidad local", score: 8.5, desc: "Pupusas, mercados y una identidad centroamericana que empieza a mostrarse con orgullo tras años de aislamiento turístico." },
           { label: "Entorno natural", score: 9.0, desc: "Volcán de San Salvador, lago de Coatepeque y playas de surf de referencia mundial, todo a un paso." },
-        ],
-        reviews: [
-          { text: "Aprender a surfear en El Tunco los fines de semana fue el mejor regalo de mi intercambio.", author: "Iker, Study Abroad 2023", flag: "🇪🇸" },
-          { text: "Nadie te habla de El Salvador cuando piensas en surf, pero debería estar en el mapa.", author: "Chloé, Intercambio 2024", flag: "🇫🇷" },
         ],
       },
       {
@@ -17892,9 +14492,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 5.5, desc: "Sector textil, call centers internacionales y turismo en expansión." },
           { label: "Oportunidades para estudiantes", score: 5.8, desc: "Comunidad de nómadas digitales creciente que genera oportunidades informales de colaboración y networking." },
         ],
-        reviews: [
-          { text: "Conseguí una colaboración remota con una startup local gracias a contactos hechos en la universidad.", author: "Mateo, Internship 2024", flag: "🇲🇽" },
-        ],
       },
       {
         id: "seguridad",
@@ -17907,9 +14504,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.5, desc: "El país que antes encabezaba los rankings de homicidios de la región ha reducido drásticamente la criminalidad en los últimos años." },
           { label: "Seguridad nocturna", score: 6.5, desc: "San Benito y Escalón son seguras de noche; se recomienda transporte con apps en lugar de caminar largas distancias." },
           { label: "Ambiente de la ciudad", score: 7.0, desc: "Ambiente notablemente más relajado que hace unos años, aunque conviene seguir la actualidad del país antes de viajar." },
-        ],
-        reviews: [
-          { text: "Fui con dudas por lo que había leído antes de 2020, pero la realidad actual me sorprendió para bien.", author: "Robert, Intercambio 2023", flag: "🇺🇸" },
         ],
       },
     ],
@@ -17932,10 +14526,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.0, desc: "El Metro de Santo Domingo cuesta unos 0,30€ el trayecto, de los más baratos y modernos de la región." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Cerveza Presidente desde 1,5€; buena oferta de ocio en Zona Colonial a precios razonables." },
         ],
-        reviews: [
-          { text: "Con 650€/mes viví muy bien en Gazcue, cerca de la UASD y a un paso de la Zona Colonial.", author: "Sofía, Study Abroad 2024", flag: "🇪🇸" },
-          { text: "El Metro cambia por completo la experiencia de moverse por la ciudad, rápido y barato.", author: "Gabriel, Intercambio 2023", flag: "🇧🇷" },
-        ],
       },
       {
         id: "alojamiento",
@@ -17949,9 +14539,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.0, desc: "Zona Colonial y Gazcue son mucho más asequibles que Piantini o Naco, sin perder conexión con universidades." },
           { label: "Facilidad de búsqueda", score: 7.5, desc: "Portales como Corotos y Airbnb de larga estancia funcionan muy bien para encontrar piso antes de llegar." },
           { label: "Residencias universitarias", score: 7.0, desc: "PUCMM e INTEC tienen programas de alojamiento y familias anfitrionas para estudiantes de intercambio." },
-        ],
-        reviews: [
-          { text: "Reservé piso en Zona Colonial desde España por Airbnb de larga estancia, sin ningún problema.", author: "Bruno, Intercambio 2024", flag: "🇵🇹" },
         ],
       },
       {
@@ -17967,10 +14554,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "Zona Colonial y Piantini concentran bares de merengue y bachata en vivo; ambiente animado todo el año." },
           { label: "Eventos y actividades", score: 8.0, desc: "Carnaval dominicano (febrero), festivales de música y una agenda cultural muy activa en la Zona Colonial." },
         ],
-        reviews: [
-          { text: "Bailar bachata en la Zona Colonial un viernes por la noche es de las mejores experiencias del intercambio.", author: "Camille, Intercambio 2023", flag: "🇫🇷" },
-          { text: "El carnaval de febrero es una locura de colores y música, imprescindible vivirlo al menos una vez.", author: "Tomás, Study Abroad 2024", flag: "🇨🇱" },
-        ],
       },
       {
         id: "integracion",
@@ -17984,9 +14567,6 @@ export const CITY_INSIGHTS = {
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La vida social gira en torno a la calle y la música, lo que facilita mucho conocer gente nueva." },
           { label: "Nivel de inglés", score: 6.5, desc: "El inglés se habla razonablemente en universidades privadas y zonas turísticas, gracias al peso del turismo." },
           { label: "Integración con locales", score: 8.0, desc: "Compañeros de universidad suelen incluir a los estudiantes internacionales en planes de playa y salidas desde el principio." },
-        ],
-        reviews: [
-          { text: "Nunca me sentí extranjero, la gente te incluye en todo desde el primer día.", author: "Manu, Intercambio 2024", flag: "🇦🇷" },
         ],
       },
       {
@@ -18002,9 +14582,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 6.5, desc: "Buenas carreteras hacia Punta Cana, Samaná y el norte del país; aeropuertos con vuelos internos y regionales." },
           { label: "Escapadas de fin de semana", score: 7.0, desc: "Boca Chica y Juan Dolio a menos de una hora; Samaná y Punta Cana para escapadas más largas." },
         ],
-        reviews: [
-          { text: "El Metro es una sorpresa muy agradable, no me esperaba algo tan moderno en el Caribe.", author: "Alessia, Intercambio 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -18018,10 +14595,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 8.5, desc: "Buen equilibrio entre vida urbana, historia y playa a menos de una hora; ritmo de vida animado pero no agobiante." },
           { label: "Autenticidad local", score: 9.0, desc: "Zona Colonial Patrimonio UNESCO, merengue y bachata en vivo, gastronomía criolla muy presente en el día a día." },
           { label: "Entorno natural", score: 8.5, desc: "Playas cercanas como Boca Chica y Juan Dolio, y el Malecón como paseo marítimo de referencia de la ciudad." },
-        ],
-        reviews: [
-          { text: "Vivir a un lado de la primera catedral de América y a una hora de una playa caribeña no tiene precio.", author: "Julia, Study Abroad 2023", flag: "🇪🇸" },
-          { text: "La temporada de huracanes impone algo de respeto pero la universidad avisa con tiempo de todo.", author: "Noah, Intercambio 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -18037,9 +14610,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 5.5, desc: "Sector turístico y de call centers internacionales con presencia importante en Santo Domingo." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "Career services de INTEC y PUCMM bastante desarrollados, con ferias de empleo periódicas." },
         ],
-        reviews: [
-          { text: "Conseguí prácticas en una empresa de turismo a través de la bolsa de empleo de INTEC.", author: "Valeria, Internship 2023", flag: "🇲🇽" },
-        ],
       },
       {
         id: "seguridad",
@@ -18052,9 +14622,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.0, desc: "Piantini, Naco, Gazcue y Zona Colonial son seguras durante el día, con presencia policial visible en zonas turísticas." },
           { label: "Seguridad nocturna", score: 6.0, desc: "Se recomienda moverse en taxi o apps de noche fuera de las zonas turísticas y evitar mostrar objetos de valor." },
           { label: "Ambiente de la ciudad", score: 7.5, desc: "Ambiente animado y turístico en Zona Colonial, con buena vigilancia por la afluencia de visitantes." },
-        ],
-        reviews: [
-          { text: "Siguiendo las recomendaciones normales de cualquier ciudad grande, nunca tuve ningún incidente.", author: "Léa, Intercambio 2024", flag: "🇫🇷" },
         ],
       },
     ],
@@ -18077,10 +14644,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Mi Macro Periférico y Tren Ligero por menos de 1€/trayecto; Uber/DiDi muy baratos frente a EEUU." },
           { label: "Ocio y gastos diarios", score: 8.0, desc: "Cerveza artesanal 2–3€, oferta cultural gratuita en el Centro Histórico y Chapultepec." },
         ],
-        reviews: [
-          { text: "Con 650€ al mes vivía de sobra, comía fuera casi a diario y me sobraba para viajar a Tequila y Chapala.", author: "Camila, Study Abroad 2024", flag: "🇨🇴" },
-          { text: "Comparado con lo que gastaba en EEUU, Guadalajara es otro mundo en precio.", author: "Jake, Study Abroad 2023", flag: "🇺🇸" },
-        ],
       },
       {
         id: "alojamiento",
@@ -18094,9 +14657,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 7.5, desc: "300–450€ habitación individual en zonas céntricas, bajando bastante en Zapopan o Tlaquepaque." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "Vivanuncios, Facebook Marketplace y grupos de estudiantes internacionales de cada universidad." },
           { label: "Residencias universitarias", score: 6.0, desc: "ITESO y el Tec de Monterrey ofrecen residencia, aunque lo más común es compartir piso." },
-        ],
-        reviews: [
-          { text: "Encontré piso en Chapultepec en dos semanas a través de un grupo de Facebook de intercambio.", author: "Théo, Échange 2024", flag: "🇫🇷" },
         ],
       },
       {
@@ -18112,10 +14672,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.0, desc: "Cantinas tradicionales, bares de mezcal en Americana, y antros hasta la madrugada." },
           { label: "Eventos y actividades", score: 7.5, desc: "Charreadas, partidos de las Chivas, festivales de mariachi y el Festival Internacional de Cine." },
         ],
-        reviews: [
-          { text: "La gente tapatía te adopta enseguida. Cada fin de semana había un plan con amigos locales.", author: "Sofía, Study Abroad 2024", flag: "🇪🇸" },
-          { text: "Ver un partido de las Chivas en el Estadio Akron con la afición local fue una locura.", author: "Marco, Exchange 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "integracion",
@@ -18129,9 +14685,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 8.5, desc: "Los tapatíos tienen fama de ser de los mexicanos más cálidos y hospitalarios." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "Fácil hacer amigos locales si hablas algo de español; la vida social gira mucho en torno a la familia y los grupos de siempre." },
         ],
-        reviews: [
-          { text: "Mi español mejoró una barbaridad porque fuera del campus casi nadie hablaba inglés.", author: "Emma, Study Abroad 2023", flag: "🇩🇪" },
-        ],
       },
       {
         id: "movilidad",
@@ -18144,9 +14697,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 6.0, desc: "Tren Ligero y Mi Macro Periférico cubren los ejes principales, pero la red no llega a todos los barrios." },
           { label: "Ciudad caminable", score: 5.5, desc: "El centro histórico es caminable, pero la ciudad en general está muy extendida y depende del coche." },
           { label: "Conexiones nacionales", score: 7.5, desc: "Aeropuerto internacional con vuelos directos a EEUU y Latinoamérica; Tequila, Chapala y la costa de Jalisco a un par de horas." },
-        ],
-        reviews: [
-          { text: "Uber y DiDi son tan baratos que casi no usé el transporte público.", author: "Lucas, Intercâmbio 2024", flag: "🇧🇷" },
         ],
       },
       {
@@ -18162,9 +14712,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "Cuna del mariachi y el tequila, con Tlaquepaque y Tonalá para artesanía y el Hospicio Cabañas (UNESCO)." },
           { label: "Estilo de vida", score: 7.0, desc: "Mucha vida de café y coworking gracias a la comunidad tech, combinada con tradición mexicana." },
         ],
-        reviews: [
-          { text: "El clima es un regalo: nunca hace demasiado frío ni demasiado calor.", author: "Valentina, Study Abroad 2024", flag: "🇦🇷" },
-        ],
       },
       {
         id: "empleo",
@@ -18178,9 +14725,6 @@ export const CITY_INSIGHTS = {
           { label: "Prácticas", score: 7.5, desc: "El Tec de Monterrey e ITESO tienen bolsas de prácticas activas con empresas tech locales e internacionales." },
           { label: "Empresas relevantes", score: 8.5, desc: "Software, semiconductores y nearshoring: Jalisco concentra el 40% del sector IT mexicano." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una startup de software y me ofrecieron quedarme remoto al terminar el intercambio.", author: "Diego, Study Abroad 2023", flag: "🇺🇸" },
-        ],
       },
       {
         id: "seguridad",
@@ -18193,9 +14737,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 5.5, desc: "Zonas como Americana, Chapultepec y Providencia son seguras de día; el Departamento de Estado no restringe viajes a la zona metropolitana." },
           { label: "Seguridad nocturna", score: 5.0, desc: "Evita caminar solo de noche fuera de zonas concurridas y usa siempre apps de coche, no taxis de calle." },
           { label: "Ambiente de la ciudad", score: 6.0, desc: "Los estudiantes que siguen las recomendaciones básicas (no mostrar objetos de valor, moverse en grupo de noche) no suelen tener problemas." },
-        ],
-        reviews: [
-          { text: "Nunca tuve un problema serio, pero sí es una ciudad donde hay que tener más cuidado que en una europea.", author: "Anna, Exchange 2024", flag: "🇵🇱" },
         ],
       },
     ],
@@ -18218,9 +14759,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 6.0, desc: "CapMetro cubre el centro, pero para moverte con soltura conviene bici o coche compartido." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Muchos bares con música en vivo gratis, pero las entradas a festivales grandes (SXSW, ACL) son caras." },
         ],
-        reviews: [
-          { text: "Compartiendo piso en West Campus gastaba unos 1.600€ al mes contándolo todo.", author: "Laura, Study Abroad 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento",
@@ -18233,9 +14771,6 @@ export const CITY_INSIGHTS = {
           { label: "Disponibilidad", score: 4.5, desc: "Alta demanda de los 50.000+ estudiantes de UT Austin; los mejores pisos de West Campus vuelan en primavera." },
           { label: "Precio", score: 4.0, desc: "Uno de los mercados de alquiler más caros de Texas, aunque lejos de Nueva York o San Francisco." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "Portales como ApartmentsClosetoUT o grupos de Facebook de intercambio funcionan bien." },
-        ],
-        reviews: [
-          { text: "Empecé a buscar piso en enero para agosto y aun así me costó encontrar algo a buen precio.", author: "Ben, Exchange 2023", flag: "🇬🇧" },
         ],
       },
       {
@@ -18251,10 +14786,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "Rainey Street, Dirty Sixth y East Austin cubren todos los estilos, del honky-tonk al techno." },
           { label: "Eventos y actividades", score: 8.5, desc: "SXSW en marzo, Austin City Limits en octubre: dos de los festivales más grandes de EEUU." },
         ],
-        reviews: [
-          { text: "SXSW coincidió con mi semestre y fue una pasada: música, cine y tecnología en cada esquina.", author: "Nina, Study Abroad 2024", flag: "🇸🇪" },
-          { text: "La vida social gira en torno a los conciertos gratis, casi cada noche hay uno bueno.", author: "Hugo, Échange 2023", flag: "🇫🇷" },
-        ],
       },
       {
         id: "integracion",
@@ -18268,9 +14799,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 8.0, desc: "Los tejanos de Austin tienen fama de ser de los más abiertos y relajados de EEUU." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "Las asociaciones de estudiantes y clubs de UT Austin facilitan mucho conocer gente desde el primer día." },
         ],
-        reviews: [
-          { text: "La gente en Austin es sorprendentemente cercana para ser una ciudad grande de EEUU.", author: "Marta, Study Abroad 2023", flag: "🇮🇹" },
-        ],
       },
       {
         id: "movilidad",
@@ -18283,9 +14811,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 5.0, desc: "CapMetro tiene bus y una línea de tren limitada; útil pero no compite con Europa." },
           { label: "Ciudad caminable", score: 5.5, desc: "El campus y West Campus funcionan muy bien a pie; el resto de la ciudad requiere coche o Uber." },
           { label: "Conexiones nacionales", score: 6.5, desc: "Aeropuerto con vuelos directos a buena parte de EEUU; Houston, San Antonio y Dallas a 2–4 horas en coche." },
-        ],
-        reviews: [
-          { text: "Sin coche puedes vivir bien si te quedas en West Campus, pero salir de esa burbuja es más difícil.", author: "Tom, Exchange 2024", flag: "🇳🇱" },
         ],
       },
       {
@@ -18301,9 +14826,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.5, desc: "El lema 'Keep Austin Weird' se nota: arte urbano, tiendas independientes y una cultura muy propia dentro de Texas." },
           { label: "Estilo de vida", score: 8.0, desc: "Comunidad creativa y emprendedora, con food trucks, música en vivo y mucho ambiente al aire libre." },
         ],
-        reviews: [
-          { text: "El calor de agosto es duro de verdad, pero Barton Springs con 20°C todo el año lo compensa.", author: "Clara, Study Abroad 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "empleo",
@@ -18317,9 +14839,6 @@ export const CITY_INSIGHTS = {
           { label: "Prácticas", score: 8.0, desc: "UT Austin tiene una de las bolsas de prácticas tech más potentes de EEUU." },
           { label: "Empresas relevantes", score: 9.0, desc: "Tecnología, semiconductores y energía limpia, con salarios altos para estándares del sur de EEUU." },
         ],
-        reviews: [
-          { text: "Conseguí unas prácticas en una startup fintech gracias a un evento de networking de la universidad.", author: "Ana, Study Abroad 2023", flag: "🇵🇹" },
-        ],
       },
       {
         id: "seguridad",
@@ -18332,9 +14851,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.0, desc: "UT Austin tiene un servicio de seguridad y transporte nocturno propio (SURE Walk)." },
           { label: "Seguridad nocturna", score: 6.0, desc: "Dirty Sixth y Rainey Street están vigiladas pero muy concurridas los fines de semana; ojo con las pertenencias." },
           { label: "Ambiente de la ciudad", score: 6.5, desc: "Zonas como Tarrytown o Hyde Park son de las más seguras; evita Rundberg o East Riverside de noche." },
-        ],
-        reviews: [
-          { text: "Me sentí segura todo el semestre, sobre todo usando el shuttle nocturno del campus.", author: "Julia, Exchange 2024", flag: "🇦🇹" },
         ],
       },
     ],
@@ -18357,9 +14873,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.0, desc: "ORCA card unifica bus, light rail y ferry por un precio razonable comparado con el resto de gastos." },
           { label: "Ocio y gastos diarios", score: 5.5, desc: "Café por todas partes y barato, pero el ocio nocturno y los conciertos suben rápido de precio." },
         ],
-        reviews: [
-          { text: "Seattle es cara, no nos engañemos. Con 2.200€ al mes vivía ajustada pero bien.", author: "Chiara, Study Abroad 2024", flag: "🇮🇹" },
-        ],
       },
       {
         id: "alojamiento",
@@ -18372,9 +14885,6 @@ export const CITY_INSIGHTS = {
           { label: "Disponibilidad", score: 4.0, desc: "Alta demanda por los 48.000+ estudiantes de la UW; conviene buscar con varios meses de antelación." },
           { label: "Precio", score: 3.5, desc: "Entre los alquileres más caros de EEUU, aunque algo por debajo de San Francisco o Nueva York." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "El servicio de vivienda de la UW y grupos de Facebook de intercambio son el punto de partida habitual." },
-        ],
-        reviews: [
-          { text: "Encontrar piso desde fuera de EEUU fue lo más estresante de organizar el semestre.", author: "Paul, Échange 2023", flag: "🇫🇷" },
         ],
       },
       {
@@ -18390,9 +14900,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 6.5, desc: "Capitol Hill concentra la vida nocturna; ambiente más tranquilo que otras ciudades de su tamaño." },
           { label: "Eventos y actividades", score: 7.0, desc: "Bumbershoot, festivales de cine y una escena de música indie muy activa." },
         ],
-        reviews: [
-          { text: "Al principio cuesta romper el hielo con los locales, pero una vez lo logras las amistades son sólidas.", author: "Yuna, Exchange 2024", flag: "🇰🇷" },
-        ],
       },
       {
         id: "integracion",
@@ -18406,9 +14913,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 6.5, desc: "Amables pero reservados al principio; hace falta tiempo para pasar de conocidos a amigos." },
           { label: "Facilidad para hacer amigos", score: 6.5, desc: "Los clubes y asociaciones de la UW son la vía más rápida para romper la reserva inicial." },
         ],
-        reviews: [
-          { text: "Cuesta un poco más que en el sur de EEUU, pero cuando entras en un grupo te tratan genial.", author: "Diego, Study Abroad 2023", flag: "🇦🇷" },
-        ],
       },
       {
         id: "movilidad",
@@ -18421,9 +14925,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 7.5, desc: "Light rail, bus y streetcar cubren bien el centro y el U-District; en expansión constante." },
           { label: "Ciudad caminable", score: 6.5, desc: "El campus y Capitol Hill son muy caminables; otras zonas están más pensadas para el coche." },
           { label: "Conexiones nacionales", score: 7.0, desc: "Aeropuerto SEA-TAC con vuelos directos a Asia y toda la costa oeste; Vancouver a 3 horas en coche." },
-        ],
-        reviews: [
-          { text: "El light rail me llevaba del aeropuerto al campus sin necesidad de coche ni de Uber.", author: "Fatima, Exchange 2024", flag: "🇹🇷" },
         ],
       },
       {
@@ -18439,9 +14940,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 8.0, desc: "Cultura cafetera (nació Starbucks aquí), mercados como Pike Place y una identidad muy 'Pacific Northwest'." },
           { label: "Estilo de vida", score: 8.5, desc: "Ritmo de vida activo y saludable, con mucho senderismo y deporte al aire libre entre semana." },
         ],
-        reviews: [
-          { text: "El verano en Seattle es de los mejores climas que he vivido, seco y con luz hasta las 9 de la noche.", author: "Lucas, Study Abroad 2024", flag: "🇧🇷" },
-        ],
       },
       {
         id: "empleo",
@@ -18455,9 +14953,6 @@ export const CITY_INSIGHTS = {
           { label: "Prácticas", score: 8.5, desc: "La UW tiene programas de prácticas muy conectados con las grandes tech de la zona." },
           { label: "Empresas relevantes", score: 9.0, desc: "Tecnología, aeroespacial y biotecnología, con salarios entre los más altos de EEUU." },
         ],
-        reviews: [
-          { text: "Hice prácticas de verano en una empresa de software gracias al career fair de la universidad.", author: "Mateus, Study Abroad 2023", flag: "🇵🇹" },
-        ],
       },
       {
         id: "seguridad",
@@ -18470,9 +14965,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.5, desc: "Zonas como el U-District, Ballard o Fremont son tranquilas; el centro requiere algo más de atención de noche." },
           { label: "Seguridad nocturna", score: 6.0, desc: "El Departamento de Seguridad de la UW ofrece escoltas y transporte nocturno gratuito." },
           { label: "Ambiente de la ciudad", score: 7.0, desc: "Ciudad ordenada y con buena vigilancia policial en zonas universitarias." },
-        ],
-        reviews: [
-          { text: "Nunca me sentí insegura, aunque en el centro por la noche prefería ir acompañada.", author: "Alice, Exchange 2024", flag: "🇬🇧" },
         ],
       },
     ],
@@ -18495,9 +14987,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.0, desc: "SmarTrip (Metro + bus) cubre casi toda la ciudad a buen precio para estándares de EEUU." },
           { label: "Ocio y gastos diarios", score: 8.0, desc: "Los museos Smithsonian son gratis todo el año, lo que compensa bastante el resto de gastos." },
         ],
-        reviews: [
-          { text: "El alquiler se come el presupuesto, pero los museos gratis hacen que el ocio cultural no cueste nada.", author: "Elena, Study Abroad 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento",
@@ -18510,9 +14999,6 @@ export const CITY_INSIGHTS = {
           { label: "Disponibilidad", score: 4.5, desc: "Alta demanda entre las universidades de la ciudad; conviene empezar a buscar con meses de antelación." },
           { label: "Precio", score: 3.5, desc: "Entre los alquileres más altos de EEUU, especialmente en Georgetown y Dupont Circle." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "Las oficinas de housing de Georgetown, GWU y American ayudan activamente a estudiantes internacionales." },
-        ],
-        reviews: [
-          { text: "Georgetown es precioso pero carísimo; me mudé a Columbia Heights y ahorré bastante.", author: "Marco, Exchange 2023", flag: "🇮🇹" },
         ],
       },
       {
@@ -18528,10 +15014,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.0, desc: "Adams Morgan y U Street Corridor concentran bares, música en vivo y ambiente universitario." },
           { label: "Eventos y actividades", score: 7.5, desc: "Eventos en embajadas, conferencias y el National Cherry Blossom Festival cada primavera." },
         ],
-        reviews: [
-          { text: "En una sola cena conocí a gente de seis países distintos. Así es D.C.", author: "Sophia, Study Abroad 2024", flag: "🇬🇷" },
-          { text: "Las embajadas organizan eventos abiertos a estudiantes constantemente. Aproveché muchísimo.", author: "Karim, Exchange 2023", flag: "🇹🇳" },
-        ],
       },
       {
         id: "integracion",
@@ -18545,9 +15027,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 7.5, desc: "Población acostumbrada a la rotación constante de gente de fuera; fácil integrarse rápido." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "Las asociaciones de estudiantes de relaciones internacionales facilitan mucho el primer contacto." },
         ],
-        reviews: [
-          { text: "Nadie te mira raro por ser de fuera, en D.C. la mitad de la gente que conoces también lo es.", author: "Ines, Study Abroad 2023", flag: "🇵🇹" },
-        ],
       },
       {
         id: "movilidad",
@@ -18560,9 +15039,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 8.0, desc: "Metro (WMATA) con 6 líneas y buen horario; conecta con los aeropuertos de Reagan y Dulles." },
           { label: "Ciudad caminable", score: 8.5, desc: "El National Mall y el centro son totalmente caminables; muchos monumentos a pocos minutos entre sí." },
           { label: "Conexiones nacionales", score: 7.5, desc: "Tren Acela a Nueva York (3h) o Filadelfia; escapadas de fin de semana fáciles." },
-        ],
-        reviews: [
-          { text: "Sin coche viví perfectamente todo el semestre gracias al Metro y al tren a Nueva York.", author: "Hugo, Échange 2024", flag: "🇫🇷" },
         ],
       },
       {
@@ -18578,9 +15054,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 7.5, desc: "Mezcla de monumentalidad política con barrios muy vivos como U Street, cuna histórica del jazz afroamericano." },
           { label: "Estilo de vida", score: 8.0, desc: "Ciudad de gente joven, ambiciosa y muy orientada a la carrera profesional desde la universidad." },
         ],
-        reviews: [
-          { text: "Ver los cerezos en flor alrededor del Tidal Basin en primavera fue uno de los mejores recuerdos del semestre.", author: "Greta, Study Abroad 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "empleo",
@@ -18594,9 +15067,6 @@ export const CITY_INSIGHTS = {
           { label: "Prácticas", score: 9.5, desc: "Programas de prácticas en el Congreso, embajadas y organismos como el Banco Mundial o el FMI, muy accesibles para estudiantes." },
           { label: "Empresas relevantes", score: 8.5, desc: "Política, derecho internacional, consultoría y organismos multilaterales, sector muy orientado a relaciones internacionales." },
         ],
-        reviews: [
-          { text: "Hice unas prácticas en una ONG internacional que conseguí gracias a la red de exalumnos de mi universidad.", author: "Valeria, Study Abroad 2023", flag: "🇲🇽" },
-        ],
       },
       {
         id: "seguridad",
@@ -18609,9 +15079,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.0, desc: "El National Mall, Georgetown y Dupont Circle son seguros; otras zonas del sureste requieren más cuidado." },
           { label: "Seguridad nocturna", score: 5.5, desc: "Evita zonas poco iluminadas del sureste de noche; el centro y los barrios universitarios están bien vigilados." },
           { label: "Ambiente de la ciudad", score: 6.5, desc: "Los campus universitarios tienen sus propios servicios de seguridad y transporte nocturno." },
-        ],
-        reviews: [
-          { text: "Siguiendo las recomendaciones básicas de la universidad nunca tuve ningún problema.", author: "Noah, Exchange 2024", flag: "🇨🇦" },
         ],
       },
     ],
@@ -18634,9 +15101,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 6.5, desc: "El tranvía de St. Charles cuesta 1,25$ por trayecto; muy asequible frente a otras ciudades de EEUU." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Música en vivo gratis en muchos bares con la condición de consumir; los festivales grandes (Jazz Fest) suben el gasto." },
         ],
-        reviews: [
-          { text: "Con 1.500€ al mes vivía bien, comía fuera bastante y aún me sobraba para salir a ver música todas las semanas.", author: "Manon, Échange 2024", flag: "🇫🇷" },
-        ],
       },
       {
         id: "alojamiento",
@@ -18649,9 +15113,6 @@ export const CITY_INSIGHTS = {
           { label: "Disponibilidad", score: 6.0, desc: "Oferta razonable en Uptown y Mid-City; el Garden District tiene menos disponibilidad y precios más altos." },
           { label: "Precio", score: 6.0, desc: "Por debajo de la media de grandes ciudades de EEUU, aunque ha subido considerablemente en la última década." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "La oficina de housing de Tulane y grupos de Facebook de intercambio son el punto de partida habitual." },
-        ],
-        reviews: [
-          { text: "Encontré piso en Uptown a 10 minutos andando del campus sin muchos problemas.", author: "Leo, Study Abroad 2023", flag: "🇩🇪" },
         ],
       },
       {
@@ -18667,10 +15128,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "Música en vivo cada noche, desde el jazz tradicional de Frenchmen Street hasta el bounce local." },
           { label: "Eventos y actividades", score: 9.0, desc: "Mardi Gras, Jazz Fest, second lines espontáneas: la ciudad convierte cualquier excusa en fiesta." },
         ],
-        reviews: [
-          { text: "Viví mi primer Mardi Gras en Nueva Orleans y no hay nada comparable en el mundo.", author: "Isabella, Study Abroad 2024", flag: "🇮🇹" },
-          { text: "Cada noche de la semana hay jazz en vivo en algún sitio. Nunca me aburrí un solo fin de semana.", author: "Kenji, Exchange 2023", flag: "🇯🇵" },
-        ],
       },
       {
         id: "integracion",
@@ -18684,9 +15141,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 8.0, desc: "Los locales tienen fama de ser de los más cálidos y hospitalarios de EEUU." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "La vida social gira mucho en torno a la música y la comida, algo que facilita mucho conocer gente." },
         ],
-        reviews: [
-          { text: "La calidez de la gente de Nueva Orleans no se parece a nada que hubiera visto en otras ciudades de EEUU.", author: "Carmen, Study Abroad 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "movilidad",
@@ -18699,9 +15153,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 5.5, desc: "El tranvía de St. Charles Avenue conecta bien Uptown con el centro; el resto de la red de bus es limitada." },
           { label: "Ciudad caminable", score: 6.0, desc: "Uptown y el French Quarter son muy caminables; otras zonas requieren coche o bici." },
           { label: "Conexiones nacionales", score: 6.0, desc: "Aeropuerto internacional con vuelos directos a buena parte de EEUU; Houston y Baton Rouge a pocas horas en coche." },
-        ],
-        reviews: [
-          { text: "El tranvía de St. Charles es lento pero es la forma más bonita de moverse por Uptown.", author: "Oskar, Exchange 2024", flag: "🇸🇪" },
         ],
       },
       {
@@ -18717,9 +15168,6 @@ export const CITY_INSIGHTS = {
           { label: "Autenticidad local", score: 9.5, desc: "Cultura criolla y cajún única en EEUU: gumbo, jambalaya, jazz y arquitectura del French Quarter." },
           { label: "Estilo de vida", score: 8.5, desc: "Second lines, Mardi Gras y música en vivo constante hacen que la ciudad nunca se sienta gris." },
         ],
-        reviews: [
-          { text: "La comida y la música compensan de sobra la humedad del verano. Es una ciudad con una identidad brutal.", author: "Beatriz, Study Abroad 2023", flag: "🇧🇷" },
-        ],
       },
       {
         id: "empleo",
@@ -18733,9 +15181,6 @@ export const CITY_INSIGHTS = {
           { label: "Prácticas", score: 6.0, desc: "Tulane tiene programas de prácticas locales, aunque para consultoría o finanzas muchos estudiantes miran a Houston o Nueva York." },
           { label: "Empresas relevantes", score: 6.5, desc: "Sector energético, portuario y de salud, además de una economía creativa ligada al turismo y la música." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una organización cultural local; no es el mejor sitio para finanzas, pero para sector cultural es ideal.", author: "Pietro, Study Abroad 2024", flag: "🇮🇹" },
-        ],
       },
       {
         id: "seguridad",
@@ -18748,9 +15193,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 5.5, desc: "Uptown, cerca de Tulane y Loyola, es una de las zonas más seguras de la ciudad." },
           { label: "Seguridad nocturna", score: 5.0, desc: "Bourbon Street está muy vigilada por el turismo; otras zonas requieren más precaución de noche." },
           { label: "Ambiente de la ciudad", score: 6.0, desc: "Tulane ofrece shuttles nocturnos y escoltas de seguridad, muy usados por los estudiantes internacionales." },
-        ],
-        reviews: [
-          { text: "Siguiendo las recomendaciones de seguridad de la universidad (shuttle nocturno, no ir solo) nunca tuve problemas.", author: "Aiden, Exchange 2023", flag: "🇮🇪" },
         ],
       },
     ],
@@ -18773,10 +15215,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "El bus TheRide es gratis para estudiantes de la universidad con la MCard." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Entradas de fútbol universitario desde 40€; salir de fiesta en State Street no es barato." },
         ],
-        reviews: [
-          { text: "Con 1.200€/mes vivía cómodo, compartiendo piso cerca de South University.", author: "Diego, Study Abroad 2024", flag: "🇪🇸" },
-          { text: "Lo más caro fue el primer mes: depósito, muebles, ropa de invierno.", author: "Camille, Study Abroad 2023", flag: "🇫🇷" },
-        ],
       },
       {
         id: "alojamiento",
@@ -18789,9 +15227,6 @@ export const CITY_INSIGHTS = {
           { label: "Disponibilidad", score: 5.5, desc: "La universidad garantiza residencia el primer año; para el resto toca buscar piso privado." },
           { label: "Precio", score: 5.0, desc: "700–950€ habitación individual cerca de campus, algo menos en Burns Park o más lejos del Diag." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "Facebook Marketplace y los grupos de la universidad son el punto de partida habitual." },
-        ],
-        reviews: [
-          { text: "Encontré piso por un grupo de Facebook de intercambio dos meses antes de llegar.", author: "Laura, Study Abroad 2024", flag: "🇲🇽" },
         ],
       },
       {
@@ -18806,10 +15241,6 @@ export const CITY_INSIGHTS = {
           { label: "Ambiente universitario", score: 8.5, desc: "El Big House lleno un sábado de otoño es una experiencia que no se olvida." },
           { label: "Fiesta y vida nocturna", score: 7.0, desc: "State Street y South University concentran bares de ambiente universitario clásico." },
         ],
-        reviews: [
-          { text: "Ir a un partido de fútbol americano en el Big House con 107.000 personas cambia tu idea de lo que es un estadio.", author: "Martina, Study Abroad 2023", flag: "🇦🇷" },
-          { text: "El International Center me metió en un grupo de senderismo el primer día. Hice amigos rapidísimo.", author: "Noah, Intercambio 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "integracion",
@@ -18822,9 +15253,6 @@ export const CITY_INSIGHTS = {
           { label: "Nivel de inglés", score: 7.0, desc: "El acento del Medio Oeste es de los más neutros y fáciles de entender de EEUU." },
           { label: "Actitud local", score: 8.0, desc: "Estudiantes y profesores acostumbrados a un campus con miles de internacionales." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "Los clubes estudiantiles (más de 1.600) son la vía más rápida para integrarse." },
-        ],
-        reviews: [
-          { text: "Apuntarme a un club de senderismo y otro de debate me dio amigos americanos de verdad, no solo de intercambio.", author: "Valentina, Study Abroad 2024", flag: "🇨🇴" },
         ],
       },
       {
@@ -18839,9 +15267,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 6.5, desc: "TheRide cubre la ciudad pero con frecuencias limitadas fuera de horas de clase." },
           { label: "Conexiones", score: 5.0, desc: "Sin coche, moverte a Detroit o Chicago depende de bus o Amtrak con horarios reducidos." },
         ],
-        reviews: [
-          { text: "Sin coche puedes vivir bien en Ann Arbor, pero salir de la ciudad requiere planificarlo con tiempo.", author: "Hugo, Study Abroad 2023", flag: "🇫🇷" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -18854,9 +15279,6 @@ export const CITY_INSIGHTS = {
           { label: "Clima", score: 5.5, desc: "Inviernos largos y nevados de noviembre a marzo; veranos cortos pero muy agradables." },
           { label: "Calidad de vida", score: 8.5, desc: "Ritmo tranquilo, mucho verde, el río Huron y el Arb a un paseo del centro." },
           { label: "Autenticidad local", score: 8.0, desc: "El Ann Arbor Art Fair en julio y el ambiente Big Ten dan identidad propia a la ciudad." },
-        ],
-        reviews: [
-          { text: "El invierno es duro de verdad, pero el campus en otoño con las hojas cambiando de color compensa todo.", author: "Sara, Study Abroad 2024", flag: "🇮🇹" },
         ],
       },
       {
@@ -18871,9 +15293,6 @@ export const CITY_INSIGHTS = {
           { label: "Prácticas", score: 7.5, desc: "El Career Center de UMich conecta a estudiantes con empresas de todo el Medio Oeste." },
           { label: "Empresas relevantes", score: 7.0, desc: "Detroit, a 45 minutos, suma la industria del automóvil (Ford, GM, Stellantis) a las opciones." },
         ],
-        reviews: [
-          { text: "Conseguí unas prácticas de verano en una startup de biotech gracias a un profesor.", author: "Elena, Internship 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "seguridad",
@@ -18886,9 +15305,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.5, desc: "Índices de criminalidad muy bajos comparados con otras ciudades de Michigan." },
           { label: "Seguridad nocturna", score: 8.0, desc: "El servicio de transporte nocturno gratuito de la universidad (NightRide) cubre todo el campus." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad tranquila, de las más seguras del ranking de campus de EEUU." },
-        ],
-        reviews: [
-          { text: "Nunca me sentí insegura, ni siquiera volviendo sola de la biblioteca a medianoche.", author: "Chiara, Study Abroad 2023", flag: "🇮🇹" },
         ],
       },
     ],
@@ -18910,9 +15326,6 @@ export const CITY_INSIGHTS = {
           { label: "Comida y supermercados", score: 7.5, desc: "IGA y Metro para el día a día; el marché du Vieux-Port para productos locales." },
           { label: "Transporte", score: 8.0, desc: "Abono mensual del RTC con descuento estudiantil, unos 60€/mes." },
         ],
-        reviews: [
-          { text: "Comparado con Toronto o Montreal, Québec es un alivio para el bolsillo.", author: "Camille, Intercambio 2024", flag: "🇫🇷" },
-        ],
       },
       {
         id: "alojamiento",
@@ -18925,9 +15338,6 @@ export const CITY_INSIGHTS = {
           { label: "Disponibilidad", score: 7.0, desc: "Laval tiene residencias propias y el mercado privado en Sainte-Foy y Montcalm es amplio." },
           { label: "Precio", score: 7.0, desc: "500–700€ habitación individual en zonas cercanas al campus." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "Kijiji y los grupos de Facebook de Laval son el punto de partida habitual." },
-        ],
-        reviews: [
-          { text: "La residencia de Laval fue la opción más fácil el primer semestre.", author: "Julien, Study Abroad 2023", flag: "🇫🇷" },
         ],
       },
       {
@@ -18942,10 +15352,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 6.5, desc: "Grande Allée y Saint-Jean-Baptiste concentran los bares, más tranquilos que en Montreal." },
           { label: "Eventos y actividades", score: 8.0, desc: "Carnaval de Québec en febrero, el mayor carnaval de invierno del mundo." },
         ],
-        reviews: [
-          { text: "El Carnaval de Québec en febrero, con -15°C y todo el mundo en la calle, es una locura que hay que vivir.", author: "Sofía, Intercambio 2024", flag: "🇲🇽" },
-          { text: "La vida social es más tranquila que en Montreal, pero el grupo de intercambio se hace muy unido.", author: "Théo, Study Abroad 2023", flag: "🇧🇪" },
-        ],
       },
       {
         id: "integracion",
@@ -18958,9 +15364,6 @@ export const CITY_INSIGHTS = {
           { label: "Nivel de francés necesario", score: 6.0, desc: "El inglés funciona en el turismo, pero la vida diaria y la universidad son en francés." },
           { label: "Actitud local", score: 7.5, desc: "Québécois orgullosos de su identidad y muy abiertos con quien hace el esfuerzo de hablar francés." },
           { label: "Facilidad para hacer amigos", score: 6.5, desc: "Mezclarse con locales lleva más tiempo que con la comunidad internacional." },
-        ],
-        reviews: [
-          { text: "Sin un francés decente el primer mes es duro, pero mejora rapidísimo si te lanzas a hablar.", author: "Bruno, Study Abroad 2024", flag: "🇧🇷" },
         ],
       },
       {
@@ -18975,9 +15378,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 6.5, desc: "Red de autobuses RTC amplia, sin metro." },
           { label: "Conexiones nacionales", score: 5.0, desc: "Montreal a 3 horas en tren o bus; Toronto queda ya a 8 horas." },
         ],
-        reviews: [
-          { text: "Dentro de la ciudad no necesitas nada más que tus piernas y el bus.", author: "Marion, Intercambio 2023", flag: "🇫🇷" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -18990,10 +15390,6 @@ export const CITY_INSIGHTS = {
           { label: "Clima", score: 6.0, desc: "Inviernos muy fríos y nevados (hasta -25°C), veranos cortos pero luminosos." },
           { label: "Calidad de vida", score: 8.8, desc: "Ciudad tranquila, segura y a escala humana, con el río San Lorenzo como telón de fondo." },
           { label: "Autenticidad local", score: 9.5, desc: "Château Frontenac, murallas, Terrasse Dufferin: cada esquina parece sacada de otra época." },
-        ],
-        reviews: [
-          { text: "Vivir dentro de una ciudad amurallada Patrimonio de la Humanidad no deja de sorprenderte, ni al sexto mes.", author: "Paula, Study Abroad 2024", flag: "🇪🇸" },
-          { text: "El invierno es exigente, pero patinar en el hielo del Vieux-Port compensa el frío.", author: "Lucas, Intercambio 2023", flag: "🇦🇷" },
         ],
       },
       {
@@ -19008,9 +15404,6 @@ export const CITY_INSIGHTS = {
           { label: "Prácticas", score: 6.0, desc: "Laval tiene convenios de prácticas, aunque en francés casi siempre." },
           { label: "Empresas relevantes", score: 6.0, desc: "Desjardins y varias aseguradoras tienen su sede en la ciudad." },
         ],
-        reviews: [
-          { text: "Encontrar prácticas en inglés es complicado — casi todo pide francés funcional.", author: "Ana, Study Abroad 2023", flag: "🇵🇹" },
-        ],
       },
       {
         id: "seguridad",
@@ -19023,9 +15416,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.5, desc: "Índices de criminalidad de los más bajos entre las grandes ciudades de Canadá." },
           { label: "Seguridad nocturna", score: 9.0, desc: "Pasear de noche por el Vieux-Québec es completamente normal, incluso sola." },
           { label: "Ambiente de la ciudad", score: 9.5, desc: "Ciudad tranquila donde la sensación de inseguridad prácticamente no existe." },
-        ],
-        reviews: [
-          { text: "Nunca en mi vida me he sentido tan segura caminando de noche como en Québec.", author: "Inés, Intercambio 2024", flag: "🇪🇸" },
         ],
       },
     ],
@@ -19047,9 +15437,6 @@ export const CITY_INSIGHTS = {
           { label: "Comida y supermercados", score: 6.5, desc: "Loblaws y Farm Boy para el día a día; el ByWard Market para productos frescos." },
           { label: "Transporte", score: 7.0, desc: "Abono mensual de OC Transpo con descuento estudiantil." },
         ],
-        reviews: [
-          { text: "Ottawa es cara para ser Canadá, pero mucho más llevadera que Toronto.", author: "Manuel, Study Abroad 2024", flag: "🇲🇽" },
-        ],
       },
       {
         id: "alojamiento",
@@ -19062,9 +15449,6 @@ export const CITY_INSIGHTS = {
           { label: "Disponibilidad", score: 6.0, desc: "uOttawa y Carleton tienen residencias propias; el resto se cubre con pisos compartidos." },
           { label: "Precio", score: 6.0, desc: "600–850€ habitación individual según cercanía al campus." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "Facebook Marketplace y los portales de vivienda universitaria son el punto de partida." },
-        ],
-        reviews: [
-          { text: "Sandy Hill está a diez minutos andando de la universidad y tiene mucho ambiente estudiantil.", author: "Fiorella, Intercambio 2023", flag: "🇵🇪" },
         ],
       },
       {
@@ -19079,9 +15463,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 6.5, desc: "ByWard Market concentra bares, discotecas y restaurantes de toda la ciudad." },
           { label: "Eventos y actividades", score: 7.0, desc: "Winterlude en febrero, con patinaje y esculturas de hielo por todo el canal." },
         ],
-        reviews: [
-          { text: "ByWard Market los fines de semana es donde está todo el mundo, sea estudiante o no.", author: "Lukas, Study Abroad 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "integracion",
@@ -19094,9 +15475,6 @@ export const CITY_INSIGHTS = {
           { label: "Nivel de inglés", score: 8.5, desc: "El inglés cubre el 100% de la vida diaria, aunque el francés suma puntos." },
           { label: "Actitud local", score: 8.0, desc: "Ciudad diplomática y multicultural, muy abierta a extranjeros." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "Los clubes estudiantiles de uOttawa y Carleton facilitan mucho el primer contacto." },
-        ],
-        reviews: [
-          { text: "Al ser una ciudad de funcionarios y diplomáticos, hay gente de todo el mundo en cada esquina.", author: "Giulia, Study Abroad 2023", flag: "🇮🇹" },
         ],
       },
       {
@@ -19111,9 +15489,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 7.5, desc: "El O-Train (LRT) conecta el centro con los principales puntos de la ciudad." },
           { label: "Conexiones nacionales", score: 7.0, desc: "Montreal a 2 horas en tren; Toronto a 4h30, ambas con buenas frecuencias." },
         ],
-        reviews: [
-          { text: "El tren a Montreal los fines de semana es rápido, cómodo y no muy caro con descuento estudiantil.", author: "Carla, Intercambio 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -19126,10 +15501,6 @@ export const CITY_INSIGHTS = {
           { label: "Clima", score: 5.5, desc: "Inviernos fríos y nevados, veranos cortos pero muy agradables junto al canal." },
           { label: "Calidad de vida", score: 9.5, desc: "Ottawa aparece siempre entre las ciudades con mejor calidad de vida del mundo." },
           { label: "Autenticidad local", score: 8.0, desc: "Canal Rideau, Parliament Hill y museos nacionales gratuitos dan mucho para explorar." },
-        ],
-        reviews: [
-          { text: "Patinar en el Canal Rideau de camino a clase en invierno es de las cosas más surrealistas que he vivido.", author: "Nora, Study Abroad 2024", flag: "🇩🇪" },
-          { text: "Es una ciudad tranquila, pero eso también significa que se vive muy bien, sin estrés.", author: "Ricardo, Intercambio 2023", flag: "🇨🇴" },
         ],
       },
       {
@@ -19144,9 +15515,6 @@ export const CITY_INSIGHTS = {
           { label: "Prácticas", score: 7.5, desc: "uOttawa y Carleton tienen programas de prácticas ('co-op') muy desarrollados." },
           { label: "Empresas relevantes", score: 7.5, desc: "Gobierno de Canadá, Shopify, Nokia y varias empresas de defensa y telecomunicaciones." },
         ],
-        reviews: [
-          { text: "El programa co-op de Carleton me consiguió unas prácticas remuneradas en una empresa de tecnología.", author: "Iván, Internship 2024", flag: "🇪🇸" },
-        ],
       },
       {
         id: "seguridad",
@@ -19159,9 +15527,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 9.0, desc: "Índices de criminalidad bajos, propios de una capital tranquila y ordenada." },
           { label: "Seguridad nocturna", score: 8.5, desc: "ByWard Market puede animarse los fines de semana, pero sigue siendo seguro." },
           { label: "Ambiente de la ciudad", score: 9.5, desc: "Ciudad limpia, ordenada y con una sensación de seguridad constante." },
-        ],
-        reviews: [
-          { text: "Es de las ciudades donde más segura me he sentido viviendo sola en el extranjero.", author: "Beatriz, Study Abroad 2023", flag: "🇵🇹" },
         ],
       },
     ],
@@ -19183,9 +15548,6 @@ export const CITY_INSIGHTS = {
           { label: "Comida y supermercados", score: 5.5, desc: "Trader Joe's ayuda al bolsillo; comer fuera en zonas turísticas es caro." },
           { label: "Transporte", score: 6.0, desc: "El MTS Trolley y bus cubren bien la ciudad, con descuento estudiantil." },
         ],
-        reviews: [
-          { text: "El alquiler es lo que más se come el presupuesto, sin duda. El resto es manejable.", author: "Andrés, Study Abroad 2024", flag: "🇨🇴" },
-        ],
       },
       {
         id: "alojamiento",
@@ -19198,9 +15560,6 @@ export const CITY_INSIGHTS = {
           { label: "Disponibilidad", score: 3.5, desc: "Alta demanda por UCSD, SDSU y USD compitiendo por el mismo stock de pisos." },
           { label: "Precio", score: 3.0, desc: "900–1.300€ habitación individual, con La Jolla y Pacific Beach entre lo más caro." },
           { label: "Facilidad de búsqueda", score: 4.5, desc: "Facebook Marketplace y las páginas de vivienda de cada universidad son el punto de partida." },
-        ],
-        reviews: [
-          { text: "Empecé a buscar piso cuatro meses antes de llegar y aun así fue complicado.", author: "Chloé, Study Abroad 2023", flag: "🇫🇷" },
         ],
       },
       {
@@ -19215,10 +15574,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.0, desc: "Pacific Beach y el Gaslamp Quarter concentran gran parte de la vida nocturna." },
           { label: "Eventos y actividades", score: 8.0, desc: "Comic-Con en julio, uno de los grandes eventos culturales del país, nace en San Diego." },
         ],
-        reviews: [
-          { text: "Entre la playa, las cervecerías y los eventos del campus, nunca faltan planes.", author: "Leonor, Study Abroad 2024", flag: "🇪🇸" },
-          { text: "El ambiente de playa hace que la vida social sea mucho más relajada que en otras ciudades de EEUU.", author: "Yuki, Intercambio 2023", flag: "🇯🇵" },
-        ],
       },
       {
         id: "integracion",
@@ -19231,9 +15586,6 @@ export const CITY_INSIGHTS = {
           { label: "Nivel de inglés", score: 8.5, desc: "El inglés cubre toda la vida diaria; el español también se escucha muchísimo." },
           { label: "Actitud local", score: 8.0, desc: "Ambiente relajado y abierto, típico de la cultura de playa californiana." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "Los clubes y asociaciones de campus son el camino más rápido para hacer amigos." },
-        ],
-        reviews: [
-          { text: "Al hablar español ya tenía medio camino hecho — hay comunidad latina por todas partes.", author: "Renata, Study Abroad 2024", flag: "🇦🇷" },
         ],
       },
       {
@@ -19248,9 +15600,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 6.0, desc: "El MTS Trolley conecta el centro, la universidad y hasta la frontera con Tijuana." },
           { label: "Conexiones", score: 7.0, desc: "Los Ángeles a 2 horas en coche o tren; el aeropuerto está prácticamente en el centro." },
         ],
-        reviews: [
-          { text: "Sin coche se puede vivir, pero moverse fuera del trolley y del campus requiere paciencia.", author: "Tomás, Study Abroad 2023", flag: "🇨🇱" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -19263,10 +15612,6 @@ export const CITY_INSIGHTS = {
           { label: "Clima", score: 9.8, desc: "Clima mediterráneo casi perfecto todo el año, según la NOAA uno de los más estables del país." },
           { label: "Calidad de vida", score: 9.0, desc: "Playas, montaña y desierto a menos de una hora, con vida al aire libre todo el año." },
           { label: "Autenticidad local", score: 8.5, desc: "Cultura surfera, Balboa Park y una identidad muy propia frente a Los Ángeles." },
-        ],
-        reviews: [
-          { text: "Vine pensando que exageraban con el clima de San Diego y no exageraban nada.", author: "Mateo, Study Abroad 2024", flag: "🇲🇽" },
-          { text: "Poder surfear entre semana antes de clase es algo que no olvidaré nunca.", author: "Clara, Intercambio 2023", flag: "🇧🇷" },
         ],
       },
       {
@@ -19281,9 +15626,6 @@ export const CITY_INSIGHTS = {
           { label: "Prácticas", score: 7.5, desc: "UCSD y SDSU tienen programas de prácticas muy conectados con la industria local." },
           { label: "Empresas relevantes", score: 8.0, desc: "Qualcomm, Illumina y decenas de biotechs, además de una fuerte presencia naval y militar." },
         ],
-        reviews: [
-          { text: "Conseguí prácticas en una biotech de Torrey Pines gracias al career center de la universidad.", author: "Julia, Internship 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "seguridad",
@@ -19296,9 +15638,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.5, desc: "Zonas universitarias y de playa tranquilas de día y de noche." },
           { label: "Seguridad nocturna", score: 7.0, desc: "El centro y el Gaslamp Quarter piden algo más de atención pasada la medianoche." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Sensación general de seguridad alta comparada con otras grandes ciudades de EEUU." },
-        ],
-        reviews: [
-          { text: "Nunca tuve un problema serio, aunque como en cualquier ciudad grande de EEUU hay que tener sentido común de noche.", author: "Sebastián, Study Abroad 2023", flag: "🇨🇴" },
         ],
       },
     ],
@@ -19320,9 +15659,6 @@ export const CITY_INSIGHTS = {
           { label: "Comida y supermercados", score: 9.0, desc: "Comer muy bien y barato: un taco de asada o un plato de cabrito por menos de 3€." },
           { label: "Transporte", score: 8.5, desc: "Metro de Monterrey y camiones urbanos muy económicos, apps de coche compartido asequibles." },
         ],
-        reviews: [
-          { text: "Con 700€ al mes vivía de sobra, incluyendo salir varios fines de semana.", author: "Martina, Intercambio 2024", flag: "🇦🇷" },
-        ],
       },
       {
         id: "alojamiento",
@@ -19335,9 +15671,6 @@ export const CITY_INSIGHTS = {
           { label: "Disponibilidad", score: 7.5, desc: "El Tec de Monterrey tiene convenios con residencias y edificios cercanos al campus." },
           { label: "Precio", score: 8.0, desc: "250–450€ habitación individual según cercanía al Tec o a San Pedro." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "Facebook Marketplace y los grupos de intercambio del Tec son el punto de partida habitual." },
-        ],
-        reviews: [
-          { text: "El Tec tiene una lista de departamentos recomendados cerca del campus que facilita mucho todo.", author: "Bianca, Study Abroad 2023", flag: "🇮🇹" },
         ],
       },
       {
@@ -19352,10 +15685,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "Barrio Antiguo concentra bares y antros; Valle Oriente suma opciones más modernas." },
           { label: "Eventos y actividades", score: 7.0, desc: "Semana Tec y torneos deportivos interuniversitarios llenan el calendario estudiantil." },
         ],
-        reviews: [
-          { text: "La oficina de intercambio del Tec organiza viajes y eventos casi cada semana, se hacen amigos rapidísimo.", author: "Lucía, Intercambio 2024", flag: "🇪🇸" },
-          { text: "El Barrio Antiguo los jueves y viernes está lleno de estudiantes de todas las universidades.", author: "Rafael, Study Abroad 2023", flag: "🇨🇴" },
-        ],
       },
       {
         id: "integracion",
@@ -19368,9 +15697,6 @@ export const CITY_INSIGHTS = {
           { label: "Nivel de inglés", score: 6.5, desc: "En el Tec el inglés funciona bien; en la calle y comercios se necesita español." },
           { label: "Actitud local", score: 8.0, desc: "Los regiomontanos tienen fama de hospitalarios y directos, fáciles de tratar." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "La cultura de convivio y carne asada facilita mucho hacer amigos locales." },
-        ],
-        reviews: [
-          { text: "Con español de nivel medio ya te puedes mover perfectamente; el Tec ayuda mucho con la parte social.", author: "Louis, Study Abroad 2024", flag: "🇫🇷" },
         ],
       },
       {
@@ -19385,9 +15711,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 6.0, desc: "El Metrorrey tiene solo dos líneas; para el resto, camiones o apps de coche." },
           { label: "Conexiones", score: 6.5, desc: "Vuelos directos y baratos a varias ciudades de EEUU gracias a la cercanía con la frontera." },
         ],
-        reviews: [
-          { text: "Sin coche o sin usar apps de transporte, moverte por Monterrey cuesta más de lo esperado.", author: "Emilia, Intercambio 2023", flag: "🇨🇱" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -19400,9 +15723,6 @@ export const CITY_INSIGHTS = {
           { label: "Clima", score: 5.0, desc: "Veranos muy calurosos (fácilmente 40°C), inviernos suaves con algún frente frío puntual." },
           { label: "Calidad de vida", score: 7.5, desc: "Parque Fundidora, Chipinque y el Cerro de la Silla dan mucho verde y montaña cerca de la ciudad." },
           { label: "Autenticidad local", score: 8.0, desc: "Carne asada de domingo, cabrito y una identidad norteña muy marcada." },
-        ],
-        reviews: [
-          { text: "El verano regiomontano es duro de verdad, pero Chipinque y las cascadas cercanas son un buen escape.", author: "Gonzalo, Study Abroad 2024", flag: "🇪🇸" },
         ],
       },
       {
@@ -19417,9 +15737,6 @@ export const CITY_INSIGHTS = {
           { label: "Prácticas", score: 9.0, desc: "El Tec de Monterrey tiene una bolsa de prácticas y convenios con empresas muy potente." },
           { label: "Empresas relevantes", score: 8.0, desc: "Del acero y el cemento a un ecosistema de startups tech en crecimiento en Valle Oriente." },
         ],
-        reviews: [
-          { text: "Conseguí prácticas en un corporativo en Valle Oriente gracias a la bolsa de empleo del Tec.", author: "Pablo, Internship 2024", flag: "🇲🇽" },
-        ],
       },
       {
         id: "seguridad",
@@ -19432,9 +15749,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.5, desc: "San Pedro Garza García está entre los municipios más seguros de México." },
           { label: "Seguridad nocturna", score: 6.0, desc: "Recomendable moverse en apps de coche por la noche en vez de caminar largas distancias." },
           { label: "Ambiente de la ciudad", score: 7.0, desc: "La zona del campus y San Pedro transmiten normalidad y tranquilidad en el día a día." },
-        ],
-        reviews: [
-          { text: "En San Pedro y alrededor del Tec me sentí muy segura; como en cualquier ciudad grande, hay que ubicar bien las zonas.", author: "Renata, Intercambio 2023", flag: "🇧🇷" },
         ],
       },
     ],
@@ -19457,10 +15771,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.5, desc: "Subte y colectivo con tarjeta SUBE por menos de 0,30€ el viaje." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Cerveza artesanal a 2-3€. Oferta cultural gratuita constante: ferias, milongas, museos." },
         ],
-        reviews: [
-          { text: "Cambiando euros en cuevas viví con 650€/mes de lujo, saliendo casi todas las noches.", author: "Carla, Study Abroad 2024", flag: "🇪🇸" },
-          { text: "La inflación hace que los precios cambien rápido, pero en moneda extranjera todo sigue siendo barato.", author: "Jonas, Study Abroad 2023", flag: "🇩🇪" },
-        ],
       },
       {
         id: "alojamiento",
@@ -19474,9 +15784,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.0, desc: "250-400€ una habitación según barrio. Palermo y Recoleta son los más caros." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "Zonaprop, Airbnb de larga estancia y grupos de Facebook de intercambio. El contrato formal exige garante, casi nadie extranjero lo usa." },
           { label: "Residencias universitarias", score: 5.5, desc: "Pocas residencias oficiales; la mayoría de estudiantes va a pisos compartidos o colivings privados." },
-        ],
-        reviews: [
-          { text: "Encontré piso en San Telmo por Facebook antes de llegar, sin garante, pagando algo más caro.", author: "Marco, Study Abroad 2023", flag: "🇮🇹" },
         ],
       },
       {
@@ -19492,10 +15799,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "Los boliches abren pasada la 1am y la noche sigue hasta el amanecer. Palermo Soho y Hollywood concentran la fiesta." },
           { label: "Eventos y actividades", score: 8.5, desc: "Milongas de tango casi cada noche, ferias de Recoleta y San Telmo los fines de semana, recitales en vivo constantes." },
         ],
-        reviews: [
-          { text: "Nunca viví una vida nocturna tan intensa. Las previas empiezan cuando en España ya se vuelve a casa.", author: "Diego, Study Abroad 2024", flag: "🇲🇽" },
-          { text: "Aprendí a bailar tango en una milonga de barrio con gente de 70 años y de 20. Nadie te juzga.", author: "Léa, Study Abroad 2023", flag: "🇫🇷" },
-        ],
       },
       {
         id: "integracion",
@@ -19509,9 +15812,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 8.5, desc: "Gente abierta, habladora y orgullosa de su ciudad. Fácil entrar en conversación en cualquier bar." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "Los porteños invitan con facilidad a asados y juntadas. La vida social gira en torno a compartir mesa." },
           { label: "Integración con locales", score: 7.5, desc: "Compartir piso con locales o apuntarse a un grupo de fútbol amateur acelera mucho la integración." },
-        ],
-        reviews: [
-          { text: "Me invitaron a mi primer asado a la semana de llegar y ya no paré de hacer amigos argentinos.", author: "Sofie, Study Abroad 2024", flag: "🇳🇱" },
         ],
       },
       {
@@ -19527,9 +15827,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 7.0, desc: "Aeroparque para vuelos de cabotaje a Bariloche, Mendoza o Iguazú en poco más de dos horas." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Tigre y el Delta a 40 minutos en tren, Colonia (Uruguay) a una hora en ferry cruzando el Río de la Plata." },
         ],
-        reviews: [
-          { text: "El colectivo a cualquier hora y la SUBE recargable hacen que moverse sea rapidísimo y barato.", author: "Tomás, Study Abroad 2024", flag: "🇵🇹" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -19543,9 +15840,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 8.5, desc: "Parques enormes (Bosques de Palermo), cafés históricos abiertos hasta tarde, ritmo de vida intenso pero no agobiante." },
           { label: "Autenticidad local", score: 9.0, desc: "Tango, asado, fútbol y una vida de café que se vive en la calle. Teatro Colón, librerías centenarias como El Ateneo." },
           { label: "Estilo de vida", score: 8.5, desc: "Ferias de antigüedades en San Telmo, recitales, cine independiente. La ciudad que nunca cierra del todo." },
-        ],
-        reviews: [
-          { text: "Entre el fútbol, el tango y los cafés de Palermo tuve cultura para todo el semestre y más.", author: "Elena, Study Abroad 2023", flag: "🇮🇹" },
         ],
       },
       {
@@ -19561,9 +15855,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.0, desc: "Polo tecnológico creciente: Mercado Libre, Globant y decenas de startups tienen sede en la ciudad." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "Clases particulares de idiomas y trabajo remoto para extranjeros son la vía más habitual durante la estancia." },
         ],
-        reviews: [
-          { text: "Hice una pasantía en una ONG de Palermo que me abrió puertas para después trabajar en remoto.", author: "Julia, Internship 2024", flag: "🇩🇪" },
-        ],
       },
       {
         id: "seguridad",
@@ -19576,9 +15867,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.5, desc: "Palermo, Recoleta y Belgrano son barrios tranquilos de día. Constitución y Retiro requieren más cuidado." },
           { label: "Seguridad nocturna", score: 5.5, desc: "El robo de móviles ('motochorros') es el riesgo más común; evitar mostrar objetos de valor en la calle." },
           { label: "Ambiente de la ciudad", score: 6.0, desc: "Presencia policial visible en zonas turísticas y universitarias. Mejor tomar taxis o apps de noche que caminar largas distancias." },
-        ],
-        reviews: [
-          { text: "Con las precauciones normales de cualquier capital grande no tuve ningún problema en todo el semestre.", author: "Hannah, Study Abroad 2024", flag: "🇺🇸" },
         ],
       },
     ],
@@ -19601,10 +15889,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Colectivo urbano con tarjeta Red Bus por menos de 0,30€." },
           { label: "Ocio y gastos diarios", score: 8.5, desc: "Entrada a boliches desde gratis hasta 5€. Oferta cultural gratuita constante." },
         ],
-        reviews: [
-          { text: "Con 500€/mes vivía cómodo, comía afuera seguido y salía todos los fines de semana.", author: "Bruno, Study Abroad 2024", flag: "🇧🇷" },
-          { text: "Es notablemente más barata que Buenos Aires para casi todo, sobre todo el alquiler.", author: "Nora, Study Abroad 2023", flag: "🇩🇪" },
-        ],
       },
       {
         id: "alojamiento",
@@ -19618,9 +15902,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.5, desc: "150-250€ una habitación en Nueva Córdoba, algo menos en Güemes o General Paz." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "Grupos de Facebook de la UNC y Zonaprop. Conviene buscar con antelación para marzo." },
           { label: "Residencias universitarias", score: 6.5, desc: "La UNC estrenó una residencia nueva, pero la demanda supera la oferta disponible." },
-        ],
-        reviews: [
-          { text: "Tardé un par de semanas en encontrar piso en Nueva Córdoba, justo a tiempo para empezar clases.", author: "Valentina, Study Abroad 2024", flag: "🇨🇴" },
         ],
       },
       {
@@ -19636,10 +15917,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "Los boliches de Nueva Córdoba llenan de jueves a sábado, entrada barata o gratis antes de la 1am." },
           { label: "Eventos y actividades", score: 8.0, desc: "Peñas de cuarteto, ferias y actividades culturales organizadas por la UNC durante todo el año." },
         ],
-        reviews: [
-          { text: "La vida universitaria acá es intensísima, siempre hay un plan con gente de la facultad.", author: "Pablo, Study Abroad 2023", flag: "🇪🇸" },
-          { text: "El cuarteto cordobés es una cultura en sí misma. La primera peña no la olvido más.", author: "Ingrid, Study Abroad 2024", flag: "🇸🇪" },
-        ],
       },
       {
         id: "integracion",
@@ -19653,9 +15930,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 8.5, desc: "Gente muy cálida, orgullosa de su acento y su ciudad, siempre dispuesta a ayudar." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La vida en Nueva Córdoba mezcla fácilmente a locales y estudiantes de intercambio." },
           { label: "Integración con locales", score: 7.5, desc: "Compartir piso con cordobeses o anotarse en actividades de la UNC acelera todo." },
-        ],
-        reviews: [
-          { text: "Al principio no entendía nada del acento, a las pocas semanas ya hablaba como un cordobés más.", author: "Thiago, Study Abroad 2024", flag: "🇵🇹" },
         ],
       },
       {
@@ -19671,9 +15945,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 6.0, desc: "Aeropuerto con vuelos a Buenos Aires en poco más de una hora." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Sierras de Córdoba, Villa Carlos Paz y La Cumbrecita a menos de una hora en combi." },
         ],
-        reviews: [
-          { text: "Los fines de semana en las Sierras son el mejor plan para desconectar de la ciudad.", author: "Camille, Study Abroad 2023", flag: "🇫🇷" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -19687,10 +15958,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 8.0, desc: "Ritmo más tranquilo que Buenos Aires, con mucha vida al aire libre gracias a las sierras cercanas." },
           { label: "Autenticidad local", score: 8.5, desc: "Cuarteto, fernet y una identidad cultural muy propia frente al resto del país." },
           { label: "Estilo de vida", score: 7.5, desc: "Mezcla de patrimonio jesuítico colonial y vida universitaria moderna en pocas manzanas." },
-        ],
-        reviews: [
-          { text: "Es una ciudad hecha por y para estudiantes, se nota en cada bar y en cada esquina.", author: "Rafael, Study Abroad 2024", flag: "🇲🇽" },
-          { text: "El patrimonio jesuítico del centro me sorprendió, no me lo esperaba de una ciudad tan fiestera.", author: "Alice, Study Abroad 2023", flag: "🇬🇧" },
         ],
       },
       {
@@ -19706,9 +15973,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 6.0, desc: "Polo tecnológico creciente en torno al software y la agroindustria." },
           { label: "Oportunidades para estudiantes", score: 5.5, desc: "Las clases particulares de idiomas son la salida más habitual durante el intercambio." },
         ],
-        reviews: [
-          { text: "No es la ciudad para buscar prácticas en grandes empresas, pero encontré clases particulares fácil.", author: "Kevin, Volunteering 2024", flag: "🇺🇸" },
-        ],
       },
       {
         id: "seguridad",
@@ -19721,9 +15985,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 7.0, desc: "Nueva Córdoba y el Centro son seguros durante el día." },
           { label: "Seguridad nocturna", score: 6.0, desc: "La zona de boliches está concurrida y vigilada, pero conviene volver acompañado de madrugada." },
           { label: "Ambiente de la ciudad", score: 6.5, desc: "Sensación de inseguridad menor que en Buenos Aires o Rosario, aunque el hurto simple existe." },
-        ],
-        reviews: [
-          { text: "Me sentí tranquila casi todo el tiempo, solo tuve más cuidado normal al volver de noche.", author: "Isabela, Study Abroad 2024", flag: "🇧🇷" },
         ],
       },
     ],
@@ -19746,10 +16007,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 7.5, desc: "Tarjeta Bip! con tarifa integrada metro-bus por alrededor de 1€ el viaje." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Cerveza artesanal a 3-4€. Buena oferta de cine y museos gratuitos los domingos." },
         ],
-        reviews: [
-          { text: "Con 800€/mes viví muy cómoda en Providencia, aunque el alquiler se lleva la mayor parte.", author: "Manon, Study Abroad 2024", flag: "🇫🇷" },
-          { text: "Es más cara que el resto de capitales de la región, pero la calidad de vida lo compensa.", author: "Diego, Study Abroad 2023", flag: "🇪🇸" },
-        ],
       },
       {
         id: "alojamiento",
@@ -19763,9 +16020,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 5.5, desc: "300-450€ una habitación en Providencia, algo menos en Ñuñoa." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "Portalinmobiliario, grupos de Facebook de intercambio y las propias universidades ayudan a buscar." },
           { label: "Residencias universitarias", score: 6.0, desc: "La UC y la Universidad de Chile ofrecen residencias para estudiantes de intercambio; conviene reservar con antelación." },
-        ],
-        reviews: [
-          { text: "La universidad me ayudó a conseguir una residencia cerca del campus antes de llegar, todo muy organizado.", author: "Emma, Study Abroad 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -19781,10 +16035,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "Bellavista y el Barrio Lastarria concentran bares, discotecas y vida cultural nocturna." },
           { label: "Eventos y actividades", score: 7.5, desc: "Ferias gastronómicas y cine al aire libre en el Parque Bustamante durante el verano." },
         ],
-        reviews: [
-          { text: "No es tan de fiesta como Buenos Aires, pero Bellavista tiene su propia magia entre semana.", author: "Louis, Study Abroad 2023", flag: "🇧🇪" },
-          { text: "La comunidad de intercambio en la UC es pequeña pero muy unida, hicimos piña rápido.", author: "Renata, Study Abroad 2024", flag: "🇧🇷" },
-        ],
       },
       {
         id: "integracion",
@@ -19798,9 +16048,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 7.5, desc: "Gente amable aunque algo menos efusiva que en Argentina o Colombia al primer contacto." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "Los grupos de intercambio universitario y los clubes deportivos ayudan a romper el hielo." },
           { label: "Integración con locales", score: 7.0, desc: "Compartir depto con chilenos o unirse a un club deportivo universitario acelera la integración." },
-        ],
-        reviews: [
-          { text: "Al principio cuesta un poco más entrar en el círculo local, pero una vez dentro son muy leales.", author: "Ana, Study Abroad 2024", flag: "🇵🇹" },
         ],
       },
       {
@@ -19816,9 +16063,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 8.0, desc: "Valparaíso y Viña del Mar a 90 minutos en bus, viñedos del Valle de Colchagua a 2 horas." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Centros de esquí de Farellones y Valle Nevado a menos de una hora del centro." },
         ],
-        reviews: [
-          { text: "El metro es impecable, llega prácticamente a todos lados y es muy seguro.", author: "Hugo, Study Abroad 2024", flag: "🇫🇷" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -19832,10 +16076,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 8.5, desc: "Ciudad ordenada, parques cuidados (Parque Bustamante, Cerro San Cristóbal) y buena calidad de vida fuera de los meses de invierno." },
           { label: "Autenticidad local", score: 7.5, desc: "Mercados como La Vega Central, asados chilenos y una cultura del vino muy presente." },
           { label: "Estilo de vida", score: 8.5, desc: "Esquí en invierno, playa en Viña del Mar en verano, todo accesible en transporte público o bus." },
-        ],
-        reviews: [
-          { text: "Un fin de semana esquiando en Valle Nevado y al siguiente en la playa. No lo tenía en ninguna otra ciudad.", author: "Nicolás, Study Abroad 2023", flag: "🇮🇹" },
-          { text: "La calidad de vida en Providencia es altísima, parques, seguridad y buena comida a la vuelta de la esquina.", author: "Greta, Study Abroad 2024", flag: "🇩🇪" },
         ],
       },
       {
@@ -19851,9 +16091,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.5, desc: "Start-Up Chile atrae startups de toda la región; banca y minería con fuerte peso económico." },
           { label: "Oportunidades para estudiantes", score: 7.0, desc: "Career services universitarios muy activos, sobre todo en la UC." },
         ],
-        reviews: [
-          { text: "Conseguí una práctica en una startup fintech gracias al career center de la universidad.", author: "Martina, Internship 2024", flag: "🇦🇷" },
-        ],
       },
       {
         id: "seguridad",
@@ -19866,9 +16103,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 8.0, desc: "Providencia, Ñuñoa y Las Condes son comunas muy seguras para vivir." },
           { label: "Seguridad nocturna", score: 7.0, desc: "Zonas de bares como Bellavista concurridas y bien vigiladas." },
           { label: "Ambiente de la ciudad", score: 7.5, desc: "Presencia policial visible; el robo de carteras en el metro en hora punta es el riesgo más común." },
-        ],
-        reviews: [
-          { text: "Es la ciudad donde me sentí más segura de todo mi año viajando por Sudamérica.", author: "Chiara, Study Abroad 2023", flag: "🇮🇹" },
         ],
       },
     ],
@@ -19891,10 +16125,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.0, desc: "TransMilenio y SITP por menos de 0,60€ el viaje con tarjeta TuLlave." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Cerveza artesanal a 2-3€. Entrada gratis a museos los domingos." },
         ],
-        reviews: [
-          { text: "Con 550€/mes me alcanzaba de sobra viviendo en Chapinero y saliendo bastante.", author: "Clara, Study Abroad 2024", flag: "🇪🇸" },
-          { text: "Los mercados de barrio son buenísimos y muy baratos comparado con Europa.", author: "Finn, Study Abroad 2023", flag: "🇩🇪" },
-        ],
       },
       {
         id: "alojamiento",
@@ -19908,9 +16138,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.0, desc: "200-350€ una habitación en Chapinero, algo más barato en Teusaquillo." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "Fincaraíz, Airbnb de larga estancia y grupos de Facebook de intercambio; conviene ver el piso en persona o por videollamada antes de pagar." },
           { label: "Residencias universitarias", score: 6.0, desc: "Los Andes y otras privadas ofrecen alojamiento gestionado para estudiantes internacionales." },
-        ],
-        reviews: [
-          { text: "Alquilé por videollamada antes de viajar y todo salió bien, pero pediría referencias del arrendador siempre.", author: "Noah, Study Abroad 2024", flag: "🇳🇱" },
         ],
       },
       {
@@ -19926,10 +16153,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 8.0, desc: "Zona T y Zona G concentran discotecas y bares hasta la madrugada." },
           { label: "Eventos y actividades", score: 8.0, desc: "Festival Estéreo Picnic, conciertos en el Parque Simón Bolívar, agenda cultural constante." },
         ],
-        reviews: [
-          { text: "La escena musical en vivo de Bogotá me sorprendió, hay conciertos casi todas las semanas.", author: "Julieta, Study Abroad 2024", flag: "🇦🇷" },
-          { text: "La Zona T y la Zona G tienen ambientes distintos, vale la pena probar los dos.", author: "Marc, Study Abroad 2023", flag: "🇫🇷" },
-        ],
       },
       {
         id: "integracion",
@@ -19943,9 +16166,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 7.5, desc: "Gente educada y hospitalaria, aunque el trato es algo más formal al principio." },
           { label: "Facilidad para hacer amigos", score: 6.5, desc: "Los grupos universitarios y las salidas de senderismo (Monserrate, La Calera) ayudan a conectar rápido." },
           { label: "Integración con locales", score: 6.0, desc: "La ciudad es grande y las distancias largas dificultan un poco la vida social espontánea." },
-        ],
-        reviews: [
-          { text: "Cuesta un poco romper el hielo al principio, pero los grupos de senderismo de la universidad ayudan mucho.", author: "Sara, Study Abroad 2024", flag: "🇮🇹" },
         ],
       },
       {
@@ -19961,9 +16181,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 6.5, desc: "El Dorado, uno de los aeropuertos con más conexiones de Sudamérica, con vuelos baratos a toda la región." },
           { label: "Escapadas de fin de semana", score: 6.5, desc: "Villa de Leyva y Guatavita a menos de tres horas en bus." },
         ],
-        reviews: [
-          { text: "El TransMilenio en hora punta es una experiencia en sí misma, mejor evitarlo si puedes organizar tus horarios.", author: "Théo, Study Abroad 2023", flag: "🇫🇷" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -19977,10 +16194,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 7.5, desc: "Ciclovía dominical, parques como el Simón Bolívar y una oferta cultural que no para." },
           { label: "Autenticidad local", score: 8.5, desc: "Museo del Oro, Museo Botero y una de las escenas de arte urbano más reconocidas de Latinoamérica." },
           { label: "Estilo de vida", score: 7.5, desc: "Monserrate y los cerros orientales dan a la ciudad un entorno de montaña único entre las capitales de la región." },
-        ],
-        reviews: [
-          { text: "El tour de grafiti por el centro me abrió los ojos a una escena artística brutal.", author: "Aitana, Study Abroad 2024", flag: "🇪🇸" },
-          { text: "Subir a Monserrate un domingo temprano y ver la ciudad entera es de lo mejor que hice en el semestre.", author: "Ben, Study Abroad 2023", flag: "🇬🇧" },
         ],
       },
       {
@@ -19996,9 +16209,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "Rappi y un ecosistema de startups tecnológicas con proyección regional." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "Career services de Los Andes y la Javeriana muy activos." },
         ],
-        reviews: [
-          { text: "Hice prácticas en una ONG internacional con sede en Bogotá, la experiencia sumó muchísimo al CV.", author: "Paula, Internship 2024", flag: "🇲🇽" },
-        ],
       },
       {
         id: "seguridad",
@@ -20011,10 +16221,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad general", score: 6.0, desc: "Chapinero, Usaquén y Teusaquillo son las localidades más seguras para vivir." },
           { label: "Seguridad nocturna", score: 5.0, desc: "Se recomienda moverse en Uber o DiDi de noche en vez de caminar largas distancias o tomar taxi de la calle." },
           { label: "Ambiente de la ciudad", score: 5.5, desc: "El hurto simple (celular, mochila) es el riesgo más común; la violencia contra extranjeros es rara si se siguen las precauciones básicas." },
-        ],
-        reviews: [
-          { text: "Viviendo en Chapinero y siguiendo las recomendaciones básicas no tuve ningún problema serio.", author: "Leon, Study Abroad 2024", flag: "🇩🇪" },
-          { text: "Me robaron el celular en la calle una noche por descuido mío; con más cuidado se evita fácilmente.", author: "Camille, Study Abroad 2023", flag: "🇫🇷" },
         ],
       },
     ],
@@ -20037,10 +16243,6 @@ export const CITY_INSIGHTS = {
           { label: "Transporte", score: 8.0, desc: "Metro y Metrocable por menos de 0,70€ el viaje con tarjeta Cívica." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Cerveza artesanal a 2-3€. Miradores y parques gratuitos por toda la ciudad." },
         ],
-        reviews: [
-          { text: "Con 600€/mes viví muy bien en Laureles, comiendo fuera casi a diario.", author: "Alessia, Study Abroad 2024", flag: "🇮🇹" },
-          { text: "El Poblado es más caro que el resto de la ciudad, en Laureles se estira mucho más el presupuesto.", author: "Robin, Study Abroad 2023", flag: "🇬🇧" },
-        ],
       },
       {
         id: "alojamiento",
@@ -20054,9 +16256,6 @@ export const CITY_INSIGHTS = {
           { label: "Precio", score: 6.0, desc: "250-400€ una habitación en El Poblado, 180-280€ en Laureles." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "Fincaraíz y plataformas de coliving permiten alquilar todo online antes de llegar." },
           { label: "Residencias universitarias", score: 6.5, desc: "EAFIT y la UPB ofrecen alojamiento gestionado para estudiantes de intercambio." },
-        ],
-        reviews: [
-          { text: "Reservé un coliving en Laureles desde España, todo el proceso fue muy sencillo online.", author: "Iker, Study Abroad 2024", flag: "🇪🇸" },
         ],
       },
       {
@@ -20072,10 +16271,6 @@ export const CITY_INSIGHTS = {
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "Parque Lleras y la Zona Rosa de El Poblado no paran de jueves a sábado." },
           { label: "Eventos y actividades", score: 8.5, desc: "Feria de las Flores en agosto, festivales de música y una agenda cultural constante." },
         ],
-        reviews: [
-          { text: "Nunca hice tantos amigos internacionales tan rápido como en El Poblado, ambiente muy abierto.", author: "Zoe, Study Abroad 2024", flag: "🇺🇸" },
-          { text: "La Feria de las Flores fue el evento cultural más bonito que viví en mi año de intercambio.", author: "Mathis, Study Abroad 2023", flag: "🇫🇷" },
-        ],
       },
       {
         id: "integracion",
@@ -20089,10 +16284,6 @@ export const CITY_INSIGHTS = {
           { label: "Actitud local", score: 9.0, desc: "La hospitalidad paisa es reconocida en toda la región; la gente está muy dispuesta a ayudar." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La enorme comunidad internacional en El Poblado hace muy fácil hacer amigos desde el primer día." },
           { label: "Integración con locales", score: 7.0, desc: "Mezclarse con locales fuera de El Poblado, en Laureles o Envigado, da una experiencia más auténtica." },
-        ],
-        reviews: [
-          { text: "La calidez de la gente paisa es real, me hicieron sentir como en casa desde el primer día.", author: "Valeria, Study Abroad 2024", flag: "🇲🇽" },
-          { text: "Salir de la burbuja de El Poblado y hacer amigos en Laureles cambió por completo mi experiencia.", author: "Tobias, Study Abroad 2023", flag: "🇩🇪" },
         ],
       },
       {
@@ -20108,9 +16299,6 @@ export const CITY_INSIGHTS = {
           { label: "Conexiones nacionales", score: 7.5, desc: "Aeropuerto José María Córdova con vuelos directos a Bogotá, Cartagena y varios destinos internacionales." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Guatapé y El Peñol a dos horas; pueblos cafeteros como Jardín o Santa Fe de Antioquia, cerca." },
         ],
-        reviews: [
-          { text: "El Metrocable subiendo por las laderas es una de las experiencias más bonitas que tuve en Sudamérica.", author: "Lotta, Study Abroad 2024", flag: "🇸🇪" },
-        ],
       },
       {
         id: "estilo_vida",
@@ -20124,10 +16312,6 @@ export const CITY_INSIGHTS = {
           { label: "Calidad de vida", score: 8.5, desc: "Parques, miradores y una vida al aire libre constante gracias al clima." },
           { label: "Autenticidad local", score: 8.0, desc: "Bandeja paisa, Feria de las Flores y una identidad cultural paisa muy marcada." },
           { label: "Estilo de vida", score: 8.5, desc: "Terrazas, coworkings y una escena gastronómica en auge en El Poblado y Laureles." },
-        ],
-        reviews: [
-          { text: "El clima es el gran protagonista, nunca necesité más que una chaqueta ligera en todo el año.", author: "Owen, Study Abroad 2023", flag: "🇮🇪" },
-          { text: "La escena de cafés y coworkings de El Poblado es de las mejores que vi en toda Latinoamérica.", author: "Nina, Study Abroad 2024", flag: "🇳🇱" },
         ],
       },
       {
@@ -20143,9 +16327,6 @@ export const CITY_INSIGHTS = {
           { label: "Empresas relevantes", score: 7.0, desc: "Ruta N, distrito de innovación con cientos de empresas tecnológicas." },
           { label: "Oportunidades para estudiantes", score: 6.5, desc: "EAFIT tiene uno de los career services más activos de Colombia." },
         ],
-        reviews: [
-          { text: "Hice una pasantía en una startup de Ruta N que me sirvió muchísimo para mi carrera después.", author: "Freya, Internship 2024", flag: "🇩🇰" },
-        ],
       },
       {
         id: "seguridad",
@@ -20159,10 +16340,6 @@ export const CITY_INSIGHTS = {
           { label: "Seguridad nocturna", score: 5.5, desc: "Hurto y casos puntuales de sustancias en bebidas en la Zona Rosa; no aceptar tragos de desconocidos y volver en Uber o DiDi." },
           { label: "Ambiente de la ciudad", score: 6.0, desc: "La Comuna 13 se visita de día y con guía; el resto de la ciudad se recorre con las mismas precauciones que cualquier gran urbe." },
         ],
-        reviews: [
-          { text: "Con las precauciones normales de una gran ciudad, nunca me sentí en peligro real en todo el año.", author: "Anton, Study Abroad 2024", flag: "🇩🇪" },
-          { text: "El cambio de la ciudad desde los 90 es impresionante, pero como en cualquier metrópoli hay que estar atento de noche.", author: "Lucía, Study Abroad 2023", flag: "🇦🇷" },
-        ],
       },
     ],
   },
@@ -20170,14 +16347,14 @@ export const CITY_INSIGHTS = {
 
 // Generate default scores for cities without custom data
 const DEFAULT_SCORES = (city) => [
-  { id: "coste", label: "Coste de vida", icon: "💰", score: 7.0, summary: `Coste medio para Europa. Planifica un presupuesto de ${city?.costDetail || "800–1.200€"}/mes.`, color: "#B45309", subcategories: [], reviews: [] },
-  { id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.0, summary: "Busca con 2–3 meses de antelación. Incluye pisos, habitaciones, residencias y colivings.", color: "#EF4444", subcategories: [], reviews: [] },
-  { id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 7.5, summary: "Buena vida social estudiantil. Comunidad Erasmus activa con eventos semanales.", color: "#8B5CF6", subcategories: [], reviews: [] },
-  { id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8, summary: "Ciudad abierta a estudiantes internacionales. El inglés funciona bien.", color: "#3F7A7D", subcategories: [], reviews: [] },
-  { id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.5, summary: "Buen transporte público y buenas conexiones. Tarjeta mensual entre 30–60€.", color: "#F59E0B", subcategories: [], reviews: [] },
-  { id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 7.8, summary: "Buena calidad de vida general. Mezcla equilibrada de cultura, ocio y comodidad.", color: "#3F7A7D", subcategories: [], reviews: [] },
-  { id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 7.0, summary: "Oportunidades en sectores clave. Prácticas Erasmus+ disponibles.", color: "#8B5CF6", subcategories: [], reviews: [] },
-  { id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0, summary: "Ciudad segura para estándares europeos. Precaución normal.", color: "#22C55E", subcategories: [], reviews: [] },
+  { id: "coste", label: "Coste de vida", icon: "💰", score: 7.0, summary: `Coste medio para Europa. Planifica un presupuesto de ${city?.costDetail || "800–1.200€"}/mes.`, color: "#B45309", subcategories: [] },
+  { id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.0, summary: "Busca con 2–3 meses de antelación. Incluye pisos, habitaciones, residencias y colivings.", color: "#EF4444", subcategories: [] },
+  { id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 7.5, summary: "Buena vida social estudiantil. Comunidad Erasmus activa con eventos semanales.", color: "#8B5CF6", subcategories: [] },
+  { id: "integracion", label: "Integración internacional", icon: "🌍", score: 7.8, summary: "Ciudad abierta a estudiantes internacionales. El inglés funciona bien.", color: "#3F7A7D", subcategories: [] },
+  { id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.5, summary: "Buen transporte público y buenas conexiones. Tarjeta mensual entre 30–60€.", color: "#F59E0B", subcategories: [] },
+  { id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 7.8, summary: "Buena calidad de vida general. Mezcla equilibrada de cultura, ocio y comodidad.", color: "#3F7A7D", subcategories: [] },
+  { id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 7.0, summary: "Oportunidades en sectores clave. Prácticas Erasmus+ disponibles.", color: "#8B5CF6", subcategories: [] },
+  { id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0, summary: "Ciudad segura para estándares europeos. Precaución normal.", color: "#22C55E", subcategories: [] },
 ];
 
 export const getCityInsights = (slug, cityData) => {

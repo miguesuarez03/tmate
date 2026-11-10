@@ -90,6 +90,28 @@ export default function PrivacidadPage() {
           fines ni la usamos para enviarte publicidad.
         </p>
 
+        <h2>Formulario «Comparte tu experiencia»</h2>
+        <p>
+          Si nos cuentas tu experiencia, recibimos la ciudad, el año, tu universidad de origen, el nombre
+          o alias que elijas, tu texto, la valoración (si la das) y, solo si lo indicas, tu email. El
+          envío se gestiona a través de <strong>Web3Forms</strong>. La leemos a mano antes de decidir si
+          se publica.
+        </p>
+        <ul>
+          <li>
+            <strong>Qué se publica:</strong> tu nombre o alias, la ciudad, el año, tu universidad de
+            origen, la valoración y el texto. Tu email nunca se publica: solo lo usamos para avisarte o
+            preguntarte algo sobre tu experiencia.
+          </li>
+          <li>
+            <strong>Base:</strong> tu consentimiento, que das al marcar la casilla antes de enviar. Puedes
+            retirarlo cuando quieras escribiéndonos y quitaremos tu experiencia de la web.
+          </li>
+          <li>
+            Si no la publicamos, borramos el envío. No la usamos para nada más ni la cedemos a terceros.
+          </li>
+        </ul>
+
         <h2>Lo que se guarda en tu navegador</h2>
         <p>
           Algunas preferencias se guardan en el almacenamiento local de tu navegador (localStorage), no

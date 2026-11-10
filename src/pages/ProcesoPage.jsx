@@ -21,7 +21,7 @@ const STEPS = [
 · El coste real de vida: alquiler, comida, transporte y ocio
 
 Visita cuanto antes la ORI de tu facultad: tienen el listado de universidades con convenio, requisitos y plazos exactos. Llegar tarde a informarte es el error más común.`,
-    note: "Usa MAbroad para comparar ciudades con scores reales de estudiantes que ya estuvieron ahí. Es exactamente para esto.",
+    note: "Usa MAbroad para comparar ciudades con scores por categoría, coste de vida y guías locales. Es exactamente para esto.",
     shortContent: [
       "Elige bien: no es solo una ciudad bonita, es donde vas a vivir meses.",
       "Tu nota media decide el orden de adjudicación de plazas.",
@@ -564,7 +564,7 @@ export default function ProcesoPage() {
       <section className="proceso-cta">
         <h2 className="proceso-cta__title">¿Listo para elegir tu ciudad?</h2>
         <p className="proceso-cta__subtitle">
-          Ahora que conoces el proceso, encuentra el destino perfecto con scores reales y opiniones de estudiantes.
+          Ahora que conoces el proceso, encuentra el destino perfecto con scores reales y guías locales.
         </p>
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
           <button className="btn-primary" onClick={() => navigate("/")}>

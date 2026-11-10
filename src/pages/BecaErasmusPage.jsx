@@ -823,7 +823,7 @@ export default function BecaErasmusPage() {
         <section className="proceso-cta">
           <h2 className="proceso-cta__title">¿Tienes claro cuánto cobrarás?</h2>
           <p className="proceso-cta__subtitle">
-            Ahora elige el destino perfecto. Compara ciudades con scores reales de estudiantes que ya estuvieron ahí.
+            Ahora elige el destino perfecto. Compara ciudades con scores por categoría y guías locales.
           </p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
             <button className="btn-primary" onClick={() => navigate("/")}>

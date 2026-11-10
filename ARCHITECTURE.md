@@ -97,14 +97,15 @@ sevilla: {
       subcategories: [
         { label: "Vivienda", score: 7.0, desc: "Descripción..." },
       ],
-      reviews: [
-        { text: "Opinión real", author: "Nombre, Erasmus 2024", flag: "🇪🇸" },
-      ],
     },
     // ... más scores (fiesta, extranjeros, transporte, piso, etc.)
   ],
 },
 ```
+
+Las opiniones NO van aquí: las experiencias reales de estudiantes viven en
+`src/data/cityExperiences.js` y solo entran las recibidas por el formulario
+«Comparte tu experiencia» y aprobadas a mano (nunca texto inventado).
 
 ---
 

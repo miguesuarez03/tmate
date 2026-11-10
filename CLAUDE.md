@@ -41,13 +41,13 @@ This is a client-rendered React app, but production builds add a static-site-gen
 
 The project enforces a strict separation (stated in `ARCHITECTURE.md`):
 
-- **Data** only in `src/data/` — `cities.js` (base fields for all cities: name, region, cost, images, neighborhoods, tips, etc.), `insights.js` (`CITY_INSIGHTS`: detailed per-category scores, subcategories, reviews — falls back to `DEFAULT_INSIGHTS(city)` when a city has no entry), plus smaller fixture files (`cityBaseScores.js`, `cityWhatsappGroups.js`, `universityErasmusLinks.js`, `weatherSeasons.js`, `comparePhrases.js`).
+- **Data** only in `src/data/` — `cities.js` (base fields for all cities: name, region, cost, images, neighborhoods, tips, etc.), `insights.js` (`CITY_INSIGHTS`: detailed per-category scores and subcategories — falls back to `DEFAULT_INSIGHTS(city)` when a city has no entry), `cityExperiences.js` (`CITY_EXPERIENCES`: **only real student experiences** received through the «Comparte tu experiencia» form and approved by hand — never invent or generate opinions/testimonials; plus `FOUNDER_EXPERIENCE`, which never counts as a user opinion), plus smaller fixture files (`cityBaseScores.js`, `cityWhatsappGroups.js`, `universityErasmusLinks.js`, `weatherSeasons.js`, `comparePhrases.js`).
 - **Logic** only in `src/lib/cities.js` — the single place that computes overall scores, filters/sorts, rankings, related cities, favorites/compare persistence (localStorage/sessionStorage), and SEO meta objects. Add new city-related behavior here, not in components/pages.
 - **Reactive state** only in `src/hooks/` — `useCityFilter`, `useFavorites`, `useSEO`.
 - **Types** only in `src/types/index.ts` — plain TypeScript interfaces used as JSDoc `@typedef` imports in `.js` files (the project is JS + TS types, not full TS; `tsconfig.json` has `checkJs: false`, `noEmit: true` — TS is type-checking-only, not compiled).
 - **UI** in `src/components/` (shared) and `src/components/city/` (city-detail-page-specific sections: hero, bento highlights, weather timeline, neighborhoods, tips, related cities), pages in `src/pages/`.
 
-Note there are two score sources that must stay conceptually aligned: `CITY_BASE_SCORES` in `src/lib/cities.js` (per-category 0–10 "researched" baseline used by `getOverallScore`) and `CITY_INSIGHTS` in `src/data/insights.js` (the richer per-category breakdown with subcategories/reviews shown in the UI). `getScoreMap()` reads categories from insights; `getOverallScore()` reads the separate `CITY_BASE_SCORES` table.
+Note there are two score sources that must stay conceptually aligned: `CITY_BASE_SCORES` in `src/lib/cities.js` (per-category 0–10 "researched" baseline used by `getOverallScore`) and `CITY_INSIGHTS` in `src/data/insights.js` (the richer per-category breakdown with subcategories shown in the UI). `getScoreMap()` reads categories from insights; `getOverallScore()` reads the separate `CITY_BASE_SCORES` table.
 
 ### Adding a new city
 

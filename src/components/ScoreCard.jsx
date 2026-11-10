@@ -35,23 +35,10 @@ function getLevel(score) {
   return               { label: "Difícil",   color: "#EF4444" };
 }
 
-// ─── REVIEW CARD ──────────────────────────────────────────────────────────────
-function ReviewCard({ review }) {
-  return (
-    <div className="review-card">
-      <span className="review-card__flag">{review.flag}</span>
-      <div>
-        <p className="review-card__text">"{review.text}"</p>
-        <p className="review-card__author">— {review.author}</p>
-      </div>
-    </div>
-  );
-}
-
 // ─── SCORE CARD — new visual design ──────────────────────────────────────────
 export default function ScoreCard({ item, index }) {
   const [expanded, setExpanded] = useState(false);
-  const hasDetail = (item.subcategories?.length > 0) || (item.reviews?.length > 0);
+  const hasDetail = item.subcategories?.length > 0;
   const level = getLevel(item.score);
 
   return (
@@ -101,7 +88,7 @@ export default function ScoreCard({ item, index }) {
       {expanded && (
         <div className="score-card__expanded" style={{ background: `${item.color}05`, borderTopColor: `${item.color}22` }}>
           {item.subcategories?.length > 0 && (
-            <div style={{ marginBottom: item.reviews?.length > 0 ? 20 : 0 }}>
+            <div>
               <span className="score-card__section-label">Desglose detallado</span>
               {item.subcategories.map((sub, i) => (
                 <div key={i} className="sub-item">
@@ -113,12 +100,6 @@ export default function ScoreCard({ item, index }) {
                   <p className="sub-item__desc">{sub.desc}</p>
                 </div>
               ))}
-            </div>
-          )}
-          {item.reviews?.length > 0 && (
-            <div>
-              <span className="score-card__section-label">Experiencias reales</span>
-              {item.reviews.map((r, i) => <ReviewCard key={i} review={r} />)}
             </div>
           )}
         </div>

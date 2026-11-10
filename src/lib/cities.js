@@ -6,6 +6,7 @@
 
 import { CITIES } from '../data/cities';
 import { CITY_INSIGHTS, DEFAULT_INSIGHTS } from '../data/insights';
+import { CITY_EXPERIENCES, FOUNDER_EXPERIENCE } from '../data/cityExperiences';
 import { DEFAULT_OG_IMAGE, getCityOgImage } from './seo';
 
 /** @typedef {import('../types').City} City */
@@ -429,6 +430,73 @@ export function clearCompare() {
   sessionStorage.removeItem(COMPARE_KEY);
 }
 
+// ─── EXPERIENCIAS REALES ─────────────────────────────────────────────────────
+// Solo lo aprobado a mano en src/data/cityExperiences.js. El fichero se edita
+// a mano, así que aquí se descarta cualquier entrada incompleta o de una
+// ciudad que no existe en vez de romper la página.
+
+/** @typedef {import('../types').ExperienceEntry} ExperienceEntry */
+
+function toEntry(slug, exp) {
+  const city = getCityBySlug(slug);
+  if (!city || !exp || !String(exp.name || '').trim() || !String(exp.text || '').trim()) return null;
+  const rating = Number(exp.rating);
+  return {
+    name: String(exp.name).trim(),
+    year: Number(exp.year) || null,
+    homeUniversity: String(exp.homeUniversity || '').trim(),
+    text: String(exp.text).trim(),
+    ...(rating >= 1 && rating <= 5 ? { rating: Math.round(rating) } : {}),
+    citySlug: slug,
+    cityName: city.name,
+    cityEmoji: city.emoji,
+    stayLabel: `${isErasmusEligible(city) ? 'Erasmus' : 'Intercambio'} en ${city.name}`,
+  };
+}
+
+/** Experiencias reales de una ciudad (sin la del fundador), la más reciente primero. */
+export function getCityExperiences(slug) {
+  return (CITY_EXPERIENCES[slug] || [])
+    .map(exp => toEntry(slug, exp))
+    .filter(Boolean)
+    .sort((a, b) => (b.year || 0) - (a.year || 0));
+}
+
+/** Todas las experiencias reales de todas las ciudades, la más reciente primero. */
+export function getAllExperiences() {
+  return Object.keys(CITY_EXPERIENCES)
+    .flatMap(slug => getCityExperiences(slug))
+    .sort((a, b) => (b.year || 0) - (a.year || 0));
+}
+
+/** La experiencia del fundador como tarjeta (versión corta), con su ciudad. */
+export function getFounderEntry() {
+  const f = FOUNDER_EXPERIENCE;
+  const city = getCityBySlug(f.citySlug);
+  return {
+    name: f.name,
+    year: null,
+    homeUniversity: f.homeUniversity,
+    text: f.short,
+    citySlug: f.citySlug,
+    cityName: city?.name || f.hostUniversity,
+    cityEmoji: city?.emoji || '',
+    stayLabel: `Erasmus en ${f.hostUniversity}`,
+    founder: true,
+    role: f.role,
+    photo: f.photo,
+  };
+}
+
+/**
+ * Lo que enseña la ficha de una ciudad: en la ciudad del fundador, su
+ * experiencia va primera; después, las reales.
+ */
+export function getCityExperienceCards(slug) {
+  const real = getCityExperiences(slug);
+  return slug === FOUNDER_EXPERIENCE.citySlug ? [getFounderEntry(), ...real] : real;
+}
+
 // ─── SEO HELPERS ─────────────────────────────────────────────────────────────
 
 /**
@@ -472,7 +540,7 @@ export function getCityMeta(city, overallScore) {
 export function getHomeMeta() {
   return {
     title: 'MAbroad — Descubre y compara tu ciudad Erasmus ideal',
-    description: `La guía definitiva para elegir tu ciudad Erasmus. ${CITIES.length} destinos con scores reales, opiniones de estudiantes y guías locales. Totalmente gratis.`,
+    description: `La guía definitiva para elegir tu ciudad Erasmus. ${CITIES.length} destinos con scores reales, comparador y guías locales. Totalmente gratis.`,
     keywords: 'Erasmus ciudades, mejores destinos Erasmus, guía Erasmus Europa, MAbroad',
     ogImage: DEFAULT_OG_IMAGE,
   };

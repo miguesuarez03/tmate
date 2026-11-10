@@ -3,13 +3,13 @@ import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import { CITIES } from "../data/cities";
 import { getScoreMap, getOverallScore, findBestCityMatch } from "../lib/cities";
 import { Navbar, Footer, SectionLabel, MASymbol, NAV_LINKS } from "../components/Layout";
-import { IconCityMatch, IconComparar, IconBeca, IconRanking, IconComunidad, IconSeguridad, IconUniversidad, IconMedalla, IconCamara, IconEdificio, IconFiesta, IconLapiz, IconPausa, IconReproducir } from "../components/icons";
+import { IconCityMatch, IconComparar, IconBeca, IconRanking, IconComunidad, IconSeguridad, IconUniversidad, IconMedalla, IconEdificio, IconFiesta, IconPausa, IconReproducir } from "../components/icons";
 import SearchBar from "../components/SearchBar";
 import CityCard from "../components/CityCard";
 import { useCityFilter } from "../hooks/useCityFilter";
 import { useSEO } from "../hooks/useSEO";
 import { getWebsiteJsonLd } from "../lib/seo";
-import { responsiveImage } from "../lib/images";
+import HomeExperiences from "../components/experiences/HomeExperiences";
 
 // WorldMap arrastra react-simple-maps + d3 (pesado). Se carga bajo demanda
 // para no engordar el bundle inicial — el globo está más abajo en la página,
@@ -98,70 +98,6 @@ function QuickAccessSection() {
     </section>
   );
 }
-
-const TESTIMONIALS = [
-  {
-    name: "Lucía M.",
-    city: "Bolonia",
-    flag: "🇮🇹",
-    text: "MAbroad me ayudó a elegir Bolonia sin dudarlo. Los scores de vida nocturna y coste de vida fueron exactamente lo que necesitaba para convencer a mis padres.",
-    avatar: "L",
-    color: "#E0F2FE",
-    stars: 5,
-    photo: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=600&q=80",
-  },
-  {
-    name: "Andrés P.",
-    city: "Berlín",
-    flag: "🇩🇪",
-    text: "Llevaba semanas dudando entre Berlín y Múnich. Con la comparativa de scores lo vi clarísimo. Elegí Berlín y no me arrepiento.",
-    avatar: "A",
-    color: "#D1FAE5",
-    stars: 5,
-    photo: "https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?w=600&q=80",
-  },
-  {
-    name: "Sara K.",
-    city: "Lisboa",
-    flag: "🇵🇹",
-    text: "La guía de barrios de Lisboa es increíble. Encontré piso en Mouraria gracias a los consejos. Nadie más me dio esa info tan específica y honesta.",
-    avatar: "S",
-    color: "#FEF3C7",
-    stars: 5,
-    photo: "https://images.unsplash.com/photo-1548707309-dcebeab9ea9b?w=600&q=80",
-  },
-  {
-    name: "Anónimo",
-    city: "Praga",
-    flag: "🇨🇿",
-    text: "Nunca había viajado solo. MAbroad me dio la confianza de saber exactamente a qué iba. La sección de transporte y tips locales es oro puro.",
-    avatar: "?",
-    color: "#F3E8FF",
-    stars: 4,
-    photo: "https://images.unsplash.com/photo-1519677100203-a0e668c92439?w=600&q=80",
-  },
-  {
-    name: "Marta V.",
-    city: "Budapest",
-    flag: "🇭🇺",
-    text: "Budapest fue una sorpresa enorme. Con 400€ al mes viví como una reina. La comunidad Erasmus allí es brutal.",
-    avatar: "M",
-    color: "#FCE7F3",
-    stars: 5,
-    photo: "https://images.unsplash.com/photo-1541849546-216549ae216d?w=600&q=80",
-  },
-  {
-    name: "Carlos R.",
-    city: "Ámsterdam",
-    flag: "🇳🇱",
-    text: "Caro pero vale cada euro. La ciudad te cambia la perspectiva de todo. Volví siendo otra persona.",
-    avatar: "C",
-    color: "#DCFCE7",
-    stars: 4,
-    photo: "https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=600&q=80",
-  },
-];
-
 
 
 // Anima "150" → cuenta entera, "2,4M" → cuenta el decimal manteniendo el
@@ -492,157 +428,6 @@ function FAQSection() {
   );
 }
 
-function StarRating({ value, onChange }) {
-  const [hovered, setHovered] = useState(0);
-  return (
-    <div className="star-rating">
-      {[1,2,3,4,5].map(n => (
-        <button
-          key={n}
-          type="button"
-          className={`star-rating__star ${n <= (hovered || value) ? "star-rating__star--active" : ""}`}
-          onMouseEnter={() => setHovered(n)}
-          onMouseLeave={() => setHovered(0)}
-          onClick={() => onChange(n)}
-          aria-label={`${n} estrellas`}
-        >
-          ★
-        </button>
-      ))}
-      {value > 0 && (
-        <span className="star-rating__label">
-          {["","Regular","Bien","Muy bien","Genial","¡Imprescindible!"][value]}
-        </span>
-      )}
-    </div>
-  );
-}
-
-// Fotos de los testimonios (Unsplash): se piden ya recortadas a la
-// proporción de su hueco. Tarjeta: 260×140 (220×90 en móvil); compacta: a
-// todo el ancho de su celda; modal: 480×220.
-const TESTIMONIAL_CROP = 260 / 140;
-const TESTIMONIAL_CARD_SLOTS = [
-  ["(max-width: 768px)", "220px", 220 / 90],
-  [null, "260px", TESTIMONIAL_CROP],
-];
-const TESTIMONIAL_COMPACT_SLOTS = [
-  ["(max-width: 640px)", "100vw", 2.4],
-  [null, "400px", 2.4],
-];
-const TESTIMONIAL_MODAL_SLOTS = [
-  ["(max-width: 520px)", "100vw", 1.7],
-  [null, "480px", 480 / 220],
-];
-
-function TestimonialCard({ t, onClick, compact }) {
-  return (
-    <button
-      type="button"
-      className={`community-card${compact ? " community-card--compact" : ""}`}
-      onClick={onClick}
-    >
-      <div className="community-card__img">
-        <img {...responsiveImage(t.photo, { slots: compact ? TESTIMONIAL_COMPACT_SLOTS : TESTIMONIAL_CARD_SLOTS, crop: TESTIMONIAL_CROP })} alt={`Foto de ${t.city}`} width={800} height={600} loading="lazy" decoding="async" />
-        <div className="community-card__img-overlay" />
-        <div className="community-card__city-badge">
-          <span>{t.flag}</span>
-          <span>{t.city}</span>
-        </div>
-        <div className="community-card__stars">
-          {[1,2,3,4,5].map(n => (
-            <span key={n} className={n <= t.stars ? "star--on" : "star--off"}>★</span>
-          ))}
-        </div>
-      </div>
-      <div className="community-card__body">
-        <div className="community-card__author">
-          <div className="community-card__avatar" style={{ background: t.color }}>
-            {t.avatar}
-          </div>
-          <div>
-            <p className="community-card__name">{t.name}</p>
-            <p className="community-card__meta">{t.flag} Erasmus en {t.city}</p>
-          </div>
-          <span className="community-card__quote">"</span>
-        </div>
-        <p className="community-card__text community-card__text--clamp">{t.text}</p>
-      </div>
-    </button>
-  );
-}
-
-function AllTestimonialsModal({ onClose, onSelect }) {
-  const [cityFilter, setCityFilter] = useState("Todas");
-  const [starFilter, setStarFilter] = useState(0);
-
-  const cities = ["Todas", ...Array.from(new Set(TESTIMONIALS.map(t => t.city)))];
-
-  const filtered = TESTIMONIALS.filter(t => {
-    const cityOk = cityFilter === "Todas" || t.city === cityFilter;
-    const starOk = starFilter === 0 || t.stars >= starFilter;
-    return cityOk && starOk;
-  });
-
-  return (
-    <div className="all-testimonials-overlay" onClick={onClose}>
-      <div className="all-testimonials-modal" onClick={e => e.stopPropagation()}>
-        <div className="all-testimonials-modal__header">
-          <h3>Todas las opiniones</h3>
-          <button type="button" className="all-testimonials-modal__close" onClick={onClose} aria-label="Cerrar">✕</button>
-        </div>
-
-        <div className="all-testimonials-modal__filters">
-          <div className="at-filter-group">
-            <span className="at-filter-group__label">Destino</span>
-            <div className="at-filter-pills">
-              {cities.map(c => (
-                <button
-                  key={c}
-                  type="button"
-                  className={`at-filter-pill${cityFilter === c ? " at-filter-pill--active" : ""}`}
-                  onClick={() => setCityFilter(c)}
-                >
-                  {c}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="at-filter-group">
-            <span className="at-filter-group__label">Estrellas</span>
-            <div className="at-filter-pills">
-              {[0,5,4,3].map(s => (
-                <button
-                  key={s}
-                  type="button"
-                  className={`at-filter-pill${starFilter === s ? " at-filter-pill--active" : ""}`}
-                  onClick={() => setStarFilter(s)}
-                >
-                  {s === 0 ? "Todas" : `${s}★ y más`}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="all-testimonials-modal__count">
-          {filtered.length} {filtered.length === 1 ? "opinión" : "opiniones"}
-        </div>
-
-        <div className="all-testimonials-modal__grid">
-          {filtered.length === 0 ? (
-            <p className="all-testimonials-modal__empty">No hay opiniones con estos filtros.</p>
-          ) : (
-            filtered.map((t, i) => (
-              <TestimonialCard key={i} t={t} onClick={() => onSelect(t)} compact />
-            ))
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 // Fase 8 — Rankings: 100% basado en los mismos scores que ya se muestran
 // en cada ficha de ciudad y en el comparador. No se inventa ningún dato
 // nuevo para esta sección, solo se reordena lo que ya existe.
@@ -712,246 +497,6 @@ function RankingsSection() {
           ))}
         </div>
       </div>
-    </section>
-  );
-}
-
-function CommunitySection() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [formData, setFormData] = useState({ name: "", anon: false, city: "", text: "", stars: 0, photo: null });
-  const [submitted, setSubmitted] = useState(false);
-  const [photoPreview, setPhotoPreview] = useState(null);
-  const [activeTestimonial, setActiveTestimonial] = useState(null);
-  const [showAllModal, setShowAllModal] = useState(false);
-  const [showExpModal, setShowExpModal] = useState(false);
-  const fileRef = useRef(null);
-
-  // El hamburger menu enlaza aquí con ?accion=compartir para abrir
-  // el modal directamente, en vez de depender de un scroll a una sección fija.
-  useEffect(() => {
-    if (searchParams.get("accion") === "compartir") {
-      setShowExpModal(true);
-      setSearchParams((prev) => {
-        const params = new URLSearchParams(prev);
-        params.delete("accion");
-        return params;
-      }, { replace: true });
-    }
-  }, [searchParams, setSearchParams]);
-
-  const handlePhoto = (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = (ev) => setPhotoPreview(ev.target.result);
-    reader.readAsDataURL(file);
-    setFormData(p => ({ ...p, photo: file }));
-  };
-
-  const handleSubmit = () => {
-    if (!formData.city || !formData.text.trim() || !formData.stars) return;
-    setSubmitted(true);
-    setTimeout(() => { setSubmitted(false); setPhotoPreview(null); setShowExpModal(false); }, 2400);
-    setFormData({ name: "", anon: false, city: "", text: "", stars: 0, photo: null });
-  };
-
-  return (
-    <section className="community-section">
-      {/* Header */}
-      <div className="community-header">
-        <SectionLabel color="var(--color-teal)">Comunidad MAbroad</SectionLabel>
-        <h2 className="section__title" style={{ marginBottom: 14 }}>Erasmus que inspiran.</h2>
-        <p style={{ fontSize: "clamp(15px,2vw,17px)", color: "var(--color-slate-light)", maxWidth: 520, margin: "0 auto", lineHeight: 1.6 }}>
-          Historias reales de estudiantes. Cada tarjeta mezcla su opinión con sus propias fotos del viaje.
-        </p>
-      </div>
-
-      {/* Línea horizontal de tarjetas + acceso a ver todas */}
-      <div className="community-cards-row">
-        {TESTIMONIALS.slice(0, 5).map((t, i) => (
-          <TestimonialCard key={i} t={t} onClick={() => setActiveTestimonial(t)} />
-        ))}
-      </div>
-      <div className="community-cards-more">
-        <button type="button" className="community-cards-more__btn" onClick={() => setShowAllModal(true)}>
-          Ver más opiniones →
-        </button>
-      </div>
-
-      {/* Modal con todas las opiniones + filtros */}
-      {showAllModal && (
-        <AllTestimonialsModal
-          onClose={() => setShowAllModal(false)}
-          onSelect={(t) => { setShowAllModal(false); setActiveTestimonial(t); }}
-        />
-      )}
-
-      {/* Modal de testimonio completo */}
-      {activeTestimonial && (
-        <div className="testimonial-modal-overlay" onClick={() => setActiveTestimonial(null)}>
-          <div className="testimonial-modal" onClick={e => e.stopPropagation()}>
-            <button
-              type="button"
-              className="testimonial-modal__close"
-              onClick={() => setActiveTestimonial(null)}
-              aria-label="Cerrar"
-            >
-              ✕
-            </button>
-            <div className="testimonial-modal__img">
-              <img {...responsiveImage(activeTestimonial.photo, { slots: TESTIMONIAL_MODAL_SLOTS, crop: 480 / 220 })} alt={`Foto de ${activeTestimonial.city}`} width={800} height={450} decoding="async" />
-              <div className="community-card__img-overlay" />
-              <div className="community-card__city-badge">
-                <span>{activeTestimonial.flag}</span>
-                <span>{activeTestimonial.city}</span>
-              </div>
-            </div>
-            <div className="testimonial-modal__body">
-              <div className="community-card__stars" style={{ position: "static", marginBottom: 10 }}>
-                {[1,2,3,4,5].map(n => (
-                  <span key={n} className={n <= activeTestimonial.stars ? "star--on" : "star--off"}>★</span>
-                ))}
-              </div>
-              <div className="community-card__author" style={{ marginBottom: 16 }}>
-                <div className="community-card__avatar" style={{ background: activeTestimonial.color }}>
-                  {activeTestimonial.avatar}
-                </div>
-                <div>
-                  <p className="community-card__name">{activeTestimonial.name}</p>
-                  <p className="community-card__meta">{activeTestimonial.flag} Erasmus en {activeTestimonial.city}</p>
-                </div>
-              </div>
-              <p className="testimonial-modal__text">{activeTestimonial.text}</p>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* CTA para compartir experiencia (abre modal) */}
-      <div className="exp-prompt">
-        <span className="exp-prompt__icon"><IconLapiz size={36} /></span>
-        <div className="exp-prompt__text">
-          <h3 className="exp-prompt__title">¿Ya hiciste tu Erasmus?</h3>
-          <p className="exp-prompt__desc">Cuéntanos tu experiencia y ayuda a miles de estudiantes a decidir.</p>
-        </div>
-        <button type="button" className="exp-prompt__btn" onClick={() => setShowExpModal(true)}>
-          Compartir mi experiencia →
-        </button>
-      </div>
-
-      {/* Modal del formulario de experiencia */}
-      {showExpModal && (
-        <div className="exp-modal-overlay" onClick={() => setShowExpModal(false)}>
-          <div className="exp-modal" onClick={e => e.stopPropagation()}>
-            <button
-              type="button"
-              className="exp-modal__close"
-              onClick={() => setShowExpModal(false)}
-              aria-label="Cerrar"
-            >
-              ✕
-            </button>
-
-            <div className="exp-form-header">
-              <span style={{ display: "inline-flex" }}><IconLapiz size={36} /></span>
-              <div>
-                <h3 className="exp-form-title">Cuéntanos tu experiencia</h3>
-                <p className="exp-form-subtitle">Tu historia y tus fotos pueden ayudar a miles de estudiantes.</p>
-              </div>
-            </div>
-
-            {submitted ? (
-              <div className="exp-form-success">
-                <span style={{ display: "inline-flex" }}><IconFiesta size={44} /></span>
-                <p style={{ fontWeight: 700, fontSize: 18, color: "var(--color-dark)" }}>¡Gracias por compartir!</p>
-                <p style={{ color: "var(--color-slate-light)", fontSize: 14 }}>Tu experiencia estará disponible pronto en la comunidad.</p>
-              </div>
-            ) : (
-              <div className="exp-form">
-                {/* Paso 1: Destino */}
-                <div className="exp-form__field">
-                  <label className="exp-form__label">Ciudad Erasmus *</label>
-                  <select className="exp-form__input exp-form__select"
-                    value={formData.city}
-                    onChange={e => setFormData(p => ({ ...p, city: e.target.value }))}>
-                    <option value="">Selecciona tu ciudad</option>
-                    {CITIES.map(c => (
-                      <option key={c.slug} value={c.name}>{c.emoji} {c.name} — {c.country}</option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Paso 2: Estrellas */}
-                <div className="exp-form__field">
-                  <label className="exp-form__label">¿Cómo fue tu experiencia? *</label>
-                  <StarRating value={formData.stars} onChange={stars => setFormData(p => ({ ...p, stars }))} />
-                </div>
-
-                {/* Paso 3: Nombre */}
-                <div className="exp-form__row">
-                  <div className="exp-form__field">
-                    <label className="exp-form__label">Tu nombre (opcional)</label>
-                    <input className="exp-form__input" placeholder="Nombre o alias"
-                      value={formData.name}
-                      onChange={e => setFormData(p => ({ ...p, name: e.target.value }))} />
-                  </div>
-                  <div className="exp-form__field exp-form__field--checkbox">
-                    <label className="exp-form__checkbox-label">
-                      <input type="checkbox" checked={formData.anon}
-                        onChange={e => setFormData(p => ({ ...p, anon: e.target.checked }))} />
-                      <span>Publicar en anonimato</span>
-                    </label>
-                  </div>
-                </div>
-
-                {/* Paso 4: Texto */}
-                <div className="exp-form__field">
-                  <label className="exp-form__label">Tu experiencia *</label>
-                  <textarea className="exp-form__textarea"
-                    placeholder="¿Qué te cambió? ¿Qué consejo le darías a alguien que va a tu ciudad? Sé honesto/a."
-                    rows={5}
-                    value={formData.text}
-                    onChange={e => setFormData(p => ({ ...p, text: e.target.value }))} />
-                  <span className="exp-form__char">{formData.text.length}/600 caracteres</span>
-                </div>
-
-                {/* Paso 5: Foto */}
-                <div className="exp-form__field">
-                  <label className="exp-form__label">Sube una foto tuya del Erasmus (opcional)</label>
-                  <div className="photo-upload" onClick={() => fileRef.current?.click()}>
-                    {photoPreview ? (
-                      <img src={photoPreview} alt="Vista previa de tu foto" className="photo-upload__preview" />
-                    ) : (
-                      <div className="photo-upload__placeholder">
-                        <span style={{ display: "inline-flex" }}><IconCamara size={40} /></span>
-                        <span>Haz clic para subir una foto</span>
-                        <span className="photo-upload__hint">JPG, PNG — máx. 5MB</span>
-                      </div>
-                    )}
-                  </div>
-                  <input ref={fileRef} type="file" accept="image/*" style={{ display: "none" }} onChange={handlePhoto} />
-                  {photoPreview && (
-                    <button className="photo-upload__remove" onClick={() => { setPhotoPreview(null); setFormData(p => ({ ...p, photo: null })); }}>
-                      ✕ Quitar foto
-                    </button>
-                  )}
-                </div>
-
-                <button className="exp-form__btn"
-                  onClick={handleSubmit}
-                  disabled={!formData.city || !formData.text.trim() || !formData.stars}>
-                  Compartir experiencia →
-                </button>
-                {!formData.stars && formData.city && (
-                  <p style={{ fontSize: 12, color: "var(--color-muted)", marginTop: 8, textAlign: "center" }}>
-                    Selecciona una puntuación para continuar
-                  </p>
-                )}
-              </div>
-            )}
-          </div>
-        </div>
-      )}
     </section>
   );
 }
@@ -1045,7 +590,7 @@ export default function HomePage() {
           </h1>
 
           <p className="hero__subtitle fade-up-3">
-            Todo lo que necesitas para elegir tu ciudad Erasmus. Scores reales, opiniones de estudiantes y guías locales.
+            Todo lo que necesitas para elegir tu ciudad Erasmus. Scores reales, comparador y guías locales.
           </p>
 
           <div className="fade-up-4" style={{ width: "100%", display: "flex", justifyContent: "center", position: "relative", zIndex: 10 }}>
@@ -1135,8 +680,8 @@ export default function HomePage() {
       {/* RANKINGS */}
       <RankingsSection />
 
-      {/* COMMUNITY */}
-      <CommunitySection />
+      {/* EXPERIENCIAS — «Mi experiencia» o las experiencias reales aprobadas */}
+      <HomeExperiences />
 
       {/* FAQ */}
       <FAQSection />

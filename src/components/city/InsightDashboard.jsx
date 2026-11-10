@@ -3,6 +3,7 @@ import styles from "./InsightDashboard.module.css";
 import { getCityWhatsappGroup } from "../../data/cityWhatsappGroups";
 import { getCategoryIcon } from "../../lib/categoryIcons";
 import { getScoreLevel } from "../../lib/cities";
+import CityExperiences from "../experiences/CityExperiences";
 
 const scoreColor = (s) => getScoreLevel(s).color;
 const scoreLabel = (s) => getScoreLevel(s).label;
@@ -24,19 +25,6 @@ function AnimatedBar({ score, color, delay = 0 }) {
   );
 }
 
-// ── Review bubble ─────────────────────────────────────────────────────────────
-function ReviewBubble({ review }) {
-  return (
-    <div className={styles.bubble}>
-      <p className={styles.bubbleText}>"{review.text}"</p>
-      <div className={styles.bubbleAuthor}>
-        <span className={styles.bubbleFlag}>{review.flag}</span>
-        <span className={styles.bubbleName}>{review.author}</span>
-      </div>
-    </div>
-  );
-}
-
 // ── Main ──────────────────────────────────────────────────────────────────────
 export default function InsightDashboard({ scores = [], overallScore, citySlug, cityName }) {
   const [active, setActive] = useState(scores[0]?.id ?? null);
@@ -53,7 +41,7 @@ export default function InsightDashboard({ scores = [], overallScore, citySlug, 
         <div>
           <p className={styles.eyebrow}>City Scores</p>
           <h2 className={styles.title}>Análisis completo</h2>
-          <p className={styles.sub}>Puntuaciones basadas en experiencias reales de estudiantes Erasmus</p>
+          <p className={styles.sub}>Puntuación de 1 a 10 en cada categoría, con su desglose</p>
         </div>
         <div className={styles.overallBadge}>
           <span className={styles.overallNum} style={{ color: scoreColor(overallScore) }}>{overallScore}</span>
@@ -158,15 +146,10 @@ export default function InsightDashboard({ scores = [], overallScore, citySlug, 
           </div>
         )}
 
-        {/* RIGHT — reviews */}
-        {current?.reviews?.length > 0 && (
-          <div className={styles.reviews}>
-            <p className={styles.reviewsTitle}>Opiniones reales</p>
-            <div className={styles.reviewsList}>
-              {current.reviews.map((r, i) => <ReviewBubble key={i} review={r} />)}
-            </div>
-          </div>
-        )}
+        {/* RIGHT — experiencias reales de la ciudad (src/data/cityExperiences.js) */}
+        <div className={styles.experiences}>
+          <CityExperiences citySlug={citySlug} cityName={cityName} />
+        </div>
       </div>
     </section>
   );
