@@ -442,6 +442,10 @@ export function Footer() {
         {" · "}
         <Link to="/creditos" className="footer__link">Créditos de las fotos</Link>
       </p>
+      <p className="footer__independence">
+        MAbroad es un proyecto independiente, sin relación con la Comisión Europea, el SEPIE ni las universidades.
+        Los importes y datos son orientativos: el dato oficial es el de cada universidad y su convocatoria.
+      </p>
     </footer>
   );
 }

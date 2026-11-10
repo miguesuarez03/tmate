@@ -158,7 +158,7 @@ const EXPENSE_ICONS = {
 };
 
 const COMPAT_BECAS = [
-  { Icon: IconLibros, name: "Beca MEC", desc: "Compatible al 100%. Puedes cobrar ambas a la vez." },
+  { Icon: IconLibros, name: "Beca MEC", desc: "Compatible: puedes cobrar ambas. Y si tienes la beca general del Ministerio, cuentas como estudiante con menos oportunidades (+250 €/mes)." },
   { Icon: IconEdificio, name: "Ayudas autonómicas", desc: "Andalucía, Madrid, Cataluña y otras CCAA ofrecen complementos propios." },
   { Icon: IconUniversidad, name: "Becas de tu universidad", desc: "Muchas universidades tienen sus propios fondos de movilidad." },
   { Icon: IconEdificio, name: "Becas privadas", desc: "Ejemplo: Banco Santander u otras entidades privadas." },
@@ -336,7 +336,7 @@ function Calculator() {
                   <span className="beca-country-detected__flag">{destCity.emoji}</span>
                   <span>
                     País detectado: <strong>{country}</strong>
-                    {group && <span className="beca-country-group"> · Grupo {group} — {baseRate}€/mes base</span>}
+                    {group && <span className="beca-country-group"> · Grupo {group} — desde {baseRate}€/mes</span>}
                   </span>
                 </div>
               )}
@@ -409,7 +409,7 @@ function Calculator() {
               </label>
               <label className="beca-calc__check">
                 <input type="checkbox" checked={mec} onChange={(e) => setMec(e.target.checked)} />
-                <span>Beca MEC (estimación ~600€/año)</span>
+                <span>Beca del Ministerio (ejemplo: ~600 €/año; la tuya depende de tu renta)</span>
               </label>
               <label className="beca-calc__check">
                 <input type="checkbox" checked={aut} onChange={(e) => setAut(e.target.checked)} />
@@ -441,7 +441,7 @@ function Calculator() {
               </p>
             ) : !isErasmusEligible(destCity) ? (
               <p className="beca-calc__result-placeholder" style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
-                <IconAlerta size={18} /> {destCity.name} es un destino de intercambio bilateral (no Erasmus+), así que no tiene beca Erasmus+ asociada. La financiación depende del convenio propio de tu universidad — consulta con tu oficina de relaciones internacionales.
+                <IconAlerta size={18} /> {destCity.name} no es un destino Erasmus+ estándar, así que esta calculadora no aplica. La financiación depende del convenio de tu universidad (algunas usan fondos Erasmus+ para países no asociados) — consulta con tu oficina de relaciones internacionales.
               </p>
             ) : (
               <>
@@ -470,7 +470,7 @@ function Calculator() {
                 {mec && (
                   <div className="beca-calc__result-group">
                     <span className="beca-calc__result-label">Beca MEC</span>
-                    <span className="beca-calc__result-val"><strong>+~600€</strong> (estimado anual)</span>
+                    <span className="beca-calc__result-val"><strong>+~600€</strong> (ejemplo anual)</span>
                   </div>
                 )}
                 {aut && (
@@ -486,7 +486,7 @@ function Calculator() {
                   <span className="beca-calc__total-monthly">({Math.round(total / months).toLocaleString("es-ES")}€/mes de media)</span>
                 </div>
                 <p className="beca-calc__disclaimer" style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
-                  <IconAlerta size={16} /> Estimación orientativa. Los importes reales los confirma tu universidad y pueden variar según convocatoria y comunidad autónoma.
+                  <IconAlerta size={16} /> Estimación orientativa con los importes mínimos del SEPIE. Cada universidad fija su importe dentro del rango de la convocatoria y lo publica en su web: ese es el oficial.
                 </p>
               </>
             )}
@@ -542,10 +542,15 @@ function Calculator() {
           </div>
 
           <p className="beca-calc__disclaimer" style={{ marginTop: 16, display: "flex", alignItems: "flex-start", gap: 6 }}>
-            <IconAlerta size={16} /> El total ({costMin}–{costMax}€) es el rango investigado para {destCity.name}. El reparto entre alojamiento, comida, transporte y ocio es una estimación calculada, no un dato investigado categoría a categoría — usa las descripciones de arriba (con precios reales) para ajustarlo a tu caso concreto.
+            <IconAlerta size={16} /> El total ({costMin}–{costMax}€) es el rango orientativo de MAbroad para {destCity.name}. El reparto entre alojamiento, comida, transporte y ocio es una estimación calculada, no un dato categoría a categoría — usa las descripciones de arriba (con precios orientativos) para ajustarlo a tu caso.
           </p>
         </div>
       )}
+
+      <p className="beca-calc__independence">
+        MAbroad es un proyecto independiente, sin relación con la Comisión Europea, el SEPIE ni las universidades.
+        Los importes son orientativos: el dato oficial es el de tu universidad y su convocatoria.
+      </p>
     </div>
   );
 }
@@ -601,15 +606,15 @@ export default function BecaErasmusPage() {
           <div className="proceso-hero__stats">
             <div className="proceso-hero__stat">
               <span className="proceso-hero__stat-val">250–350€</span>
-              <span className="proceso-hero__stat-label">Base mensual</span>
+              <span className="proceso-hero__stat-label">Mínimo mensual</span>
             </div>
             <div className="proceso-hero__stat">
               <span className="proceso-hero__stat-val">+250€</span>
               <span className="proceso-hero__stat-label">Complemento posible</span>
             </div>
             <div className="proceso-hero__stat">
-              <span className="proceso-hero__stat-val">100%</span>
-              <span className="proceso-hero__stat-label">Compatible con MEC</span>
+              <span className="proceso-hero__stat-val">Sí</span>
+              <span className="proceso-hero__stat-label">Compatible con la beca MEC</span>
             </div>
           </div>
         </div>
@@ -650,7 +655,7 @@ export default function BecaErasmusPage() {
           <SectionLabel color="#3F7A7D">Importes base</SectionLabel>
           <h2 className="beca-section__title beca-section__title--light">Ayuda base según el país de destino</h2>
           <p className="beca-section__subtitle beca-section__subtitle--light">
-            Los países Erasmus se dividen en tres grupos según el coste de vida. Tu mensualidad depende del grupo al que pertenezca tu destino.
+            Los países Erasmus se dividen en tres grupos según el coste de vida. Las cifras son los mínimos que fija el SEPIE en la convocatoria 2026: tu universidad decide el importe exacto dentro del rango y lo publica en su web.
           </p>
 
           <div className="beca-groups">

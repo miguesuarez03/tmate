@@ -20,7 +20,7 @@ function UniCard({ name, index }) {
       </div>
       <div className={styles.uniBody}>
         <p className={styles.uniName}>{name}</p>
-        <span className={styles.uniLink}>Ver convenios Erasmus →</span>
+        <span className={styles.uniLink}>Info para estudiantes de intercambio →</span>
       </div>
       <div className={styles.uniArrow}>→</div>
     </a>
@@ -33,8 +33,11 @@ export default function NeighborhoodSlider({ universities = [] }) {
     <section className={styles.section}>
       <div className={styles.header}>
         <p className={styles.eyebrow}>Dónde estudiar</p>
-        <h2 className={styles.title}>Universidades con convenio Erasmus</h2>
-        <p className={styles.sub}>Centros donde puedes realizar tu intercambio</p>
+        <h2 className={styles.title}>Universidades con programas de intercambio</h2>
+        <p className={styles.sub}>
+          Que puedas ir a una de ellas depende de los convenios de tu universidad: consúltalos en tu oficina de
+          relaciones internacionales.
+        </p>
       </div>
       <div className={styles.grid}>
         {universities.map((name, i) => <UniCard key={i} name={name} index={i} />)}

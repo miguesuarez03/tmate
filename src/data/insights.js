@@ -146,7 +146,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "WG (pisos compartidos) 450–700€. La demanda es alta pero la oferta también." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercados turcos, döner a 3€, supermercados económicos. Comer sano y barato es fácil." },
-          { label: "Transporte", score: 8.5, desc: "Deutschlandticket a 49€/mes. Metro, bus, tram 24h los fines de semana." },
+          { label: "Transporte", score: 8.5, desc: "Deutschlandticket a 63 €/mes (2026). Metro, bus, tram 24h los fines de semana." },
           { label: "Ocio y gastos diarios", score: 8.0, desc: "Entrada a clubs: 10–20€. Pero la vida cultural (museos, galerías) tiene mucho gratis." },
         ],
       },
@@ -206,7 +206,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Transporte público", score: 9.5, desc: "Red amplísima. Nunca esperas más de 5 minutos. Funciona 24h viernes y sábado." },
           { label: "Ciudad caminable", score: 9.0, desc: "700km de carril bici. La bici es el transporte más usado por jóvenes." },
-          { label: "Conexiones nacionales", score: 10.0, desc: "49€/mes para toda Alemania. El mayor cambio en transporte público europeo en décadas." },
+          { label: "Conexiones nacionales", score: 10.0, desc: "Deutschlandticket: 63 €/mes en 2026 para el transporte regional de toda Alemania. El mayor cambio en transporte público europeo en décadas." },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -231,13 +231,13 @@ export const CITY_INSIGHTS = {
         label: "Empleo y oportunidades",
         icon: "💼",
         score: 8.9,
-        summary: "El hub de startups más grande de Europa. Oportunidades en tech, creativas y fintech.",
+        summary: "Uno de los grandes hubs de startups de Europa. Oportunidades en tech, creativas y fintech.",
         color: "#8B5CF6",
         subcategories: [
           { label: "Mercado laboral", score: 9.5, desc: "Rocket Internet, Zalando, N26, Delivery Hero. Berlín es la capital startup de Europa." },
           { label: "Prácticas", score: 9.0, desc: "Moda, diseño, música, cine, publicidad. La industria creativa más densa de Alemania." },
           { label: "Empresas relevantes", score: 8.5, desc: "Miles de empresas internacionales buscando talento joven. El inglés es suficiente." },
-          { label: "Oportunidades para estudiantes", score: 8.9, desc: "El hub de startups más grande de Europa. Oportunidades en tech, creativas y fintech." },
+          { label: "Oportunidades para estudiantes", score: 8.9, desc: "Uno de los grandes hubs de startups de Europa. Oportunidades en tech, creativas y fintech." },
         ],
       },
       // 8. SEGURIDAD
@@ -651,7 +651,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitaciones desde 400–600€. Significativamente más barata que Múnich a solo 40 minutos en tren." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercado semanal en la Ludwigsplatz con productos bávaros frescos. Supermercados bien surtidos a precios razonables." },
-          { label: "Transporte", score: 7.5, desc: "Deutschlandticket a 49€/mes cubre todo — incluyendo el tren a Múnich. Sin coche es completamente viable." },
+          { label: "Transporte", score: 7.5, desc: "Deutschlandticket (63 €/mes en 2026) cubre todo — incluyendo el tren a Múnich. Sin coche es completamente viable." },
           { label: "Ocio y gastos diarios", score: 8.0, desc: "Cervezas en biergartens locales a 3–4€. Naturaleza gratuita por todas partes. Sin el precio premium de las grandes ciudades." },
         ],
       },
@@ -724,7 +724,7 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 10.0, desc: "Chiemsee, Alpes, bosques bávaros. La naturaleza más espectacular de esta guía a precios de vida razonables." },
-          { label: "Clima", score: 7.5, desc: "Clima alpino con cuatro estaciones marcadas. Nieve en invierno garantizada, veranos frescos y muy agradables. Verano: 20–26°C, fresco y soleado. Los lagos alpinos cercanos son perfectos. Sin el calor sofocante de las ciudades del sur. Invierno: Nieve garantizada. Frío pero con los Alpes a 30 minutos se convierte en una ventaja enorme para el ski." },
+          { label: "Clima", score: 7.5, desc: "Clima alpino con cuatro estaciones marcadas. Nieve frecuente en invierno, veranos frescos y muy agradables. Verano: 20–26°C, fresco y soleado. Los lagos alpinos cercanos son perfectos. Sin el calor sofocante de las ciudades del sur. Invierno: nieve frecuente. Frío pero con los Alpes a 30 minutos se convierte en una ventaja enorme para el ski." },
           { label: "Calidad de vida", score: 8.8, desc: "Calidad de vida altísima para quien busca naturaleza, autenticidad y tranquilidad. El antídoto a las grandes ciudades." },
           { label: "Autenticidad local", score: 10.0, desc: "Tradiciones, trajes típicos, Oktoberfest local, biergardens centenarios. Baviera sin filtro turístico." },
           { label: "Estilo de vida", score: 8.0, desc: "Ritmo de vida que combina trabajo, cultura y ocio de forma equilibrada." },
@@ -977,7 +977,7 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 10.0, desc: "Lagos alpinos, ski en invierno, senderismo en verano. La naturaleza bávara es un privilegio diario." },
-          { label: "Clima", score: 7.2, desc: "Veranos soleados y agradables, inviernos fríos con nieve. Los Alpes regulan el clima y añaden magia al paisaje. Verano: 22–28°C, soleado. El English Garden se convierte en la playa urbana más grande de Europa. Perfecto. Invierno: Frío real, -5 a -10°C posibles. Nieve frecuente pero los mercados navideños son de los más bonitos de Europa." },
+          { label: "Clima", score: 7.2, desc: "Veranos soleados y agradables, inviernos fríos con nieve. Los Alpes regulan el clima y añaden magia al paisaje. Verano: 22–28°C, soleado. El English Garden, uno de los mayores parques urbanos de Europa, se llena de gente. Perfecto. Invierno: Frío real, -5 a -10°C posibles. Nieve frecuente pero los mercados navideños son de los más bonitos de Europa." },
           { label: "Calidad de vida", score: 9.2, desc: "La mejor calidad de vida de Alemania. Alpes, cultura, seguridad, gastronomía bávara y eficiencia alemana en un paquete único." },
           { label: "Autenticidad local", score: 9.0, desc: "Weisswurst, Brezel, Schweinshaxe, Weizenbier. La cocina bávara es contundente, deliciosa y muy celebrada." },
           { label: "Estilo de vida", score: 9.0, desc: "Cara pero la calidad de todo — transporte, seguridad, naturaleza, servicios — justifica el precio para muchos." },
@@ -1667,7 +1667,7 @@ export const CITY_INSIGHTS = {
           { label: "Alojamiento", score: 9.0, desc: "Habitaciones desde 200–350€. Pisos enteros por lo que en Lisboa pagarías una habitación." },
           { label: "Comida y supermercados", score: 9.5, desc: "Menú del día por 4–5€. Cerveza a 1,50€. Zapiekanka (bocadillo polaco) por 2€. Comer bien es ridículamente barato." },
           { label: "Transporte", score: 9.5, desc: "Pase mensual de tranvía y autobús a 20€. La ciudad entera caminable desde el centro." },
-          { label: "Ocio y gastos diarios", score: 9.0, desc: "Noche entera con 20–30€. Shots a 1€, cervezas a 1,50€. La vida nocturna más barata de Europa occidental." },
+          { label: "Ocio y gastos diarios", score: 9.0, desc: "Noche entera con 20–30€. Shots a 1€, cervezas a 1,50€. Una de las vidas nocturnas más baratas de Europa." },
         ],
       },
       // 2. ALOJAMIENTO
@@ -1740,7 +1740,7 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.0, desc: "Zakopane y los Tatras a 2h. Senderismo en verano, esquí en invierno. Naturaleza polaca espectacular." },
-          { label: "Clima", score: 6.0, desc: "Inviernos fríos y nevados, veranos cálidos y agradables. Las cuatro estaciones bien marcadas. Verano: 25–30°C, soleado y agradable. El Rynek lleno de vida, terrazas por todas partes. La mejor época. Invierno: Muy frío, -5 a -15°C con frecuencia. Nieve garantizada. Requiere ropa de abrigo real y mentalidad de invierno." },
+          { label: "Clima", score: 6.0, desc: "Inviernos fríos y nevados, veranos cálidos y agradables. Las cuatro estaciones bien marcadas. Verano: 25–30°C, soleado y agradable. El Rynek lleno de vida, terrazas por todas partes. La mejor época. Invierno: Muy frío, -5 a -15°C con frecuencia. Nieve frecuente. Requiere ropa de abrigo real y mentalidad de invierno." },
           { label: "Calidad de vida", score: 8.8, desc: "Calidad de vida altísima para el precio. Historia, gastronomía, naturaleza y comunidad en una ciudad perfecta de tamaño." },
           { label: "Autenticidad local", score: 8.5, desc: "Pierogi, żurek, bigos. Cocina polaca contundente y deliciosa. Restaurantes excelentes a precios irrisorios." },
           { label: "Estilo de vida", score: 9.0, desc: "Tamaño perfecto: grande para tener de todo, pequeña para no perderse. La ciudad ideal para el Erasmus." },
@@ -1919,7 +1919,7 @@ export const CITY_INSIGHTS = {
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitaciones desde 300–450€. Oferta amplia y precios razonables gracias a la menor presión turística." },
-          { label: "Comida y supermercados", score: 8.5, desc: "Mercato di Porta Palazzo — el más grande de Europa — con precios imbatibles. Comer bien por 5–7€ es fácil." },
+          { label: "Comida y supermercados", score: 8.5, desc: "Mercato di Porta Palazzo —uno de los mercados al aire libre más grandes de Europa— con precios imbatibles. Comer bien por 5–7€ es fácil." },
           { label: "Transporte", score: 8.5, desc: "GTT mensual a 35€. Metro + autobuses + tranvías. Red compacta y eficiente para el tamaño de la ciudad." },
           { label: "Ocio y gastos diarios", score: 8.0, desc: "Cervezas a 3–4€. Aperitivo turinés (el original, antes que Milán) con buffet incluido. Mucha oferta cultural gratuita." },
         ],
@@ -2061,7 +2061,7 @@ export const CITY_INSIGHTS = {
         summary: "Mercado competitivo con 200.000+ estudiantes. Zonas alejadas del centro son más fáciles y baratas.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 5.0, desc: "Alta demanda. Sapienza es la universidad más grande de Europa — eso lo dice todo." },
+          { label: "Disponibilidad", score: 5.0, desc: "Alta demanda. Sapienza es una de las universidades más grandes de Europa — eso lo dice todo." },
           { label: "Precio", score: 5.5, desc: "450–650€ habitación. Pigneto, Nomentano y Ostiense son las zonas más asequibles para estudiantes." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "Idealista, Uniplaces, grupos de Facebook de Sapienza y LUISS. Empieza 3 meses antes mínimo." },
           { label: "Residencias universitarias", score: 6.0, desc: "Las residencias de Sapienza son muy limitadas. No cuentes con ellas y busca por libre desde el principio." },
@@ -2372,12 +2372,12 @@ export const CITY_INSIGHTS = {
         label: "Estilo de vida y entorno",
         icon: "🏔️",
         score: 8.5,
-        summary: "La mejor calidad de vida de esta guía. 10 años consecutivos número 1 mundial. No es casualidad.",
+        summary: "Una de las mejores calidades de vida del mundo: suele estar en lo más alto de los rankings internacionales.",
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.0, desc: "Prater, Donauinsel, Wienerwald. Verde abundante dentro de la ciudad. Naturaleza alpina a 1h en tren." },
           { label: "Clima", score: 7.5, desc: "Cuatro estaciones bien marcadas. Veranos calurosos, inviernos fríos pero con mucho encanto navideño. Verano: 28–33°C, soleado. El Donauinsel (isla del Danubio) se convierte en la playa de la ciudad. Perfecta para vivir al aire libre. Invierno: Frío, -5°C posibles, con nieve ocasional. Pero los mercados navideños de Viena son de los más bonitos de Europa." },
-          { label: "Calidad de vida", score: 9.5, desc: "La mejor calidad de vida de esta guía. 10 años consecutivos número 1 mundial. No es casualidad." },
+          { label: "Calidad de vida", score: 9.5, desc: "Una de las mejores calidades de vida del mundo: suele estar en lo más alto de los rankings internacionales." },
           { label: "Autenticidad local", score: 9.0, desc: "Wiener Schnitzel, Tafelspitz, Sachertorte, Apfelstrudel. Y la cultura del Kaffeehaus — café y periódico como ritual diario." },
           { label: "Estilo de vida", score: 9.5, desc: "Transporte perfecto, seguridad máxima, cultura accesible, gastronomía de nivel. La fórmula que nadie ha superado." },
         ],
@@ -2883,7 +2883,7 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.5, desc: "Bosques dentro de los límites de la ciudad, archipiélago de más de 300 islas y agua limpia para bañarse en verano." },
-          { label: "Clima", score: 5.5, desc: "Veranos de días eternos (hasta 19h de luz) frente a inviernos con apenas 6 horas de luz, frío intenso y nieve garantizada." },
+          { label: "Clima", score: 5.5, desc: "Veranos de días eternos (hasta 19h de luz) frente a inviernos con apenas 6 horas de luz, frío intenso y nieve frecuente." },
           { label: "Calidad de vida", score: 9.0, desc: "Finlandia lidera año tras año los rankings de países más felices del mundo — Helsinki concentra buena parte de ese bienestar." },
           { label: "Autenticidad local", score: 8.5, desc: "La sauna (más de 3.000 en la ciudad) no es un cliché turístico, es una institución social real y cotidiana." },
           { label: "Estilo de vida", score: 8.0, desc: "Ritmo pausado, diseño funcional en cada rincón (Aalto, Marimekko, Iittala) y un contacto constante con la naturaleza." },
@@ -3010,7 +3010,7 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 10.0, desc: "Fiordo de Oslo para bañarte en verano y bosque de Nordmarka con 2.600 km de pistas de esquí de fondo en invierno." },
-          { label: "Clima", score: 6.0, desc: "Veranos suaves y luminosos (16-22°C) frente a inviernos fríos y oscuros con nieve prácticamente garantizada." },
+          { label: "Clima", score: 6.0, desc: "Veranos suaves y luminosos (16-22°C) frente a inviernos fríos y oscuros con nieve casi siempre." },
           { label: "Calidad de vida", score: 9.5, desc: "Noruega lidera consistentemente los rankings de renta per cápita y desarrollo humano más altos del mundo." },
           { label: "Autenticidad local", score: 8.5, desc: "El friluftsliv (vida al aire libre) no es un concepto de marketing — es la forma en que los noruegos viven su tiempo libre." },
           { label: "Estilo de vida", score: 8.5, desc: "Ritmo pausado, mucho deporte al aire libre y una relación con la naturaleza que impregna toda la cultura." },
@@ -3330,7 +3330,7 @@ export const CITY_INSIGHTS = {
         summary: "Mercado tenso, especialmente si tu estancia coincide con el Fringe Festival de agosto, cuando la demanda se dispara.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 3.0, desc: "University of Edinburgh garantiza alojamiento a estudiantes de intercambio de año completo si aplicas a tiempo; semestre único, no siempre." },
+          { label: "Disponibilidad", score: 3.0, desc: "University of Edinburgh suele ofrecer alojamiento a estudiantes de intercambio de año completo si aplicas a tiempo; semestre único, no siempre." },
           { label: "Precio", score: 3.0, desc: "650–950€ habitación. Old Town y zonas céntricas son notablemente más caras que Marchmont o Leith." },
           { label: "Facilidad de búsqueda", score: 4.0, desc: "El portal de accommodation.ed.ac.uk es el canal principal — solicita en cuanto tengas la admisión confirmada." },
           { label: "Residencias universitarias", score: 5.0, desc: "Ambas universidades ofrecen residencias con cupos para exchange students, aunque limitados en semestres únicos." },
@@ -3812,7 +3812,7 @@ export const CITY_INSIGHTS = {
   tallin: {
     heroImg: "https://images.unsplash.com/photo-1690310457081-71c3fb276e10?w=1600&q=85",
     tagline: "Un casco medieval declarado Patrimonio de la Humanidad y la capital más digitalizada de Europa, cuna de Skype.",
-    atmosphere: "Medieval por fuera, digital por dentro. Tallin huele a mazapán y vino especiado en la plaza del ayuntamiento, y suena al murmullo de estudiantes trabajando en portátiles en cafés con wifi gratuito garantizado por ley.",
+    atmosphere: "Medieval por fuera, digital por dentro. Tallin huele a mazapán y vino especiado en la plaza del ayuntamiento, y suena al murmullo de estudiantes trabajando en portátiles en cafés con wifi gratuito.",
     scores: [
       // 1. COSTE DE VIDA
       {
@@ -4534,7 +4534,7 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.0, desc: "El monte Vitosha, con esquí en invierno y senderismo en verano, es un parque natural a 30 minutos del centro." },
-          { label: "Clima", score: 6.0, desc: "Continental con veranos calurosos e inviernos fríos con nieve garantizada en la montaña." },
+          { label: "Clima", score: 6.0, desc: "Continental con veranos calurosos e inviernos fríos con nieve habitual en la montaña." },
           { label: "Calidad de vida", score: 7.5, desc: "El coste de vida bajísimo permite disfrutar de la ciudad y la montaña sin apenas restricciones." },
           { label: "Autenticidad local", score: 8.5, desc: "Más de 7.000 años de historia continua, entre las capitales más antiguas de Europa, sin artificio turístico." },
           { label: "Estilo de vida", score: 7.5, desc: "Ritmo tranquilo, con la montaña siempre presente como parte del día a día, incluso entre semana." },
@@ -4824,7 +4824,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitaciones desde 450–600€; Sternschanze y St. Pauli entre las zonas más caras por su popularidad." },
           { label: "Comida y supermercados", score: 6.5, desc: "Edeka, Rewe y Aldi para el día a día; el Fischmarkt dominical para pescado fresco barato." },
-          { label: "Transporte", score: 7.0, desc: "Deutschlandticket (49€) cubre HVV y trenes regionales por toda Alemania." },
+          { label: "Transporte", score: 7.0, desc: "Deutschlandticket (63 €/mes en 2026) cubre HVV y trenes regionales por toda Alemania." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Cerveza en bar 4–5€, más barata que en el sur de Alemania." },
         ],
       },
@@ -4875,7 +4875,7 @@ export const CITY_INSIGHTS = {
         label: "Ubicación y movilidad",
         icon: "🚆",
         score: 8.8,
-        summary: "HVV conecta toda la ciudad de forma impecable, y el Deutschlandticket abre toda Alemania por 49€ al mes.",
+        summary: "HVV conecta toda la ciudad de forma impecable, y el Deutschlandticket abre toda Alemania por 63 € al mes (2026).",
         color: "#F59E0B",
         subcategories: [
           { label: "Transporte público", score: 9.0, desc: "Metro (U-Bahn), tren de cercanías (S-Bahn) y bus integrados, frecuentes y puntuales." },
@@ -4909,7 +4909,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Mercado laboral", score: 8.0, desc: "Segunda economía urbana de Alemania, con fuerte presencia de medios, logística y aviación." },
           { label: "Prácticas", score: 8.5, desc: "Airbus, Beiersdorf y numerosas navieras y agencias de medios ofrecen prácticas a estudiantes internacionales." },
-          { label: "Empresas relevantes", score: 8.5, desc: "Segundo puerto más grande de Europa y sede de grandes grupos mediáticos alemanes." },
+          { label: "Empresas relevantes", score: 8.5, desc: "Uno de los mayores puertos de Europa y sede de grandes grupos mediáticos alemanes." },
           { label: "Oportunidades para estudiantes", score: 8.0, desc: "TUHH conecta muy bien con la industria naval y aeroespacial de la región." },
         ],
       },
@@ -4971,7 +4971,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Comunidad Erasmus", score: 8.5, desc: "ESN Gent organiza fiestas semanales, viajes a Brujas o Bruselas y actividades constantes para exchange students." },
           { label: "Ambiente internacional", score: 8.5, desc: "Con la mayor universidad de Bélgica, la comunidad internacional es enorme y muy activa." },
-          { label: "Fiesta y vida nocturna", score: 9.5, desc: "Overpoort concentra decenas de bares estudiantiles con ambiente garantizado cualquier noche entre semana." },
+          { label: "Fiesta y vida nocturna", score: 9.5, desc: "Overpoort concentra decenas de bares estudiantiles con ambiente casi cualquier noche entre semana." },
           { label: "Eventos y actividades", score: 8.5, desc: "Gentse Feesten en julio: diez días de festival callejero gratuito con conciertos y teatro." },
         ],
       },
@@ -5249,7 +5249,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Alojamiento", score: 5.5, desc: "Habitaciones desde 400–550€; el WG (piso compartido) es la norma entre estudiantes." },
           { label: "Comida y supermercados", score: 7.0, desc: "Aldi, Lidl y Rewe cubren la compra básica a precios razonables para Alemania." },
-          { label: "Transporte", score: 7.5, desc: "El Deutschlandticket (49€/mes) cubre KVB y trenes regionales por todo el país." },
+          { label: "Transporte", score: 7.5, desc: "El Deutschlandticket (63 €/mes en 2026) cubre KVB y trenes regionales por todo el país." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Una Kölsch en brauhaus ronda 2€; salir de fiesta en Carnaval dispara el gasto puntualmente." },
         ],
       },
@@ -6020,7 +6020,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Disponibilidad", score: 5.5, desc: "SSH Studentenhuisvesting gestiona miles de habitaciones específicas para estudiantes internacionales." },
           { label: "Precio", score: 6.0, desc: "400–550€ de media, sensiblemente por debajo de Ámsterdam, Utrecht o La Haya." },
-          { label: "Facilidad de búsqueda", score: 5.0, desc: "La RUG tiene un servicio de alojamiento garantizado para exchange students que solicitan a tiempo." },
+          { label: "Facilidad de búsqueda", score: 5.0, desc: "La RUG tiene un servicio de alojamiento para exchange students que solicitan a tiempo." },
           { label: "Residencias universitarias", score: 5.5, desc: "Buena oferta de residencias SSH, aunque conviene solicitar en cuanto llega la carta de admisión." },
         ],
       },
@@ -6211,7 +6211,7 @@ export const CITY_INSIGHTS = {
           { label: "Disponibilidad", score: 4.0, desc: "Uppsala Studentbostäder gestiona colas de espera que a veces superan el año." },
           { label: "Precio", score: 5.0, desc: "450–600€ de media, algo más asequible que Estocolmo pero aún alto para Erasmus estudiantes con presupuesto ajustado." },
           { label: "Facilidad de búsqueda", score: 4.0, desc: "Registrarse en la cola de Studentbostäder el mismo día de la admisión es clave para tener opciones." },
-          { label: "Residencias universitarias", score: 5.0, desc: "Existen plazas garantizadas para exchange students a través de la universidad, aunque limitadas." },
+          { label: "Residencias universitarias", score: 5.0, desc: "Existen plazas reservadas para exchange students a través de la universidad, aunque limitadas." },
         ],
       },
       {
@@ -6294,7 +6294,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitación desde 450–600€; el mercado está tensionado por ser ciudad pequeña y muy demandada." },
           { label: "Comida y supermercados", score: 6.5, desc: "Supermercados alemanes estándar (Aldi, Lidl, Rewe) mantienen el gasto en comida controlado." },
-          { label: "Transporte", score: 6.5, desc: "El Deutschlandticket (49€) cubre tranvía y bus por toda la ciudad y buena parte del país." },
+          { label: "Transporte", score: 6.5, desc: "El Deutschlandticket (63 €/mes en 2026) cubre tranvía y bus por toda la ciudad y buena parte del país." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Salir de bares y biergartens tiene precios estándar del sur de Alemania." },
         ],
       },
@@ -6971,7 +6971,7 @@ export const CITY_INSIGHTS = {
           { label: "Disponibilidad", score: 3.5, desc: "Colegios mayores gestionados por Kollegiernes Kontor con demanda muy alta." },
           { label: "Precio", score: 4.5, desc: "500–650€ de media, por debajo de Copenhague pero alto para el estándar general." },
           { label: "Facilidad de búsqueda", score: 4.0, desc: "Conviene registrarse en las colas de vivienda en cuanto se confirma la plaza de intercambio." },
-          { label: "Residencias universitarias", score: 4.5, desc: "AU ofrece plazas garantizadas para exchange students, aunque limitadas y muy solicitadas." },
+          { label: "Residencias universitarias", score: 4.5, desc: "AU ofrece plazas para exchange students, aunque limitadas y muy solicitadas." },
         ],
       },
       {
@@ -7054,7 +7054,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitación desde 480–620€, alta para el tamaño de la ciudad por la fuerte demanda universitaria." },
           { label: "Comida y supermercados", score: 6.5, desc: "Supermercados alemanes estándar (Aldi, Lidl, Rewe) mantienen el gasto en comida razonable." },
-          { label: "Transporte", score: 6.5, desc: "El Deutschlandticket (49€) cubre tranvía y bus por toda la ciudad y buena parte del país." },
+          { label: "Transporte", score: 6.5, desc: "El Deutschlandticket (63 €/mes en 2026) cubre tranvía y bus por toda la ciudad y buena parte del país." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Salir en el centro histórico tiene precios algo elevados por el turismo, aunque razonables fuera de él." },
         ],
       },
@@ -7166,7 +7166,7 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 8.5,
-        summary: "Una de las poblaciones universitarias más grandes de Francia garantiza un ambiente estudiantil constante.",
+        summary: "Una de las poblaciones universitarias más grandes de Francia da un ambiente estudiantil constante.",
         color: "#8B5CF6",
         subcategories: [
           { label: "Comunidad Erasmus", score: 8.5, desc: "ESN Toulouse es uno de los capítulos más activos de Francia, con eventos casi diarios." },
@@ -7831,7 +7831,7 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 8.5,
-        summary: "La mayor proporción de estudiantes de la República Checa garantiza un ambiente universitario intenso durante todo el año.",
+        summary: "La mayor proporción de estudiantes de la República Checa da un ambiente universitario intenso durante todo el año.",
         color: "#8B5CF6",
         subcategories: [
           { label: "Comunidad Erasmus", score: 8.5, desc: "ESN Brno organiza excursiones a la Moravia rural y a los castillos cercanos constantemente." },
@@ -8021,7 +8021,7 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 8.8,
-        summary: "Una de las ciudades más jóvenes de Francia garantiza un ambiente estudiantil intenso todo el año.",
+        summary: "Una de las ciudades más jóvenes de Francia da un ambiente estudiantil intenso todo el año.",
         color: "#8B5CF6",
         subcategories: [
           { label: "Comunidad Erasmus", score: 9.0, desc: "ESN Montpellier organiza escapadas a la playa y eventos casi a diario." },
@@ -8211,7 +8211,7 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 8.8,
-        summary: "Una de las poblaciones universitarias más grandes de Francia garantiza ambiente estudiantil constante.",
+        summary: "Una de las poblaciones universitarias más grandes de Francia da un ambiente estudiantil constante.",
         color: "#8B5CF6",
         subcategories: [
           { label: "Comunidad Erasmus", score: 9.0, desc: "ESN Lille es uno de los capítulos más grandes y activos de Francia." },
@@ -8289,7 +8289,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Alojamiento", score: 7.0, desc: "Habitación desde 320–420€, de las más bajas entre las grandes ciudades alemanas." },
           { label: "Comida y supermercados", score: 7.5, desc: "Supermercados alemanes estándar mantienen el gasto en comida muy controlado." },
-          { label: "Transporte", score: 8.0, desc: "El Deutschlandticket (49€) cubre tranvía y bus por toda la ciudad y el país." },
+          { label: "Transporte", score: 8.0, desc: "El Deutschlandticket (63 €/mes en 2026) cubre tranvía y bus por toda la ciudad y el país." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Salir de bares y restaurantes es notablemente más barato que en el oeste de Alemania." },
         ],
       },
@@ -8384,7 +8384,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitación desde 350–450€, muy por debajo de Berlín o Múnich." },
           { label: "Comida y supermercados", score: 7.5, desc: "Supermercados alemanes estándar mantienen el gasto en comida muy controlado." },
-          { label: "Transporte", score: 8.0, desc: "El Deutschlandticket (49€) cubre tranvía y bus por toda la ciudad y el país." },
+          { label: "Transporte", score: 8.0, desc: "El Deutschlandticket (63 €/mes en 2026) cubre tranvía y bus por toda la ciudad y el país." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Salir de clubs y bares es notablemente más barato que en Berlín, con oferta similar." },
         ],
       },
@@ -8479,7 +8479,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Alojamiento", score: 4.5, desc: "Habitación desde 480–620€, alta para el tamaño de la ciudad por la fuerte demanda universitaria." },
           { label: "Comida y supermercados", score: 6.5, desc: "Supermercados alemanes estándar mantienen el gasto en comida razonable." },
-          { label: "Transporte", score: 6.5, desc: "El Deutschlandticket (49€) cubre bus por toda la ciudad y regionales por el país." },
+          { label: "Transporte", score: 6.5, desc: "El Deutschlandticket (63 €/mes en 2026) cubre bus por toda la ciudad y regionales por el país." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Salir en el centro histórico tiene precios moderados, típicos del sur de Alemania." },
         ],
       },
@@ -8781,7 +8781,7 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 8.3,
-        summary: "La mayor proporción de estudiantes de Portugal garantiza un ambiente universitario muy intenso.",
+        summary: "La mayor proporción de estudiantes de Portugal da un ambiente universitario muy intenso.",
         color: "#8B5CF6",
         subcategories: [
           { label: "Comunidad Erasmus", score: 8.0, desc: "ESN Braga organiza excursiones al Gerês y a la costa cercana constantemente." },
@@ -9250,7 +9250,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Disponibilidad", score: 4.0, desc: "Oferta ajustada frente a una de las mayores poblaciones universitarias de Europa." },
           { label: "Precio", score: 3.5, desc: "550–700€ de media, alto para el estándar europeo aunque bajo comparado con Londres." },
-          { label: "Facilidad de búsqueda", score: 4.0, desc: "Las universidades ofrecen alojamiento garantizado para exchange students que solicitan a tiempo." },
+          { label: "Facilidad de búsqueda", score: 4.0, desc: "Las universidades suelen ofrecer alojamiento a exchange students que lo solicitan a tiempo." },
           { label: "Residencias universitarias", score: 4.5, desc: "Buena oferta de residencias, aunque conviene solicitar plaza nada más tener la admisión." },
         ],
       },
@@ -9345,7 +9345,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Disponibilidad", score: 4.5, desc: "Oferta razonable, algo mejor que en Edimburgo o Londres para el mismo presupuesto." },
           { label: "Precio", score: 4.5, desc: "500–650€ de media, entre los más bajos de las grandes ciudades universitarias del Reino Unido." },
-          { label: "Facilidad de búsqueda", score: 4.0, desc: "Las universidades ofrecen alojamiento garantizado para exchange students que solicitan a tiempo." },
+          { label: "Facilidad de búsqueda", score: 4.0, desc: "Las universidades suelen ofrecer alojamiento a exchange students que lo solicitan a tiempo." },
           { label: "Residencias universitarias", score: 4.5, desc: "Buena oferta de residencias en el West End, cerca del campus principal." },
         ],
       },
@@ -9440,7 +9440,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Disponibilidad", score: 3.5, desc: "Oferta ajustada frente a una demanda alta, en parte por la cercanía con Londres." },
           { label: "Precio", score: 3.0, desc: "580–730€ de media, alto para el estándar europeo aunque por debajo de Londres." },
-          { label: "Facilidad de búsqueda", score: 4.0, desc: "Las universidades ofrecen alojamiento garantizado para exchange students que solicitan a tiempo." },
+          { label: "Facilidad de búsqueda", score: 4.0, desc: "Las universidades suelen ofrecer alojamiento a exchange students que lo solicitan a tiempo." },
           { label: "Residencias universitarias", score: 4.0, desc: "Buena oferta de residencias, aunque muy solicitadas por el gran número de estudiantes." },
         ],
       },
@@ -10776,7 +10776,7 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 8.5,
-        summary: "La ciudad con mayor proporción de estudiantes internacionales de los Países Bajos garantiza un ambiente único.",
+        summary: "La ciudad con mayor proporción de estudiantes internacionales de los Países Bajos da un ambiente muy internacional.",
         color: "#8B5CF6",
         subcategories: [
           { label: "Comunidad Erasmus", score: 8.5, desc: "ESN Maastricht es uno de los capítulos más activos de los Países Bajos." },
@@ -11150,7 +11150,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Disponibilidad", score: 5.0, desc: "Buena oferta, algo mejor que en Mánchester o Leeds para el mismo presupuesto." },
           { label: "Precio", score: 5.0, desc: "480–620€ de media, entre los más bajos de las grandes ciudades universitarias del Reino Unido." },
-          { label: "Facilidad de búsqueda", score: 4.5, desc: "Las universidades ofrecen alojamiento garantizado para exchange students que solicitan a tiempo." },
+          { label: "Facilidad de búsqueda", score: 4.5, desc: "Las universidades suelen ofrecer alojamiento a exchange students que lo solicitan a tiempo." },
           { label: "Residencias universitarias", score: 5.0, desc: "Buena oferta de residencias, especialmente cerca del campus principal." },
         ],
       },
@@ -11245,13 +11245,13 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Disponibilidad", score: 4.5, desc: "Amplia oferta gracias a ser la ciudad con más estudiantes del Reino Unido fuera de Londres." },
           { label: "Precio", score: 4.5, desc: "500–650€ de media, entre los más bajos de las grandes ciudades universitarias británicas." },
-          { label: "Facilidad de búsqueda", score: 4.0, desc: "Las universidades ofrecen alojamiento garantizado para exchange students que solicitan a tiempo." },
+          { label: "Facilidad de búsqueda", score: 4.0, desc: "Las universidades suelen ofrecer alojamiento a exchange students que lo solicitan a tiempo." },
           { label: "Residencias universitarias", score: 4.5, desc: "Buena oferta de residencias, especialmente en Hyde Park y alrededores." },
         ],
       },
       {
         id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 9.0,
-        summary: "La mayor población estudiantil del Reino Unido fuera de Londres garantiza un ambiente constante.",
+        summary: "La mayor población estudiantil del Reino Unido fuera de Londres da un ambiente constante.",
         color: "#8B5CF6",
         subcategories: [
           { label: "Comunidad Erasmus", score: 8.5, desc: "ESN Leeds es uno de los capítulos más grandes y activos del Reino Unido." },
@@ -14470,7 +14470,7 @@ export const CITY_INSIGHTS = {
         label: "Estilo de vida y entorno",
         icon: "🏔️",
         score: 8.3,
-        summary: "Surf de talla mundial, volcanes activos y un clima cálido casi todo el año — vida al aire libre garantizada.",
+        summary: "Surf de talla mundial, volcanes activos y un clima cálido casi todo el año — mucha vida al aire libre.",
         color: "#3F7A7D",
         subcategories: [
           { label: "Clima", score: 7.5, desc: "Tropical, cálido todo el año (24–32°C), con estación seca (nov–abr) y lluviosa (may–oct) bien diferenciadas." },
@@ -15224,7 +15224,7 @@ export const CITY_INSIGHTS = {
         summary: "Buena oferta de residencias y pisos compartidos, pero hay que reservar en primavera para el curso de otoño.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 5.5, desc: "La universidad garantiza residencia el primer año; para el resto toca buscar piso privado." },
+          { label: "Disponibilidad", score: 5.5, desc: "La universidad suele ofrecer residencia el primer año; para el resto toca buscar piso privado." },
           { label: "Precio", score: 5.0, desc: "700–950€ habitación individual cerca de campus, algo menos en Burns Park o más lejos del Diag." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "Facebook Marketplace y los grupos de la universidad son el punto de partida habitual." },
         ],

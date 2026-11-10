@@ -193,7 +193,7 @@ export function getMetaForPath(pathname) {
   return {
     title: DEFAULT_TITLE,
     description:
-      "La guía definitiva para elegir tu ciudad Erasmus, con scores reales, comparador y calculadora de beca.",
+      "Guía para elegir tu ciudad Erasmus, con scores por categoría, comparador y calculadora de beca.",
     canonical,
     ogType: "website",
     ...DEFAULT_OG,

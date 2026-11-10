@@ -792,6 +792,8 @@ a { text-decoration: none; color: inherit; }
 .footer__copy { font-size: 12px; color: rgba(255,255,255,0.28); }
 .footer__link { color: rgba(255,255,255,0.6); text-decoration: underline; text-underline-offset: 2px; }
 .footer__link:hover { color: var(--color-primary); }
+/* Aviso de independencia: discreto, a todo el ancho bajo el logo y el copy. */
+.footer__independence { flex-basis: 100%; margin: 0; font-size: 11px; line-height: 1.5; color: rgba(255,255,255,0.32); max-width: 760px; }
 
 /* ─── CITY DETAIL HERO ───────────────────────────────────────────────────── */
 .city-hero { position: relative; height: 82vh; min-height: 500px; overflow: hidden; }
@@ -2231,6 +2233,12 @@ a { text-decoration: none; color: inherit; }
   line-height: 1.1;
 }
 .beca-calc__total-monthly { font-size: 13px; color: var(--color-muted); }
+.beca-calc__independence {
+  margin: 18px 0 0;
+  font-size: 11.5px; line-height: 1.5;
+  color: var(--color-muted);
+  text-align: center;
+}
 .beca-calc__disclaimer {
   font-size: 12px;
   color: var(--color-muted);

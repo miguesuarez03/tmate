@@ -150,8 +150,8 @@ export default function HeroSection({ city, overallScore, insights }) {
 
           <p className={erasmusEligible ? styles.heroProgramBadgeOk : styles.heroProgramBadgeWarn}>
             {erasmusEligible
-              ? "✅ Destino Erasmus+ · Beca disponible"
-              : "🌍 Intercambio internacional (no Erasmus) · Financiación propia / convenio bilateral"}
+              ? "✅ Destino Erasmus+ · Beca si tu universidad tiene convenio"
+              : "🌍 Intercambio fuera de Erasmus+ · Según los convenios de tu universidad"}
           </p>
 
           <p className={styles.heroTagline}>

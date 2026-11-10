@@ -389,7 +389,7 @@ export const COMPARE_PHRASES = {
     alojamiento: "Mercado ajustado pero más manejable que en el sur de Alemania",
     vida_social: "Reeperbahn y Sternschanze marcan una noche que no para",
     integracion: "Ciudad portuaria y cosmopolita, muy acostumbrada a extranjeros",
-    movilidad: "HVV y Deutschlandticket cubren toda la ciudad y el país",
+    movilidad: "HVV y Deutschlandticket cubren toda la ciudad y el transporte regional del país",
     estilo_vida: "Puerto, canales y una calidad de vida norteña muy equilibrada",
     empleo: "Fuerte en medios, logística portuaria y aviación (Airbus)",
     seguridad: "Segura en general, cuidado de noche en Reeperbahn",

@@ -8,7 +8,7 @@ import {
 } from "react-simple-maps";
 import { useNavigate } from "react-router-dom";
 import styles from "./WorldMap.module.css";
-import { getOverallScore, CITY_BASE_SCORES, getCityBySlug, getScoreLevel } from "../lib/cities";
+import { getOverallScore, getScoreMap, getCityBySlug, getScoreLevel } from "../lib/cities";
 import { IconFiesta, IconEdificio, IconBeca, IconGlobo } from "./icons";
 import { responsiveImage } from "../lib/images";
 import PhotoCredit from "./PhotoCredit";
@@ -172,15 +172,19 @@ const CITIES = [
   { slug: "ciudad-de-guatemala", name: "Ciudad de Guatemala", country: "Guatemala", flag: "🇬🇹", coords: [-90.51, 14.63], cost: "450–700€" },
   { slug: "san-salvador", name: "San Salvador", country: "El Salvador", flag: "🇸🇻", coords: [-89.19, 13.69], cost: "500–750€" },
   { slug: "santo-domingo",name: "Santo Domingo",country: "República Dominicana", flag: "🇩🇴", coords: [-69.90, 18.49], cost: "500–800€" },
-].map(city => ({
-  ...city,
-  img: getCityBySlug(city.slug)?.img ?? null,
-  score: getOverallScore(city.slug),
-  fiesta: CITY_BASE_SCORES[city.slug]?.vida_social ?? 7,
-  cultura: CITY_BASE_SCORES[city.slug]?.estilo_vida ?? 7,
-  economia: CITY_BASE_SCORES[city.slug]?.coste ?? 7,
-  dinero: CITY_BASE_SCORES[city.slug]?.coste ?? 7,
-}))
+].map(city => {
+  // Mismas notas de categoría que la ficha de la ciudad (una sola fuente).
+  const scores = getScoreMap(city.slug);
+  return {
+    ...city,
+    img: getCityBySlug(city.slug)?.img ?? null,
+    score: getOverallScore(city.slug),
+    fiesta: scores.vida_social?.score ?? 7,
+    cultura: scores.estilo_vida?.score ?? 7,
+    economia: scores.coste?.score ?? 7,
+    dinero: scores.coste?.score ?? 7,
+  };
+})
 
 // ─── PAÍSES con coordenadas para zoom ─────────────────────────────────────────
 const COUNTRY_ZOOM = {

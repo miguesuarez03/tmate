@@ -4,7 +4,7 @@ import { CITY_SEASONS } from "../../data/weatherSeasons";
 const FALLBACK_SEASONS = [
   { id: "spring", label: "Primavera", months: "Mar–May", temp: "10–20°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera agradable. Buen momento para llegar y explorar la ciudad.", tags: ["Buen clima", "Terrazas", "Activa"] },
   { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "22–30°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano con calor. La actividad universitaria baja pero la ciudad sigue viva.", tags: ["Calor", "Festivales", "Tranquila"] },
-  { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "10–20°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para el Erasmus. Arranque de curso con toda la energía.", tags: ["Mejor época", "Inicio Erasmus", "Agradable"], highlight: true },
+  { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "10–20°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Muy buena época para el Erasmus. Arranque de curso con toda la energía.", tags: ["Mejor época", "Inicio Erasmus", "Agradable"], highlight: true },
   { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "2–8°C",   emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío. La vida universitaria e interior lo compensa todo.", tags: ["Frío", "Vida social", "Acogedor"] },
 ];
 

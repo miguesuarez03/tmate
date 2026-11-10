@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { IconUniversidad, IconEdificio, IconGlobo, IconManos, IconAmigos, IconLibros, IconLapiz, IconRobot, IconAlerta, IconSobre, IconCheck, IconCiclo, IconReloj, IconFiesta, IconClipboard } from "../components/icons";
@@ -306,6 +306,13 @@ const WIZARD_STEPS = [
 
 /* ─── WIZARD LEARNING AGREEMENT ─────────────────────────────────────────── */
 
+// La solicitud se envía con Web3Forms, como el feedback y las experiencias
+// (clave pública VITE_WEB3FORMS_KEY, ver .env.example). Sin clave, o si el
+// envío falla, queda el mailto: de respaldo con el texto ya escrito.
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || "";
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+const CONTACT_EMAIL = "suarezalvarez.ma03@gmail.com";
+
 // El borrador del wizard se guarda en localStorage: es un formulario de 5
 // pasos y perder todo por recargar la página o salir sin querer sería
 // bastante frustrante.
@@ -351,10 +358,18 @@ Email: ${data.email}
   return { subject, body };
 }
 
+function buildMailto(data, destinoCity) {
+  const { subject, body } = buildEmailContent(data, destinoCity);
+  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
 function LAWizard() {
   const [step, setStep] = useState(0);
   const [sent, setSent] = useState(false);
+  const [sentVia, setSentVia] = useState("web3forms"); // web3forms | mailto
+  const [status, setStatus] = useState("idle"); // idle | sending | error
   const [copied, setCopied] = useState(false);
+  const botRef = useRef(null);
   const [data, setData] = useState(() => {
     try {
       const saved = localStorage.getItem(WIZARD_STORAGE_KEY);
@@ -394,18 +409,15 @@ function LAWizard() {
   };
 
   const handleNext = () => {
-    if (!canContinue()) return;
+    if (!canContinue() || status === "sending") return;
     if (isLast) {
-      sendEmail();
+      sendRequest();
     } else {
       setStep(s => s + 1);
     }
   };
 
-  const sendEmail = () => {
-    const { subject, body } = buildEmailContent(data, destinoCity);
-    window.location.href = `mailto:suarezalvarez.ma03@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+  const clearDraft = () => {
     try {
       localStorage.removeItem(WIZARD_STORAGE_KEY);
     } catch {
@@ -413,9 +425,61 @@ function LAWizard() {
     }
   };
 
+  const sendRequest = async () => {
+    if (!WEB3FORMS_KEY) {
+      window.location.href = buildMailto(data, destinoCity);
+      setSentVia("mailto");
+      setSent(true);
+      clearDraft();
+      return;
+    }
+    // Honeypot anti-spam de Web3Forms: si un bot lo marca, no se envía.
+    if (botRef.current?.checked) return;
+
+    setStatus("sending");
+    try {
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `Learning Agreement: ${data.nombre.trim()} → ${destinoCity?.name || data.ciudadDestino}`,
+          from_name: "Learning Agreement MAbroad",
+          nombre: data.nombre.trim(),
+          email: data.email.trim(),
+          universidad_origen: data.universidadOrigen.trim(),
+          grado: data.gradoOrigen.trim(),
+          ciudad_destino: destinoCity?.name || data.ciudadDestino,
+          universidad_destino: data.universidadDestino,
+          asignaturas: data.asignaturas.trim(),
+          creditos_ects: data.creditos.trim(),
+          idioma: data.idioma,
+          botcheck: false,
+        }),
+      });
+      let json = null;
+      try { json = await res.json(); } catch { /* respuesta no JSON */ }
+      if (!res.ok || !json?.success) throw new Error(json?.message || `Error ${res.status}`);
+      setSentVia("web3forms");
+      setSent(true);
+      setStatus("idle");
+      clearDraft();
+    } catch (err) {
+      setStatus("error");
+      console.warn("[Learning Agreement] Error al enviar:", err);
+    }
+  };
+
+  const restart = () => {
+    setData({ ...WIZARD_DEFAULTS });
+    setSent(false);
+    setStatus("idle");
+    setStep(0);
+  };
+
   const handleCopy = async () => {
     const { subject, body } = buildEmailContent(data, destinoCity);
-    const text = `Para: suarezalvarez.ma03@gmail.com\nAsunto: ${subject}\n\n${body}`;
+    const text = `Para: ${CONTACT_EMAIL}\nAsunto: ${subject}\n\n${body}`;
     try {
       await navigator.clipboard.writeText(text);
       setCopied(true);
@@ -426,6 +490,25 @@ function LAWizard() {
   };
 
   const handleBack = () => setStep(s => Math.max(0, s - 1));
+
+  if (sent && sentVia === "web3forms") {
+    return (
+      <div className={styles.wizardDone} role="status" aria-live="polite">
+        <span className={styles.wizardDoneIcon}><IconCheck size={48} /></span>
+        <h3 className={styles.wizardDoneTitle}>¡Recibido!</h3>
+        <p className={styles.wizardDoneText}>
+          Te preparamos una propuesta orientativa de equivalencias y te la mandamos a <strong>{data.email}</strong>.
+          Es una ayuda para preparar tu Learning Agreement: el documento oficial lo firmáis tú y las dos
+          universidades.
+        </p>
+        <div className={styles.wizardDoneActions}>
+          <button className={styles.wizardRestartBtn} onClick={restart}>
+            Hacer otra solicitud
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   if (sent) {
     return (
@@ -438,7 +521,7 @@ function LAWizard() {
         </p>
         <p className={styles.wizardDoneText}>
           Si no se ha abierto ningún programa de correo (pasa en algunos móviles), copia el texto y envíalo
-          tú mismo a <strong>suarezalvarez.ma03@gmail.com</strong>.
+          tú mismo a <strong>{CONTACT_EMAIL}</strong>.
         </p>
         <div className={styles.wizardDoneActions}>
           <button className={styles.wizardCopyBtn} onClick={handleCopy} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
@@ -446,7 +529,7 @@ function LAWizard() {
           </button>
           <button
             className={styles.wizardRestartBtn}
-            onClick={() => { setSent(false); setStep(0); }}
+            onClick={restart}
           >
             Hacer otra solicitud
           </button>
@@ -628,17 +711,37 @@ function LAWizard() {
           <button
             className={styles.wizardNextBtn}
             onClick={handleNext}
-            disabled={!canContinue()}
+            disabled={!canContinue() || status === "sending"}
+            aria-busy={status === "sending"}
             style={{ display: "inline-flex", alignItems: "center", gap: 6, justifyContent: "center" }}
           >
-            {isLast ? <>Enviar solicitud <IconSobre size={16} /></> : "Continuar →"}
+            {isLast
+              ? (status === "sending" ? "Enviando…" : <>Enviar solicitud <IconSobre size={16} /></>)
+              : "Continuar →"}
           </button>
         </div>
 
+        {/* Honeypot anti-spam (invisible para personas). */}
+        <input
+          ref={botRef}
+          type="checkbox"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          style={{ position: "absolute", left: -9999, width: 1, height: 1, opacity: 0, pointerEvents: "none" }}
+        />
+
+        {status === "error" && (
+          <p className={styles.wizardHint} role="alert" style={{ marginTop: 14, color: "#DC2626" }}>
+            No hemos podido enviarla. Inténtalo de nuevo o{" "}
+            <a href={buildMailto(data, destinoCity)} style={{ color: "inherit", textDecoration: "underline" }}>envíala por email</a>.
+          </p>
+        )}
+
         <p className={styles.wizardPrivacy}>
-          Tus datos se guardan solo en este navegador hasta que pulsas «Enviar solicitud»: entonces se abre tu
-          correo con el mensaje para nosotros y no nos llega nada hasta que lo envías. Los usa Miguel Ángel
-          Suárez (MAbroad) solo para prepararte la propuesta y responderte, y los borra 6 meses después.{" "}
+          Hasta que pulsas «Enviar solicitud», el borrador se guarda solo en este navegador. Al enviarla nos
+          llega con Web3Forms. Los datos los usa Miguel Ángel Suárez (MAbroad) solo para prepararte la
+          propuesta y responderte, y los borra 6 meses después.{" "}
           <Link to="/privacidad">Privacidad y tus derechos</Link>
         </p>
       </div>
@@ -687,8 +790,8 @@ export default function LearningAgreementPage() {
             </div>
             <div className={styles.heroStatDiv} />
             <div className={styles.heroStat}>
-              <span className={styles.heroStatVal}>OLA</span>
-              <span className={styles.heroStatLabel}>100% digital en la UE</span>
+              <span className={styles.heroStatVal}>Digital</span>
+              <span className={styles.heroStatLabel}>Cada vez más con Erasmus Without Paper</span>
             </div>
             <div className={styles.heroStatDiv} />
             <div className={styles.heroStat}>
@@ -741,9 +844,9 @@ export default function LearningAgreementPage() {
           <SectionLabel color="#10B981">Herramienta</SectionLabel>
           <h2 className={styles.sectionTitle}>Pide tu propuesta de equivalencias</h2>
           <p className={styles.sectionText}>
-            Rellena estos datos en menos de 2 minutos y te ayudamos a plantear las equivalencias de tu Learning
-            Agreement. Lo revisamos a mano y te respondemos por email — más rápido y claro que rellenar un
-            formulario largo de una sola página.
+            Rellena estos datos en menos de 2 minutos y te ayudamos a preparar una propuesta de equivalencias para
+            tu Learning Agreement: la revisamos a mano y te la mandamos por email. Es una ayuda orientativa, no el
+            documento oficial, que se tramita con tu universidad y lo aprobáis tú y las dos universidades.
           </p>
           <LAWizard />
         </div>

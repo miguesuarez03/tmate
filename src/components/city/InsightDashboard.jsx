@@ -41,7 +41,7 @@ export default function InsightDashboard({ scores = [], overallScore, citySlug, 
         <div>
           <p className={styles.eyebrow}>City Scores</p>
           <h2 className={styles.title}>Análisis completo</h2>
-          <p className={styles.sub}>Puntuación de 1 a 10 en cada categoría, con su desglose</p>
+          <p className={styles.sub}>Valoración de MAbroad de 0 a 10 en cada categoría, con su desglose</p>
         </div>
         <div className={styles.overallBadge}>
           <span className={styles.overallNum} style={{ color: scoreColor(overallScore) }}>{overallScore}</span>

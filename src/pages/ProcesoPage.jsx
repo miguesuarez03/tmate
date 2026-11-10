@@ -50,7 +50,7 @@ Visita cuanto antes la ORI de tu facultad: tienen el listado de universidades co
 · Adjuntar expediente, certificado de idioma y carta de motivación
 
 Después toca esperar: la resolución suele tardar entre 2 y 6 semanas.`,
-    tip: "💡 Ordena las preferencias con cabeza. No pongas una ciudad de número 1 solo porque suena bien — compara scores reales en MAbroad antes de decidir.",
+    tip: "💡 Ordena las preferencias con cabeza. No pongas una ciudad de número 1 solo porque suena bien — compara los scores de MAbroad antes de decidir.",
     shortContent: [
       "Tu uni abre el plazo entre octubre y febrero.",
       "Ordena tus destinos por preferencia (3–5 opciones).",
@@ -483,8 +483,8 @@ export default function ProcesoPage() {
               <span className="proceso-hero__stat-label">Meses de proceso</span>
             </div>
             <div className="proceso-hero__stat">
-              <span className="proceso-hero__stat-val">2,4M</span>
-              <span className="proceso-hero__stat-label">Erasmus/año</span>
+              <span className="proceso-hero__stat-val">~1,5M</span>
+              <span className="proceso-hero__stat-label">En Erasmus+ (2024)</span>
             </div>
           </div>
         </div>
@@ -564,7 +564,7 @@ export default function ProcesoPage() {
       <section className="proceso-cta">
         <h2 className="proceso-cta__title">¿Listo para elegir tu ciudad?</h2>
         <p className="proceso-cta__subtitle">
-          Ahora que conoces el proceso, encuentra el destino perfecto con scores reales y guías locales.
+          Ahora que conoces el proceso, encuentra el destino perfecto con scores por categoría y guías locales.
         </p>
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
           <button className="btn-primary" onClick={() => navigate("/")}>

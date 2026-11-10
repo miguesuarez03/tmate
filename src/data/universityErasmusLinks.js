@@ -72,7 +72,7 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Freie Universität Berlin": "https://www.fu-berlin.de/en/studium/international/austauschstudium/incoming/index.html",
   "Humboldt-Universität": "https://www.international.hu-berlin.de/en/studium/abschnitte/incoming",
   "TU Berlin": "https://www.tu.berlin/en/international/students-from-abroad/exchange-students",
-  "Beuth Hochschule": "https://www.bht-berlin.de/en/international/incoming-exchange-students",
+  "Berliner Hochschule für Technik (BHT)": "https://www.bht-berlin.de/en/international/incoming-exchange-students",
 
   // ── Lisboa (federación de facultades — páginas institucionales generales) ──
   "Universidade de Lisboa": "https://www.ulisboa.pt/en/info/erasmus",

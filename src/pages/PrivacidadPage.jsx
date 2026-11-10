@@ -197,24 +197,28 @@ export default function PrivacidadPage() {
 
         <h2>5. Asistente del Learning Agreement</h2>
         <p>
-          Mientras rellenas el asistente, tus datos se guardan solo en tu navegador, como borrador. Al pulsar
-          «Enviar solicitud» se abre tu aplicación de correo con el mensaje ya escrito para nosotros: no nos
-          llega nada hasta que tú lo envías desde tu correo (también puedes copiar el texto y mandarlo tú).
+          Mientras rellenas el asistente, el borrador se guarda solo en tu navegador. Al pulsar «Enviar
+          solicitud» nos llega a través de Web3Forms, como los demás formularios. Si el envío falla, puedes
+          mandárnoslo desde tu propio correo con el texto ya escrito.
         </p>
         <ul>
           <Item label="Qué datos">
             tu universidad y grado de origen, la ciudad y universidad de destino, las asignaturas a convalidar,
-            los créditos, el idioma, tu nombre y tu email.
+            los créditos, el idioma, tu nombre y tu email. Web3Forms registra además la IP y la fecha y hora
+            del envío.
           </Item>
           <Item label="Para qué">
-            prepararte una propuesta orientativa de equivalencias y enviártela por email.
+            prepararte una propuesta orientativa de equivalencias y enviártela por email. No es el Learning
+            Agreement oficial, que firmáis tú y las dos universidades.
           </Item>
           <Item label="Base legal">atender la solicitud que tú nos haces (art. 6.1.b RGPD).</Item>
           <Item label="Cuánto tiempo">
-            borramos tu solicitud y nuestra respuesta 6 meses después de contestarte.
+            borramos tu solicitud y nuestra respuesta de nuestro correo 6 meses después de contestarte.
+            Web3Forms conserva una copia hasta 3 años, como establece su contrato de tratamiento de datos.
           </Item>
           <Item label="Quién los recibe">
-            tu proveedor de correo y el nuestro (Gmail, de Google). No pasa por Web3Forms.
+            Web3Forms y nuestro correo, igual que en el feedback (ver apartado 3). Si usas el envío de respaldo
+            desde tu correo, también tu proveedor de email.
           </Item>
         </ul>
 

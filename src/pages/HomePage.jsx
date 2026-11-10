@@ -26,8 +26,11 @@ const HERO_WORDS = [
 
 const STATS = [
   { val: String(CITIES.length), label: "Destinos" },
-  { val: "2,4M", label: "Erasmus/año" },
-  { val: "Gratis", label: "Siempre" },
+  // Comisión Europea, informe anual Erasmus+ 2024 (publicado el 14/11/2025):
+  // «casi 1,5 millones» de participantes en movilidad (estudiantes, docentes,
+  // formadores y jóvenes), no solo estudiantes.
+  { val: "~1,5M", label: "en Erasmus+ (2024)" },
+  { val: "Gratis", label: "Sin registro" },
 ];
 
 
@@ -45,7 +48,7 @@ const QUICK_ACCESS = [
   {
     Icon: IconCityMatch,
     title: "Encontrar tu ciudad",
-    desc: "Compara datos reales y descubre tu destino ideal",
+    desc: "Compara coste, ambiente y más, y descubre tu destino ideal",
     action: "explore",
   },
   {
@@ -100,7 +103,7 @@ function QuickAccessSection() {
 }
 
 
-// Anima "150" → cuenta entera, "2,4M" → cuenta el decimal manteniendo el
+// Anima "150" → cuenta entera, "1,5M" → cuenta el decimal manteniendo el
 // sufijo. Cualquier otro valor no numérico ("Gratis") se muestra tal cual,
 // sin animar. Dispara una sola vez al entrar en el viewport y respeta
 // prefers-reduced-motion (muestra el valor final directamente).
@@ -339,8 +342,8 @@ function HeroBackground() {
 
 const VIBE_FILTERS = [
   { key: "fiesta",  label: "Fiesta",   Icon: IconFiesta, tags: ["Ciudad universitaria", "Ruin bars", "Oktoberfest", "Arte & Libertad", "Trending"] },
-  { key: "cultura", label: "Cultura",  Icon: IconEdificio, tags: ["Historia viva", "Joya medieval", "Capital diplomática", "Arquitectura radical", "La ciudad luz", "Capital global", "Capital de Europa", "Fotogénica", "Calidad de vida #1"] },
-  { key: "barato",  label: "Barato",   Icon: IconBeca, tags: ["La más barata", "Pueblo & Naturaleza", "Gema oculta"] },
+  { key: "cultura", label: "Cultura",  Icon: IconEdificio, tags: ["Historia viva", "Joya medieval", "Capital diplomática", "Arquitectura radical", "La ciudad luz", "Capital global", "Capital de Europa", "Fotogénica", "Gran calidad de vida"] },
+  { key: "barato",  label: "Barato",   Icon: IconBeca, tags: ["Muy barata", "Pueblo & Naturaleza", "Gema oculta"] },
 ];
 
 const CITY_PILLS = [
@@ -365,19 +368,19 @@ function GlobeSection() {
 const FAQS = [
   {
     q: "¿Es gratis usar MAbroad?",
-    a: "Sí, completamente gratis. Puedes explorar todos los destinos, comparar ciudades y usar el generador de Learning Agreement sin pagar nada.",
+    a: "Sí. Puedes explorar todos los destinos, comparar ciudades, hacer el City Match y pedirnos ayuda con tu propuesta de Learning Agreement sin pagar nada y sin registrarte.",
   },
   {
     q: "¿Qué es el Learning Agreement y para qué sirve?",
-    a: "Es el documento académico que recoge las asignaturas que cursarás en el extranjero y cómo se reconocerán en tu universidad de origen. Sin él, tu plaza Erasmus no queda confirmada. En MAbroad puedes generarlo paso a paso.",
+    a: "Es el documento que fija el programa de estudios que seguirás en el extranjero, para que te reconozcan lo que apruebes allí. Lo aprueban tú, tu universidad y la de destino antes de empezar la estancia. En MAbroad te explicamos cómo prepararlo y te ayudamos con una propuesta de equivalencias, pero el documento oficial se tramita con tu universidad.",
   },
   {
     q: "¿Cuántas ciudades tenéis?",
-    a: `Actualmente contamos con ${CITIES.length} destinos Erasmus con datos reales: scores de vida nocturna, coste de vida, transporte, seguridad y mucho más. Seguimos añadiendo ciudades.`,
+    a: `Ahora mismo hay ${CITIES.length} destinos de intercambio, cada uno con notas de 0 a 10 en 8 categorías (coste de vida, alojamiento, vida social, seguridad…), universidades, clima y consejos. Seguimos añadiendo ciudades.`,
   },
   {
     q: "¿Cómo funcionan los scores de las ciudades?",
-    a: "Cada ciudad tiene puntuaciones del 1 al 10 en categorías clave: coste de vida, vida nocturna, transporte, clima, idioma y ambiente universitario. Son datos reales combinados con experiencias de estudiantes.",
+    a: "Cada ciudad tiene una nota de 0 a 10 en 8 categorías: coste de vida, alojamiento, vida social, integración internacional, movilidad, estilo de vida, empleo y seguridad. Es una valoración propia de MAbroad, no un dato oficial: se basa en la información de cada ficha (precios orientativos, transporte, clima, oferta universitaria…). La nota global es la media de las 8 categorías.",
   },
   {
     q: "¿Puedo comparar varias ciudades a la vez?",
@@ -389,7 +392,7 @@ const FAQS = [
   },
   {
     q: "¿De dónde salen los datos y cuándo se actualizan?",
-    a: "Los importes de beca y ayuda de viaje se basan en las tarifas oficiales SEPIE / Comisión Europea. El resto de datos (coste de vida, transporte, ambiente) combinan investigación propia por ciudad con experiencias de estudiantes Erasmus. En cada ficha de ciudad y en el comparador puedes abrir 'Cómo calculamos estos datos' para ver el detalle y la fecha de la última revisión.",
+    a: "Los importes de beca y ayuda de viaje siguen la convocatoria Erasmus+ 2026 del SEPIE y la Guía del Programa de la Comisión Europea, pero el importe oficial es el que publica tu universidad. El resto (coste de vida, transporte, ambiente) son valoraciones y cifras aproximadas de MAbroad. En cada ficha y en el comparador puedes abrir «Cómo calculamos estos datos» para ver el método y la fecha de la última revisión.",
   },
 ];
 
@@ -581,7 +584,7 @@ export default function HomePage() {
 
           <div className="hero__badge fade-up-1">
             <span className="hero__badge-mark" />
-            <span className="hero__badge-text">La guía definitiva para tu Erasmus</span>
+            <span className="hero__badge-text">Tu guía para el Erasmus</span>
           </div>
 
           <h1 className="hero__title fade-up-2">
@@ -590,7 +593,7 @@ export default function HomePage() {
           </h1>
 
           <p className="hero__subtitle fade-up-3">
-            Todo lo que necesitas para elegir tu ciudad Erasmus. Scores reales, comparador y guías locales.
+            Lo que necesitas para elegir tu ciudad Erasmus: scores por categoría, comparador y guías locales.
           </p>
 
           <div className="fade-up-4" style={{ width: "100%", display: "flex", justifyContent: "center", position: "relative", zIndex: 10 }}>
@@ -692,7 +695,7 @@ export default function HomePage() {
         <div className="cta__inner">
           <h2 className="cta__title">Tu Erasmus empieza aquí.</h2>
           <p className="cta__subtitle">
-            Más de 2,4 millones de estudiantes hacen Erasmus cada año. Encuentra tu ciudad perfecta.
+            Casi 1,5 millones de personas participaron en Erasmus+ en 2024, entre estudiantes, docentes y jóvenes. Encuentra tu ciudad.
           </p>
           <div className="cta__buttons">
             <button className="btn-primary" onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }}>

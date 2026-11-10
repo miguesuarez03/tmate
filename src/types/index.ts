@@ -97,7 +97,8 @@ export interface FounderExperience {
   homeUniversity: string;
   hostUniversity: string;
   citySlug: string;
-  photo: string | null;       // ruta en /public (vertical 4:5, 800×1000)
+  photo: string | null;       // retrato en /public (vertical 4:5, 640×800)
+  avatar?: string | null;     // recorte cuadrado de la cara (160×160)
   story: string[];            // párrafos de la portada
   short: string;              // versión corta para tarjetas
 }

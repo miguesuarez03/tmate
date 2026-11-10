@@ -471,7 +471,7 @@ export default function CityMatchPage() {
               <h1 className={styles.resultsTitle} ref={resultsTitleRef} tabIndex={-1}>Estas son tus ciudades ideales</h1>
               <p className={styles.resultsSubtitle}>
                 {answeredCount > 0
-                  ? `Calculado a partir de tus ${answeredCount} ${answeredCount === 1 ? "preferencia" : "preferencias"} y los datos reales de cada destino.`
+                  ? `Calculado a partir de tus ${answeredCount} ${answeredCount === 1 ? "preferencia" : "preferencias"} y los datos de cada destino.`
                   : "No marcaste preferencias: te mostramos los destinos mejor valorados."}
               </p>
               <div className={styles.resultsActions}>

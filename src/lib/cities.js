@@ -35,170 +35,17 @@ export function isErasmusEligible(city) {
   return city.programType === 'erasmus';
 }
 
-// ─── BASE SCORES por ciudad (investigados) ───────────────────────────────────
-export const CITY_BASE_SCORES = {
-  bolonia:   { coste:6.5, alojamiento:5.0, vida_social:9.2, integracion:8.5, movilidad:8.0, estilo_vida:8.0, empleo:7.0, seguridad:8.5 },
-  milan:     { coste:4.5, alojamiento:4.0, vida_social:8.0, integracion:7.5, movilidad:8.5, estilo_vida:7.0, empleo:9.5, seguridad:7.5 },
-  roma:      { coste:5.5, alojamiento:5.0, vida_social:8.0, integracion:7.5, movilidad:6.5, estilo_vida:8.3, empleo:7.5, seguridad:7.0 },
-  turin:     { coste:7.5, alojamiento:7.0, vida_social:7.0, integracion:7.5, movilidad:7.5, estilo_vida:7.3, empleo:7.5, seguridad:8.0 },
-  cracovia:  { coste:9.5, alojamiento:8.5, vida_social:9.5, integracion:8.5, movilidad:8.5, estilo_vida:7.5, empleo:6.5, seguridad:8.5 },
-  varsovia:  { coste:8.5, alojamiento:7.5, vida_social:8.0, integracion:7.5, movilidad:8.5, estilo_vida:6.8, empleo:7.5, seguridad:8.0 },
-  budapest:  { coste:9.0, alojamiento:8.0, vida_social:9.3, integracion:8.0, movilidad:8.5, estilo_vida:7.8, empleo:6.5, seguridad:7.5 },
-  praga:     { coste:8.0, alojamiento:7.0, vida_social:9.0, integracion:7.5, movilidad:9.0, estilo_vida:7.5, empleo:7.0, seguridad:8.5 },
-  "la-haya": { coste:5.0, alojamiento:5.5, vida_social:7.3, integracion:9.0, movilidad:8.5, estilo_vida:7.0, empleo:8.5, seguridad:8.8 },
-  rotterdam: { coste:5.0, alojamiento:5.5, vida_social:7.5, integracion:9.0, movilidad:8.5, estilo_vida:6.8, empleo:8.0, seguridad:7.0 },
-  munich:    { coste:4.0, alojamiento:3.5, vida_social:8.5, integracion:8.2, movilidad:9.0, estilo_vida:8.2, empleo:9.0, seguridad:9.5 },
-  berlin:    { coste:6.5, alojamiento:5.5, vida_social:9.4, integracion:8.8, movilidad:9.4, estilo_vida:7.5, empleo:9.0, seguridad:7.5 },
-  lisboa:    { coste:5.5, alojamiento:4.0, vida_social:8.8, integracion:9.5, movilidad:7.5, estilo_vida:8.5, empleo:7.5, seguridad:8.5 },
-  oporto:    { coste:7.0, alojamiento:6.5, vida_social:8.8, integracion:9.5, movilidad:7.0, estilo_vida:8.6, empleo:7.0, seguridad:9.0 },
-  paris:     { coste:3.5, alojamiento:3.0, vida_social:9.0, integracion:7.0, movilidad:9.5, estilo_vida:8.0, empleo:9.0, seguridad:7.0 },
-  londres:   { coste:2.5, alojamiento:2.5, vida_social:8.7, integracion:9.5, movilidad:8.5, estilo_vida:7.0, empleo:9.5, seguridad:7.2 },
-  amsterdam: { coste:4.5, alojamiento:3.5, vida_social:9.0, integracion:9.5, movilidad:9.0, estilo_vida:7.5, empleo:8.5, seguridad:7.5 },
-  viena:     { coste:5.5, alojamiento:6.0, vida_social:7.8, integracion:7.5, movilidad:9.5, estilo_vida:8.5, empleo:7.5, seguridad:9.5 },
-  rosenheim: { coste:6.0, alojamiento:6.5, vida_social:6.3, integracion:6.5, movilidad:7.0, estilo_vida:8.8, empleo:7.0, seguridad:9.5 },
-  bruselas:  { coste:5.5, alojamiento:6.0, vida_social:8.2, integracion:8.5, movilidad:8.0, estilo_vida:6.8, empleo:8.5, seguridad:7.2 },
-  estocolmo: { coste:3.2, alojamiento:2.8, vida_social:7.5, integracion:7.5, movilidad:8.8, estilo_vida:8.7, empleo:8.7, seguridad:8.8 },
-  copenhague:{ coste:3.0, alojamiento:3.2, vida_social:7.8, integracion:7.8, movilidad:9.2, estilo_vida:8.8, empleo:8.3, seguridad:8.9 },
-  helsinki:  { coste:4.5, alojamiento:4.5, vida_social:6.5, integracion:7.5, movilidad:8.5, estilo_vida:8.5, empleo:7.8, seguridad:9.2 },
-  oslo:      { coste:2.5, alojamiento:3.5, vida_social:6.8, integracion:7.2, movilidad:8.5, estilo_vida:9.0, empleo:8.0, seguridad:8.8 },
-  reikiavik: { coste:3.0, alojamiento:4.5, vida_social:5.8, integracion:6.8, movilidad:6.0, estilo_vida:9.5, empleo:6.5, seguridad:9.8 },
-  dublin:    { coste:2.8, alojamiento:2.5, vida_social:8.5, integracion:8.5, movilidad:6.5, estilo_vida:7.5, empleo:9.0, seguridad:7.8 },
-  edimburgo: { coste:2.8, alojamiento:3.0, vida_social:8.0, integracion:8.0, movilidad:7.5, estilo_vida:8.5, empleo:7.5, seguridad:8.5 },
-  atenas:    { coste:8.0, alojamiento:6.5, vida_social:8.5, integracion:7.0, movilidad:6.5, estilo_vida:8.5, empleo:5.5, seguridad:6.5 },
-  zagreb:    { coste:7.5, alojamiento:7.0, vida_social:7.0, integracion:7.0, movilidad:7.0, estilo_vida:7.5, empleo:6.0, seguridad:8.0 },
-  liubliana: { coste:7.0, alojamiento:7.0, vida_social:6.5, integracion:7.0, movilidad:7.0, estilo_vida:9.0, empleo:6.0, seguridad:9.0 },
-  tallin:    { coste:6.5, alojamiento:6.5, vida_social:6.5, integracion:7.0, movilidad:7.5, estilo_vida:7.5, empleo:7.0, seguridad:8.5 },
-  vilna:     { coste:7.0, alojamiento:7.0, vida_social:6.8, integracion:6.8, movilidad:7.0, estilo_vida:7.8, empleo:6.5, seguridad:8.5 },
-  riga:      { coste:7.0, alojamiento:7.0, vida_social:6.5, integracion:6.8, movilidad:7.0, estilo_vida:7.5, empleo:6.5, seguridad:8.0 },
-  bratislava:{ coste:7.0, alojamiento:6.8, vida_social:7.5, integracion:7.0, movilidad:8.5, estilo_vida:7.5, empleo:7.0, seguridad:8.0 },
-  bucarest:  { coste:8.5, alojamiento:7.5, vida_social:8.0, integracion:6.5, movilidad:6.5, estilo_vida:6.8, empleo:7.0, seguridad:6.5 },
-  sofia:     { coste:8.7, alojamiento:7.5, vida_social:6.5, integracion:6.5, movilidad:7.0, estilo_vida:7.5, empleo:6.5, seguridad:7.0 },
-  ginebra:   { coste:1.5, alojamiento:2.5, vida_social:6.5, integracion:9.0, movilidad:9.0, estilo_vida:8.5, empleo:8.5, seguridad:9.3 },
-  florencia: { coste:6.0, alojamiento:5.0, vida_social:8.3, integracion:8.0, movilidad:7.5, estilo_vida:9.0, empleo:6.5, seguridad:8.3 },
-  hamburgo:  { coste:5.5, alojamiento:5.0, vida_social:8.0, integracion:8.0, movilidad:8.8, estilo_vida:7.8, empleo:8.3, seguridad:8.3 },
-  gante:     { coste:7.0, alojamiento:6.5, vida_social:8.8, integracion:8.5, movilidad:8.0, estilo_vida:8.3, empleo:7.0, seguridad:8.5 },
-  venecia:   { coste:4.0, alojamiento:3.5, vida_social:6.0, integracion:7.0, movilidad:6.5, estilo_vida:9.3, empleo:5.5, seguridad:8.7 },
-  lyon:      { coste:6.5, alojamiento:6.0, vida_social:8.3, integracion:7.8, movilidad:8.8, estilo_vida:8.3, empleo:8.0, seguridad:7.5 },
-  colonia:   { coste:6.3, alojamiento:5.5, vida_social:8.5, integracion:8.0, movilidad:8.7, estilo_vida:7.8, empleo:8.0, seguridad:8.0 },
-  lovaina:   { coste:7.3, alojamiento:6.5, vida_social:9.0, integracion:8.3, movilidad:8.0, estilo_vida:7.5, empleo:7.0, seguridad:8.7 },
-  utrecht:   { coste:4.7, alojamiento:4.0, vida_social:8.3, integracion:8.7, movilidad:9.0, estilo_vida:8.3, empleo:8.0, seguridad:8.5 },
-  lund:      { coste:5.5, alojamiento:5.0, vida_social:8.8, integracion:7.8, movilidad:8.3, estilo_vida:8.0, empleo:7.0, seguridad:8.8 },
-  innsbruck: { coste:5.8, alojamiento:5.5, vida_social:7.0, integracion:7.0, movilidad:7.5, estilo_vida:9.3, empleo:7.3, seguridad:9.3 },
-  split:     { coste:7.3, alojamiento:6.5, vida_social:7.5, integracion:6.8, movilidad:6.5, estilo_vida:8.8, empleo:5.8, seguridad:8.3 },
-  salonica:  { coste:8.5, alojamiento:7.5, vida_social:9.0, integracion:7.0, movilidad:6.8, estilo_vida:8.0, empleo:5.5, seguridad:7.0 },
-  napoles:   { coste:7.5, alojamiento:6.3, vida_social:8.5, integracion:7.0, movilidad:5.8, estilo_vida:8.5, empleo:5.8, seguridad:6.0 },
-  groningen: { coste:5.8, alojamiento:5.5, vida_social:9.0, integracion:8.5, movilidad:8.0, estilo_vida:7.5, empleo:6.5, seguridad:8.7 },
-  coimbra:   { coste:9.0, alojamiento:8.0, vida_social:7.5, integracion:7.0, movilidad:6.5, estilo_vida:8.3, empleo:5.0, seguridad:8.8 },
-  uppsala:   { coste:5.5, alojamiento:4.5, vida_social:8.8, integracion:7.8, movilidad:8.0, estilo_vida:8.0, empleo:6.5, seguridad:8.8 },
-  friburgo:  { coste:5.8, alojamiento:5.5, vida_social:7.8, integracion:7.5, movilidad:8.0, estilo_vida:9.0, empleo:7.0, seguridad:9.0 },
-  nantes:    { coste:6.8, alojamiento:6.3, vida_social:8.3, integracion:7.8, movilidad:7.5, estilo_vida:8.5, empleo:7.0, seguridad:8.0 },
-  wroclaw:   { coste:8.8, alojamiento:7.8, vida_social:8.3, integracion:6.8, movilidad:7.0, estilo_vida:8.3, empleo:6.0, seguridad:8.0 },
-  "cluj-napoca": { coste:9.0, alojamiento:7.8, vida_social:8.8, integracion:6.5, movilidad:6.0, estilo_vida:7.0, empleo:6.8, seguridad:7.5 },
-  galway:    { coste:4.5, alojamiento:4.0, vida_social:8.0, integracion:7.5, movilidad:6.0, estilo_vida:8.5, empleo:6.0, seguridad:8.3 },
-  lausana:   { coste:2.5, alojamiento:3.5, vida_social:6.8, integracion:7.5, movilidad:8.5, estilo_vida:9.0, empleo:8.0, seguridad:9.0 },
-  malmo:     { coste:5.8, alojamiento:5.3, vida_social:8.0, integracion:8.3, movilidad:8.5, estilo_vida:7.8, empleo:6.8, seguridad:7.3 },
-  aarhus:    { coste:4.3, alojamiento:4.0, vida_social:8.3, integracion:8.5, movilidad:8.5, estilo_vida:8.3, empleo:7.0, seguridad:9.0 },
-  heidelberg:{ coste:5.5, alojamiento:5.0, vida_social:7.5, integracion:7.5, movilidad:8.0, estilo_vida:9.0, empleo:7.0, seguridad:9.0 },
-  toulouse:  { coste:6.8, alojamiento:6.0, vida_social:8.5, integracion:7.8, movilidad:7.5, estilo_vida:8.3, empleo:8.0, seguridad:7.8 },
-  burdeos:   { coste:6.0, alojamiento:5.3, vida_social:8.3, integracion:7.8, movilidad:7.8, estilo_vida:8.8, empleo:7.3, seguridad:8.0 },
-  palermo:   { coste:8.3, alojamiento:7.5, vida_social:8.3, integracion:6.8, movilidad:5.5, estilo_vida:8.8, empleo:4.8, seguridad:6.3 },
-  gdansk:    { coste:8.5, alojamiento:7.5, vida_social:8.0, integracion:7.0, movilidad:7.3, estilo_vida:8.5, empleo:6.5, seguridad:8.3 },
-  nicosia:   { coste:6.5, alojamiento:6.0, vida_social:6.8, integracion:6.5, movilidad:5.5, estilo_vida:7.5, empleo:6.0, seguridad:8.0 },
-  "la-valeta": { coste:4.3, alojamiento:3.8, vida_social:7.5, integracion:8.0, movilidad:6.0, estilo_vida:8.5, empleo:6.8, seguridad:8.5 },
-  zurich:    { coste:1.0, alojamiento:2.0, vida_social:6.5, integracion:8.0, movilidad:9.3, estilo_vida:9.3, empleo:9.3, seguridad:9.5 },
-  brno:      { coste:9.2, alojamiento:8.3, vida_social:8.5, integracion:7.0, movilidad:8.0, estilo_vida:7.8, empleo:6.8, seguridad:8.5 },
-  estrasburgo: { coste:6.3, alojamiento:5.8, vida_social:8.3, integracion:8.5, movilidad:8.5, estilo_vida:8.3, empleo:7.3, seguridad:7.8 },
-  montpellier: { coste:7.0, alojamiento:6.0, vida_social:8.8, integracion:8.0, movilidad:7.5, estilo_vida:8.8, empleo:6.8, seguridad:7.5 },
-  marsella:    { coste:7.0, alojamiento:6.3, vida_social:8.3, integracion:7.5, movilidad:7.0, estilo_vida:8.8, empleo:6.5, seguridad:6.3 },
-  lille:       { coste:7.2, alojamiento:6.3, vida_social:8.8, integracion:8.0, movilidad:9.0, estilo_vida:7.5, empleo:7.5, seguridad:7.5 },
-  dresde:      { coste:7.5, alojamiento:6.8, vida_social:7.8, integracion:7.0, movilidad:7.8, estilo_vida:8.8, empleo:6.8, seguridad:8.3 },
-  leipzig:     { coste:7.3, alojamiento:6.3, vida_social:8.8, integracion:7.5, movilidad:8.0, estilo_vida:8.3, empleo:7.0, seguridad:7.8 },
-  tubinga:     { coste:5.5, alojamiento:5.0, vida_social:8.0, integracion:7.3, movilidad:7.3, estilo_vida:9.0, empleo:6.8, seguridad:9.0 },
-  poznan:      { coste:8.8, alojamiento:7.8, vida_social:9.0, integracion:7.5, movilidad:7.5, estilo_vida:7.8, empleo:6.3, seguridad:8.3 },
-  katowice:    { coste:9.0, alojamiento:8.0, vida_social:7.8, integracion:6.8, movilidad:7.5, estilo_vida:6.8, empleo:7.0, seguridad:8.0 },
-  braga:       { coste:8.8, alojamiento:8.0, vida_social:8.3, integracion:7.3, movilidad:6.5, estilo_vida:7.8, empleo:5.5, seguridad:8.8 },
-  bari:        { coste:8.0, alojamiento:7.3, vida_social:8.0, integracion:6.5, movilidad:6.0, estilo_vida:8.3, empleo:5.0, seguridad:6.8 },
-  padua:       { coste:7.3, alojamiento:6.3, vida_social:8.3, integracion:7.8, movilidad:8.3, estilo_vida:8.0, empleo:6.8, seguridad:8.3 },
-  genova:      { coste:7.3, alojamiento:6.5, vida_social:7.5, integracion:7.0, movilidad:7.3, estilo_vida:8.3, empleo:6.3, seguridad:7.5 },
-  perugia:     { coste:7.8, alojamiento:7.0, vida_social:8.3, integracion:8.3, movilidad:6.5, estilo_vida:8.5, empleo:5.5, seguridad:8.5 },
-  manchester:  { coste:4.0, alojamiento:3.8, vida_social:9.0, integracion:8.8, movilidad:7.8, estilo_vida:7.5, empleo:8.5, seguridad:7.0 },
-  glasgow:     { coste:4.5, alojamiento:4.3, vida_social:8.8, integracion:8.0, movilidad:7.0, estilo_vida:8.0, empleo:7.5, seguridad:7.0 },
-  bristol:     { coste:3.8, alojamiento:3.5, vida_social:8.3, integracion:8.0, movilidad:6.8, estilo_vida:8.3, empleo:7.8, seguridad:7.3 },
-  basilea:     { coste:1.3, alojamiento:2.3, vida_social:6.5, integracion:8.3, movilidad:9.3, estilo_vida:8.3, empleo:9.0, seguridad:9.3 },
-  berna:       { coste:2.0, alojamiento:3.0, vida_social:6.3, integracion:7.5, movilidad:8.8, estilo_vida:8.8, empleo:8.0, seguridad:9.3 },
-  estambul:    { coste:9.5, alojamiento:8.5, vida_social:9.0, integracion:6.5, movilidad:6.5, estilo_vida:9.0, empleo:6.0, seguridad:6.0 },
-  pisa:        { coste:7.8, alojamiento:7.0, vida_social:8.3, integracion:7.8, movilidad:7.5, estilo_vida:8.5, empleo:6.0, seguridad:8.5 },
-  siena:       { coste:7.3, alojamiento:6.5, vida_social:7.5, integracion:7.3, movilidad:6.0, estilo_vida:9.0, empleo:5.3, seguridad:8.8 },
-  trieste:     { coste:7.8, alojamiento:7.0, vida_social:7.0, integracion:7.5, movilidad:6.8, estilo_vida:8.5, empleo:6.3, seguridad:8.3 },
-  parma:       { coste:7.3, alojamiento:6.5, vida_social:7.8, integracion:7.3, movilidad:7.0, estilo_vida:8.3, empleo:6.5, seguridad:8.3 },
-  bergamo:     { coste:7.3, alojamiento:6.5, vida_social:7.3, integracion:7.0, movilidad:7.5, estilo_vida:8.3, empleo:6.8, seguridad:8.3 },
-  ferrara:     { coste:7.8, alojamiento:7.3, vida_social:7.5, integracion:7.0, movilidad:7.0, estilo_vida:8.3, empleo:5.5, seguridad:8.5 },
-  urbino:      { coste:8.3, alojamiento:7.5, vida_social:7.0, integracion:6.8, movilidad:5.0, estilo_vida:8.8, empleo:4.5, seguridad:9.0 },
-  lecce:       { coste:8.3, alojamiento:7.5, vida_social:8.0, integracion:6.5, movilidad:5.5, estilo_vida:8.8, empleo:4.8, seguridad:7.5 },
-  catania:     { coste:8.3, alojamiento:7.5, vida_social:8.5, integracion:6.8, movilidad:5.8, estilo_vida:8.8, empleo:4.8, seguridad:6.3 },
-  cagliari:    { coste:7.8, alojamiento:6.8, vida_social:7.5, integracion:6.8, movilidad:5.5, estilo_vida:9.0, empleo:5.3, seguridad:8.0 },
-  maastricht:  { coste:4.3, alojamiento:3.8, vida_social:8.5, integracion:9.3, movilidad:8.5, estilo_vida:8.3, empleo:7.5, seguridad:8.7 },
-  grenoble:    { coste:6.8, alojamiento:6.0, vida_social:8.3, integracion:8.0, movilidad:8.0, estilo_vida:9.0, empleo:8.0, seguridad:7.8 },
-  verona:      { coste:6.8, alojamiento:6.0, vida_social:8.0, integracion:7.5, movilidad:8.3, estilo_vida:8.5, empleo:6.8, seguridad:8.3 },
-  gotemburgo:  { coste:4.3, alojamiento:3.8, vida_social:8.0, integracion:7.8, movilidad:8.5, estilo_vida:8.3, empleo:8.0, seguridad:8.0 },
-  liverpool:   { coste:5.3, alojamiento:4.8, vida_social:9.0, integracion:8.0, movilidad:7.0, estilo_vida:7.8, empleo:7.0, seguridad:6.8 },
-  leeds:       { coste:4.8, alojamiento:4.3, vida_social:9.0, integracion:8.0, movilidad:7.0, estilo_vida:7.3, empleo:7.5, seguridad:7.0 },
-  turku:       { coste:5.0, alojamiento:4.5, vida_social:8.0, integracion:7.5, movilidad:7.0, estilo_vida:8.0, empleo:6.5, seguridad:9.0 },
-  rennes:      { coste:7.5, alojamiento:6.8, vida_social:9.0, integracion:8.0, movilidad:7.5, estilo_vida:7.8, empleo:7.0, seguridad:8.0 },
-  pecs:        { coste:9.3, alojamiento:8.3, vida_social:8.3, integracion:7.0, movilidad:6.0, estilo_vida:8.0, empleo:5.3, seguridad:8.5 },
-  kaunas:      { coste:8.5, alojamiento:7.8, vida_social:7.5, integracion:6.8, movilidad:6.8, estilo_vida:7.8, empleo:6.3, seguridad:8.5 },
-  "sao-paulo": { coste:6.5, alojamiento:6.0, vida_social:8.5, integracion:6.5, movilidad:7.0, estilo_vida:7.5, empleo:8.0, seguridad:5.5 },
-  "rio-de-janeiro": { coste:6.8, alojamiento:6.0, vida_social:9.0, integracion:7.0, movilidad:6.5, estilo_vida:9.0, empleo:6.5, seguridad:5.0 },
-  "florianopolis": { coste:7.0, alojamiento:6.5, vida_social:8.0, integracion:7.0, movilidad:6.5, estilo_vida:9.0, empleo:6.5, seguridad:7.5 },
-  "cartagena-de-indias": { coste:7.5, alojamiento:6.5, vida_social:8.0, integracion:7.0, movilidad:6.0, estilo_vida:8.0, empleo:5.5, seguridad:6.5 },
-  "cusco": { coste:8.5, alojamiento:7.0, vida_social:7.0, integracion:6.5, movilidad:5.5, estilo_vida:8.5, empleo:5.0, seguridad:7.0 },
-  "nueva-york":    { coste:1.7, alojamiento:1.9, vida_social:9.4, integracion:7.8, movilidad:8.8, estilo_vida:8.3, empleo:9.5, seguridad:6.8 },
-  boston:          { coste:2.7, alojamiento:3.0, vida_social:8.0, integracion:7.5, movilidad:7.3, estilo_vida:7.8, empleo:8.5, seguridad:8.0 },
-  chicago:         { coste:4.1, alojamiento:4.3, vida_social:8.2, integracion:7.2, movilidad:7.5, estilo_vida:8.0, empleo:8.0, seguridad:6.3 },
-  "los-angeles":   { coste:2.9, alojamiento:3.2, vida_social:7.8, integracion:7.0, movilidad:4.5, estilo_vida:8.8, empleo:8.3, seguridad:6.5 },
-  "san-francisco": { coste:1.5, alojamiento:1.8, vida_social:7.5, integracion:7.8, movilidad:7.3, estilo_vida:8.3, empleo:9.3, seguridad:5.8 },
-  lima:                  { coste:8.0, alojamiento:7.0, vida_social:7.5, integracion:7.0, movilidad:6.0, estilo_vida:8.3, empleo:6.0, seguridad:6.0 },
-  "ciudad-de-panama":    { coste:6.0, alojamiento:6.5, vida_social:6.5, integracion:7.0, movilidad:7.5, estilo_vida:6.8, empleo:7.5, seguridad:6.5 },
-  "san-jose-costa-rica": { coste:6.0, alojamiento:6.5, vida_social:7.0, integracion:7.2, movilidad:6.3, estilo_vida:8.7, empleo:6.5, seguridad:6.3 },
-  montevideo:            { coste:4.5, alojamiento:6.0, vida_social:6.5, integracion:8.0, movilidad:7.0, estilo_vida:8.5, empleo:6.5, seguridad:8.5 },
-  quito:                 { coste:8.0, alojamiento:7.5, vida_social:7.0, integracion:7.0, movilidad:6.0, estilo_vida:8.7, empleo:5.5, seguridad:6.0 },
-  miami:     { coste:4.5, alojamiento:4.0, vida_social:8.5, integracion:8.0, movilidad:4.5, estilo_vida:8.5, empleo:7.5, seguridad:6.5 },
-  toronto:   { coste:4.0, alojamiento:3.5, vida_social:8.0, integracion:9.0, movilidad:7.5, estilo_vida:7.5, empleo:8.5, seguridad:8.5 },
-  vancouver: { coste:3.5, alojamiento:3.0, vida_social:7.0, integracion:8.0, movilidad:7.5, estilo_vida:9.3, empleo:7.0, seguridad:7.5 },
-  montreal:  { coste:6.5, alojamiento:6.0, vida_social:9.0, integracion:8.5, movilidad:8.0, estilo_vida:8.0, empleo:6.5, seguridad:8.5 },
-  "ciudad-de-mexico": { coste:8.5, alojamiento:7.0, vida_social:8.5, integracion:7.5, movilidad:6.0, estilo_vida:8.0, empleo:6.5, seguridad:5.5 },
-  guadalajara: { coste:8.5, alojamiento:7.0, vida_social:7.5, integracion:6.0, movilidad:6.0, estilo_vida:7.5, empleo:8.0, seguridad:5.5 },
-  austin:      { coste:4.5, alojamiento:4.5, vida_social:8.0, integracion:7.0, movilidad:5.5, estilo_vida:8.0, empleo:8.5, seguridad:6.5 },
-  seattle:     { coste:3.8, alojamiento:3.8, vida_social:6.8, integracion:7.0, movilidad:7.0, estilo_vida:8.0, empleo:9.0, seguridad:6.5 },
-  washington:  { coste:3.5, alojamiento:4.0, vida_social:7.5, integracion:7.5, movilidad:8.0, estilo_vida:8.0, empleo:9.0, seguridad:6.0 },
-  "nueva-orleans": { coste:6.0, alojamiento:6.0, vida_social:8.5, integracion:7.0, movilidad:5.5, estilo_vida:8.5, empleo:6.0, seguridad:5.5 },
-  "ann-arbor": { coste:5.0, alojamiento:5.5, vida_social:7.5, integracion:7.5, movilidad:6.0, estilo_vida:7.5, empleo:7.0, seguridad:8.5 },
-  "quebec":    { coste:7.0, alojamiento:7.0, vida_social:7.2, integracion:6.5, movilidad:6.5, estilo_vida:8.5, empleo:5.8, seguridad:9.3 },
-  "ottawa":    { coste:6.0, alojamiento:6.0, vida_social:6.8, integracion:8.0, movilidad:7.0, estilo_vida:8.5, empleo:7.5, seguridad:9.0 },
-  "san-diego": { coste:3.5, alojamiento:3.5, vida_social:8.0, integracion:8.0, movilidad:6.0, estilo_vida:9.2, empleo:7.8, seguridad:7.5 },
-  "monterrey": { coste:8.5, alojamiento:7.5, vida_social:7.5, integracion:7.0, movilidad:5.5, estilo_vida:6.8, empleo:8.5, seguridad:6.5 },
-  "la-paz":             { coste:8.9, alojamiento:6.6, vida_social:6.9, integracion:8.4, movilidad:6.4, estilo_vida:8.6, empleo:5.2, seguridad:6.5 },
-  "asuncion":           { coste:8.8, alojamiento:7.0, vida_social:6.4, integracion:8.6, movilidad:6.1, estilo_vida:7.4, empleo:5.4, seguridad:7.3 },
-  "ciudad-de-guatemala":{ coste:8.1, alojamiento:6.8, vida_social:6.7, integracion:7.9, movilidad:5.6, estilo_vida:7.9, empleo:6.1, seguridad:5.9 },
-  "san-salvador":       { coste:7.8, alojamiento:6.6, vida_social:7.1, integracion:7.7, movilidad:5.9, estilo_vida:8.3, empleo:5.7, seguridad:6.7 },
-  "santo-domingo":      { coste:7.5, alojamiento:6.9, vida_social:7.9, integracion:8.0, movilidad:6.7, estilo_vida:8.5, empleo:6.0, seguridad:6.8 },
-  "buenos-aires":      { coste:7.5, alojamiento:6.0, vida_social:9.0, integracion:7.5, movilidad:7.5, estilo_vida:8.5, empleo:6.0, seguridad:6.0 },
-  "cordoba-argentina": { coste:8.5, alojamiento:6.5, vida_social:8.5, integracion:7.5, movilidad:6.5, estilo_vida:7.5, empleo:5.5, seguridad:6.5 },
-  "santiago-de-chile": { coste:6.0, alojamiento:6.0, vida_social:7.5, integracion:7.0, movilidad:8.5, estilo_vida:8.0, empleo:7.5, seguridad:7.5 },
-  "bogota":            { coste:7.5, alojamiento:6.0, vida_social:8.0, integracion:6.5, movilidad:6.0, estilo_vida:7.5, empleo:6.5, seguridad:5.5 },
-  "medellin":          { coste:7.5, alojamiento:6.5, vida_social:8.5, integracion:7.5, movilidad:8.0, estilo_vida:8.5, empleo:7.0, seguridad:6.0 },
-};
-
 /**
- * Score global de una ciudad.
- * Combina el score base investigado (50%) con la media de valoraciones
- * de usuarios (50%) cuando existan. Si no hay valoraciones, devuelve
- * el score base directamente. Es la única función que calcula scores.
+ * Score global de una ciudad: la media, con el mismo peso, de las 8 notas de
+ * categoría que se ven en su ficha (CITY_INSIGHTS). Es lo que explica la nota
+ * «Cómo calculamos estos datos» (MethodologyNote): si cambias el cálculo,
+ * actualiza también ese texto. userRatings queda preparado para combinar
+ * valoraciones reales de usuarios (50 %) cuando existan.
  */
 export function getOverallScore(slug, userRatings = null) {
-  const cats = CITY_BASE_SCORES[slug];
-  const base = cats
-    ? parseFloat((Object.values(cats).reduce((s, v) => s + v, 0) / Object.values(cats).length).toFixed(1))
+  const scores = (getCityInsights(slug)?.scores ?? []).map((sc) => sc.score).filter((v) => typeof v === "number");
+  const base = scores.length
+    ? parseFloat((scores.reduce((acc, v) => acc + v, 0) / scores.length).toFixed(1))
     : 7.0;
   if (!userRatings || userRatings.length === 0) return base;
   const userAvg = parseFloat((userRatings.reduce((a, b) => a + b, 0) / userRatings.length).toFixed(1));
@@ -484,7 +331,7 @@ export function getFounderEntry() {
     stayLabel: `Erasmus en ${f.hostUniversity}`,
     founder: true,
     role: f.role,
-    photo: f.photo,
+    photo: f.avatar || f.photo,
   };
 }
 
@@ -526,7 +373,7 @@ export function getCityMeta(city, overallScore) {
   const type = eligible ? 'Erasmus' : 'Intercambio';
   return {
     title: buildCityTitle(city, type),
-    description: `Todo sobre ${eligible ? 'el Erasmus' : 'estudiar'} en ${city.name}: coste de vida ${city.costDetail}, scores reales, barrios, universidades y tips de estudiantes. Puntuación MAbroad: ${overallScore}/10.`,
+    description: `Todo sobre ${eligible ? 'el Erasmus' : 'estudiar'} en ${city.name}: coste de vida ${city.costDetail}, scores por categoría, barrios, universidades y consejos. Puntuación MAbroad: ${overallScore}/10.`,
     keywords: eligible
       ? `Erasmus ${city.name}, ${city.nameEn} Erasmus, estudiar en ${city.country}, ${city.tag}`
       : `Estudiar en ${city.name}, ${city.nameEn} intercambio, estudiar en ${city.country}, ${city.tag}`,
@@ -540,7 +387,7 @@ export function getCityMeta(city, overallScore) {
 export function getHomeMeta() {
   return {
     title: 'MAbroad — Descubre y compara tu ciudad Erasmus ideal',
-    description: `La guía definitiva para elegir tu ciudad Erasmus. ${CITIES.length} destinos con scores reales, comparador y guías locales. Totalmente gratis.`,
+    description: `Tu guía para elegir ciudad Erasmus: ${CITIES.length} destinos con scores por categoría, comparador y guías locales. Gratis.`,
     keywords: 'Erasmus ciudades, mejores destinos Erasmus, guía Erasmus Europa, MAbroad',
     ogImage: DEFAULT_OG_IMAGE,
   };

@@ -57,7 +57,7 @@ export function getWebsiteJsonLd() {
       name: SITE_NAME,
       url: `${SITE_URL}/`,
       inLanguage: "es",
-      description: "La guía definitiva para elegir tu ciudad Erasmus, con scores reales, comparador y calculadora de beca.",
+      description: "Guía para elegir tu ciudad Erasmus, con scores por categoría, comparador y calculadora de beca.",
       publisher: { "@id": `${SITE_URL}/#organization` },
       // /?buscar=<texto> lleva a la ficha de la ciudad que mejor coincide
       // (ver HomePage). Es el mismo buscador del hero.

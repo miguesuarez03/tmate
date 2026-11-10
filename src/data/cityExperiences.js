@@ -41,10 +41,11 @@ export const CITY_EXPERIENCES = {};
  *   Edítalos con tus palabras.
  * - `short`: la versión corta de las tarjetas (ficha de Rosenheim y, cuando
  *   haya opiniones, la tarjeta de la portada).
- * - `photo`: ruta de tu foto dentro de /public, p. ej. "/equipo/miguel.webp".
- *   Vertical 4:5, 800 × 1000 px, con la cara en el tercio superior y centrada
- *   (también se recorta en círculo para las tarjetas). WebP o JPG de menos de
- *   200 KB. Mientras sea null se ve un hueco de marca con tu inicial.
+ * - `photo`: retrato de la portada, dentro de /public. Vertical 4:5 (640 × 800
+ *   px o más), con la cara en el tercio superior. Si es null, se ve un hueco
+ *   de marca con tu inicial.
+ * - `avatar`: la misma foto recortada en cuadrado sobre la cara (160 × 160),
+ *   para el círculo pequeño de las tarjetas.
  *
  * @type {import('../types').FounderExperience}
  */
@@ -55,7 +56,8 @@ export const FOUNDER_EXPERIENCE = {
   homeUniversity: "Universidad Loyola (Sevilla)",
   hostUniversity: "TH Rosenheim",
   citySlug: "rosenheim",
-  photo: null,
+  photo: "/equipo/miguel.jpg",
+  avatar: "/equipo/miguel-avatar.jpg",
   story: [
     "Estudio Ingeniería Industrial en la Universidad Loyola, en Sevilla, y ahora mismo estoy de Erasmus en la TH Rosenheim.",
     "Hago MAbroad para que el siguiente que se vaya lo tenga más claro que yo: qué ciudad le encaja, cuánto va a cobrar de beca y cómo sacar adelante el Learning Agreement sin perderse por el camino.",

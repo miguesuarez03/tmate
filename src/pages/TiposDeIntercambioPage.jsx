@@ -1,11 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
-import { IconGlobo, IconBeca, IconDocumento, IconMaleta } from "../components/icons";
+import { IconGlobo, IconBeca, IconDocumento, IconMaleta, IconViajes } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
 import styles from "./TiposDeIntercambioPage.module.css";
 
 /* ─── DATA ──────────────────────────────────────────────────────────────── */
 
+// Fuentes (consultadas en noviembre de 2026): Comisión Europea (learning
+// agreement, 19/12/2025), GOV.UK (Standard Visitor y ETA), SEM suiza (FAQ
+// UE/AELC, 06/07/2026), SERI suiza (estado de Suiza en Erasmus+), Ministerio
+// de Exteriores de Türkiye (información de visados), UDI noruega (registro
+// UE/EEE) y SEPIE (convocatoria 2026, KA131 y KA171). Lo que no se ha podido
+// verificar para cada caso remite al consulado.
 const PROGRAM_TYPES = [
   {
     id: "erasmus",
@@ -13,9 +19,9 @@ const PROGRAM_TYPES = [
     color: "#10B981",
     title: "Erasmus+",
     tag: "Programa europeo",
-    what: "El programa oficial de la Unión Europea para estudiar en otra universidad europea con convenio. Es el más extendido y el que tiene detrás toda la maquinaria de becas, convalidaciones automáticas y soporte institucional.",
-    visa: "No hace falta visado — te mueves dentro del Espacio Erasmus+ (UE + países asociados como Noruega, Islandia o Turquía) con tu DNI/pasaporte.",
-    financing: "Beca Erasmus+ (importe según grupo de país de destino) + posibles ayudas autonómicas/MEC. El Learning Agreement garantiza que las asignaturas que curses fuera se convalidan automáticamente.",
+    what: "El programa de la Unión Europea para estudiar en otra universidad europea con la que la tuya tenga convenio. Es el más extendido: tiene detrás las becas Erasmus+ y un Learning Agreement que fija qué estudiarás fuera para que te lo reconozcan.",
+    visa: "Si tienes nacionalidad de un país de la UE, no necesitas visado para estudiar en otro país de la UE ni en Noruega, Islandia o Liechtenstein, aunque para estancias de más de 3 meses suele haber que registrarse como residente (en Noruega, por ejemplo, es obligatorio). Turquía es distinto: entrar como turista no es lo mismo que una estancia de estudios. Su Ministerio de Exteriores indica que los visados para estudiar los dan sus embajadas y consulados, y para quedarte más de 90 días necesitarás un permiso de residencia. Consulta en el consulado de Turquía, y en el de tu destino si no tienes nacionalidad de la UE.",
+    financing: "Beca Erasmus+ (el importe depende del grupo del país de destino y lo fija tu universidad dentro del rango del SEPIE) y posibles ayudas autonómicas o de tu universidad. El Learning Agreement sirve para que te reconozcan las asignaturas que apruebes según lo acordado.",
   },
   {
     id: "uk_bilateral",
@@ -23,9 +29,9 @@ const PROGRAM_TYPES = [
     color: "#3F7A7D",
     title: "Reino Unido",
     tag: "Convenio bilateral",
-    what: "Desde el Brexit, Reino Unido salió del programa Erasmus+. Ir a universidades como Londres, Edimburgo o Mánchester se hace a través de convenios bilaterales que tu universidad haya firmado directamente con la universidad británica.",
-    visa: "Sí hace falta visado de estudiante (Student Route), con sus propios requisitos económicos y de matrícula — infórmate con tiempo en la web oficial del gobierno británico.",
-    financing: "No hay beca Erasmus+ asociada. La financiación depende de fondos propios, becas específicas de tu universidad o comunidad autónoma, o financiación propia. El papeleo de equivalencias de asignaturas lo define tu universidad de origen, no un Learning Agreement estándar.",
+    what: "Desde el Brexit, Reino Unido no participa en Erasmus+. Ir a universidades como Londres, Edimburgo o Mánchester se hace a través de convenios bilaterales que tu universidad haya firmado directamente con la universidad británica.",
+    visa: "Depende de la duración. Para estudiar hasta 6 meses puedes entrar como visitante (Standard Visitor); con pasaporte europeo, normalmente necesitas una ETA, una autorización electrónica de viaje de pago. Para más de 6 meses necesitas el visado de estudiante (Student visa). Confírmalo en GOV.UK antes de aceptar la plaza.",
+    financing: "La mayoría de plazas son convenios bilaterales sin beca Erasmus+: cuenta con becas de tu universidad o comunidad autónoma, o con financiación propia. Algunas universidades financian estancias en Reino Unido con fondos Erasmus+ para países no asociados (la convocatoria del SEPIE lo incluye en el grupo 1): pregunta en tu oficina de relaciones internacionales. El papeleo de equivalencias lo define tu universidad de origen.",
   },
   {
     id: "switzerland_bilateral",
@@ -33,9 +39,19 @@ const PROGRAM_TYPES = [
     color: "#F59E0B",
     title: "Suiza",
     tag: "Convenio bilateral",
-    what: "Suiza tampoco participa en Erasmus+ como país miembro de pleno derecho. Los intercambios a ciudades como Ginebra, Lausana, Zúrich, Basilea o Berna funcionan mediante convenios bilaterales o el programa suizo equivalente (Swiss-European Mobility Programme).",
-    visa: "Depende de la duración de la estancia y tu nacionalidad — para estancias largas suele requerirse permiso de residencia para estudiantes. Consulta con la embajada suiza con antelación.",
-    financing: "No hay beca Erasmus+ asociada. Suiza suele compensar con sus propias ayudas (a veces gestionadas por la universidad de destino), pero no sustituyen a la beca Erasmus+ — cuenta con financiación propia o de tu universidad.",
+    what: "Suiza no está asociada a Erasmus+ 2021-2027: tiene su propio programa de movilidad, compatible con Erasmus+ (la «solución suiza»). Los intercambios a Ginebra, Lausana, Zúrich, Basilea o Berna funcionan con convenios entre universidades. Su gobierno prevé asociarse a Erasmus+ en 2027, pero depende de que el Parlamento apruebe la financiación.",
+    visa: "Con nacionalidad de la UE no necesitas visado. Si vas a estudiar más de 3 meses, tienes que registrarte como máximo 14 días después de llegar y te darán un permiso para la duración de tus estudios; además, tendrás que contratar un seguro médico suizo. Si no tienes nacionalidad de la UE, consulta en el consulado de Suiza.",
+    financing: "Normalmente no hay beca Erasmus+: Suiza suele compensar con sus propias ayudas (a veces gestionadas por la universidad de destino), pero no sustituyen a la beca Erasmus+. Algunas universidades usan fondos Erasmus+ para países no asociados (la convocatoria del SEPIE incluye a Suiza en el grupo 1): pregunta en tu oficina de relaciones internacionales.",
+  },
+  {
+    id: "international",
+    Icon: IconViajes,
+    color: "#2F5073",
+    title: "Fuera de Europa",
+    tag: "Convenio bilateral",
+    what: "Estados Unidos, Canadá, Latinoamérica… Se va con los convenios bilaterales que tu universidad haya firmado con universidades de fuera de Europa.",
+    visa: "Casi siempre necesitas un visado o permiso de estudiante, distinto de la entrada como turista, y los requisitos cambian según el país, la duración y tu nacionalidad. Consúltalo en el consulado del país de destino antes de aceptar la plaza: suele llevar semanas.",
+    financing: "Normalmente no hay beca Erasmus+. Depende de las ayudas de tu universidad; algunas tienen plazas de movilidad internacional Erasmus+ (KA171) para países concretos, con sus propias condiciones.",
   },
 ];
 
