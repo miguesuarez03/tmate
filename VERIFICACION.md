@@ -5,7 +5,7 @@ Claude Code hace cada tanda y Codex la revisa con `codex exec` en solo lectura (
 
 ## Dónde vamos
 
-**Siguiente tanda: 2** (Oporto, Berlín, París, Praga, Budapest) (actualizar al cerrar cada tanda).
+**Siguiente tanda: 3** (Varsovia, Cracovia, Viena, Ámsterdam, Bruselas) (actualizar al cerrar cada tanda).
 
 ## Qué se revisa en cada ciudad
 
@@ -29,7 +29,7 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 | Tanda | Ciudades | Estado |
 |---|---|---|
 | 1 | Bolonia (`bolonia`), Roma (`roma`), Milán (`milan`), Florencia (`florencia`), Lisboa (`lisboa`) | ✅ 10-11-2026 |
-| 2 | Oporto (`oporto`), Berlín (`berlin`), París (`paris`), Praga (`praga`), Budapest (`budapest`) | Pendiente |
+| 2 | Oporto (`oporto`), Berlín (`berlin`), París (`paris`), Praga (`praga`), Budapest (`budapest`) | ✅ 10-11-2026 |
 | 3 | Varsovia (`varsovia`), Cracovia (`cracovia`), Viena (`viena`), Ámsterdam (`amsterdam`), Bruselas (`bruselas`) | Pendiente |
 | 4 | Múnich (`munich`), Lyon (`lyon`), Turín (`turin`), Nápoles (`napoles`), Padua (`padua`) | Pendiente |
 | 5 | Coimbra (`coimbra`), Copenhague (`copenhague`), Dublín (`dublin`), Estocolmo (`estocolmo`), Helsinki (`helsinki`) | Pendiente |
@@ -71,3 +71,14 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 - Enlaces Erasmus arreglados: Accademia di Belle Arti di Bologna, LUISS, Roma Tre, Cattolica, Unifi y NOVA (404 o bloqueados); clave «Sapienza» corregida; fuera la sede de Forlì (no está en Bolonia).
 - Datos: Lisboa, idioma «Portugués» y coste 800–1.000 €/mes (ISCTE) con nota de coste 6,5; población 2023 de las 4 ciudades italianas.
 - Codex: auditoría con fuentes + 2 rondas de revisión; en la ronda 1 pidió precisar OutSystems y subir el coste de Lisboa (aplicado). No pudo volver a abrir las tablas italianas de clima: se mantienen las normales que dio en la auditoría.
+
+### Tanda 2 — 10-11-2026 (Oporto, Berlín, París, Praga, Budapest)
+- Cambio global: `language` solo recoge idiomas oficiales (fuera « / Inglés» en 16 fichas; Nicosia «Griego / Turco»; Montreal mantiene «Francés / Inglés»). En City Match, «Inglés» ya solo encaja con países anglófonos.
+- Fotos: las 5 corresponden a su ciudad.
+- Coste revisado con las estimaciones de las universidades (Católica Porto, TU Berlin, ICP, Universidad Carolina, ELTE): Oporto 600–800 €, Berlín 900–1.200 €, París 1.100–1.500 €, Praga 550–1.000 €, Budapest 600–800 €; notas de coste ajustadas a la baja.
+- Transporte al día: Andante 30/40 €, Navigo 90,80 €, DPP 550/130 CZK, BKK 8.950/3.450 HUF (con el requisito de domicilio desde el 15-06-2026).
+- Fuera cifras y récords sin fuente: «+5.000/+9.000/+12.000/+7.500 internacionales», «la más fotogénica/bella de Europa», «cerveza más barata que el agua», «el mayor hub de startups», «el techno nació aquí», precios de cervezas y menús, «35 % de extranjeros», «700 km de carril bici», etc. Datos caducados corregidos: Watergate (cerró en 2024), Berlin Music Week (ahora Pop-Kultur), Pompidou (cerrado hasta 2030), metro 1 de Budapest (el primero de Europa continental).
+- Quitado un falso testimonio en París («La residencia CROUS me la dieron…»).
+- Clima con normales 1991–2020 (IPMA, DWD/OMM, Météo-France, ČHMÚ, HungaroMet).
+- 14 enlaces Erasmus arreglados (FU, HU, TU, BHT, ISCAP, Sorbonne, Sciences Po, HEC, Dauphine, Carolina, ČVUT, VŠE, Corvinus, BME, ELTE) y nombres oficiales de universidades.
+- Codex: auditoría con fuentes + 2 rondas; en la ronda 1 corrigió la mínima de verano de París, la excepción de la U4 en Berlín y el requisito de los museos de París (aplicado).

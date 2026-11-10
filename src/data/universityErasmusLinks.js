@@ -45,14 +45,14 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Warsaw University of Technology": "https://www.pw.edu.pl/engpw/Education/Exchange-Studies/Incoming-Students",
 
   // ── Budapest ─────────────────────────────────────────────────────────────
-  "Corvinus University": "https://www.uni-corvinus.hu/contents/uploads/2021/02/erasmus.html",
-  "Budapest University of Technology": "https://kth.bme.hu/en/erasmus-incoming",
-  "ELTE": "https://www.elte.hu/en/erasmus",
+  "Corvinus University of Budapest": "https://www.uni-corvinus.hu/post/landing-page/incoming-and-exchange-students/?lang=en",
+  "Budapest University of Technology and Economics": "https://nki.bme.hu/node/5990",
+  "ELTE": "https://www.elte.hu/en/incoming-mobility/erasmus",
 
   // ── Praga ────────────────────────────────────────────────────────────────
-  "Charles University": "https://cuni.cz/UKEN-149.html",
-  "Czech Technical University": "https://international.cvut.cz/exchange-students/",
-  "Prague University of Economics": "https://www.vse.cz/english/exchange-studies/",
+  "Charles University": "https://cuni.cz/UKEN-145.html",
+  "Czech Technical University in Prague": "https://international.cvut.cz/students/incoming-students/erasmus-and-exchange/",
+  "Prague University of Economics and Business": "https://exchange.vse.cz/",
 
   // ── La Haya ──────────────────────────────────────────────────────────────
   "Leiden University": "https://www.universiteitleiden.nl/en/students/exchange-and-study-abroad/incoming-exchange",
@@ -68,10 +68,10 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Munich University of Applied Sciences": "https://www.hm.edu/en/international_applicants_1/exchange_students/exchange_students.en.html",
 
   // ── Berlín ───────────────────────────────────────────────────────────────
-  "Freie Universität Berlin": "https://www.fu-berlin.de/en/studium/international/austauschstudium/incoming/index.html",
-  "Humboldt-Universität": "https://www.international.hu-berlin.de/en/studium/abschnitte/incoming",
-  "TU Berlin": "https://www.tu.berlin/en/international/students-from-abroad/exchange-students",
-  "Berliner Hochschule für Technik (BHT)": "https://www.bht-berlin.de/en/international/incoming-exchange-students",
+  "Freie Universität Berlin": "https://www.fu-berlin.de/en/studium/international/studium_fu/auslandssemester/erasmus_in/infos_incomingstudents/index.html",
+  "Humboldt-Universität zu Berlin": "https://www.hu-berlin.de/en/university/international/coming-to-hu/programmes/exchange-semester/information-for-students",
+  "TU Berlin": "https://www.tu.berlin/en/international/students-1/international-students/exchange-studies-at-tu-berlin",
+  "Berliner Hochschule für Technik (BHT)": "https://www.bht-berlin.de/en/516",
 
   // ── Lisboa (federación de facultades — páginas institucionales generales) ──
   "Universidade de Lisboa": "https://www.ulisboa.pt/en/info/erasmus",
@@ -82,13 +82,13 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   // ── Oporto ───────────────────────────────────────────────────────────────
   "Universidade do Porto": "https://sigarra.up.pt/up/en/web_base.gera_pagina?p_pagina=incoming%20mobility",
   "Universidade Católica Portuguesa": "https://www.ucp.pt/international/study-catolica/mobility-students-incoming",
-  "ISCAP": "https://www.iscap.ipp.pt/site/internacional/mobilidade-internacional/incoming/",
+  "ISCAP": "https://www.iscap.pt/gri/candidatura/",
 
   // ── París ────────────────────────────────────────────────────────────────
-  "Sorbonne": "https://www.sorbonne-universite.fr/en/admissions/incoming-exchange-students",
-  "Sciences Po": "https://www.sciencespo.fr/admissions/en/program-tracks/incoming-exchange/",
-  "HEC Paris": "https://www.hec.edu/en/international/incoming-exchange-students",
-  "Université Paris-Dauphine": "https://www.dauphine.psl.eu/en/international/exchange-students/incoming-exchange-students",
+  "Sorbonne Université": "https://lettres.sorbonne-universite.fr/en/academics/international-exchange-students",
+  "Sciences Po": "https://www.sciencespo.fr/en/academics/exchange-programme/coming/",
+  "HEC Paris (Jouy-en-Josas)": "https://www.hec.edu/en/exchange-program",
+  "Université Paris-Dauphine": "https://dauphine.psl.eu/international/venir-etudier-a-luniversite-paris-dauphine-psl/etudiants-en-echange",
 
   // ── Londres ──────────────────────────────────────────────────────────────
   "UCL": "https://www.ucl.ac.uk/students/global-opportunities/incoming-exchange-students",
