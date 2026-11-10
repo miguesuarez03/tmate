@@ -275,8 +275,10 @@ export default function HeroSection({ city, overallScore, insights }) {
         </div>
       </div>
 
-      {/* Crédito de la foto de portada: esquina inferior derecha */}
-      <PhotoCredit src={city.heroImg || city.img} corner="bottom-right" style={{ "--credit-inset": "16px" }} />
+      {/* Crédito de la foto de portada: arriba a la derecha, justo bajo el
+          navbar (64px). La esquina inferior derecha queda para el botón fijo
+          «¿Qué te falta?», que la taparía al abrir la página. */}
+      <PhotoCredit src={city.heroImg || city.img} corner="top-right" style={{ "--credit-inset": "16px", top: "calc(64px + 10px)" }} />
 
       {/* Scroll hint */}
       <div className={styles.heroScrollHint}>

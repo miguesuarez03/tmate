@@ -56,11 +56,13 @@ export default function FeedbackWidget() {
   const descId = `fb-desc-${ids}`;
 
   const path = location.pathname + location.search;
-  // En City Match y el comparador el botón va en formato icono (más discreto,
-  // no compite con el quiz ni con la barra "Comparar"); en las fichas de
-  // ciudad sube por encima de las burbujas de WhatsApp/alojamiento.
-  const compact = location.pathname === "/city-match" || location.pathname === "/comparar";
-  const onCityPage = location.pathname.startsWith("/city/");
+  // Siempre fijo en la esquina inferior derecha. En City Match, el comparador
+  // y las fichas va en formato icono (más discreto: no compite con el quiz,
+  // la barra "Comparar" ni las burbujas de WhatsApp/alojamiento, que se
+  // apilan encima). En móvil es siempre icono (ver CSS).
+  const compact = location.pathname === "/city-match"
+    || location.pathname === "/comparar"
+    || location.pathname.startsWith("/city/");
 
   // Al cambiar de página se cierra el panel.
   useEffect(() => { setOpen(false); }, [location.pathname]);
@@ -173,7 +175,6 @@ export default function FeedbackWidget() {
   const fabClass = [
     styles.fab,
     compact ? styles.fabCompact : "",
-    onCityPage ? styles.fabRaised : "",
     open ? styles.fabHidden : "",
   ].filter(Boolean).join(" ");
 

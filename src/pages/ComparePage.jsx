@@ -319,7 +319,7 @@ function FeaturedCard({ city, checked = false, accentColor, onClick }) {
       style={checked ? { "--tile-color": accentColor } : {}}
       onClick={onClick}
     >
-      <PhotoCredit src={city.img} corner="top-right" nested /><img className={styles.featuredImg} {...responsiveImage(city.img, { slots: FEATURED_SLOTS })} width={800} height={600} alt="" loading="lazy" decoding="async" onError={(e) => { e.currentTarget.style.opacity = 0; }} />
+      <PhotoCredit src={city.img} corner="bottom-right" nested /><img className={styles.featuredImg} {...responsiveImage(city.img, { slots: FEATURED_SLOTS })} width={800} height={600} alt="" loading="lazy" decoding="async" onError={(e) => { e.currentTarget.style.opacity = 0; }} />
       <div className={styles.featuredOverlay} />
       {checked && <span className={styles.featuredCheck}><IconCheck size={18} /></span>}
       <div className={styles.featuredBody}>

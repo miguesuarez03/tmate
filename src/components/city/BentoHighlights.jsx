@@ -78,7 +78,7 @@ export default function BentoHighlights({ highlights = [], cityName, cityImg }) 
                 <img {...responsiveImage(photo, { slots: bentoSlots(i) })} alt={text} className={styles.cardImg} width={800} height={600} loading="lazy" decoding="async" />
               )}
               <div className={styles.cardOverlay} />
-              {photo && <PhotoCredit src={photo} corner="top-right" nested />}
+              {photo && <PhotoCredit src={photo} corner="bottom-right" nested />}
               <div className={styles.cardContent}>
                 <span className={styles.cardNum} style={{ color: ACCENTS[i] }}>0{i + 1}</span>
                 <p className={styles.cardText}>{text}</p>

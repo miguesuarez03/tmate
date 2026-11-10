@@ -24,7 +24,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 96px var(--section-px) 60px;
+  /* Abajo: hueco para el botón fijo «¿Qué te falta?» (16px + 44px), para
+     que el botón «Continuar» nunca quede debajo al llegar al final. */
+  padding: 96px var(--section-px) calc(80px + env(safe-area-inset-bottom));
   overflow: hidden;
 }
 /* Fondo decorativo difuminado (opción "imagen/degradado" del rediseño en
@@ -314,7 +316,7 @@
 
 /* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .quizMain { padding: 88px 16px 48px; }
+  .quizMain { padding: 88px 16px calc(80px + env(safe-area-inset-bottom)); }
   .optionsGridCompact { grid-template-columns: 1fr; }
   .resultCard { grid-template-columns: 1fr; }
   .resultRank { position: absolute; margin: 12px; font-size: 22px; }

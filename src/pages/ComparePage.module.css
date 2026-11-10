@@ -340,7 +340,8 @@
 }
 .featuredBody {
   position: absolute; bottom: 0; left: 0; right: 0; z-index: 1;
-  padding: 14px 16px; display: flex; align-items: flex-end; justify-content: space-between; gap: 10px;
+  /* padding-right extra: esquina inferior derecha libre para el crédito. */
+  padding: 14px 30px 14px 16px; display: flex; align-items: flex-end; justify-content: space-between; gap: 10px;
 }
 .featuredName {
   font-family: var(--font-display); font-weight: 800; font-size: 18px;
@@ -407,6 +408,9 @@
   border-top: 1px solid var(--color-border);
   padding: 14px var(--section-px);
   padding-bottom: calc(14px + env(safe-area-inset-bottom));
+  /* Hueco a la derecha para el botón fijo «¿Qué te falta?» (44px a 16px del
+     borde), que queda encima de la barra sin tapar el botón «Comparar». */
+  padding-right: max(var(--section-px), calc(72px + env(safe-area-inset-right)));
   box-shadow: 0 -8px 32px rgba(0,0,0,0.08);
   animation: fadeUp 0.3s var(--ease-spring) both;
 }
@@ -551,7 +555,8 @@
 .cityCardCountry { font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 500; }
 
 .cityCardBadges {
-  position: relative; padding: 0 18px 14px;
+  /* padding-right extra: esquina inferior derecha libre para el crédito. */
+  position: relative; padding: 0 30px 14px 18px;
   display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
 }
 .cityCardTag {

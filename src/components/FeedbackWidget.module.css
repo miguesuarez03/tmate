@@ -1,11 +1,16 @@
 /* ─── Botón flotante «¿Qué te falta?» ─────────────────────────────────────────
-   Discreto: superficie de la página + contorno e icono naranja. z-index por
-   debajo del navbar (1000), el drawer y los modales, así nunca los tapa. */
+   Discreto: superficie de la página + contorno e icono naranja. SIEMPRE fijo
+   en la esquina inferior derecha (respetando el safe area de iOS): son los
+   demás elementos fijos los que le dejan sitio — burbujas de WhatsApp /
+   alojamiento de las fichas (encima), barra «Comparar» (padding derecho),
+   quiz de City Match y footer (padding inferior), botón de pausa del vídeo
+   (esquina izquierda). z-index: por encima de la barra del comparador (950)
+   y por debajo del navbar (1000), el drawer y los modales. */
 .fab {
   position: fixed;
-  right: 16px;
+  right: calc(16px + env(safe-area-inset-right));
   bottom: calc(16px + env(safe-area-inset-bottom));
-  z-index: 900;
+  z-index: 960;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -30,23 +35,16 @@
 .fab:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
 .fabIcon { display: inline-flex; color: var(--color-primary); }
 
-/* Formato icono: en móvil siempre, y en City Match / comparador también en
-   desktop para no competir con el quiz ni con la barra de comparar. */
+/* Formato icono (44×44, nombre accesible en aria-label): en móvil siempre, y
+   en City Match / comparador / fichas también en desktop para no competir
+   con el quiz, la barra de comparar ni las burbujas de la ficha. */
 .fabCompact { width: 44px; padding: 0; justify-content: center; }
 .fabCompact .fabLabel { display: none; }
-@media (max-width: 640px) {
+/* Mismo corte que el hero móvil (768px), cuyos stats solo reservan 44px
+   (+ margen) a la derecha: con etiqueta, entre 641 y 768px los invadiría. */
+@media (max-width: 768px) {
   .fab { width: 44px; padding: 0; justify-content: center; }
   .fabLabel { display: none; }
-}
-
-/* Fichas de ciudad: por encima de las 2 burbujas flotantes (WhatsApp /
-   alojamiento: 20px + 52 + 12 + 52 = 136px) para no taparlas. */
-.fabRaised { bottom: calc(148px + env(safe-area-inset-bottom)); right: 24px; }
-
-/* Comparador con la barra "Comparar N destinos" visible abajo: se sube
-   por encima de ella (la barra lleva data-bottom-bar). */
-:global(body:has([data-bottom-bar])) .fab {
-  bottom: calc(92px + env(safe-area-inset-bottom));
 }
 
 .fabHidden { opacity: 0; pointer-events: none; }
@@ -59,13 +57,16 @@
   background: rgba(15, 30, 45, 0.28);
   animation: fbFade 0.18s ease both;
 }
+/* El panel nace de la esquina del botón (abajo a la derecha) y crece hacia
+   arriba/izquierda, también en móvil. */
 .panel {
   position: fixed;
-  right: 16px;
+  right: calc(16px + env(safe-area-inset-right));
   bottom: calc(16px + env(safe-area-inset-bottom));
   z-index: 1100;
-  width: min(380px, calc(100vw - 32px));
-  max-height: calc(100dvh - 32px);
+  width: min(380px, calc(100vw - 32px - env(safe-area-inset-left) - env(safe-area-inset-right)));
+  max-height: calc(100dvh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  transform-origin: bottom right;
   overflow-y: auto;
   padding: 22px 20px 18px;
   border-radius: var(--radius-lg);
@@ -78,13 +79,12 @@
   animation: fbUp 0.22s var(--ease-spring, ease) both;
 }
 @media (max-width: 640px) {
-  /* Móvil: hoja inferior a todo el ancho. */
+  /* Móvil: mismo anclaje en la esquina, casi a todo el ancho. */
   .panel {
-    left: 0; right: 0; bottom: 0;
-    width: 100%;
-    max-height: 88dvh;
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-    padding-bottom: calc(18px + env(safe-area-inset-bottom));
+    right: calc(10px + env(safe-area-inset-right));
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    width: calc(100vw - 20px - env(safe-area-inset-left) - env(safe-area-inset-right));
+    max-height: calc(88dvh - env(safe-area-inset-bottom));
   }
 }
 
@@ -234,9 +234,10 @@
 }
 
 @keyframes fbFade { from { opacity: 0; } to { opacity: 1; } }
+/* Crece desde la esquina inferior derecha (transform-origin del panel). */
 @keyframes fbUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
 }
 @keyframes fbSpin { to { transform: rotate(360deg); } }
 

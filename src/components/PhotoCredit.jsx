@@ -11,8 +11,8 @@ const CORNERS = {
 };
 
 /**
- * Crédito de una foto de Wikimedia Commons: icono ⓘ pequeño y semitransparente
- * en una esquina que, al pasar el ratón, enfocarlo o tocarlo, muestra
+ * Crédito de una foto de Wikimedia Commons: icono ⓘ pequeño (18px) y
+ * semitransparente en una esquina (en tarjetas, la inferior derecha) que, al pasar el ratón, enfocarlo o tocarlo, muestra
  * «Foto: autor · licencia» enlazado a Commons. Los datos salen de
  * src/lib/photoCredits.js (fuente única). Si la foto no es de Commons (o es de
  * dominio público, que no exige atribución) no pinta nada.
@@ -62,7 +62,7 @@ export default function PhotoCredit({ src, corner = "bottom-right", nested = fal
           onPointerDown={(e) => { pointerType.current = e.pointerType; }}
           onClick={onClick}
         >
-          <IconInfo size={13} />
+          <IconInfo size={11} />
         </span>
         <span className={styles.tip} onClick={onClick}>
           Foto: {credit.author} · {credit.license}
@@ -81,7 +81,7 @@ export default function PhotoCredit({ src, corner = "bottom-right", nested = fal
         aria-controls={tipId}
         onClick={(e) => { e.stopPropagation(); setOpen((v) => !v); }}
       >
-        <IconInfo size={13} />
+        <IconInfo size={11} />
       </button>
       <span id={tipId} className={styles.tip}>
         Foto:{" "}

@@ -363,10 +363,13 @@ a.heroBigLink:hover {
 /* ── Burbujas flotantes (WhatsApp / alojamiento) ──────────────────────────
    Mismas dos tarjetas del hero (#hero-whatsapp-card / #hero-housing-card),
    en formato burbuja fija abajo a la derecha, visibles solo tras el
-   scroll — ver FloatingActionBubbles en HeroSection.jsx. */
+   scroll — ver FloatingActionBubbles en HeroSection.jsx. Van apiladas
+   ENCIMA del botón fijo «¿Qué te falta?» (esquina inferior derecha:
+   16px + 44px de alto + 12px de hueco = 72px), sin taparlo. */
 .floatingActions {
   position: fixed;
-  bottom: 20px; right: 20px;
+  bottom: calc(72px + env(safe-area-inset-bottom));
+  right: calc(16px + env(safe-area-inset-right));
   z-index: 500;
   display: flex; flex-direction: column; gap: 12px;
   opacity: 0; transform: translateY(16px) scale(0.9);
@@ -403,6 +406,6 @@ a.heroBigLink:hover {
 }
 
 @media (max-width: 480px) {
-  .floatingActions { bottom: 16px; right: 16px; gap: 10px; }
+  .floatingActions { gap: 10px; }
   .floatingBubble { width: 46px; height: 46px; }
 }
