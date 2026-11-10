@@ -156,7 +156,7 @@ export const COMPARE_PHRASES = {
   },
   roma: {
     coste: "Más barata que Milán, vive bien con 800–1.000€",
-    alojamiento: "Competitivo con 200.000+ estudiantes, mira fuera del centro",
+    alojamiento: "Competitivo por la gran población universitaria, mira fuera del centro",
     vida_social: "Trastevere y Pigneto marcan un ritmo apasionado",
     integracion: "Caótica pero acogedora, acostumbrada al turismo",
     movilidad: "El punto débil de Roma: metro escaso, mejor a pie",

@@ -32,7 +32,7 @@ export const CITY_INSIGHTS = {
         summary: "Alta competencia por la demanda universitaria. Busca con mucha antelación. Incluye pisos, habitaciones, residencias y colivings.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 4.5, desc: "Alta demanda de 100.000+ estudiantes. Las mejores habitaciones se van en semanas." },
+          { label: "Disponibilidad", score: 4.5, desc: "Alta demanda por la gran población universitaria. Las mejores habitaciones se van en semanas." },
           { label: "Precio", score: 6.0, desc: "350–500€ habitación individual. Compartir piso es la norma." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "Idealista, Unipol, grupos de Facebook de la universidad. Mejor buscar desde origen." },
           { label: "Residencias universitarias", score: 6.5, desc: "Las residencias universitarias de Unibo son buena opción si las pillas a tiempo." },
@@ -47,7 +47,7 @@ export const CITY_INSIGHTS = {
         summary: "Una de las mejores vidas nocturnas estudiantiles de Europa. Comunidad Erasmus enorme y muy activa. Siempre hay algo que hacer.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 9.5, desc: "+6.000 estudiantes Erasmus al año. De las más grandes de Italia. ESN Bolonia organiza eventos semanales, trips y fiestas. Muy bien organizado." },
+          { label: "Comunidad Erasmus", score: 9.5, desc: "Muchos estudiantes Erasmus cada año. De las más grandes de Italia. ESN Bolonia organiza eventos semanales, trips y fiestas. Muy bien organizado." },
           { label: "Ambiente internacional", score: 9.0, desc: "Estudiantes de toda Europa, Sudamérica y Asia. Ambiente verdaderamente internacional." },
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "Via del Pratello y Via Zamboni son las arterias de la noche. Llenos de jueves a sábado." },
           { label: "Eventos y actividades", score: 8.5, desc: "ESN muy activo. Fiestas temáticas, excursiones, cenas internacionales cada semana. Cine de verano al aire libre, festivales, mercados nocturnos." },
@@ -174,7 +174,7 @@ export const CITY_INSIGHTS = {
         summary: "La mejor vida nocturna del mundo. Punto. Clubs que abren 72 horas seguidas. Comunidad internacional enorme y muy activa. Fácil hacer amigos de todo el mundo.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 9.0, desc: "+8.000 estudiantes internacionales al año entre todas las universidades berlinesas. Varios ESN por universidad. Eventos constantes para conectar desde el día 1." },
+          { label: "Comunidad Erasmus", score: 9.0, desc: "Muchos estudiantes internacionales cada año entre todas las universidades berlinesas. Varios ESN por universidad. Eventos constantes para conectar desde el día 1." },
           { label: "Ambiente internacional", score: 9.0, desc: "Estudiantes de 150+ países. La ciudad más internacional de Alemania." },
           { label: "Fiesta y vida nocturna", score: 10.0, desc: "Berghain, Tresor, Watergate. La meca del techno mundial. Experiencia única." },
           { label: "Eventos y actividades", score: 9.8, desc: "Festival of Lights, Berlin Music Week, mercados navideños épicos." },
@@ -553,7 +553,7 @@ export const CITY_INSIGHTS = {
         summary: "Vida nocturna más auténtica de lo que parece. Ixelles, Saint-Gilles y Matongé tienen mucha personalidad. Comunidad Erasmus activa más una enorme comunidad de becarios institucionales. Dos mundos que se complementan.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 8.5, desc: "+4.500 Erasmus entre ULB, VUB y KU Leuven campus BXL. Más miles de becarios en instituciones europeas. ESN organiza eventos regulares. Chocolate tours, cerveza belga nights, trips a Brujas y Gante." },
+          { label: "Comunidad Erasmus", score: 8.5, desc: "Muchos Erasmus entre ULB, VUB y KU Leuven campus BXL. Más miles de becarios en instituciones europeas. ESN organiza eventos regulares. Chocolate tours, cerveza belga nights, trips a Brujas y Gante." },
           { label: "Ambiente internacional", score: 8.5, desc: "Ambiente internacional con estudiantes de toda Europa y el mundo." },
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "500+ tipos de cerveza belga. Delirium Tremens, Moeder Lambic, À La Mort Subite. La cultura de la cerveza es un arte." },
           { label: "Eventos y actividades", score: 8.5, desc: "ESN activo entre ULB y VUB. Eventos regulares aunque la ciudad dispersa más a la comunidad." },
@@ -805,7 +805,7 @@ export const CITY_INSIGHTS = {
         summary: "Escena nocturna de clase mundial. Fabric, XOYO, Printworks. Para todos los gustos y a todas las horas. Comunidad internacional enorme pero dispersa por el tamaño de la ciudad. UCL y King's lideran.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 8.0, desc: "+3.000 Erasmus entre UCL, King's, LSE y Queen Mary. Grande pero la ciudad lo diluye más que en ciudades pequeñas. ESN organiza eventos regulares pero la ciudad es tan grande que la comunidad está más fragmentada que en otras ciudades." },
+          { label: "Comunidad Erasmus", score: 8.0, desc: "Muchos Erasmus entre UCL, King's, LSE y Queen Mary. Grande pero la ciudad lo diluye más que en ciudades pequeñas. ESN organiza eventos regulares pero la ciudad es tan grande que la comunidad está más fragmentada que en otras ciudades." },
           { label: "Ambiente internacional", score: 8.0, desc: "Ambiente internacional con estudiantes de toda Europa y el mundo." },
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "Fabric, XOYO, Fabric, Village Underground. La escena de clubs más diversa de Europa. Techno, drum & bass, grime, jazz." },
           { label: "Eventos y actividades", score: 8.5, desc: "O2 Arena, Brixton Academy, Royal Albert Hall. Los mejores artistas del mundo pasan por Londres primero." },
@@ -1440,7 +1440,7 @@ export const CITY_INSIGHTS = {
         summary: "Los ruin bars son únicos en el mundo. Budapest tiene una de las escenas nocturnas más originales y vibrantes de Europa. Una de las comunidades Erasmus más vibrantes de Europa Central. +7.500 internacionales al año.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 9.2, desc: "+7.500 Erasmus al año entre Corvinus, ELTE y Budapest University of Technology. Masa crítica enorme. ESN Budapest es de los más activos de Europa. Eventos casi cada día: baños termales, ruin bar nights, cenas." },
+          { label: "Comunidad Erasmus", score: 9.2, desc: "Muchos Erasmus cada año entre Corvinus, ELTE y Budapest University of Technology. Masa crítica enorme. ESN Budapest es de los más activos de Europa. Eventos casi cada día: baños termales, ruin bar nights, cenas." },
           { label: "Ambiente internacional", score: 9.2, desc: "Ambiente internacional con estudiantes de toda Europa y el mundo." },
           { label: "Fiesta y vida nocturna", score: 10.0, desc: "Szimpla Kert, Instant, Fogasház. Bares en edificios en ruinas con salas temáticas, arte y ambiente imposible de copiar." },
           { label: "Eventos y actividades", score: 10.0, desc: "ESN muy activo. Erasmus parties legendarias, cruceros por el Danubio, visitas a los baños termales en grupo." },
@@ -1694,7 +1694,7 @@ export const CITY_INSIGHTS = {
         summary: "Vida nocturna legendaria. Kazimierz y el Rynek son el epicentro de una de las mejores escenas estudiantiles de Europa. Una de las comunidades Erasmus más grandes y activas de Europa del Este. +8.000 internacionales al año.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 9.2, desc: "+8.000 estudiantes internacionales al año. Una de las más grandes de Europa Central. ESN Kraków es muy activo. Eventos casi diarios: pub crawls, excursiones, cenas temáticas, deportes." },
+          { label: "Comunidad Erasmus", score: 9.2, desc: "Muchos estudiantes internacionales cada año. Una de las más grandes de Europa Central. ESN Kraków es muy activo. Eventos casi diarios: pub crawls, excursiones, cenas temáticas, deportes." },
           { label: "Ambiente internacional", score: 9.2, desc: "Estudiantes de toda Europa, especialmente España, Italia, Francia y Turquía. Ambiente muy internacional." },
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "Kazimierz tiene cientos de bares en sótanos medievales. Cada uno con su ambiente. La calle Szeroka es imprescindible." },
           { label: "Eventos y actividades", score: 9.5, desc: "ESN muy activo. Pub crawls, cenas internacionales, excursiones a Zakopane y Auschwitz cada semana." },
@@ -1948,7 +1948,7 @@ export const CITY_INSIGHTS = {
         summary: "Vida nocturna más tranquila que Roma o Milán pero con personalidad propia. San Salvario es el corazón. Comunidad más pequeña que otras ciudades italianas pero muy unida. Calidad sobre cantidad.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 7.8, desc: "+3.500 Erasmus al año entre UniTo y Politecnico. Más íntimo que Roma o Milán. ESN Torino organiza eventos regulares: spritz tours, visitas al Museo Egizio, escapadas a los Alpes." },
+          { label: "Comunidad Erasmus", score: 7.8, desc: "Muchos Erasmus cada año entre UniTo y Politecnico. Más íntimo que Roma o Milán. ESN Torino organiza eventos regulares: spritz tours, visitas al Museo Egizio, escapadas a los Alpes." },
           { label: "Ambiente internacional", score: 7.8, desc: "Ambiente internacional con estudiantes de toda Europa y el mundo." },
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "San Salvario y Vanchiglia concentran la vida estudiantil. El aperitivo turinés es el original — más cuidado y con más producto que el milanés." },
           { label: "Eventos y actividades", score: 8.5, desc: "ESN activo con eventos regulares. La comunidad es más íntima — fácil hacer amigos de verdad, no solo conocidos." },
@@ -2058,7 +2058,7 @@ export const CITY_INSIGHTS = {
         label: "Alojamiento",
         icon: "🏠",
         score: 5.0,
-        summary: "Mercado competitivo con 200.000+ estudiantes. Zonas alejadas del centro son más fáciles y baratas.",
+        summary: "Mercado competitivo por la gran población universitaria. Zonas alejadas del centro son más fáciles y baratas.",
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 5.0, desc: "Alta demanda. Sapienza es una de las universidades más grandes de Europa — eso lo dice todo." },
@@ -2076,7 +2076,7 @@ export const CITY_INSIGHTS = {
         summary: "Vida social intensa y apasionada. Trastevere, Pigneto y el Testaccio marcan el ritmo nocturno. Una de las comunidades Erasmus más grandes de Europa. 7.000+ internacionales entre todas las universidades.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 9.0, desc: "+7.000 Erasmus al año. Sapienza, LUISS, Roma Tre y Cattolica juntas forman una masa crítica enorme. Varios ESN por universidad. Eventos desde la semana de bienvenida: tours, cenas, fiestas de disfraces." },
+          { label: "Comunidad Erasmus", score: 9.0, desc: "Muchos Erasmus cada año. Sapienza, LUISS, Roma Tre y Cattolica juntas forman una masa crítica enorme. Varios ESN por universidad. Eventos desde la semana de bienvenida: tours, cenas, fiestas de disfraces." },
           { label: "Ambiente internacional", score: 9.0, desc: "Estudiantes de toda Europa y Latinoamérica. La conexión cultural con España y Sudamérica es especialmente fuerte." },
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "Trastevere para bares de calle, Testaccio para clubs, Pigneto para ambiente alternativo y local." },
           { label: "Eventos y actividades", score: 9.5, desc: "ESN muy activo entre las universidades romanas. Fiestas en terrazas, cenas internacionales, trips a la costa." },
@@ -2188,7 +2188,7 @@ export const CITY_INSIGHTS = {
         summary: "El mercado más competitivo de Italia. Empieza a buscar 4 meses antes y ten documentación lista.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 4.0, desc: "Alta demanda de 180.000+ estudiantes. Las habitaciones buenas se van en horas. Sin margen de espera." },
+          { label: "Disponibilidad", score: 4.0, desc: "Alta demanda por la gran población universitaria. Las habitaciones buenas se van en horas. Sin margen de espera." },
           { label: "Precio", score: 4.5, desc: "550–800€ habitación individual. Compartir piso es casi obligatorio para no arruinarse." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "Idealista, Uniplaces, Spotahome, grupos de Facebook de Bocconi y Politecnico. Prepara una presentación breve de ti mismo." },
           { label: "Residencias universitarias", score: 6.0, desc: "Las residencias universitarias del Politecnico son la mejor opción. Pídelas en cuanto te acepten." },
@@ -2203,7 +2203,7 @@ export const CITY_INSIGHTS = {
         summary: "Noches largas en Navigli y Isola. El aperitivo marca el ritmo de la vida social milanesa. Una de las comunidades internacionales más grandes de Italia. Bocconi y Politecnico lideran.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 8.8, desc: "+5.500 Erasmus al año entre Bocconi, Politecnico, Statale y NABA. ESN muy activo especialmente en Bocconi. Eventos desde la semana 1 de llegada." },
+          { label: "Comunidad Erasmus", score: 8.8, desc: "Muchos Erasmus cada año entre Bocconi, Politecnico, Statale y NABA. ESN muy activo especialmente en Bocconi. Eventos desde la semana 1 de llegada." },
           { label: "Ambiente internacional", score: 8.8, desc: "Ambiente internacional con estudiantes de toda Europa y el mundo." },
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "Navigli es el epicentro. De jueves a sábado los canales se llenan de gente. Ambiente único en Europa." },
           { label: "Eventos y actividades", score: 8.5, desc: "ESN muy activo en Bocconi, Politecnico y Statale. Fiestas temáticas, spritz tours y cenas internacionales." },
@@ -2457,7 +2457,7 @@ export const CITY_INSIGHTS = {
         summary: "Noches largas y cálidas. Bairro Alto, Cais do Sodré y la escena de nómadas digitales. Enorme comunidad internacional. Lisboa es el destino Erasmus más trendy ahora mismo.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 9.1, desc: "+7.000 estudiantes internacionales entre NOVA, ULisboa e ISCTE. ESN muy activo. Rooftop parties, surf trips, wine tastings, city tours." },
+          { label: "Comunidad Erasmus", score: 9.1, desc: "Muchos estudiantes internacionales entre NOVA, ULisboa e ISCTE. ESN muy activo. Rooftop parties, surf trips, wine tastings, city tours." },
           { label: "Ambiente internacional", score: 9.1, desc: "Ambiente internacional con estudiantes de toda Europa y el mundo." },
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "Bairro Alto (bares de calle), Cais do Sodré (discotecas), LX Factory (eventos). Para todos." },
           { label: "Eventos y actividades", score: 8.5, desc: "Fado en vivo, rooftops con vistas, mercados nocturnos en verano." },
@@ -4234,7 +4234,7 @@ export const CITY_INSIGHTS = {
         summary: "Compacta pero animada, con miles de Erasmus repartidos por toda Eslovaquia y una comunidad muy activa en Bratislava.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 8.0, desc: "ESN SK coordina 10 secciones por todo el país y organiza viajes y eventos constantes para casi 2.000 Erasmus." },
+          { label: "Comunidad Erasmus", score: 8.0, desc: "ESN SK coordina 10 secciones por todo el país y organiza viajes y eventos constantes para los estudiantes Erasmus." },
           { label: "Ambiente internacional", score: 7.0, desc: "UK y STU reciben una comunidad internacional creciente, con buen ambiente en ambos campus." },
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "El casco antiguo, tan compacto, concentra toda la vida nocturna a poca distancia caminando." },
           { label: "Eventos y actividades", score: 7.5, desc: "Escapadas organizadas a Viena, Budapest y los castillos eslovacos son planes constantes de fin de semana." },
@@ -5160,7 +5160,7 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.0,
-        summary: "Mercado más accesible que París, aunque la demanda estudiantil (170.000 estudiantes) mantiene la competencia alta en septiembre.",
+        summary: "Mercado más accesible que París, aunque la demanda estudiantil mantiene la competencia alta en septiembre.",
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 6.5, desc: "Oferta amplia gracias al gran número de universidades, aunque hay que moverse rápido en la búsqueda de septiembre." },
@@ -7158,7 +7158,7 @@ export const CITY_INSIGHTS = {
         summary: "Mercado razonable para el estándar francés, con buena oferta gracias a la enorme población estudiantil.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 6.5, desc: "Amplia oferta de colocation gracias a los más de 115.000 estudiantes de la ciudad." },
+          { label: "Disponibilidad", score: 6.5, desc: "Amplia oferta de colocation gracias a su gran población estudiantil." },
           { label: "Precio", score: 6.0, desc: "420–520€ de media, entre los más asequibles de las grandes ciudades francesas." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "El CROUS gestiona residencias con demanda alta; conviene solicitar cuanto antes." },
           { label: "Residencias universitarias", score: 5.5, desc: "Plazas CROUS limitadas; muchos exchange students optan por colocation privada." },
@@ -8203,7 +8203,7 @@ export const CITY_INSIGHTS = {
         summary: "Mercado accesible gracias a ser una de las mayores poblaciones universitarias de Francia.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 6.5, desc: "Amplia oferta de colocation gracias a los más de 110.000 estudiantes de la ciudad." },
+          { label: "Disponibilidad", score: 6.5, desc: "Amplia oferta de colocation gracias a su gran población estudiantil." },
           { label: "Precio", score: 6.5, desc: "380–480€ de media, entre los más bajos de las grandes ciudades francesas." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "El CROUS y portales locales facilitan bastante la búsqueda." },
           { label: "Residencias universitarias", score: 6.0, desc: "Buena oferta de residencias CROUS gracias al tamaño de la población estudiantil." },
@@ -8583,7 +8583,7 @@ export const CITY_INSIGHTS = {
         summary: "Mercado accesible y en expansión, con buena oferta gracias a la enorme población universitaria.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 8.0, desc: "Amplia oferta de pisos compartidos gracias a los más de 130.000 estudiantes de la ciudad." },
+          { label: "Disponibilidad", score: 8.0, desc: "Amplia oferta de pisos compartidos gracias a su gran población estudiantil." },
           { label: "Precio", score: 7.5, desc: "250–350€ de media, entre los alquileres más bajos de toda esta guía." },
           { label: "Facilidad de búsqueda", score: 7.5, desc: "Portales locales y grupos de Facebook de Erasmus facilitan la búsqueda." },
           { label: "Residencias universitarias", score: 7.5, desc: "Buena disponibilidad de residencias (domy studenckie) a precios muy bajos." },
@@ -8963,7 +8963,7 @@ export const CITY_INSIGHTS = {
         summary: "Mercado accesible gracias a la enorme población universitaria, aunque con demanda creciente por la cercanía a Venecia.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 6.5, desc: "Buena oferta de pisos compartidos gracias a los más de 60.000 estudiantes de la ciudad." },
+          { label: "Disponibilidad", score: 6.5, desc: "Buena oferta de pisos compartidos gracias a su gran población estudiantil." },
           { label: "Precio", score: 6.5, desc: "380–480€ de media, razonable para el Véneto." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "La Università degli Studi di Padova ofrece listados de alojamiento para exchange students." },
           { label: "Residencias universitarias", score: 6.0, desc: "Buena oferta de residencias (ESU Padova), aunque muy solicitadas." },
@@ -9818,7 +9818,7 @@ export const CITY_INSIGHTS = {
         summary: "Mercado accesible gracias a la enorme proporción de estudiantes en una ciudad de tamaño reducido.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 7.0, desc: "Buena oferta de pisos compartidos gracias a los más de 50.000 estudiantes de la ciudad." },
+          { label: "Disponibilidad", score: 7.0, desc: "Buena oferta de pisos compartidos gracias a su gran población estudiantil." },
           { label: "Precio", score: 7.5, desc: "300–400€ de media, de los más bajos entre las ciudades universitarias de la Toscana." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "La Università di Pisa ofrece listados básicos de alojamiento para exchange students." },
           { label: "Residencias universitarias", score: 6.5, desc: "Buena oferta de residencias, especialmente ligadas a la Scuola Normale Superiore." },
@@ -10103,7 +10103,7 @@ export const CITY_INSIGHTS = {
         summary: "Mercado accesible, con buena oferta en un centro histórico de tamaño manejable.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 6.5, desc: "Buena oferta de pisos compartidos gracias a los más de 30.000 estudiantes de la ciudad." },
+          { label: "Disponibilidad", score: 6.5, desc: "Buena oferta de pisos compartidos gracias a su gran población estudiantil." },
           { label: "Precio", score: 7.0, desc: "350–450€ de media, razonable para la región de la Emilia-Romaña." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "La Università di Parma ofrece listados básicos de alojamiento para exchange students." },
           { label: "Residencias universitarias", score: 6.0, desc: "Buena oferta de residencias, aunque conviene solicitar con antelación." },
@@ -10860,7 +10860,7 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.0,
-        summary: "Mercado razonable, con buena oferta gracias a los más de 60.000 estudiantes de la ciudad.",
+        summary: "Mercado razonable, con buena oferta gracias a su gran población estudiantil.",
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 6.5, desc: "Buena oferta de pisos compartidos gracias a la enorme población universitaria." },
@@ -12328,7 +12328,7 @@ export const CITY_INSIGHTS = {
         summary: "Todo pasa aquí. Música en directo cada noche, festivales sin parar y la mayor comunidad internacional de estudiantes de EEUU.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad internacional", score: 9.0, desc: "+15.000 estudiantes internacionales al año entre todas las universidades. Asociaciones internacionales muy activas en Columbia y NYU." },
+          { label: "Comunidad internacional", score: 9.0, desc: "Muchos estudiantes internacionales cada año entre todas las universidades. Asociaciones internacionales muy activas en Columbia y NYU." },
           { label: "Ambiente internacional", score: 9.5, desc: "Estudiantes de más de 150 países. La ciudad más diversa de esta guía." },
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "Del Lower East Side a Brooklyn, siempre hay un plan: clubs, rooftops, jazz bars." },
           { label: "Eventos y actividades", score: 9.0, desc: "Conciertos, festivales de cine, mercados, Broadway. La oferta cultural no tiene fin." },
@@ -12446,7 +12446,7 @@ export const CITY_INSIGHTS = {
         summary: "Una de las ciudades con mayor densidad estudiantil del mundo. La vida social gira en torno al campus.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad internacional", score: 8.0, desc: "+12.000 estudiantes internacionales al año repartidos en decenas de universidades." },
+          { label: "Comunidad internacional", score: 8.0, desc: "Muchos estudiantes internacionales cada año repartidos en decenas de universidades." },
           { label: "Ambiente internacional", score: 8.0, desc: "Ciudad acostumbrada a recibir estudiantes de todo el mundo desde hace generaciones." },
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "Menos intensa que Nueva York, pero Allston y Fenway tienen ambiente universitario constante." },
           { label: "Eventos y actividades", score: 8.5, desc: "Partidos de los Red Sox en Fenway Park, eventos universitarios, festivales de otoño." },
@@ -12564,7 +12564,7 @@ export const CITY_INSIGHTS = {
         summary: "Vida universitaria intensa con UChicago y Northwestern, más una escena de música en directo excepcional.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad internacional", score: 7.5, desc: "+8.000 estudiantes internacionales al año, con asociaciones activas en las principales universidades." },
+          { label: "Comunidad internacional", score: 7.5, desc: "Muchos estudiantes internacionales cada año, con asociaciones activas en las principales universidades." },
           { label: "Ambiente internacional", score: 7.5, desc: "Ciudad diversa, con barrios enteros de herencia polaca, mexicana, china o irlandesa." },
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "Wicker Park y Logan Square concentran bares, música en directo y clubes de blues y jazz históricos." },
           { label: "Eventos y actividades", score: 9.0, desc: "Lollapalooza, festivales de blues y jazz, mercados junto al lago en verano." },
@@ -12682,7 +12682,7 @@ export const CITY_INSIGHTS = {
         summary: "USC y UCLA tienen una vida de campus muy activa, con hermandades, deporte universitario y una escena de entretenimiento única.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad internacional", score: 7.5, desc: "+10.000 estudiantes internacionales al año, con oficinas internacionales muy desarrolladas en USC y UCLA." },
+          { label: "Comunidad internacional", score: 7.5, desc: "Muchos estudiantes internacionales cada año, con oficinas internacionales muy desarrolladas en USC y UCLA." },
           { label: "Ambiente internacional", score: 7.5, desc: "Gran diversidad, con fuerte presencia asiática y latina en toda la ciudad." },
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "De Hollywood a Downtown, la vida nocturna está muy repartida por toda la ciudad, hace falta moverse." },
           { label: "Eventos y actividades", score: 8.5, desc: "Partidos de fútbol americano universitario, premieres de cine, festivales de música todo el año." },
@@ -12800,7 +12800,7 @@ export const CITY_INSIGHTS = {
         summary: "Comunidad internacional activa entre USF, SF State y la cercana Berkeley, con una escena cultural muy propia.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad internacional", score: 7.5, desc: "+7.000 estudiantes internacionales al año, muchos atraídos por el ecosistema tech." },
+          { label: "Comunidad internacional", score: 7.5, desc: "Muchos estudiantes internacionales cada año, muchos atraídos por el ecosistema tech." },
           { label: "Ambiente internacional", score: 8.0, desc: "Ciudad históricamente diversa, con barrios de herencia china, latina y del Pacífico muy marcados." },
           { label: "Fiesta y vida nocturna", score: 7.0, desc: "El Mission y SoMa concentran bares y música en directo; la ciudad se acuesta algo antes que Nueva York." },
           { label: "Eventos y actividades", score: 7.5, desc: "Outside Lands, Bay to Breakers, ferias tecnológicas y hackathons constantes." },
@@ -14768,7 +14768,7 @@ export const CITY_INSIGHTS = {
         summary: "Mercado tenso y caro cerca del campus. West Campus es cómodo pero ruidoso; hay que reservar con meses de antelación.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 4.5, desc: "Alta demanda de los 50.000+ estudiantes de UT Austin; los mejores pisos de West Campus vuelan en primavera." },
+          { label: "Disponibilidad", score: 4.5, desc: "Alta demanda de los estudiantes de UT Austin; los mejores pisos de West Campus vuelan en primavera." },
           { label: "Precio", score: 4.0, desc: "Uno de los mercados de alquiler más caros de Texas, aunque lejos de Nueva York o San Francisco." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "Portales como ApartmentsClosetoUT o grupos de Facebook de intercambio funcionan bien." },
         ],
@@ -14882,7 +14882,7 @@ export const CITY_INSIGHTS = {
         summary: "Mercado muy tenso, especialmente cerca de la UW. El U-District es la opción más práctica para estudiantes.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 4.0, desc: "Alta demanda por los 48.000+ estudiantes de la UW; conviene buscar con varios meses de antelación." },
+          { label: "Disponibilidad", score: 4.0, desc: "Alta demanda por los estudiantes de la UW; conviene buscar con varios meses de antelación." },
           { label: "Precio", score: 3.5, desc: "Entre los alquileres más caros de EEUU, aunque algo por debajo de San Francisco o Nueva York." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "El servicio de vivienda de la UW y grupos de Facebook de intercambio son el punto de partida habitual." },
         ],

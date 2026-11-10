@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./HeroSection.module.css";
 import { getCityWhatsappGroup } from "../../data/cityWhatsappGroups";
 import { isErasmusEligible, getScoreLevel } from "../../lib/cities";
-import { IconUniversidad, IconFiesta, IconBeca, IconSol, IconBici, IconSeguridad, IconComida, IconArte, IconLaptop, IconPlaya, IconFuego } from "../icons";
+import { IconUniversidad, IconIdiomas, IconFiesta, IconBeca, IconSol, IconBici, IconSeguridad, IconComida, IconArte, IconLaptop, IconPlaya, IconFuego } from "../icons";
 import ScoreRing from "../ScoreRing";
 import { heroImage } from "../../lib/images";
 import PhotoCredit from "../PhotoCredit";
@@ -257,10 +257,10 @@ export default function HeroSection({ city, overallScore, insights }) {
             </div>
             <div className={styles.heroStatDiv} />
             <div className={styles.heroStat}>
-              <span className={styles.heroStatIcon}><IconUniversidad size={22} /></span>
+              <span className={styles.heroStatIcon}><IconIdiomas size={22} /></span>
               <div>
-                <p className={styles.heroStatVal}>{city.erasmusStudents}</p>
-                <p className={styles.heroStatKey}>{erasmusEligible ? "estudiantes Erasmus/año" : "estudiantes de intercambio/año"}</p>
+                <p className={styles.heroStatVal}>{city.language}</p>
+                <p className={styles.heroStatKey}>idioma local</p>
               </div>
             </div>
           </div>

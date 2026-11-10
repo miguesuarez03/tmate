@@ -1,7 +1,6 @@
 export const CITIES = [
   {
     slug: "bolonia",
-    erasmusStudents: "~6.000",
     name: "Bolonia",
     nameEn: "Bologna",
     country: "Italia",
@@ -31,7 +30,6 @@ export const CITIES = [
   },
   {
     slug: "milan",
-    erasmusStudents: "~5.500",
     name: "Milán",
     nameEn: "Milan",
     country: "Italia",
@@ -61,7 +59,6 @@ export const CITIES = [
   },
   {
     slug: "roma",
-    erasmusStudents: "~7.000",
     name: "Roma",
     nameEn: "Rome",
     country: "Italia",
@@ -91,7 +88,6 @@ export const CITIES = [
   },
   {
     slug: "turin",
-    erasmusStudents: "~3.500",
     name: "Turín",
     nameEn: "Turin",
     country: "Italia",
@@ -121,7 +117,6 @@ export const CITIES = [
   },
   {
     slug: "cracovia",
-    erasmusStudents: "~8.000",
     name: "Cracovia",
     nameEn: "Krakow",
     country: "Polonia",
@@ -151,7 +146,6 @@ export const CITIES = [
   },
   {
     slug: "varsovia",
-    erasmusStudents: "~6.000",
     name: "Varsovia",
     nameEn: "Warsaw",
     country: "Polonia",
@@ -181,7 +175,6 @@ export const CITIES = [
   },
   {
     slug: "budapest",
-    erasmusStudents: "~7.500",
     name: "Budapest",
     nameEn: "Budapest",
     country: "Hungría",
@@ -211,7 +204,6 @@ export const CITIES = [
   },
   {
     slug: "praga",
-    erasmusStudents: "~9.000",
     name: "Praga",
     nameEn: "Prague",
     country: "República Checa",
@@ -241,7 +233,6 @@ export const CITIES = [
   },
   {
     slug: "la-haya",
-    erasmusStudents: "~2.500",
     name: "La Haya",
     nameEn: "The Hague",
     country: "Países Bajos",
@@ -271,7 +262,6 @@ export const CITIES = [
   },
   {
     slug: "rotterdam",
-    erasmusStudents: "~3.000",
     name: "Rotterdam",
     nameEn: "Rotterdam",
     country: "Países Bajos",
@@ -301,7 +291,6 @@ export const CITIES = [
   },
   {
     slug: "munich",
-    erasmusStudents: "~4.500",
     name: "Múnich",
     nameEn: "Munich",
     country: "Alemania",
@@ -331,7 +320,6 @@ export const CITIES = [
   },
   {
     slug: "berlin",
-    erasmusStudents: "~8.000",
     name: "Berlín",
     nameEn: "Berlin",
     country: "Alemania",
@@ -361,7 +349,6 @@ export const CITIES = [
   },
   {
     slug: "lisboa",
-    erasmusStudents: "~9.500",
     name: "Lisboa",
     nameEn: "Lisbon",
     country: "Portugal",
@@ -391,7 +378,6 @@ export const CITIES = [
   },
   {
     slug: "oporto",
-    erasmusStudents: "~5.000",
     name: "Oporto",
     nameEn: "Porto",
     country: "Portugal",
@@ -421,7 +407,6 @@ export const CITIES = [
   },
   {
     slug: "paris",
-    erasmusStudents: "~12.000",
     name: "París",
     nameEn: "Paris",
     country: "Francia",
@@ -451,7 +436,6 @@ export const CITIES = [
   },
   {
     slug: "londres",
-    erasmusStudents: "~3.000",
     name: "Londres",
     nameEn: "London",
     country: "Reino Unido",
@@ -481,7 +465,6 @@ export const CITIES = [
   },
   {
     slug: "amsterdam",
-    erasmusStudents: "~6.000",
     name: "Ámsterdam",
     nameEn: "Amsterdam",
     country: "Países Bajos",
@@ -511,7 +494,6 @@ export const CITIES = [
   },
   {
     slug: "viena",
-    erasmusStudents: "~5.500",
     name: "Viena",
     nameEn: "Vienna",
     country: "Austria",
@@ -541,7 +523,6 @@ export const CITIES = [
   },
   {
     slug: "rosenheim",
-    erasmusStudents: "~400",
     name: "Rosenheim",
     nameEn: "Rosenheim",
     country: "Alemania",
@@ -570,7 +551,6 @@ export const CITIES = [
   },
   {
     slug: "bruselas",
-    erasmusStudents: "~4.500",
     name: "Bruselas",
     nameEn: "Brussels",
     country: "Bélgica",
@@ -600,7 +580,6 @@ export const CITIES = [
   },
   {
     slug: "estocolmo",
-    erasmusStudents: "~1.200",
     name: "Estocolmo",
     nameEn: "Stockholm",
     country: "Suecia",
@@ -630,7 +609,6 @@ export const CITIES = [
   },
   {
     slug: "copenhague",
-    erasmusStudents: "~1.400",
     name: "Copenhague",
     nameEn: "Copenhagen",
     country: "Dinamarca",
@@ -660,7 +638,6 @@ export const CITIES = [
   },
   {
     slug: "helsinki",
-    erasmusStudents: "~1.100",
     name: "Helsinki",
     nameEn: "Helsinki",
     country: "Finlandia",
@@ -690,7 +667,6 @@ export const CITIES = [
   },
   {
     slug: "oslo",
-    erasmusStudents: "~1.500",
     name: "Oslo",
     nameEn: "Oslo",
     country: "Noruega",
@@ -720,7 +696,6 @@ export const CITIES = [
   },
   {
     slug: "reikiavik",
-    erasmusStudents: "~500",
     name: "Reikiavik",
     nameEn: "Reykjavik",
     country: "Islandia",
@@ -750,7 +725,6 @@ export const CITIES = [
   },
   {
     slug: "dublin",
-    erasmusStudents: "~1.800",
     name: "Dublín",
     nameEn: "Dublin",
     country: "Irlanda",
@@ -780,7 +754,6 @@ export const CITIES = [
   },
   {
     slug: "edimburgo",
-    erasmusStudents: "~1.100",
     name: "Edimburgo",
     nameEn: "Edinburgh",
     country: "Escocia (Reino Unido)",
@@ -810,7 +783,6 @@ export const CITIES = [
   },
   {
     slug: "atenas",
-    erasmusStudents: "~900",
     name: "Atenas",
     nameEn: "Athens",
     country: "Grecia",
@@ -840,7 +812,6 @@ export const CITIES = [
   },
   {
     slug: "zagreb",
-    erasmusStudents: "~800",
     name: "Zagreb",
     nameEn: "Zagreb",
     country: "Croacia",
@@ -870,7 +841,6 @@ export const CITIES = [
   },
   {
     slug: "liubliana",
-    erasmusStudents: "~700",
     name: "Liubliana",
     nameEn: "Ljubljana",
     country: "Eslovenia",
@@ -900,7 +870,6 @@ export const CITIES = [
   },
   {
     slug: "tallin",
-    erasmusStudents: "~600",
     name: "Tallin",
     nameEn: "Tallinn",
     country: "Estonia",
@@ -930,7 +899,6 @@ export const CITIES = [
   },
   {
     slug: "vilna",
-    erasmusStudents: "~800",
     name: "Vilna",
     nameEn: "Vilnius",
     country: "Lituania",
@@ -960,7 +928,6 @@ export const CITIES = [
   },
   {
     slug: "riga",
-    erasmusStudents: "~750",
     name: "Riga",
     nameEn: "Riga",
     country: "Letonia",
@@ -990,7 +957,6 @@ export const CITIES = [
   },
   {
     slug: "bratislava",
-    erasmusStudents: "~1.900",
     name: "Bratislava",
     nameEn: "Bratislava",
     country: "Eslovaquia",
@@ -1015,12 +981,11 @@ export const CITIES = [
       { name: "Petržalka", vibe: "Residencial & asequible", price: "€" },
       { name: "Ružinov", vibe: "Local & bien conectado", price: "€" },
     ],
-    tips: ["El tren a Viena tarda solo 1 hora — muchos Erasmus hacen escapadas de un día entero", "ESN SK organiza actividades constantes para los cerca de 2.000 Erasmus que recibe Eslovaquia cada año", "El casco antiguo es tan pequeño que puedes recorrerlo entero caminando en 20 minutos"],
+    tips: ["El tren a Viena tarda solo 1 hora — muchos Erasmus hacen escapadas de un día entero", "ESN SK organiza actividades constantes para los estudiantes Erasmus que recibe Eslovaquia", "El casco antiguo es tan pequeño que puedes recorrerlo entero caminando en 20 minutos"],
     experiences: ["erasmus", "internship"],
   },
   {
     slug: "bucarest",
-    erasmusStudents: "~1.100",
     name: "Bucarest",
     nameEn: "Bucharest",
     country: "Rumanía",
@@ -1050,7 +1015,6 @@ export const CITIES = [
   },
   {
     slug: "sofia",
-    erasmusStudents: "~600",
     name: "Sofía",
     nameEn: "Sofia",
     country: "Bulgaria",
@@ -1080,7 +1044,6 @@ export const CITIES = [
   },
   {
     slug: "ginebra",
-    erasmusStudents: "~600",
     name: "Ginebra",
     nameEn: "Geneva",
     country: "Suiza",
@@ -1110,7 +1073,6 @@ export const CITIES = [
   },
   {
     slug: "florencia",
-    erasmusStudents: "~2.500",
     name: "Florencia",
     nameEn: "Florence",
     country: "Italia",
@@ -1140,7 +1102,6 @@ export const CITIES = [
   },
   {
     slug: "hamburgo",
-    erasmusStudents: "~3.000",
     name: "Hamburgo",
     nameEn: "Hamburg",
     country: "Alemania",
@@ -1170,7 +1131,6 @@ export const CITIES = [
   },
   {
     slug: "gante",
-    erasmusStudents: "~2.200",
     name: "Gante",
     nameEn: "Ghent",
     country: "Bélgica",
@@ -1200,7 +1160,6 @@ export const CITIES = [
   },
   {
     slug: "venecia",
-    erasmusStudents: "~700",
     name: "Venecia",
     nameEn: "Venice",
     country: "Italia",
@@ -1230,7 +1189,6 @@ export const CITIES = [
   },
   {
     slug: "lyon",
-    erasmusStudents: "~4.000",
     name: "Lyon",
     nameEn: "Lyon",
     country: "Francia",
@@ -1260,7 +1218,6 @@ export const CITIES = [
   },
   {
     slug: "colonia",
-    erasmusStudents: "~3.200",
     name: "Colonia",
     nameEn: "Cologne",
     country: "Alemania",
@@ -1290,7 +1247,6 @@ export const CITIES = [
   },
   {
     slug: "lovaina",
-    erasmusStudents: "~2.800",
     name: "Lovaina",
     nameEn: "Leuven",
     country: "Bélgica",
@@ -1320,7 +1276,6 @@ export const CITIES = [
   },
   {
     slug: "utrecht",
-    erasmusStudents: "~2.400",
     name: "Utrecht",
     nameEn: "Utrecht",
     country: "Países Bajos",
@@ -1350,7 +1305,6 @@ export const CITIES = [
   },
   {
     slug: "lund",
-    erasmusStudents: "~2.000",
     name: "Lund",
     nameEn: "Lund",
     country: "Suecia",
@@ -1380,7 +1334,6 @@ export const CITIES = [
   },
   {
     slug: "innsbruck",
-    erasmusStudents: "~1.500",
     name: "Innsbruck",
     nameEn: "Innsbruck",
     country: "Austria",
@@ -1410,7 +1363,6 @@ export const CITIES = [
   },
   {
     slug: "split",
-    erasmusStudents: "~900",
     name: "Split",
     nameEn: "Split",
     country: "Croacia",
@@ -1440,7 +1392,6 @@ export const CITIES = [
   },
   {
     slug: "salonica",
-    erasmusStudents: "~1.600",
     name: "Salónica",
     nameEn: "Thessaloniki",
     country: "Grecia",
@@ -1470,7 +1421,6 @@ export const CITIES = [
   },
   {
     slug: "napoles",
-    erasmusStudents: "~2.000",
     name: "Nápoles",
     nameEn: "Naples",
     country: "Italia",
@@ -1500,7 +1450,6 @@ export const CITIES = [
   },
   {
     slug: "groningen",
-    erasmusStudents: "~2.200",
     name: "Groningen",
     nameEn: "Groningen",
     country: "Países Bajos",
@@ -1530,7 +1479,6 @@ export const CITIES = [
   },
   {
     slug: "coimbra",
-    erasmusStudents: "~1.400",
     name: "Coimbra",
     nameEn: "Coimbra",
     country: "Portugal",
@@ -1560,7 +1508,6 @@ export const CITIES = [
   },
   {
     slug: "uppsala",
-    erasmusStudents: "~1.900",
     name: "Uppsala",
     nameEn: "Uppsala",
     country: "Suecia",
@@ -1590,7 +1537,6 @@ export const CITIES = [
   },
   {
     slug: "friburgo",
-    erasmusStudents: "~1.700",
     name: "Friburgo",
     nameEn: "Freiburg",
     country: "Alemania",
@@ -1620,7 +1566,6 @@ export const CITIES = [
   },
   {
     slug: "nantes",
-    erasmusStudents: "~2.600",
     name: "Nantes",
     nameEn: "Nantes",
     country: "Francia",
@@ -1650,7 +1595,6 @@ export const CITIES = [
   },
   {
     slug: "wroclaw",
-    erasmusStudents: "~3.500",
     name: "Breslavia",
     nameEn: "Wrocław",
     country: "Polonia",
@@ -1680,7 +1624,6 @@ export const CITIES = [
   },
   {
     slug: "cluj-napoca",
-    erasmusStudents: "~2.100",
     name: "Cluj-Napoca",
     nameEn: "Cluj-Napoca",
     country: "Rumanía",
@@ -1710,7 +1653,6 @@ export const CITIES = [
   },
   {
     slug: "galway",
-    erasmusStudents: "~1.300",
     name: "Galway",
     nameEn: "Galway",
     country: "Irlanda",
@@ -1740,7 +1682,6 @@ export const CITIES = [
   },
   {
     slug: "lausana",
-    erasmusStudents: "~1.200",
     name: "Lausana",
     nameEn: "Lausanne",
     country: "Suiza",
@@ -1770,7 +1711,6 @@ export const CITIES = [
   },
   {
     slug: "malmo",
-    erasmusStudents: "~1.500",
     name: "Malmö",
     nameEn: "Malmö",
     country: "Suecia",
@@ -1800,7 +1740,6 @@ export const CITIES = [
   },
   {
     slug: "aarhus",
-    erasmusStudents: "~1.500",
     name: "Aarhus",
     nameEn: "Aarhus",
     country: "Dinamarca",
@@ -1830,7 +1769,6 @@ export const CITIES = [
   },
   {
     slug: "heidelberg",
-    erasmusStudents: "~1.600",
     name: "Heidelberg",
     nameEn: "Heidelberg",
     country: "Alemania",
@@ -1860,7 +1798,6 @@ export const CITIES = [
   },
   {
     slug: "toulouse",
-    erasmusStudents: "~3.800",
     name: "Toulouse",
     nameEn: "Toulouse",
     country: "Francia",
@@ -1877,7 +1814,7 @@ export const CITIES = [
     students: "115.000+",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Toulouse_-_vue_du_Vieux_Toulouse_depuis_St_Sernin_06.jpg/1920px-Toulouse_-_vue_du_Vieux_Toulouse_depuis_St_Sernin_06.jpg",
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Toulouse_-_vue_du_Vieux_Toulouse_depuis_St_Sernin_06.jpg/1920px-Toulouse_-_vue_du_Vieux_Toulouse_depuis_St_Sernin_06.jpg",
-    description: "Toulouse es la capital europea de la aeronáutica —sede de Airbus— y una de las ciudades universitarias más grandes de Francia, con más de 115.000 estudiantes. Sus edificios de ladrillo rosa le dan el sobrenombre de 'Ciudad Rosa', y su vida estudiantil, concentrada en Saint-Cyprien y el Capitole, es de las más animadas del sur del país.",
+    description: "Toulouse es la capital europea de la aeronáutica —sede de Airbus— y una de las ciudades universitarias más grandes de Francia. Sus edificios de ladrillo rosa le dan el sobrenombre de 'Ciudad Rosa', y su vida estudiantil, concentrada en Saint-Cyprien y el Capitole, es de las más animadas del sur del país.",
     highlights: ["Sede de Airbus y capital europea de la industria aeroespacial", "Edificios de ladrillo rosa que dan nombre a la 'Ville Rose'", "Una de las poblaciones universitarias más grandes de Francia", "Cité de l'Espace y un ambiente estudiantil que no para toda la semana"],
     universities: ["Université Toulouse Capitole", "Université Toulouse Jean Jaurès", "INSA Toulouse", "ISAE-SUPAERO"],
     neighborhoods: [
@@ -1890,7 +1827,6 @@ export const CITIES = [
   },
   {
     slug: "burdeos",
-    erasmusStudents: "~3.200",
     name: "Burdeos",
     nameEn: "Bordeaux",
     country: "Francia",
@@ -1920,7 +1856,6 @@ export const CITIES = [
   },
   {
     slug: "palermo",
-    erasmusStudents: "~2.000",
     name: "Palermo",
     nameEn: "Palermo",
     country: "Italia",
@@ -1950,7 +1885,6 @@ export const CITIES = [
   },
   {
     slug: "gdansk",
-    erasmusStudents: "~2.400",
     name: "Gdansk",
     nameEn: "Gdańsk",
     country: "Polonia",
@@ -1980,7 +1914,6 @@ export const CITIES = [
   },
   {
     slug: "nicosia",
-    erasmusStudents: "~900",
     name: "Nicosia",
     nameEn: "Nicosia",
     country: "Chipre",
@@ -2010,7 +1943,6 @@ export const CITIES = [
   },
   {
     slug: "la-valeta",
-    erasmusStudents: "~700",
     name: "La Valeta",
     nameEn: "Valletta",
     country: "Malta",
@@ -2040,7 +1972,6 @@ export const CITIES = [
   },
   {
     slug: "zurich",
-    erasmusStudents: "~1.100",
     name: "Zúrich",
     nameEn: "Zurich",
     country: "Suiza",
@@ -2070,7 +2001,6 @@ export const CITIES = [
   },
   {
     slug: "brno",
-    erasmusStudents: "~2.800",
     name: "Brno",
     nameEn: "Brno",
     country: "República Checa",
@@ -2100,7 +2030,6 @@ export const CITIES = [
   },
   {
     slug: "estrasburgo",
-    erasmusStudents: "~3.400",
     name: "Estrasburgo",
     nameEn: "Strasbourg",
     country: "Francia",
@@ -2130,7 +2059,6 @@ export const CITIES = [
   },
   {
     slug: "montpellier",
-    erasmusStudents: "~3.600",
     name: "Montpellier",
     nameEn: "Montpellier",
     country: "Francia",
@@ -2160,7 +2088,6 @@ export const CITIES = [
   },
   {
     slug: "marsella",
-    erasmusStudents: "~2.900",
     name: "Marsella",
     nameEn: "Marseille",
     country: "Francia",
@@ -2190,7 +2117,6 @@ export const CITIES = [
   },
   {
     slug: "lille",
-    erasmusStudents: "~4.200",
     name: "Lille",
     nameEn: "Lille",
     country: "Francia",
@@ -2220,7 +2146,6 @@ export const CITIES = [
   },
   {
     slug: "dresde",
-    erasmusStudents: "~1.900",
     name: "Dresde",
     nameEn: "Dresden",
     country: "Alemania",
@@ -2250,7 +2175,6 @@ export const CITIES = [
   },
   {
     slug: "leipzig",
-    erasmusStudents: "~2.200",
     name: "Leipzig",
     nameEn: "Leipzig",
     country: "Alemania",
@@ -2280,7 +2204,6 @@ export const CITIES = [
   },
   {
     slug: "tubinga",
-    erasmusStudents: "~1.600",
     name: "Tubinga",
     nameEn: "Tübingen",
     country: "Alemania",
@@ -2310,7 +2233,6 @@ export const CITIES = [
   },
   {
     slug: "poznan",
-    erasmusStudents: "~5.000",
     name: "Poznan",
     nameEn: "Poznań",
     country: "Polonia",
@@ -2340,7 +2262,6 @@ export const CITIES = [
   },
   {
     slug: "katowice",
-    erasmusStudents: "~1.800",
     name: "Katowice",
     nameEn: "Katowice",
     country: "Polonia",
@@ -2370,7 +2291,6 @@ export const CITIES = [
   },
   {
     slug: "braga",
-    erasmusStudents: "~1.500",
     name: "Braga",
     nameEn: "Braga",
     country: "Portugal",
@@ -2400,7 +2320,6 @@ export const CITIES = [
   },
   {
     slug: "bari",
-    erasmusStudents: "~2.100",
     name: "Bari",
     nameEn: "Bari",
     country: "Italia",
@@ -2430,7 +2349,6 @@ export const CITIES = [
   },
   {
     slug: "padua",
-    erasmusStudents: "~2.800",
     name: "Padua",
     nameEn: "Padua",
     country: "Italia",
@@ -2460,7 +2378,6 @@ export const CITIES = [
   },
   {
     slug: "genova",
-    erasmusStudents: "~1.700",
     name: "Génova",
     nameEn: "Genoa",
     country: "Italia",
@@ -2490,7 +2407,6 @@ export const CITIES = [
   },
   {
     slug: "perugia",
-    erasmusStudents: "~2.400",
     name: "Perugia",
     nameEn: "Perugia",
     country: "Italia",
@@ -2520,7 +2436,6 @@ export const CITIES = [
   },
   {
     slug: "manchester",
-    erasmusStudents: "~2.000",
     name: "Mánchester",
     nameEn: "Manchester",
     country: "Reino Unido",
@@ -2550,7 +2465,6 @@ export const CITIES = [
   },
   {
     slug: "glasgow",
-    erasmusStudents: "~1.700",
     name: "Glasgow",
     nameEn: "Glasgow",
     country: "Escocia (Reino Unido)",
@@ -2580,7 +2494,6 @@ export const CITIES = [
   },
   {
     slug: "bristol",
-    erasmusStudents: "~1.500",
     name: "Bristol",
     nameEn: "Bristol",
     country: "Reino Unido",
@@ -2610,7 +2523,6 @@ export const CITIES = [
   },
   {
     slug: "basilea",
-    erasmusStudents: "~700",
     name: "Basilea",
     nameEn: "Basel",
     country: "Suiza",
@@ -2640,7 +2552,6 @@ export const CITIES = [
   },
   {
     slug: "berna",
-    erasmusStudents: "~500",
     name: "Berna",
     nameEn: "Bern",
     country: "Suiza",
@@ -2670,7 +2581,6 @@ export const CITIES = [
   },
   {
     slug: "estambul",
-    erasmusStudents: "~3.000",
     name: "Estambul",
     nameEn: "Istanbul",
     country: "Turquía",
@@ -2687,7 +2597,7 @@ export const CITIES = [
     students: "300.000+",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Historical_peninsula_and_modern_skyline_of_Istanbul.jpg/1920px-Historical_peninsula_and_modern_skyline_of_Istanbul.jpg",
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Historical_peninsula_and_modern_skyline_of_Istanbul.jpg/1920px-Historical_peninsula_and_modern_skyline_of_Istanbul.jpg",
-    description: "Estambul es la única ciudad del mundo repartida entre dos continentes, con el Bósforo separando su lado europeo del asiático y un ferry como transporte diario, no solo turístico. Con más de 300.000 estudiantes universitarios, milenios de historia bizantina y otomana condensados en Santa Sofía y la Mezquita Azul, y un coste de vida de los más bajos de toda esta guía.",
+    description: "Estambul es la única ciudad del mundo repartida entre dos continentes, con el Bósforo separando su lado europeo del asiático y un ferry como transporte diario, no solo turístico. Con una enorme población universitaria, milenios de historia bizantina y otomana condensados en Santa Sofía y la Mezquita Azul, y un coste de vida de los más bajos de toda esta guía.",
     highlights: ["La única ciudad del mundo repartida entre Europa y Asia", "Cruzar el Bósforo en ferry como transporte diario, con vistas de postal", "Santa Sofía y la Mezquita Azul, siglos de historia bizantina y otomana", "Uno de los costes de vida más bajos de toda esta guía"],
     universities: ["Boğaziçi University", "Istanbul University", "Istanbul Technical University"],
     neighborhoods: [
@@ -2700,7 +2610,6 @@ export const CITIES = [
   },
   {
     slug: "pisa",
-    erasmusStudents: "~1.900",
     name: "Pisa",
     nameEn: "Pisa",
     country: "Italia",
@@ -2717,7 +2626,7 @@ export const CITIES = [
     students: "50.000+",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Italy_-_Pisa.jpg/1920px-Italy_-_Pisa.jpg",
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Italy_-_Pisa.jpg/1920px-Italy_-_Pisa.jpg",
-    description: "Pisa es mucho más que su torre inclinada: la Università di Pisa, donde estudió y enseñó Galileo Galilei, y la Scuola Normale Superiore, una de las instituciones de élite de Italia, hacen de esta ciudad pequeña una potencia científica desproporcionada para su tamaño. Con más de 50.000 estudiantes en una ciudad de apenas 90.000 habitantes, la vida universitaria lo domina todo.",
+    description: "Pisa es mucho más que su torre inclinada: la Università di Pisa, donde estudió y enseñó Galileo Galilei, y la Scuola Normale Superiore, una de las instituciones de élite de Italia, hacen de esta ciudad pequeña una potencia científica desproporcionada para su tamaño. Con muchísimos estudiantes para el tamaño de la ciudad, la vida universitaria lo domina todo.",
     highlights: ["Universidad de Galileo Galilei, que estudió y enseñó aquí", "Scuola Normale Superiore, una de las instituciones académicas de élite de Italia", "La Piazza dei Miracoli y la Torre Inclinada, Patrimonio de la Humanidad", "Aeropuerto de Pisa, uno de los hubs low-cost más importantes de Italia"],
     universities: ["Università di Pisa", "Scuola Normale Superiore"],
     neighborhoods: [
@@ -2730,7 +2639,6 @@ export const CITIES = [
   },
   {
     slug: "siena",
-    erasmusStudents: "~1.400",
     name: "Siena",
     nameEn: "Siena",
     country: "Italia",
@@ -2760,7 +2668,6 @@ export const CITIES = [
   },
   {
     slug: "trieste",
-    erasmusStudents: "~1.100",
     name: "Trieste",
     nameEn: "Trieste",
     country: "Italia",
@@ -2790,7 +2697,6 @@ export const CITIES = [
   },
   {
     slug: "parma",
-    erasmusStudents: "~1.800",
     name: "Parma",
     nameEn: "Parma",
     country: "Italia",
@@ -2820,7 +2726,6 @@ export const CITIES = [
   },
   {
     slug: "bergamo",
-    erasmusStudents: "~1.300",
     name: "Bérgamo",
     nameEn: "Bergamo",
     country: "Italia",
@@ -2850,7 +2755,6 @@ export const CITIES = [
   },
   {
     slug: "ferrara",
-    erasmusStudents: "~1.200",
     name: "Ferrara",
     nameEn: "Ferrara",
     country: "Italia",
@@ -2879,7 +2783,6 @@ export const CITIES = [
   },
   {
     slug: "urbino",
-    erasmusStudents: "~900",
     name: "Urbino",
     nameEn: "Urbino",
     country: "Italia",
@@ -2896,8 +2799,8 @@ export const CITIES = [
     students: "14.000+",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Urbino_dalla_Strada_Rossa.jpg/1920px-Urbino_dalla_Strada_Rossa.jpg",
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Urbino_dalla_Strada_Rossa.jpg/1920px-Urbino_dalla_Strada_Rossa.jpg",
-    description: "Urbino es, literalmente, un pueblo renacentista entero convertido en universidad: con apenas 15.000 residentes y 14.000 estudiantes, la ciudad y la Università di Urbino Carlo Bo son prácticamente la misma cosa. El Palacio Ducal, cuna del Renacimiento italiano y Patrimonio de la Humanidad, domina un casco histórico tan pequeño que se recorre entero en 20 minutos a pie.",
-    highlights: ["Ciudad y universidad son casi lo mismo: 14.000 estudiantes en un pueblo de 15.000 habitantes", "Palacio Ducal, uno de los edificios clave del Renacimiento italiano", "Centro histórico completo declarado Patrimonio de la Humanidad por la UNESCO", "Ciudad natal del pintor Rafael"],
+    description: "Urbino es, literalmente, un pueblo renacentista entero convertido en universidad: con casi tantos estudiantes como vecinos, la ciudad y la Università di Urbino Carlo Bo son prácticamente la misma cosa. El Palacio Ducal, cuna del Renacimiento italiano y Patrimonio de la Humanidad, domina un casco histórico tan pequeño que se recorre entero en 20 minutos a pie.",
+    highlights: ["Ciudad y universidad son casi lo mismo: casi tantos estudiantes como vecinos", "Palacio Ducal, uno de los edificios clave del Renacimiento italiano", "Centro histórico completo declarado Patrimonio de la Humanidad por la UNESCO", "Ciudad natal del pintor Rafael"],
     universities: ["Università degli Studi di Urbino Carlo Bo"],
     neighborhoods: [
       { name: "Centro storico", vibe: "Histórico & íntimo", price: "€" },
@@ -2907,7 +2810,6 @@ export const CITIES = [
   },
   {
     slug: "lecce",
-    erasmusStudents: "~1.000",
     name: "Lecce",
     nameEn: "Lecce",
     country: "Italia",
@@ -2936,7 +2838,6 @@ export const CITIES = [
   },
   {
     slug: "catania",
-    erasmusStudents: "~2.200",
     name: "Catania",
     nameEn: "Catania",
     country: "Italia",
@@ -2966,7 +2867,6 @@ export const CITIES = [
   },
   {
     slug: "cagliari",
-    erasmusStudents: "~1.100",
     name: "Cagliari",
     nameEn: "Cagliari",
     country: "Italia",
@@ -2996,7 +2896,6 @@ export const CITIES = [
   },
   {
     slug: "maastricht",
-    erasmusStudents: "~2.600",
     name: "Maastricht",
     nameEn: "Maastricht",
     country: "Países Bajos",
@@ -3026,7 +2925,6 @@ export const CITIES = [
   },
   {
     slug: "grenoble",
-    erasmusStudents: "~4.500",
     name: "Grenoble",
     nameEn: "Grenoble",
     country: "Francia",
@@ -3056,7 +2954,6 @@ export const CITIES = [
   },
   {
     slug: "verona",
-    erasmusStudents: "~2.300",
     name: "Verona",
     nameEn: "Verona",
     country: "Italia",
@@ -3086,7 +2983,6 @@ export const CITIES = [
   },
   {
     slug: "gotemburgo",
-    erasmusStudents: "~2.200",
     name: "Gotemburgo",
     nameEn: "Gothenburg",
     country: "Suecia",
@@ -3116,7 +3012,6 @@ export const CITIES = [
   },
   {
     slug: "liverpool",
-    erasmusStudents: "~2.100",
     name: "Liverpool",
     nameEn: "Liverpool",
     country: "Reino Unido",
@@ -3146,7 +3041,6 @@ export const CITIES = [
   },
   {
     slug: "leeds",
-    erasmusStudents: "~2.000",
     name: "Leeds",
     nameEn: "Leeds",
     country: "Reino Unido",
@@ -3163,7 +3057,7 @@ export const CITIES = [
     students: "65.000+",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Leeds_CBD_at_night.jpg/1920px-Leeds_CBD_at_night.jpg",
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Leeds_CBD_at_night.jpg/1920px-Leeds_CBD_at_night.jpg",
-    description: "Leeds tiene, fuera de Londres, la mayor población estudiantil del Reino Unido, con más de 65.000 estudiantes repartidos entre sus universidades. Antigua ciudad industrial textil reconvertida en centro comercial y financiero del norte de Inglaterra, combina un ambiente universitario intensísimo con los Yorkshire Dales a un paso para escapar el fin de semana.",
+    description: "Leeds tiene, fuera de Londres, una de las mayores poblaciones estudiantiles del Reino Unido, repartida entre varias universidades. Antigua ciudad industrial textil reconvertida en centro comercial y financiero del norte de Inglaterra, combina un ambiente universitario intensísimo con los Yorkshire Dales a un paso para escapar el fin de semana.",
     highlights: ["La mayor población estudiantil del Reino Unido fuera de Londres", "El Otley Run, uno de los recorridos de pubs más famosos del país", "Victoria Quarter, uno de los conjuntos comerciales históricos más bonitos de Inglaterra", "Los Yorkshire Dales, con paisajes espectaculares, a menos de una hora"],
     universities: ["University of Leeds", "Leeds Beckett University"],
     neighborhoods: [
@@ -3176,7 +3070,6 @@ export const CITIES = [
   },
   {
     slug: "turku",
-    erasmusStudents: "~1.600",
     name: "Turku",
     nameEn: "Turku",
     country: "Finlandia",
@@ -3205,7 +3098,6 @@ export const CITIES = [
   },
   {
     slug: "rennes",
-    erasmusStudents: "~4.000",
     name: "Rennes",
     nameEn: "Rennes",
     country: "Francia",
@@ -3235,7 +3127,6 @@ export const CITIES = [
   },
   {
     slug: "pecs",
-    erasmusStudents: "~1.400",
     name: "Pécs",
     nameEn: "Pécs",
     country: "Hungría",
@@ -3264,7 +3155,6 @@ export const CITIES = [
   },
   {
     slug: "kaunas",
-    erasmusStudents: "~1.500",
     name: "Kaunas",
     nameEn: "Kaunas",
     country: "Lituania",
@@ -3293,7 +3183,6 @@ export const CITIES = [
   },
   {
     slug: "sao-paulo",
-    erasmusStudents: "~2.500",
     name: "São Paulo",
     nameEn: "Sao Paulo",
     country: "Brasil",
@@ -3323,7 +3212,6 @@ export const CITIES = [
   },
   {
     slug: "rio-de-janeiro",
-    erasmusStudents: "~2.200",
     name: "Río de Janeiro",
     nameEn: "Rio de Janeiro",
     country: "Brasil",
@@ -3353,7 +3241,6 @@ export const CITIES = [
   },
   {
     slug: "florianopolis",
-    erasmusStudents: "~900",
     name: "Florianópolis",
     nameEn: "Florianopolis",
     country: "Brasil",
@@ -3383,7 +3270,6 @@ export const CITIES = [
   },
   {
     slug: "cartagena-de-indias",
-    erasmusStudents: "~700",
     name: "Cartagena de Indias",
     nameEn: "Cartagena de Indias",
     country: "Colombia",
@@ -3413,7 +3299,6 @@ export const CITIES = [
   },
   {
     slug: "cusco",
-    erasmusStudents: "~600",
     name: "Cusco",
     nameEn: "Cusco",
     country: "Perú",
@@ -3443,7 +3328,6 @@ export const CITIES = [
   },
   {
     slug: "nueva-york",
-    erasmusStudents: "~15.000",
     name: "Nueva York",
     nameEn: "New York City",
     country: "Estados Unidos",
@@ -3473,7 +3357,6 @@ export const CITIES = [
   },
   {
     slug: "boston",
-    erasmusStudents: "~12.000",
     name: "Boston",
     nameEn: "Boston",
     country: "Estados Unidos",
@@ -3503,7 +3386,6 @@ export const CITIES = [
   },
   {
     slug: "chicago",
-    erasmusStudents: "~8.000",
     name: "Chicago",
     nameEn: "Chicago",
     country: "Estados Unidos",
@@ -3533,7 +3415,6 @@ export const CITIES = [
   },
   {
     slug: "los-angeles",
-    erasmusStudents: "~10.000",
     name: "Los Ángeles",
     nameEn: "Los Angeles",
     country: "Estados Unidos",
@@ -3563,7 +3444,6 @@ export const CITIES = [
   },
   {
     slug: "san-francisco",
-    erasmusStudents: "~7.000",
     name: "San Francisco",
     nameEn: "San Francisco",
     country: "Estados Unidos",
@@ -3593,7 +3473,6 @@ export const CITIES = [
   },
   {
     slug: "lima",
-    erasmusStudents: "~1.800",
     name: "Lima",
     nameEn: "Lima",
     country: "Perú",
@@ -3623,7 +3502,6 @@ export const CITIES = [
   },
   {
     slug: "ciudad-de-panama",
-    erasmusStudents: "~900",
     name: "Ciudad de Panamá",
     nameEn: "Panama City",
     country: "Panamá",
@@ -3653,7 +3531,6 @@ export const CITIES = [
   },
   {
     slug: "san-jose-costa-rica",
-    erasmusStudents: "~2.500",
     name: "San José",
     nameEn: "San José",
     country: "Costa Rica",
@@ -3683,7 +3560,6 @@ export const CITIES = [
   },
   {
     slug: "montevideo",
-    erasmusStudents: "~700",
     name: "Montevideo",
     nameEn: "Montevideo",
     country: "Uruguay",
@@ -3713,7 +3589,6 @@ export const CITIES = [
   },
   {
     slug: "quito",
-    erasmusStudents: "~1.300",
     name: "Quito",
     nameEn: "Quito",
     country: "Ecuador",
@@ -3743,7 +3618,6 @@ export const CITIES = [
   },
   {
     slug: "miami",
-    erasmusStudents: "~4.500",
     name: "Miami",
     nameEn: "Miami",
     country: "Estados Unidos",
@@ -3773,7 +3647,6 @@ export const CITIES = [
   },
   {
     slug: "toronto",
-    erasmusStudents: "~9.000",
     name: "Toronto",
     nameEn: "Toronto",
     country: "Canadá",
@@ -3803,7 +3676,6 @@ export const CITIES = [
   },
   {
     slug: "vancouver",
-    erasmusStudents: "~6.500",
     name: "Vancouver",
     nameEn: "Vancouver",
     country: "Canadá",
@@ -3833,7 +3705,6 @@ export const CITIES = [
   },
   {
     slug: "montreal",
-    erasmusStudents: "~7.500",
     name: "Montreal",
     nameEn: "Montreal",
     country: "Canadá",
@@ -3863,7 +3734,6 @@ export const CITIES = [
   },
   {
     slug: "ciudad-de-mexico",
-    erasmusStudents: "~3.500",
     name: "Ciudad de México",
     nameEn: "Mexico City",
     country: "México",
@@ -3893,7 +3763,6 @@ export const CITIES = [
   },
   {
     slug: "guadalajara",
-    erasmusStudents: "~3.000",
     name: "Guadalajara",
     nameEn: "Guadalajara",
     country: "México",
@@ -3923,7 +3792,6 @@ export const CITIES = [
   },
   {
     slug: "austin",
-    erasmusStudents: "~4.500",
     name: "Austin",
     nameEn: "Austin",
     country: "Estados Unidos",
@@ -3953,7 +3821,6 @@ export const CITIES = [
   },
   {
     slug: "seattle",
-    erasmusStudents: "~3.800",
     name: "Seattle",
     nameEn: "Seattle",
     country: "Estados Unidos",
@@ -3983,7 +3850,6 @@ export const CITIES = [
   },
   {
     slug: "washington",
-    erasmusStudents: "~5.500",
     name: "Washington D.C.",
     nameEn: "Washington D.C.",
     country: "Estados Unidos",
@@ -4013,7 +3879,6 @@ export const CITIES = [
   },
   {
     slug: "nueva-orleans",
-    erasmusStudents: "~2.200",
     name: "Nueva Orleans",
     nameEn: "New Orleans",
     country: "Estados Unidos",
@@ -4043,7 +3908,6 @@ export const CITIES = [
   },
   {
     slug: "ann-arbor",
-    erasmusStudents: "~3.500",
     name: "Ann Arbor",
     nameEn: "Ann Arbor",
     country: "Estados Unidos",
@@ -4073,7 +3937,6 @@ export const CITIES = [
   },
   {
     slug: "quebec",
-    erasmusStudents: "~2.500",
     name: "Quebec",
     nameEn: "Quebec City",
     country: "Canadá",
@@ -4103,7 +3966,6 @@ export const CITIES = [
   },
   {
     slug: "ottawa",
-    erasmusStudents: "~4.000",
     name: "Ottawa",
     nameEn: "Ottawa",
     country: "Canadá",
@@ -4133,7 +3995,6 @@ export const CITIES = [
   },
   {
     slug: "san-diego",
-    erasmusStudents: "~5.000",
     name: "San Diego",
     nameEn: "San Diego",
     country: "Estados Unidos",
@@ -4163,7 +4024,6 @@ export const CITIES = [
   },
   {
     slug: "monterrey",
-    erasmusStudents: "~3.000",
     name: "Monterrey",
     nameEn: "Monterrey",
     country: "México",
@@ -4193,7 +4053,6 @@ export const CITIES = [
   },
   {
     slug: "la-paz",
-    erasmusStudents: "~150",
     name: "La Paz",
     nameEn: "La Paz",
     country: "Bolivia",
@@ -4223,7 +4082,6 @@ export const CITIES = [
   },
   {
     slug: "asuncion",
-    erasmusStudents: "~120",
     name: "Asunción",
     nameEn: "Asunción",
     country: "Paraguay",
@@ -4253,7 +4111,6 @@ export const CITIES = [
   },
   {
     slug: "ciudad-de-guatemala",
-    erasmusStudents: "~300",
     name: "Ciudad de Guatemala",
     nameEn: "Guatemala City",
     country: "Guatemala",
@@ -4283,7 +4140,6 @@ export const CITIES = [
   },
   {
     slug: "san-salvador",
-    erasmusStudents: "~220",
     name: "San Salvador",
     nameEn: "San Salvador",
     country: "El Salvador",
@@ -4313,7 +4169,6 @@ export const CITIES = [
   },
   {
     slug: "santo-domingo",
-    erasmusStudents: "~400",
     name: "Santo Domingo",
     nameEn: "Santo Domingo",
     country: "República Dominicana",
@@ -4343,7 +4198,6 @@ export const CITIES = [
   },
   {
     slug: "buenos-aires",
-    erasmusStudents: "~4.000",
     name: "Buenos Aires",
     nameEn: "Buenos Aires",
     country: "Argentina",
@@ -4373,7 +4227,6 @@ export const CITIES = [
   },
   {
     slug: "cordoba-argentina",
-    erasmusStudents: "~700",
     name: "Córdoba",
     nameEn: "Córdoba",
     country: "Argentina",
@@ -4403,7 +4256,6 @@ export const CITIES = [
   },
   {
     slug: "santiago-de-chile",
-    erasmusStudents: "~2.500",
     name: "Santiago de Chile",
     nameEn: "Santiago de Chile",
     country: "Chile",
@@ -4433,7 +4285,6 @@ export const CITIES = [
   },
   {
     slug: "bogota",
-    erasmusStudents: "~2.000",
     name: "Bogotá",
     nameEn: "Bogotá",
     country: "Colombia",
@@ -4463,7 +4314,6 @@ export const CITIES = [
   },
   {
     slug: "medellin",
-    erasmusStudents: "~1.500",
     name: "Medellín",
     nameEn: "Medellín",
     country: "Colombia",
