@@ -623,6 +623,13 @@
   margin-top: 24px;
 }
 
+/* Aviso breve de privacidad bajo los botones (primera capa, art. 11 LOPDGDD). */
+.wizardPrivacy {
+  margin: 16px 0 0;
+  font-size: 12px; line-height: 1.55; color: var(--color-muted);
+}
+.wizardPrivacy a { color: inherit; text-decoration: underline; }
+
 .wizardBackBtn {
   padding: 12px 18px;
   border-radius: var(--radius-md);

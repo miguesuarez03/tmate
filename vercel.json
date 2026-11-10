@@ -4,6 +4,9 @@
   "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/aviso-legal", "destination": "/privacidad", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",

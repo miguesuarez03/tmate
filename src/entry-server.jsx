@@ -17,7 +17,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { StaticRouter } from "react-router-dom/server";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { renderToString } from "react-dom/server";
 
 // Páginas importadas de forma EAGER (no lazy): con renderToString, un
@@ -100,9 +100,9 @@ const STATIC_PAGE_META = {
     priority: 0.6,
   },
   "/privacidad": {
-    title: "Privacidad y cookies | MAbroad",
+    title: "Aviso legal y privacidad | MAbroad",
     description:
-      "Qué datos trata MAbroad y para qué: analítica anónima sin cookies (Vercel Web Analytics), formulario de feedback y preferencias guardadas en tu navegador.",
+      "Quién está detrás de MAbroad y qué datos trata: analítica sin cookies, formularios, plazos de conservación, destinatarios y cómo ejercer tus derechos.",
     changefreq: "yearly",
     priority: 0.2,
   },
@@ -214,6 +214,8 @@ function App({ url }) {
         <Route path="/city-match" element={<CityMatchPage />} />
         <Route path="/tipos-de-intercambio" element={<TiposDeIntercambioPage />} />
         <Route path="/privacidad" element={<PrivacidadPage />} />
+        {/* /aviso-legal → /privacidad (en producción la redirección la hace vercel.json) */}
+        <Route path="/aviso-legal" element={<Navigate to="/privacidad" replace />} />
         <Route path="/creditos" element={<CreditosPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

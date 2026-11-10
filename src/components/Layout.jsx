@@ -438,7 +438,7 @@ export function Footer() {
       <Logo dark={false} onClick={() => navigate("/")} />
       <p className="footer__copy">
         © 2025 MAbroad · Hecho para ciudadanos globales ·{" "}
-        <Link to="/privacidad" className="footer__link">Privacidad y cookies</Link>
+        <Link to="/privacidad" className="footer__link">Aviso legal y privacidad</Link>
         {" · "}
         <Link to="/creditos" className="footer__link">Créditos de las fotos</Link>
       </p>

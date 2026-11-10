@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { IconUniversidad, IconEdificio, IconGlobo, IconManos, IconAmigos, IconLibros, IconLapiz, IconRobot, IconAlerta, IconSobre, IconCheck, IconCiclo, IconReloj, IconFiesta, IconClipboard } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
@@ -634,6 +634,13 @@ function LAWizard() {
             {isLast ? <>Enviar solicitud <IconSobre size={16} /></> : "Continuar →"}
           </button>
         </div>
+
+        <p className={styles.wizardPrivacy}>
+          Tus datos se guardan solo en este navegador hasta que pulsas «Enviar solicitud»: entonces se abre tu
+          correo con el mensaje para nosotros y no nos llega nada hasta que lo envías. Los usa Miguel Ángel
+          Suárez (MAbroad) solo para prepararte la propuesta y responderte, y los borra 6 meses después.{" "}
+          <Link to="/privacidad">Privacidad y tus derechos</Link>
+        </p>
       </div>
     </div>
   );

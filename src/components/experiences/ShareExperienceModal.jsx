@@ -399,9 +399,11 @@ export default function ShareExperienceModal({ open, onClose, initialCity = "" }
             </button>
 
             <p className={styles.fine}>
-              La lee Miguel, de MAbroad, solo para revisarla y publicarla. Se envía con Web3Forms. Si se
-              publica, aparecen tu nombre o alias, la ciudad, el año, tu universidad, la valoración y el
-              texto; el email, nunca. Puedes pedirnos que la quitemos cuando quieras.
+              Responsable: Miguel Ángel Suárez Álvarez (MAbroad). Usamos estos datos solo para revisar y
+              publicar tu experiencia; se envían con Web3Forms. Si se publica, aparecen tu nombre o alias, la
+              ciudad, el año, tu universidad, la valoración y el texto; el email, nunca. Puedes retirar tu
+              consentimiento cuando quieras y la quitaremos.{" "}
+              <Link to="/privacidad" target="_blank" rel="noopener">Privacidad y tus derechos</Link>
             </p>
           </form>
         )}

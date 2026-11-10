@@ -57,7 +57,7 @@ Documented in detail in `ARCHITECTURE.md`. Short version: add an entry to `CITIE
 
 ### Routing
 
-`react-router-dom` v6, routes defined in `src/App.jsx` (client) and mirrored in `src/entry-server.jsx` (SSR/prerender): `/`, `/city/:slug`, `/proceso`, `/comparar`, `/learning-agreement`, `/beca-erasmus`, `/city-match`, `/tipos-de-intercambio`, `/privacidad`, `/creditos`. A `STATIC_PAGE_META` entry with `noindex: true` is prerendered with `<meta name="robots" content="noindex">`, no canonical, and is left out of the sitemap. Keep both files' `<Routes>` in sync when adding/removing a route, and update `ALL_ROUTES`/`STATIC_PAGE_META` in `entry-server.jsx` for prerendering + sitemap generation.
+`react-router-dom` v6, routes defined in `src/App.jsx` (client) and mirrored in `src/entry-server.jsx` (SSR/prerender): `/`, `/city/:slug`, `/proceso`, `/comparar`, `/learning-agreement`, `/beca-erasmus`, `/city-match`, `/tipos-de-intercambio`, `/privacidad` (aviso legal + política de privacidad; `/aviso-legal` redirects there via `vercel.json` and a `<Navigate>` route), `/creditos`. A `STATIC_PAGE_META` entry with `noindex: true` is prerendered with `<meta name="robots" content="noindex">`, no canonical, and is left out of the sitemap. Keep both files' `<Routes>` in sync when adding/removing a route, and update `ALL_ROUTES`/`STATIC_PAGE_META` in `entry-server.jsx` for prerendering + sitemap generation.
 
 ### Styling
 

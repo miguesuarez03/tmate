@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ScrollRestoration from "./components/ScrollRestoration";
 import RouteLoader from "./components/RouteLoader";
 import GoogleAnalytics from "./components/GoogleAnalytics";
@@ -41,6 +41,8 @@ export default function App() {
           <Route path="/city-match" element={<CityMatchPage />} />
           <Route path="/tipos-de-intercambio" element={<TiposDeIntercambioPage />} />
           <Route path="/privacidad" element={<PrivacidadPage />} />
+          {/* El aviso legal vive dentro de /privacidad (en producción, 308 desde vercel.json). */}
+          <Route path="/aviso-legal" element={<Navigate to="/privacidad" replace />} />
           <Route path="/creditos" element={<CreditosPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

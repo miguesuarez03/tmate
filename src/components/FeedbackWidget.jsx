@@ -300,8 +300,9 @@ export default function FeedbackWidget() {
                   )}
                 </button>
                 <p className={styles.fine}>
-                  Guardamos tu mensaje y la página desde la que lo envías.{" "}
-                  <Link to="/privacidad">Privacidad</Link>
+                  Recibimos tu mensaje, la página desde la que escribes y, si lo dejas, tu email. Lo lee
+                  Miguel Ángel Suárez (MAbroad) para mejorar la web y responderte; se envía con Web3Forms.{" "}
+                  <Link to="/privacidad">Privacidad y tus derechos</Link>
                 </p>
               </form>
             )}
