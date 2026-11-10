@@ -1,4 +1,5 @@
 import { sizedImage } from "./images";
+import { HOME_FAQS, BECA_FAQS } from "../data/faqs";
 
 // Dominio canónico: www. El apex (mabroad.com) redirige con 308 a www desde
 // la configuración de dominios de Vercel, así que canonical, Open Graph,
@@ -72,6 +73,33 @@ export function getWebsiteJsonLd() {
     },
   ];
 }
+
+/**
+ * FAQPage (https://schema.org/FAQPage) a partir de las mismas preguntas que
+ * se ven en la página (src/data/faqs.js): el texto del JSON-LD y el visible
+ * son siempre idénticos. `path` es la ruta canónica de la página.
+ */
+export function getFaqJsonLd(faqs, path) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${SITE_URL}${path === "/" ? "/" : path}#faq`,
+    inLanguage: "es",
+    mainEntity: faqs.map(({ q, a }) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: { "@type": "Answer", text: a },
+    })),
+  };
+}
+
+/**
+ * JSON-LD completo por página con FAQ. Constantes de módulo (no se recrean en
+ * cada render, así useSEO no reescribe el <script> sin motivo). Los usan la
+ * página en el cliente y entry-server.jsx en el prerender.
+ */
+export const HOME_JSON_LD = [...getWebsiteJsonLd(), getFaqJsonLd(HOME_FAQS, "/")];
+export const BECA_JSON_LD = getFaqJsonLd(BECA_FAQS, "/beca-erasmus");
 
 /** Migas de pan (Inicio › Ciudad) para las fichas de destino. */
 export function getBreadcrumbJsonLd(city) {

@@ -38,7 +38,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import { CITIES } from "./data/cities";
 import { getCityBySlug, getOverallScore, getCityMeta, getHomeMeta } from "./lib/cities";
 import {
-  getCityJsonLd, getBreadcrumbJsonLd, getWebsiteJsonLd,
+  getCityJsonLd, getBreadcrumbJsonLd, HOME_JSON_LD, BECA_JSON_LD,
   SITE_URL, SITE_NAME, SITE_LOCALE,
   DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_WIDTH, DEFAULT_OG_IMAGE_HEIGHT, DEFAULT_OG_IMAGE_ALT,
 } from "./lib/seo";
@@ -91,6 +91,8 @@ const STATIC_PAGE_META = {
       "Guía completa de la beca Erasmus+ para estudiantes españoles: importes por país, complementos, compatibilidad con MEC y estimador de cuánto cobrarías.",
     changefreq: "weekly",
     priority: 0.8,
+    // Mismo objeto que pasa BecaErasmusPage a useSEO (FAQ de src/data/faqs.js).
+    jsonLd: BECA_JSON_LD,
   },
   "/tipos-de-intercambio": {
     title: "Tipos de intercambio: Erasmus+, UK y Suiza | MAbroad",
@@ -152,7 +154,8 @@ export function getMetaForPath(pathname) {
       canonical,
       ogType: "website",
       ...DEFAULT_OG,
-      jsonLd: getWebsiteJsonLd(),
+      // Organization + WebSite + FAQPage (mismo objeto que usa HomePage).
+      jsonLd: HOME_JSON_LD,
     };
   }
 
@@ -184,7 +187,7 @@ export function getMetaForPath(pathname) {
       canonical,
       ogType: "website",
       ...DEFAULT_OG,
-      jsonLd: null,
+      jsonLd: m.jsonLd || null,
       noindex: Boolean(m.noindex),
     };
   }

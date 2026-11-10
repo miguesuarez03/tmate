@@ -19,7 +19,7 @@ export default function CityDetailPage() {
   const city          = getCityBySlug(slug);
   const insights      = getCityInsights(slug);
   const overallScore  = getOverallScore(slug);
-  const relatedCities = city ? getRelatedCities(city, 3) : [];
+  const relatedCities = city ? getRelatedCities(city, 4) : [];
 
   // Nota: el scroll (subir arriba al entrar / restaurar al volver atrás)
   // lo gestiona <ScrollRestoration /> de forma global, así que aquí no

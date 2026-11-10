@@ -1,8 +1,10 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useId } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { IconCorazonInclusion, IconAccesibilidad, IconHoja, IconBombilla, IconGrafica, IconPin, IconTarjeta, IconLibros, IconEdificio, IconUniversidad, IconCasa, IconComida, IconTransporte, IconFiesta, IconBeca, IconAlerta, IconCheck, IconViajes } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
+import { BECA_JSON_LD } from "../lib/seo";
+import { BECA_FAQS } from "../data/faqs";
 import { CITY_COORDS, haversineDistanceKm, distanceToRange, geocodeCity } from "../lib/cityCoords";
 import { getCityInsights, parseMinCost, parseMaxCost, isErasmusEligible } from "../lib/cities";
 import { CITIES } from "../data/cities";
@@ -170,28 +172,8 @@ const CCAA_LIST = [
   "Región de Murcia", "Extremadura", "Castilla-La Mancha", "Canarias", "Baleares",
 ];
 
-const FAQ = [
-  {
-    q: "¿Hay que devolver la beca Erasmus?",
-    a: "No, salvo que no realices la estancia, la abandones sin justificación válida, no entregues la documentación obligatoria o incumplas las condiciones del programa. Si cumples todo, el dinero es tuyo.",
-  },
-  {
-    q: "¿Cuándo se cobra la beca?",
-    a: "Normalmente en dos pagos: el primero entre el inicio de la estancia y los primeros meses, y el segundo al regresar y entregar toda la documentación. Planifica tener un colchón económico para los primeros meses porque el primer pago puede tardar.",
-  },
-  {
-    q: "¿Qué es el complemento de 'menos oportunidades'?",
-    a: "Un extra de +250€/mes para estudiantes con beca MEC por criterios económicos, familias numerosas, personas con discapacidad u otros colectivos definidos en cada convocatoria. Consúltalo con tu ORI porque los requisitos exactos varían.",
-  },
-  {
-    q: "¿Qué es Green Travel?",
-    a: "Un complemento adicional para estudiantes que viajan en medios de transporte sostenibles: tren, autobús o coche compartido. La cuantía depende de la distancia y la convocatoria.",
-  },
-  {
-    q: "¿Los importes son iguales en todas las universidades?",
-    a: "No. La base la pone la UE según el grupo del país de destino, pero cada universidad puede complementarla con fondos propios. Dos estudiantes yendo al mismo país pueden cobrar cantidades distintas.",
-  },
-];
+// Las preguntas frecuentes viven en src/data/faqs.js (BECA_FAQS): de ahí
+// salen el texto visible y el JSON-LD FAQPage.
 
 /* ─── CALCULATOR ─────────────────────────────────────────────────────────── */
 
@@ -557,15 +539,26 @@ function Calculator() {
 
 /* ─── FAQ ITEM ───────────────────────────────────────────────────────────── */
 
+// Mismo texto que el JSON-LD FAQPage (src/data/faqs.js). La respuesta está
+// siempre en el HTML (hidden si está cerrada).
 function FaqItem({ item }) {
   const [open, setOpen] = useState(false);
+  const answerId = useId();
   return (
     <div className={`beca-faq-item ${open ? "beca-faq-item--open" : ""}`}>
-      <button className="beca-faq-item__q" onClick={() => setOpen((v) => !v)}>
-        <span>{item.q}</span>
-        <span className="beca-faq-item__arrow">{open ? "▲" : "▼"}</span>
-      </button>
-      {open && <p className="beca-faq-item__a">{item.a}</p>}
+      <h3 className="beca-faq-item__heading">
+        <button
+          type="button"
+          className="beca-faq-item__q"
+          aria-expanded={open}
+          aria-controls={answerId}
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span>{item.q}</span>
+          <span className="beca-faq-item__arrow" aria-hidden="true">{open ? "▲" : "▼"}</span>
+        </button>
+      </h3>
+      <p id={answerId} className="beca-faq-item__a" hidden={!open}>{item.a}</p>
     </div>
   );
 }
@@ -578,6 +571,7 @@ export default function BecaErasmusPage() {
   useSEO({
     title: "Beca Erasmus+: cuánto se cobra y cómo funciona | MAbroad",
     description: "Guía completa de la beca Erasmus+ para estudiantes españoles: importes por país, complementos, compatibilidad con MEC y estimador de cuánto cobrarías.",
+    jsonLd: BECA_JSON_LD,
   });
 
   return (
@@ -818,7 +812,7 @@ export default function BecaErasmusPage() {
           <h2 className="beca-section__title">Preguntas frecuentes</h2>
 
           <div className="beca-faq">
-            {FAQ.map((item, i) => (
+            {BECA_FAQS.map((item, i) => (
               <FaqItem key={i} item={item} />
             ))}
           </div>

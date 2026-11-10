@@ -1,14 +1,15 @@
-import { useState, useEffect, useRef, useMemo, lazy, Suspense } from "react";
+import { useState, useEffect, useRef, useMemo, useId, lazy, Suspense } from "react";
 import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import { CITIES } from "../data/cities";
-import { getScoreMap, getOverallScore, findBestCityMatch } from "../lib/cities";
+import { getScoreMap, getOverallScore, findBestCityMatch, getCitiesGroupedByRegion } from "../lib/cities";
+import { HOME_FAQS } from "../data/faqs";
 import { Navbar, Footer, SectionLabel, MASymbol, NAV_LINKS } from "../components/Layout";
 import { IconCityMatch, IconComparar, IconBeca, IconRanking, IconComunidad, IconSeguridad, IconUniversidad, IconMedalla, IconEdificio, IconFiesta, IconPausa, IconReproducir } from "../components/icons";
 import SearchBar from "../components/SearchBar";
 import CityCard from "../components/CityCard";
 import { useCityFilter } from "../hooks/useCityFilter";
 import { useSEO } from "../hooks/useSEO";
-import { getWebsiteJsonLd } from "../lib/seo";
+import { HOME_JSON_LD } from "../lib/seo";
 import HomeExperiences from "../components/experiences/HomeExperiences";
 
 // WorldMap arrastra react-simple-maps + d3 (pesado). Se carga bajo demanda
@@ -365,39 +366,41 @@ function GlobeSection() {
   );
 }
 
-const FAQS = [
-  {
-    q: "¿Es gratis usar MAbroad?",
-    a: "Sí. Puedes explorar todos los destinos, comparar ciudades, hacer el City Match y pedirnos ayuda con tu propuesta de Learning Agreement sin pagar nada y sin registrarte.",
-  },
-  {
-    q: "¿Qué es el Learning Agreement y para qué sirve?",
-    a: "Es el documento que fija el programa de estudios que seguirás en el extranjero, para que te reconozcan lo que apruebes allí. Lo aprueban tú, tu universidad y la de destino antes de empezar la estancia. En MAbroad te explicamos cómo prepararlo y te ayudamos con una propuesta de equivalencias, pero el documento oficial se tramita con tu universidad.",
-  },
-  {
-    q: "¿Cuántas ciudades tenéis?",
-    a: `Ahora mismo hay ${CITIES.length} destinos de intercambio, cada uno con notas de 0 a 10 en 8 categorías (coste de vida, alojamiento, vida social, seguridad…), universidades, clima y consejos. Seguimos añadiendo ciudades.`,
-  },
-  {
-    q: "¿Cómo funcionan los scores de las ciudades?",
-    a: "Cada ciudad tiene una nota de 0 a 10 en 8 categorías: coste de vida, alojamiento, vida social, integración internacional, movilidad, estilo de vida, empleo y seguridad. Es una valoración propia de MAbroad, no un dato oficial: se basa en la información de cada ficha (precios orientativos, transporte, clima, oferta universitaria…). La nota global es la media de las 8 categorías.",
-  },
-  {
-    q: "¿Puedo comparar varias ciudades a la vez?",
-    a: "Sí. El comparador de MAbroad te permite poner varias ciudades lado a lado y ver todas sus métricas de golpe. Es la forma más rápida de decidirte.",
-  },
-  {
-    q: "¿Por dónde empiezo si acabo de confirmar mi plaza?",
-    a: "Lo primero es explorar tu destino para saber qué esperar. Después, tramita el Learning Agreement cuanto antes — es lo más urgente y lo que más se suele dejar para el final.",
-  },
-  {
-    q: "¿De dónde salen los datos y cuándo se actualizan?",
-    a: "Los importes de beca y ayuda de viaje siguen la convocatoria Erasmus+ 2026 del SEPIE y la Guía del Programa de la Comisión Europea, pero el importe oficial es el que publica tu universidad. El resto (coste de vida, transporte, ambiente) son valoraciones y cifras aproximadas de MAbroad. En cada ficha y en el comparador puedes abrir «Cómo calculamos estos datos» para ver el método y la fecha de la última revisión.",
-  },
-];
+// Directorio de todos los destinos por región: enlaces rastreables a las
+// fichas que no aparecen en la rejilla inicial (solo enseña 4), para que
+// ninguna ficha quede huérfana en el HTML prerenderizado.
+const CITY_DIRECTORY = getCitiesGroupedByRegion();
+
+function CityDirectorySection() {
+  return (
+    <section className="section city-directory" aria-labelledby="city-directory-title" style={{ maxWidth: 1280, margin: "0 auto" }}>
+      <div className="section__header">
+        <div>
+          <SectionLabel color="var(--color-teal)">Directorio</SectionLabel>
+          <h2 id="city-directory-title" className="section__title">Todos los destinos</h2>
+        </div>
+      </div>
+      <div className="city-directory__grid">
+        {CITY_DIRECTORY.map(({ region, cities }) => (
+          <div key={region} className="city-directory__group">
+            <h3 className="city-directory__region">
+              {region} <span className="city-directory__count">{cities.length}</span>
+            </h3>
+            <ul className="city-directory__list">
+              {cities.map((c) => (
+                <li key={c.slug}><Link to={`/city/${c.slug}`}>{c.name}</Link></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
 
 function FAQSection() {
   const [openIdx, setOpenIdx] = useState(null);
+  const baseId = useId();
 
   return (
     <section className="faq-section">
@@ -410,21 +413,29 @@ function FAQSection() {
           </p>
         </div>
         <div className="faq-list">
-          {FAQS.map((item, i) => (
-            <div
-              key={i}
-              className={`faq-item${openIdx === i ? " faq-item--open" : ""}`}
-              onClick={() => setOpenIdx(openIdx === i ? null : i)}
-            >
-              <div className="faq-item__question">
-                <span>{item.q}</span>
-                <span className="faq-item__icon">{openIdx === i ? "−" : "+"}</span>
+          {/* Mismo texto que el JSON-LD FAQPage (src/data/faqs.js). Las
+              respuestas cerradas siguen en el HTML, con hidden. */}
+          {HOME_FAQS.map((item, i) => {
+            const open = openIdx === i;
+            const answerId = `${baseId}-faq-${i}`;
+            return (
+              <div key={i} className={`faq-item${open ? " faq-item--open" : ""}`}>
+                <h3 className="faq-item__heading">
+                  <button
+                    type="button"
+                    className="faq-item__question"
+                    aria-expanded={open}
+                    aria-controls={answerId}
+                    onClick={() => setOpenIdx(open ? null : i)}
+                  >
+                    <span>{item.q}</span>
+                    <span className="faq-item__icon" aria-hidden="true">{open ? "−" : "+"}</span>
+                  </button>
+                </h3>
+                <div id={answerId} className="faq-item__answer" hidden={!open}>{item.a}</div>
               </div>
-              {openIdx === i && (
-                <div className="faq-item__answer">{item.a}</div>
-              )}
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
@@ -538,7 +549,7 @@ export default function HomePage() {
   const totalCount = filtered.length;
 
   // SEO dinámico
-  useSEO({ isHome: true, jsonLd: getWebsiteJsonLd() });
+  useSEO({ isHome: true, jsonLd: HOME_JSON_LD });
 
   // SearchAction (JSON-LD de WebSite): /?buscar=<texto> abre la ficha de la
   // ciudad que mejor coincide, igual que el buscador del hero.
@@ -685,6 +696,9 @@ export default function HomePage() {
 
       {/* EXPERIENCIAS — «Mi experiencia» o las experiencias reales aprobadas */}
       <HomeExperiences />
+
+      {/* DIRECTORIO: todas las fichas enlazadas */}
+      <CityDirectorySection />
 
       {/* FAQ */}
       <FAQSection />

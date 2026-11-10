@@ -524,11 +524,12 @@ a { text-decoration: none; color: inherit; }
    cualquier fotograma. */
 .hero__stats {
   position: absolute; left: 50%; bottom: 28px; transform: translateX(-50%);
-  display: flex; justify-content: center; align-items: center;
-  gap: clamp(24px, 5vw, 56px); flex-wrap: wrap;
+  display: flex; justify-content: center; align-items: flex-start;
+  gap: clamp(24px, 5vw, 56px); flex-wrap: nowrap;
   max-width: calc(100% - 2 * var(--section-px));
 }
 .hero__stat { text-align: center; }
+.hero__stat-label { display: block; margin-top: 2px; }
 .hero__stat-val { font-family: var(--font-display); font-size: clamp(16px, 2vw, 20px); font-weight: 700; color: #fff; display: block; text-shadow: 0 2px 10px rgba(0,0,0,0.55), 0 1px 2px rgba(0,0,0,0.4); }
 .hero__stat-label { font-size: 10px; color: rgba(255,255,255,0.88); letter-spacing: 0.5px; text-transform: uppercase; text-shadow: 0 1px 2px rgba(15,30,45,0.65), 0 1px 8px rgba(15,30,45,0.6); }
 
@@ -682,6 +683,8 @@ a { text-decoration: none; color: inherit; }
 .city-card {
   border-radius: var(--radius-lg); overflow: hidden; cursor: pointer;
   position: relative; aspect-ratio: 4/5;
+  /* Es un <a> (enlace rastreable a la ficha): bloque y sin estilo de enlace. */
+  display: block; color: inherit; text-decoration: none;
   /* Dark bg while image loads */
   background: #0F1E2D;
   transform: translateY(0);
@@ -746,6 +749,8 @@ a { text-decoration: none; color: inherit; }
 .city-card__phrase {
   font-size: 11px; color: rgba(255,255,255,0.78); line-height: 1.45;
   font-style: italic; padding-top: 8px;
+  /* Deja libre la esquina inferior derecha para el crédito de la foto. */
+  padding-right: 14px;
   border-top: 1px solid rgba(255,255,255,0.2);
 }
 
@@ -788,7 +793,13 @@ a { text-decoration: none; color: inherit; }
 .cta__buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
 /* ─── FOOTER ─────────────────────────────────────────────────────────────── */
-.footer { padding: 32px var(--section-px); background: #0F1E2D; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+/* padding-bottom extra: el botón fijo «¿Qué te falta?» (esquina inferior
+   derecha) no tapa el final del footer al llegar abajo del todo. */
+.footer { padding: 32px var(--section-px) calc(76px + env(safe-area-inset-bottom)); background: #0F1E2D; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer__nav { flex-basis: 100%; display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0; padding: 0; list-style: none; }
+.footer__nav a { font-size: 13px; color: rgba(255,255,255,0.7); text-decoration: none; }
+.footer__nav a:hover { color: var(--color-primary); }
+.footer__nav a:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; border-radius: 2px; }
 .footer__copy { font-size: 12px; color: rgba(255,255,255,0.28); }
 .footer__link { color: rgba(255,255,255,0.6); text-decoration: underline; text-underline-offset: 2px; }
 .footer__link:hover { color: var(--color-primary); }
@@ -1047,22 +1058,34 @@ a { text-decoration: none; color: inherit; }
   /* "Sube todo lo demás" (crest/badge/título/subtítulo/buscador): en vez
      de centrar verticalmente todo .hero__content en el alto completo
      (lo que dejaba un hueco grande entre la píldora de accesos y el
-     resto), el contenido arranca justo debajo de la píldora — los stats
-     no se mueven, van aparte con position:absolute al fondo. */
-  .hero { padding-top: 122px; padding-bottom: 72px; justify-content: flex-start; }
+     resto), el contenido arranca justo debajo de la píldora y los stats
+     van en flujo al final (ver .hero__stats abajo). */
+  .hero { padding-top: 122px; padding-bottom: calc(22px + env(safe-area-inset-bottom)); justify-content: flex-start; }
   .hero__title { font-size: clamp(32px, 9vw, 52px); letter-spacing: -1px; white-space: normal; }
   .hero__quicklink { font-size: 11px; padding: 5px 10px; }
-  /* Los stats se ven también en móvil (antes los tapaba el nav que ahora
-     está arriba) — un poco más pequeños que en desktop, presentes pero
-     sin protagonismo. */
-  .hero__stats { gap: 14px; flex-wrap: nowrap; overflow-x: auto; max-width: calc(100% - 2 * var(--section-px)); -webkit-overflow-scrolling: touch; }
-  .hero__stat { flex-shrink: 0; }
-  /* Botón de pausa del vídeo (esquina inferior izquierda): los stats le
-     dejan hueco a ambos lados para no pisarlo en móviles estrechos. */
-  .hero__video-toggle { width: 36px; height: 36px; bottom: 24px; }
-  .hero:has(.hero__video-toggle) .hero__stats { max-width: calc(100% - 2 * (var(--section-px) + 44px)); }
-  .hero__stat-val { font-size: 15px; }
-  .hero__stat-label { font-size: 9px; }
+  /* Stats en móvil: un poco más pequeños que en desktop, presentes pero sin
+     protagonismo. Rejilla de 3 columnas iguales (los 3 stats): cada valor centrado sobre
+     su etiqueta y todos a la misma altura, sin scroll horizontal. Ocupa el
+     hueco entre el botón de pausa del vídeo (izquierda) y el botón fijo
+     «¿Qué te falta?» (derecha): 44px + margen a cada lado.
+     EN FLUJO (no absolute): margin-top auto los lleva al fondo del hero y
+     el padding-top garantiza una separación mínima con el contenido; si una
+     etiqueta ocupa 2-3 líneas, el hero crece en vez de montarse encima. El
+     padding-bottom del .hero ya suma el safe area. */
+  .hero__stats {
+    position: relative; z-index: 2;
+    left: auto; bottom: auto; transform: none;
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start; gap: 8px;
+    width: calc(100% - 2 * 52px);
+    max-width: 360px;
+    margin: auto auto 0;
+    padding-top: 28px;
+  }
+  .hero__stat { min-width: 0; }
+  .hero__video-toggle { width: 36px; height: 36px; bottom: calc(24px + env(safe-area-inset-bottom)); }
+  .hero__stat-val { font-size: 15px; line-height: 1.2; }
+  .hero__stat-label { display: block; font-size: 9px; line-height: 1.3; letter-spacing: 0.3px; overflow-wrap: anywhere; }
   .search-bar__btn { padding: 11px 16px; font-size: 13px; }
   .cities-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .city-card { aspect-ratio: 3/4; }
@@ -2357,6 +2380,9 @@ a { text-decoration: none; color: inherit; }
   transition: background var(--transition-fast);
 }
 .beca-faq-item__q:hover { background: var(--color-surface); }
+.beca-faq-item__q:focus-visible { outline: 2px solid var(--color-primary); outline-offset: -2px; }
+.beca-faq-item__heading { margin: 0; font: inherit; }
+.beca-faq-item__a[hidden] { display: none; }
 .beca-faq-item__arrow { font-size: 11px; color: var(--color-muted); flex-shrink: 0; }
 .beca-faq-item__a {
   padding: 0 20px 18px;
@@ -2434,6 +2460,30 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 0;
 }
 
+/* ─── Directorio «Todos los destinos» (home) ───────────────────────────────
+   Lista compacta de enlaces a TODAS las fichas, agrupadas por región: sirve
+   de índice y garantiza que ninguna ficha quede sin enlace interno. */
+.city-directory__grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 28px 32px;
+}
+.city-directory__region {
+  font-family: var(--font-display); font-size: 15px; font-weight: 800;
+  color: var(--color-dark); margin: 0 0 10px;
+  padding-bottom: 8px; border-bottom: 1px solid var(--color-border);
+}
+.city-directory__count { font-family: var(--font-body); font-size: 12px; font-weight: 600; color: var(--color-muted); margin-left: 4px; }
+.city-directory__list {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 4px 14px;
+}
+.city-directory__list a {
+  font-size: 13.5px; line-height: 1.6; color: var(--color-slate);
+  text-decoration: none;
+}
+.city-directory__list a:hover { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
+.city-directory__list a:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; border-radius: 2px; }
+
 /* ─── FAQ Section ─────────────────────────────────────────────── */
 .faq-section {
   padding: var(--section-py) var(--section-px);
@@ -2482,7 +2532,13 @@ a { text-decoration: none; color: inherit; }
   box-shadow: 0 4px 20px rgba(245,150,58,0.1);
 }
 
+/* Pregunta = <h3><button>: accesible por teclado (aria-expanded). Las
+   respuestas están siempre en el HTML (atributo hidden si está cerrada),
+   igual que en el JSON-LD FAQPage. */
+.faq-item__heading { margin: 0; font: inherit; }
 .faq-item__question {
+  width: 100%;
+  padding: 0; border: none; background: none; cursor: pointer; text-align: left;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2493,6 +2549,8 @@ a { text-decoration: none; color: inherit; }
   color: var(--color-dark);
   line-height: 1.4;
 }
+.faq-item__question:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 4px; border-radius: 4px; }
+.faq-item__answer[hidden] { display: none; }
 
 .faq-item__icon {
   font-size: 22px;

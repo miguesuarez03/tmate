@@ -431,6 +431,16 @@ export function NavbarCity({ cityName, overall }) {
   );
 }
 
+const FOOTER_LINKS = [
+  { label: "Destinos", path: "/" },
+  { label: "City Match", path: "/city-match" },
+  { label: "Comparar ciudades", path: "/comparar" },
+  { label: "Cómo funciona el Erasmus", path: "/proceso" },
+  { label: "Beca Erasmus+", path: "/beca-erasmus" },
+  { label: "Learning Agreement", path: "/learning-agreement" },
+  { label: "Tipos de intercambio", path: "/tipos-de-intercambio" },
+];
+
 export function Footer() {
   const navigate = useNavigate();
   return (
@@ -442,6 +452,15 @@ export function Footer() {
         {" · "}
         <Link to="/creditos" className="footer__link">Créditos de las fotos</Link>
       </p>
+      {/* Enlaces rastreables a todas las páginas indexables (ninguna queda
+          huérfana: /tipos-de-intercambio no está en el navbar). */}
+      <nav aria-label="Secciones de MAbroad">
+        <ul className="footer__nav">
+          {FOOTER_LINKS.map((l) => (
+            <li key={l.path}><Link to={l.path}>{l.label}</Link></li>
+          ))}
+        </ul>
+      </nav>
       <p className="footer__independence">
         MAbroad es un proyecto independiente, sin relación con la Comisión Europea, el SEPIE ni las universidades.
         Los importes y datos son orientativos: el dato oficial es el de cada universidad y su convocatoria.

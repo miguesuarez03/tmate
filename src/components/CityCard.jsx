@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { IconFuego } from "./icons";
 import { isErasmusEligible, getOverallScore } from "../lib/cities";
 import ScoreRing from "./ScoreRing";
@@ -19,7 +19,6 @@ export default function CityCard({ city }) {
   const [hovered, setHovered] = useState(false);
   const [inView, setInView] = useState(false);
   const cardRef = useRef(null);
-  const navigate = useNavigate();
   const overall = getOverallScore(city.slug);
 
   // Entrada suave al hacer scroll — una sola vez, con IntersectionObserver
@@ -37,16 +36,15 @@ export default function CityCard({ city }) {
     return () => observer.disconnect();
   }, []);
 
+  // <Link> (un <a href> real) y no un div con onClick: así Google y el HTML
+  // prerenderizado tienen un enlace rastreable a cada ficha de ciudad.
   return (
-    <div
+    <Link
       ref={cardRef}
+      to={`/city/${city.slug}`}
       className={`city-card${inView ? " city-card--in-view" : ""}`}
-      onClick={() => navigate(`/city/${city.slug}`)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => e.key === "Enter" && navigate(`/city/${city.slug}`)}
       aria-label={`Ver ${city.name}`}
     >
       {/* Image — position absolute fills entire card */}
@@ -74,8 +72,8 @@ export default function CityCard({ city }) {
         <span className="city-card__tag city-card__tag--program">🌍 No Erasmus</span>
       )}
 
-      {/* Crédito de la foto: esquina superior derecha (bajo la pill "No Erasmus" si la hay) */}
-      <PhotoCredit src={city.img} corner="top-right" nested style={!isErasmusEligible(city) ? { top: 46 } : undefined} />
+      {/* Crédito de la foto: esquina inferior derecha (la frase le deja hueco) */}
+      <PhotoCredit src={city.img} corner="bottom-right" nested />
 
       {/* Bottom content */}
       <div className="city-card__content">
@@ -90,6 +88,6 @@ export default function CityCard({ city }) {
         {/* Phrase — always visible */}
         <p className="city-card__phrase">{city.phrase}</p>
       </div>
-    </div>
+    </Link>
   );
 }

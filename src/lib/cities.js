@@ -217,23 +217,75 @@ export function getCitiesByRegion(region, excludeSlug = null) {
 
 // ─── CIUDADES RELACIONADAS ────────────────────────────────────────────────────
 
+/** Máximo de ciudades del mismo país entre las similares (para variar). */
+const SIMILAR_MAX_PER_COUNTRY = 2;
+
 /**
- * Ciudades relacionadas con una ciudad dada.
- * Prioriza mismo país, luego misma región.
+ * Ciudades parecidas a una dada, para los enlaces internos de su ficha
+ * («Otros destinos que te pueden gustar»). Puntúa cada ciudad por:
+ *  - mismo tipo de programa (Erasmus+, UK, Suiza, América…) y misma región,
+ *  - presupuesto mensual mínimo parecido (costDetail),
+ *  - nota global parecida (getOverallScore) y mismo tamaño (getCitySize),
+ *  - tipos de experiencia y etiqueta en común.
+ * Como mucho 2 del mismo país, para que no salgan siempre las mismas: antes
+ * se devolvían las primeras del país por orden del fichero, y la mayoría de
+ * fichas (p. ej. casi todas las italianas) no recibían ningún enlace.
+ * Determinista (mismo resultado en el prerender y en el cliente).
  * @param {City} city
  * @param {number} limit
  * @returns {City[]}
  */
-export function getRelatedCities(city, limit = 3) {
-  const sameCountry = CITIES.filter(
-    c => c.country === city.country && c.slug !== city.slug
-  );
-  if (sameCountry.length >= limit) return sameCountry.slice(0, limit);
+export function getRelatedCities(city, limit = 4) {
+  const baseCost = parseMinCost(city.costDetail || "");
+  const baseOverall = getOverallScore(city.slug);
+  const baseSize = getCitySize(city);
+  const baseExperiences = city.experiences || [];
 
-  const sameRegion = CITIES.filter(
-    c => c.region === city.region && c.slug !== city.slug && c.country !== city.country
-  );
-  return [...sameCountry, ...sameRegion].slice(0, limit);
+  const scored = CITIES
+    .filter((c) => c.slug !== city.slug)
+    .map((c) => {
+      let score = 0;
+      if (c.programType === city.programType) score += 4;
+      if (c.region === city.region) score += 3;
+      if (c.country === city.country) score += 1;
+      const cost = parseMinCost(c.costDetail || "");
+      if (baseCost && cost) score += Math.max(0, 3 - Math.abs(cost - baseCost) / 150);
+      score += Math.max(0, 2 - Math.abs(getOverallScore(c.slug) - baseOverall));
+      const size = getCitySize(c);
+      if (size != null && size === baseSize) score += 1;
+      const shared = (c.experiences || []).filter((e) => baseExperiences.includes(e)).length;
+      score += Math.min(shared, 2) * 0.5;
+      if (c.tag && c.tag === city.tag) score += 0.5;
+      return { c, score };
+    })
+    .sort((a, b) => b.score - a.score || a.c.name.localeCompare(b.c.name, "es"));
+
+  const result = [];
+  const perCountry = {};
+  for (const { c } of scored) {
+    if ((perCountry[c.country] ?? 0) >= SIMILAR_MAX_PER_COUNTRY) continue;
+    result.push(c);
+    perCountry[c.country] = (perCountry[c.country] ?? 0) + 1;
+    if (result.length === limit) break;
+  }
+  return result;
+}
+
+/**
+ * Todas las ciudades agrupadas por región (orden alfabético dentro de cada
+ * una), para el directorio «Todos los destinos» de la home: garantiza que
+ * cada ficha tenga al menos un enlace interno rastreable.
+ * @returns {Array<{ region: string, cities: City[] }>}
+ */
+export function getCitiesGroupedByRegion() {
+  const groups = {};
+  for (const c of CITIES) (groups[c.region] ??= []).push(c);
+  return Object.keys(groups)
+    .sort((a, b) => a.localeCompare(b, "es"))
+    .map((region) => ({
+      region,
+      cities: groups[region].sort((a, b) => a.name.localeCompare(b.name, "es")),
+    }));
 }
 
 // ─── FAVORITOS ────────────────────────────────────────────────────────────────
