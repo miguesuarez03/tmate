@@ -5,7 +5,7 @@ Claude Code hace cada tanda y Codex la revisa con `codex exec` en solo lectura (
 
 ## Dónde vamos
 
-**Siguiente tanda: 5** (Coímbra, Copenhague, Dublín, Estocolmo, Helsinki) (actualizar al cerrar cada tanda).
+**Siguiente tanda: 6** (Lovaina, Gante, Utrecht, Groninga, Róterdam) (actualizar al cerrar cada tanda).
 
 ## Qué se revisa en cada ciudad
 
@@ -32,7 +32,7 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 | 2 | Oporto (`oporto`), Berlín (`berlin`), París (`paris`), Praga (`praga`), Budapest (`budapest`) | ✅ 10-11-2026 |
 | 3 | Varsovia (`varsovia`), Cracovia (`cracovia`), Viena (`viena`), Ámsterdam (`amsterdam`), Bruselas (`bruselas`) | ✅ 10-11-2026 |
 | 4 | Múnich (`munich`), Lyon (`lyon`), Turín (`turin`), Nápoles (`napoles`), Padua (`padua`) | ✅ 10-11-2026 |
-| 5 | Coimbra (`coimbra`), Copenhague (`copenhague`), Dublín (`dublin`), Estocolmo (`estocolmo`), Helsinki (`helsinki`) | Pendiente |
+| 5 | Coimbra (`coimbra`), Copenhague (`copenhague`), Dublín (`dublin`), Estocolmo (`estocolmo`), Helsinki (`helsinki`) | ✅ 10-11-2026 |
 | 6 | Lovaina (`lovaina`), Gante (`gante`), Utrecht (`utrecht`), Groningen (`groningen`), Rotterdam (`rotterdam`) | Pendiente |
 | 7 | La Haya (`la-haya`), Maastricht (`maastricht`), Hamburgo (`hamburgo`), Colonia (`colonia`), Heidelberg (`heidelberg`) | Pendiente |
 | 8 | Friburgo (`friburgo`), Leipzig (`leipzig`), Dresde (`dresde`), Tubinga (`tubinga`), Rosenheim (`rosenheim`) | Pendiente |
@@ -103,3 +103,13 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 - Clima: Múnich con normales DWD/OMM y Lyon añadido (Météo-France, Lyon-Bron). Turín: quitado hasta tener normales de una estación urbana (la serie completa de la OMM es de Torino-Bric, a 710 m). Nápoles y Padua: sin normales completas verificadas (pendiente).
 - 4 enlaces Erasmus arreglados (LMU, TUM, HM, UniPD).
 - Codex: auditoría con fuentes + 2 rondas; en la ronda 1 precisó que el récord de seguridad de Múnich es entre ciudades de más de 200.000 habitantes (aplicado).
+
+### Tanda 5 — 10-11-2026 (Coímbra, Copenhague, Dublín, Estocolmo, Helsinki)
+- Fotos: las 5 corresponden a su ciudad.
+- Coste según las universidades (KU, UCD, Stockholm University, University of Helsinki): Copenhague 1.300–1.800 €, Dublín 1.700–2.400 €, Estocolmo 1.100–1.400 €, Helsinki 900–1.250 €. Coímbra 550–750 € es **estimación editorial** (no hay estimación universitaria vigente): pendiente de fuente. Notas de coste ajustadas.
+- Transporte: SL 1.060/650 SEK (rebaja temporal hasta diciembre de 2026), HSL 73,90 € con 40 % para estudiantes, app Rejsekort (la tarjeta física dejó de funcionar).
+- Corregido lo falso: universidad de Coímbra «desde 1290» (fundada en Lisboa; en Coímbra definitivamente desde 1537), Dublín con el irlandés como «segunda» lengua (es la primera), «Ölkontroll», «naciones estudiantiles» en Estocolmo (eso es de Lund/Uppsala), Kela Card (es la tarjeta sanitaria), «oscuridad casi total», «nieve segura». Helsinki: idioma «Finés / Sueco».
+- Fuera récords y cifras sin fuente: «la ciudad más ciclable del mundo» (Utrecht la superó en 2025), «ecosistema startup más denso de Europa», «más de 3.000 saunas», «miles de plazas HOAS», «criminalidad residual».
+- Clima: Dublín, Estocolmo y Helsinki con normales 1991–2020 (Met Éireann, SMHI, FMI); Coímbra añadido (IPMA). Copenhague retirado hasta extraer las normales del DMI (Landbohøjskolen, informe DMIRep21-11).
+- 2 enlaces Erasmus: SSE (apuntaba a outgoing) y el nuevo nombre de la Universidade Politécnica de Coimbra.
+- Codex: auditoría con fuentes + 2 rondas; en la ronda 1 añadió la rebaja temporal del SL y matizó lo de Systembolaget (aplicado).

@@ -119,7 +119,7 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   // ── Estocolmo ────────────────────────────────────────────────────────────
   "KTH Royal Institute of Technology": "https://www.kth.se/en/studies/exchange/exchange-studies-at-kth-1.6519",
   "Stockholms Universitet": "https://www.su.se/english/education/exchange-students",
-  "Stockholm School of Economics (SSE)": "https://www.hhs.se/en/education/study-at-sse/student-exchange/student-exchange/",
+  "Stockholm School of Economics (SSE)": "https://www.hhs.se/education/exchange/incoming-exchange-students/",
 
   // ── Copenhague ───────────────────────────────────────────────────────────
   "University of Copenhagen (KU)": "https://studies.ku.dk/study-abroad/exchange/",
@@ -247,7 +247,7 @@ export const UNIVERSITY_ERASMUS_LINKS = {
 
   // ── Coimbra ──────────────────────────────────────────────────────────────
   "Universidade de Coimbra": "https://www.uc.pt/en/iru/study-abroad/incoming-students-study-at-the-university-of-coimbra/",
-  "Instituto Politécnico de Coimbra": "https://www.ipc.pt/en/internacional/mobilidade-internacional/erasmus-uniao-europeia/incoming/",
+  "Universidade Politécnica de Coimbra": "https://www.ipc.pt/en/internacional/mobilidade-internacional/erasmus-uniao-europeia/incoming/",
 
   // ── Uppsala ──────────────────────────────────────────────────────────────
   "Uppsala universitet": "https://www.uu.se/en/students/international-opportunities/exchange-studies-via-university-wide-agreements",

@@ -2541,7 +2541,7 @@ export const CITY_INSIGHTS = {
   },
   estocolmo: {
     heroImg: "https://images.unsplash.com/photo-1564924304464-8cee6c450e7a?w=1600&q=85",
-    tagline: "La capital del diseño escandinavo. 14 islas, agua por todas partes y el ecosistema startup más denso de Europa.",
+    tagline: "La capital del diseño escandinavo. 14 islas, agua por todas partes y un gran ecosistema tecnológico.",
     atmosphere: "Ordenada, luminosa en verano y profundamente nórdica. Estocolmo huele a canela recién horneada (kanelbulle) y suena al silencio educado del metro más bonito del mundo.",
     scores: [
       // 1. COSTE DE VIDA
@@ -2549,14 +2549,14 @@ export const CITY_INSIGHTS = {
         id: "coste",
         label: "Coste de vida",
         icon: "💰",
-        score: 4.2,
-        summary: "Una de las ciudades más caras de esta guía, a la altura de Londres o Ámsterdam. Con 1.000–1.200€/mes se vive con holgura.",
+        score: 4.0,
+        summary: "Una de las ciudades más caras de esta guía: la Universidad de Estocolmo recomienda presupuestar al menos 12.000 SEK/mes (unos 1.100€).",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 3.0, desc: "Habitaciones desde 500–750€. El coste más alto de la vivienda de toda la guía junto a Londres." },
           { label: "Comida y supermercados", score: 5.5, desc: "ICA y Coop cubren lo básico, pero comer fuera es caro. Lunch menu del mediodía (100–130 SEK) es la opción lista." },
-          { label: "Transporte", score: 6.5, desc: "SL-kortet mensual ≈930 SEK (~83€). Caro pero cubre metro, bus, tren de cercanías y ferris a las islas." },
-          { label: "Ocio y gastos diarios", score: 4.5, desc: "Una cerveza en bar puede costar 8–9€. Sistema Ölkontroll estricto — el alcohol en tienda solo en Systembolaget." },
+          { label: "Transporte", score: 6.5, desc: "Abono SL de 30 días: 1.060 SEK (650 SEK reducido para estudiantes acreditados), a mitad de precio de forma temporal hasta diciembre de 2026. Cubre metro, bus, tren de cercanías y ferris a las islas." },
+          { label: "Ocio y gastos diarios", score: 4.5, desc: "Salir es caro. En el comercio habitual, el alcohol de más de 3,5% solo se vende en Systembolaget." },
         ],
       },
       // 2. ALOJAMIENTO
@@ -2565,12 +2565,12 @@ export const CITY_INSIGHTS = {
         label: "Alojamiento",
         icon: "🏠",
         score: 2.8,
-        summary: "El mercado más difícil de esta guía junto a Londres. La demanda supera con creces la oferta — hay que moverse con muchísima antelación.",
+        summary: "Uno de los mercados más difíciles de esta guía. La demanda supera con creces la oferta — hay que moverse con muchísima antelación.",
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 2.5, desc: "Las colas de SSSB (la bolsa de vivienda estudiantil) se miden en años para pisos permanentes; para Erasmus hay cupos específicos pero limitados." },
           { label: "Precio", score: 3.0, desc: "500–750€ habitación. Corridor rooms (habitación con cocina/baño compartidos) son la opción más asequible." },
-          { label: "Facilidad de búsqueda", score: 3.0, desc: "SSSB, Bostad Direkt y Blocket Bostad. Regístrate en SSSB en cuanto tengas la carta de admisión, no antes de llegar." },
+          { label: "Facilidad de búsqueda", score: 3.0, desc: "SSSB, Bostad Direkt y Blocket Bostad. Apúntate a la cola de SSSB cuanto antes: puedes acumular hasta 90 días antes de acreditar que eres estudiante." },
           { label: "Residencias universitarias", score: 5.5, desc: "KTH y Stockholms Universitet gestionan cupos de corridor rooms para exchange students — solicítalo el primer día posible." },
         ],
       },
@@ -2580,12 +2580,12 @@ export const CITY_INSIGHTS = {
         label: "Vida social y ambiente",
         icon: "🎉",
         score: 7.5,
-        summary: "Reservada al principio — los suecos no hablan con desconocidos por defecto — pero la comunidad internacional y las naciones estudiantiles compensan con creces.",
+        summary: "Reservada al principio — los suecos no hablan con desconocidos por defecto — pero la comunidad internacional y las asociaciones estudiantiles compensan con creces.",
         color: "#8B5CF6",
         subcategories: [
           { label: "Comunidad Erasmus", score: 8.0, desc: "ESN Stockholm organiza sittningar (cenas temáticas con juegos y cánticos), sauna nights y viajes al archipiélago casi cada semana." },
           { label: "Ambiente internacional", score: 8.0, desc: "Gran mezcla de nacionalidades en KTH y Stockholms Universitet, con eventos pensados específicamente para exchange students." },
-          { label: "Fiesta y vida nocturna", score: 6.5, desc: "Bares y clubs en Södermalm y Stureplan, pero caros y con colas largas los findes. Las fiestas estudiantiles (nations, gasque) son más accesibles." },
+          { label: "Fiesta y vida nocturna", score: 6.5, desc: "Bares y clubs en Södermalm y Stureplan, pero caros y con colas largas los findes. Las fiestas de los sindicatos y asociaciones estudiantiles son más accesibles." },
           { label: "Eventos y actividades", score: 8.0, desc: "Saunas junto al agua, patinaje sobre hielo en invierno, baño en el archipiélago en verano — el ocio local pesa tanto como la fiesta." },
         ],
       },
@@ -2644,7 +2644,7 @@ export const CITY_INSIGHTS = {
         summary: "El hub tecnológico más importante del norte de Europa. Cuna de Spotify, Klarna, King y decenas de unicornios — ideal para prácticas en tech.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Mercado laboral", score: 8.5, desc: "Por habitante, Estocolmo produce más unicornios tecnológicos que ninguna otra ciudad europea salvo Silicon Valley." },
+          { label: "Mercado laboral", score: 8.5, desc: "Uno de los grandes ecosistemas tecnológicos de Europa: Spotify, Klarna y muchas startups." },
           { label: "Prácticas", score: 9.0, desc: "Spotify, Klarna, King, Ericsson y un ecosistema enorme de startups abiertas a becarios internacionales en inglés." },
           { label: "Empresas relevantes", score: 9.0, desc: "KTH y su parque tecnológico conectan directamente a estudiantes de ingeniería con empresas del sector." },
           { label: "Oportunidades para estudiantes", score: 8.0, desc: "Networking constante vía eventos universitarios, hackathons y el propio KTH Innovation." },
@@ -2668,7 +2668,7 @@ export const CITY_INSIGHTS = {
   },
   copenhague: {
     heroImg: "https://images.unsplash.com/photo-1764514814372-1997910000c1?w=1600&q=85",
-    tagline: "La ciudad del hygge y las bicis. Diseño nórdico, sostenibilidad real y una de las capitales más felices del mundo.",
+    tagline: "La ciudad del hygge y las bicis. Diseño nórdico, sostenibilidad real y la capital de uno de los países más felices del mundo.",
     atmosphere: "Relajada, ciclable y acogedora. Copenhague huele a canela de las panaderías y suena al timbre constante de bicicletas en los carriles bici más transitados de Europa.",
     scores: [
       // 1. COSTE DE VIDA
@@ -2676,13 +2676,13 @@ export const CITY_INSIGHTS = {
         id: "coste",
         label: "Coste de vida",
         icon: "💰",
-        score: 4.0,
-        summary: "Una de las capitales más caras de esta guía. Con 1.000–1.300€/mes se vive con comodidad, sin lujos.",
+        score: 3.5,
+        summary: "Una de las capitales más caras de esta guía: la Universidad de Copenhague calcula 1.280–1.800€/mes.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 3.2, desc: "Habitaciones desde 550–800€. Especialmente caro en Frederiksberg e Indre By (centro)." },
+          { label: "Alojamiento", score: 3.2, desc: "Habitación de 600–950€/mes según la Universidad de Copenhague. Especialmente caro en Frederiksberg e Indre By (centro)." },
           { label: "Comida y supermercados", score: 5.5, desc: "Netto, Rema 1000 y Lidl para el día a día. Comer fuera es caro salvo en food halls como Reffen o Torvehallerne." },
-          { label: "Transporte", score: 6.5, desc: "La bici sustituye al transporte público en el día a día. Rejsekort para trayectos ocasionales en metro/tren/bus." },
+          { label: "Transporte", score: 6.5, desc: "La bici sustituye al transporte público en el día a día. La app Rejsekort para trayectos ocasionales en metro/tren/bus." },
           { label: "Ocio y gastos diarios", score: 4.5, desc: "Cerveza en bar 6–7€. El alcohol en tienda es más asequible que en Suecia o Noruega, sin sistema de monopolio estatal." },
         ],
       },
@@ -2696,9 +2696,9 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 3.0, desc: "La demanda estudiantil supera ampliamente la oferta. Muchos exchange students acaban en colegios mayores fuera del centro." },
-          { label: "Precio", score: 3.5, desc: "550–800€ habitación. Kollegier (residencias) y bofællesskaber (pisos compartidos) son las opciones más razonables." },
-          { label: "Facilidad de búsqueda", score: 3.5, desc: "Housing Foundation Copenhagen gestiona cupos para exchange students — es la vía más fiable, aplica el primer día posible." },
-          { label: "Residencias universitarias", score: 5.0, desc: "KU, CBS y DTU colaboran con Housing Foundation, pero las plazas se agotan rápido, sobre todo para el semestre de otoño." },
+          { label: "Precio", score: 3.5, desc: "600–950€ por habitación (estimación de la KU). Kollegier (residencias) y bofællesskaber (pisos compartidos) son las opciones más razonables." },
+          { label: "Facilidad de búsqueda", score: 3.5, desc: "Cada universidad tiene su canal: Housing Foundation Copenhagen (KU), CBS Housing y Boligfonden DTU. Es la vía más fiable; solicítalo el primer día posible." },
+          { label: "Residencias universitarias", score: 5.0, desc: "Hay residencias para estudiantes de intercambio a través de cada universidad, pero las plazas se agotan rápido, sobre todo para el semestre de otoño." },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -2737,7 +2737,7 @@ export const CITY_INSIGHTS = {
         label: "Ubicación y movilidad",
         icon: "🚆",
         score: 9.2,
-        summary: "La ciudad más ciclable del mundo. Carriles bici propios, semáforos pensados para bicis y una infraestructura que hace innecesario el coche.",
+        summary: "De las ciudades más ciclables del mundo. Carriles bici propios, semáforos pensados para bicis y una infraestructura que hace innecesario el coche.",
         color: "#F59E0B",
         subcategories: [
           { label: "Bici como transporte principal", score: 9.8, desc: "Más de 375 km de carriles bici segregados. La bici es más rápida que el coche o el metro en la mayoría de trayectos." },
@@ -2783,7 +2783,7 @@ export const CITY_INSIGHTS = {
         label: "Seguridad",
         icon: "🛡️",
         score: 8.9,
-        summary: "Constantemente entre las ciudades más seguras y felices del mundo. Criminalidad muy baja y ambiente urbano tranquilo a cualquier hora.",
+        summary: "Ciudad muy segura. Criminalidad muy baja y ambiente urbano tranquilo a cualquier hora.",
         color: "#22C55E",
         subcategories: [
           { label: "Seguridad general", score: 9.0, desc: "Índice de criminalidad muy bajo, incluso en comparación con otras capitales nórdicas." },
@@ -2803,13 +2803,13 @@ export const CITY_INSIGHTS = {
         id: "coste",
         label: "Coste de vida",
         icon: "💰",
-        score: 5.5,
-        summary: "Algo más asequible que Estocolmo o Copenhague, aunque sigue siendo una capital nórdica cara. Con 800–1.150€/mes se vive bien.",
+        score: 5.0,
+        summary: "Algo más asequible que Estocolmo o Copenhague, aunque sigue siendo una capital nórdica cara. La Universidad de Helsinki calcula 900–1.250€/mes.",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitaciones desde 450–650€. HOAS (residencias estudiantiles) es la opción más asequible con diferencia." },
-          { label: "Comida y supermercados", score: 6.0, desc: "K-Market, S-Market y Lidl para el día a día. Los comedores universitarios (con Kela Card) ofrecen menús completos por 2,95€." },
-          { label: "Transporte", score: 7.0, desc: "Abono HSL mensual ≈65€ para toda la red, incluidos los ferris a Suomenlinna. Descuento estudiantil significativo." },
+          { label: "Comida y supermercados", score: 6.0, desc: "K-Market, S-Market y Lidl para el día a día. Los comedores universitarios (con tarjeta de estudiante) ofrecen menús subvencionados por un máximo de 3,10€." },
+          { label: "Transporte", score: 7.0, desc: "Abono HSL de 30 días (zona AB) a 73,90€, ferry a Suomenlinna incluido, con un 40% de descuento para estudiantes." },
           { label: "Ocio y gastos diarios", score: 5.5, desc: "Una cerveza en bar 6-7€, pero la sauna pública (10-15€) es el plan social más habitual y barato en comparación." },
         ],
       },
@@ -2822,7 +2822,7 @@ export const CITY_INSIGHTS = {
         summary: "Mercado tenso pero más manejable que en Estocolmo. HOAS es la vía casi obligatoria para exchange students.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 4.5, desc: "HOAS gestiona miles de plazas específicas para estudiantes internacionales, aunque hay que solicitarlas con antelación." },
+          { label: "Disponibilidad", score: 4.5, desc: "HOAS aloja a más de 900 estudiantes de intercambio por curso, sin garantizar plaza a todos: solicítala con antelación." },
           { label: "Precio", score: 5.0, desc: "450–650€ habitación en HOAS. El mercado privado es notablemente más caro y competido." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "El portal de HOAS es el canal principal — regístrate en cuanto tengas la carta de admisión de tu universidad." },
           { label: "Residencias universitarias", score: 6.5, desc: "HOAS ofrece habitaciones individuales y compartidas repartidas por toda la ciudad, bien conectadas en transporte." },
@@ -2885,7 +2885,7 @@ export const CITY_INSIGHTS = {
           { label: "Naturaleza", score: 9.5, desc: "Bosques dentro de los límites de la ciudad, archipiélago de más de 300 islas y agua limpia para bañarse en verano." },
           { label: "Clima", score: 5.5, desc: "Veranos de días eternos (hasta 19h de luz) frente a inviernos con apenas 6 horas de luz, frío intenso y nieve frecuente." },
           { label: "Calidad de vida", score: 9.0, desc: "Finlandia lidera año tras año los rankings de países más felices del mundo — Helsinki concentra buena parte de ese bienestar." },
-          { label: "Autenticidad local", score: 8.5, desc: "La sauna (más de 3.000 en la ciudad) no es un cliché turístico, es una institución social real y cotidiana." },
+          { label: "Autenticidad local", score: 8.5, desc: "La sauna no es un cliché turístico, es una institución social real y cotidiana." },
           { label: "Estilo de vida", score: 8.0, desc: "Ritmo pausado, diseño funcional en cada rincón (Aalto, Marimekko, Iittala) y un contacto constante con la naturaleza." },
         ],
       },
@@ -2910,7 +2910,7 @@ export const CITY_INSIGHTS = {
         label: "Seguridad",
         icon: "🛡️",
         score: 9.2,
-        summary: "Una de las ciudades más seguras y con menos corrupción del mundo. Índice de criminalidad prácticamente residual.",
+        summary: "Ciudad muy segura en un país con muy poca corrupción; de noche, precaución normal en el centro y en el transporte.",
         color: "#22C55E",
         subcategories: [
           { label: "Seguridad general", score: 9.5, desc: "Finlandia lidera consistentemente los rankings globales de menor corrupción y mayor confianza institucional." },
@@ -3184,11 +3184,11 @@ export const CITY_INSIGHTS = {
         id: "coste",
         label: "Coste de vida",
         icon: "💰",
-        score: 3.8,
-        summary: "Una de las capitales más caras de esta guía. Con 1.000–1.400€/mes se vive con cierta comodidad, sin margen para grandes lujos.",
+        score: 3.0,
+        summary: "De las ciudades más caras de esta guía: la UCD estima un mínimo de 1.735€/mes y una mediana de 2.445€ (2026).",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 2.5, desc: "Habitaciones desde 700–1.000€. La crisis de vivienda dublinesa es real y golpea de lleno a los estudiantes internacionales." },
+          { label: "Alojamiento", score: 2.5, desc: "Alquiler desde 830€/mes, con una mediana de 1.200€ según la UCD. La crisis de vivienda dublinesa es real y golpea de lleno a los estudiantes internacionales." },
           { label: "Comida y supermercados", score: 5.0, desc: "Lidl y Aldi salvan el presupuesto. Salir a comer fuera es notablemente caro comparado con el resto de Europa." },
           { label: "Transporte", score: 6.0, desc: "Leap Card con descuento estudiantil cubre bus, DART y tranvía Luas. Razonable dentro del contexto irlandés." },
           { label: "Ocio y gastos diarios", score: 3.0, desc: "Una pinta de Guinness ronda los 6-7€, de las más caras de Europa. La vida de pub, aun así, sigue siendo el plan social central." },
@@ -3204,7 +3204,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 2.0, desc: "La demanda supera ampliamente la oferta desde hace años. Muchos exchange students recurren a residencias privadas fuera del centro." },
-          { label: "Precio", score: 2.5, desc: "700–1.000€ habitación. De los precios más altos de toda esta guía en relación al tamaño de la ciudad." },
+          { label: "Precio", score: 2.5, desc: "Alquiler mínimo de 830€ y mediano de 1.200€ al mes (UCD). De los precios más altos de toda esta guía en relación al tamaño de la ciudad." },
           { label: "Facilidad de búsqueda", score: 3.5, desc: "Daft.ie es el portal principal. Las oficinas internacionales de TCD y UCD ofrecen orientación, aunque plazas limitadas." },
           { label: "Residencias universitarias", score: 4.0, desc: "TCD y UCD tienen residencias propias con cupos para exchange students — solicítalas en cuanto llegue la admisión." },
         ],
@@ -3233,7 +3233,7 @@ export const CITY_INSIGHTS = {
         summary: "Inglés nativo desde el primer día e irlandeses entre los más abiertos, habladores y acogedores de toda Europa.",
         color: "#3F7A7D",
         subcategories: [
-          { label: "Nivel de inglés", score: 10.0, desc: "Inmersión total en inglés nativo desde el minuto uno, con el irlandés como segunda lengua oficial en menor uso cotidiano." },
+          { label: "Nivel de inglés", score: 10.0, desc: "Inmersión total en inglés nativo desde el minuto uno, aunque el irlandés es la primera lengua oficial, en el día a día se usa poco." },
           { label: "Actitud local", score: 9.0, desc: "Los irlandeses tienen fama merecida de ser habladores, cercanos y dispuestos a charlar con cualquiera en el pub." },
           { label: "Integración con locales", score: 7.5, desc: "El pub es la vía más rápida de integración real — basta con sentarte en la barra y dejarte llevar por la conversación." },
           { label: "Facilidad para hacer amigos", score: 8.5, desc: "Ciudad muy sociable donde hacer amigos, tanto internacionales como locales, resulta sorprendentemente fácil." },
@@ -6098,11 +6098,11 @@ export const CITY_INSIGHTS = {
     atmosphere: "Coimbra huele a papel viejo y cera de vela en la Biblioteca Joanina, y suena a fado cantado de capa negra por las callejuelas empinadas de la Alta al caer la tarde.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 9.0,
-        summary: "Una de las ciudades más baratas de toda esta guía, muy por debajo de Lisboa y Oporto.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 8.0,
+        summary: "Más barata que Lisboa y Oporto, aunque los alquileres también han subido.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 8.5, desc: "Habitación en república estudiantil o piso compartido desde 200–300€, de las más bajas de Europa." },
+          { label: "Alojamiento", score: 8.5, desc: "Habitación en república estudiantil o piso compartido a precios bajos para Europa Occidental." },
           { label: "Comida y supermercados", score: 9.0, desc: "Menús de restaurante universitario por 3–4€ y mercados locales muy económicos." },
           { label: "Transporte", score: 8.5, desc: "Ciudad pequeña y caminable; el abono de bus apenas se necesita fuera de días de lluvia." },
           { label: "Ocio y gastos diarios", score: 9.0, desc: "Salir de tascas y bares en la Baixa cuesta una fracción de lo que costaría en Lisboa." },
@@ -6110,12 +6110,12 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 8.0,
-        summary: "Las repúblicas estudiantiles centenarias hacen de Coimbra un caso único: alojamiento barato con tradición e historia propia.",
+        summary: "Las repúblicas estudiantiles de larga tradición hacen de Coimbra un caso único: alojamiento barato con tradición e historia propia.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 8.0, desc: "Docenas de repúblicas centenarias además del mercado normal de pisos compartidos." },
-          { label: "Precio", score: 8.5, desc: "200–300€ de media, de los alquileres más bajos de toda esta guía." },
-          { label: "Facilidad de búsqueda", score: 7.0, desc: "Entrar en una república requiere proceso propio (praxe); para exchange students hay listados en la universidad." },
+          { label: "Disponibilidad", score: 8.0, desc: "Repúblicas estudiantiles de larga tradición además del mercado normal de pisos compartidos." },
+          { label: "Precio", score: 8.5, desc: "Alquileres por debajo de los de Lisboa y Oporto." },
+          { label: "Facilidad de búsqueda", score: 7.0, desc: "Cada república decide cómo admite a sus miembros; para exchange students hay listados en la universidad." },
           { label: "Residencias universitarias", score: 8.0, desc: "SASUC (Serviços de Ação Social) ofrece residencias asequibles y bien valoradas." },
         ],
       },
@@ -6148,7 +6148,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Transporte público", score: 6.5, desc: "SMTUC cubre bus urbano; útil sobre todo para subir la cuesta hacia la Alta." },
           { label: "Ciudad caminable", score: 6.0, desc: "Todo se recorre a pie, pero las cuestas del centro histórico son exigentes." },
-          { label: "Conexiones internacionales", score: 6.0, desc: "Sin aeropuerto propio; Oporto y Lisboa, ambos con vuelos internacionales, a menos de dos horas." },
+          { label: "Conexiones internacionales", score: 6.0, desc: "Sin aeropuerto propio; a los de Oporto y Lisboa se llega en tren más el traslado al aeropuerto." },
           { label: "Escapadas de fin de semana", score: 7.5, desc: "Serra da Estrela, Aveiro y la costa de Figueira da Foz, todas a poco más de una hora." },
         ],
       },
@@ -6171,7 +6171,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Mercado laboral", score: 4.5, desc: "Pocas oportunidades fuera del sector universitario y de servicios locales." },
           { label: "Prácticas", score: 5.5, desc: "La Universidade de Coimbra tiene fuerte tradición en derecho, medicina e ingeniería, con conexiones locales." },
-          { label: "Empresas relevantes", score: 4.5, desc: "Sin grandes sedes corporativas; economía centrada en la universidad y el turismo cultural." },
+          { label: "Empresas relevantes", score: 4.5, desc: "Economía centrada en la universidad, la salud y el turismo, con algo de tecnología (Critical Software)." },
           { label: "Oportunidades para estudiantes", score: 5.5, desc: "El Instituto Pedro Nunes, parque tecnológico ligado a la universidad, ofrece algunas prácticas en startups locales." },
         ],
       },
