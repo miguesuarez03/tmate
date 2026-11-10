@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { IconFuego } from "./icons";
 import { isErasmusEligible, getOverallScore } from "../lib/cities";
 import ScoreRing from "./ScoreRing";
+import PhotoCredit from "./PhotoCredit";
 import { responsiveImage } from "../lib/images";
 
 // Huecos de la foto de la tarjeta (ver .cities-grid en global.css): 4
@@ -72,6 +73,9 @@ export default function CityCard({ city }) {
       {!isErasmusEligible(city) && (
         <span className="city-card__tag city-card__tag--program">🌍 No Erasmus</span>
       )}
+
+      {/* Crédito de la foto: esquina superior derecha (bajo la pill "No Erasmus" si la hay) */}
+      <PhotoCredit src={city.img} corner="top-right" nested style={!isErasmusEligible(city) ? { top: 46 } : undefined} />
 
       {/* Bottom content */}
       <div className="city-card__content">

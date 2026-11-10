@@ -3,6 +3,7 @@ import styles from "./RelatedCities.module.css";
 import { IconComparar } from "../icons";
 import { getScoreLevel } from "../../lib/cities";
 import { responsiveImage } from "../../lib/images";
+import PhotoCredit from "../PhotoCredit";
 
 // Tarjetas apaisadas de 220px de alto: 3 columnas (~400px), 2 hasta 820px y
 // 1 en móvil. Son más apaisadas que la foto, así que se pinta por el ancho.
@@ -28,6 +29,7 @@ function RelatedCard({ city, fullRow }) {
         decoding="async"
       />
       <div className={styles.cardOverlay} />
+      <PhotoCredit src={city.img} corner="top-left" nested />
       <div className={styles.cardContent}>
         <span className={styles.cardFlag}>{city.emoji}</span>
         <div className={styles.cardInfo}>

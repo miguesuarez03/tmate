@@ -11,6 +11,7 @@ import styles from "./WorldMap.module.css";
 import { getOverallScore, CITY_BASE_SCORES, getCityBySlug, getScoreLevel } from "../lib/cities";
 import { IconFiesta, IconEdificio, IconBeca, IconGlobo } from "./icons";
 import { responsiveImage } from "../lib/images";
+import PhotoCredit from "./PhotoCredit";
 
 // Foto de la ficha emergente: 240px de ancho × 130px de alto (WorldMap.module.css).
 const POPUP_PHOTO_SLOTS = [[null, "240px", 240 / 130]];
@@ -273,6 +274,7 @@ function CityPopup({ city, onClose, navigate }) {
           {city.score}<span>/10</span>
         </div>
         <span className={styles.popupFlag}>{city.flag}</span>
+        <PhotoCredit src={city.img} corner="bottom-right" style={{ "--credit-inset": "8px" }} />
       </div>
       <div className={styles.popupBody}>
         <h3 className={styles.popupName}>{city.name}</h3>

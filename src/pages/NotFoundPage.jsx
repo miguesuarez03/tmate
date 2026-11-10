@@ -1,40 +1,18 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
+import { useNoIndex } from "../hooks/useNoIndex";
 import styles from "./PrivacidadPage.module.css";
-
-const DEFAULT_ROBOTS = "index, follow";
-
-/** Fija <meta name="robots"> (la 404 no debe indexarse). */
-function setRobots(content) {
-  let el = document.querySelector('meta[name="robots"]');
-  if (!el) {
-    el = document.createElement("meta");
-    el.setAttribute("name", "robots");
-    document.head.appendChild(el);
-  }
-  el.setAttribute("content", content);
-}
 
 export default function NotFoundPage() {
   // En navegación dentro de la SPA (enlace roto interno) el HTML ya cargado
-  // es el de otra página: se marca noindex y se quita el canonical mientras
-  // esta vista esté montada. La 404.html prerenderizada ya lo trae de serie.
+  // es el de otra página: noindex y sin canonical mientras esta vista esté
+  // montada (useNoIndex). La 404.html prerenderizada ya lo trae de serie.
+  useNoIndex();
   useEffect(() => {
     const prevTitle = document.title;
     document.title = "Página no encontrada | MAbroad";
-    setRobots("noindex, follow");
-    const canonical = document.querySelector('link[rel="canonical"]');
-    const canonicalHref = canonical?.getAttribute("href");
-    canonical?.remove();
-    return () => {
-      document.title = prevTitle;
-      setRobots(DEFAULT_ROBOTS);
-      if (canonical && canonicalHref) {
-        canonical.setAttribute("href", canonicalHref);
-        document.head.appendChild(canonical);
-      }
-    };
+    return () => { document.title = prevTitle; };
   }, []);
 
   return (

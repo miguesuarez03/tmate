@@ -22,6 +22,7 @@ const BecaErasmusPage       = lazy(() => import("./pages/BecaErasmusPage"));
 const CityMatchPage         = lazy(() => import("./pages/CityMatchPage"));
 const TiposDeIntercambioPage = lazy(() => import("./pages/TiposDeIntercambioPage"));
 const PrivacidadPage        = lazy(() => import("./pages/PrivacidadPage"));
+const CreditosPage          = lazy(() => import("./pages/CreditosPage"));
 const NotFoundPage          = lazy(() => import("./pages/NotFoundPage"));
 
 export default function App() {
@@ -40,6 +41,7 @@ export default function App() {
           <Route path="/city-match" element={<CityMatchPage />} />
           <Route path="/tipos-de-intercambio" element={<TiposDeIntercambioPage />} />
           <Route path="/privacidad" element={<PrivacidadPage />} />
+          <Route path="/creditos" element={<CreditosPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>

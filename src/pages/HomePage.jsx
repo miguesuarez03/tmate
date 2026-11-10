@@ -243,17 +243,18 @@ function AnimatedWord() {
 }
 
 // Vídeo de fondo del hero, alojado en /public (no en un CDN externo):
-// plano aéreo de dron sobre Lisboa a pleno sol — Pexels, vídeo 35411371
-// ("Aerial View of Lisbon Cityscape on a Sunny Day", de Alyona Nagel),
-// Licencia Pexels: uso comercial gratuito, sin atribución obligatoria.
-// Recortado a 10,4 s con fundido del final sobre el principio para que el
-// bucle no tenga salto; MP4 H.264 + WebM VP9 a 1080p/30 (<4,3 MB cada uno).
-// El poster es su primer fotograma, en WebP a 1920 y 1280 px.
+// Róterdam en hora dorada — Pexels, vídeo 32326469 ("Aerial View of
+// Rotterdam Skyline at Sunset", de A.S. Kacar), Licencia Pexels: uso
+// comercial gratuito, sin atribución obligatoria. Skyline moderno (economía,
+// futuro) con el río y sus barcos (vida) y, al fondo, el puente Erasmus.
+// Retocado algo más cálido y saturado; recortado a 11 s con fundido del
+// final sobre el principio (bucle sin salto); MP4 H.264 + WebM VP9 a 1080p
+// (<4,5 MB cada uno). El poster es su primer fotograma, en WebP 1920/1280.
 const HERO_VIDEO = {
-  webm: "/videos/hero-lisboa.webm",
-  mp4: "/videos/hero-lisboa.mp4",
-  poster: "/videos/hero-lisboa-poster.webp",
-  posterSrcSet: "/videos/hero-lisboa-poster-1280.webp 1280w, /videos/hero-lisboa-poster.webp 1920w",
+  webm: "/videos/hero-rotterdam.webm",
+  mp4: "/videos/hero-rotterdam.mp4",
+  poster: "/videos/hero-rotterdam-poster.webp",
+  posterSrcSet: "/videos/hero-rotterdam-poster-1280.webp 1280w, /videos/hero-rotterdam-poster.webp 1920w",
   // En móvil el hero se pinta por su alto: la versión de 1280 basta y pesa la mitad.
   posterSizes: "(max-width: 768px) 640px, 100vw",
 };

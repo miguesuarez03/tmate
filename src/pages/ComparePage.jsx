@@ -11,6 +11,7 @@ import ScoreRing from "../components/ScoreRing";
 import { useSEO } from "../hooks/useSEO";
 import styles from "./ComparePage.module.css";
 import { responsiveImage } from "../lib/images";
+import PhotoCredit from "../components/PhotoCredit";
 
 // Huecos de las fotos del comparador (ver ComparePage.module.css).
 const MINI_THUMB_SLOTS = [[null, "42px", 1]]; // avatar circular
@@ -318,7 +319,7 @@ function FeaturedCard({ city, checked = false, accentColor, onClick }) {
       style={checked ? { "--tile-color": accentColor } : {}}
       onClick={onClick}
     >
-      <img className={styles.featuredImg} {...responsiveImage(city.img, { slots: FEATURED_SLOTS })} width={800} height={600} alt="" loading="lazy" decoding="async" onError={(e) => { e.currentTarget.style.opacity = 0; }} />
+      <PhotoCredit src={city.img} corner="top-right" nested /><img className={styles.featuredImg} {...responsiveImage(city.img, { slots: FEATURED_SLOTS })} width={800} height={600} alt="" loading="lazy" decoding="async" onError={(e) => { e.currentTarget.style.opacity = 0; }} />
       <div className={styles.featuredOverlay} />
       {checked && <span className={styles.featuredCheck}><IconCheck size={18} /></span>}
       <div className={styles.featuredBody}>
@@ -534,6 +535,7 @@ export default function ComparePage() {
                   <div key={city.slug} className={`${styles.cityCard}${isTop ? ` ${styles.cityCardWinner}` : ""}`} style={{ "--accent": COL_COLORS[i] }}>
                     <div className={styles.cityCardHero}>
                       <img className={styles.cityCardHeroImg} {...responsiveImage(city.img, { slots: RESULT_HERO_SLOTS })} alt="" width={800} height={330} loading="lazy" decoding="async" />
+                      <PhotoCredit src={city.img} corner="bottom-right" />
                       <div className={styles.cityCardOverlay} style={{ background: `linear-gradient(to top, ${COL_COLORS[i]}cc 0%, rgba(0,0,0,0.2) 60%)` }} />
                       <div className={styles.cityCardTop}>
                         <span className={styles.cityEmoji}>{city.emoji}</span>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./BentoHighlights.module.css";
 import { responsiveImage } from "../../lib/images";
+import PhotoCredit from "../PhotoCredit";
 
 // Huecos de las fotos del bento (ver BentoHighlights.module.css). Escritorio:
 // rejilla 1.4fr 1fr 1fr de hasta 1320px; la 01 ocupa 2 filas (~480×440) y la
@@ -77,6 +78,7 @@ export default function BentoHighlights({ highlights = [], cityName, cityImg }) 
                 <img {...responsiveImage(photo, { slots: bentoSlots(i) })} alt={text} className={styles.cardImg} width={800} height={600} loading="lazy" decoding="async" />
               )}
               <div className={styles.cardOverlay} />
+              {photo && <PhotoCredit src={photo} corner="top-right" nested />}
               <div className={styles.cardContent}>
                 <span className={styles.cardNum} style={{ color: ACCENTS[i] }}>0{i + 1}</span>
                 <p className={styles.cardText}>{text}</p>
@@ -102,6 +104,7 @@ export default function BentoHighlights({ highlights = [], cityName, cityImg }) 
             <div className={styles.modalImg}>
               {activePhoto && <img {...responsiveImage(activePhoto, { slots: BENTO_MODAL_SLOTS })} alt={activeItem} width={800} height={450} decoding="async" />}
               <div className={styles.cardOverlay} />
+              {activePhoto && <PhotoCredit src={activePhoto} corner="top-left" />}
               <div className={styles.modalImgContent}>
                 <span className={styles.cardNum} style={{ color: ACCENTS[active], fontSize: "0.7rem" }}>0{active + 1}</span>
                 <p className={styles.modalTitle}>{activeItem}</p>

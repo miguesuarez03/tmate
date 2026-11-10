@@ -132,6 +132,7 @@ function outPathFor(route) {
 function buildSitemap(routes, siteUrl) {
   const today = new Date().toISOString().slice(0, 10);
   const urls = routes
+    .filter((r) => !r.noindex) // páginas noindex (p. ej. /creditos): fuera del sitemap
     .map(
       (r) => `  <url>
     <loc>${siteUrl}${r.path === "/" ? "/" : r.path}</loc>
@@ -231,7 +232,7 @@ async function main() {
   // sitemap.xml + robots.txt (dinámicos, sobrescriben los estáticos copiados)
   writeFileSync(join(DIST, "sitemap.xml"), buildSitemap(ALL_ROUTES, SITE_URL), "utf-8");
   writeFileSync(join(DIST, "robots.txt"), buildRobots(SITE_URL), "utf-8");
-  console.log(`  ✓ sitemap.xml (${ALL_ROUTES.length} URLs) + robots.txt generados`);
+  console.log(`  ✓ sitemap.xml (${ALL_ROUTES.filter((r) => !r.noindex).length} URLs) + robots.txt generados`);
 
   console.log(`\n  Prerender completado: ${ok}/${ALL_ROUTES.length} páginas.`);
   if (failed.length) {

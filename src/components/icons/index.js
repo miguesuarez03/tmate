@@ -55,3 +55,4 @@ export { default as IconEstiloVida } from "./IconEstiloVida";
 export { default as IconEmpleo } from "./IconEmpleo";
 export { default as IconPausa } from "./IconPausa";
 export { default as IconReproducir } from "./IconReproducir";
+export { default as IconInfo } from "./IconInfo";

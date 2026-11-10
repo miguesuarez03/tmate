@@ -1,0 +1,63 @@
+/* Crédito de foto (ver PhotoCredit.jsx).
+   La fila ocupa todo el borde de la foto para que el texto pueda crecer y
+   partirse en dos líneas sin salirse de tarjetas estrechas, pero NO captura
+   clics (pointer-events: none): solo el icono y el texto visible responden.
+   Muy discreto: icono de 24px al 55% de opacidad hasta que se interactúa. */
+.credit {
+  --credit-inset: 10px;
+  position: absolute; z-index: 3;
+  left: var(--credit-inset); right: var(--credit-inset);
+  display: flex;
+  pointer-events: none;
+}
+.topLeft, .bottomLeft { flex-direction: row; }
+.topRight, .bottomRight { flex-direction: row-reverse; }
+.topLeft, .topRight { top: var(--credit-inset); align-items: flex-start; }
+.bottomLeft, .bottomRight { bottom: var(--credit-inset); align-items: flex-end; }
+
+.icon {
+  flex-shrink: 0;
+  width: 24px; height: 24px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0; border: none; cursor: pointer;
+  color: #fff;
+  background: rgba(15,30,45,0.45);
+  backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+  opacity: 0.55;
+  pointer-events: auto;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+.icon svg { display: block; }
+.credit:hover .icon, .credit:focus-within .icon, .open .icon {
+  opacity: 1; background: rgba(15,30,45,0.78);
+}
+.icon:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+.tip {
+  min-width: 0; max-width: 260px;
+  padding: 5px 10px;
+  /* Borde transparente del lado del icono: une icono y texto para que el
+     hover no se pierda al cruzar el hueco entre ambos. */
+  border: 0 solid transparent; border-inline-width: 6px;
+  background-clip: padding-box;
+  background-color: rgba(15,30,45,0.86);
+  border-radius: 12px;
+  color: rgba(255,255,255,0.94);
+  font-family: var(--font-body); font-size: 11.5px; font-weight: 500; line-height: 1.35;
+  text-align: left; white-space: normal; overflow-wrap: anywhere;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.18s ease, visibility 0s linear 0.18s;
+  --motion-safe-duration: 0.18s; /* fundido: se mantiene con reduced motion */
+}
+.credit:hover .tip, .credit:focus-within .tip, .open .tip {
+  opacity: 1; visibility: visible; pointer-events: auto;
+  transition: opacity 0.18s ease;
+}
+.tip a { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
+.tip a:hover { color: #FFC95E; }
+.tip a:focus-visible { outline: 2px solid #fff; outline-offset: 1px; border-radius: 2px; }
+
+/* En táctil no hay hover: el texto solo aparece al tocar (clase .open). */
+@media (hover: none) {
+  .credit:hover:not(.open) .tip { opacity: 0; visibility: hidden; }
+}

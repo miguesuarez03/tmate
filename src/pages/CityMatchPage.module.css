@@ -143,11 +143,62 @@
 }
 
 .backLink {
-  background: none; border: none; margin-top: 22px;
+  background: none; border: none;
   font-size: 13px; font-weight: 600; color: var(--color-muted);
-  cursor: pointer; padding: 6px 0;
+  cursor: pointer; padding: 10px 0; min-height: 44px;
 }
 .backLink:hover { color: var(--color-slate); }
+
+/* El foco va al título al cambiar de pregunta (lectores de pantalla): sin
+   anillo, porque no es un control y el usuario no lo ha elegido. */
+.questionTitle:focus, .resultsTitle:focus { outline: none; }
+
+/* ─── Opciones en orden de preferencia (máx. 3) ─── */
+.rankHint {
+  font-size: 13px; color: var(--color-slate);
+  margin: -14px 0 16px; min-height: 1.5em;
+}
+.rankHint strong { color: var(--color-dark); font-weight: 700; }
+.optionBtnRanked { padding-right: 52px; }
+.rankBadge {
+  position: absolute; top: 50%; right: 12px; transform: translateY(-50%);
+  min-width: 30px; height: 30px; padding: 0 6px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-brand); color: #16364D;
+  font-size: 13px; font-weight: 800; line-height: 30px; text-align: center;
+  box-shadow: 0 2px 8px rgba(245,150,58,0.35);
+}
+/* Con 3 elegidas, el resto se atenúa (sigue siendo pulsable: avisa del máximo). */
+.optionBtnFull { opacity: 0.55; }
+.optionBtnFull:hover, .optionBtnFull:focus-visible { opacity: 0.8; }
+
+/* "No me importa / No lo sé": a todo el ancho, más discreta y con borde
+   discontinuo — se distingue de las respuestas que puntúan. */
+.optionNeutral {
+  grid-column: 1 / -1;
+  background: transparent; border-style: dashed;
+}
+.optionNeutral .optionDesc { font-size: 12px; }
+
+.quizNav {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; flex-wrap: wrap; margin-top: 22px;
+}
+.continueBtn {
+  margin-left: auto;
+  background: var(--gradient-brand); color: #16364D;
+  border: none; border-radius: var(--radius-full);
+  padding: 12px 22px; min-height: 44px;
+  font-size: 15px; font-weight: 800; cursor: pointer;
+  box-shadow: var(--shadow-brand);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.continueBtn:hover:not(:disabled) { transform: translateY(-1px); }
+.continueBtn:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
+.continueBtn:disabled { opacity: 0.45; cursor: not-allowed; box-shadow: none; }
+@media (max-width: 480px) {
+  .continueBtn { flex: 1 1 100%; order: -1; }
+}
 
 /* ─── RESULTADOS ─────────────────────────────────────────────────────────── */
 .resultsMain { flex: 1; display: flex; flex-direction: column; }

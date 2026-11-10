@@ -439,6 +439,8 @@ export function Footer() {
       <p className="footer__copy">
         © 2025 MAbroad · Hecho para ciudadanos globales ·{" "}
         <Link to="/privacidad" className="footer__link">Privacidad y cookies</Link>
+        {" · "}
+        <Link to="/creditos" className="footer__link">Créditos de las fotos</Link>
       </p>
     </footer>
   );

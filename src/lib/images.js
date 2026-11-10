@@ -13,12 +13,12 @@
 // 2. Nunca más píxeles de los que existen. Wikimedia NO da error si pides una
 //    miniatura mayor que el original: la reescala hacia arriba y sirve una
 //    foto borrosa que parece de 1920 px. Por eso se usa el tamaño original de
-//    src/data/wikimediaSizes.js (npm run images:sizes) como techo.
+//    src/data/wikimediaPhotos.js (npm run photos:meta) como techo.
 // 3. Solo anchos estándar de Wikimedia (los demás se limitan con 429/400) y,
 //    en pantallas de más de 2x (móviles 3x), se pide como si fueran 2x: a esa
 //    densidad el ojo no distingue más y el peso se dispararía.
 // ─────────────────────────────────────────────────────────────────────────────
-import { WIKIMEDIA_SIZES } from "../data/wikimediaSizes";
+import { WIKIMEDIA_PHOTOS } from "../data/wikimediaPhotos";
 
 const WIKI_BASE = "https://upload.wikimedia.org/wikipedia/commons/";
 const WIKI_RE = /^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\/(?:thumb\/)?([0-9a-f]\/[0-9a-f]{2})\/([^/?#]+)(?:\/(\d+)px-[^/?#]+)?$/;
@@ -33,15 +33,27 @@ const DEFAULT_PHOTO_ASPECT = 1.5;
 const HIGH_DPR = "(min-resolution: 2.5dppx)";
 const HIGH_DPR_SCALE = 2 / 3;
 
-/** Candidatos [url, ancho real] de una foto de Wikimedia, o null si no lo es. */
-function wikimediaCandidates(url) {
-  const m = WIKI_RE.exec(url);
+/**
+ * Fichero de Wikimedia Commons de una URL (original o miniatura):
+ * { key: "<hash>/<fichero>", hash, file, urlWidth } o null si no lo es.
+ * `key` es la clave de src/data/wikimediaPhotos.js.
+ */
+export function parseWikimediaUrl(url) {
+  const m = typeof url === "string" ? WIKI_RE.exec(url) : null;
   if (!m) return null;
   const [, hash, file, urlWidth] = m;
+  return { key: `${hash}/${file}`, hash, file, urlWidth: Number(urlWidth) || 0 };
+}
+
+/** Candidatos [url, ancho real] de una foto de Wikimedia, o null si no lo es. */
+function wikimediaCandidates(url) {
+  const parsed = parseWikimediaUrl(url);
+  if (!parsed) return null;
+  const { hash, file, urlWidth } = parsed;
   // tif/svg/webp generan miniaturas con otra extensión: se dejan tal cual.
   if (!/\.(jpe?g|png)$/i.test(file)) return null;
-  const original = WIKIMEDIA_SIZES[`${hash}/${file}`];
-  const maxWidth = original ? original[0] : Number(urlWidth) || 0;
+  const original = WIKIMEDIA_PHOTOS[parsed.key];
+  const maxWidth = original ? original[0] : urlWidth;
   if (!maxWidth) return null;
 
   const thumb = (w) => `${WIKI_BASE}thumb/${hash}/${file}/${w}px-${file}`;

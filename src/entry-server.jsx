@@ -32,6 +32,7 @@ import BecaErasmusPage from "./pages/BecaErasmusPage";
 import CityMatchPage from "./pages/CityMatchPage";
 import TiposDeIntercambioPage from "./pages/TiposDeIntercambioPage";
 import PrivacidadPage from "./pages/PrivacidadPage";
+import CreditosPage from "./pages/CreditosPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 import { CITIES } from "./data/cities";
@@ -105,6 +106,15 @@ const STATIC_PAGE_META = {
     changefreq: "yearly",
     priority: 0.2,
   },
+  // noindex: se prerenderiza (con <meta robots noindex>, sin canonical) pero
+  // no entra en el sitemap.
+  "/creditos": {
+    title: "Créditos de las fotos | MAbroad",
+    description: "Autores y licencias de las fotos de las ciudades de MAbroad, de Wikimedia Commons.",
+    changefreq: "yearly",
+    priority: 0.1,
+    noindex: true,
+  },
 };
 
 /**
@@ -117,6 +127,7 @@ export const ALL_ROUTES = [
     path,
     changefreq: m.changefreq,
     priority: m.priority,
+    noindex: Boolean(m.noindex),
   })),
   ...CITIES.map((c) => ({
     path: `/city/${c.slug}`,
@@ -174,6 +185,7 @@ export function getMetaForPath(pathname) {
       ogType: "website",
       ...DEFAULT_OG,
       jsonLd: null,
+      noindex: Boolean(m.noindex),
     };
   }
 
@@ -202,6 +214,7 @@ function App({ url }) {
         <Route path="/city-match" element={<CityMatchPage />} />
         <Route path="/tipos-de-intercambio" element={<TiposDeIntercambioPage />} />
         <Route path="/privacidad" element={<PrivacidadPage />} />
+        <Route path="/creditos" element={<CreditosPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </StaticRouter>

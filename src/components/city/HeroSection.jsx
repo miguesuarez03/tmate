@@ -6,6 +6,7 @@ import { isErasmusEligible, getScoreLevel } from "../../lib/cities";
 import { IconUniversidad, IconFiesta, IconBeca, IconSol, IconBici, IconSeguridad, IconComida, IconArte, IconLaptop, IconPlaya, IconFuego } from "../icons";
 import ScoreRing from "../ScoreRing";
 import { heroImage } from "../../lib/images";
+import PhotoCredit from "../PhotoCredit";
 
 // ─── MOOD TAGS CONFIG ─────────────────────────────────────────────────────────
 const MOOD_ICONS = {
@@ -273,6 +274,9 @@ export default function HeroSection({ city, overallScore, insights }) {
           </button>
         </div>
       </div>
+
+      {/* Crédito de la foto de portada: esquina inferior derecha */}
+      <PhotoCredit src={city.heroImg || city.img} corner="bottom-right" style={{ "--credit-inset": "16px" }} />
 
       {/* Scroll hint */}
       <div className={styles.heroScrollHint}>
