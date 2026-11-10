@@ -36,13 +36,13 @@ export const UNIVERSITY_ERASMUS_LINKS = {
 
   // ── Cracovia ─────────────────────────────────────────────────────────────
   "Jagiellonian University": "https://erasmus.uj.edu.pl/en_GB/incoming/studies",
-  "AGH University": "https://www.erasmus.agh.edu.pl/en/incoming-students/",
-  "Cracow University of Economics": "https://uek.krakow.pl/en/cooperation/exchange-students/incoming-students",
+  "AGH University": "https://www.international.agh.edu.pl/en/exchange",
+  "Krakow University of Economics": "https://bpz.uek.krakow.pl/en/incoming-students/",
 
   // ── Varsovia ─────────────────────────────────────────────────────────────
-  "University of Warsaw": "https://en.uw.edu.pl/candidates/exchange-students/",
-  "Warsaw School of Economics": "https://www.sgh.waw.pl/en/exchange-students",
-  "Warsaw University of Technology": "https://www.pw.edu.pl/engpw/Education/Exchange-Studies/Incoming-Students",
+  "University of Warsaw": "https://bwz.uw.edu.pl/en/frequently-asked-questions/",
+  "SGH Warsaw School of Economics": "https://www.sgh.waw.pl/en/nomination-and-application",
+  "Warsaw University of Technology": "https://erasmus.pw.edu.pl/erasmusen/Incoming-Students/How-to-apply",
 
   // ── Budapest ─────────────────────────────────────────────────────────────
   "Corvinus University of Budapest": "https://www.uni-corvinus.hu/post/landing-page/incoming-and-exchange-students/?lang=en",
@@ -98,14 +98,14 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Queen Mary": "https://www.qmul.ac.uk/international/global-opportunities/incoming-exchange-students/",
 
   // ── Ámsterdam ────────────────────────────────────────────────────────────
-  "University of Amsterdam (UvA)": "https://www.uva.nl/en/education/exchange/exchange-uva/exchange-at-the-uva.html",
-  "Vrije Universiteit Amsterdam": "https://vu.nl/en/education/exchange-programme",
-  "Amsterdam University of Applied Sciences": "https://www.amsterdamuas.com/study/exchange-and-international-programmes",
+  "University of Amsterdam (UvA)": "https://www.uva.nl/en/education/exchange/exchange.html",
+  "Vrije Universiteit Amsterdam": "https://vu.nl/en/education/exchange",
+  "Amsterdam University of Applied Sciences": "https://www.amsterdamuas.com/study/education/exchange",
 
   // ── Viena ────────────────────────────────────────────────────────────────
-  "University of Vienna": "https://international.univie.ac.at/en/students/incoming-exchange-students/",
-  "Vienna University of Technology": "https://www.tuwien.at/en/studies/admission-and-application/international-students/exchange-students",
-  "WU Vienna": "https://www.wu.ac.at/en/students/registration/exchange-students",
+  "University of Vienna": "https://international.univie.ac.at/en/information-for-incoming-exchange-students",
+  "Vienna University of Technology": "https://www.tuwien.at/en/studies/international/incoming-exchange-students/",
+  "WU Vienna": "https://www.wu.ac.at/en/programs/international-and-exchange-students/incoming-exchange-students",
 
   // ── Rosenheim ────────────────────────────────────────────────────────────
   "Technische Hochschule Rosenheim": "https://www.th-rosenheim.de/en/international/incoming-students",

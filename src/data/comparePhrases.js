@@ -45,7 +45,7 @@ export const COMPARE_PHRASES = {
     seguridad: "Una de las ciudades más seguras de Iberia",
   },
   bruselas: {
-    coste: "Precio medio en Europa Occidental, 750–1.000€/mes",
+    coste: "Precio medio-alto: 950–1.350€/mes",
     alojamiento: "Manejable comparado con París o Ámsterdam",
     vida_social: "Más auténtica de lo que parece, Ixelles manda",
     integracion: "La capital de Europa, todo el mundo encaja",
@@ -85,7 +85,7 @@ export const COMPARE_PHRASES = {
     seguridad: "De las ciudades más seguras de Europa",
   },
   amsterdam: {
-    coste: "Una de las más caras de Europa, 1.100–1.400€",
+    coste: "Una de las más caras de Europa: 1.000–1.500€/mes",
     alojamiento: "El mercado más difícil de esta guía, busca con meses",
     vida_social: "Clubs de techno y bares de canal sin parar",
     integracion: "El inglés es casi el idioma del día a día",
@@ -125,7 +125,7 @@ export const COMPARE_PHRASES = {
     seguridad: "Muy segura, el riesgo real son los timos turísticos",
   },
   cracovia: {
-    coste: "La más barata de la guía, 350–500€/mes",
+    coste: "Muy asequible: 600–950€/mes",
     alojamiento: "Fácil, asequible y sin el estrés del oeste",
     vida_social: "Kazimierz y el Rynek, de las mejores noches de Europa",
     integracion: "Muy acostumbrada a estudiantes internacionales",
@@ -175,14 +175,14 @@ export const COMPARE_PHRASES = {
     seguridad: "Segura para su tamaño, cuidado en estaciones",
   },
   viena: {
-    coste: "Cara para el este, asequible para el oeste",
+    coste: "Cara para el este, media para el oeste",
     alojamiento: "Competitivo pero más manejable que Múnich o Londres",
     vida_social: "Sofisticada más que salvaje, Gürtelbars y Naschmarkt",
     integracion: "Muy internacional, el inglés funciona en todas partes",
-    movilidad: "El mejor transporte público de toda la guía",
-    estilo_vida: "Diez años seguidos como número uno mundial",
+    movilidad: "Transporte público excelente y asequible",
+    estilo_vida: "Siempre en lo más alto en calidad de vida",
     empleo: "Hub de negocios de Europa Central",
-    seguridad: "Top 3 mundial en ciudades más seguras",
+    seguridad: "De las ciudades más seguras de Europa",
   },
   lisboa: {
     coste: "Asequible para el oeste, cara para Portugal",

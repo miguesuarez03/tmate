@@ -519,13 +519,13 @@ export const CITY_INSIGHTS = {
         id: "coste",
         label: "Coste de vida",
         icon: "💰",
-        score: 7.0,
-        summary: "Precio medio para Europa Occidental. Con 750–1.000€/mes se vive bien en la capital europea.",
+        score: 6.0,
+        summary: "Precio medio-alto para Europa Occidental: la ULB calcula 950–1.350€/mes.",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 500–700€. Más asequible que París o Ámsterdam. Ixelles y Saint-Gilles son las zonas más estudiantiles." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercado du Midi los domingos — el más grande de Bélgica y muy asequible. Chocolate y gaufres de calidad a buen precio." },
-          { label: "Transporte", score: 8.5, desc: "STIB mensual a 50€ — metro, tranvía y autobús integrados. La red cubre bien toda la ciudad." },
+          { label: "Transporte", score: 8.5, desc: "STIB mensual a 56€ (abono anual de 12€ para menores de 25 que cumplan los requisitos) — metro, tranvía y autobús integrados. La red cubre bien toda la ciudad." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Cervezas belgas artesanales a 3–4€. Muchos eventos institucionales gratuitos. Museos muy asequibles." },
         ],
       },
@@ -568,9 +568,9 @@ export const CITY_INSIGHTS = {
         summary: "La ciudad más internacional de esta guía después de La Haya. El inglés, francés y neerlandés conviven perfectamente.",
         color: "#3F7A7D",
         subcategories: [
-          { label: "Nivel de inglés", score: 9.5, desc: "Ciudad oficialmente trilingüe. El inglés funciona perfectamente. La diversidad lingüística es parte del ADN de la ciudad." },
-          { label: "Comunidad europea", score: 10.0, desc: "40.000 funcionarios europeos más miles de becarios de toda la UE. La ciudad más internacional de Europa en términos de diversidad institucional." },
-          { label: "Actitud local", score: 8.0, desc: "Los bruselenses son acogedores y acostumbrados a vivir con gente de todo el mundo. Sin xenofobia ni barreras." },
+          { label: "Nivel de inglés", score: 9.5, desc: "Oficialmente bilingüe (francés y neerlandés), pero el inglés funciona muy bien. La diversidad lingüística es parte del ADN de la ciudad." },
+          { label: "Comunidad europea", score: 10.0, desc: "Decenas de miles de trabajadores de las instituciones europeas y becarios de toda la UE. La ciudad más internacional de Europa en términos de diversidad institucional." },
+          { label: "Actitud local", score: 8.0, desc: "Los bruselenses son acogedores y acostumbrados a vivir con gente de todo el mundo." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
         ],
       },
@@ -580,12 +580,12 @@ export const CITY_INSIGHTS = {
         label: "Ubicación y movilidad",
         icon: "🚆",
         score: 8.2,
-        summary: "Metro, tranvía y autobús bien integrados. Tren a París, Ámsterdam y Londres con Eurostar y Thalys.",
+        summary: "Metro, tranvía y autobús bien integrados. Tren a París, Ámsterdam y Londres con Eurostar.",
         color: "#F59E0B",
         subcategories: [
           { label: "Transporte público", score: 8.0, desc: "4 líneas de metro y red de tranvías que cubre bien la ciudad. Puntual y cómodo para el día a día." },
           { label: "Ciudad caminable", score: 7.5, desc: "Villo! (bici compartida) muy útil. La ciudad está mejorando su infraestructura ciclista aunque todavía con trabajo pendiente." },
-          { label: "Conexiones nacionales", score: 9.5, desc: "Eurostar a Londres (2h), Thalys a París (1h22) y Ámsterdam (1h48). El hub ferroviario internacional de Europa." },
+          { label: "Conexiones nacionales", score: 9.5, desc: "Eurostar a Londres (2h), París (1h22) y Ámsterdam (1h52). El hub ferroviario internacional de Europa." },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -613,7 +613,7 @@ export const CITY_INSIGHTS = {
         summary: "La mejor ciudad de Europa para prácticas en instituciones europeas, política y relaciones internacionales.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Mercado laboral", score: 10.0, desc: "Parlamento Europeo, Comisión, Consejo, BCE. El Schuman Traineeship es el programa de prácticas más prestigioso de Europa." },
+          { label: "Mercado laboral", score: 10.0, desc: "Parlamento Europeo, Comisión, Consejo y OTAN. Las prácticas en las instituciones europeas (Blue Book de la Comisión, Schuman del Parlamento) son muy codiciadas." },
           { label: "Prácticas", score: 9.5, desc: "Miles de ONGs, think tanks y organizaciones de lobby con sede en Bruselas. Oportunidades para todo tipo de perfiles." },
           { label: "Empresas relevantes", score: 8.5, desc: "Muchas empresas internacionales con sede o delegación en Bruselas por la presencia institucional." },
           { label: "Oportunidades para estudiantes", score: 9.2, desc: "La mejor ciudad de Europa para prácticas en instituciones europeas, política y relaciones internacionales." },
@@ -1144,7 +1144,7 @@ export const CITY_INSIGHTS = {
   },
   amsterdam: {
     heroImg: "https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=1600&q=85",
-    tagline: "La ciudad más liberal y abierta de Europa. Todo el mundo habla inglés, todo el mundo va en bici y los canales son Patrimonio UNESCO.",
+    tagline: "De las ciudades más liberales y abiertas de Europa. El inglés está muy extendido, la bici manda y los canales son Patrimonio UNESCO.",
     atmosphere: "Liberal, creativa y en perpetuo movimiento. Ámsterdam huele a stroopwafel y canal, y suena a ruedas de bici sobre adoquines mojados al amanecer.",
     scores: [
       // 1. COSTE DE VIDA
@@ -1152,8 +1152,8 @@ export const CITY_INSIGHTS = {
         id: "coste",
         label: "Coste de vida",
         icon: "💰",
-        score: 5.5,
-        summary: "Una de las ciudades más caras de Europa. Con 1.100–1.400€/mes se vive bien si encuentras piso.",
+        score: 5.0,
+        summary: "Una de las ciudades más caras de Europa: la UvA calcula 1.000–1.500€/mes (sin matrícula), si encuentras piso.",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 4.0, desc: "Habitaciones desde 750–1.100€. El mercado más competitivo de Holanda. Encontrar algo es el mayor reto del Erasmus." },
@@ -1171,10 +1171,10 @@ export const CITY_INSIGHTS = {
         summary: "El mercado más difícil de esta guía. Empieza a buscar 4–5 meses antes y ten un plan B siempre preparado.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 3.0, desc: "Crisis de vivienda real. Miles de estudiantes compiten por cada habitación. Sin exagerar: es la mayor dificultad del Erasmus aquí." },
-          { label: "Precio", score: 3.5, desc: "750–1.100€ habitación. Los precios más altos de esta guía con diferencia. Sin techo a la vista." },
+          { label: "Disponibilidad", score: 3.0, desc: "Crisis de vivienda real. Mucha competencia por cada habitación: es la mayor dificultad del Erasmus aquí." },
+          { label: "Precio", score: 3.5, desc: "750–1.100€ habitación. De los precios más altos de esta guía. Sin techo a la vista." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "Kamernet, HousingAnywhere, grupos de Facebook de UvA. La universidad tiene residencias — solicítalas el primer día." },
-          { label: "Residencias universitarias", score: 6.0, desc: "Conseguí residencia universitaria de UvA. Sin eso no sé cómo habría podido ir. Las residencias son oro." },
+          { label: "Residencias universitarias", score: 6.0, desc: "Las residencias son la vía más segura: pregunta a tu universidad de destino si reserva plazas para estudiantes de intercambio." },
         ],
       },
       // 3. VIDA SOCIAL Y AMBIENTE
@@ -1186,7 +1186,7 @@ export const CITY_INSIGHTS = {
         summary: "Una de las mejores escenas nocturnas de Europa. Clubs de techno, bares de canal y eventos que no paran nunca. Comunidad internacional enorme y muy diversa. Entre UvA y VU hay miles de estudiantes de todo el mundo.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 9.0, desc: "+6.000 internacionales al año entre UvA, VU y Amsterdam UAS. Una de las más grandes de Europa del Norte. ESN Amsterdam organiza eventos épicos: boat parties, bike tours, King's Day events, museum nights." },
+          { label: "Comunidad Erasmus", score: 9.0, desc: "Comunidad internacional muy grande entre UvA, VU y Amsterdam UAS. ESN Amsterdam organiza eventos épicos: boat parties, bike tours, King's Day events, museum nights." },
           { label: "Ambiente internacional", score: 9.0, desc: "No solo europea — estudiantes de Asia, América y África. La comunidad más global de esta guía." },
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "Shelter, Radion, Melkweg, Paradiso. Escena de clubs de primer nivel mundial. Techno, house y todo lo que quieras." },
           { label: "Eventos y actividades", score: 10.0, desc: "ESN muy activo entre UvA y VU. Boat parties por los canales, bike tours, eventos de bienvenida épicos." },
@@ -1201,7 +1201,7 @@ export const CITY_INSIGHTS = {
         summary: "La ciudad más abierta e internacional de Holanda. El inglés es prácticamente el idioma oficial del día a día.",
         color: "#3F7A7D",
         subcategories: [
-          { label: "Nivel de inglés", score: 9.5, desc: "Todo el mundo habla inglés perfectamente — incluso los ancianos. Nunca necesitarás el neerlandés." },
+          { label: "Nivel de inglés", score: 9.5, desc: "El inglés está muy extendido y con él te apañas en el día a día. Aprender algo de neerlandés ayuda a integrarse." },
           { label: "Ambiente internacional", score: 9.5, desc: "Ciudad histórica de tolerancia y apertura. LGBTQ+ friendly al máximo. Todo el mundo es bienvenido." },
           { label: "Actitud local", score: 8.5, desc: "Holandeses directos y sin rodeos — puede parecer brusco pero es honestidad. Muy abiertos una vez que conectas." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
@@ -1216,7 +1216,7 @@ export const CITY_INSIGHTS = {
         summary: "La bici lo es todo. Metro, tram y bus completan una red perfecta. Una de las ciudades más ciclables del mundo.",
         color: "#F59E0B",
         subcategories: [
-          { label: "Ciudad caminable", score: 10.0, desc: "800.000 bicis en la ciudad. Infraestructura ciclista perfecta. Sin bici no entiendes Ámsterdam — es parte de su alma." },
+          { label: "Ciudad caminable", score: 10.0, desc: "Infraestructura ciclista excelente. Sin bici no entiendes Ámsterdam — es parte de su alma." },
           { label: "Transporte público", score: 8.5, desc: "Red integrada y eficiente. El tram cubre el centro, el metro conecta con los barrios exteriores." },
           { label: "Conexiones nacionales", score: 9.0, desc: "Tren a Rotterdam (40min), La Haya (50min), Utrecht (30min), Bruselas (2h). Hub ferroviario internacional." },
           { label: "Escapadas de fin de semana", score: 9.0, desc: "Excelente posición para escapadas: Tren a Rotterdam (40min), La Haya (50min), Utrecht (30min), Bruselas (2h). Hub ferroviario internacional." },
@@ -1248,7 +1248,7 @@ export const CITY_INSIGHTS = {
         color: "#8B5CF6",
         subcategories: [
           { label: "Mercado laboral", score: 9.5, desc: "Booking.com, TomTom, Adyen, Takeaway. Ecosistema tech de los más maduros de Europa. Mucha demanda en inglés." },
-          { label: "Prácticas", score: 9.0, desc: "ASML, ING, ABN AMRO, Flow Traders. Hub financiero y de trading europeo de primer nivel." },
+          { label: "Prácticas", score: 9.0, desc: "ING, ABN AMRO, Booking.com, Adyen, Flow Traders. Hub financiero y de trading europeo de primer nivel." },
           { label: "Empresas relevantes", score: 8.5, desc: "Agencias de diseño, publicidad, moda y media con sede en Ámsterdam. Muy activo para perfiles creativos." },
           { label: "Oportunidades para estudiantes", score: 9.0, desc: "Hub tecnológico, financiero y creativo de primer nivel europeo. Sede de multinacionales y startups top." },
         ],
@@ -1660,14 +1660,14 @@ export const CITY_INSIGHTS = {
         id: "coste",
         label: "Coste de vida",
         icon: "💰",
-        score: 9.2,
-        summary: "La ciudad más barata de esta guía. Con 350–500€/mes se vive increíblemente bien.",
+        score: 7.8,
+        summary: "De las grandes ciudades más asequibles de Europa: la UEK calcula 2.500–2.800 PLN/mes compartiendo habitación y 3.400–4.200 PLN con habitación individual.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 9.0, desc: "Habitaciones desde 200–350€. Pisos enteros por lo que en Lisboa pagarías una habitación." },
+          { label: "Alojamiento", score: 9.0, desc: "Residencias privadas desde 1.450–1.650 PLN en habitación compartida y 1.900–3.200 PLN en individual (UEK). Mucho más barato que en Europa Occidental." },
           { label: "Comida y supermercados", score: 9.5, desc: "Menú del día por 4–5€. Cerveza a 1,50€. Zapiekanka (bocadillo polaco) por 2€. Comer bien es ridículamente barato." },
-          { label: "Transporte", score: 9.5, desc: "Pase mensual de tranvía y autobús a 20€. La ciudad entera caminable desde el centro." },
-          { label: "Ocio y gastos diarios", score: 9.0, desc: "Noche entera con 20–30€. Shots a 1€, cervezas a 1,50€. Una de las vidas nocturnas más baratas de Europa." },
+          { label: "Transporte", score: 9.5, desc: "Abono mensual de tranvía y autobús: 193 PLN, o 96,50 PLN con descuento de estudiante. La ciudad entera caminable desde el centro." },
+          { label: "Ocio y gastos diarios", score: 9.0, desc: "Salir de noche es muy barato. Una de las vidas nocturnas más asequibles de Europa." },
         ],
       },
       // 2. ALOJAMIENTO
@@ -1680,7 +1680,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 8.0, desc: "Oferta amplia. Cracovia está preparada para recibir muchos estudiantes internacionales cada año." },
-          { label: "Precio", score: 9.0, desc: "200–350€ habitación. Pisos enteros desde 500€. Los precios más bajos de esta guía." },
+          { label: "Precio", score: 9.0, desc: "Habitación compartida 1.450–1.650 PLN e individual 1.900–3.200 PLN en residencias privadas (UEK). De los precios más bajos de esta guía." },
           { label: "Facilidad de búsqueda", score: 7.5, desc: "OLX.pl, grupos de Facebook de la Jagiellonian, Erasmus in Krakow. Proceso sencillo desde el extranjero." },
           { label: "Residencias universitarias", score: 6.0, desc: "Consulta residencias universitarias disponibles — pueden ser la opción más cómoda y segura para los primeros meses." },
         ],
@@ -1691,13 +1691,13 @@ export const CITY_INSIGHTS = {
         label: "Vida social y ambiente",
         icon: "🎉",
         score: 9.2,
-        summary: "Vida nocturna legendaria. Kazimierz y el Rynek son el epicentro de una de las mejores escenas estudiantiles de Europa. Una de las comunidades Erasmus más grandes y activas de Europa del Este. +8.000 internacionales al año.",
+        summary: "Vida nocturna legendaria. Kazimierz y el Rynek son el epicentro de una de las mejores escenas estudiantiles de Europa. Comunidad Erasmus grande y muy activa.",
         color: "#8B5CF6",
         subcategories: [
           { label: "Comunidad Erasmus", score: 9.2, desc: "Muchos estudiantes internacionales cada año. Una de las más grandes de Europa Central. ESN Kraków es muy activo. Eventos casi diarios: pub crawls, excursiones, cenas temáticas, deportes." },
           { label: "Ambiente internacional", score: 9.2, desc: "Estudiantes de toda Europa, especialmente España, Italia, Francia y Turquía. Ambiente muy internacional." },
-          { label: "Fiesta y vida nocturna", score: 9.5, desc: "Kazimierz tiene cientos de bares en sótanos medievales. Cada uno con su ambiente. La calle Szeroka es imprescindible." },
-          { label: "Eventos y actividades", score: 9.5, desc: "ESN muy activo. Pub crawls, cenas internacionales, excursiones a Zakopane y Auschwitz cada semana." },
+          { label: "Fiesta y vida nocturna", score: 9.5, desc: "Kazimierz y el Rynek están llenos de bares en sótanos históricos. Cada uno con su ambiente. La calle Szeroka es imprescindible." },
+          { label: "Eventos y actividades", score: 9.5, desc: "ESN muy activo. Pub crawls, cenas internacionales, excursiones a Zakopane y Auschwitz." },
         ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
@@ -1724,7 +1724,7 @@ export const CITY_INSIGHTS = {
         summary: "Ciudad compacta y perfectamente caminable en el centro. Tranvías eficientes para el resto.",
         color: "#F59E0B",
         subcategories: [
-          { label: "Transporte público", score: 8.5, desc: "Red de tranvías que cubre toda la ciudad. Puntual y frecuente. Pase mensual a 20€ es una ganga." },
+          { label: "Transporte público", score: 8.5, desc: "Red de tranvías que cubre toda la ciudad. Puntual y frecuente. El abono con descuento de estudiante es una ganga." },
           { label: "Ciudad caminable", score: 9.5, desc: "El centro histórico entero es caminable. Del Rynek a Kazimierz en 15 minutos. La mejor forma de moverse." },
           { label: "Conexiones nacionales", score: 8.0, desc: "Tren a Varsovia (2h20), Praga (7h), Viena (7h). Autobuses FlixBus muy baratos a toda Europa." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "Excelente posición para escapadas: Tren a Varsovia (2h20), Praga (7h), Viena (7h). Autobuses FlixBus muy baratos a toda Europa." },
@@ -1740,7 +1740,7 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.0, desc: "Zakopane y los Tatras a 2h. Senderismo en verano, esquí en invierno. Naturaleza polaca espectacular." },
-          { label: "Clima", score: 6.0, desc: "Inviernos fríos y nevados, veranos cálidos y agradables. Las cuatro estaciones bien marcadas. Verano: 25–30°C, soleado y agradable. El Rynek lleno de vida, terrazas por todas partes. La mejor época. Invierno: Muy frío, -5 a -15°C con frecuencia. Nieve frecuente. Requiere ropa de abrigo real y mentalidad de invierno." },
+          { label: "Clima", score: 6.0, desc: "Inviernos fríos y nevados, veranos cálidos y agradables. Las cuatro estaciones bien marcadas. Verano: máximas medias de 24–25°C, soleado y agradable. El Rynek lleno de vida, terrazas por todas partes. La mejor época. Invierno: muy frío, con máximas en torno a 3°C y mínimas de -4°C; las olas de frío bajan de -10°C. Nieve frecuente. Requiere ropa de abrigo real y mentalidad de invierno." },
           { label: "Calidad de vida", score: 8.8, desc: "Calidad de vida altísima para el precio. Historia, gastronomía, naturaleza y comunidad en una ciudad perfecta de tamaño." },
           { label: "Autenticidad local", score: 8.5, desc: "Pierogi, żurek, bigos. Cocina polaca contundente y deliciosa. Restaurantes excelentes a precios irrisorios." },
           { label: "Estilo de vida", score: 9.0, desc: "Tamaño perfecto: grande para tener de todo, pequeña para no perderse. La ciudad ideal para el Erasmus." },
@@ -1779,7 +1779,7 @@ export const CITY_INSIGHTS = {
   },
   varsovia: {
     heroImg: "https://images.unsplash.com/photo-1519197924294-4ba991a11128?w=1600&q=85",
-    tagline: "La ciudad que resurgió de sus cenizas y hoy es el motor de Europa del Este. Ambiciosa, moderna y más barata que cualquier capital occidental.",
+    tagline: "La ciudad que resurgió de sus cenizas y hoy es el motor de Europa del Este. Ambiciosa, moderna y con un coste de vida contenido.",
     atmosphere: "Moderna, resiliente y llena de energía. Varsovia huele a café de especialidad en coworkings y suena a grúas construyendo el futuro sobre la historia.",
     scores: [
       // 1. COSTE DE VIDA
@@ -1787,13 +1787,13 @@ export const CITY_INSIGHTS = {
         id: "coste",
         label: "Coste de vida",
         icon: "💰",
-        score: 8.5,
-        summary: "Más cara que Cracovia pero todavía muy asequible. Con 550–700€/mes se vive bien en la capital polaca.",
+        score: 7.0,
+        summary: "Más cara que Cracovia pero todavía asequible: la Universidad de Varsovia calcula 3.000–5.000 PLN/mes (unos 700–1.100€).",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 8.0, desc: "Habitaciones desde 300–450€. Más cara que Cracovia pero muy asequible comparada con capitales occidentales." },
           { label: "Comida y supermercados", score: 9.0, desc: "Menú del día por 5–7€. Mercado Hala Koszyki para foodie asequible. Supermercados baratos y bien surtidos." },
-          { label: "Transporte", score: 9.0, desc: "Metro + autobús + tranvía por 22€/mes. Red amplia y moderna. Una de las más baratas de Europa." },
+          { label: "Transporte", score: 9.0, desc: "Metro, autobús y tranvía: abono de 30 días a 110 PLN, o 55 PLN para estudiantes acreditados. Red amplia y moderna." },
           { label: "Ocio y gastos diarios", score: 8.5, desc: "Cervezas a 2–3€. Vida nocturna barata y variada. Muchos eventos culturales gratuitos." },
         ],
       },
@@ -1806,7 +1806,7 @@ export const CITY_INSIGHTS = {
         summary: "Mercado más tenso que Cracovia pero manejable. Busca con 2 meses de antelación y tendrás opciones.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 7.5, desc: "Oferta amplia pero la demanda crece con la ciudad. Más fácil que cualquier capital de Europa Occidental." },
+          { label: "Disponibilidad", score: 7.5, desc: "Oferta amplia, aunque la demanda crece con la ciudad." },
           { label: "Precio", score: 8.0, desc: "300–450€ habitación. Subiendo año a año pero todavía muy asequible para una capital." },
           { label: "Facilidad de búsqueda", score: 7.5, desc: "OLX.pl, Otodom, grupos de Facebook de la Universidad de Varsovia. El proceso es más ágil que en ciudades del oeste." },
           { label: "Residencias universitarias", score: 6.0, desc: "Consulta residencias universitarias disponibles — pueden ser la opción más cómoda y segura para los primeros meses." },
@@ -1821,9 +1821,9 @@ export const CITY_INSIGHTS = {
         summary: "Escena nocturna moderna y diversa. Praga-Północ y el centro concentran los mejores clubs y bares. Comunidad internacional grande y creciente. Varsovia atrae cada vez más estudiantes internacionales.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 8.5, desc: "+6.000 internacionales entre la Universidad de Varsovia, Warsaw School of Economics y la Politécnica. ESN Warszawa muy organizado. Buddy system, eventos de bienvenida, excursiones y vida social desde el día 1." },
+          { label: "Comunidad Erasmus", score: 8.5, desc: "Comunidad internacional repartida entre la Universidad de Varsovia, la SGH y la Politécnica. ESN Warszawa muy organizado. Buddy system, eventos de bienvenida, excursiones y vida social desde el día 1." },
           { label: "Ambiente internacional", score: 8.5, desc: "Ambiente internacional con estudiantes de toda Europa y el mundo." },
-          { label: "Fiesta y vida nocturna", score: 8.5, desc: "Smolna, Jasna 1, Pogłos. Escena electrónica seria y en crecimiento. Muy por encima de lo que la gente espera." },
+          { label: "Fiesta y vida nocturna", score: 8.5, desc: "Smolna y Jasna 1. Escena electrónica seria y en crecimiento. Muy por encima de lo que la gente espera." },
           { label: "Eventos y actividades", score: 8.5, desc: "ESN activo. Eventos regulares entre la comunidad internacional. La ciudad tiene mucho que ofrecer más allá del campus." },
         ],
       },
@@ -1867,7 +1867,7 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.0, desc: "Parque Łazienki, orillas del Wisła. Más verde de lo que parece. Muy buena infraestructura deportiva." },
-          { label: "Clima", score: 5.8, desc: "Inviernos muy fríos y largos. Veranos cálidos y agradables. Hay que venir preparado para el frío. Verano: 25–30°C, soleado y agradable. Las orillas del Wisła se llenan de gente. La mejor época para vivir Varsovia. Invierno: Muy frío, -10 a -20°C posibles. Gris y largo. El invierno polaco es serio — no es para todo el mundo." },
+          { label: "Clima", score: 5.8, desc: "Inviernos muy fríos y largos. Veranos cálidos y agradables. Hay que venir preparado para el frío. Verano: máximas medias de 24°C, soleado y agradable. Las orillas del Wisła se llenan de gente. La mejor época para vivir Varsovia. Invierno: muy frío, con máximas en torno a 2°C, mínimas de -3°C y olas de frío por debajo de -10°C. Gris y largo. El invierno polaco es serio — no es para todo el mundo." },
           { label: "Calidad de vida", score: 8.2, desc: "Ciudad moderna con mucho que ofrecer. Historia, cultura, gastronomía y una energía de ciudad en construcción constante." },
           { label: "Autenticidad local", score: 8.0, desc: "Pierogi, żurek, barszcz. Pero también una escena foodie moderna con restaurantes de todo el mundo." },
           { label: "Estilo de vida", score: 8.0, desc: "Ritmo intenso de capital pero con precios que no asfixian. La combinación perfecta para el Erasmus ambicioso." },
@@ -2288,7 +2288,7 @@ export const CITY_INSIGHTS = {
   },
   viena: {
     heroImg: "https://images.unsplash.com/photo-1516550893923-42d28e5677af?w=1600&q=85",
-    tagline: "La ciudad con mejor calidad de vida del mundo, 10 años seguidos. Imperial, elegante y con una oferta cultural que no tiene rival en Europa.",
+    tagline: "Siempre en lo más alto en calidad de vida. Imperial, elegante y con una oferta cultural que no tiene rival en Europa.",
     atmosphere: "Imperial, refinada y sorprendentemente joven. Viena huele a Sachertorte y café de Kaffeehäuser centenarios, y suena a música clásica saliendo de palacios convertidos en salas de concierto.",
     scores: [
       // 1. COSTE DE VIDA
@@ -2296,14 +2296,14 @@ export const CITY_INSIGHTS = {
         id: "coste",
         label: "Coste de vida",
         icon: "💰",
-        score: 7.0,
-        summary: "Cara para el este de Europa, asequible para el oeste. Con 800–1.100€/mes se vive muy bien.",
+        score: 5.5,
+        summary: "Cara para el este de Europa, media para el oeste: la Universidad de Viena calcula unos 1.400€/mes.",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Habitaciones desde 500–750€. Más asequible que Múnich o Londres. El mercado es competitivo pero manejable." },
           { label: "Comida y supermercados", score: 8.0, desc: "Naschmarkt — el mejor mercado de la ciudad con precios razonables. Supermercados Billa y Spar bien surtidos y asequibles." },
-          { label: "Transporte", score: 9.5, desc: "Wiener Linien anual por 365€ — 1€ al día para metro, tranvía y autobús ilimitados. El mejor precio-calidad de esta guía." },
-          { label: "Ocio y gastos diarios", score: 8.0, desc: "Ópera desde 3€ de pie. Museos asequibles. Muchos conciertos gratuitos. La cultura de primer nivel no tiene por qué ser cara." },
+          { label: "Transporte", score: 9.5, desc: "Wiener Linien: abono anual por 461€ o mensual por 65,20€ (digital) — metro, tranvía y autobús ilimitados. Muy buena relación calidad-precio." },
+          { label: "Ocio y gastos diarios", score: 8.0, desc: "Entradas de pie para la Ópera muy baratas. Museos asequibles. Muchos conciertos gratuitos. La cultura de primer nivel no tiene por qué ser cara." },
         ],
       },
       // 2. ALOJAMIENTO
@@ -2330,7 +2330,7 @@ export const CITY_INSIGHTS = {
         summary: "Vida nocturna más sofisticada que salvaje. Gürtelbars, clubs underground y la escena de Naschmarkt para todos los gustos. Gran comunidad internacional entre la Universidad de Viena, WU y TU Wien. Muy activa y bien organizada.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 8.8, desc: "+5.500 internacionales entre la Universidad de Viena, WU Vienna y TU Wien. Comunidad numerosa y diversa. ESN Vienna muy organizado. Bailes universitarios, trips a Budapest y Bratislava, cenas de gala, eventos culturales." },
+          { label: "Comunidad Erasmus", score: 8.8, desc: "Comunidad internacional repartida entre la Universidad de Viena, WU Vienna y TU Wien. Comunidad numerosa y diversa. ESN Vienna muy organizado. Bailes universitarios, trips a Budapest y Bratislava, cenas de gala, eventos culturales." },
           { label: "Ambiente internacional", score: 8.8, desc: "Ambiente internacional con estudiantes de toda Europa y el mundo." },
           { label: "Fiesta y vida nocturna", score: 9.0, desc: "Los arcos bajo el cinturón ferroviario del Gürtel albergan decenas de bares únicos. Ambiente local e internacional mezclado." },
           { label: "Eventos y actividades", score: 9.0, desc: "ESN activo. Bolas universitarias (sí, bailes de gala), cenas internacionales, trips a Budapest y Bratislava." },
@@ -2376,7 +2376,7 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.0, desc: "Prater, Donauinsel, Wienerwald. Verde abundante dentro de la ciudad. Naturaleza alpina a 1h en tren." },
-          { label: "Clima", score: 7.5, desc: "Cuatro estaciones bien marcadas. Veranos calurosos, inviernos fríos pero con mucho encanto navideño. Verano: 28–33°C, soleado. El Donauinsel (isla del Danubio) se convierte en la playa de la ciudad. Perfecta para vivir al aire libre. Invierno: Frío, -5°C posibles, con nieve ocasional. Pero los mercados navideños de Viena son de los más bonitos de Europa." },
+          { label: "Clima", score: 7.5, desc: "Cuatro estaciones bien marcadas. Veranos calurosos, inviernos fríos pero con mucho encanto navideño. Verano: máximas medias de 26°C, con olas de calor por encima de 30°C. El Donauinsel (isla del Danubio) se convierte en la playa de la ciudad. Perfecta para vivir al aire libre. Invierno: frío, con máximas en torno a 5°C y mínimas de -1°C, con nieve ocasional. Pero los mercados navideños de Viena son de los más bonitos de Europa." },
           { label: "Calidad de vida", score: 9.5, desc: "Una de las mejores calidades de vida del mundo: suele estar en lo más alto de los rankings internacionales." },
           { label: "Autenticidad local", score: 9.0, desc: "Wiener Schnitzel, Tafelspitz, Sachertorte, Apfelstrudel. Y la cultura del Kaffeehaus — café y periódico como ritual diario." },
           { label: "Estilo de vida", score: 9.5, desc: "Transporte perfecto, seguridad máxima, cultura accesible, gastronomía de nivel. La fórmula que nadie ha superado." },
@@ -2393,7 +2393,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Mercado laboral", score: 9.0, desc: "ONU Viena, OPEP, AIEA, ONUDI. La tercera sede de la ONU — detrás de Nueva York y Ginebra. Prácticas de alto nivel." },
           { label: "Prácticas", score: 8.0, desc: "Erste Group, Raiffeisen, Vienna Insurance Group. Hub financiero de Europa Central con salarios competitivos." },
-          { label: "Empresas relevantes", score: 7.5, desc: "Ecosistema startup en crecimiento. Bitpanda, Runtastic (Adidas), Shpock nacieron aquí. Potencial real." },
+          { label: "Empresas relevantes", score: 7.5, desc: "Ecosistema startup en crecimiento. Bitpanda y Shpock nacieron aquí. Potencial real." },
           { label: "Oportunidades para estudiantes", score: 8.0, desc: "Hub de negocios de Europa Central. Finanzas, consultoría, ONGs internacionales y empresas regionales con sede en Viena." },
         ],
       },
@@ -2403,11 +2403,11 @@ export const CITY_INSIGHTS = {
         label: "Seguridad",
         icon: "🛡️",
         score: 9.3,
-        summary: "Una de las ciudades más seguras de Europa. Constantemente en el top 3 mundial de ciudades más seguras.",
+        summary: "Una de las ciudades más seguras de Europa.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 9.5, desc: "Top 3 mundial de ciudades más seguras según múltiples rankings. Criminalidad excepcionalmente baja." },
-          { label: "Seguridad nocturna", score: 9.5, desc: "Completamente segura de noche en todas las zonas. Sin barrios conflictivos. Una de las ciudades más tranquilas de Europa." },
+          { label: "Seguridad general", score: 9.5, desc: "Criminalidad baja; bastan las precauciones habituales frente a carteristas." },
+          { label: "Seguridad nocturna", score: 9.5, desc: "Muy segura de noche. Como en cualquier gran ciudad, conviene algo más de atención en zonas como Praterstern." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Nivel muy bajo. Solo precaución básica en el metro y zonas turísticas muy concurridas." },
         ],
       },

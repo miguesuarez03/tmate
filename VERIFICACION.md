@@ -5,7 +5,7 @@ Claude Code hace cada tanda y Codex la revisa con `codex exec` en solo lectura (
 
 ## Dónde vamos
 
-**Siguiente tanda: 3** (Varsovia, Cracovia, Viena, Ámsterdam, Bruselas) (actualizar al cerrar cada tanda).
+**Siguiente tanda: 4** (Múnich, Lyon, Turín, Nápoles, Padua) (actualizar al cerrar cada tanda).
 
 ## Qué se revisa en cada ciudad
 
@@ -30,7 +30,7 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 |---|---|---|
 | 1 | Bolonia (`bolonia`), Roma (`roma`), Milán (`milan`), Florencia (`florencia`), Lisboa (`lisboa`) | ✅ 10-11-2026 |
 | 2 | Oporto (`oporto`), Berlín (`berlin`), París (`paris`), Praga (`praga`), Budapest (`budapest`) | ✅ 10-11-2026 |
-| 3 | Varsovia (`varsovia`), Cracovia (`cracovia`), Viena (`viena`), Ámsterdam (`amsterdam`), Bruselas (`bruselas`) | Pendiente |
+| 3 | Varsovia (`varsovia`), Cracovia (`cracovia`), Viena (`viena`), Ámsterdam (`amsterdam`), Bruselas (`bruselas`) | ✅ 10-11-2026 |
 | 4 | Múnich (`munich`), Lyon (`lyon`), Turín (`turin`), Nápoles (`napoles`), Padua (`padua`) | Pendiente |
 | 5 | Coimbra (`coimbra`), Copenhague (`copenhague`), Dublín (`dublin`), Estocolmo (`estocolmo`), Helsinki (`helsinki`) | Pendiente |
 | 6 | Lovaina (`lovaina`), Gante (`gante`), Utrecht (`utrecht`), Groningen (`groningen`), Rotterdam (`rotterdam`) | Pendiente |
@@ -82,3 +82,13 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 - Clima con normales 1991–2020 (IPMA, DWD/OMM, Météo-France, ČHMÚ, HungaroMet).
 - 14 enlaces Erasmus arreglados (FU, HU, TU, BHT, ISCAP, Sorbonne, Sciences Po, HEC, Dauphine, Carolina, ČVUT, VŠE, Corvinus, BME, ELTE) y nombres oficiales de universidades.
 - Codex: auditoría con fuentes + 2 rondas; en la ronda 1 corrigió la mínima de verano de París, la excepción de la U4 en Berlín y el requisito de los museos de París (aplicado).
+
+### Tanda 3 — 10-11-2026 (Varsovia, Cracovia, Viena, Ámsterdam, Bruselas)
+- Fotos: las 5 corresponden a su ciudad.
+- Coste según las universidades (UW, UEK, Univie, UvA, ULB): Varsovia 700–1.100 €, Cracovia 600–950 €, Viena 1.000–1.400 €, Ámsterdam 1.000–1.500 €, Bruselas 950–1.350 €; notas de coste ajustadas.
+- Transporte 2026: Varsovia 110/55 PLN, Cracovia 193/96,50 PLN, Wiener Linien 461 €/año o 65,20 €/mes, STIB 56 € (12 €/año para menores de 25 con requisitos).
+- Corregido lo falso: Viena «n.º 1 diez años seguidos» (fue n.º 1 en 2022–2024), «ópera desde 3 €», Runtastic (Linz), Pogłos (cerró en 2024), Thalys (ahora Eurostar), BCE (está en Fráncfort), Bruselas «trilingüe» (es bilingüe), ASML (no está en Ámsterdam).
+- Fuera cifras sin fuente («+5.500/+6.000/+8.000 internacionales», «800.000 bicis», «40.000 funcionarios», «top 3 mundial en seguridad») y un falso testimonio en Ámsterdam.
+- Clima con normales 1991–2020 (IMGW, GeoSphere, KNMI, IRM) y 11 enlaces Erasmus arreglados; nombres oficiales (SGH, Krakow University of Economics).
+- Pendiente: el enlace de Vesalius College (ahora Brussels School of Governance) no se pudo comprobar.
+- Codex: auditoría con fuentes + 1 ronda de revisión sin fallos (solo dejó sin volver a cotejar el clima polaco, que salió de su propia auditoría).
