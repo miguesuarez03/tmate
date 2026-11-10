@@ -1,4 +1,4 @@
-import { useId, useState, useEffect } from "react";
+import { useId, useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import {
   IconExplorar,
@@ -211,27 +211,107 @@ function useMenuAction(navigate, setMenuOpen) {
   };
 }
 
-function NavMenuDrawer({ menuOpen, setMenuOpen }) {
+const MENU_ID = "menu-principal";
+const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+/**
+ * Bloquea el scroll de la página mientras `active`. Se bloquea en <html>
+ * (no en <body>, que ya tiene overflow-x propio) y, si la página tenía barra
+ * de scroll, se reserva su hueco (scrollbar-gutter) para que nada salte de
+ * sitio al desaparecer la barra.
+ */
+function useScrollLock(active) {
+  useEffect(() => {
+    if (!active) return undefined;
+    const root = document.documentElement;
+    const hadScrollbar = window.innerWidth > root.clientWidth;
+    const prev = { overflow: root.style.overflow, gutter: root.style.scrollbarGutter };
+    root.style.overflow = "hidden";
+    if (hadScrollbar) root.style.scrollbarGutter = "stable";
+    return () => {
+      root.style.overflow = prev.overflow;
+      root.style.scrollbarGutter = prev.gutter;
+    };
+  }, [active]);
+}
+
+/**
+ * Menú lateral (móvil y tablet). El panel y el fondo están SIEMPRE montados y
+ * se animan con CSS en ambos sentidos (ver "NAV DRAWER" en global.css): antes
+ * el fondo se montaba/desmontaba de golpe y el cierre era un corte seco.
+ * Accesibilidad: Escape y clic fuera cierran; el foco entra al abrir, Tab no
+ * sale del menú (más el botón que lo abre, que pasa a ser la ✕) y al cerrar
+ * vuelve a ese botón. Cerrado, el panel es `inert`: ni foco ni lector.
+ */
+function NavMenuDrawer({ menuOpen, setMenuOpen, triggerRef }) {
   const navigate = useNavigate();
   const handleMenuAction = useMenuAction(navigate, setMenuOpen);
+  const drawerRef = useRef(null);
+  useScrollLock(menuOpen);
+
+  useEffect(() => {
+    if (drawerRef.current) drawerRef.current.inert = !menuOpen;
+  }, [menuOpen]);
+
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+    const drawer = drawerRef.current;
+    const trigger = triggerRef.current;
+    const frame = requestAnimationFrame(() => drawer?.querySelector(FOCUSABLE)?.focus({ preventScroll: true }));
+
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        setMenuOpen(false);
+        return;
+      }
+      if (e.key !== "Tab" || !drawer) return;
+      const cycle = [trigger, ...drawer.querySelectorAll(FOCUSABLE)].filter(Boolean);
+      const index = cycle.indexOf(document.activeElement);
+      if (e.shiftKey && index <= 0) {
+        e.preventDefault();
+        cycle[cycle.length - 1].focus();
+      } else if (!e.shiftKey && (index === -1 || index === cycle.length - 1)) {
+        e.preventDefault();
+        cycle[0].focus();
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      document.removeEventListener("keydown", onKeyDown);
+      // Al cerrar, el foco vuelve al botón del menú si estaba dentro del
+      // panel (o se había perdido), nunca si el usuario ya lo movió fuera.
+      const active = document.activeElement;
+      if (trigger && (!active || active === document.body || drawer?.contains(active))) {
+        trigger.focus({ preventScroll: true });
+      }
+    };
+  }, [menuOpen, setMenuOpen, triggerRef]);
 
   return (
     <>
-      {menuOpen && (
-        <div className="nav-overlay" onClick={() => setMenuOpen(false)} />
-      )}
+      <div
+        className={`nav-overlay${menuOpen ? " nav-overlay--open" : ""}`}
+        onClick={() => setMenuOpen(false)}
+        aria-hidden="true"
+      />
 
-      <div className={`nav-drawer${menuOpen ? " nav-drawer--open" : ""}`}>
-        <div className="nav-drawer__header">
-          <span className="nav-drawer__title">Menú</span>
-          <button className="nav-drawer__close" onClick={() => setMenuOpen(false)} aria-label="Cerrar">✕</button>
-        </div>
-
-        <nav className="nav-drawer__items">
-          {MENU_ITEMS.map((item) => (
+      <div
+        ref={drawerRef}
+        id={MENU_ID}
+        className={`nav-drawer${menuOpen ? " nav-drawer--open" : ""}`}
+        role="dialog"
+        aria-label="Menú"
+      >
+        <nav className="nav-drawer__items" aria-label="Secciones">
+          {MENU_ITEMS.map((item, i) => (
             <button
               key={item.action}
+              type="button"
               className="nav-drawer__item"
+              style={{ "--i": i }}
               onClick={() => handleMenuAction(item.action)}
             >
               <span className={`nav-drawer__item-icon${item.Icon ? " nav-drawer__item-icon--illustrated" : ""}`}>
@@ -241,12 +321,12 @@ function NavMenuDrawer({ menuOpen, setMenuOpen }) {
                 <span className="nav-drawer__item-label">{item.label}</span>
                 <span className="nav-drawer__item-desc">{item.desc}</span>
               </div>
-              <span className="nav-drawer__item-arrow">›</span>
+              <span className="nav-drawer__item-arrow" aria-hidden="true">›</span>
             </button>
           ))}
         </nav>
 
-        <div className="nav-drawer__footer">
+        <div className="nav-drawer__footer" style={{ "--i": MENU_ITEMS.length }}>
           <ThemeToggleRow />
         </div>
       </div>
@@ -254,11 +334,15 @@ function NavMenuDrawer({ menuOpen, setMenuOpen }) {
   );
 }
 
-export function HamburgerButton({ menuOpen, setMenuOpen, isDark }) {
+export function HamburgerButton({ menuOpen, setMenuOpen, isDark, buttonRef }) {
   return (
     <button
+      ref={buttonRef}
+      type="button"
       className={`navbar__hamburger${menuOpen ? " navbar__hamburger--open" : ""}`}
       aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+      aria-expanded={menuOpen}
+      aria-controls={MENU_ID}
       onClick={() => setMenuOpen((v) => !v)}
     >
       <span style={{ background: isDark ? "#fff" : "var(--color-dark)" }} />
@@ -270,19 +354,11 @@ export function HamburgerButton({ menuOpen, setMenuOpen, isDark }) {
 
 export function Navbar({ transparent = false }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuButtonRef = useRef(null);
   const navigate = useNavigate();
   const { scrolled, overlay: atTop } = useNavbarOverlay(transparent);
   // Con el menú abierto, barra sólida (el drawer y el overlay van debajo).
   const overlay = atTop && !menuOpen;
-
-  useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => { document.body.style.overflow = ""; };
-  }, [menuOpen]);
 
   // Arriba del todo en Home (transparent=true) la barra es transparente y
   // blanca sobre el vídeo; el contraste lo garantiza el degradado oscuro de
@@ -307,11 +383,11 @@ export function Navbar({ transparent = false }) {
         <HorizontalNav />
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginLeft: "auto" }}>
           <ThemeToggle isDark={overlay} />
-          <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={overlay} />
+          <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={overlay} buttonRef={menuButtonRef} />
         </div>
       </nav>
 
-      <NavMenuDrawer menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      <NavMenuDrawer menuOpen={menuOpen} setMenuOpen={setMenuOpen} triggerRef={menuButtonRef} />
     </>
   );
 }
@@ -319,19 +395,11 @@ export function Navbar({ transparent = false }) {
 export function NavbarCity({ cityName, overall }) {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuButtonRef = useRef(null);
   // Las fichas abren con la foto de la ciudad a pantalla completa: misma
   // barra transparente que la home mientras se está arriba del todo.
   const { overlay: atTop } = useNavbarOverlay(true);
   const overlay = atTop && !menuOpen;
-
-  useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => { document.body.style.overflow = ""; };
-  }, [menuOpen]);
 
   return (
     <>
@@ -350,11 +418,11 @@ export function NavbarCity({ cityName, overall }) {
             </div>
           )}
           <ThemeToggle isDark={overlay} />
-          <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={overlay} />
+          <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={overlay} buttonRef={menuButtonRef} />
         </div>
       </nav>
 
-      <NavMenuDrawer menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      <NavMenuDrawer menuOpen={menuOpen} setMenuOpen={setMenuOpen} triggerRef={menuButtonRef} />
     </>
   );
 }

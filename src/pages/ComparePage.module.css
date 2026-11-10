@@ -311,7 +311,8 @@
   background: var(--color-border);
   text-align: left;
   isolation: isolate;
-  transition: transform var(--hover-duration) var(--ease-hover);
+  transition: transform var(--hover-duration) var(--ease-hover), box-shadow var(--hover-duration) var(--ease-hover);
+  --motion-safe-duration: var(--hover-duration); /* sombra: nivel 2 */
   box-shadow: var(--shadow-sm);
 }
 .featuredImg {
@@ -319,7 +320,8 @@
   object-fit: cover; transition: transform var(--hover-duration) var(--ease-hover), opacity var(--hover-duration) var(--ease-hover); --motion-safe-duration: var(--hover-duration);
 }
 @media (hover: hover) and (pointer: fine) {
-  .featuredCard:hover { transform: translateY(var(--hover-lift)); }
+  .featuredCard:hover { transform: translateY(var(--hover-lift)); box-shadow: var(--hover-shadow); }
+  .featuredCardSelected:hover { box-shadow: 0 0 0 3px var(--tile-color), var(--hover-shadow); }
   .featuredCard:hover .featuredImg { transform: scale(var(--hover-zoom)); will-change: transform; }
 }
 .featuredOverlay {
@@ -515,8 +517,12 @@
 
 .cityCardHero {
   position: relative; min-height: 220px;
-  background-size: cover; background-position: center;
+  isolation: isolate; /* la foto (z-index:-1) queda detrás del texto, dentro de la tarjeta */
   display: flex; flex-direction: column; justify-content: flex-end;
+}
+.cityCardHeroImg {
+  position: absolute; inset: 0; z-index: -1;
+  width: 100%; height: 100%; object-fit: cover;
 }
 .cityCardOverlay { position: absolute; inset: 0; }
 .cityCardTop {

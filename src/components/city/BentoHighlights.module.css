@@ -45,7 +45,8 @@
   align-items: flex-end;
   cursor: pointer;
   isolation: isolate;
-  transition: transform var(--hover-duration) var(--ease-hover);
+  transition: transform var(--hover-duration) var(--ease-hover), box-shadow var(--hover-duration) var(--ease-hover);
+  --motion-safe-duration: var(--hover-duration); /* sombra: nivel 2 */
   background: none;
   border: none;
   padding: 0;
@@ -55,7 +56,7 @@
 
 /* Hover unificado (ver tokens --hover-* en global.css) */
 @media (hover: hover) and (pointer: fine) {
-  .card:hover { transform: translateY(var(--hover-lift)); }
+  .card:hover { transform: translateY(var(--hover-lift)); box-shadow: var(--hover-shadow); }
   .card:hover .cardImg { transform: scale(var(--hover-zoom)); will-change: transform; }
 }
 

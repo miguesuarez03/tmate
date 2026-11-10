@@ -215,8 +215,14 @@
 }
 
 .resultImg {
-  border-radius: var(--radius-lg); background-size: cover; background-position: center;
+  border-radius: var(--radius-lg);
   position: relative; min-height: 120px; overflow: hidden;
+  isolation: isolate;
+  background: var(--color-border); /* mientras carga la foto */
+}
+.resultImgPhoto {
+  position: absolute; inset: 0; z-index: -1;
+  width: 100%; height: 100%; object-fit: cover;
 }
 .resultImgOverlay {
   position: absolute; inset: 0;

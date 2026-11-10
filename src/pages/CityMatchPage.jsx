@@ -7,6 +7,14 @@ import { Navbar, Footer } from "../components/Layout";
 import { IconBeca, IconClima, IconIdiomas, IconFiesta, IconEdificio, IconHoja, IconUniversidad, IconExperiencia, IconCityMatch, IconMedalla } from "../components/icons";
 import ScoreRing from "../components/ScoreRing";
 import styles from "./CityMatchPage.module.css";
+import { responsiveImage } from "../lib/images";
+
+// Foto de cada resultado: columna de 160px junto al texto (vertical, ~160×210)
+// y, en móvil, a todo el ancho con 140px de alto.
+const RESULT_PHOTO_SLOTS = [
+  ["(max-width: 768px)", "100vw", 2.4],
+  [null, "160px", 0.75],
+];
 
 /* ─────────────────────────────────────────────────────────────────────────
    City Match — recomendador inteligente.
@@ -345,7 +353,8 @@ export default function CityMatchPage() {
                 <div key={m.city.slug} className={`${styles.resultCard}${i === 0 ? ` ${styles.resultCardTop}` : ""}`}>
                   <div className={styles.resultRank}>{i < 3 ? <IconMedalla size={28} tone={i === 0 ? "gold" : i === 1 ? "silver" : "bronze"} /> : `#${i + 1}`}</div>
 
-                  <div className={styles.resultImg} style={{ backgroundImage: `url(${m.city.img})` }}>
+                  <div className={styles.resultImg}>
+                    <img className={styles.resultImgPhoto} {...responsiveImage(m.city.img, { slots: RESULT_PHOTO_SLOTS })} alt="" width={320} height={400} loading="lazy" decoding="async" />
                     <div className={styles.resultImgOverlay} />
                   </div>
 

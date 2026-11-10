@@ -10,7 +10,21 @@ import MethodologyNote from "../components/MethodologyNote";
 import ScoreRing from "../components/ScoreRing";
 import { useSEO } from "../hooks/useSEO";
 import styles from "./ComparePage.module.css";
-import { sizedImage, imageSrcSet } from "../lib/images";
+import { responsiveImage } from "../lib/images";
+
+// Huecos de las fotos del comparador (ver ComparePage.module.css).
+const MINI_THUMB_SLOTS = [[null, "42px", 1]]; // avatar circular
+const FEATURED_SLOTS = [
+  ["(max-width: 560px)", "100vw", 4 / 3],
+  ["(max-width: 1024px)", "50vw", 4 / 3],
+  [null, "300px", 4 / 3],
+];
+// Cabecera de cada ciudad comparada: columnas de un contenedor de 1200px (2-4).
+const RESULT_HERO_SLOTS = [
+  ["(max-width: 768px)", "100vw", 1.6],
+  ["(min-width: 1240px)", "600px", 2.2],
+  [null, "50vw", 2.2],
+];
 
 // Mismo top trending que la home — cuando no hay nada seleccionado, se usa
 // como bloque destacado en vez de empezar directo con la sopa de acordeones.
@@ -270,7 +284,7 @@ function MiniCard({ city, checked = false, disabled = false, accentColor, onClic
       <span className={styles.miniThumb}>
         <img
           className={styles.miniThumbImg}
-          src={sizedImage(city.img, 250)}
+          {...responsiveImage(city.img, { slots: MINI_THUMB_SLOTS, fallback: 120, min: 120 })}
           alt=""
           width={120}
           height={120}
@@ -304,7 +318,7 @@ function FeaturedCard({ city, checked = false, accentColor, onClick }) {
       style={checked ? { "--tile-color": accentColor } : {}}
       onClick={onClick}
     >
-      <img className={styles.featuredImg} src={sizedImage(city.img, 500)} srcSet={imageSrcSet(city.img, [500, 960])} sizes="(max-width: 640px) 100vw, 400px" width={800} height={600} alt="" loading="lazy" decoding="async" onError={(e) => { e.currentTarget.style.opacity = 0; }} />
+      <img className={styles.featuredImg} {...responsiveImage(city.img, { slots: FEATURED_SLOTS })} width={800} height={600} alt="" loading="lazy" decoding="async" onError={(e) => { e.currentTarget.style.opacity = 0; }} />
       <div className={styles.featuredOverlay} />
       {checked && <span className={styles.featuredCheck}><IconCheck size={18} /></span>}
       <div className={styles.featuredBody}>
@@ -518,7 +532,8 @@ export default function ComparePage() {
 
                 return (
                   <div key={city.slug} className={`${styles.cityCard}${isTop ? ` ${styles.cityCardWinner}` : ""}`} style={{ "--accent": COL_COLORS[i] }}>
-                    <div className={styles.cityCardHero} style={{ backgroundImage: `url(${city.img})` }}>
+                    <div className={styles.cityCardHero}>
+                      <img className={styles.cityCardHeroImg} {...responsiveImage(city.img, { slots: RESULT_HERO_SLOTS })} alt="" width={800} height={330} loading="lazy" decoding="async" />
                       <div className={styles.cityCardOverlay} style={{ background: `linear-gradient(to top, ${COL_COLORS[i]}cc 0%, rgba(0,0,0,0.2) 60%)` }} />
                       <div className={styles.cityCardTop}>
                         <span className={styles.cityEmoji}>{city.emoji}</span>

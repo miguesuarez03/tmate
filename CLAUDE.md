@@ -53,6 +53,8 @@ Note there are two score sources that must stay conceptually aligned: `CITY_BASE
 
 Documented in detail in `ARCHITECTURE.md`. Short version: add an entry to `CITIES` in `src/data/cities.js` (required — drives the grid, search, filters, rankings), optionally add coordinates in `WorldMap.jsx`'s coordinate map for the interactive map, and optionally add a `CITY_INSIGHTS` entry in `src/data/insights.js` for detailed scores (otherwise defaults are used).
 
+**City photos:** use a Wikimedia Commons file whose original is at least 1920×1080 (Wikimedia silently *upscales* thumbnails larger than the original, so a small original looks blurry even at "1920px"). After adding or changing any Wikimedia URL in `src/data/`, run `npm run images:sizes` to refresh `src/data/wikimediaSizes.js` (original width/height/bytes). `src/lib/images.js` uses that table to build `srcset`s that only ask for standard thumbnail widths (120/250/330/500/960/1280/1920/3840; other widths get rate-limited) and never exceed the original. Render photos with `responsiveImage(url, { slots })` or `heroImage(url)`, not a bare `src`. `slots` gives each breakpoint's box width *and* aspect ratio, because with `object-fit: cover` a landscape photo in a portrait card is drawn much wider than the card.
+
 ### Routing
 
 `react-router-dom` v6, routes defined in `src/App.jsx` (client) and mirrored in `src/entry-server.jsx` (SSR/prerender): `/`, `/city/:slug`, `/proceso`, `/comparar`, `/learning-agreement`, `/beca-erasmus`, `/city-match`. Keep both files' `<Routes>` in sync when adding/removing a route, and update `ALL_ROUTES`/`STATIC_PAGE_META` in `entry-server.jsx` for prerendering + sitemap generation.
@@ -61,7 +63,7 @@ Documented in detail in `ARCHITECTURE.md`. Short version: add an entry to `CITIE
 
 Mix of a global stylesheet (`src/styles/global.css`, CSS variables) and CSS Modules (`ComponentName.module.css`) for individual components/pages — check which pattern a neighboring file uses before adding new styles.
 
-**Reduced motion is tiered** (see "MOVIMIENTO REDUCIDO POR NIVELES" in `global.css`): under `prefers-reduced-motion: reduce` a global net cuts every animation/transition to ~0 by default. Small, slow, in-place, user-initiated effects (photo hover zoom inside its frame, opacity fades) opt out by declaring `--motion-safe-duration` next to their `transition`. The hero video keeps playing (it has a pause button; only `saveData` drops it to the poster). Don't gate hover zoom on `prefers-reduced-motion: no-preference` — the `--hover-*` tokens already soften it (1.03, 700ms, no lift).
+**Reduced motion is tiered** (see "MOVIMIENTO REDUCIDO POR NIVELES" in `global.css`): under `prefers-reduced-motion: reduce` a global net cuts every animation/transition to ~0 by default. Small, slow, in-place, user-initiated effects (photo hover zoom inside its frame, opacity fades) opt out by declaring `--motion-safe-duration` next to their `transition`. The hero video keeps playing (it has a pause button; only `saveData` drops it to the poster). Don't gate hover zoom on `prefers-reduced-motion: no-preference` — the `--hover-*` tokens already soften it (1.07/650ms/6px lift normally; 1.04/800ms/no lift with reduced motion).
 
 ### Icons
 

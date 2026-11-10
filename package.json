@@ -7,6 +7,7 @@
     "build:client": "vite build",
     "build:ssr": "vite build --ssr src/entry-server.jsx --outDir .ssr-temp",
     "prerender": "node scripts/prerender.mjs",
+    "images:sizes": "node scripts/wikimedia-sizes.mjs",
     "build": "npm run build:client && npm run build:ssr && npm run prerender",
     "preview": "vite preview"
   },

@@ -9,12 +9,13 @@
 
 .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
 
-.card { position: relative; border-radius: var(--radius-xl); overflow: hidden; isolation: isolate; height: 220px; cursor: pointer; display: flex; align-items: flex-end; }
+.card { position: relative; border-radius: var(--radius-xl); overflow: hidden; isolation: isolate; height: 220px; cursor: pointer; display: flex; align-items: flex-end; transition: transform var(--hover-duration) var(--ease-hover), box-shadow var(--hover-duration) var(--ease-hover); --motion-safe-duration: var(--hover-duration); }
 
 .cardImg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform var(--hover-duration) var(--ease-hover), opacity var(--hover-duration) var(--ease-hover); --motion-safe-duration: var(--hover-duration); }
 
 /* Hover unificado (ver tokens --hover-* en global.css) */
 @media (hover: hover) and (pointer: fine) {
+  .card:hover { transform: translateY(var(--hover-lift)); box-shadow: var(--hover-shadow); }
   .card:hover .cardImg { transform: scale(var(--hover-zoom)); will-change: transform; }
 }
 

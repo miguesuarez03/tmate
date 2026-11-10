@@ -1,6 +1,34 @@
 import { useState } from "react";
 import styles from "./BentoHighlights.module.css";
-import { sizedImage } from "../../lib/images";
+import { responsiveImage } from "../../lib/images";
+
+// Huecos de las fotos del bento (ver BentoHighlights.module.css). Escritorio:
+// rejilla 1.4fr 1fr 1fr de hasta 1320px; la 01 ocupa 2 filas (~480×440) y la
+// 04 dos columnas (~700×212). Hasta 860px, 2 columnas (la 01 a todo el ancho)
+// y hasta 540px, 2 columnas de tarjetas bajas (150px).
+const BENTO_LARGE_SLOTS = [
+  ["(max-width: 540px)", "50vw", 1.15],
+  ["(max-width: 860px)", "100vw", 1.2],
+  ["(min-width: 1320px)", "480px", 1.08],
+  [null, "36vw", 1.08],
+];
+const BENTO_SMALL_SLOTS = [
+  ["(max-width: 540px)", "50vw", 1.15],
+  ["(max-width: 860px)", "50vw", 1.3],
+  ["(min-width: 1320px)", "345px", 1.6],
+  [null, "26vw", 1.6],
+];
+const BENTO_WIDE_SLOTS = [
+  ["(max-width: 540px)", "50vw", 1.15],
+  ["(max-width: 860px)", "50vw", 1.3],
+  ["(min-width: 1320px)", "700px", 3.3],
+  [null, "53vw", 3.3],
+];
+const BENTO_MODAL_SLOTS = [
+  ["(max-width: 540px)", "100vw", 1.5],
+  [null, "500px", 1.92],
+];
+const bentoSlots = (i) => (i === 0 ? BENTO_LARGE_SLOTS : i === 3 ? BENTO_WIDE_SLOTS : BENTO_SMALL_SLOTS);
 
 // Generic Unsplash photos for cards 2-4
 const FALLBACK_PHOTOS = [
@@ -46,7 +74,7 @@ export default function BentoHighlights({ highlights = [], cityName, cityImg }) 
               aria-label={`Ver más sobre: ${text}`}
             >
               {photo && (
-                <img src={sizedImage(photo, 960)} alt={text} className={styles.cardImg} width={800} height={600} loading="lazy" decoding="async" />
+                <img {...responsiveImage(photo, { slots: bentoSlots(i) })} alt={text} className={styles.cardImg} width={800} height={600} loading="lazy" decoding="async" />
               )}
               <div className={styles.cardOverlay} />
               <div className={styles.cardContent}>
@@ -72,7 +100,7 @@ export default function BentoHighlights({ highlights = [], cityName, cityImg }) 
               ✕
             </button>
             <div className={styles.modalImg}>
-              {activePhoto && <img src={sizedImage(activePhoto, 960)} alt={activeItem} width={800} height={450} decoding="async" />}
+              {activePhoto && <img {...responsiveImage(activePhoto, { slots: BENTO_MODAL_SLOTS })} alt={activeItem} width={800} height={450} decoding="async" />}
               <div className={styles.cardOverlay} />
               <div className={styles.modalImgContent}>
                 <span className={styles.cardNum} style={{ color: ACCENTS[active], fontSize: "0.7rem" }}>0{active + 1}</span>

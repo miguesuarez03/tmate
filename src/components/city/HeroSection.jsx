@@ -5,7 +5,7 @@ import { getCityWhatsappGroup } from "../../data/cityWhatsappGroups";
 import { isErasmusEligible, getScoreLevel } from "../../lib/cities";
 import { IconUniversidad, IconFiesta, IconBeca, IconSol, IconBici, IconSeguridad, IconComida, IconArte, IconLaptop, IconPlaya, IconFuego } from "../icons";
 import ScoreRing from "../ScoreRing";
-import { sizedImage, imageSrcSet } from "../../lib/images";
+import { heroImage } from "../../lib/images";
 
 // ─── MOOD TAGS CONFIG ─────────────────────────────────────────────────────────
 const MOOD_ICONS = {
@@ -122,9 +122,7 @@ export default function HeroSection({ city, overallScore, insights }) {
       <div className={styles.heroBg}>
         {/* Imagen LCP: carga prioritaria (no lazy) y versión según ancho de pantalla. */}
         <img
-          src={sizedImage(city.heroImg || city.img, 1920)}
-          srcSet={imageSrcSet(city.heroImg || city.img, [960, 1280, 1920])}
-          sizes="100vw"
+          {...heroImage(city.heroImg || city.img)}
           width={1920}
           height={1080}
           alt={`Vista de ${city.name}, ${city.country}`}

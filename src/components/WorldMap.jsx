@@ -10,7 +10,10 @@ import { useNavigate } from "react-router-dom";
 import styles from "./WorldMap.module.css";
 import { getOverallScore, CITY_BASE_SCORES, getCityBySlug, getScoreLevel } from "../lib/cities";
 import { IconFiesta, IconEdificio, IconBeca, IconGlobo } from "./icons";
-import { sizedImage } from "../lib/images";
+import { responsiveImage } from "../lib/images";
+
+// Foto de la ficha emergente: 240px de ancho × 130px de alto (WorldMap.module.css).
+const POPUP_PHOTO_SLOTS = [[null, "240px", 240 / 130]];
 
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
@@ -264,7 +267,7 @@ function CityPopup({ city, onClose, navigate }) {
     <div className={styles.popup} onClick={e => e.stopPropagation()}>
       <button className={styles.popupClose} onClick={onClose} aria-label="Cerrar">✕</button>
       <div className={styles.popupImg}>
-        <img src={sizedImage(city.img, 500)} alt={`${city.name}, ${city.country}`} width={500} height={280} loading="lazy" decoding="async" />
+        <img {...responsiveImage(city.img, { slots: POPUP_PHOTO_SLOTS, fallback: 500 })} alt={`${city.name}, ${city.country}`} width={500} height={280} loading="lazy" decoding="async" />
         <div className={styles.popupImgOverlay} />
         <div className={styles.popupScore} style={{ color: scoreColor(city.score) }}>
           {city.score}<span>/10</span>

@@ -3,7 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { IconFuego } from "./icons";
 import { isErasmusEligible, getOverallScore } from "../lib/cities";
 import ScoreRing from "./ScoreRing";
-import { sizedImage, imageSrcSet } from "../lib/images";
+import { responsiveImage } from "../lib/images";
+
+// Huecos de la foto de la tarjeta (ver .cities-grid en global.css): 4
+// columnas de ~280px, 3 hasta 1100px y 2 en móvil; la tarjeta es vertical
+// (4:5, y 3:4 en móvil), así que la foto apaisada se pinta por su alto.
+const CARD_PHOTO_SLOTS = [
+  ["(max-width: 768px)", "50vw", 3 / 4],
+  ["(max-width: 1100px)", "33vw", 4 / 5],
+  [null, "290px", 4 / 5],
+];
 
 export default function CityCard({ city }) {
   const [hovered, setHovered] = useState(false);
@@ -42,9 +51,7 @@ export default function CityCard({ city }) {
       {/* Image — position absolute fills entire card */}
       <img
         className="city-card__img"
-        src={sizedImage(city.img, 960)}
-        srcSet={imageSrcSet(city.img, [500, 960])}
-        sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px"
+        {...responsiveImage(city.img, { slots: CARD_PHOTO_SLOTS })}
         width={800}
         height={600}
         alt={`${city.name}, ${city.country}`}

@@ -9,7 +9,7 @@ import CityCard from "../components/CityCard";
 import { useCityFilter } from "../hooks/useCityFilter";
 import { useSEO } from "../hooks/useSEO";
 import { getWebsiteJsonLd } from "../lib/seo";
-import { sizedImage, imageSrcSet } from "../lib/images";
+import { responsiveImage } from "../lib/images";
 
 // WorldMap arrastra react-simple-maps + d3 (pesado). Se carga bajo demanda
 // para no engordar el bundle inicial — el globo está más abajo en la página,
@@ -243,15 +243,19 @@ function AnimatedWord() {
 }
 
 // Vídeo de fondo del hero, alojado en /public (no en un CDN externo):
-// plano aéreo de Oporto al anochecer — Pexels, vídeo 34286758 ("Stunning
-// Aerial View of Porto at Dusk"), Licencia Pexels: uso comercial gratuito,
-// sin atribución obligatoria. Recortado a 12 s con fundido del final sobre
-// el principio para que el bucle no tenga salto; MP4 H.264 + WebM VP9 a
-// 1080p (<4 MB cada uno). El poster es su primer fotograma.
+// plano aéreo de dron sobre Lisboa a pleno sol — Pexels, vídeo 35411371
+// ("Aerial View of Lisbon Cityscape on a Sunny Day", de Alyona Nagel),
+// Licencia Pexels: uso comercial gratuito, sin atribución obligatoria.
+// Recortado a 10,4 s con fundido del final sobre el principio para que el
+// bucle no tenga salto; MP4 H.264 + WebM VP9 a 1080p/30 (<4,3 MB cada uno).
+// El poster es su primer fotograma, en WebP a 1920 y 1280 px.
 const HERO_VIDEO = {
-  webm: "/videos/hero-porto.webm",
-  mp4: "/videos/hero-porto.mp4",
-  poster: "/videos/hero-porto-poster.jpg",
+  webm: "/videos/hero-lisboa.webm",
+  mp4: "/videos/hero-lisboa.mp4",
+  poster: "/videos/hero-lisboa-poster.webp",
+  posterSrcSet: "/videos/hero-lisboa-poster-1280.webp 1280w, /videos/hero-lisboa-poster.webp 1920w",
+  // En móvil el hero se pinta por su alto: la versión de 1280 basta y pesa la mitad.
+  posterSizes: "(max-width: 768px) 640px, 100vw",
 };
 
 /**
@@ -352,10 +356,12 @@ function HeroBackground() {
       <img
         className="hero__poster"
         src={HERO_VIDEO.poster}
+        srcSet={HERO_VIDEO.posterSrcSet}
+        sizes={HERO_VIDEO.posterSizes}
         alt=""
         aria-hidden="true"
-        width={1600}
-        height={900}
+        width={1920}
+        height={1080}
         fetchpriority="high"
         decoding="async"
       />
@@ -367,7 +373,6 @@ function HeroBackground() {
           disablePictureInPicture
           disableRemotePlayback
           preload={paused ? "none" : "auto"}
-          poster={HERO_VIDEO.poster}
           aria-hidden="true"
           tabIndex={-1}
           onPlaying={() => { setStarted(true); setBlocked(false); }}
@@ -512,6 +517,23 @@ function StarRating({ value, onChange }) {
   );
 }
 
+// Fotos de los testimonios (Unsplash): se piden ya recortadas a la
+// proporción de su hueco. Tarjeta: 260×140 (220×90 en móvil); compacta: a
+// todo el ancho de su celda; modal: 480×220.
+const TESTIMONIAL_CROP = 260 / 140;
+const TESTIMONIAL_CARD_SLOTS = [
+  ["(max-width: 768px)", "220px", 220 / 90],
+  [null, "260px", TESTIMONIAL_CROP],
+];
+const TESTIMONIAL_COMPACT_SLOTS = [
+  ["(max-width: 640px)", "100vw", 2.4],
+  [null, "400px", 2.4],
+];
+const TESTIMONIAL_MODAL_SLOTS = [
+  ["(max-width: 520px)", "100vw", 1.7],
+  [null, "480px", 480 / 220],
+];
+
 function TestimonialCard({ t, onClick, compact }) {
   return (
     <button
@@ -520,7 +542,7 @@ function TestimonialCard({ t, onClick, compact }) {
       onClick={onClick}
     >
       <div className="community-card__img">
-        <img src={sizedImage(t.photo, 500)} srcSet={imageSrcSet(t.photo, [500, 960])} sizes="(max-width: 640px) 100vw, 400px" alt={`Foto de ${t.city}`} width={800} height={600} loading="lazy" decoding="async" />
+        <img {...responsiveImage(t.photo, { slots: compact ? TESTIMONIAL_COMPACT_SLOTS : TESTIMONIAL_CARD_SLOTS, crop: TESTIMONIAL_CROP })} alt={`Foto de ${t.city}`} width={800} height={600} loading="lazy" decoding="async" />
         <div className="community-card__img-overlay" />
         <div className="community-card__city-badge">
           <span>{t.flag}</span>
@@ -776,7 +798,7 @@ function CommunitySection() {
               ✕
             </button>
             <div className="testimonial-modal__img">
-              <img src={sizedImage(activeTestimonial.photo, 960)} alt={`Foto de ${activeTestimonial.city}`} width={800} height={450} decoding="async" />
+              <img {...responsiveImage(activeTestimonial.photo, { slots: TESTIMONIAL_MODAL_SLOTS, crop: 480 / 220 })} alt={`Foto de ${activeTestimonial.city}`} width={800} height={450} decoding="async" />
               <div className="community-card__img-overlay" />
               <div className="community-card__city-badge">
                 <span>{activeTestimonial.flag}</span>

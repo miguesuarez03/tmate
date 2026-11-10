@@ -785,7 +785,7 @@ export const CITY_INSIGHTS = {
       ],
   },
   rosenheim: {
-    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Fu%C3%9Fg%C3%A4ngerzone%2C_Rosenheim_Oberbayern.jpg/1920px-Fu%C3%9Fg%C3%A4ngerzone%2C_Rosenheim_Oberbayern.jpg",
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Mittertor%2C_Rosenheim%2C_Alemania%2C_2019-05-19%2C_DD_65.jpg/1920px-Mittertor%2C_Rosenheim%2C_Alemania%2C_2019-05-19%2C_DD_65.jpg",
     tagline: "La puerta a los Alpes bávaros. Pequeña, auténtica y a 60km de Múnich — la experiencia alemana sin el ruido de las grandes ciudades.",
     atmosphere: "Tranquila, alpina y profundamente bávara. Rosenheim huele a madera de pino y cerveza artesanal, y suena al silencio de los Alpes roto por el tañido de campanas de iglesia.",
     scores: [
@@ -7825,7 +7825,7 @@ export const CITY_INSIGHTS = {
     ],
   },
   nantes: {
-    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Panorama_depuis_Butte_Sainte-Anne.jpg/1920px-Panorama_depuis_Butte_Sainte-Anne.jpg",
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Ch%C3%A2teau_des_ducs_de_Bretagne_%28Nantes%29_11.jpg/1920px-Ch%C3%A2teau_des_ducs_de_Bretagne_%28Nantes%29_11.jpg",
     tagline: "Elegida repetidamente la ciudad más habitable de Francia, con un elefante mecánico gigante paseando por el puerto.",
     atmosphere: "Nantes huele a sal del Loira mezclada con crepes recién hechas en el Bouffay, y suena a vapor y engranajes de Les Machines de l'Île, donde un elefante de veinte toneladas pasea entre los estudiantes.",
     scores: [
@@ -14370,7 +14370,7 @@ export const CITY_INSIGHTS = {
     ],
   },
   kaunas: {
-    heroImg: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Kauno_senamiestis_by_Augustas_Didzgalvis.jpg",
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Vytautas_the_Great_Bridge_from_hill%2C_Kaunas%2C_Lithuania_-_Diliff.jpg/1920px-Vytautas_the_Great_Bridge_from_hill%2C_Kaunas%2C_Lithuania_-_Diliff.jpg",
     tagline: "La mayor colección de arquitectura Art Déco y Bauhaus de Europa del Este.",
     atmosphere: "Kaunas huele a cepelinai recién servidos en las tabernas de la Laisvės alėja, y suena al eco de pasos por fachadas modernistas de entreguerras que hicieron de esta ciudad, durante dos décadas, la capital provisional de toda Lituania.",
     scores: [
@@ -15491,7 +15491,7 @@ export const CITY_INSIGHTS = {
     ],
   },
   chicago: {
-    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Chicago_Skyline_in_April_2024_b.jpg/1920px-Chicago_Skyline_in_April_2024_b.jpg",
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Skyline_de_Chicago_desde_el_centro%2C_Illinois%2C_Estados_Unidos%2C_2012-10-20%2C_DD_06.jpg/1920px-Skyline_de_Chicago_desde_el_centro%2C_Illinois%2C_Estados_Unidos%2C_2012-10-20%2C_DD_06.jpg",
     tagline: "La ciudad de los rascacielos junto al lago. Arquitectura de récord y la energía directa del Medio Oeste americano.",
     atmosphere: "Vertical, ventosa y sin pretensiones. Chicago suena a jazz y blues en directo y huele a deep dish recién salido del horno.",
     scores: [
@@ -15923,7 +15923,7 @@ export const CITY_INSIGHTS = {
     ],
   },
   lima: {
-    heroImg: "https://upload.wikimedia.org/wikipedia/commons/2/21/Plaza_Mayor_de_Lima_SM.jpg",
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Plaza_Mayor_de_Lima-1.jpg/1920px-Plaza_Mayor_de_Lima-1.jpg",
     tagline: "La capital gastronómica de América. Donde cada esquina huele a ceviche y anticuchos.",
     atmosphere: "Vibrante, caótica y deliciosa. Lima suena a claxon y huele a comida callejera desde el amanecer.",
     scores: [
@@ -16203,7 +16203,7 @@ export const CITY_INSIGHTS = {
     ],
   },
   "san-jose-costa-rica": {
-    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/National_Theatre_of_Costa_Rica.jpg/1280px-National_Theatre_of_Costa_Rica.jpg",
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Teatro_Nacional_CRI_07_2019_8963.jpg/1920px-Teatro_Nacional_CRI_07_2019_8963.jpg",
     tagline: "Pura vida y la puerta a la biodiversidad más densa del planeta.",
     atmosphere: "Verde, relajada y sorprendentemente fresca gracias a la altitud. San José huele a café recién hecho y suena a 'pura vida' en cada esquina.",
     scores: [
@@ -16478,7 +16478,7 @@ export const CITY_INSIGHTS = {
     ],
   },
   quito: {
-    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Bas%C3%ADlica_del_Voto_Nacional_Quito_Ecuador_DSC00142_ad.JPG/1280px-Bas%C3%ADlica_del_Voto_Nacional_Quito_Ecuador_DSC00142_ad.JPG",
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Quito_calle_Garc%C3%ADa_Moreno.jpg/1920px-Quito_calle_Garc%C3%ADa_Moreno.jpg",
     tagline: "El centro del mundo, a los pies de los volcanes. Donde la primavera no termina nunca.",
     atmosphere: "Colonial, andina y sorprendentemente verde. Quito huele a hierbaluisa y suena a campanas de iglesias barrocas entre volcanes.",
     scores: [
@@ -16904,7 +16904,7 @@ export const CITY_INSIGHTS = {
     ],
   },
   vancouver: {
-    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Vancouver_dusk_pano.jpg/1920px-Vancouver_dusk_pano.jpg",
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Skyline_of_Vancouver%2C_BC.jpg/1920px-Skyline_of_Vancouver%2C_BC.jpg",
     tagline: "Montañas nevadas y océano Pacífico en el mismo horizonte. La ciudad con mejor calidad de vida de Norteamérica.",
     atmosphere: "Verde, tranquila y activa al aire libre. Vancouver huele a bosque húmedo y sal marina a la vez.",
     scores: [
@@ -17338,7 +17338,7 @@ export const CITY_INSIGHTS = {
     ],
   },
   "la-paz": {
-    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Skyline_of_La_Paz_Bolivia.jpg/1920px-Skyline_of_La_Paz_Bolivia.jpg",
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Cable_Cars_in_front_of_Mount_Illimani%2C_La_Paz%2C_Bolivia.jpg/1920px-Cable_Cars_in_front_of_Mount_Illimani%2C_La_Paz%2C_Bolivia.jpg",
     tagline: "La capital de gobierno más alta del mundo. Donde el aire escasea pero las vistas del Illimani sobran.",
     atmosphere: "Vertiginosa, andina y en movimiento constante. La Paz suena a mercados callejeros y huele a salteñas recién horneadas, con el teleférico sobrevolando la ciudad.",
     scores: [
@@ -17483,7 +17483,7 @@ export const CITY_INSIGHTS = {
     ],
   },
   "asuncion": {
-    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Palacio_de_los_L%C3%B3pez.jpg/1920px-Palacio_de_los_L%C3%B3pez.jpg",
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/00_3819_Asunci%C3%B3n_-_Paraguay_%28S%C3%BCdamerika%29.jpg/1920px-00_3819_Asunci%C3%B3n_-_Paraguay_%28S%C3%BCdamerika%29.jpg",
     tagline: "El secreto guaraní de Sudamérica. Donde el tereré se comparte con cualquiera y nadie tiene prisa.",
     atmosphere: "Calurosa, tranquila y de trato cercano. Asunción huele a chipa recién horneada y suena a guaraní mezclado con español en cada esquina.",
     scores: [
@@ -18478,7 +18478,7 @@ export const CITY_INSIGHTS = {
     ],
   },
   washington: {
-    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/U.S._Capitol_Washington_D.C..jpg/1920px-U.S._Capitol_Washington_D.C..jpg",
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Capitol%2C_Washington%2C_D.C._USA13.jpg/1920px-Capitol%2C_Washington%2C_D.C._USA13.jpg",
     tagline: "La capital del poder mundial. Donde las prácticas se consiguen en el Capitolio y los museos son gratis.",
     atmosphere: "Formal de día, sorprendentemente joven de noche. Washington D.C. huele a café para llevar de camino al Capitolio y suena a debates políticos en las terrazas de Adams Morgan.",
     scores: [
@@ -19584,7 +19584,7 @@ export const CITY_INSIGHTS = {
     ],
   },
   "cordoba-argentina": {
-    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Panorama_Nueva_C%C3%B3rdoba_2012-02-03.jpg/1920px-Panorama_Nueva_C%C3%B3rdoba_2012-02-03.jpg",
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Catedral_de_C%C3%B3rdoba%2C_Argentina_-_panoramio_%283%29.jpg/1920px-Catedral_de_C%C3%B3rdoba%2C_Argentina_-_panoramio_%283%29.jpg",
     tagline: "La Docta. Una universidad de 1613 rodeada de sierras y una ciudad que respira ambiente estudiantil las 24 horas.",
     atmosphere: "Cálida, ruidosa y estudiantil. Córdoba suena a cuarteto de fondo y huele a fernet con cola en cualquier esquina de Nueva Córdoba.",
     scores: [
@@ -20020,7 +20020,7 @@ export const CITY_INSIGHTS = {
     ],
   },
   "medellin": {
-    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/El_Poblado_Medell%C3%ADn.jpg/1920px-El_Poblado_Medell%C3%ADn.jpg",
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Comuna_13%2C_Medell%C3%ADn_02.jpg/1920px-Comuna_13%2C_Medell%C3%ADn_02.jpg",
     tagline: "La ciudad de la eterna primavera. De símbolo de los años más duros de Colombia a referencia mundial de innovación urbana.",
     atmosphere: "Cálida, verde y en constante reinvención. Medellín huele a café paisa y suena a reguetón mezclado con el runrún del Metrocable sobre las laderas.",
     scores: [
