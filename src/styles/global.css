@@ -1209,6 +1209,16 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
   text-align: center;
 }
 
+/* ─── HUECO DEL MAPA (home) ───────────────────────────────────────────────────
+   El mapa se monta al acercarse el usuario (GlobeSection en HomePage.jsx).
+   Mientras, este hueco reserva su altura aproximada en cada ancho (cabecera
+   + filtros + lienzo, ver WorldMap.module.css) para que las secciones de
+   debajo no salten al cargarse. */
+.map-slot__placeholder { min-height: 850px; }
+@media (max-width: 1024px) { .map-slot__placeholder { min-height: 800px; } }
+@media (max-width: 768px)  { .map-slot__placeholder { min-height: 777px; } }
+@media (max-width: 480px)  { .map-slot__placeholder { min-height: 737px; } }
+
 /* ─── GLOBE SECTION ───────────────────────────────────────────────────────── */
 .globe-section {
   background: var(--gradient-dark);

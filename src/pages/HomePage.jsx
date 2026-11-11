@@ -384,11 +384,39 @@ const CITY_PILLS = [
   { name: "París",     code: "PAR", flag: "🇫🇷", slug: "paris"     },
 ];
 
+// El mapa (react-simple-maps + d3 + el topojson de países) no se descarga al
+// entrar en la home, sino cuando el usuario se acerca: al aproximarse su
+// hueco a la pantalla (IntersectionObserver con margen) o en cuanto empieza
+// a bajar — el mapa queda a poco más de una pantalla, así que el primer
+// scroll da el margen justo para que esté listo al llegar. Quien no pasa del
+// hero no descarga nada. El hueco reserva la altura del mapa (.map-slot en
+// global.css) para que lo de debajo no salte al montarse.
 function GlobeSection() {
+  const slotRef = useRef(null);
+  const [near, setNear] = useState(false);
+
+  useEffect(() => {
+    const el = slotRef.current;
+    if (!el) return undefined;
+    if (typeof IntersectionObserver === "undefined") { setNear(true); return undefined; }
+
+    const load = () => setNear(true);
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) load();
+    }, { rootMargin: "200px 0px" });
+    observer.observe(el);
+    window.addEventListener("scroll", load, { passive: true, once: true });
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", load);
+    };
+  }, []);
+
+  const placeholder = <div className="map-slot__placeholder" aria-hidden="true" />;
   return (
-    <Suspense fallback={<div style={{ minHeight: 560 }} aria-hidden="true" />}>
-      <WorldMap />
-    </Suspense>
+    <div ref={slotRef} className="map-slot">
+      {near ? <Suspense fallback={placeholder}><WorldMap /></Suspense> : placeholder}
+    </div>
   );
 }
 
