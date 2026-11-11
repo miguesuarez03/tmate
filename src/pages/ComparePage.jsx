@@ -430,6 +430,14 @@ export default function ComparePage() {
     }, { replace: true });
   };
 
+  // Cambiar de vista (selector ↔ comparativa) solo cambia el query, no la
+  // ruta, así que ScrollRestoration no interviene: sin esto la comparativa se
+  // abría a la altura a la que estuvieras en el selector, a media página.
+  const switchView = (compare) => {
+    setComparing(compare);
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  };
+
   const [search, setSearch] = useState("");
 
   const filtered = useMemo(() => {
@@ -522,7 +530,7 @@ export default function ComparePage() {
           <div className={styles.compareHero}>
             <div className={styles.compareHeroBg} />
             <div className={styles.compareHeroContent}>
-              <button className={styles.backBtn} onClick={() => setComparing(false)}>
+              <button className={styles.backBtn} onClick={() => switchView(false)}>
                 ← Cambiar selección
               </button>
               <h1 className={styles.compareTitle}>Comparativa de destinos</h1>
@@ -843,7 +851,7 @@ export default function ComparePage() {
             <span className={styles.stickyCompareInfo}>
               {selected.length} destino{selected.length > 1 ? "s" : ""} seleccionado{selected.length > 1 ? "s" : ""}
             </span>
-            <button className={styles.compareBtn} onClick={() => setComparing(true)}>
+            <button className={styles.compareBtn} onClick={() => switchView(true)}>
               Comparar {selected.length} destinos →
             </button>
           </div>
