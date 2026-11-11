@@ -945,6 +945,10 @@
   /* Selector: barra sticky pasa a apilar buscador y chips; el botón de
      comparar inferior también se apila (info + botón a todo el ancho). */
   .stickyBarInner { flex-direction: column; align-items: stretch; gap: 12px; }
+  /* En columna, el flex-basis de 260px del buscador (pensado como ANCHO
+     mínimo en fila) se convertía en 260px de ALTO: la barra fija tapaba
+     media pantalla y la lupa quedaba suelta en el hueco. */
+  .searchWrap { flex: 0 0 auto; }
   .stickyChips { justify-content: flex-start; }
   .miniGrid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
   .miniCard { gap: 9px; }
