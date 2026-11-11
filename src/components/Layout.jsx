@@ -11,6 +11,7 @@ import {
   IconDocumento,
 } from "./icons";
 import ThemeToggle, { ThemeToggleRow } from "./ThemeToggle";
+import { CITY_MATCH_QUESTION_COUNT } from "../data/cityMatch";
 
 // Símbolo MA — trazo grueso de puntas redondeadas que dibuja la M y la A de
 // un solo recorrido (vertical → valle → pico → base), con el tramo derecho
@@ -110,7 +111,7 @@ const MENU_ITEMS = [
   {
     Icon: IconCityMatch,
     label: "City Match",
-    desc: "Responde 8 preguntas y descubre tu ciudad ideal",
+    desc: `Responde ${CITY_MATCH_QUESTION_COUNT} preguntas y descubre tu ciudad ideal`,
     action: "match",
     to: "/city-match",
   },
@@ -162,7 +163,7 @@ const MENU_ITEMS = [
 // global.css) — etiquetas cortas a propósito, distintas de las de
 // MENU_ITEMS (que sí llevan descripción larga, para el drawer móvil). No
 // incluye "Cuéntanos tu experiencia": es una acción secundaria (abre un
-// modal en Home), no una sección — se queda solo en el drawer móvil.
+// modal en Home), no una sección — en escritorio vive en el footer.
 export const NAV_LINKS = [
   { label: "Destinos", path: "/" },
   { label: "City Match", path: "/city-match" },
@@ -170,6 +171,7 @@ export const NAV_LINKS = [
   { label: "Proceso", path: "/proceso" },
   { label: "Beca", path: "/beca-erasmus" },
   { label: "Learning Agreement", path: "/learning-agreement" },
+  { label: "Guías Erasmus", path: "/guias" },
 ];
 
 /**
@@ -197,7 +199,9 @@ function HorizontalNav() {
       {NAV_LINKS.map((link) => {
         // "Destinos" ("/") no se marca como activo: es la home por
         // defecto, no una sección que tenga sentido ver "seleccionada".
-        const active = link.path !== "/" && location.pathname === link.path;
+        // Las guías sueltas (/guias/:slug) también marcan «Guías Erasmus».
+        const active = link.path !== "/" &&
+          (location.pathname === link.path || location.pathname.startsWith(`${link.path}/`));
         return (
           <Link
             key={link.path}
@@ -353,12 +357,15 @@ function NavMenuDrawer({ menuOpen, setMenuOpen, triggerRef }) {
   );
 }
 
-export function HamburgerButton({ menuOpen, setMenuOpen, isDark, buttonRef }) {
+// mobileOnly: el navbar ya enseña los enlaces en horizontal en pantallas
+// anchas, así que ahí la hamburguesa se oculta (ver .navbar__hamburger--
+// mobile-only en global.css). NavbarCity no lo pasa: no tiene otro menú.
+export function HamburgerButton({ menuOpen, setMenuOpen, isDark, buttonRef, mobileOnly = false }) {
   return (
     <button
       ref={buttonRef}
       type="button"
-      className={`navbar__hamburger${menuOpen ? " navbar__hamburger--open" : ""}`}
+      className={`navbar__hamburger${mobileOnly ? " navbar__hamburger--mobile-only" : ""}${menuOpen ? " navbar__hamburger--open" : ""}`}
       aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
       aria-expanded={menuOpen}
       aria-controls={MENU_ID}
@@ -400,7 +407,7 @@ export function Navbar({ transparent = false }) {
         <HorizontalNav />
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginLeft: "auto" }}>
           <ThemeToggle isDark={overlay} />
-          <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={overlay} buttonRef={menuButtonRef} />
+          <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={overlay} buttonRef={menuButtonRef} mobileOnly />
         </div>
       </nav>
 
@@ -472,6 +479,10 @@ export function Footer() {
           {FOOTER_LINKS.map((l) => (
             <li key={l.path}><Link to={l.path} aria-current={pathname === l.path ? "page" : undefined}>{l.label}</Link></li>
           ))}
+          {/* Abre el formulario «Comparte tu experiencia» de la home (ver
+              HomeExperiences). En escritorio es el único acceso: el navbar
+              horizontal no lo lleva y el menú lateral no se ve. */}
+          <li><Link to="/?accion=compartir">Cuéntanos tu experiencia</Link></li>
         </ul>
       </nav>
       <p className="footer__independence">

@@ -282,7 +282,7 @@ a { text-decoration: none; color: inherit; }
 .navbar__links { display: none; }
 /* Chip con contorno: fondo blanco, hilo fino naranja, texto naranja — al
    pasar el ratón (o en el enlace activo) el naranja pasa a ser el fondo,
-   con una transición suave. Los 6 enlaces son iguales, incluido City
+   con una transición suave. Todos los enlaces son iguales, incluido City
    Match (antes tenía su propio degradado sólido; ahora es uno más). */
 .navbar__link {
   background: var(--color-white); border: 1.5px solid var(--color-primary);
@@ -305,7 +305,12 @@ a { text-decoration: none; color: inherit; }
     position: absolute; left: 50%; top: 50%;
     transform: translate(-50%, -50%);
   }
-  .navbar__hamburger { display: none; }
+}
+/* Con 7 enlaces (desde que entró «Guías Erasmus»), a 1200–1365px los chips
+   quedaban a ~13px del logo: un poco más compactos hasta que sobra sitio. */
+@media (min-width: 1200px) and (max-width: 1365px) {
+  .navbar__links { gap: 6px; }
+  .navbar__link { font-size: 14px; padding: 7px 12px; }
 }
 .navbar__hamburger {
   display: flex; flex-direction: column; gap: 5px;
@@ -333,6 +338,15 @@ a { text-decoration: none; color: inherit; }
 .navbar__hamburger span {
   display: block; width: 22px; height: 2px;
   border-radius: 2px; /* transiciones: ver "NAV DRAWER" */
+}
+/* Con la navegación horizontal a la vista (≥1200px, y en iPad horizontal: ver
+   el bloque 1024–1199px más abajo) la hamburguesa sobra. Va DESPUÉS de la
+   regla base: antes estaba delante y la base la pisaba, así que el botón se
+   veía también en escritorio. Solo se oculta en el navbar que SÍ tiene esos
+   enlaces (--mobile-only): el de las fichas de ciudad no los tiene y la
+   hamburguesa es su único menú. */
+@media (min-width: 1200px) {
+  .navbar__hamburger--mobile-only { display: none; }
 }
 
 /* ─── THEME TOGGLE ───────────────────────────────────────────────────────── */
@@ -699,6 +713,9 @@ a { text-decoration: none; color: inherit; }
   /* Dark bg while image loads */
   background: #0F1E2D;
   transform: translateY(0);
+  /* La tarjeta es contenedor de consulta: el nombre mide su hueco en cqi. */
+  container-type: inline-size;
+  --name-gap: 86px; /* 2×16 de margen + 44 del anillo + 10 de separación */
   /* isolation: recorta bien la foto ampliada en las esquinas redondeadas
      (sin ello Safari deja ver el borde de la imagen durante la transición). */
   isolation: isolate;
@@ -760,9 +777,22 @@ a { text-decoration: none; color: inherit; }
 .city-card__contentTop {
   display: flex; align-items: flex-end; justify-content: space-between; gap: 10px;
 }
+/* El bloque nombre+país puede encoger: sin esto una palabra larga lo
+   ensanchaba y empujaba el anillo de score fuera de la tarjeta. */
+.city-card__contentTop > div:first-child { min-width: 0; }
 .city-card__name {
   font-family: var(--font-display); font-size: clamp(18px, 2.5vw, 22px);
   font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 3px;
+  /* Nombres de una palabra larga ("Maastricht", "Copenhague") en tarjetas
+     estrechas (2 columnas en un móvil de 360px): la letra baja lo justo para
+     que la palabra quepa en el hueco que deja el anillo. Hueco = ancho de la
+     tarjeta (100cqi) menos --name-gap (márgenes + anillo); cada letra ocupa
+     hasta ~0,68em (medido con los 150 nombres en un móvil de 360px: con
+     menos, «Ámsterdam» o «Hamburgo» se partían). En tarjetas anchas el cálculo supera el tamaño normal y no
+     cambia nada. Navegadores sin unidades cqi se quedan con la línea de
+     arriba. Último recurso para nombres larguísimos: partir la palabra. */
+  font-size: clamp(11px, calc((100cqi - var(--name-gap)) / (var(--name-len, 6) * 0.68)), clamp(18px, 2.5vw, 22px));
+  overflow-wrap: anywhere;
 }
 .city-card__country { font-size: 12px; color: rgba(255,255,255,0.72); margin-bottom: 8px; }
 .city-card__phrase {
@@ -778,6 +808,7 @@ a { text-decoration: none; color: inherit; }
 /* Móviles estrechos (2 columnas de ~147px): algo menos de margen lateral para
    que bandera y país («Portugal», «Alemania») quepan en una línea a 12px. */
 @media (max-width: 400px) {
+  .city-card { --name-gap: 74px; } /* 2×12 + 44 + 6 */
   .city-card__content { padding: 14px 12px 16px; }
   .city-card__contentTop { gap: 6px; }
 }
@@ -1092,7 +1123,7 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
 @media (min-width: 1024px) and (max-width: 1199px) and (min-height: 600px) {
   .hero { padding-top: 90px; }
   .hero__quicklinks { display: none; }
-  .navbar__hamburger { display: none; }
+  .navbar__hamburger--mobile-only { display: none; }
   .navbar__links {
     display: flex; align-items: center; gap: 4px;
     position: absolute; left: 50%; top: 50%;
@@ -1548,6 +1579,8 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
 .proceso-hero__stat-label { font-size: 12px; color: rgba(255,255,255,0.6); }
 
 /* Main layout */
+/* Ancla de los pasos (ProcesoPage.jsx): deja el navbar fijo de 64px por encima. */
+.proceso-steps-anchor { scroll-margin-top: 64px; }
 .proceso-main { padding: 48px var(--section-px) 80px; }
 .proceso-main__inner {
   max-width: 1200px; margin: 0 auto;
@@ -2218,6 +2251,8 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
   transition: background 0.12s;
 }
 .beca-searchable__option:hover { background: var(--color-surface); }
+/* Sugerencia marcada con las flechas del teclado (SearchableInput.jsx). */
+.beca-searchable__option--active { background: var(--color-surface); box-shadow: inset 3px 0 0 var(--color-primary); }
 .beca-searchable__emoji { font-size: 15px; flex-shrink: 0; }
 .beca-searchable__label { font-weight: 600; color: var(--color-dark); flex: 1; }
 .beca-searchable__sublabel { font-size: 11px; color: var(--color-muted); }

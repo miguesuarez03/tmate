@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import Flag from "../components/Flag";
 import { Link, useSearchParams } from "react-router-dom";
 import { CITIES } from "../data/cities";
-import { getScoreMap, getOverallScore, parseMinCost, isErasmusEligible } from "../lib/cities";
+import { getScoreMap, getOverallScore, parseMinCost, isErasmusEligible, getCompareLeader, buildCompareVerdict, COMPARE_MIN_CATEGORY_GAP } from "../lib/cities";
 import { getComparePhrase } from "../data/comparePhrases";
 import { Navbar, Footer } from "../components/Layout";
 import { IconRanking, IconCorona, IconBeca, IconUniversidad, IconClima, IconIdiomas, IconCheck, IconAlerta, IconComparar, IconLupa } from "../components/icons";
@@ -31,6 +31,16 @@ const RESULT_HERO_SLOTS = [
 // Mismo top trending que la home — cuando no hay nada seleccionado, se usa
 // como bloque destacado en vez de empezar directo con la sopa de acordeones.
 const TRENDING_SLUGS = ["bolonia", "lisboa", "berlin", "praga", "viena"];
+
+const CITY_SLUGS = new Set(CITIES.map((c) => c.slug));
+
+// Texto guía del selector según cuántas ciudades hay elegidas (0–3).
+const SELECTION_HINTS = [
+  "Selecciona de 2 a 3 ciudades para empezar la comparativa",
+  "1 de 3 elegida: añade al menos una más",
+  "2 de 3 elegidas: ya puedes comparar, o añade una tercera",
+  "3 de 3 elegidas: pulsa «Comparar» o quita una para cambiarla",
+];
 
 const SCORE_IDS = [
   "coste", "alojamiento", "vida_social", "integracion",
@@ -134,6 +144,71 @@ function buildTopDifferences(scoreIds, selectedCities, scoreMaps, limit = 3) {
     .filter((d) => d.meta && d.gap > 0)
     .sort((a, b) => b.gap - a.gap)
     .slice(0, limit);
+}
+
+// ─── Veredicto ──────────────────────────────────────────────────────────
+// Lo primero que se lee en la comparativa: quién va por delante (o empate
+// técnico), cuánto cambia el coste EN EUROS y en qué gana cada ciudad. Todo
+// sale de buildCompareVerdict (src/lib/cities.js), es decir, de las mismas
+// notas y rangos de coste que aparecen debajo: aquí solo se redacta.
+const COST_SIMILAR_MAX = 25; // €/mes: por debajo, «coste muy parecido»
+
+function joinWithY(parts) {
+  return parts.map((p, i) => (
+    <span key={i}>{i > 0 && (i === parts.length - 1 ? " y " : ", ")}{p}</span>
+  ));
+}
+
+function Verdict({ cities }) {
+  const v = useMemo(() => buildCompareVerdict(cities), [cities]);
+  const name = (i) => <strong style={{ color: COL_COLORS[i] }}>{cities[i].name}</strong>;
+  const score = (i) => v.overall[i].toFixed(1);
+  const all = cities.map((_, i) => i);
+
+  let headline;
+  if (v.winnerIdx !== -1) {
+    const rest = all.filter((i) => i !== v.winnerIdx);
+    headline = <>{name(v.winnerIdx)} saca la mejor nota global: {score(v.winnerIdx)} frente a {joinWithY(rest.map((i) => <>{score(i)} de {name(i)}</>))}.</>;
+  } else if (v.tiedIdx.length === cities.length) {
+    headline = <>Empate técnico en la nota global ({joinWithY(all.map((i) => <>{name(i)} {score(i)}</>))}): decide por lo que más te importe.</>;
+  } else {
+    const behind = all.filter((i) => !v.tiedIdx.includes(i));
+    headline = <>{joinWithY(v.tiedIdx.map((i) => <>{name(i)} ({score(i)})</>))} empatan en cabeza; {joinWithY(behind.map((i) => <>{name(i)} ({score(i)})</>))} queda por detrás.</>;
+  }
+
+  // Coste: puede haber empate en los extremos (dos ciudades con el mismo
+  // rango), así que la más barata y la más cara son GRUPOS; «entre medias»
+  // solo se dice de la que queda estrictamente entre los dos.
+  const { cheapestIdx, priciestIdx, middleIdx, diff } = v.cost;
+  const plural = cheapestIdx.length > 1;
+  const ranges = joinWithY(all.map((i) => <>{cities[i].costDetail} en {name(i)}</>));
+  const costLine = diff < COST_SIMILAR_MAX
+    ? <>El coste de vida es muy parecido: {ranges}.</>
+    : <>{joinWithY(cheapestIdx.map(name))} {plural ? "salen" : "sale"} unos <strong>{diff} €/mes</strong> más {plural ? "baratas" : "barata"} que {joinWithY(priciestIdx.map(name))}{middleIdx.length > 0 && <>; {joinWithY(middleIdx.map(name))} queda entre medias</>} ({ranges}).</>;
+
+  const withStrengths = all.filter((i) => v.strengths[i].length > 0);
+
+  return (
+    <section className={styles.verdict} aria-labelledby="verdict-title">
+      <h2 id="verdict-title" className={styles.verdictTitle}>En resumen</h2>
+      <ul className={styles.verdictList}>
+        <li><span className={styles.verdictIcon}><IconRanking size={20} /></span><span>{headline}</span></li>
+        <li><span className={styles.verdictIcon}><IconBeca size={20} /></span><span>{costLine}</span></li>
+        {withStrengths.map((i) => (
+          <li key={cities[i].slug}>
+            <span className={styles.verdictIcon}><IconCheck size={20} /></span>
+            <span>{name(i)} gana en {joinWithY(v.strengths[i].map((s) => <>{s.label} (+{s.gap.toFixed(1)})</>))}.</span>
+          </li>
+        ))}
+        {withStrengths.length === 0 && (
+          <li><span className={styles.verdictIcon}><IconCheck size={20} /></span><span>Ninguna saca {COMPARE_MIN_CATEGORY_GAP.toFixed(1)} puntos de ventaja a todas las demás en ninguna categoría (sin contar el coste): mira las diferencias de abajo.</span></li>
+        )}
+      </ul>
+      <p className={styles.verdictNote}>
+        La diferencia de coste compara el punto medio de los rangos orientativos de cada ficha. Las notas son la valoración editorial de MAbroad.
+      </p>
+    </section>
+  );
 }
 
 // ─── Ventajas y a tener en cuenta ────────────────────────────────────────
@@ -270,10 +345,9 @@ function VersusGrid({ scoreIds, selectedCities, scoreMaps }) {
 }
 
 /* ─── Mini card (selector view) ─────────────────────────────────────────
-   Tarjeta compacta con miniatura de ciudad — se usa tanto para las ciudades
-   ya seleccionadas (checked, dispara `remove`, con IconCheck superpuesto)
-   como para el resto de destinos dentro de cada acordeón de región (sin
-   marcar, dispara `toggle`). */
+   Tarjeta compacta con miniatura de ciudad dentro de cada acordeón de
+   región. Al elegirla NO se mueve de sitio: se queda donde estaba, marcada
+   (checked: borde de su color e IconCheck); volver a pulsarla la quita. */
 function MiniCard({ city, checked = false, disabled = false, accentColor, onClick }) {
   return (
     <button
@@ -282,6 +356,7 @@ function MiniCard({ city, checked = false, disabled = false, accentColor, onClic
       style={checked ? { "--tile-color": accentColor } : {}}
       onClick={onClick}
       disabled={disabled}
+      aria-pressed={checked}
     >
       <span className={styles.miniThumb}>
         <img
@@ -309,16 +384,19 @@ function MiniCard({ city, checked = false, disabled = false, accentColor, onClic
   );
 }
 
-/* ─── Featured card (seleccionadas / trending) — jerarquía visual clara,
-   nada que ver con el tamaño mini de las regiones de debajo ──────────────── */
-function FeaturedCard({ city, checked = false, accentColor, onClick }) {
+/* ─── Featured card (destinos trending) — jerarquía visual clara, nada que
+   ver con el tamaño mini de las regiones de debajo. Igual que las mini, se
+   marca en su sitio al elegirla. ─────────────────────────────────────────── */
+function FeaturedCard({ city, checked = false, disabled = false, accentColor, onClick }) {
   const overall = getOverallScore(city.slug);
   return (
     <button
       type="button"
-      className={`${styles.featuredCard} ${checked ? styles.featuredCardSelected : ""}`}
+      className={`${styles.featuredCard} ${checked ? styles.featuredCardSelected : ""} ${disabled ? styles.featuredCardDisabled : ""}`}
       style={checked ? { "--tile-color": accentColor } : {}}
       onClick={onClick}
+      disabled={disabled}
+      aria-pressed={checked}
     >
       <PhotoCredit src={city.img} corner="bottom-right" nested /><img className={styles.featuredImg} {...responsiveImage(city.img, { slots: FEATURED_SLOTS })} width={800} height={600} alt="" loading="lazy" decoding="async" onError={(e) => { e.currentTarget.style.opacity = 0; }} />
       <div className={styles.featuredOverlay} />
@@ -335,7 +413,7 @@ function FeaturedCard({ city, checked = false, accentColor, onClick }) {
 }
 
 /* ─── Region accordion (selector view) ──────────────────────────────────── */
-function RegionAccordion({ region, cities, open, onToggle, isFull, toggle }) {
+function RegionAccordion({ region, cities, open, onToggle, isFull, toggle, selected }) {
   return (
     <div className={styles.regionAccordion}>
       <button type="button" className={styles.regionHeader} onClick={onToggle} aria-expanded={open}>
@@ -346,14 +424,20 @@ function RegionAccordion({ region, cities, open, onToggle, isFull, toggle }) {
       {open && (
         <div className={styles.regionBody}>
           <div className={styles.miniGrid}>
-            {cities.map((city) => (
-              <MiniCard
-                key={city.slug}
-                city={city}
-                disabled={isFull}
-                onClick={() => toggle(city.slug)}
-              />
-            ))}
+            {cities.map((city) => {
+              const pos = selected.indexOf(city.slug);
+              const checked = pos !== -1;
+              return (
+                <MiniCard
+                  key={city.slug}
+                  city={city}
+                  checked={checked}
+                  accentColor={COL_COLORS[pos]}
+                  disabled={isFull && !checked}
+                  onClick={() => toggle(city.slug)}
+                />
+              );
+            })}
           </div>
         </div>
       )}
@@ -388,8 +472,11 @@ export default function ComparePage() {
   // atrás, sigues exactamente donde estabas — selección y vista incluidas.
   // También hace que la comparativa se pueda compartir por enlace.
   const citiesParam = searchParams.get("cities") || "";
+  // Solo slugs que existen, sin repetir y como mucho 3: la URL se puede
+  // escribir o pegar a mano, y la comparativa (colores por posición,
+  // veredicto) da por hecho que cada elemento es una ciudad real.
   const selected = useMemo(
-    () => citiesParam.split(",").map((s) => s.trim()).filter(Boolean),
+    () => [...new Set(citiesParam.split(",").map((s) => s.trim()))].filter((s) => CITY_SLUGS.has(s)).slice(0, 3),
     [citiesParam]
   );
   const comparing = searchParams.get("view") === "compare";
@@ -413,26 +500,32 @@ export default function ComparePage() {
     }, { replace: true });
   };
 
+  // Cambiar de vista (selector ↔ comparativa) solo cambia el query, no la
+  // ruta, así que ScrollRestoration no interviene: sin esto la comparativa se
+  // abría a la altura a la que estuvieras en el selector, a media página.
+  const switchView = (compare) => {
+    setComparing(compare);
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  };
+
   const [search, setSearch] = useState("");
 
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim();
     return CITIES.filter(
-      (c) =>
-        !selected.includes(c.slug) &&
-        (!q || c.name.toLowerCase().includes(q) || c.country.toLowerCase().includes(q) || c.tag.toLowerCase().includes(q))
+      (c) => !q || c.name.toLowerCase().includes(q) || c.country.toLowerCase().includes(q) || c.tag.toLowerCase().includes(q)
     );
-  }, [search, selected]);
+  }, [search]);
 
   const selectedCities = useMemo(
     () => selected.map((s) => CITIES.find((c) => c.slug === s)).filter(Boolean),
     [selected]
   );
 
-  // Ciudades no seleccionadas que coinciden con la búsqueda, agrupadas por
-  // región y ordenadas alfabéticamente dentro de cada grupo. Se apoya en
-  // `filtered` (ya filtra por nombre/país/tag y excluye las seleccionadas)
-  // para no duplicar esa lógica.
+  // Ciudades que coinciden con la búsqueda, agrupadas por región y ordenadas
+  // alfabéticamente dentro de cada grupo. Las seleccionadas NO se quitan de
+  // la lista: antes desaparecían y todo se recolocaba bajo el dedo (el
+  // segundo toque caía en otra ciudad); ahora se quedan en su sitio, marcadas.
   const regionGroups = useMemo(() => {
     return REGION_ORDER
       .map((region) => ({
@@ -496,7 +589,8 @@ export default function ComparePage() {
 
   /* ─── COMPARE VIEW ──────────────────────────────────────────────────── */
   if (comparing && canCompare) {
-    const maxIdx = overallScores.indexOf(Math.max(...overallScores));
+    // «Mejor puntuación» solo con ventaja clara (≥0,3); si no, empate técnico.
+    const { winnerIdx, tiedIdx } = getCompareLeader(overallScores);
 
     return (
       <div className={styles.page}>
@@ -507,7 +601,7 @@ export default function ComparePage() {
           <div className={styles.compareHero}>
             <div className={styles.compareHeroBg} />
             <div className={styles.compareHeroContent}>
-              <button className={styles.backBtn} onClick={() => setComparing(false)}>
+              <button className={styles.backBtn} onClick={() => switchView(false)}>
                 ← Cambiar selección
               </button>
               <h1 className={styles.compareTitle}>Comparativa de destinos</h1>
@@ -521,10 +615,14 @@ export default function ComparePage() {
 
           <div className={styles.compareBody}>
 
+            {/* Veredicto: la conclusión antes que los datos */}
+            <Verdict cities={selectedCities} />
+
             {/* City header cards */}
             <div className={styles.cityCards} style={{ "--cols": selectedCities.length }}>
               {selectedCities.map((city, i) => {
-                const isTop = maxIdx === i;
+                const isTop = winnerIdx === i;
+                const isTied = tiedIdx.includes(i);
                 const isCheapest = parseMinCost(city.costDetail) === Math.min(...selectedCities.map((c) => parseMinCost(c.costDetail)));
                 const bestCategory = SCORE_IDS.reduce((best, id) => {
                   const s = scoreMaps[i][id]?.score ?? 0;
@@ -549,6 +647,7 @@ export default function ComparePage() {
                       </div>
                       <div className={styles.cityCardBadges}>
                         {isTop && <span className={`${styles.cityCardTag} ${styles.cityCardTagBest}`}><IconCorona size={16} /> Mejor puntuación</span>}
+                        {isTied && <span className={styles.cityCardTag}>Empate técnico</span>}
                         {isCheapest && <span className={styles.cityCardTag}><IconBeca size={16} /> Más económica</span>}
                         {bestScoreObj && (
                           <span className={styles.cityCardTag} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
@@ -561,10 +660,9 @@ export default function ComparePage() {
 
                     {/* Score badge */}
                     <div className={styles.overallBadge} style={{ background: COL_GRADIENTS[i] }}>
-                      {maxIdx === i && <span className={styles.crownIcon}><IconCorona size={20} /></span>}
+                      {isTop && <span className={styles.crownIcon}><IconCorona size={20} /></span>}
                       <span className={styles.overallNumber}>{overallScores[i].toFixed(1)}</span>
                       <span className={styles.overallLabel}>/ 10</span>
-                      {maxIdx === i && <span className={styles.bestLabel}>Mejor puntuación</span>}
                     </div>
 
                     {/* Quick stats */}
@@ -745,57 +843,51 @@ export default function ComparePage() {
             )}
           </div>
 
-          {selected.length > 0 && (
-            <div className={styles.stickyChips}>
-              {selectedCities.map((city, i) => (
-                <div key={city.slug} className={styles.pill} style={{ "--pill-color": COL_COLORS[i] }}>
-                  <span><Flag emoji={city.emoji} /> {city.name}</span>
-                  <button className={styles.pillRemove} onClick={() => remove(city.slug)} aria-label={`Quitar ${city.name} de la selección`}>✕</button>
-                </div>
-              ))}
-            </div>
-          )}
+          {/* Bandeja de la selección: siempre presente (con un texto guía
+              cuando está vacía) para que la barra no cambie de alto —y empuje
+              la lista— al elegir la primera ciudad. */}
+          <div className={styles.stickyChips}>
+            {selected.length === 0 && (
+              <span className={styles.stickyChipsEmpty}>Tu selección aparecerá aquí (0/3)</span>
+            )}
+            {selectedCities.map((city, i) => (
+              <div key={city.slug} className={styles.pill} style={{ "--pill-color": COL_COLORS[i] }}>
+                <span><Flag emoji={city.emoji} /> {city.name}</span>
+                <button className={styles.pillRemove} onClick={() => remove(city.slug)} aria-label={`Quitar ${city.name} de la selección`}>✕</button>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
       <main className={`${styles.selectorMain} ${canCompare ? styles.selectorMainWithBar : ""}`}>
 
-        {selected.length === 0 && (
-          <p className={styles.hint}>Selecciona de 2 a 3 ciudades para empezar la comparativa</p>
-        )}
+        {/* Guía de estado: siempre ocupa su línea (cambia el texto, no el
+            alto), para que la lista no salte al elegir. */}
+        <p className={styles.hint} aria-live="polite">{SELECTION_HINTS[Math.min(selected.length, 3)]}</p>
 
-        {/* Seleccionadas — destacadas en grande arriba del todo, fuera de
-            las regiones, para que no compitan visualmente con el resto. */}
-        {selected.length > 0 && (
-          <section className={styles.selectedSection}>
-            <h2 className={styles.groupTitle}>
-              Seleccionadas <span className={styles.groupCount}>{selected.length}/3</span>
-            </h2>
-            <div className={styles.featuredGrid}>
-              {selectedCities.map((city, i) => (
-                <FeaturedCard
-                  key={city.slug}
-                  city={city}
-                  checked
-                  accentColor={COL_COLORS[i]}
-                  onClick={() => remove(city.slug)}
-                />
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* Sin nada seleccionado todavía: destinos trending destacados en
-            grande, en vez de arrancar directo en la sopa de acordeones. */}
-        {selected.length === 0 && !search && (
+        {/* Destinos trending destacados en grande, en vez de arrancar directo
+            en la sopa de acordeones. Se quedan a la vista también con ciudades
+            elegidas (marcadas en su sitio): antes esta sección se cambiaba por
+            otra de «Seleccionadas» y todo lo de debajo se movía. */}
+        {!search && (
           <section className={styles.selectedSection}>
             <h2 className={styles.groupTitle}>Destinos con más tirón ahora mismo</h2>
             <div className={styles.featuredGrid}>
               {TRENDING_SLUGS.map((slug) => {
                 const city = CITIES.find((c) => c.slug === slug);
                 if (!city) return null;
+                const pos = selected.indexOf(slug);
+                const checked = pos !== -1;
                 return (
-                  <FeaturedCard key={slug} city={city} onClick={() => toggle(slug)} />
+                  <FeaturedCard
+                    key={slug}
+                    city={city}
+                    checked={checked}
+                    accentColor={COL_COLORS[pos]}
+                    disabled={selected.length >= 3 && !checked}
+                    onClick={() => toggle(slug)}
+                  />
                 );
               })}
             </div>
@@ -813,6 +905,7 @@ export default function ComparePage() {
               onToggle={() => toggleRegion(group.region)}
               isFull={selected.length >= 3}
               toggle={toggle}
+              selected={selected}
             />
           ))}
         </div>
@@ -833,7 +926,7 @@ export default function ComparePage() {
             <span className={styles.stickyCompareInfo}>
               {selected.length} destino{selected.length > 1 ? "s" : ""} seleccionado{selected.length > 1 ? "s" : ""}
             </span>
-            <button className={styles.compareBtn} onClick={() => setComparing(true)}>
+            <button className={styles.compareBtn} onClick={() => switchView(true)}>
               Comparar {selected.length} destinos →
             </button>
           </div>

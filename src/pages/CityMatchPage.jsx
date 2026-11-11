@@ -2,13 +2,14 @@ import { useState, useEffect, useMemo, useRef, useId } from "react";
 import Flag from "../components/Flag";
 import { Link, useSearchParams } from "react-router-dom";
 import { CITIES } from "../data/cities";
+import { CITY_MATCH_QUESTION_IDS, CITY_MATCH_QUESTION_COUNT } from "../data/cityMatch";
 import { getScoreMap, getOverallScore, isErasmusEligible, getCitySize } from "../lib/cities";
 import { useSEO } from "../hooks/useSEO";
 import { Navbar, Footer } from "../components/Layout";
 import {
   IconBeca, IconClima, IconIdiomas, IconFiesta, IconEdificio, IconHoja, IconUniversidad,
   IconExperiencia, IconCityMatch, IconMedalla, IconCasa, IconAmigos, IconTransporte,
-  IconEmpleo, IconSeguridad,
+  IconEmpleo, IconSeguridad, IconComparar, IconProceso,
 } from "../components/icons";
 import ScoreRing from "../components/ScoreRing";
 import PhotoCredit from "../components/PhotoCredit";
@@ -88,7 +89,7 @@ const closeness = (score, target) => Math.max(0, 1 - Math.abs(score - target) / 
 
 /* ─── Preguntas (copy + opciones) ─────────────────────────────────────── */
 // Valores cortos y sin "." ni "~": se usan tal cual en el enlace compartible.
-const QUESTIONS = [
+const QUESTION_DEFS = [
   {
     id: "destino",
     title: "¿Dónde te gustaría hacer tu intercambio?",
@@ -218,16 +219,34 @@ const QUESTIONS = [
   },
 ];
 
+// El test se monta en el orden de CITY_MATCH_QUESTION_IDS (src/data/cityMatch.js),
+// que es de donde sale el «10 preguntas» del menú y de la descripción SEO.
+// Si la lista y las definiciones no coinciden, mejor fallar aquí que enseñar
+// un número que no es.
+const QUESTIONS = CITY_MATCH_QUESTION_IDS.map((id) => {
+  const def = QUESTION_DEFS.find((q) => q.id === id);
+  if (!def) throw new Error(`City Match: falta la definición de la pregunta «${id}» (QUESTION_DEFS).`);
+  return def;
+});
+if (QUESTION_DEFS.length !== QUESTIONS.length) {
+  const missing = QUESTION_DEFS.filter((q) => !CITY_MATCH_QUESTION_IDS.includes(q.id)).map((q) => q.id);
+  throw new Error(`City Match: preguntas definidas pero no listadas en src/data/cityMatch.js: ${missing.join(", ")}.`);
+}
+
 const QUESTION_BY_ID = Object.fromEntries(QUESTIONS.map((q) => [q.id, q]));
 const optionOf = (qId, value) => QUESTION_BY_ID[qId].options.find((o) => o.value === value);
 
 /* ─── Dimensiones: cada una resuelve una pregunta contra datos reales ──────
    similarity() devuelve 0-1, o null si esa respuesta no discrimina entre
-   ciudades (p. ej. presupuesto "Flexible"): entonces la pregunta no cuenta. */
+   ciudades (p. ej. presupuesto "Flexible"): entonces la pregunta no cuenta.
+   reason  = por qué encaja (se lee tras el nombre de la ciudad).
+   caveat  = en qué encaja poco, dicho con su nombre: es el «Ten en cuenta»
+             del resultado, que antes no decía a qué se refería. */
 const DIMENSIONS = {
   presupuesto: {
     Icon: IconBeca,
     reason: "se ajusta a tu presupuesto",
+    caveat: "el coste de vida encaja poco con tu presupuesto",
     similarity: (city, scoreMap, value) => {
       if (value === "alto") return null;
       return closeness(scoreMap.coste?.score ?? 5, value === "bajo" ? 9.5 : 6.5);
@@ -236,6 +255,7 @@ const DIMENSIONS = {
   clima: {
     Icon: IconClima,
     reason: "tiene el clima que buscas",
+    caveat: "el clima no es el que prefieres",
     similarity: (city, _sm, value) => {
       const target = { calido: 0, templado: 1, frio: 2 }[value];
       return weatherBucket(city.weather) === target ? 1 : 0.3;
@@ -244,6 +264,7 @@ const DIMENSIONS = {
   idioma: {
     Icon: IconIdiomas,
     reason: "encaja con tu idioma preferido",
+    caveat: "el idioma local no es de los que querías tener cerca",
     similarity: (city, _sm, value) => {
       const langs = optionOf("idioma", value)?.match || [];
       const cityLang = city.language.toLowerCase();
@@ -253,12 +274,14 @@ const DIMENSIONS = {
   fiesta: {
     Icon: IconFiesta,
     reason: "tiene el nivel de vida social que buscas",
+    caveat: "el nivel de vida social no es el que buscas",
     similarity: (city, scoreMap, value) =>
       closeness(scoreMap.vida_social?.score ?? 5, { tranquila: 5, equilibrada: 7.5, intensa: 9.5 }[value]),
   },
   tamano: {
     Icon: IconEdificio,
     reason: "tiene el tamaño de ciudad que encaja contigo",
+    caveat: "el tamaño de la ciudad no es el que prefieres",
     similarity: (city, _sm, value) => {
       const size = getCitySize(city);
       if (size == null) return null; // sin dato oficial: la pregunta no cuenta para esa ciudad
@@ -268,12 +291,14 @@ const DIMENSIONS = {
   naturaleza: {
     Icon: IconHoja,
     reason: "ofrece el contacto con naturaleza que valoras",
+    caveat: "el contacto con la naturaleza no es el que buscas",
     similarity: (city, _sm, value) =>
       bucketSimilarity(natureLevel(city), { poca: 0, algo: 1, mucha: 2 }[value]),
   },
   universidad: {
     Icon: IconUniversidad,
     reason: "tiene buena proyección académica y laboral",
+    caveat: "la proyección académica y laboral encaja poco con lo que priorizas",
     similarity: (city, scoreMap, value) => {
       if (value === "secundario") return null;
       return closeness(scoreMap.empleo?.score ?? 5, value === "prestigio" ? 9 : 7);
@@ -282,6 +307,7 @@ const DIMENSIONS = {
   estilo: {
     Icon: IconExperiencia,
     reason: "tiene una calidad de vida diaria muy alta",
+    caveat: "la calidad de vida diaria queda por debajo de lo que pides",
     similarity: (city, scoreMap, value) => {
       if (value === "noprio") return null;
       return closeness(scoreMap.estilo_vida?.score ?? 5, value === "top" ? 9.5 : 7.5);
@@ -305,7 +331,10 @@ function computeMatch(city, answers) {
         const opt = optionOf(q.id, value);
         if (!opt) return;
         const score = scoreMap[opt.category]?.score ?? 5;
-        results.push({ id: `prioridad-${value}`, sim: Math.min(1, score / 10), weight: RANK_WEIGHTS[i], Icon: opt.Icon, reason: opt.reason });
+        results.push({
+          id: `prioridad-${value}`, sim: Math.min(1, score / 10), weight: RANK_WEIGHTS[i], Icon: opt.Icon, reason: opt.reason,
+          caveat: `flojea en una de tus prioridades: ${opt.label.toLowerCase()}`,
+        });
       });
       continue;
     }
@@ -323,7 +352,7 @@ function computeMatch(city, answers) {
     } else {
       sim = dim.similarity(city, scoreMap, answer);
     }
-    if (sim != null) results.push({ id: q.id, sim, weight: 1, Icon: dim.Icon, reason: dim.reason });
+    if (sim != null) results.push({ id: q.id, sim, weight: 1, Icon: dim.Icon, reason: dim.reason, caveat: dim.caveat });
   }
 
   const overall = Number(getOverallScore(city.slug)) || 7;
@@ -371,6 +400,9 @@ export default function CityMatchPage() {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState({});
   const [limitNotice, setLimitNotice] = useState(false);
+  // Portada: antes de la primera pregunta se explica qué es el test y cuánto
+  // dura. Un enlace con resultados (?r=…) se la salta.
+  const [started, setStarted] = useState(false);
   const headingRef = useRef(null);
   const resultsTitleRef = useRef(null);
   const firstRender = useRef(true);
@@ -379,7 +411,7 @@ export default function CityMatchPage() {
 
   useSEO({
     title: "City Match — Encuentra tu ciudad Erasmus ideal | MAbroad",
-    description: "Responde 10 preguntas sobre tu presupuesto, clima ideal, idioma y estilo de vida, y descubre en segundos qué ciudad Erasmus encaja mejor contigo.",
+    description: `Responde ${CITY_MATCH_QUESTION_COUNT} preguntas sobre tu presupuesto, clima ideal, idioma y estilo de vida, y descubre en segundos qué ciudad Erasmus encaja mejor contigo.`,
   });
 
   // Si la URL trae respuestas guardadas (?r=…), restaura directamente la
@@ -402,7 +434,7 @@ export default function CityMatchPage() {
     if (firstRender.current) { firstRender.current = false; return; }
     (showResults ? resultsTitleRef : headingRef).current?.focus({ preventScroll: false });
     setLimitNotice(false);
-  }, [step, showResults]);
+  }, [step, showResults, started]);
 
   function goTo(nextAnswers, nextStep) {
     if (nextStep >= QUESTIONS.length) {
@@ -438,6 +470,7 @@ export default function CityMatchPage() {
   function restart() {
     setAnswers({});
     setStep(0);
+    setStarted(true); // repetir el test va directo a la primera pregunta, sin portada
     setSearchParams({}, { replace: true });
   }
 
@@ -519,7 +552,7 @@ export default function CityMatchPage() {
                         <li key={r.id} style={{ display: "flex", alignItems: "center", gap: 6 }}><r.Icon size={18} /> {m.city.name} {r.reason}</li>
                       ))}
                       {weakest && weakest.sim < 0.4 && (
-                        <li className={styles.reasonCaveat} style={{ display: "flex", alignItems: "center", gap: 6 }}><weakest.Icon size={18} /> Ten en cuenta: aquí es donde menos encaja con lo que buscas</li>
+                        <li className={styles.reasonCaveat} style={{ display: "flex", alignItems: "center", gap: 6 }}><weakest.Icon size={18} /> Ten en cuenta: {weakest.caveat || "aquí es donde menos encaja con lo que buscas"}</li>
                       )}
                     </ul>
 
@@ -530,6 +563,78 @@ export default function CityMatchPage() {
                 </div>
               );
             })}
+
+            {/* ¿Y ahora? — el resultado no es el final: tres siguientes pasos
+                con lo que ya sabemos (tu top 3 y tu ciudad nº 1). */}
+            {top.length > 0 && (
+              <section className={styles.nextSteps} aria-labelledby="city-match-next">
+                <h2 id="city-match-next" className={styles.nextTitle}>¿Y ahora?</h2>
+                <div className={styles.nextGrid}>
+                  {top.length >= 2 && (
+                    <Link className={styles.nextCard} to={`/comparar?cities=${compareSlugs}&view=compare`}>
+                      <span className={styles.nextIcon}><IconComparar size={34} /></span>
+                      <span className={styles.nextCardTitle}>Compara tu top {Math.min(3, top.length)}</span>
+                      <span className={styles.nextCardDesc}>
+                        {top.slice(0, 3).map((m) => m.city.name).join(", ")}: coste en euros, notas y diferencias, lado a lado.
+                      </span>
+                      <span className={styles.nextArrow} aria-hidden="true">→</span>
+                    </Link>
+                  )}
+                  <Link className={styles.nextCard} to="/beca-erasmus">
+                    <span className={styles.nextIcon}><IconBeca size={34} /></span>
+                    <span className={styles.nextCardTitle}>Calcula tu beca</span>
+                    <span className={styles.nextCardDesc}>
+                      {isErasmusEligible(top[0].city)
+                        ? `Cuánto cobrarías al mes en ${top[0].city.name} y cuánto tendrías que poner tú.`
+                        : "Cuánto cobrarías al mes con Erasmus+ y cuánto tendrías que poner tú."}
+                    </span>
+                    <span className={styles.nextArrow} aria-hidden="true">→</span>
+                  </Link>
+                  <Link className={styles.nextCard} to="/proceso">
+                    <span className={styles.nextIcon}><IconProceso size={34} /></span>
+                    <span className={styles.nextCardTitle}>Mira cómo es el proceso</span>
+                    <span className={styles.nextCardDesc}>El Erasmus paso a paso, desde elegir destino hasta la vuelta.</span>
+                    <span className={styles.nextArrow} aria-hidden="true">→</span>
+                  </Link>
+                </div>
+              </section>
+            )}
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  /* ─── PORTADA ───────────────────────────────────────────────────────── */
+  if (!started) {
+    return (
+      <div className={styles.page}>
+        <Navbar />
+        <main className={styles.quizMain}>
+          <div className={styles.quizBgBlur} aria-hidden="true" />
+          <div className={styles.quizWrap}>
+            <div className={`${styles.questionCard} ${styles.introCard}`}>
+              <div className={styles.quizBrand}>
+                <IconCityMatch size={26} />
+                <span>City Match</span>
+              </div>
+              <h1 className={styles.introTitle}>Encuentra tu ciudad Erasmus ideal</h1>
+              <p className={styles.introText}>
+                Dinos qué buscas —presupuesto, clima, idioma, ambiente— y te enseñamos las cinco ciudades que mejor encajan contigo, con el porqué de cada una.
+              </p>
+              <ul className={styles.introFacts}>
+                <li><strong>{CITY_MATCH_QUESTION_COUNT}</strong><span>preguntas</span></li>
+                <li><strong>~2</strong><span>minutos</span></li>
+                <li><strong>{CITIES.length}</strong><span>destinos</span></li>
+              </ul>
+              <button type="button" className={`${styles.continueBtn} ${styles.introStart}`} onClick={() => setStarted(true)}>
+                Empezar →
+              </button>
+              <p className={styles.introNote}>
+                Sin registro. Si una pregunta te da igual, puedes decirlo: no cuenta en el resultado.
+              </p>
+            </div>
           </div>
         </main>
         <Footer />

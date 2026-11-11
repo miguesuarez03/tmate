@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useRef, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { IconLupa, IconClipboard, IconSobre, IconCheck, IconEdificio, IconMaleta, IconFiesta, IconCasa, IconBombilla, IconLearningAgreement } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
@@ -317,15 +317,16 @@ function StepDetail({ step }) {
   );
 }
 
-/* ─── MOBILE STORIES VIEW ───────────────────────────────────────── */
-function MobileStories({ steps }) {
-  const [active, setActive] = useState(0);
+/* ─── MOBILE STORIES VIEW ─────────────────────────────────────────
+   El paso activo lo lleva la página (va en la URL: /proceso#solicitud), el
+   mismo para esta vista y para la de escritorio. */
+function MobileStories({ steps, active, onChange }) {
   const touchStartX = useRef(null);
   const touchStartY = useRef(null);
   const step = steps[active];
 
-  function goNext() { setActive((i) => Math.min(i + 1, steps.length - 1)); }
-  function goPrev() { setActive((i) => Math.max(i - 1, 0)); }
+  function goNext() { onChange(Math.min(active + 1, steps.length - 1)); }
+  function goPrev() { onChange(Math.max(active - 1, 0)); }
 
   function handleTouchStart(e) {
     touchStartX.current = e.touches[0].clientX;
@@ -351,7 +352,7 @@ function MobileStories({ steps }) {
             type="button"
             className={`proceso-stories__dot ${i === active ? "proceso-stories__dot--active" : i < active ? "proceso-stories__dot--done" : ""}`}
             style={i === active || i < active ? { "--dot-color": s.color } : {}}
-            onClick={() => setActive(i)}
+            onClick={() => onChange(i)}
             aria-label={`Ir al paso ${i + 1}: ${s.tag}`}
           />
         ))}
@@ -428,9 +429,38 @@ function MobileStories({ steps }) {
 
 /* ─── PAGE ───────────────────────────────────────────────────────────────── */
 
+// Identificador de cada paso en la URL, a partir de su etiqueta:
+// «Fin de estancia» → "fin-de-estancia" (/proceso#fin-de-estancia).
+function stepSlug(step) {
+  return step.tag
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // sin tildes
+    .toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+const STEP_SLUGS = STEPS.map(stepSlug);
+
 export default function ProcesoPage() {
-  const [activeStep, setActiveStep] = useState(0);
-  const detailRef = useRef(null);
+  // El paso activo vive en la URL (/proceso#solicitud), no en un estado local:
+  // cada paso se puede enlazar y compartir, y «atrás» vuelve al paso anterior
+  // en vez de sacarte de la página. Sin hash (o con uno desconocido), paso 1.
+  const location = useLocation();
+  const navigate = useNavigate();
+  const activeStep = Math.max(0, STEP_SLUGS.indexOf(location.hash.slice(1)));
+  const stepsRef = useRef(null);
+
+  // Al cambiar de paso, la vista vuelve al principio del panel. Antes la
+  // página se quedaba donde estaba y, como cada paso mide distinto, el
+  // contenido «saltaba» bajo el cursor. Solo se mueve si el principio del
+  // panel no está ya a la vista. En la primera carga sin hash no se toca.
+  const firstRender = useRef(true);
+  useEffect(() => {
+    const initial = firstRender.current;
+    firstRender.current = false;
+    if (initial && !location.hash) return;
+    const el = stepsRef.current;
+    if (!el) return;
+    const top = el.getBoundingClientRect().top;
+    if (top < 64 || top > window.innerHeight * 0.5) el.scrollIntoView({ block: "start" });
+  }, [location.hash]);
 
   useSEO({
     title: "¿Cómo funciona el Erasmus? Guía paso a paso | MAbroad",
@@ -438,10 +468,8 @@ export default function ProcesoPage() {
   });
 
   const handleStepClick = (i) => {
-    setActiveStep(i);
-    if (window.innerWidth < 768 && detailRef.current) {
-      detailRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    if (i === activeStep) return;
+    navigate({ hash: `#${STEP_SLUGS[i]}` });
   };
 
   return (
@@ -485,6 +513,10 @@ export default function ProcesoPage() {
         </div>
       </section>
 
+      {/* Ancla de los pasos: aquí vuelve la vista al cambiar de paso (queda
+          por debajo del navbar fijo gracias a su scroll-margin-top). */}
+      <div ref={stepsRef} className="proceso-steps-anchor" />
+
       {/* Main content — desktop (sidebar + detail) */}
       <section className="proceso-main proceso-main--desktop-only">
         <div className="proceso-main__inner">
@@ -523,7 +555,7 @@ export default function ProcesoPage() {
           </div>
 
           {/* Step detail */}
-          <div className="proceso-content" ref={detailRef}>
+          <div className="proceso-content">
             <ProgressBar currentStep={activeStep} total={STEPS.length} />
             <StepDetail step={STEPS[activeStep]} />
 
@@ -552,7 +584,7 @@ export default function ProcesoPage() {
 
       {/* Main content — mobile (stories format) */}
       <section className="proceso-main--mobile-only">
-        <MobileStories steps={STEPS} />
+        <MobileStories steps={STEPS} active={activeStep} onChange={handleStepClick} />
       </section>
 
       {/* CTA */}

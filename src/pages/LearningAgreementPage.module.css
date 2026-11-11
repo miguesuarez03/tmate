@@ -60,22 +60,49 @@
   color: rgba(255,255,255,0.72);
   line-height: 1.65;
   max-width: 520px;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 }
+/* Botón del hero que baja al formulario de la propuesta de equivalencias. */
+.heroCtaRow { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 18px; margin-bottom: 36px; }
+.heroCta {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 48px;
+  background: #10B981; color: #06281D; text-decoration: none;
+  font-weight: 800; font-size: 15px; line-height: 1.2;
+  padding: 12px 24px; border-radius: var(--radius-full);
+  box-shadow: 0 8px 28px rgba(16,185,129,0.35);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+.heroCta:hover { background: #34D399; box-shadow: 0 10px 32px rgba(16,185,129,0.45); }
+.heroCta:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.heroCtaNote { font-size: 13px; color: rgba(255,255,255,0.72); }
+/* Destino del ancla: que el título no quede bajo el navbar fijo (64px). */
+.anchorSection { scroll-margin-top: 64px; }
+
+/* Tres columnas con separador a la izquierda de la 2ª y la 3ª. En pantallas
+   estrechas se reparten el ancho a partes iguales (antes era una fila flex
+   con wrap: cada dato saltaba de línea por su cuenta y los separadores
+   quedaban sueltos). El valor encoge con el ancho para que «Variable» quepa
+   en un móvil de 360px. */
 .heroStats {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+  align-items: start;
 }
-.heroStat { text-align: center; }
+.heroStat { text-align: left; padding: 0 28px; max-width: 220px; }
+.heroStat:first-child { padding-left: 0; }
+.heroStat + .heroStat { border-left: 1px solid rgba(255,255,255,0.2); }
 .heroStatVal {
   font-family: var(--font-display);
-  font-size: 32px;
+  font-size: clamp(18px, 5.2vw, 32px);
   font-weight: 900;
   color: #fff;
   display: block;
   line-height: 1;
+}
+@media (max-width: 560px) {
+  .heroStats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .heroStat { padding: 0 12px; max-width: none; }
 }
 .heroStatLabel {
   font-size: 12px;
@@ -83,11 +110,6 @@
   font-weight: 500;
   display: block;
   margin-top: 4px;
-}
-.heroStatDiv {
-  width: 1px;
-  height: 36px;
-  background: rgba(255,255,255,0.2);
 }
 
 /* ── SECTIONS ── */
@@ -588,6 +610,14 @@
 .wizardHint {
   font-size: 12px; font-weight: 400; color: var(--color-muted);
 }
+/* El buscador de ciudad (SearchableInput) envuelve su <input> en un div: sin
+   esto el campo se queda con el ancho por defecto en vez de ocupar la fila. */
+.wizardLabel :global(.beca-searchable) > input { width: 100%; }
+
+/* Error de un campo: aparece al pulsar «Continuar» con algo sin rellenar. */
+.wizardError { font-size: 13px; font-weight: 600; color: #DC2626; }
+:root[data-theme="dark"] .wizardError { color: #F87171; }
+.wizardInput[aria-invalid="true"], .wizardTextarea[aria-invalid="true"] { border-color: #DC2626; }
 
 .wizardInput, .wizardTextarea {
   font-family: var(--font-body); font-size: 15px; font-weight: 500;

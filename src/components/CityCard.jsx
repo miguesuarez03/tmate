@@ -17,6 +17,13 @@ const CARD_PHOTO_SLOTS = [
   [null, "290px", 4 / 5],
 ];
 
+// Letras de la palabra más larga del nombre ("Maastricht" → 10). El CSS la
+// usa para encoger el nombre lo justo cuando esa palabra no cabe junto al
+// anillo de score en las tarjetas estrechas (ver .city-card__name).
+function longestWord(name) {
+  return Math.max(...name.split(/[\s-]+/).map((w) => w.length));
+}
+
 export default function CityCard({ city }) {
   const [hovered, setHovered] = useState(false);
   const [inView, setInView] = useState(false);
@@ -88,7 +95,7 @@ export default function CityCard({ city }) {
       <div className="city-card__content">
         <div className="city-card__contentTop">
           <div>
-            <p className="city-card__name">{city.name}</p>
+            <p className="city-card__name" style={{ "--name-len": longestWord(city.name) }}>{city.name}</p>
             <p className="city-card__country"><Flag emoji={city.emoji} /> {city.country}</p>
           </div>
           <ScoreRing score={overall} size={44} showLabel={false} animate={false} />

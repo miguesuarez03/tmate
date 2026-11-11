@@ -76,6 +76,61 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ─── «¿Y ahora?» (tras los resultados) ─────────────────────────────────── */
+.nextSteps { margin-top: 30px; }
+.nextTitle {
+  font-family: var(--font-display); font-weight: 800; font-size: 24px;
+  color: var(--color-dark); letter-spacing: -0.4px; margin-bottom: 16px;
+}
+.nextGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.nextCard {
+  position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 6px;
+  background: var(--color-white); border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-xl); padding: 22px 22px 24px;
+  box-shadow: var(--shadow-sm); text-decoration: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.nextCard:hover { border-color: var(--color-primary); box-shadow: var(--shadow-md); }
+.nextCard:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
+.nextIcon { display: inline-flex; margin-bottom: 6px; }
+.nextCardTitle {
+  font-family: var(--font-display); font-weight: 800; font-size: 17px;
+  color: var(--color-dark); padding-right: 28px;
+}
+.nextCardDesc { font-size: 14px; line-height: 1.5; color: var(--color-slate-light); }
+.nextArrow {
+  position: absolute; top: 22px; right: 22px; font-size: 18px;
+  color: var(--color-muted); transition: transform 0.2s ease, color 0.2s ease;
+}
+.nextCard:hover .nextArrow { transform: translateX(3px); color: var(--color-primary); }
+
+/* ─── Portada (antes de la primera pregunta) ─────────────────────────────── */
+.introCard { text-align: center; display: flex; flex-direction: column; align-items: center; }
+.introCard .quizBrand { margin-bottom: 14px; }
+.introTitle {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(26px, 4vw, 36px); line-height: 1.1;
+  color: var(--color-dark); letter-spacing: -0.8px; margin-bottom: 12px;
+  text-wrap: balance;
+}
+.introText {
+  font-size: 16px; line-height: 1.6; color: var(--color-slate);
+  max-width: 460px; margin-bottom: 24px;
+}
+.introFacts {
+  list-style: none; display: flex; justify-content: center; gap: clamp(20px, 6vw, 44px);
+  margin-bottom: 28px;
+}
+.introFacts li { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.introFacts strong {
+  font-family: var(--font-display); font-size: 26px; font-weight: 800;
+  color: var(--color-primary); line-height: 1; font-variant-numeric: tabular-nums;
+}
+.introFacts span { font-size: 13px; color: var(--color-slate-light); }
+/* .introCard delante: .continueBtn (definida más abajo) trae margin-left:auto. */
+.introCard .introStart { margin-left: 0; padding: 14px 40px; font-size: 16px; order: 0; flex: 0 0 auto; }
+.introNote { margin-top: 16px; font-size: 13px; line-height: 1.5; color: var(--color-slate-light); max-width: 400px; }
+
 .questionTitle {
   font-family: var(--font-display); font-weight: 800;
   font-size: clamp(22px, 3vw, 28px); color: var(--color-dark);

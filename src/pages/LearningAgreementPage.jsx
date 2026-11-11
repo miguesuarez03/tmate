@@ -5,6 +5,7 @@ import { IconUniversidad, IconEdificio, IconGlobo, IconManos, IconAmigos, IconLi
 import { useSEO } from "../hooks/useSEO";
 import { CITIES } from "../data/cities";
 import { isErasmusEligible } from "../lib/cities";
+import SearchableInput from "../components/SearchableInput";
 import styles from "./LearningAgreementPage.module.css";
 
 /* ─── DATA ──────────────────────────────────────────────────────────────── */
@@ -294,6 +295,12 @@ function Checklist() {
   );
 }
 
+// Destinos del formulario, por orden alfabético, para el buscador de ciudad
+// (antes un <select> con las 150 en el orden del fichero de datos).
+const WIZARD_CITY_OPTIONS = [...CITIES]
+  .sort((a, b) => a.name.localeCompare(b.name, "es"))
+  .map((c) => ({ value: c.slug, label: c.name, sublabel: c.country, emoji: c.emoji }));
+
 const WIZARD_LANGUAGES = ["Inglés", "Alemán", "Francés", "Italiano", "Portugués", "Neerlandés", "Polaco", "Húngaro", "Checo", "Otro"];
 
 const WIZARD_STEPS = [
@@ -312,6 +319,10 @@ const WIZARD_STEPS = [
 const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || "";
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 const CONTACT_EMAIL = "suarezalvarez.ma03@gmail.com";
+// Plazo en el que Miguel responde a una solicitud de propuesta. Es un
+// compromiso con el estudiante: si cambia, se cambia aquí y se actualiza en
+// el hero, la introducción del formulario y las dos pantallas de confirmación.
+const PROPOSAL_RESPONSE_TIME = "48 horas";
 
 // El borrador del wizard se guarda en localStorage: es un formulario de 5
 // pasos y perder todo por recargar la página o salir sin querer sería
@@ -369,6 +380,9 @@ function LAWizard() {
   const [sentVia, setSentVia] = useState("web3forms"); // web3forms | mailto
   const [status, setStatus] = useState("idle"); // idle | sending | error
   const [copied, setCopied] = useState(false);
+  // Los errores de un paso solo se enseñan después de intentar continuar.
+  const [showErrors, setShowErrors] = useState(false);
+  const cardRef = useRef(null);
   const botRef = useRef(null);
   const [data, setData] = useState(() => {
     try {
@@ -397,19 +411,62 @@ function LAWizard() {
   const destinoCity = CITIES.find(c => c.slug === data.ciudadDestino);
   const universidadesDestino = destinoCity?.universities ?? [];
 
-  const canContinue = () => {
+  // Qué falta en el paso actual: { campo: mensaje }. Vacío = se puede seguir.
+  // El botón «Continuar» ya no se desactiva sin explicación: se puede pulsar
+  // siempre y, si falta algo, lo dice debajo de cada campo y lleva el foco al
+  // primero.
+  const stepErrors = () => {
+    const e = {};
     switch (current.id) {
-      case "origen":      return data.universidadOrigen.trim() && data.gradoOrigen.trim();
-      case "destino":     return data.ciudadDestino && data.universidadDestino && isErasmusEligible(destinoCity);
-      case "asignaturas": return data.asignaturas.trim().length > 0;
-      case "creditos":    return data.creditos.trim() && data.idioma;
-      case "contacto":    return data.nombre.trim() && /\S+@\S+\.\S+/.test(data.email);
-      default:            return true;
+      case "origen":
+        if (!data.universidadOrigen.trim()) e.universidadOrigen = "Escribe tu universidad de origen.";
+        if (!data.gradoOrigen.trim()) e.gradoOrigen = "Escribe tu grado o titulación.";
+        break;
+      case "destino":
+        if (!data.ciudadDestino) e.ciudadDestino = "Elige una ciudad de la lista.";
+        else if (!isErasmusEligible(destinoCity)) e.ciudadDestino = "Este formulario solo cubre destinos Erasmus+: elige otra ciudad.";
+        else if (!data.universidadDestino) e.universidadDestino = "Elige la universidad de destino.";
+        break;
+      case "asignaturas":
+        if (!data.asignaturas.trim()) e.asignaturas = "Escribe al menos una asignatura.";
+        break;
+      case "creditos":
+        if (!data.creditos.trim()) e.creditos = "Indica cuántos créditos ECTS necesitas.";
+        if (!data.idioma) e.idioma = "Elige el idioma de las asignaturas.";
+        break;
+      case "contacto":
+        if (!data.nombre.trim()) e.nombre = "Escribe tu nombre.";
+        if (!/\S+@\S+\.\S+/.test(data.email)) e.email = "Escribe un email válido: es donde te respondemos.";
+        break;
+      default:
     }
+    return e;
   };
+  const errors = showErrors ? stepErrors() : {};
+
+  // Atributos de un campo: identificador (para llevarle el foco) y, si tiene
+  // error, aria-invalid + el mensaje asociado para lectores de pantalla.
+  const fieldProps = (name) => ({
+    "data-field": name,
+    "aria-invalid": errors[name] ? true : undefined,
+    "aria-describedby": errors[name] ? `la-error-${name}` : undefined,
+  });
+  const fieldError = (name) => errors[name] && (
+    <span id={`la-error-${name}`} className={styles.wizardError} role="alert">{errors[name]}</span>
+  );
 
   const handleNext = () => {
-    if (!canContinue() || status === "sending") return;
+    if (status === "sending") return;
+    const missing = Object.keys(stepErrors());
+    if (missing.length) {
+      setShowErrors(true);
+      // El foco va al primer campo con error. El campo ya está en el DOM, así
+      // que se enfoca en el acto (sin esperar a un frame: en una pestaña en
+      // segundo plano requestAnimationFrame puede tardar o no llegar).
+      cardRef.current?.querySelector(`[data-field="${missing[0]}"]`)?.focus();
+      return;
+    }
+    setShowErrors(false);
     if (isLast) {
       sendRequest();
     } else {
@@ -471,6 +528,7 @@ function LAWizard() {
   };
 
   const restart = () => {
+    setShowErrors(false);
     setData({ ...WIZARD_DEFAULTS });
     setSent(false);
     setStatus("idle");
@@ -489,7 +547,7 @@ function LAWizard() {
     }
   };
 
-  const handleBack = () => setStep(s => Math.max(0, s - 1));
+  const handleBack = () => { setShowErrors(false); setStep(s => Math.max(0, s - 1)); };
 
   if (sent && sentVia === "web3forms") {
     return (
@@ -497,7 +555,8 @@ function LAWizard() {
         <span className={styles.wizardDoneIcon}><IconCheck size={48} /></span>
         <h3 className={styles.wizardDoneTitle}>¡Recibido!</h3>
         <p className={styles.wizardDoneText}>
-          Te preparamos una propuesta orientativa de equivalencias y te la mandamos a <strong>{data.email}</strong>.
+          Te preparamos una propuesta orientativa de equivalencias y te la mandamos a <strong>{data.email}</strong> en
+          un plazo de {PROPOSAL_RESPONSE_TIME}.
           Es una ayuda para preparar tu Learning Agreement: el documento oficial lo firmáis tú y las dos
           universidades.
         </p>
@@ -517,7 +576,7 @@ function LAWizard() {
         <h3 className={styles.wizardDoneTitle}>Se ha abierto tu cliente de correo</h3>
         <p className={styles.wizardDoneText}>
           Revisa que el email se haya generado bien y envíalo. En cuanto lo recibamos, te preparamos una
-          propuesta de equivalencias y te respondemos al correo que nos has dado.
+          propuesta de equivalencias y te respondemos al correo que nos has dado en un plazo de {PROPOSAL_RESPONSE_TIME}.
         </p>
         <p className={styles.wizardDoneText}>
           Si no se ha abierto ningún programa de correo (pasa en algunos móviles), copia el texto y envíalo
@@ -552,7 +611,7 @@ function LAWizard() {
         ))}
       </div>
 
-      <div className={styles.wizardCard}>
+      <div className={styles.wizardCard} ref={cardRef}>
         <div className={styles.wizardCardHeader}>
           <span className={styles.wizardCardEmoji}><current.Icon size={32} /></span>
           <div>
@@ -572,7 +631,9 @@ function LAWizard() {
                   placeholder="ej. Universidad Loyola Andalucía"
                   value={data.universidadOrigen}
                   onChange={e => update("universidadOrigen", e.target.value)}
+                  {...fieldProps("universidadOrigen")}
                 />
+                {fieldError("universidadOrigen")}
               </label>
               <label className={styles.wizardLabel}>
                 Grado / titulación
@@ -582,26 +643,34 @@ function LAWizard() {
                   placeholder="ej. Grado en Ingeniería en Tecnologías Industriales"
                   value={data.gradoOrigen}
                   onChange={e => update("gradoOrigen", e.target.value)}
+                  {...fieldProps("gradoOrigen")}
                 />
+                {fieldError("gradoOrigen")}
               </label>
             </>
           )}
 
           {current.id === "destino" && (
             <>
-              <label className={styles.wizardLabel}>
-                Ciudad de destino
-                <select
-                  className={styles.wizardInput}
-                  value={data.ciudadDestino}
-                  onChange={e => update("ciudadDestino", e.target.value)}
-                >
-                  <option value="">Selecciona una ciudad…</option>
-                  {CITIES.map(c => (
-                    <option key={c.slug} value={c.slug}>{c.name}</option>
-                  ))}
-                </select>
-              </label>
+              {/* Buscador con sugerencias (el mismo de la calculadora de
+                  beca). Elegir otra ciudad, o borrar la elegida, vacía también
+                  la universidad: la lista depende de la ciudad. */}
+              <div className={styles.wizardLabel}>
+                <label htmlFor="la-ciudad-destino">Ciudad de destino</label>
+                <span className={styles.wizardHint}>Escribe para buscar entre los {CITIES.length} destinos y elige uno de la lista.</span>
+                <SearchableInput
+                  value={destinoCity?.name || ""}
+                  onChange={(text) => {
+                    if (destinoCity && text !== destinoCity.name) setData(d => ({ ...d, ciudadDestino: "", universidadDestino: "" }));
+                  }}
+                  onSelect={(opt) => setData(d => ({ ...d, ciudadDestino: opt.value, universidadDestino: "" }))}
+                  options={WIZARD_CITY_OPTIONS}
+                  placeholder="ej. Bolonia"
+                  inputClassName={styles.wizardInput}
+                  inputProps={{ id: "la-ciudad-destino", ...fieldProps("ciudadDestino") }}
+                />
+                {fieldError("ciudadDestino")}
+              </div>
               {data.ciudadDestino && !isErasmusEligible(destinoCity) && (
                 <p className={styles.wizardHint} style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
                   <IconAlerta size={16} /> El Learning Agreement es un documento específico de Erasmus+, y {destinoCity.name} es un destino de intercambio bilateral (no Erasmus+). Para este tipo de programa, el papeleo de equivalencias lo define tu universidad de origen — consulta con tu oficina de relaciones internacionales.
@@ -614,12 +683,14 @@ function LAWizard() {
                     className={styles.wizardInput}
                     value={data.universidadDestino}
                     onChange={e => update("universidadDestino", e.target.value)}
+                    {...fieldProps("universidadDestino")}
                   >
                     <option value="">Selecciona una universidad…</option>
                     {universidadesDestino.map(u => (
                       <option key={u} value={u}>{u}</option>
                     ))}
                   </select>
+                  {fieldError("universidadDestino")}
                 </label>
               )}
             </>
@@ -635,7 +706,9 @@ function LAWizard() {
                 placeholder={"ej.\nCálculo II\nMecánica de Fluidos\nElectrotecnia"}
                 value={data.asignaturas}
                 onChange={e => update("asignaturas", e.target.value)}
+                {...fieldProps("asignaturas")}
               />
+              {fieldError("asignaturas")}
             </label>
           )}
 
@@ -650,7 +723,9 @@ function LAWizard() {
                   placeholder="ej. 30"
                   value={data.creditos}
                   onChange={e => update("creditos", e.target.value)}
+                  {...fieldProps("creditos")}
                 />
+                {fieldError("creditos")}
               </label>
               <label className={styles.wizardLabel}>
                 Idioma de las asignaturas
@@ -658,12 +733,14 @@ function LAWizard() {
                   className={styles.wizardInput}
                   value={data.idioma}
                   onChange={e => update("idioma", e.target.value)}
+                  {...fieldProps("idioma")}
                 >
                   <option value="">Selecciona un idioma…</option>
                   {WIZARD_LANGUAGES.map(l => (
                     <option key={l} value={l}>{l}</option>
                   ))}
                 </select>
+                {fieldError("idioma")}
               </label>
             </>
           )}
@@ -678,7 +755,9 @@ function LAWizard() {
                   placeholder="Tu nombre"
                   value={data.nombre}
                   onChange={e => update("nombre", e.target.value)}
+                  {...fieldProps("nombre")}
                 />
+                {fieldError("nombre")}
               </label>
               <label className={styles.wizardLabel}>
                 Email
@@ -688,7 +767,9 @@ function LAWizard() {
                   placeholder="tucorreo@uni.es"
                   value={data.email}
                   onChange={e => update("email", e.target.value)}
+                  {...fieldProps("email")}
                 />
+                {fieldError("email")}
               </label>
               <div className={styles.wizardSummary}>
                 <p className={styles.wizardSummaryTitle}>Resumen de tu solicitud</p>
@@ -701,17 +782,17 @@ function LAWizard() {
         </div>
 
         <div className={styles.wizardCardFooter}>
-          <button
-            className={styles.wizardBackBtn}
-            onClick={handleBack}
-            disabled={step === 0}
-          >
-            ← Atrás
-          </button>
+          {/* En el primer paso no hay «Atrás» (antes salía desactivado);
+              el hueco se mantiene para que «Continuar» no cambie de sitio. */}
+          {step > 0 ? (
+            <button className={styles.wizardBackBtn} onClick={handleBack}>
+              ← Atrás
+            </button>
+          ) : <span aria-hidden="true" />}
           <button
             className={styles.wizardNextBtn}
             onClick={handleNext}
-            disabled={!canContinue() || status === "sending"}
+            disabled={status === "sending"}
             aria-busy={status === "sending"}
             style={{ display: "inline-flex", alignItems: "center", gap: 6, justifyContent: "center" }}
           >
@@ -782,20 +863,30 @@ export default function LearningAgreementPage() {
             El contrato que define qué estudias y qué te convalidan.
             El documento que más agobia — y el que mejor puedes preparar si sabes cómo.
           </p>
+          {/* La herramienta de la página (pedir una propuesta de
+              equivalencias revisada a mano) está muy abajo: desde aquí se
+              llega con un toque. Ancla nativa a #wizard-la. */}
+          <div className={styles.heroCtaRow}>
+            <a className={styles.heroCta} href="#wizard-la">
+              Pide tu propuesta de equivalencias <span aria-hidden="true">↓</span>
+            </a>
+            <span className={styles.heroCtaNote}>La revisamos a mano y te respondemos por email en {PROPOSAL_RESPONSE_TIME}.</span>
+          </div>
+
+          {/* Tres datos con el mismo formato (valor + etiqueta). El tercero
+              era un icono suelto sin valor y en móvil la fila se descolocaba. */}
           <div className={styles.heroStats}>
             <div className={styles.heroStat}>
               <span className={styles.heroStatVal}>3</span>
               <span className={styles.heroStatLabel}>Firmas necesarias</span>
             </div>
-            <div className={styles.heroStatDiv} />
             <div className={styles.heroStat}>
               <span className={styles.heroStatVal}>Digital</span>
               <span className={styles.heroStatLabel}>Cada vez más con Erasmus Without Paper</span>
             </div>
-            <div className={styles.heroStatDiv} />
             <div className={styles.heroStat}>
-              <span className={styles.heroStatVal}><IconReloj size={28} /></span>
-              <span className={styles.heroStatLabel}>Plazo de cambios según uni</span>
+              <span className={styles.heroStatVal}>Variable</span>
+              <span className={styles.heroStatLabel}>Plazo de cambios, según tu uni</span>
             </div>
           </div>
         </div>
@@ -838,13 +929,13 @@ export default function LearningAgreementPage() {
       </section>
 
       {/* ── WIZARD: PROPUESTA DE EQUIVALENCIAS ── */}
-      <section className={styles.section} id="wizard-la">
+      <section className={`${styles.section} ${styles.anchorSection}`} id="wizard-la">
         <div className={styles.sectionInner} style={{ maxWidth: 640 }}>
           <SectionLabel color="#10B981">Herramienta</SectionLabel>
           <h2 className={styles.sectionTitle}>Pide tu propuesta de equivalencias</h2>
           <p className={styles.sectionText}>
             Rellena estos datos en menos de 2 minutos y te ayudamos a preparar una propuesta de equivalencias para
-            tu Learning Agreement: la revisamos a mano y te la mandamos por email. Es una ayuda orientativa, no el
+            tu Learning Agreement: la revisamos a mano y te la mandamos por email en un plazo de {PROPOSAL_RESPONSE_TIME}. Es una ayuda orientativa, no el
             documento oficial, que se tramita con tu universidad y lo aprobáis tú y las dos universidades.
           </p>
           <LAWizard />

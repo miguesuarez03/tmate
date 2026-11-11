@@ -48,6 +48,10 @@
 }
 
 .fabHidden { opacity: 0; pointer-events: none; }
+/* Apartado mientras se lee hacia abajo en móvil (ver FeedbackWidget.jsx).
+   Con el foco de teclado vuelve a verse: nunca queda un control invisible. */
+.fabTucked { opacity: 0; transform: translateY(16px); pointer-events: none; }
+.fabTucked:focus-visible { opacity: 1; transform: none; pointer-events: auto; }
 
 /* ─── Panel ─────────────────────────────────────────────────────────────── */
 .backdrop {

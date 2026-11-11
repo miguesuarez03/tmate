@@ -93,6 +93,13 @@
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
+  /* Mismo alto vacía que con una ciudad: la barra no crece al elegir. */
+  min-height: 37px;
+}
+.stickyChipsEmpty {
+  font-size: 13px; color: var(--color-muted);
+  border: 1.5px dashed var(--color-border); border-radius: var(--radius-full);
+  padding: 6px 14px; white-space: nowrap;
 }
 .pill {
   display: flex;
@@ -331,6 +338,8 @@
 .featuredCardSelected {
   box-shadow: 0 0 0 3px var(--tile-color), var(--shadow-lg);
 }
+/* Con 3 ya elegidas, las demás quedan atenuadas (como las mini). */
+.featuredCardDisabled { opacity: 0.45; cursor: not-allowed; }
 .featuredCheck {
   position: absolute; top: 12px; left: 12px; z-index: 2;
   width: 28px; height: 28px; border-radius: 50%;
@@ -600,16 +609,6 @@
   color: #fff; line-height: 1;
 }
 .overallLabel { font-size: 14px; color: rgba(255,255,255,0.65); font-weight: 500; }
-.bestLabel {
-  font-size: 11px; font-weight: 800;
-  background: #fff;
-  border-radius: var(--radius-full);
-  padding: 4px 11px; color: var(--color-dark);
-  margin-left: auto;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-}
 
 .quickStats {
   padding: 14px 18px; display: flex; flex-direction: column; gap: 8px;
@@ -824,6 +823,30 @@
 
 
 /* ─── RESUMEN AUTOMÁTICO ─────────────────────────────────────────────────── */
+/* ─── Veredicto («En resumen») ───────────────────────────────────────────── */
+.verdict {
+  background: linear-gradient(135deg, var(--surface-tint-primary), var(--surface-tint-teal));
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 24px 28px;
+}
+.verdictTitle {
+  font-family: var(--font-display); font-size: 22px; font-weight: 800;
+  color: var(--color-dark); letter-spacing: -0.3px; margin-bottom: 16px;
+}
+.verdictList { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.verdictList li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 16px; line-height: 1.5; color: var(--color-dark-mid);
+}
+.verdictIcon { flex-shrink: 0; display: inline-flex; margin-top: 2px; }
+.verdictNote { margin-top: 16px; font-size: 12.5px; line-height: 1.5; color: var(--color-slate-light); }
+@media (max-width: 540px) {
+  .verdict { padding: 18px 18px; }
+  .verdictTitle { font-size: 19px; }
+  .verdictList li { font-size: 15px; gap: 10px; }
+}
+
 .summarySection {}
 .summaryCard {
   background: linear-gradient(135deg, rgba(245,150,58,0.05), rgba(63,122,125,0.05));
@@ -945,6 +968,10 @@
   /* Selector: barra sticky pasa a apilar buscador y chips; el botón de
      comparar inferior también se apila (info + botón a todo el ancho). */
   .stickyBarInner { flex-direction: column; align-items: stretch; gap: 12px; }
+  /* En columna, el flex-basis de 260px del buscador (pensado como ANCHO
+     mínimo en fila) se convertía en 260px de ALTO: la barra fija tapaba
+     media pantalla y la lupa quedaba suelta en el hueco. */
+  .searchWrap { flex: 0 0 auto; }
   .stickyChips { justify-content: flex-start; }
   .miniGrid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
   .miniCard { gap: 9px; }

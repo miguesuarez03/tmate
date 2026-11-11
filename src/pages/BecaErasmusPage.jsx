@@ -1,5 +1,6 @@
-import { useState, useRef, useEffect, useId } from "react";
+import { useState, useId } from "react";
 import Flag from "../components/Flag";
+import SearchableInput from "../components/SearchableInput";
 import { Link } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { IconCorazonInclusion, IconAccesibilidad, IconHoja, IconBombilla, IconGrafica, IconPin, IconTarjeta, IconLibros, IconEdificio, IconUniversidad, IconCasa, IconComida, IconTransporte, IconFiesta, IconBeca, IconAlerta, IconCheck, IconViajes } from "../components/icons";
@@ -9,70 +10,6 @@ import { BECA_FAQS } from "../data/faqs";
 import { CITY_COORDS, haversineDistanceKm, distanceToRange, geocodeCity } from "../lib/cityCoords";
 import { getCityInsights, parseMinCost, parseMaxCost, isErasmusEligible } from "../lib/cities";
 import { CITIES } from "../data/cities";
-
-/* ─── SEARCHABLE INPUT ───────────────────────────────────────────────────── */
-function SearchableInput({ value, onChange, options, placeholder, onSelect }) {
-  const [query, setQuery] = useState(value || "");
-  const [open, setOpen] = useState(false);
-  const ref = useRef(null);
-
-  // Filtrar opciones por query
-  const filtered = options.filter(o =>
-    o.label.toLowerCase().includes(query.toLowerCase()) ||
-    (o.sublabel && o.sublabel.toLowerCase().includes(query.toLowerCase()))
-  ).slice(0, 8);
-
-  useEffect(() => {
-    function handleClick(e) {
-      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
-    }
-    document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
-  }, []);
-
-  function handleInput(e) {
-    setQuery(e.target.value);
-    onChange(e.target.value);
-    setOpen(true);
-  }
-
-  function handleSelect(opt) {
-    setQuery(opt.label);
-    onChange(opt.label);
-    onSelect(opt);
-    setOpen(false);
-  }
-
-  return (
-    <div className="beca-searchable" ref={ref}>
-      <input
-        type="text"
-        className="beca-calc__select"
-        placeholder={placeholder}
-        value={query}
-        onChange={handleInput}
-        onFocus={() => setOpen(true)}
-        autoComplete="off"
-      />
-      {open && filtered.length > 0 && (
-        <div className="beca-searchable__dropdown">
-          {filtered.map(opt => (
-            <button
-              key={opt.value}
-              type="button"
-              className="beca-searchable__option"
-              onMouseDown={() => handleSelect(opt)}
-            >
-              {opt.emoji && <span className="beca-searchable__emoji"><Flag emoji={opt.emoji} /></span>}
-              <span className="beca-searchable__label">{opt.label}</span>
-              {opt.sublabel && <span className="beca-searchable__sublabel">{opt.sublabel}</span>}
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
 
 /* ─── CIUDADES DE ORIGEN (España + principales europeas) ─────────────────── */
 const ORIGIN_CITIES = [

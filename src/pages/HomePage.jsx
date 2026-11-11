@@ -3,7 +3,8 @@ import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import { CITIES } from "../data/cities";
 import { getScoreMap, getOverallScore, findBestCityMatch, getCitiesGroupedByRegion } from "../lib/cities";
 import { HOME_FAQS } from "../data/faqs";
-import { Navbar, Footer, SectionLabel, MASymbol, NAV_LINKS, isPlainClick } from "../components/Layout";
+import { CITY_MATCH_QUESTION_COUNT } from "../data/cityMatch";
+import { Navbar, Footer, SectionLabel, MASymbol, NAV_LINKS } from "../components/Layout";
 import { IconCityMatch, IconComparar, IconBeca, IconRanking, IconComunidad, IconSeguridad, IconUniversidad, IconMedalla, IconEdificio, IconFiesta, IconPausa, IconReproducir } from "../components/icons";
 import SearchBar from "../components/SearchBar";
 import CityCard from "../components/CityCard";
@@ -52,8 +53,10 @@ const QUICK_ACCESS = [
   {
     Icon: IconCityMatch,
     title: "Encontrar tu ciudad",
-    desc: "Compara coste, ambiente y más, y descubre tu destino ideal",
-    // Sin `to`: baja a la rejilla de destinos de esta misma página (#destinos).
+    // Lleva al test City Match (antes bajaba al listado, aunque el icono y el
+    // texto prometían que te ayudaba a elegir).
+    desc: `Responde ${CITY_MATCH_QUESTION_COUNT} preguntas y descubre qué ciudades encajan contigo`,
+    to: "/city-match",
   },
   {
     Icon: IconComparar,
@@ -70,36 +73,21 @@ const QUICK_ACCESS = [
 ];
 
 // Enlaces reales (<a href>), no botones con navigate(): se pueden abrir en
-// otra pestaña, los rastrea Google y funcionan sin JS. El primero es un ancla
-// a la rejilla de destinos; con JS el salto se hace con scroll suave.
-function scrollToCities(e) {
-  const el = document.getElementById("destinos");
-  if (!el || !isPlainClick(e)) return;
-  e.preventDefault();
-  el.scrollIntoView({ behavior: "smooth" });
-}
-
+// otra pestaña, los rastrea Google y funcionan sin JS.
 function QuickAccessSection() {
   return (
     <section className="quick-access">
       <div className="quick-access__grid">
-        {QUICK_ACCESS.map((item) => {
-          const content = (
-            <>
-              <span className="quick-access__icon quick-access__icon--illustrated">
-                <item.Icon size={56} />
-              </span>
-              <span className="quick-access__title">{item.title}</span>
-              <span className="quick-access__desc">{item.desc}</span>
-              <span className="quick-access__arrow" aria-hidden="true">→</span>
-            </>
-          );
-          return item.to ? (
-            <Link key={item.title} to={item.to} className="quick-access__card">{content}</Link>
-          ) : (
-            <a key={item.title} href="#destinos" className="quick-access__card" onClick={scrollToCities}>{content}</a>
-          );
-        })}
+        {QUICK_ACCESS.map((item) => (
+          <Link key={item.title} to={item.to} className="quick-access__card">
+            <span className="quick-access__icon quick-access__icon--illustrated">
+              <item.Icon size={56} />
+            </span>
+            <span className="quick-access__title">{item.title}</span>
+            <span className="quick-access__desc">{item.desc}</span>
+            <span className="quick-access__arrow" aria-hidden="true">→</span>
+          </Link>
+        ))}
       </div>
     </section>
   );
