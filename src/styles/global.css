@@ -781,10 +781,11 @@ a { text-decoration: none; color: inherit; }
      estrechas (2 columnas en un móvil de 360px): la letra baja lo justo para
      que la palabra quepa en el hueco que deja el anillo. Hueco = ancho de la
      tarjeta (100cqi) menos --name-gap (márgenes + anillo); cada letra ocupa
-     ~0,56em. En tarjetas anchas el cálculo supera el tamaño normal y no
+     hasta ~0,68em (medido con los 150 nombres en un móvil de 360px: con
+     menos, «Ámsterdam» o «Hamburgo» se partían). En tarjetas anchas el cálculo supera el tamaño normal y no
      cambia nada. Navegadores sin unidades cqi se quedan con la línea de
      arriba. Último recurso para nombres larguísimos: partir la palabra. */
-  font-size: clamp(13px, calc((100cqi - var(--name-gap)) / (var(--name-len, 6) * 0.56)), clamp(18px, 2.5vw, 22px));
+  font-size: clamp(11px, calc((100cqi - var(--name-gap)) / (var(--name-len, 6) * 0.68)), clamp(18px, 2.5vw, 22px));
   overflow-wrap: anywhere;
 }
 .city-card__country { font-size: 12px; color: rgba(255,255,255,0.72); margin-bottom: 8px; }
