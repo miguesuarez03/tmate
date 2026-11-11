@@ -238,11 +238,15 @@ const optionOf = (qId, value) => QUESTION_BY_ID[qId].options.find((o) => o.value
 
 /* ─── Dimensiones: cada una resuelve una pregunta contra datos reales ──────
    similarity() devuelve 0-1, o null si esa respuesta no discrimina entre
-   ciudades (p. ej. presupuesto "Flexible"): entonces la pregunta no cuenta. */
+   ciudades (p. ej. presupuesto "Flexible"): entonces la pregunta no cuenta.
+   reason  = por qué encaja (se lee tras el nombre de la ciudad).
+   caveat  = en qué encaja poco, dicho con su nombre: es el «Ten en cuenta»
+             del resultado, que antes no decía a qué se refería. */
 const DIMENSIONS = {
   presupuesto: {
     Icon: IconBeca,
     reason: "se ajusta a tu presupuesto",
+    caveat: "el coste de vida encaja poco con tu presupuesto",
     similarity: (city, scoreMap, value) => {
       if (value === "alto") return null;
       return closeness(scoreMap.coste?.score ?? 5, value === "bajo" ? 9.5 : 6.5);
@@ -251,6 +255,7 @@ const DIMENSIONS = {
   clima: {
     Icon: IconClima,
     reason: "tiene el clima que buscas",
+    caveat: "el clima no es el que prefieres",
     similarity: (city, _sm, value) => {
       const target = { calido: 0, templado: 1, frio: 2 }[value];
       return weatherBucket(city.weather) === target ? 1 : 0.3;
@@ -259,6 +264,7 @@ const DIMENSIONS = {
   idioma: {
     Icon: IconIdiomas,
     reason: "encaja con tu idioma preferido",
+    caveat: "el idioma local no es de los que querías tener cerca",
     similarity: (city, _sm, value) => {
       const langs = optionOf("idioma", value)?.match || [];
       const cityLang = city.language.toLowerCase();
@@ -268,12 +274,14 @@ const DIMENSIONS = {
   fiesta: {
     Icon: IconFiesta,
     reason: "tiene el nivel de vida social que buscas",
+    caveat: "el nivel de vida social no es el que buscas",
     similarity: (city, scoreMap, value) =>
       closeness(scoreMap.vida_social?.score ?? 5, { tranquila: 5, equilibrada: 7.5, intensa: 9.5 }[value]),
   },
   tamano: {
     Icon: IconEdificio,
     reason: "tiene el tamaño de ciudad que encaja contigo",
+    caveat: "el tamaño de la ciudad no es el que prefieres",
     similarity: (city, _sm, value) => {
       const size = getCitySize(city);
       if (size == null) return null; // sin dato oficial: la pregunta no cuenta para esa ciudad
@@ -283,12 +291,14 @@ const DIMENSIONS = {
   naturaleza: {
     Icon: IconHoja,
     reason: "ofrece el contacto con naturaleza que valoras",
+    caveat: "el contacto con la naturaleza no es el que buscas",
     similarity: (city, _sm, value) =>
       bucketSimilarity(natureLevel(city), { poca: 0, algo: 1, mucha: 2 }[value]),
   },
   universidad: {
     Icon: IconUniversidad,
     reason: "tiene buena proyección académica y laboral",
+    caveat: "la proyección académica y laboral encaja poco con lo que priorizas",
     similarity: (city, scoreMap, value) => {
       if (value === "secundario") return null;
       return closeness(scoreMap.empleo?.score ?? 5, value === "prestigio" ? 9 : 7);
@@ -297,6 +307,7 @@ const DIMENSIONS = {
   estilo: {
     Icon: IconExperiencia,
     reason: "tiene una calidad de vida diaria muy alta",
+    caveat: "la calidad de vida diaria queda por debajo de lo que pides",
     similarity: (city, scoreMap, value) => {
       if (value === "noprio") return null;
       return closeness(scoreMap.estilo_vida?.score ?? 5, value === "top" ? 9.5 : 7.5);
@@ -320,7 +331,10 @@ function computeMatch(city, answers) {
         const opt = optionOf(q.id, value);
         if (!opt) return;
         const score = scoreMap[opt.category]?.score ?? 5;
-        results.push({ id: `prioridad-${value}`, sim: Math.min(1, score / 10), weight: RANK_WEIGHTS[i], Icon: opt.Icon, reason: opt.reason });
+        results.push({
+          id: `prioridad-${value}`, sim: Math.min(1, score / 10), weight: RANK_WEIGHTS[i], Icon: opt.Icon, reason: opt.reason,
+          caveat: `flojea en una de tus prioridades: ${opt.label.toLowerCase()}`,
+        });
       });
       continue;
     }
@@ -338,7 +352,7 @@ function computeMatch(city, answers) {
     } else {
       sim = dim.similarity(city, scoreMap, answer);
     }
-    if (sim != null) results.push({ id: q.id, sim, weight: 1, Icon: dim.Icon, reason: dim.reason });
+    if (sim != null) results.push({ id: q.id, sim, weight: 1, Icon: dim.Icon, reason: dim.reason, caveat: dim.caveat });
   }
 
   const overall = Number(getOverallScore(city.slug)) || 7;
@@ -534,7 +548,7 @@ export default function CityMatchPage() {
                         <li key={r.id} style={{ display: "flex", alignItems: "center", gap: 6 }}><r.Icon size={18} /> {m.city.name} {r.reason}</li>
                       ))}
                       {weakest && weakest.sim < 0.4 && (
-                        <li className={styles.reasonCaveat} style={{ display: "flex", alignItems: "center", gap: 6 }}><weakest.Icon size={18} /> Ten en cuenta: aquí es donde menos encaja con lo que buscas</li>
+                        <li className={styles.reasonCaveat} style={{ display: "flex", alignItems: "center", gap: 6 }}><weakest.Icon size={18} /> Ten en cuenta: {weakest.caveat || "aquí es donde menos encaja con lo que buscas"}</li>
                       )}
                     </ul>
 
