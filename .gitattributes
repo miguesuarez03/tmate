@@ -1,0 +1,5 @@
+# El script inline de index.html va autorizado en la CSP (vercel.json) por su
+# hash sha256, que depende de los saltos de línea: siempre LF, también en
+# Windows (con core.autocrlf=true un checkout lo dejaba en CRLF y el build
+# local fallaba en la comprobación de la CSP de scripts/prerender.mjs).
+index.html text eol=lf
