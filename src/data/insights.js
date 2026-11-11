@@ -1017,7 +1017,7 @@ export const CITY_INSIGHTS = {
 
   "la-haya": {
     heroImg: "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?w=1600&q=85",
-    tagline: "La capital diplomática del mundo. Donde la ONU, el mar del Norte y la bici conviven en perfecta armonía.",
+    tagline: "Ciudad internacional de la paz y la justicia, donde los tribunales internacionales, el mar del Norte y la bici conviven.",
     atmosphere: "Elegante, internacional y sorprendentemente tranquila. La Haya huele a mar del Norte y café de oficina, y suena a conversaciones en veinte idiomas en los pasillos de organismos internacionales.",
     scores: [
       // 1. COSTE DE VIDA
@@ -1025,14 +1025,14 @@ export const CITY_INSIGHTS = {
         id: "coste",
         label: "Coste de vida",
         icon: "💰",
-        score: 6.5,
-        summary: "Cara para estándares holandeses. Con 900–1.100€/mes se vive bien si controlas el ocio.",
+        score: 5.0,
+        summary: "Cara: el presupuesto de The Hague University of Applied Sciences suma unos 1.000–1.300€/mes, más el seguro de salud neerlandés si trabajas.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 5.5, desc: "Habitaciones desde 600–850€. Más barata que Ámsterdam pero el mercado es competitivo. Busca con antelación." },
-          { label: "Comida y supermercados", score: 7.0, desc: "Haagse Markt — el mercado más grande y barato de Holanda. Albert Heijn para compra diaria asequible." },
-          { label: "Transporte", score: 7.0, desc: "OV-chipkaart obligatoria. Tram y autobús bien conectados. La bici propia es la opción más económica y práctica." },
-          { label: "Ocio y gastos diarios", score: 6.5, desc: "Cervezas a 4–5€. Menos opciones de ocio barato que Ámsterdam pero el mar a 15 minutos compensa." },
+          { label: "Alojamiento", score: 5.5, desc: "El alquiler es el mayor gasto. Más barata que Ámsterdam, pero el mercado es competitivo: busca con antelación." },
+          { label: "Comida y supermercados", score: 7.0, desc: "Haagse Markt, gran mercado multicultural de productos frescos; Albert Heijn y Lidl para la compra diaria." },
+          { label: "Transporte", score: 7.0, desc: "Se paga con OV-chipkaart o sin contacto (OVpay). Tranvía y autobús bien conectados; la bici propia es la opción más económica y práctica." },
+          { label: "Ocio y gastos diarios", score: 6.5, desc: "Menos opciones de ocio barato que Ámsterdam, pero la playa queda cerca y es gratis." },
         ],
       },
       // 2. ALOJAMIENTO
@@ -1045,8 +1045,8 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 5.5, desc: "Menos presión que Ámsterdam pero el mercado sigue siendo competitivo. Busca 3 meses antes mínimo." },
-          { label: "Precio", score: 5.5, desc: "600–850€ habitación. Caro para lo que se recibe pero está en línea con el mercado holandés." },
-          { label: "Facilidad de búsqueda", score: 6.0, desc: "Kamernet, Pararius, grupos de Facebook de La Haya University. La búsqueda requiere paciencia y rapidez." },
+          { label: "Precio", score: 5.5, desc: "Caro para lo que se recibe, en línea con el mercado neerlandés." },
+          { label: "Facilidad de búsqueda", score: 6.0, desc: "Kamernet, Pararius y grupos de Facebook de estudiantes. La búsqueda requiere paciencia y rapidez." },
           { label: "Residencias universitarias", score: 6.0, desc: "Consulta residencias universitarias disponibles — pueden ser la opción más cómoda y segura para los primeros meses." },
         ],
       },
@@ -1059,10 +1059,10 @@ export const CITY_INSIGHTS = {
         summary: "Vida nocturna más tranquila que Ámsterdam pero con personalidad propia. Ideal para quien busca algo más calmado. Comunidad más pequeña que otras ciudades pero muy internacional y profesional. Calidad sobre cantidad.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 7.8, desc: "+2.500 internacionales entre La Haya University y los estudiantes de Leiden campus La Haya. ESN activo con eventos regulares. Visitas a organismos internacionales, networking events, excursiones." },
+          { label: "Comunidad Erasmus", score: 7.8, desc: "Estudiantes internacionales de The Hague University of Applied Sciences y del campus de Leiden University en La Haya. ESN organiza eventos y excursiones." },
           { label: "Ambiente internacional", score: 7.8, desc: "Ambiente internacional con estudiantes de toda Europa y el mundo." },
-          { label: "Fiesta y vida nocturna", score: 7.0, desc: "Centrum tiene buenos bares. Paard van Troje para conciertos. Menos opciones que Ámsterdam pero sin aglomeraciones." },
-          { label: "Eventos y actividades", score: 8.0, desc: "Holland Dance Festival, Parkpop (el festival gratuito más grande de Europa). Agenda cultural muy rica." },
+          { label: "Fiesta y vida nocturna", score: 7.0, desc: "Centrum tiene buenos bares y la sala Paard, conciertos. Menos opciones que Ámsterdam, pero sin aglomeraciones." },
+          { label: "Eventos y actividades", score: 8.0, desc: "Agenda cultural muy rica, con museos como el Mauritshuis y festivales a lo largo del año." },
         ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
@@ -1071,11 +1071,11 @@ export const CITY_INSIGHTS = {
         label: "Integración internacional",
         icon: "🌍",
         score: 9.0,
-        summary: "La ciudad más internacional de Holanda. Todo el mundo habla inglés y está acostumbrado a trabajar con personas de todo el mundo.",
+        summary: "Ciudad muy internacional: el inglés está muy extendido y mucha gente trabaja en entornos internacionales.",
         color: "#3F7A7D",
         subcategories: [
-          { label: "Nivel de inglés", score: 9.5, desc: "Todo el mundo habla inglés perfectamente. La ciudad funciona al 100% en inglés sin necesidad de neerlandés." },
-          { label: "Ambiente internacional", score: 9.5, desc: "Con 100+ organizaciones internacionales, La Haya es la ciudad más acostumbrada a la diversidad de Holanda." },
+          { label: "Nivel de inglés", score: 9.5, desc: "El inglés facilita desenvolverse en la universidad y en el entorno internacional; el neerlandés ayuda en trámites y vida diaria." },
+          { label: "Ambiente internacional", score: 9.5, desc: "Los organismos internacionales y quienes trabajan en ellos hacen de La Haya una ciudad muy acostumbrada a la diversidad." },
           { label: "Actitud local", score: 8.5, desc: "Holandeses directos y muy abiertos. Sin rodeos pero muy respetuosos. Fácil hacer amigos reales." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "La comunidad estudiantil facilita conocer gente de todo el mundo desde los primeros días." },
         ],
@@ -1092,7 +1092,7 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 8.5, desc: "Red de tranvías HTM muy fiable. Cubre toda la ciudad con frecuencia alta. OV-chipkaart integrada." },
           { label: "Ciudad caminable", score: 9.5, desc: "Infraestructura ciclista perfecta como en toda Holanda. La bici propia es la forma más rápida de moverse." },
           { label: "Conexiones nacionales", score: 9.0, desc: "Tren a Ámsterdam (50min), Rotterdam (25min), Leiden (15min). Posición central perfecta en la Randstad." },
-          { label: "Escapadas de fin de semana", score: 9.0, desc: "Excelente posición para escapadas: Tren a Ámsterdam (50min), Rotterdam (25min), Leiden (15min). Posición central perfecta en la Randstad." },
+          { label: "Escapadas de fin de semana", score: 9.0, desc: "Delft, Leiden, Rotterdam y Ámsterdam a un tren corto; Bélgica también se alcanza en tren." },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -1101,13 +1101,13 @@ export const CITY_INSIGHTS = {
         label: "Estilo de vida y entorno",
         icon: "🏔️",
         score: 7.0,
-        summary: "Altísima calidad de vida. Mar, bici, cultura, seguridad y la ciudad más internacional del mundo en un paquete compacto.",
+        summary: "Mar, bici, cultura y tranquilidad en una ciudad muy internacional y compacta.",
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.0, desc: "Scheveningen y Kijkduin a 15 minutos. Dunas, mar del Norte y atardeceres espectaculares." },
-          { label: "Clima", score: 5.5, desc: "Clima oceánico con mucho viento y lluvia. El mar del Norte marca el ritmo. Verano agradable pero corto. Verano: 18–24°C, con días soleados perfectos para la playa de Scheveningen. El mejor momento para vivir la ciudad. Invierno: Gris, lluvioso y ventoso. El viento del mar del Norte puede ser brutal. Ropa impermeable imprescindible." },
-          { label: "Calidad de vida", score: 8.5, desc: "Altísima calidad de vida. Mar, bici, cultura, seguridad y la ciudad más internacional del mundo en un paquete compacto." },
-          { label: "Autenticidad local", score: 10.0, desc: "100+ organizaciones internacionales. La ciudad más diplomática del mundo. Una experiencia de vida sin parangón." },
+          { label: "Clima", score: 5.5, desc: "Clima oceánico con mucho viento y lluvia. Veranos templados (unos 13–21°C de media) con buenos días de playa en Scheveningen; inviernos grises, lluviosos y ventosos. Ropa impermeable imprescindible." },
+          { label: "Calidad de vida", score: 8.5, desc: "Mar, bici y cultura en una ciudad ordenada y compacta." },
+          { label: "Autenticidad local", score: 8.0, desc: "Ciudad de embajadas y tribunales con barrios de carácter propio, de Scheveningen al Zeeheldenkwartier." },
           { label: "Estilo de vida", score: 8.5, desc: "Ciudad tranquila, ordenada y con todo lo necesario. Perfecta para quien quiere calidad de vida sin el caos de una gran metrópolis." },
         ],
       },
@@ -1117,13 +1117,13 @@ export const CITY_INSIGHTS = {
         label: "Empleo y oportunidades",
         icon: "💼",
         score: 9.5,
-        summary: "La mejor ciudad del mundo para prácticas en organismos internacionales, derecho y relaciones internacionales.",
+        summary: "Una ciudad clave para prácticas en organismos internacionales, derecho y relaciones internacionales.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Mercado laboral", score: 10.0, desc: "ONU, CIJ, CPI, OIAC, Europol, Eurojust. Ninguna ciudad del mundo concentra tantas instituciones internacionales." },
-          { label: "Prácticas", score: 10.0, desc: "La capital mundial del derecho internacional. Imprescindible para estudiantes de derecho y RRII." },
+          { label: "Mercado laboral", score: 10.0, desc: "CIJ (órgano judicial de la ONU), CPI, OPAQ, Europol y Eurojust, entre muchos otros organismos internacionales." },
+          { label: "Prácticas", score: 10.0, desc: "Sede de tribunales y organismos de derecho internacional: muy interesante para estudiantes de derecho y RRII." },
           { label: "Empresas relevantes", score: 9.0, desc: "Decenas de ONGs y centros de investigación internacionales con programas de prácticas activos." },
-          { label: "Oportunidades para estudiantes", score: 9.5, desc: "La mejor ciudad del mundo para prácticas en organismos internacionales, derecho y relaciones internacionales." },
+          { label: "Oportunidades para estudiantes", score: 9.5, desc: "Muchos organismos internacionales ofrecen prácticas, aunque las plazas son muy competitivas." },
         ],
       },
       // 8. SEGURIDAD
@@ -1132,12 +1132,12 @@ export const CITY_INSIGHTS = {
         label: "Seguridad",
         icon: "🛡️",
         score: 8.8,
-        summary: "Una de las ciudades más seguras de Holanda. Ambiente tranquilo y organizado.",
+        summary: "Ciudad tranquila y organizada en general.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 9.0, desc: "Ciudad muy segura. Criminalidad baja incluso para estándares holandeses." },
-          { label: "Seguridad nocturna", score: 8.5, desc: "Sin zonas especialmente conflictivas. El centro es seguro en todo momento." },
-          { label: "Ambiente de la ciudad", score: 9.0, desc: "Problema muy menor. Nada comparable a ciudades más turísticas del sur de Europa." },
+          { label: "Seguridad general", score: 9.0, desc: "Ciudad tranquila en general; aplica las precauciones habituales." },
+          { label: "Seguridad nocturna", score: 8.5, desc: "De noche, las precauciones habituales según la zona y la hora, como en cualquier ciudad." },
+          { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada y bien organizada." },
         ],
       },
       ],
@@ -4819,13 +4819,13 @@ export const CITY_INSIGHTS = {
         label: "Coste de vida",
         icon: "💰",
         score: 5.5,
-        summary: "Más asequible que Múnich, aunque por encima de la media alemana. Con 900€/mes se vive con comodidad.",
+        summary: "Más asequible que Múnich, aunque por encima de la media alemana: la Universität Hamburg calcula 900–1.400€/mes.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 5.0, desc: "Habitaciones desde 450–600€; Sternschanze y St. Pauli entre las zonas más caras por su popularidad." },
+          { label: "Alojamiento", score: 5.0, desc: "La Universität Hamburg calcula 400–700€/mes de vivienda; Sternschanze y St. Pauli, entre las zonas más demandadas." },
           { label: "Comida y supermercados", score: 6.5, desc: "Edeka, Rewe y Aldi para el día a día; el Fischmarkt dominical para pescado fresco barato." },
           { label: "Transporte", score: 7.0, desc: "Deutschlandticket (63 €/mes en 2026) cubre HVV y trenes regionales por toda Alemania." },
-          { label: "Ocio y gastos diarios", score: 6.0, desc: "Cerveza en bar 4–5€, más barata que en el sur de Alemania." },
+          { label: "Ocio y gastos diarios", score: 6.0, desc: "Precios de gran ciudad alemana; St. Pauli y Sternschanze tienen bares para todos los bolsillos." },
         ],
       },
       {
@@ -4837,7 +4837,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 4.5, desc: "WG Gesucht es la plataforma de referencia; hay que responder rápido a los anuncios." },
-          { label: "Precio", score: 5.0, desc: "450–600€ habitación de media, algo menos en Eimsbüttel o barrios fuera del anillo central." },
+          { label: "Precio", score: 5.0, desc: "La universidad presupuesta 400–700€/mes de vivienda; las residencias del Studierendenwerk suelen ser lo más económico." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "Studierendenwerk Hamburg gestiona residencias para exchange students, con demanda alta." },
           { label: "Residencias universitarias", score: 5.5, desc: "Plazas limitadas pero gestionadas de forma bastante ordenada por la universidad." },
         ],
@@ -4907,7 +4907,7 @@ export const CITY_INSIGHTS = {
         summary: "Hub de medios, logística portuaria y aviación (Airbus tiene una planta enorme aquí), con buenas oportunidades de prácticas en inglés.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Mercado laboral", score: 8.0, desc: "Segunda economía urbana de Alemania, con fuerte presencia de medios, logística y aviación." },
+          { label: "Mercado laboral", score: 8.0, desc: "Importante centro de medios, logística portuaria y aviación." },
           { label: "Prácticas", score: 8.5, desc: "Airbus, Beiersdorf y numerosas navieras y agencias de medios ofrecen prácticas a estudiantes internacionales." },
           { label: "Empresas relevantes", score: 8.5, desc: "Uno de los mayores puertos de Europa y sede de grandes grupos mediáticos alemanes." },
           { label: "Oportunidades para estudiantes", score: 8.0, desc: "TUHH conecta muy bien con la industria naval y aeroespacial de la región." },
@@ -5239,18 +5239,18 @@ export const CITY_INSIGHTS = {
   },
   colonia: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Kranh%C3%A4user_Cologne%2C_April_2018_-01.jpg/1920px-Kranh%C3%A4user_Cologne%2C_April_2018_-01.jpg",
-    tagline: "Una catedral gótica milenaria, el Carnaval más grande de Alemania y una de sus universidades más internacionales.",
+    tagline: "Una catedral gótica empezada en 1248, el Carnaval más grande de Alemania y una de sus universidades más grandes.",
     atmosphere: "Colonia huele a Kölsch recién servido y suena a campanas de la catedral compitiendo con acordeones de Carnaval, en una ciudad que combina seriedad alemana con desparpajo renano.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 6.3,
-        summary: "Más asequible que Múnich o Fráncfort, con un coste de vida típico de una gran ciudad alemana de segunda fila.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 6.0,
+        summary: "Más asequible que Múnich: la Universität zu Köln calcula unos 900–1.200€/mes para estudiantes internacionales.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 5.5, desc: "Habitaciones desde 400–550€; el WG (piso compartido) es la norma entre estudiantes." },
+          { label: "Alojamiento", score: 5.5, desc: "Según la TH Köln, 450–700€ por habitación en zonas céntricas y 350–550€ en la periferia; el WG (piso compartido) es la norma." },
           { label: "Comida y supermercados", score: 7.0, desc: "Aldi, Lidl y Rewe cubren la compra básica a precios razonables para Alemania." },
           { label: "Transporte", score: 7.5, desc: "El Deutschlandticket (63 €/mes en 2026) cubre KVB y trenes regionales por todo el país." },
-          { label: "Ocio y gastos diarios", score: 6.0, desc: "Una Kölsch en brauhaus ronda 2€; salir de fiesta en Carnaval dispara el gasto puntualmente." },
+          { label: "Ocio y gastos diarios", score: 6.0, desc: "La Kölsch se sirve en vasos pequeños de 0,2 l; en Carnaval el gasto se dispara puntualmente." },
         ],
       },
       {
@@ -5259,7 +5259,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 5.5, desc: "El WG-Gesucht es la plataforma de referencia; hay que moverse rápido y responder en alemán ayuda." },
-          { label: "Precio", score: 5.5, desc: "400–550€ de media por habitación, algo más caro en Ehrenfeld o el Belgisches Viertel." },
+          { label: "Precio", score: 5.5, desc: "450–700€ en zonas céntricas y 350–550€ en la periferia (estimación de la TH Köln)." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "Studierendenwerk Köln ofrece habitaciones en residencia, con listas de espera considerables." },
           { label: "Residencias universitarias", score: 6.0, desc: "Buena red de residencias gestionadas por el Studierendenwerk, aunque limitadas para exchange students." },
         ],
@@ -5271,7 +5271,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Comunidad Erasmus", score: 8.5, desc: "ESN Cologne organiza eventos constantes, especialmente intensos en la temporada de Carnaval." },
           { label: "Ambiente internacional", score: 8.5, desc: "Una de las universidades más grandes e internacionales de Alemania, con estudiantes de todo el mundo." },
-          { label: "Fiesta y vida nocturna", score: 8.5, desc: "Ehrenfeld y el Belgisches Viertel concentran la vida de bares; el Karneval multiplica todo por diez en febrero." },
+          { label: "Fiesta y vida nocturna", score: 8.5, desc: "Ehrenfeld y el Belgisches Viertel concentran la vida de bares; el Karneval lo multiplica todo en febrero o marzo." },
           { label: "Eventos y actividades", score: 8.5, desc: "El Karneval (Rosenmontag) es la fiesta callejera más grande de Alemania." },
         ],
       },
@@ -5293,7 +5293,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Transporte público", score: 8.0, desc: "KVB (metro ligero, tranvía y bus) cubre toda la ciudad de forma eficiente." },
           { label: "Ciudad caminable", score: 7.5, desc: "Centro compacto alrededor de la catedral, aunque la ciudad se extiende bastante más allá." },
-          { label: "Conexiones internacionales", score: 9.5, desc: "Aeropuerto propio y trenes ICE directos a Fráncfort, Bruselas, Ámsterdam y París." },
+          { label: "Conexiones internacionales", score: 9.5, desc: "Aeropuerto Colonia/Bonn, ICE directos a Fráncfort, Bruselas y Ámsterdam, y Eurostar directo a París." },
           { label: "Escapadas de fin de semana", score: 9.5, desc: "Düsseldorf, Bonn y el valle del Rin a menos de una hora; Bruselas o Ámsterdam en tren directo." },
         ],
       },
@@ -5316,7 +5316,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Mercado laboral", score: 8.0, desc: "Sede de grandes cadenas de televisión alemanas y aseguradoras con casa matriz en la región." },
           { label: "Prácticas", score: 8.0, desc: "La Universität zu Köln y TH Köln tienen programas de prácticas bien conectados con empresas de la región." },
-          { label: "Empresas relevantes", score: 8.0, desc: "RTL Group, sede de medios, y un ecosistema de seguros y banca consolidado en la región renana." },
+          { label: "Empresas relevantes", score: 8.0, desc: "RTL Deutschland y la radiotelevisión pública WDR, y un ecosistema de seguros consolidado en la región renana." },
           { label: "Oportunidades para estudiantes", score: 8.0, desc: "El tamaño de la universidad da acceso a una red de antiguos alumnos amplia en toda Alemania." },
         ],
       },
@@ -7048,11 +7048,11 @@ export const CITY_INSIGHTS = {
     atmosphere: "Heidelberg huele a masa de pretzel recién horneada en el Marktplatz, y suena al eco de estudiantes charlando por el Philosophenweg mientras el sol se pone sobre el Neckar y el castillo.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 5.5,
-        summary: "Cara para una ciudad pequeña alemana, por la enorme demanda de una ciudad universitaria de referencia.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 6.0,
+        summary: "La Universidad de Heidelberg calcula unos 1.000€/mes para estudiantes Erasmus: cara para una ciudad de su tamaño.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 5.0, desc: "Habitación desde 480–620€, alta para el tamaño de la ciudad por la fuerte demanda universitaria." },
+          { label: "Alojamiento", score: 5.0, desc: "El alquiler es alto para el tamaño de la ciudad por la fuerte demanda universitaria." },
           { label: "Comida y supermercados", score: 6.5, desc: "Supermercados alemanes estándar (Aldi, Lidl, Rewe) mantienen el gasto en comida razonable." },
           { label: "Transporte", score: 6.5, desc: "El Deutschlandticket (63 €/mes en 2026) cubre tranvía y bus por toda la ciudad y buena parte del país." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Salir en el centro histórico tiene precios algo elevados por el turismo, aunque razonables fuera de él." },
@@ -7064,7 +7064,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 4.0, desc: "El Studierendenwerk Heidelberg gestiona residencias con listas de espera largas." },
-          { label: "Precio", score: 5.0, desc: "480–620€ de media, alto para el tamaño de la ciudad." },
+          { label: "Precio", score: 5.0, desc: "Alto para el tamaño de la ciudad; las residencias del Studierendenwerk suelen ser lo más económico." },
           { label: "Facilidad de búsqueda", score: 4.5, desc: "Conviene empezar a buscar con al menos cuatro o cinco meses de antelación." },
           { label: "Residencias universitarias", score: 5.5, desc: "Buena calidad en las residencias, aunque muy solicitadas por la reputación de la universidad." },
         ],
@@ -7086,7 +7086,7 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.5, desc: "Bien hablado en la universidad y el centro histórico; algo más limitado en barrios residenciales." },
-          { label: "Actitud local", score: 7.5, desc: "Los heidelbergeses están acostumbrados al turismo y a la comunidad universitaria internacional." },
+          { label: "Actitud local", score: 7.5, desc: "Los vecinos están acostumbrados al turismo y a la comunidad universitaria internacional." },
           { label: "Integración con locales", score: 7.0, desc: "El tamaño mediano de la ciudad facilita coincidir de forma habitual con la misma gente." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "El programa Tandem de la universidad conecta estudiantes internacionales con locales." },
         ],
@@ -7108,7 +7108,7 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.5, desc: "El Königstuhl y las colinas del Odenwald ofrecen senderismo a un paso del centro." },
-          { label: "Clima", score: 8.0, desc: "Uno de los climas más suaves de Alemania, con veranos cálidos gracias al valle del Rin." },
+          { label: "Clima", score: 8.0, desc: "En el borde de la llanura del Rin, una de las zonas más cálidas de Alemania: veranos calurosos e inviernos frescos." },
           { label: "Calidad de vida", score: 9.0, desc: "Ciudad segura, limpia y de las más bonitas para vivir de toda Alemania." },
           { label: "Autenticidad local", score: 7.5, desc: "El turismo es intenso en el centro histórico, pero los barrios residenciales mantienen ambiente local genuino." },
           { label: "Estilo de vida", score: 9.5, desc: "Vivir con el castillo y el Philosophenweg como paisaje diario es difícil de igualar en cualquier otra ciudad alemana." },
@@ -7120,17 +7120,17 @@ export const CITY_INSIGHTS = {
         color: "#8B5CF6",
         subcategories: [
           { label: "Mercado laboral", score: 6.5, desc: "Economía centrada en investigación, biotecnología y salud; menos industria pesada que otras regiones alemanas." },
-          { label: "Prácticas", score: 7.5, desc: "El Heidelberg BioPark y el EMBL (European Molecular Biology Laboratory) ofrecen prácticas de gran prestigio." },
-          { label: "Empresas relevantes", score: 7.0, desc: "SAP, uno de los mayores gigantes tecnológicos de Europa, tiene su sede a solo 15 minutos en Walldorf." },
+          { label: "Prácticas", score: 7.5, desc: "El Technologiepark Heidelberg y el EMBL (Laboratorio Europeo de Biología Molecular) son referentes en ciencias de la vida; las plazas son muy competitivas." },
+          { label: "Empresas relevantes", score: 7.0, desc: "SAP, uno de los mayores gigantes tecnológicos de Europa, tiene su sede en la cercana Walldorf." },
           { label: "Oportunidades para estudiantes", score: 7.0, desc: "La reputación científica de Heidelberg atrae prácticas muy competitivas en biotecnología e investigación." },
         ],
       },
       {
-        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 9.0,
-        summary: "Una de las ciudades más seguras de Alemania, con un ambiente tranquilo típico de una ciudad universitaria pequeña.",
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.5,
+        summary: "Ciudad tranquila, con el ambiente típico de una ciudad universitaria pequeña.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 9.5, desc: "Criminalidad muy baja, entre las más reducidas de las ciudades universitarias alemanas." },
+          { label: "Seguridad general", score: 8.5, desc: "Ciudad tranquila en general; aplica las precauciones habituales." },
           { label: "Seguridad nocturna", score: 8.5, desc: "El centro histórico y los alrededores del campus son seguros incluso de madrugada." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada, limpia y tranquila, con fuerte identidad académica." },
         ],
@@ -10749,15 +10749,15 @@ export const CITY_INSIGHTS = {
   },
   maastricht: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Maastricht_sunset.jpg/1920px-Maastricht_sunset.jpg",
-    tagline: "La ciudad con más estudiantes internacionales de Holanda, con Bélgica y Alemania a un paso.",
+    tagline: "Una de las universidades más internacionales de los Países Bajos, con Bélgica y Alemania a un paso.",
     atmosphere: "Maastricht huele a vlaai (tarta de fruta limburguesa) en el Vrijthof, y suena a francés, alemán y holandés mezclándose en una misma conversación, con el Mosa cruzando una ciudad que se siente tan belga y alemana como neerlandesa.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 4.3,
-        summary: "Cara para el estándar europeo, similar a otras ciudades universitarias grandes de los Países Bajos.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 4.5,
+        summary: "Cara para el estándar europeo: Maastricht University calcula unos 1.250€/mes para un estudiante internacional.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 3.8, desc: "Habitación desde 550–700€, alta por la enorme demanda internacional." },
+          { label: "Alojamiento", score: 3.8, desc: "Maastricht University calcula unos 650€/mes de alojamiento: el alquiler es el mayor gasto." },
           { label: "Comida y supermercados", score: 5.5, desc: "Supermercados como Lidl y Aldi ayudan a mantener el gasto en comida controlado." },
           { label: "Transporte", score: 6.0, desc: "La bici cubre la mayoría de trayectos; el bus regional cubre el resto." },
           { label: "Ocio y gastos diarios", score: 5.0, desc: "Salir de bares tiene precios estándar neerlandeses, algo suavizados por la cercanía belga." },
@@ -10765,32 +10765,32 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 3.8,
-        summary: "Mercado tenso como en todo el país, especialmente tensionado por ser la ciudad con más estudiantes internacionales de Holanda.",
+        summary: "Mercado tenso como en todo el país, y más por la gran demanda de estudiantes internacionales.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 3.5, desc: "Oferta muy solicitada por ser la ciudad con mayor proporción de estudiantes internacionales del país." },
-          { label: "Precio", score: 4.0, desc: "550–700€ de media, alto para el estándar europeo." },
+          { label: "Disponibilidad", score: 3.5, desc: "Oferta muy solicitada por la gran cantidad de estudiantes internacionales." },
+          { label: "Precio", score: 4.0, desc: "Unos 650€/mes según la estimación de Maastricht University, alto para el estándar europeo." },
           { label: "Facilidad de búsqueda", score: 4.0, desc: "Maastricht University ofrece ayuda con alojamiento, aunque las plazas son limitadas." },
           { label: "Residencias universitarias", score: 4.5, desc: "Existen plazas gestionadas por la universidad, aunque conviene solicitar con mucha antelación." },
         ],
       },
       {
         id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 8.5,
-        summary: "La ciudad con mayor proporción de estudiantes internacionales de los Países Bajos da un ambiente muy internacional.",
+        summary: "Una universidad tan internacional da a la ciudad un ambiente muy internacional.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 8.5, desc: "ESN Maastricht es uno de los capítulos más activos de los Países Bajos." },
-          { label: "Ambiente internacional", score: 9.5, desc: "La proporción de estudiantes internacionales más alta de todos los Países Bajos." },
+          { label: "Comunidad Erasmus", score: 8.5, desc: "ESN Maastricht organiza actividades y viajes para estudiantes de intercambio." },
+          { label: "Ambiente internacional", score: 9.5, desc: "Maastricht University es una de las universidades más internacionales del país." },
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "El Vrijthof y el centro concentran bares con ambiente internacional constante." },
           { label: "Eventos y actividades", score: 8.0, desc: "El Vrijthof acoge conciertos y mercados navideños que reúnen a toda la comunidad estudiantil." },
         ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 9.3,
-        summary: "Probablemente la ciudad más internacional de esta guía, diseñada casi por completo para el estudiante extranjero.",
+        summary: "Una ciudad muy acostumbrada al estudiante extranjero.",
         color: "#3F7A7D",
         subcategories: [
-          { label: "Nivel de inglés", score: 10.0, desc: "Toda la universidad y buena parte de la ciudad funciona en inglés sin ningún problema." },
+          { label: "Nivel de inglés", score: 9.0, desc: "Muchos programas de la universidad se imparten en inglés y en la ciudad es fácil desenvolverse en inglés." },
           { label: "Actitud local", score: 8.5, desc: "Los maastrichtenaren están extremadamente acostumbrados a la comunidad internacional." },
           { label: "Integración con locales", score: 8.0, desc: "La identidad fronteriza de la ciudad, entre Bélgica, Alemania y Holanda, la hace muy abierta." },
           { label: "Facilidad para hacer amigos", score: 9.5, desc: "Con tantísimos estudiantes internacionales, hacer amigos de todo el mundo es prácticamente automático." },
@@ -10798,13 +10798,13 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.5,
-        summary: "Bélgica y Alemania a un paseo en bici, con excelentes conexiones a toda Europa occidental.",
+        summary: "Bélgica a un paseo en bici y Alemania muy cerca, con buenas conexiones a Europa occidental.",
         color: "#F59E0B",
         subcategories: [
           { label: "Transporte público", score: 7.5, desc: "El bus regional cubre bien la ciudad y las conexiones cercanas a Bélgica y Alemania." },
           { label: "Ciudad caminable/ciclable", score: 9.0, desc: "Ciudad compacta y muy ciclable, con la bici como medio de transporte por defecto." },
-          { label: "Conexiones internacionales", score: 8.0, desc: "Aeropuertos de Bruselas, Colonia-Bonn y Düsseldorf, todos a menos de dos horas." },
-          { label: "Escapadas de fin de semana", score: 9.5, desc: "Bruselas, Lieja y Aquisgrán, todas a menos de una hora en tren o bus." },
+          { label: "Conexiones internacionales", score: 8.0, desc: "Aeropuertos de Eindhoven, Bruselas, Colonia-Bonn y Düsseldorf a un viaje en tren o bus." },
+          { label: "Escapadas de fin de semana", score: 9.5, desc: "Lieja y Aquisgrán muy cerca en tren o bus; Bruselas y Colonia, a un viaje algo más largo." },
         ],
       },
       {
@@ -10813,10 +10813,10 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.0, desc: "Las colinas de Limburgo, poco habituales en el paisaje llano neerlandés, ofrecen rutas de senderismo." },
-          { label: "Clima", score: 6.5, desc: "Oceánico templado, más suave que el norte de los Países Bajos." },
+          { label: "Clima", score: 6.5, desc: "Oceánico, con veranos algo más cálidos que en la costa neerlandesa (unos 13–23°C de media)." },
           { label: "Calidad de vida", score: 8.5, desc: "Ciudad segura, elegante y con una calidad de vida muy alta." },
           { label: "Autenticidad local", score: 8.5, desc: "Identidad fronteriza única, con más influencia belga y alemana que el resto de Holanda." },
-          { label: "Estilo de vida", score: 9.0, desc: "Vivir en la ciudad más internacional de los Países Bajos, entre tres culturas, es una experiencia irrepetible." },
+          { label: "Estilo de vida", score: 9.0, desc: "Vivir entre tres culturas, con Bélgica y Alemania al lado, es una experiencia muy distinta al resto del país." },
         ],
       },
       {
@@ -10827,16 +10827,16 @@ export const CITY_INSIGHTS = {
           { label: "Mercado laboral", score: 7.0, desc: "Economía con fuerte componente institucional europeo y sanitario." },
           { label: "Prácticas", score: 8.0, desc: "Maastricht University tiene conexiones directas con instituciones europeas y empresas internacionales." },
           { label: "Empresas relevantes", score: 7.0, desc: "Fuerte presencia del sector salud (Maastricht UMC+) y de instituciones ligadas a la UE." },
-          { label: "Oportunidades para estudiantes", score: 8.0, desc: "El método PBL, muy valorado por empresas internacionales, facilita conseguir prácticas de calidad." },
+          { label: "Oportunidades para estudiantes", score: 8.0, desc: "El PBL entrena el trabajo en equipo y la presentación de ideas, competencias útiles al buscar prácticas." },
         ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.7,
-        summary: "Una de las ciudades más seguras de esta guía, con la tranquilidad típica de una ciudad universitaria neerlandesa.",
+        summary: "Ciudad tranquila, típica ciudad universitaria neerlandesa.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja, típica de una ciudad neerlandesa de tamaño mediano." },
-          { label: "Seguridad nocturna", score: 8.5, desc: "El Vrijthof y el centro son seguros incluso de madrugada." },
+          { label: "Seguridad general", score: 9.0, desc: "Ciudad tranquila en general; aplica las precauciones habituales." },
+          { label: "Seguridad nocturna", score: 8.5, desc: "El Vrijthof y el centro tienen ambiente de noche; conviene tomar las precauciones habituales." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, elegante y con fuerte ambiente internacional." },
         ],
       },

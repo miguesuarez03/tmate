@@ -158,16 +158,13 @@ export function sortCities(cities, key = 'name') {
     case 'overall':
       return sorted.sort((a, b) => getOverallScore(b.slug) - getOverallScore(a.slug));
 
-    case 'cost_asc': {
-      // Extrae el primer número del rango "600–900€/mes"
-      const minCost = c => parseInt(c.costDetail.replace(/[^\d]/g, '').slice(0, 3) || '999');
-      return sorted.sort((a, b) => minCost(a) - minCost(b));
-    }
+    // Ordena por el mínimo del rango "600–900€/mes". parseMinCost entiende los
+    // miles: "1.200–1.800€" es 1200, no 120.
+    case 'cost_asc':
+      return sorted.sort((a, b) => parseMinCost(a.costDetail) - parseMinCost(b.costDetail));
 
-    case 'cost_desc': {
-      const minCost = c => parseInt(c.costDetail.replace(/[^\d]/g, '').slice(0, 3) || '999');
-      return sorted.sort((a, b) => minCost(b) - minCost(a));
-    }
+    case 'cost_desc':
+      return sorted.sort((a, b) => parseMinCost(b.costDetail) - parseMinCost(a.costDetail));
 
     default:
       return sorted;

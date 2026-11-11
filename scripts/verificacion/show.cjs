@@ -1,12 +1,14 @@
 // Uso: node show.cjs slug "regex1|regex2"  → líneas relevantes de la ciudad en los ficheros de datos
 const fs = require("fs");
 const [slug, pat] = process.argv.slice(2);
+// Las claves con guion van entre comillas ("la-haya": {).
+const key = /^[a-z]+$/.test(slug) ? slug : `"${slug}"`;
 const re = new RegExp(pat || "\\d", "i");
 const blocks = [
   ["src/data/cities.js", `slug: "${slug}"`, /^\s+slug: "/],
-  ["src/data/insights.js", `  ${slug}: {`, /^  [a-z-"]+: \{/],
-  ["src/data/comparePhrases.js", `  ${slug}: {`, /^  [a-z-"]+: \{/],
-  ["src/data/weatherSeasons.js", `  ${slug}: [`, /^  [a-z-"]+: \[/],
+  ["src/data/insights.js", `  ${key}: {`, /^  [a-z-"]+: \{/],
+  ["src/data/comparePhrases.js", `  ${key}: {`, /^  [a-z-"]+: \{/],
+  ["src/data/weatherSeasons.js", `  ${key}: [`, /^  [a-z-"]+: \[/],
 ];
 for (const [f, start, next] of blocks) {
   const lines = fs.readFileSync(f, "utf8").split("\n");

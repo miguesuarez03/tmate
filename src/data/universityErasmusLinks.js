@@ -55,8 +55,8 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Prague University of Economics and Business": "https://exchange.vse.cz/",
 
   // ── La Haya ──────────────────────────────────────────────────────────────
-  "Leiden University": "https://www.universiteitleiden.nl/en/students/exchange-and-study-abroad/incoming-exchange",
-  "The Hague University of Applied Sciences": "https://www.thehagueuniversity.com/about-us/contact/international-office",
+  "Leiden University": "https://www.student.universiteitleiden.nl/en/vr/incoming-exchange",
+  "The Hague University of Applied Sciences": "https://www.thuas.com/programmes/exchange-programmes-other-courses/exchange-programmes",
 
   // ── Rotterdam ────────────────────────────────────────────────────────────
   "Erasmus University Rotterdam": "https://www.eur.nl/en/education/practical-matters/going-abroad/exchange/come-rotterdam-exchange",
@@ -192,9 +192,9 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Accademia di Belle Arti di Firenze": "https://www.accademia.firenze.it/en/international/erasmus/",
 
   // ── Hamburgo ─────────────────────────────────────────────────────────────
-  "Universität Hamburg": "https://www.uni-hamburg.de/en/internationales/austausch/incoming.html",
-  "HafenCity Universität (HCU)": "https://www.hcu-hamburg.de/en/international/incoming-students",
-  "Technische Universität Hamburg (TUHH)": "https://www.tuhh.de/alt/tuhh/international/incoming-exchange-students.html",
+  "Universität Hamburg": "https://www.uni-hamburg.de/en/internationales/studierende/incoming/austausch-gaststudium/",
+  "HafenCity Universität (HCU)": "https://www.hcu-hamburg.de/en/international/incoming-1",
+  "Technische Universität Hamburg (TUHH)": "https://www.tuhh.de/tuhh/en/international/campus-international/exchange-students",
 
   // ── Gante ────────────────────────────────────────────────────────────────
   "Universiteit Gent (UGent)": "https://www.ugent.be/prospect/en/administration/application/application-exchange",
@@ -212,9 +212,9 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "EM Lyon Business School": "https://em-lyon.com/en/international-experience/incoming-students",
 
   // ── Colonia ──────────────────────────────────────────────────────────────
-  "Universität zu Köln": "https://uni-koeln.de/en/international/study-in-cologne/international-applications/exchange-students-from-partner-universities",
+  "Universität zu Köln": "https://uni-koeln.de/en/studying-teaching/international/study-in-cologne/international-applications/exchange-students-from-partner-universities",
   "TH Köln": "https://www.th-koeln.de/en/international_office/exchange-students_21380.php",
-  "Deutsche Sporthochschule Köln": "https://www.dshs-koeln.de/english/exchange-semester-at-gsu/application-process/",
+  "Deutsche Sporthochschule Köln": "https://www.dshs-koeln.de/en/studium/vor-dem-studium/study-at-spoho",
 
   // ── Lovaina ──────────────────────────────────────────────────────────────
   "KU Leuven": "https://www.kuleuven.be/english/education/student/register/exchange",

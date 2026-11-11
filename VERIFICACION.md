@@ -5,7 +5,7 @@ Claude Code hace cada tanda y Codex la revisa con `codex exec` en solo lectura (
 
 ## Dónde vamos
 
-**Siguiente tanda: 7** (La Haya, Maastricht, Hamburgo, Colonia, Heidelberg) (actualizar al cerrar cada tanda).
+**Siguiente tanda: 8** (Friburgo, Leipzig, Dresde, Tubinga, Rosenheim) (actualizar al cerrar cada tanda).
 
 ## Qué se revisa en cada ciudad
 
@@ -48,7 +48,7 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 | 4 | Múnich (`munich`), Lyon (`lyon`), Turín (`turin`), Nápoles (`napoles`), Padua (`padua`) | ✅ 10-11-2026 |
 | 5 | Coimbra (`coimbra`), Copenhague (`copenhague`), Dublín (`dublin`), Estocolmo (`estocolmo`), Helsinki (`helsinki`) | ✅ 10-11-2026 |
 | 6 | Lovaina (`lovaina`), Gante (`gante`), Utrecht (`utrecht`), Groningen (`groningen`), Rotterdam (`rotterdam`) | ✅ 10-11-2026 |
-| 7 | La Haya (`la-haya`), Maastricht (`maastricht`), Hamburgo (`hamburgo`), Colonia (`colonia`), Heidelberg (`heidelberg`) | Pendiente |
+| 7 | La Haya (`la-haya`), Maastricht (`maastricht`), Hamburgo (`hamburgo`), Colonia (`colonia`), Heidelberg (`heidelberg`) | ✅ 11-11-2026 |
 | 8 | Friburgo (`friburgo`), Leipzig (`leipzig`), Dresde (`dresde`), Tubinga (`tubinga`), Rosenheim (`rosenheim`) | Pendiente |
 | 9 | Toulouse (`toulouse`), Burdeos (`burdeos`), Nantes (`nantes`), Montpellier (`montpellier`), Marsella (`marsella`) | Pendiente |
 | 10 | Lille (`lille`), Estrasburgo (`estrasburgo`), Grenoble (`grenoble`), Rennes (`rennes`), Venecia (`venecia`) | Pendiente |
@@ -136,3 +136,13 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 - Clima: Gante y Rotterdam con normales 1991–2020 (IRM, KNMI); añadidos Lovaina (IRM), Utrecht (KNMI De Bilt) y Groningen (KNMI Eelde).
 - 5 enlaces Erasmus arreglados (UGent, HOGENT, Artevelde, EUR, Rotterdam UAS).
 - Codex: auditoría con fuentes + 2 rondas; en la ronda 1 pidió usar el coste de la UGent tal cual (Claude había interpolado con Lovaina) y precisar Amsterdam Zuid (aplicado).
+
+### Tanda 7 — 11-11-2026 (La Haya, Maastricht, Hamburgo, Colonia, Heidelberg)
+- Fotos: las 5 corresponden a su ciudad.
+- Coste según las universidades (THUAS, UM, Universität Hamburg, Universität zu Köln, Universidad de Heidelberg): La Haya 1.000–1.300 € (más seguro si trabajas), Maastricht 1.250 €, Hamburgo 900–1.400 €, Colonia 900–1.200 €, Heidelberg 1.000 €; notas de coste ajustadas (La Haya 6,5→5,0).
+- Corregido lo falso: La Haya «sede de la ONU» (es sede de la Corte Internacional de Justicia), «OV-chipkaart obligatoria» (también OVpay), Parkpop (terminó en 2023); Maastricht «la ciudad con más estudiantes internacionales» (el dato es de la universidad) y «PBL íntegramente en inglés»; mirador de la Elbphilharmonie «gratis» (5 €/3 €); Karneval «cada febrero» (febrero o marzo), museo y torre de la catedral «gratis», «RTL Group» (es RTL Deutschland), ICE a París (es Eurostar); Heidelberg «BioPark» (Technologiepark) y SAP «a 15 minutos».
+- Fuera récords y cifras sin fuente: «capital diplomática del mundo», «la ciudad más internacional», «ninguna ciudad concentra tantas instituciones», «+2.500 internacionales», «el mercado más barato de Holanda», «segunda economía urbana de Alemania», «una de las ciudades más seguras de Alemania» (seguridad de Heidelberg 9,0→8,5), tiempos de tren y precios de habitaciones y cervezas sin fuente.
+- Clima con normales 1991–2020: La Haya (KNMI Voorschoten) y Hamburgo (DWD Fuhlsbüttel) corregidos; añadidos Maastricht (KNMI), Colonia (DWD Köln/Bonn) y Heidelberg (DWD Mannheim, la estación más cercana con serie completa, a unos 18 km).
+- 7 enlaces Erasmus arreglados (Leiden, THUAS, Universität Hamburg, HCU, TUHH, Universität zu Köln, Sporthochschule).
+- Código: ordenar por coste y la etiqueta «Asequible» leían mal los miles («1.200–1.500€» contaba como 120 € o como barato); ahora usan `parseMinCost`. `show.cjs`/`lib.cjs` aceptan slugs con guion (`"la-haya"`).
+- Codex: auditoría con fuentes + 2 rondas; en la ronda 1 pidió quitar junio de las iluminaciones del castillo de Heidelberg y usar el desglose de THUAS sin el seguro (solo si trabajas) (aplicado). No puso objeciones al clima de Heidelberg con la estación de Mannheim (anotado en weatherSeasons.js).

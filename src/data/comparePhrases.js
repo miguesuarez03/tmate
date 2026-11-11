@@ -198,11 +198,11 @@ export const COMPARE_PHRASES = {
     coste: "Precio alto, propio de la diplomacia internacional",
     alojamiento: "Demanda alta por organismos y universidades top",
     vida_social: "Ambiente elegante más que desenfrenado",
-    integracion: "La ciudad más internacional de esta guía",
+    integracion: "Muy internacional, con tribunales y organismos de todo el mundo",
     movilidad: "A 15 minutos del mar, todo en bici",
     estilo_vida: "Orden, seguridad y vida diplomática a pie de playa",
-    empleo: "Imbatible para derecho y relaciones internacionales",
-    seguridad: "Ciudad muy segura y extremadamente organizada",
+    empleo: "Clave para derecho y relaciones internacionales",
+    seguridad: "Ciudad tranquila y organizada",
   },
   estocolmo: {
     coste: "De las más caras de la guía: 12.000 SEK/mes o más",
@@ -385,7 +385,7 @@ export const COMPARE_PHRASES = {
     seguridad: "Muy segura, cuidado habitual con carteristas en zonas turísticas",
   },
   hamburgo: {
-    coste: "Más asequible que Múnich, vive bien con 900€/mes",
+    coste: "Más asequible que Múnich: 900–1.400€/mes según la universidad",
     alojamiento: "Mercado ajustado pero más manejable que en el sur de Alemania",
     vida_social: "Reeperbahn y Sternschanze marcan una noche que no para",
     integracion: "Ciudad portuaria y cosmopolita, muy acostumbrada a extranjeros",

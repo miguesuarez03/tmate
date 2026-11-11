@@ -47,9 +47,9 @@ export const CITY_SEASONS = {
     { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-3–3°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío pero el mercado navideño de Praga es uno de los mejores de Europa.", tags: ["Navidad top", "Nieve posible", "Ambiente mágico"] },
   ],
   "la-haya": [
-    { id: "spring", label: "Primavera", months: "Mar–May", temp: "9–17°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Playa cercana y tulipanes en flor. La ciudad se activa con energía después del gris invernal.", tags: ["Playa cerca", "Tulipanes", "Ciudad activa"] },
-    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "17–24°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "El mejor momento. Playas de Scheveningen, festivales y días luminosos muy largos.", tags: ["Playa Scheveningen", "Días largos", "Festivales"], highlight: true },
-    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "9–16°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño húmedo. Los Erasmus llegan con impermeables. La ciudad internacional sigue activa.", tags: ["Lluvia frecuente", "Inicio Erasmus", "Muy internacional"] },
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–14°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Playa cercana y tulipanes en flor. La ciudad se activa con energía después del gris invernal.", tags: ["Playa cerca", "Tulipanes", "Ciudad activa"] },
+    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "13–21°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "El mejor momento. Playas de Scheveningen, festivales y días luminosos muy largos.", tags: ["Playa Scheveningen", "Días largos", "Festivales"], highlight: true },
+    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "8–15°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño húmedo. Los Erasmus llegan con impermeables. La ciudad internacional sigue activa.", tags: ["Lluvia frecuente", "Inicio Erasmus", "Muy internacional"] },
     { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "2–7°C",   emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Gris y ventoso. Pero el ambiente interior de bares y cafés compensa enormemente.", tags: ["Viento marino", "Ambiente acogedor", "Poca nieve"] },
   ],
   rotterdam: [
@@ -221,10 +221,10 @@ export const CITY_SEASONS = {
     { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "3–12°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío húmedo pero suave, raramente nieva. Mercados navideños y museos sin colas.", tags: ["Invierno suave", "Museos sin colas", "Lluvia ocasional"] },
   ],
   hamburgo: [
-    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–14°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "El Alster y los parques reviven; clima todavía fresco pero con más horas de luz cada semana.", tags: ["Alster en flor", "Días más largos", "Aún fresco"] },
-    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "14–22°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos suaves con terrazas junto al puerto y festivales al aire libre. La mejor época para descubrir la ciudad.", tags: ["Terrazas del puerto", "Festivales", "Mejor época"], highlight: true },
-    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "7–14°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Inicio de curso con lluvia frecuente del norte de Alemania, pero la vida en Sternschanze no para.", tags: ["Inicio Erasmus", "Lluvia frecuente", "Muy social"] },
-    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "1–6°C",   emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío húmedo con viento del Mar del Norte; los mercados navideños junto al Rathaus compensan el gris.", tags: ["Mercados navideños", "Viento marino", "Raramente nieva"] },
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–14°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "El Alster y los parques reviven; clima todavía fresco pero con más horas de luz cada semana.", tags: ["Alster en flor", "Días más largos", "Aún fresco"] },
+    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "12–22°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos suaves con terrazas junto al puerto y festivales al aire libre. La mejor época para descubrir la ciudad.", tags: ["Terrazas del puerto", "Festivales", "Mejor época"], highlight: true },
+    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "6–14°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Inicio de curso con lluvia frecuente del norte de Alemania, pero la vida en Sternschanze no para.", tags: ["Inicio Erasmus", "Lluvia frecuente", "Muy social"] },
+    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "0–5°C",   emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío húmedo con viento del Mar del Norte; los mercados navideños junto al Rathaus compensan el gris.", tags: ["Mercados navideños", "Viento marino", "Raramente nieva"] },
   ],
   gante: [
     { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–15°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Los canales de Graslei y Korenlei recuperan las terrazas en cuanto asoma el sol.", tags: ["Terrazas junto al canal", "Clima variable", "Ciudad en flor"] },
@@ -261,5 +261,24 @@ export const CITY_SEASONS = {
     { id: "summer", label: "Verano", months: "Jun–Ago", temp: "11–22°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos templados y días largos, perfectos para la bici y el campo frisón.", tags: ["Templado","Días largos","Bici"] },
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "6–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y una ciudad llena de estudiantes.", tags: ["Inicio Erasmus","Lluvia frecuente","Muy animada"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–6°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío, húmedo y con mucho viento; heladas habituales. La vida estudiantil no para.", tags: ["Frío húmedo","Viento","Vida estudiantil"] },
+  ],
+  maastricht: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–15°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada; las terrazas del Vrijthof se llenan y las colinas de Limburgo invitan a pedalear.", tags: ["Terrazas","Bici","Templada"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–23°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos agradables, algo más cálidos que en la costa neerlandesa, para salir en bici hacia Bélgica.", tags: ["Días largos","Bici","Agradable"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso, Mosa otoñal y lluvia frecuente.", tags: ["Inicio Erasmus","Lluvia frecuente","Muy animada"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "1–6°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío húmedo y días cortos; el centro se ilumina con el mercado navideño.", tags: ["Frío húmedo","Mercado navideño","Días cortos"] },
+  ],
+  colonia: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–16°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave; las orillas del Rin y los Biergärten recuperan el ambiente.", tags: ["Rin","Biergarten","Suave"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "12–24°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos cálidos para Alemania, con tardes largas junto al Rin.", tags: ["Cálido","Días largos","Junto al Rin"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y, el 11 de noviembre, el inicio oficial del Carnaval.", tags: ["Inicio Erasmus","11.11","Lluvia frecuente"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Gris pero suave para Alemania; mercados navideños y, en febrero o marzo, el Carnaval.", tags: ["Mercados navideños","Carnaval","Gris"] },
+  ],
+  // Heidelberg: normales 1991–2020 de la estación DWD de Mannheim (a unos 18 km, misma llanura del Rin).
+  heidelberg: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–17°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera temprana y templada; el Philosophenweg y el Neckar se llenan de gente.", tags: ["Templada","Neckar","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "14–26°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos calurosos, de los más cálidos de Alemania; iluminación del castillo con fuegos artificiales en verano.", tags: ["Calor","Castillo iluminado","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–16°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y colinas del Odenwald con colores de otoño.", tags: ["Inicio Erasmus","Colores de otoño","Senderismo"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–6°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Fresco y gris, con heladas algunas noches; mercados navideños en la Altstadt.", tags: ["Fresco","Mercados navideños","Heladas"] },
   ],
 };

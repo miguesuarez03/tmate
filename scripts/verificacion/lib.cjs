@@ -1,10 +1,12 @@
 // Utilidades para aplicar correcciones por ciudad (reemplazos exactos, acotados al bloque de la ciudad).
 const fs = require("fs");
+// Las claves con guion van entre comillas ("la-haya": {).
+const key = (s) => (/^[a-z]+$/.test(s) ? s : `"${s}"`);
 const FILES = {
   C: ["src/data/cities.js", (s) => `slug: "${s}"`, /^\s+slug: "/],
-  I: ["src/data/insights.js", (s) => `  ${s}: {`, /^  [a-z-"]+: \{/],
-  P: ["src/data/comparePhrases.js", (s) => `  ${s}: {`, /^  [a-z-"]+: \{/],
-  W: ["src/data/weatherSeasons.js", (s) => `  ${s}: [`, /^  [a-z-"]+: \[/],
+  I: ["src/data/insights.js", (s) => `  ${key(s)}: {`, /^  [a-z-"]+: \{/],
+  P: ["src/data/comparePhrases.js", (s) => `  ${key(s)}: {`, /^  [a-z-"]+: \{/],
+  W: ["src/data/weatherSeasons.js", (s) => `  ${key(s)}: [`, /^  [a-z-"]+: \[/],
 };
 function block(lines, start, next) {
   const i = lines.findIndex((l) => l.includes(start));
@@ -32,7 +34,7 @@ function city(slug, spec) {
 function temps(slug, t) {
   const [file] = FILES.W;
   const lines = fs.readFileSync(file, "utf8").split("\n");
-  const k = lines.findIndex((l) => l.startsWith(`  ${slug}: [`));
+  const k = lines.findIndex((l) => l.startsWith(`  ${key(slug)}: [`));
   if (k < 0) throw new Error("clima " + slug);
   for (let x = k + 1; x <= k + 4; x++) {
     const id = lines[x].match(/id: "(\w+)"/)[1];
