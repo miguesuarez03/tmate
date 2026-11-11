@@ -60,8 +60,24 @@
   color: rgba(255,255,255,0.72);
   line-height: 1.65;
   max-width: 520px;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 }
+/* Botón del hero que baja al formulario de la propuesta de equivalencias. */
+.heroCtaRow { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 18px; margin-bottom: 36px; }
+.heroCta {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 48px;
+  background: #10B981; color: #06281D; text-decoration: none;
+  font-weight: 800; font-size: 15px; line-height: 1.2;
+  padding: 12px 24px; border-radius: var(--radius-full);
+  box-shadow: 0 8px 28px rgba(16,185,129,0.35);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+.heroCta:hover { background: #34D399; box-shadow: 0 10px 32px rgba(16,185,129,0.45); }
+.heroCta:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.heroCtaNote { font-size: 13px; color: rgba(255,255,255,0.72); }
+/* Destino del ancla: que el título no quede bajo el navbar fijo (64px). */
+.anchorSection { scroll-margin-top: 64px; }
+
 /* Tres columnas con separador a la izquierda de la 2ª y la 3ª. En pantallas
    estrechas se reparten el ancho a partes iguales (antes era una fila flex
    con wrap: cada dato saltaba de línea por su cuenta y los separadores

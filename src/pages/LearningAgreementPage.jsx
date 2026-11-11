@@ -858,6 +858,16 @@ export default function LearningAgreementPage() {
             El contrato que define qué estudias y qué te convalidan.
             El documento que más agobia — y el que mejor puedes preparar si sabes cómo.
           </p>
+          {/* La herramienta de la página (pedir una propuesta de
+              equivalencias revisada a mano) está muy abajo: desde aquí se
+              llega con un toque. Ancla nativa a #wizard-la. */}
+          <div className={styles.heroCtaRow}>
+            <a className={styles.heroCta} href="#wizard-la">
+              Pide tu propuesta de equivalencias <span aria-hidden="true">↓</span>
+            </a>
+            <span className={styles.heroCtaNote}>La revisamos a mano y te la mandamos por email.</span>
+          </div>
+
           {/* Tres datos con el mismo formato (valor + etiqueta). El tercero
               era un icono suelto sin valor y en móvil la fila se descolocaba. */}
           <div className={styles.heroStats}>
@@ -914,7 +924,7 @@ export default function LearningAgreementPage() {
       </section>
 
       {/* ── WIZARD: PROPUESTA DE EQUIVALENCIAS ── */}
-      <section className={styles.section} id="wizard-la">
+      <section className={`${styles.section} ${styles.anchorSection}`} id="wizard-la">
         <div className={styles.sectionInner} style={{ maxWidth: 640 }}>
           <SectionLabel color="#10B981">Herramienta</SectionLabel>
           <h2 className={styles.sectionTitle}>Pide tu propuesta de equivalencias</h2>
