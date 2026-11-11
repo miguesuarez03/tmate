@@ -645,13 +645,13 @@ export const CITY_INSIGHTS = {
         id: "coste",
         label: "Coste de vida",
         icon: "💰",
-        score: 7.5,
-        summary: "Más asequible que Múnich con acceso a todo lo que ofrece. Con 650–850€/mes se vive muy bien.",
+        score: 6.0,
+        summary: "Más asequible que Múnich: la TH Rosenheim calcula 900–1.150€/mes para estudiantes internacionales.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 7.5, desc: "Habitaciones desde 400–600€. Significativamente más barata que Múnich a solo 40 minutos en tren." },
+          { label: "Alojamiento", score: 6.5, desc: "La TH estima 450–600€/mes de alojamiento, bastante menos que Múnich, a menos de una hora en tren." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercado semanal en la Ludwigsplatz con productos bávaros frescos. Supermercados bien surtidos a precios razonables." },
-          { label: "Transporte", score: 7.5, desc: "Deutschlandticket (63 €/mes en 2026) cubre todo — incluyendo el tren a Múnich. Sin coche es completamente viable." },
+          { label: "Transporte", score: 7.5, desc: "Deutschlandticket (63 €/mes en 2026): bus y trenes regionales, incluido el regional a Múnich (no el ICE). Sin coche es completamente viable." },
           { label: "Ocio y gastos diarios", score: 8.0, desc: "Cervezas en biergartens locales a 3–4€. Naturaleza gratuita por todas partes. Sin el precio premium de las grandes ciudades." },
         ],
       },
@@ -660,12 +660,12 @@ export const CITY_INSIGHTS = {
         id: "alojamiento",
         label: "Alojamiento",
         icon: "🏠",
-        score: 8.2,
-        summary: "El mercado más fácil de los destinos alemanes de esta guía. Buena oferta y precios razonables.",
+        score: 6.0,
+        summary: "La TH Rosenheim avisa de que escasea el alojamiento asequible y hay muchos candidatos: busca con tiempo.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 8.5, desc: "Oferta amplia para el tamaño de la comunidad estudiantil. Sin la presión brutal de Múnich." },
-          { label: "Precio", score: 8.0, desc: "400–600€ habitación. Considerablemente más barato que Múnich para acceso similar a la región." },
+          { label: "Disponibilidad", score: 5.0, desc: "Escasea el alojamiento asequible y hay mucha demanda, según la propia TH Rosenheim." },
+          { label: "Precio", score: 6.5, desc: "La TH estima 450–600€/mes de alojamiento, considerablemente menos que en Múnich." },
           { label: "Facilidad de búsqueda", score: 8.0, desc: "La propia universidad (TH Rosenheim) tiene bolsa de alojamiento. WG-Gesucht y grupos de Facebook universitarios." },
           { label: "Residencias universitarias", score: 6.0, desc: "Consulta residencias universitarias disponibles — pueden ser la opción más cómoda y segura para los primeros meses." },
         ],
@@ -681,8 +681,8 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Comunidad Erasmus", score: 6.5, desc: "Comunidad muy pequeña pero muy unida. Si buscas calidad de relaciones sobre cantidad, es perfecta." },
           { label: "Ambiente internacional", score: 6.5, desc: "Ambiente internacional con estudiantes de toda Europa y el mundo." },
-          { label: "Fiesta y vida nocturna", score: 7.0, desc: "Varios biergardens tradicionales bávaros. Ambiente muy local y auténtico — sin turistas, sin poses." },
-          { label: "Eventos y actividades", score: 9.5, desc: "Salzburgo a 45 minutos, Innsbruck a 1h30, Múnich a 40 minutos. Base perfecta para explorar la región alpina." },
+          { label: "Fiesta y vida nocturna", score: 7.0, desc: "Varios biergärten tradicionales bávaros. Ambiente muy local y auténtico, sin poses." },
+          { label: "Eventos y actividades", score: 9.5, desc: "Salzburgo a 45 minutos, Innsbruck a 1h30, Múnich a menos de una hora. Base perfecta para explorar la región alpina." },
         ],
       },
       // 4. INTEGRACIÓN INTERNACIONAL
@@ -710,7 +710,7 @@ export const CITY_INSIGHTS = {
         color: "#F59E0B",
         subcategories: [
           { label: "Ciudad caminable", score: 9.5, desc: "Ciudad completamente caminable. Del campus al centro en 15 minutos. Bici para los más activos." },
-          { label: "Tren a Múnich", score: 9.0, desc: "Tren directo a Múnich cada 30 minutos, 40 minutos de trayecto. Con Deutschlandticket sale gratis del bono mensual." },
+          { label: "Tren a Múnich", score: 9.0, desc: "Tren regional directo a Múnich cada 30 minutos (unos 45–50 minutos), incluido en el Deutschlandticket; los ICE, no." },
           { label: "Escapadas de fin de semana", score: 9.5, desc: "Chiemsee en autobús, estaciones de ski en coche compartido o bus regional. Todo muy accesible." },
         ],
       },
@@ -724,9 +724,9 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 10.0, desc: "Chiemsee, Alpes, bosques bávaros. La naturaleza más espectacular de esta guía a precios de vida razonables." },
-          { label: "Clima", score: 7.5, desc: "Clima alpino con cuatro estaciones marcadas. Nieve frecuente en invierno, veranos frescos y muy agradables. Verano: 20–26°C, fresco y soleado. Los lagos alpinos cercanos son perfectos. Sin el calor sofocante de las ciudades del sur. Invierno: nieve frecuente. Frío pero con los Alpes a 30 minutos se convierte en una ventaja enorme para el ski." },
+          { label: "Clima", score: 7.5, desc: "Clima alpino con cuatro estaciones marcadas. Nieve frecuente en invierno, veranos frescos y muy agradables. Verano: unos 13–24°C de media, agradable y soleado. Los lagos alpinos cercanos son perfectos. Sin el calor sofocante de las ciudades del sur. Invierno: nieve frecuente. Frío pero con los Alpes a 30 minutos se convierte en una ventaja enorme para el ski." },
           { label: "Calidad de vida", score: 8.8, desc: "Calidad de vida altísima para quien busca naturaleza, autenticidad y tranquilidad. El antídoto a las grandes ciudades." },
-          { label: "Autenticidad local", score: 10.0, desc: "Tradiciones, trajes típicos, Oktoberfest local, biergardens centenarios. Baviera sin filtro turístico." },
+          { label: "Autenticidad local", score: 10.0, desc: "Tradiciones, trajes típicos, el Rosenheimer Herbstfest, biergärten centenarios. Baviera sin filtro turístico." },
           { label: "Estilo de vida", score: 8.0, desc: "Ritmo de vida que combina trabajo, cultura y ocio de forma equilibrada." },
         ],
       },
@@ -736,13 +736,13 @@ export const CITY_INSIGHTS = {
         label: "Empleo y oportunidades",
         icon: "💼",
         score: 7.0,
-        summary: "Industria local sólida y acceso a todo el ecosistema de Múnich a 40 minutos. Mejor para ingeniería y tecnología.",
+        summary: "Industria local sólida y acceso a todo el ecosistema de Múnich, a menos de una hora. Mejor para ingeniería y tecnología.",
         color: "#8B5CF6",
         subcategories: [
           { label: "Mercado laboral", score: 7.5, desc: "Empresas industriales y tecnológicas medianas con prácticas accesibles. Menos competencia que en Múnich." },
-          { label: "Prácticas", score: 8.5, desc: "A 40 minutos de todo el ecosistema de BMW, Siemens y startups de Múnich. Muchos estudiantes hacen prácticas allí." },
+          { label: "Prácticas", score: 8.5, desc: "A menos de una hora de todo el ecosistema de BMW, Siemens y startups de Múnich. Muchos estudiantes hacen prácticas allí." },
           { label: "Empresas relevantes", score: 7.0, desc: "La universidad tiene buenas conexiones con la industria regional. Perfil principalmente técnico e ingenieril." },
-          { label: "Oportunidades para estudiantes", score: 7.0, desc: "Industria local sólida y acceso a todo el ecosistema de Múnich a 40 minutos. Mejor para ingeniería y tecnología." },
+          { label: "Oportunidades para estudiantes", score: 7.0, desc: "Industria local sólida y acceso a todo el ecosistema de Múnich, a menos de una hora. Mejor para ingeniería y tecnología." },
         ],
       },
       // 8. SEGURIDAD
@@ -750,12 +750,12 @@ export const CITY_INSIGHTS = {
         id: "seguridad",
         label: "Seguridad",
         icon: "🛡️",
-        score: 9.5,
-        summary: "Una de las ciudades más seguras de esta guía. Ambiente rural-urbano sin ningún problema de seguridad reseñable.",
+        score: 8.8,
+        summary: "Una de las ciudades más seguras de esta guía, con un ambiente tranquilo de ciudad pequeña.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 9.5, desc: "Ciudad pequeña bávara sin ningún problema de seguridad. La criminalidad es prácticamente inexistente." },
-          { label: "Seguridad nocturna", score: 9.5, desc: "Completamente segura en todo momento. La tranquilidad de una ciudad pequeña de montaña." },
+          { label: "Seguridad general", score: 8.5, desc: "Ciudad tranquila en general; aplica las precauciones habituales." },
+          { label: "Seguridad nocturna", score: 8.5, desc: "Ambiente tranquilo de noche; las precauciones habituales, como en cualquier ciudad." },
           { label: "Ambiente de la ciudad", score: 9.5, desc: "Comunidad local cohesionada donde todos se conocen. El ambiente más seguro de esta guía." },
         ],
       },
@@ -6284,15 +6284,15 @@ export const CITY_INSIGHTS = {
   },
   friburgo: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Freiburg_im_Breisgau_M%C3%BCnster.jpg/1920px-Freiburg_im_Breisgau_M%C3%BCnster.jpg",
-    tagline: "La ciudad más soleada de Alemania, con la Selva Negra empezando literalmente al final de la calle.",
-    atmosphere: "Friburgo huele a pino y masa de pretzel recién horneada, y suena al murmullo constante del agua corriendo por los Bächle del centro medieval bajo el sol más frecuente de Alemania.",
+    tagline: "Una de las ciudades más soleadas de Alemania, con la Selva Negra empezando literalmente al final de la calle.",
+    atmosphere: "Friburgo huele a pino y masa de pretzel recién horneada, y suena al murmullo constante del agua corriendo por los Bächle del centro medieval bajo uno de los cielos más soleados de Alemania.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 5.8,
-        summary: "Más cara que el este de Alemania, pero razonable comparada con Múnich o Friburgo de Suiza (a la que a veces se confunde).",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 5.5,
+        summary: "La universidad calcula entre 800 y 1.400€/mes según el estilo de vida (unos 1.207€ de media para estudiantes de la UE).",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 5.0, desc: "Habitación desde 450–600€; el mercado está tensionado por ser ciudad pequeña y muy demandada." },
+          { label: "Alojamiento", score: 5.0, desc: "La universidad calcula unos 500€/mes de alojamiento; el mercado está tensionado por la fuerte demanda." },
           { label: "Comida y supermercados", score: 6.5, desc: "Supermercados alemanes estándar (Aldi, Lidl, Rewe) mantienen el gasto en comida controlado." },
           { label: "Transporte", score: 6.5, desc: "El Deutschlandticket (63 €/mes en 2026) cubre tranvía y bus por toda la ciudad y buena parte del país." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Salir de bares y biergartens tiene precios estándar del sur de Alemania." },
@@ -6304,7 +6304,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 5.0, desc: "El Studierendenwerk Freiburg gestiona residencias, aunque la demanda supera ampliamente la oferta." },
-          { label: "Precio", score: 5.5, desc: "450–600€ de media, moderado para el sur de Alemania." },
+          { label: "Precio", score: 5.5, desc: "Unos 500€/mes según la estimación de la universidad." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "Conviene empezar a buscar con varios meses de antelación, sobre todo antes del semestre de invierno." },
           { label: "Residencias universitarias", score: 5.5, desc: "Buena calidad, pero con listas de espera habituales para exchange students que llegan tarde." },
         ],
@@ -6326,7 +6326,7 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 7.0, desc: "Bien hablado en la universidad; algo más limitado en comercios tradicionales." },
-          { label: "Actitud local", score: 7.5, desc: "Friburgueses conocidos por ser de los alemanes más relajados y ecologistas del país." },
+          { label: "Actitud local", score: 7.5, desc: "Ciudad con fama ecologista y muy acostumbrada a la comunidad universitaria." },
           { label: "Integración con locales", score: 7.0, desc: "El tamaño mediano de la ciudad facilita coincidir de forma habitual con la misma gente." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "El programa Tandem de la universidad conecta estudiantes internacionales con locales de forma estructurada." },
         ],
@@ -6339,16 +6339,16 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 8.0, desc: "Tranvías VAG frecuentes y puntuales cubren toda la ciudad." },
           { label: "Ciudad caminable/ciclable", score: 8.5, desc: "Centro histórico peatonal y excelente infraestructura ciclista en toda la ciudad." },
           { label: "Conexiones internacionales", score: 7.0, desc: "Aeropuerto de Basilea-Mulhouse-Friburgo (EuroAirport) a menos de una hora." },
-          { label: "Escapadas de fin de semana", score: 9.0, desc: "Estrasburgo, Basilea y la Selva Negra, todas a menos de una hora en tren o bus." },
+          { label: "Escapadas de fin de semana", score: 9.0, desc: "Basilea y la Selva Negra muy cerca; Estrasburgo, accesible en tren." },
         ],
       },
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 9.0,
-        summary: "El mejor clima de Alemania combinado con la Selva Negra a las puertas: un entorno natural difícil de superar.",
+        summary: "Uno de los climas más soleados de Alemania combinado con la Selva Negra a las puertas: un entorno natural difícil de superar.",
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.5, desc: "La Selva Negra empieza literalmente al final de la ciudad, con rutas de senderismo y esquí cercanas." },
-          { label: "Clima", score: 9.0, desc: "La ciudad más soleada de Alemania, con veranos cálidos y agradables para el estándar alemán." },
+          { label: "Clima", score: 9.0, desc: "Una de las ciudades más soleadas de Alemania, con veranos cálidos y agradables para el estándar alemán." },
           { label: "Calidad de vida", score: 9.0, desc: "Ciudad pionera en sostenibilidad, limpia, verde y muy fácil de vivir." },
           { label: "Autenticidad local", score: 8.0, desc: "Ciudad universitaria alemana genuina, sin masificación turística salvo en el centro histórico en verano." },
           { label: "Estilo de vida", score: 9.0, desc: "Combinación única de vida universitaria, sostenibilidad y naturaleza de montaña a un paso." },
@@ -6366,12 +6366,12 @@ export const CITY_INSIGHTS = {
         ],
       },
       {
-        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 9.0,
-        summary: "Una de las ciudades más seguras de Alemania, con un ambiente tranquilo típico del sur del país.",
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.5,
+        summary: "Ciudad tranquila, con el ambiente típico del sur de Alemania.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 9.5, desc: "Criminalidad muy baja, entre las tasas más reducidas de las ciudades universitarias alemanas." },
-          { label: "Seguridad nocturna", score: 8.5, desc: "El centro histórico y los alrededores del campus son seguros incluso de madrugada." },
+          { label: "Seguridad general", score: 8.5, desc: "Ciudad tranquila en general; aplica las precauciones habituales." },
+          { label: "Seguridad nocturna", score: 8.5, desc: "El centro tiene ambiente de noche; conviene tomar las precauciones habituales." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada, limpia y tranquila, con fuerte identidad ecologista." },
         ],
       },
@@ -7049,7 +7049,7 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.0,
-        summary: "La Universidad de Heidelberg calcula unos 1.000€/mes para estudiantes Erasmus: cara para una ciudad de su tamaño.",
+        summary: "La Universidad de Heidelberg calcula unos 750–1.050€/mes para estudiantes de intercambio en residencia (unos 1.000€ de media): cara para una ciudad de su tamaño.",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "El alquiler es alto para el tamaño de la ciudad por la fuerte demanda universitaria." },
@@ -8283,13 +8283,13 @@ export const CITY_INSIGHTS = {
     atmosphere: "Dresde huele a Stollen navideño y café en la Altmarkt, y suena al eco de la Frauenkirche reconstruida sobre un río Elba que refleja fachadas barrocas devueltas a la vida tras décadas de ruinas.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 7.5,
-        summary: "Notablemente más barata que Múnich, Colonia o Hamburgo, típico del este de Alemania.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 6.5,
+        summary: "Más barata que Múnich, Colonia o Hamburgo: TU Dresden calcula unos 900€/mes para estudiantes de intercambio (el rango es una estimación de MAbroad).",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 7.0, desc: "Habitación desde 320–420€, de las más bajas entre las grandes ciudades alemanas." },
+          { label: "Alojamiento", score: 7.0, desc: "TU Dresden calcula 230–500€/mes de alojamiento para estudiantes de intercambio." },
           { label: "Comida y supermercados", score: 7.5, desc: "Supermercados alemanes estándar mantienen el gasto en comida muy controlado." },
-          { label: "Transporte", score: 8.0, desc: "El Deutschlandticket (63 €/mes en 2026) cubre tranvía y bus por toda la ciudad y el país." },
+          { label: "Transporte", score: 8.0, desc: "El Deutschlandsemesterticket va incluido en la contribución semestral de TU Dresden: tranvía, bus y regionales por toda Alemania." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Salir de bares y restaurantes es notablemente más barato que en el oeste de Alemania." },
         ],
       },
@@ -8299,7 +8299,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 7.0, desc: "Buena oferta de pisos compartidos, especialmente en la Äußere Neustadt." },
-          { label: "Precio", score: 7.0, desc: "320–420€ de media, de los más bajos entre las grandes ciudades alemanas." },
+          { label: "Precio", score: 7.0, desc: "230–500€/mes según TU Dresden, de los más bajos entre las grandes ciudades alemanas." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "El Studentenwerk Dresden gestiona residencias con buena disponibilidad." },
           { label: "Residencias universitarias", score: 6.5, desc: "Buena oferta de residencias, aunque conviene solicitar con antelación." },
         ],
@@ -8333,8 +8333,8 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Transporte público", score: 8.0, desc: "DVB cubre tranvía y bus con buena frecuencia por toda la ciudad." },
           { label: "Ciudad caminable", score: 8.0, desc: "El centro histórico reconstruido se recorre fácilmente a pie." },
-          { label: "Conexiones internacionales", score: 6.0, desc: "Aeropuerto con oferta limitada; Berlín y Praga, ambos con más vuelos, a menos de dos horas." },
-          { label: "Escapadas de fin de semana", score: 8.5, desc: "Praga a menos de dos horas en tren, y la Suiza Sajona a 30 minutos para senderismo." },
+          { label: "Conexiones internacionales", score: 6.0, desc: "Aeropuerto con oferta limitada; los de Berlín y Praga, con más vuelos, son la alternativa." },
+          { label: "Escapadas de fin de semana", score: 8.5, desc: "Praga a unas dos horas y media en tren, y la Suiza Sajona a 30 minutos para senderismo." },
         ],
       },
       {
@@ -8361,12 +8361,12 @@ export const CITY_INSIGHTS = {
         ],
       },
       {
-        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.3,
-        summary: "Una de las ciudades más seguras de Alemania, con un ambiente tranquilo típico del este del país.",
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
+        summary: "Ciudad tranquila en general.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 8.5, desc: "Criminalidad baja, entre las tasas más reducidas de las ciudades universitarias alemanas." },
-          { label: "Seguridad nocturna", score: 8.0, desc: "La Äußere Neustadt y el centro histórico son seguros incluso de madrugada." },
+          { label: "Seguridad general", score: 8.0, desc: "Ciudad tranquila en general; aplica las precauciones habituales." },
+          { label: "Seguridad nocturna", score: 8.0, desc: "La Äußere Neustadt y el centro tienen ambiente de noche; conviene tomar las precauciones habituales." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, limpia y con fuerte identidad cultural." },
         ],
       },
@@ -8378,11 +8378,11 @@ export const CITY_INSIGHTS = {
     atmosphere: "Leipzig huele a café de especialidad en Plagwitz y a pintura fresca en las galerías de la Spinnerei, y suena a bajos escapando de clubs en antiguas fábricas hasta bien entrada la mañana.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 7.3,
-        summary: "Una de las ciudades más baratas de Alemania para su tamaño y escena cultural.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 6.5,
+        summary: "Más barata que Berlín o Múnich: la Universität Leipzig calcula entre 800 y 950€/mes según el programa.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 6.5, desc: "Habitación desde 350–450€, muy por debajo de Berlín o Múnich." },
+          { label: "Alojamiento", score: 6.5, desc: "Alquileres por debajo de Berlín o Múnich; las residencias del Studentenwerk varían de precio según el edificio." },
           { label: "Comida y supermercados", score: 7.5, desc: "Supermercados alemanes estándar mantienen el gasto en comida muy controlado." },
           { label: "Transporte", score: 8.0, desc: "El Deutschlandticket (63 €/mes en 2026) cubre tranvía y bus por toda la ciudad y el país." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Salir de clubs y bares es notablemente más barato que en Berlín, con oferta similar." },
@@ -8394,7 +8394,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 6.5, desc: "Buena oferta de pisos compartidos, especialmente en Connewitz y Plagwitz." },
-          { label: "Precio", score: 6.5, desc: "350–450€ de media, aunque en aumento por la creciente popularidad de la ciudad." },
+          { label: "Precio", score: 6.5, desc: "Por debajo de Berlín o Múnich, aunque en aumento por la creciente popularidad de la ciudad." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "El Studentenwerk Leipzig gestiona residencias con buena disponibilidad." },
           { label: "Residencias universitarias", score: 6.0, desc: "Buena oferta de residencias, aunque conviene solicitar con antelación." },
         ],
@@ -8404,9 +8404,9 @@ export const CITY_INSIGHTS = {
         summary: "Una de las escenas de clubs y música más vivas de Alemania, comparada constantemente con el Berlín pre-boom.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 8.5, desc: "ESN Leipzig organiza eventos constantes en torno a la escena creativa de la ciudad." },
+          { label: "Comunidad Erasmus", score: 8.5, desc: "WILMA, la iniciativa de bienvenida de la universidad, organiza actividades para estudiantes internacionales." },
           { label: "Ambiente internacional", score: 8.0, desc: "La reputación creativa de la ciudad atrae a una comunidad internacional creciente." },
-          { label: "Fiesta y vida nocturna", score: 9.5, desc: "Clubs legendarios como el Institut für Zukunft rivalizan con los de Berlín." },
+          { label: "Fiesta y vida nocturna", score: 9.5, desc: "Escena de clubs muy viva, de las más comparadas con la de Berlín." },
           { label: "Eventos y actividades", score: 8.5, desc: "La Spinnerei abre sus galerías al público y organiza eventos culturales constantes." },
         ],
       },
@@ -8429,7 +8429,7 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 8.0, desc: "LVB cubre tranvía y bus con buena frecuencia por toda la ciudad." },
           { label: "Ciudad caminable/ciclable", score: 8.0, desc: "Ciudad plana y muy ciclable, con infraestructura en constante expansión." },
           { label: "Conexiones internacionales", score: 6.5, desc: "Aeropuerto con oferta limitada; Berlín, con más vuelos, a poco más de una hora en tren." },
-          { label: "Escapadas de fin de semana", score: 8.5, desc: "Berlín a 1h15 en tren ICE, y Dresde a menos de una hora." },
+          { label: "Escapadas de fin de semana", score: 8.5, desc: "Berlín a poco más de una hora en ICE y Dresde, accesible en tren." },
         ],
       },
       {
@@ -8473,11 +8473,11 @@ export const CITY_INSIGHTS = {
     atmosphere: "Tubinga huele a pretzel recién horneado en el Marktplatz, y suena al chapoteo de las Stocherkähne (batea locales) impulsadas con pértiga bajo las casas de entramado que se reflejan en el Neckar.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 5.5,
-        summary: "Cara para su tamaño, por la enorme demanda de una ciudad universitaria muy pequeña y muy solicitada.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 6.0,
+        summary: "La universidad da como referencia 947€/mes (media alemana de 2021); con los alquileres de Tubinga estimamos 900–1.050€/mes. Cara para una ciudad de su tamaño.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 4.5, desc: "Habitación desde 480–620€, alta para el tamaño de la ciudad por la fuerte demanda universitaria." },
+          { label: "Alojamiento", score: 4.5, desc: "Una habitación ronda los 430€/mes en Tubinga, según la universidad; conseguirla cuesta por la fuerte demanda." },
           { label: "Comida y supermercados", score: 6.5, desc: "Supermercados alemanes estándar mantienen el gasto en comida razonable." },
           { label: "Transporte", score: 6.5, desc: "El Deutschlandticket (63 €/mes en 2026) cubre bus por toda la ciudad y regionales por el país." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Salir en el centro histórico tiene precios moderados, típicos del sur de Alemania." },
@@ -8488,18 +8488,18 @@ export const CITY_INSIGHTS = {
         summary: "Uno de los mercados más tensionados de Alemania por ser un pueblo-universidad con demanda enorme.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 4.0, desc: "El Studierendenwerk Tübingen gestiona residencias con listas de espera largas." },
-          { label: "Precio", score: 4.5, desc: "480–620€ de media, alto para el tamaño de la ciudad." },
+          { label: "Disponibilidad", score: 4.0, desc: "El Studierendenwerk Tübingen-Hohenheim gestiona residencias con listas de espera largas." },
+          { label: "Precio", score: 4.5, desc: "Residencias del Studierendenwerk Tübingen-Hohenheim, unos 284€/mes de media en sus sedes (2025); una habitación en Tubinga, unos 430€/mes." },
           { label: "Facilidad de búsqueda", score: 4.5, desc: "Conviene empezar a buscar con al menos cuatro o cinco meses de antelación." },
           { label: "Residencias universitarias", score: 5.5, desc: "Buena calidad, aunque muy solicitadas por la reputación de la universidad." },
         ],
       },
       {
         id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 8.0,
-        summary: "Vida universitaria muy intensa gracias a que uno de cada tres habitantes es estudiante.",
+        summary: "Vida universitaria muy intensa: unos 28.000 estudiantes en una ciudad de unos 92.000 habitantes.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 8.0, desc: "ESN Tübingen organiza excursiones a la Selva Negra y eventos constantes." },
+          { label: "Comunidad Erasmus", score: 8.0, desc: "StudIT organiza actividades y excursiones para estudiantes de intercambio." },
           { label: "Ambiente internacional", score: 7.5, desc: "Universidad con fuerte tradición internacional en ciencias y humanidades." },
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "El Marktplatz y la Altstadt concentran bares con ambiente estudiantil constante." },
           { label: "Eventos y actividades", score: 8.0, desc: "Las carreras de Stocherkähne en verano son uno de los eventos más divertidos del calendario." },
@@ -8513,7 +8513,7 @@ export const CITY_INSIGHTS = {
           { label: "Nivel de inglés", score: 7.0, desc: "Bien hablado en la universidad; algo más limitado en comercios tradicionales." },
           { label: "Actitud local", score: 7.0, desc: "Los tubingueses están muy acostumbrados a la enorme comunidad universitaria." },
           { label: "Integración con locales", score: 7.0, desc: "El tamaño pequeño de la ciudad facilita coincidir de forma habitual con la misma gente." },
-          { label: "Facilidad para hacer amigos", score: 8.0, desc: "Con un tercio de la ciudad siendo estudiante, hacer amigos es prácticamente automático." },
+          { label: "Facilidad para hacer amigos", score: 8.0, desc: "Con tantos estudiantes en una ciudad pequeña, es fácil hacer amigos." },
         ],
       },
       {
@@ -8534,7 +8534,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Naturaleza", score: 8.0, desc: "El valle del Neckar y las colinas circundantes ofrecen senderismo a un paso del centro." },
           { label: "Clima", score: 7.5, desc: "Continental templado, con veranos agradables y buen clima para pasear en batea." },
-          { label: "Calidad de vida", score: 9.0, desc: "Ciudad extremadamente segura, tranquila y de una belleza pintoresca constante." },
+          { label: "Calidad de vida", score: 9.0, desc: "Ciudad tranquila y de una belleza pintoresca constante." },
           { label: "Autenticidad local", score: 8.5, desc: "Pueblo-universidad genuino, con tradiciones estudiantiles centenarias muy vivas." },
           { label: "Estilo de vida", score: 9.5, desc: "Vivir entre casas de colores sobre el Neckar, con la universidad como centro de todo, es único en Alemania." },
         ],
@@ -8551,12 +8551,12 @@ export const CITY_INSIGHTS = {
         ],
       },
       {
-        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 9.0,
-        summary: "Una de las ciudades más seguras de Alemania, con la tranquilidad típica de un pueblo-universidad.",
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.5,
+        summary: "Ciudad tranquila, típica de un pueblo-universidad.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 9.5, desc: "Criminalidad muy baja, entre las más reducidas de las ciudades universitarias alemanas." },
-          { label: "Seguridad nocturna", score: 9.0, desc: "El centro histórico y sus alrededores son seguros incluso de madrugada." },
+          { label: "Seguridad general", score: 8.5, desc: "Ciudad tranquila en general; aplica las precauciones habituales." },
+          { label: "Seguridad nocturna", score: 9.0, desc: "El centro tiene ambiente estudiantil de noche; conviene tomar las precauciones habituales." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada, pintoresca y con fuerte identidad académica." },
         ],
       },
@@ -10754,7 +10754,7 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 4.5,
-        summary: "Cara para el estándar europeo: Maastricht University calcula unos 1.250€/mes para un estudiante internacional.",
+        summary: "Cara para el estándar europeo: Maastricht University calcula unos 1.200–1.250€/mes para un estudiante internacional.",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 3.8, desc: "Maastricht University calcula unos 650€/mes de alojamiento: el alquiler es el mayor gasto." },

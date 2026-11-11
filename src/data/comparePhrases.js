@@ -55,13 +55,13 @@ export const COMPARE_PHRASES = {
     seguridad: "Segura en zonas universitarias y centrales",
   },
   rosenheim: {
-    coste: "Más barata que Múnich con todo a mano, 650–850€",
-    alojamiento: "El mercado alemán más fácil de esta guía",
+    coste: "Más barata que Múnich: 900–1.150€/mes según la TH",
+    alojamiento: "Escasea el alojamiento asequible: busca con tiempo",
     vida_social: "Tranquila y local, calidad antes que cantidad",
     integracion: "Bávaros auténticos, el alemán abre puertas",
     movilidad: "A un paso de Múnich y de los Alpes",
     estilo_vida: "Naturaleza y autenticidad, el antídoto a la gran ciudad",
-    empleo: "Industria local sólida y Múnich a 40 minutos",
+    empleo: "Industria local sólida y Múnich a menos de una hora",
     seguridad: "Una de las ciudades más seguras de la guía",
   },
   londres: {

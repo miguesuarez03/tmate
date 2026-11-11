@@ -107,10 +107,10 @@ export const CITY_SEASONS = {
     { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-1–5°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Los mercados navideños de Viena son de los más bonitos de Europa. Frío pero mágico.", tags: ["Mercados navideños", "Frío seco", "Ambiente mágico"] },
   ],
   rosenheim: [
-    { id: "spring", label: "Primavera", months: "Mar–May", temp: "7–17°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Los Alpes bávaros se llenan de color. Excursiones de senderismo y rutas en bici entre lagos.", tags: ["Senderismo", "Lagos", "Alpes"] },
-    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "18–26°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano alpino ideal. Lagos cristalinos, Oktoberfest cercano y actividades outdoor sin fin.", tags: ["Lagos alpinos", "Outdoor", "Oktoberfest cerca"], highlight: true },
-    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "6–15°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño bávaro espectacular. Colores únicos en los Alpes y Oktoberfest a 45 minutos.", tags: ["Oktoberfest", "Colores únicos", "Inicio Erasmus"] },
-    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-5–2°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Nieve asegurada. Esquí a pocos kilómetros y ambiente bávaro navideño incomparable.", tags: ["Esquí", "Nieve frecuente", "Navidad bávara"] },
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–15°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Los Alpes bávaros se llenan de color. Excursiones de senderismo y rutas en bici entre lagos.", tags: ["Senderismo", "Lagos", "Alpes"] },
+    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "13–24°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano alpino ideal. Lagos cristalinos, actividades outdoor sin fin y, a finales de agosto, el Herbstfest de Rosenheim.", tags: ["Lagos alpinos", "Outdoor", "Herbstfest"], highlight: true },
+    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "5–14°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño bávaro espectacular. Colores únicos en los Alpes y el Oktoberfest de Múnich a un trayecto en tren.", tags: ["Oktoberfest", "Colores únicos", "Inicio Erasmus"] },
+    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-3–5°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Nieve asegurada. Esquí a pocos kilómetros y ambiente bávaro navideño incomparable.", tags: ["Esquí", "Nieve frecuente", "Navidad bávara"] },
   ],
   bruselas: [
     { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–15°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "La Grand Place más bonita que nunca. Cerveza belga en terraza y chocolate en cada esquina.", tags: ["Grand Place", "Cerveza", "Agradable"] },
@@ -280,5 +280,30 @@ export const CITY_SEASONS = {
     { id: "summer", label: "Verano", months: "Jun–Ago", temp: "14–26°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos calurosos, de los más cálidos de Alemania; iluminación del castillo con fuegos artificiales en verano.", tags: ["Calor","Castillo iluminado","Días largos"] },
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–16°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y colinas del Odenwald con colores de otoño.", tags: ["Inicio Erasmus","Colores de otoño","Senderismo"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–6°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Fresco y gris, con heladas algunas noches; mercados navideños en la Altstadt.", tags: ["Fresco","Mercados navideños","Heladas"] },
+  ],
+  friburgo: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–17°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera temprana y soleada; las terrazas de la Altstadt se llenan pronto.", tags: ["Soleada","Terrazas","Senderismo"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "14–26°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos cálidos, de los más soleados de Alemania, con la Selva Negra para refrescarse.", tags: ["Calor","Selva Negra","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–16°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y vendimia en los viñedos cercanos.", tags: ["Inicio Erasmus","Vendimia","Colores de otoño"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Fresco en la ciudad y nieve en las cumbres de la Selva Negra para esquiar.", tags: ["Fresco","Esquí cerca","Mercados navideños"] },
+  ],
+  leipzig: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–15°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca que se templa en mayo; los parques y canales recuperan vida.", tags: ["Fresca","Parques","Canales"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "14–24°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos cálidos para bañarse en los lagos de la antigua zona minera, como el Cospudener See.", tags: ["Lagos","Cálido","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "6–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y una agenda cultural a tope.", tags: ["Inicio Erasmus","Cultura","Muy animada"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-1–5°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío continental, con heladas frecuentes; mercado navideño en el centro.", tags: ["Frío","Heladas","Mercado navideño"] },
+  ],
+  dresde: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–14°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca; las orillas del Elba se llenan de gente en cuanto sale el sol.", tags: ["Fresca","Elba","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "14–24°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos cálidos, ideales para escalar y hacer senderismo en la Suiza Sajona.", tags: ["Cálido","Suiza Sajona","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "6–13°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y la Äußere Neustadt a pleno rendimiento.", tags: ["Inicio Erasmus","Neustadt","Muy animada"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-1–4°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío continental, con heladas; el Striezelmarkt, uno de los mercados navideños más antiguos de Alemania.", tags: ["Frío","Heladas","Striezelmarkt"] },
+  ],
+  // Tubinga: normales 1991–2020 de la estación de Stuttgart-Echterdingen (a unos 20 km), la más cercana con serie completa.
+  tubinga: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–15°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada; el Neckar y el Jardín Botánico vuelven a llenarse de estudiantes.", tags: ["Templada","Neckar","Al aire libre"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–24°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos agradables, la temporada de las Stocherkähne sobre el Neckar.", tags: ["Stocherkahn","Agradable","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "6–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y colinas del valle del Neckar con colores de otoño.", tags: ["Inicio Erasmus","Colores de otoño","Muy animada"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-2–5°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío, con heladas frecuentes; la Altstadt se vuelve muy acogedora.", tags: ["Frío","Heladas","Ambiente acogedor"] },
   ],
 };

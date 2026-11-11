@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./HeroSection.module.css";
 import { getCityWhatsappGroup } from "../../data/cityWhatsappGroups";
-import { isErasmusEligible, getScoreLevel, parseMinCost } from "../../lib/cities";
+import { isErasmusEligible, getScoreLevel, isAffordable } from "../../lib/cities";
 import { IconUniversidad, IconIdiomas, IconFiesta, IconBeca, IconSol, IconBici, IconSeguridad, IconComida, IconArte, IconLaptop, IconPlaya, IconFuego } from "../icons";
 import ScoreRing from "../ScoreRing";
 import { heroImage } from "../../lib/images";
@@ -25,10 +25,7 @@ const MOOD_ICONS = {
 function getMoodTags(city) {
   const tags = [];
   if (city.erasmus >= 90) tags.push("erasmus");
-  // Asequible = presupuesto mínimo de 500 €/mes o menos. Con parseMinCost, que
-  // entiende los miles (buscar "500" en el texto marcaba "1.200–1.500€").
-  const minCost = parseMinCost(city.costDetail || "");
-  if (minCost > 0 && minCost <= 500) tags.push("barato");
+  if (isAffordable(city.costDetail)) tags.push("barato");
   if (city.vibe?.toLowerCase().includes("gastro") || city.highlights?.some(h => h.toLowerCase().includes("pasta") || h.toLowerCase().includes("gastro"))) tags.push("foodie");
   if (city.weather?.toLowerCase().includes("mediterr") || city.weather?.toLowerCase().includes("sol")) tags.push("sol");
   if (city.highlights?.some(h => h.toLowerCase().includes("bici") || h.toLowerCase().includes("cicl"))) tags.push("bici");

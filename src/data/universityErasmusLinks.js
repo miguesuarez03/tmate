@@ -108,7 +108,7 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "WU Vienna": "https://www.wu.ac.at/en/programs/international-and-exchange-students/incoming-exchange-students",
 
   // ── Rosenheim ────────────────────────────────────────────────────────────
-  "Technische Hochschule Rosenheim": "https://www.th-rosenheim.de/en/international/incoming-students",
+  "Technische Hochschule Rosenheim": "https://www.th-rosenheim.de/en/international/incomings/exchange-students",
 
   // ── Bruselas ─────────────────────────────────────────────────────────────
   "Université Libre de Bruxelles (ULB)": "https://www.ulb.be/en/incoming-mobility/incoming-erasmus-students",
@@ -254,7 +254,7 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Sveriges lantbruksuniversitet (SLU)": "https://www.slu.se/en/study/exchange-studies/",
 
   // ── Friburgo ─────────────────────────────────────────────────────────────
-  "Albert-Ludwigs-Universität Freiburg": "https://www.international.uni-freiburg.de/en/erasmus/studies-incoming",
+  "Albert-Ludwigs-Universität Freiburg": "https://uni-freiburg.de/internationaloffice/erasmus/studierendenmobilitat-studium-sms-incoming/",
   "Hochschule Furtwangen (campus Friburgo)": "https://www.hs-furtwangen.de/en/study/international/exchange-students",
 
   // ── Nantes ───────────────────────────────────────────────────────────────
@@ -342,8 +342,8 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Technische Universität Dresden (TU Dresden)": "https://tu-dresden.de/studium/vor-dem-studium/internationales/austauschprogramme?set_language=en",
 
   // ── Leipzig ──────────────────────────────────────────────────────────────
-  "Universität Leipzig": "https://www.uni-leipzig.de/en/international/exchange-students-at-leipzig-university",
-  "HTWK Leipzig": "https://www.htwk-leipzig.de/en-international/coming-to-htwk-leipzig/",
+  "Universität Leipzig": "https://www.uni-leipzig.de/en/international/studying-at-leipzig-university/application-and-preparing-to-study/exchange-students",
+  "HTWK Leipzig": "https://www.htwk-leipzig.de/en/en-international/coming-to-htwk-leipzig/international-non-degree-students",
 
   // ── Tubinga ──────────────────────────────────────────────────────────────
   "Eberhard Karls Universität Tübingen": "https://uni-tuebingen.de/international/studierende-aus-dem-ausland/erasmus-und-austausch-nach-tuebingen/",

@@ -14,7 +14,7 @@ MAbroad (repo `tmate`): web en español para elegir ciudad de Erasmus. React + V
 1. Claude hace la tarea.
 2. Antes del push, Claude pide a Codex que revise el diff y verifique los datos contra **fuentes oficiales** (con búsqueda web).
 3. Si Codex encuentra fallos, Claude los corrige y vuelve a pedir revisión: **máximo 2 rondas**. Si siguen sin estar de acuerdo, decide Claude y lo apunta en el resumen.
-4. Después: `npm run build` sin errores, commit y `git push` a `main` sin preguntar a Miguel.
+4. Después: `npm test` y `npm run build` sin errores, commit y `git push` a `main` sin preguntar a Miguel.
 5. El resumen final de Claude incluye una línea con lo que encontró Codex.
 
 ## Cómo revisa Codex
@@ -31,6 +31,6 @@ MAbroad (repo `tmate`): web en español para elegir ciudad de Erasmus. React + V
 5. Respetar las capas: datos en `src/data/`, lógica en `src/lib/cities.js`, estado en `src/hooks/`, tipos en `src/types/`, UI en `src/components/` y `src/pages/`.
 6. **Nunca inventar opiniones ni testimonios** de estudiantes (`cityExperiences.js` solo contiene experiencias reales aprobadas a mano). Las puntuaciones son valoración editorial de MAbroad, nunca datos oficiales.
 7. No levantar el servidor ni navegar la web para comprobar cambios visualmente: se revisa el código. Las pruebas visuales las hace Miguel.
-8. Para verificar el build de verdad: `npm run build` (no basta con `vite dev`).
+8. Para verificar el build de verdad: `npm run build` (no basta con `vite dev`), **lanzado desde PowerShell, no desde Git Bash**: desde Git Bash la ruta llega a Vite como `c:/...` y falla con `[vite:html-inline-proxy] Could not load ...`. Los tests van con `npm test` (desde cualquiera de las dos).
 9. No tocar `.env.local` ni exponer claves.
 10. Idioma: textos de la web, comentarios y commits en español.

@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 TMate — a React SPA (in Spanish) that helps students pick an Erasmus/study-abroad city: city listings, detail pages, a comparator, a "City Match" quiz, a scholarship (beca) calculator, and Learning Agreement guidance. Content and UI copy are in Spanish; code comments are also largely in Spanish.
 
-There is no backend — everything is static data in `src/data/`, and the "build" step prerenders every route to static HTML for SEO (see below). No test framework or linter is configured in this repo.
+There is no backend — everything is static data in `src/data/`, and the "build" step prerenders every route to static HTML for SEO (see below). There is no linter; a few tests run with Node's built-in test runner (`npm test`).
 
 ## Commands
 
@@ -17,11 +17,14 @@ npm run build:ssr        # vite build --ssr src/entry-server.jsx --outDir .ssr-t
 npm run prerender        # node scripts/prerender.mjs — renders every route to static HTML in dist/
 npm run build             # runs the three steps above in order (this is the real production build)
 npm run preview           # vite preview — serve dist/ locally after a build
+npm test                  # node --test "tests/**/*.test.mjs" — no dependencies; tests/resolve-hook.mjs lets Node load src/ like Vite does
 ```
+
+**Run the build from PowerShell, not Git Bash.** From Git Bash the path reaches Vite as `c:/...` (lowercase drive letter) and `vite build` fails with `[vite:html-inline-proxy] Could not load .../index.html?html-proxy&inline-css...`. From PowerShell (`C:\Users\...`) it works. `npm test` works from either.
 
 To verify a change end-to-end (not just `vite dev`), run `npm run build` then `npx serve dist` and check a deep URL like `/city/berlin` — `vite dev` alone does not exercise the prerender/SSG path.
 
-There are no lint or test scripts configured.
+There is no linter. The tests (`tests/*.test.mjs`) cover cost parsing: every `costDetail` must be a range `mín–máx€/mes` (a single figure fails the test), plus cost sorting and the «Asequible» tag (`isAffordable()` in `src/lib/cities.js`).
 
 ## Architecture
 
@@ -97,7 +100,7 @@ En este repo también trabaja Codex (plugin `codex@openai-codex`). Las normas co
    ```
    (prompt y respuesta en el scratchpad, no en el repo; no cortar la salida con `Select-Object -First`, que mata el proceso).
 3. **Si Codex encuentra fallos**, Claude los corrige y vuelve a pedir revisión: **máximo 2 rondas**. Si siguen sin estar de acuerdo, Claude decide con su criterio y lo apunta en el resumen.
-4. **Después**: `npm run build` sin errores, commit y `git push` a `main` **sin preguntar** a Miguel.
+4. **Después**: `npm test` y `npm run build` (desde PowerShell) sin errores, commit y `git push` a `main` **sin preguntar** a Miguel.
 5. **Resumen final**: incluye una línea con lo que encontró Codex.
 
 `vercel --prod` sigue necesitando que Miguel lo pida (el push a `main` ya despliega solo en Vercel).

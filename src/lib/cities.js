@@ -475,6 +475,15 @@ export function parseMaxCost(costDetail) {
   return matches ? parseInt(matches[matches.length - 1].replace(/\./g, ""), 10) : 0;
 }
 
+/** Presupuesto mínimo (€/mes) hasta el que una ciudad se etiqueta como «Asequible». */
+export const AFFORDABLE_MAX_COST = 500;
+
+/** ¿Es asequible? Mira el mínimo del rango de costDetail (entiende los miles). */
+export function isAffordable(costDetail) {
+  const min = parseMinCost(costDetail || "");
+  return min > 0 && min <= AFFORDABLE_MAX_COST;
+}
+
 /** Formatea un score de 0-10 con color semántico. */
 export function getScoreLevel(score) {
   if (score >= 8.5) return { label: 'Excelente', color: '#22C55E' };

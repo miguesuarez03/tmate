@@ -5,7 +5,7 @@ Claude Code hace cada tanda y Codex la revisa con `codex exec` en solo lectura (
 
 ## Dónde vamos
 
-**Siguiente tanda: 8** (Friburgo, Leipzig, Dresde, Tubinga, Rosenheim) (actualizar al cerrar cada tanda).
+**Siguiente tanda: 9** (Toulouse, Burdeos, Nantes, Montpellier, Marsella). Rosenheim (tanda 8) espera los datos locales de Miguel: ver «Pendiente de Miguel» al final. (actualizar al cerrar cada tanda).
 
 ## Qué se revisa en cada ciudad
 
@@ -34,7 +34,7 @@ Herramientas en `scripts/verificacion/` (ejecutar desde la raíz del repo):
 5. **Revisión (Codex)**: ronda 1 sobre `git diff` con las afirmaciones nuevas y las decisiones editoriales; corregir y ronda 2 si hace falta (máx. 2).
 6. **Cerrar**: actualizar «Dónde vamos», la tabla y el registro; `npm run build`; commit y push.
 
-Criterios fijados en las tandas 1–5: `language` = solo idiomas oficiales; `costDetail` = estimación mensual que publica una universidad de la ciudad (si no hay, estimación editorial marcada como pendiente) y nota de coste coherente; clima = medias de mínimas y máximas por estación de las normales 1991–2020 (sin dato verificado, sin bloque: la sección no se muestra); precios sueltos de cervezas o menús sin fuente → se reescriben sin cifra; testimonios en primera persona que no estén en `cityExperiences.js` → fuera.
+Criterios fijados en las tandas 1–5: `language` = solo idiomas oficiales; `costDetail` = estimación mensual que publica una universidad de la ciudad, siempre como rango `mín–máx€/mes` (si la universidad da una sola cifra, se usa su desglose o una segunda estimación de gastos de la ciudad; si no hay, rango editorial marcado como pendiente; no vale el mínimo para el visado, que es solvencia y no gasto; `npm test` falla con una cifra suelta) (si no hay, estimación editorial marcada como pendiente) y nota de coste coherente; clima = medias de mínimas y máximas por estación de las normales 1991–2020 (sin dato verificado, sin bloque: la sección no se muestra); precios sueltos de cervezas o menús sin fuente → se reescriben sin cifra; testimonios en primera persona que no estén en `cityExperiences.js` → fuera.
 
 ## Tandas
 
@@ -49,7 +49,7 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 | 5 | Coimbra (`coimbra`), Copenhague (`copenhague`), Dublín (`dublin`), Estocolmo (`estocolmo`), Helsinki (`helsinki`) | ✅ 10-11-2026 |
 | 6 | Lovaina (`lovaina`), Gante (`gante`), Utrecht (`utrecht`), Groningen (`groningen`), Rotterdam (`rotterdam`) | ✅ 10-11-2026 |
 | 7 | La Haya (`la-haya`), Maastricht (`maastricht`), Hamburgo (`hamburgo`), Colonia (`colonia`), Heidelberg (`heidelberg`) | ✅ 11-11-2026 |
-| 8 | Friburgo (`friburgo`), Leipzig (`leipzig`), Dresde (`dresde`), Tubinga (`tubinga`), Rosenheim (`rosenheim`) | Pendiente |
+| 8 | Friburgo (`friburgo`), Leipzig (`leipzig`), Dresde (`dresde`), Tubinga (`tubinga`), Rosenheim (`rosenheim`) | ✅ 11-11-2026 (Rosenheim: falta lo local) |
 | 9 | Toulouse (`toulouse`), Burdeos (`burdeos`), Nantes (`nantes`), Montpellier (`montpellier`), Marsella (`marsella`) | Pendiente |
 | 10 | Lille (`lille`), Estrasburgo (`estrasburgo`), Grenoble (`grenoble`), Rennes (`rennes`), Venecia (`venecia`) | Pendiente |
 | 11 | Pisa (`pisa`), Siena (`siena`), Bari (`bari`), Génova (`genova`), Perugia (`perugia`) | Pendiente |
@@ -139,10 +139,34 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 
 ### Tanda 7 — 11-11-2026 (La Haya, Maastricht, Hamburgo, Colonia, Heidelberg)
 - Fotos: las 5 corresponden a su ciudad.
-- Coste según las universidades (THUAS, UM, Universität Hamburg, Universität zu Köln, Universidad de Heidelberg): La Haya 1.000–1.300 € (más seguro si trabajas), Maastricht 1.250 €, Hamburgo 900–1.400 €, Colonia 900–1.200 €, Heidelberg 1.000 €; notas de coste ajustadas (La Haya 6,5→5,0).
+- Coste según las universidades (THUAS, UM, Universität Hamburg, Universität zu Köln, Universidad de Heidelberg): La Haya 1.000–1.300 € (más seguro si trabajas), Maastricht 1.200–1.250 € (folleto de intercambio de la SBE y estimación de 2026), Hamburgo 900–1.400 €, Colonia 900–1.200 €, Heidelberg 750–1.050 € (desglose para intercambio en residencia); notas de coste ajustadas (La Haya 6,5→5,0).
 - Corregido lo falso: La Haya «sede de la ONU» (es sede de la Corte Internacional de Justicia), «OV-chipkaart obligatoria» (también OVpay), Parkpop (terminó en 2023); Maastricht «la ciudad con más estudiantes internacionales» (el dato es de la universidad) y «PBL íntegramente en inglés»; mirador de la Elbphilharmonie «gratis» (5 €/3 €); Karneval «cada febrero» (febrero o marzo), museo y torre de la catedral «gratis», «RTL Group» (es RTL Deutschland), ICE a París (es Eurostar); Heidelberg «BioPark» (Technologiepark) y SAP «a 15 minutos».
 - Fuera récords y cifras sin fuente: «capital diplomática del mundo», «la ciudad más internacional», «ninguna ciudad concentra tantas instituciones», «+2.500 internacionales», «el mercado más barato de Holanda», «segunda economía urbana de Alemania», «una de las ciudades más seguras de Alemania» (seguridad de Heidelberg 9,0→8,5), tiempos de tren y precios de habitaciones y cervezas sin fuente.
 - Clima con normales 1991–2020: La Haya (KNMI Voorschoten) y Hamburgo (DWD Fuhlsbüttel) corregidos; añadidos Maastricht (KNMI), Colonia (DWD Köln/Bonn) y Heidelberg (DWD Mannheim, la estación más cercana con serie completa, a unos 18 km).
 - 7 enlaces Erasmus arreglados (Leiden, THUAS, Universität Hamburg, HCU, TUHH, Universität zu Köln, Sporthochschule).
 - Código: ordenar por coste y la etiqueta «Asequible» leían mal los miles («1.200–1.500€» contaba como 120 € o como barato); ahora usan `parseMinCost`. `show.cjs`/`lib.cjs` aceptan slugs con guion (`"la-haya"`).
 - Codex: auditoría con fuentes + 2 rondas; en la ronda 1 pidió quitar junio de las iluminaciones del castillo de Heidelberg y usar el desglose de THUAS sin el seguro (solo si trabajas) (aplicado). No puso objeciones al clima de Heidelberg con la estación de Mannheim (anotado en weatherSeasons.js).
+
+### Tanda 8 — 11-11-2026 (Friburgo, Leipzig, Dresde, Tubinga, Rosenheim)
+- Fotos: las 5 corresponden a su ciudad.
+- Coste: Friburgo 800–1.400 € (universidad), Leipzig 800–950 € (facultad y programa de la universidad), Rosenheim 900–1.150 € (TH). Dresde 800–1.000 € y Tubinga 900–1.050 € son **estimación editorial pendiente de fuente**: TU Dresden solo da «unos 900 €» y la cifra de Tubinga (947 €) es la media alemana de 2021; el rango de Tubinga suma sus alquileres (residencias del Studierendenwerk, 284 € de media en sus sedes en 2025; habitación en Tubinga, unos 430 € según la universidad). Notas de coste ajustadas (Rosenheim 7,5→6,0; alojamiento 8,2→6,0, porque la TH avisa de escasez).
+- Corregido lo falso: Friburgo «la más soleada de Alemania» (una de las más soleadas); Institut für Zukunft (cerró en 2024); ESN en Leipzig y Tubinga (son WILMA y StudIT); Tubinga «uno de cada tres habitantes es estudiante» (unos 28.000 estudiantes y unos 92.000 habitantes); Studierendenwerk Tübingen-Hohenheim; en Dresde el Deutschlandsemesterticket va en la matrícula; Praga a unas 2 h 30; Rosenheim «Oktoberfest local» (es el Herbstfest), el Deutschlandticket «lo cubre todo» (no el ICE), «40 minutos» a Múnich, Aicherpark «residencial» (es zona comercial) y «el mercado de alquiler más fácil».
+- Fuera récords sin fuente: «de las ciudades más seguras de Alemania» en Friburgo, Dresde y Tubinga (seguridad 9,0→8,5, 8,3→8,0, 9,0→8,5), garantías absolutas de seguridad en Rosenheim, tiempos de tren sin fuente y precios de habitaciones sin fuente.
+- Clima con normales 1991–2020: añadidos Friburgo (DWD/OMM Freiburg), Leipzig (Holzhausen), Dresde (Klotzsche) y Tubinga (Stuttgart-Echterdingen, estación sustitutiva a unos 20 km, anotada); Rosenheim corregido (DWD Rosenheim).
+- 4 enlaces Erasmus arreglados (Friburgo, Leipzig, HTWK, TH Rosenheim). El de la Universität Leipzig no se pudo comprobar automáticamente (su web rechaza las peticiones automáticas): **comprobar en el navegador**.
+- Código: Maastricht y Heidelberg pasan a rango (1.200–1.250 € y 750–1.050 €); `isAffordable()` en `src/lib/cities.js`; el popup del mapa del mundo tenía su propia copia del coste de 150 ciudades, desfasada (Cracovia 350–550 € frente a 600–950 €), y ahora lee `costDetail`; `npm test` (Node, sin dependencias) comprueba el formato de rango, el orden por coste y «Asequible».
+- Codex: auditoría con fuentes + 2 rondas; en la ronda 1 rechazó usar el mínimo para el visado (992 €) como extremo del rango y avisó de que los 947 € de Tubinga son media alemana de 2021 (aplicado: Friburgo con su rango oficial, Dresde y Tubinga como estimación editorial); en la ronda 2 precisó la redacción de los alquileres de Tubinga (aplicado).
+
+## Pendiente de Miguel (Rosenheim, vive allí)
+
+Datos de Rosenheim que no se pueden comprobar con fuentes oficiales. Siguen como estaban hasta que Miguel los confirme o corrija (lo verificable ya se aplicó en la tanda 8):
+
+- Distancias y transporte: «los Alpes a 30 minutos» (¿a dónde y en qué?), «a 60 km de Múnich», «Chiemsee a 20 minutos» (¿en qué y hasta dónde?), regional a Múnich «cada 30 minutos», «del campus al centro en 15 minutos» andando, Salzburgo a 45 min e Innsbruck a 1 h 30 (¿en tren?), esquí en bus regional o coche compartido (¿qué estaciones?), «sin coche es completamente viable».
+- Barrios: Innenstadt «centro histórico tranquilo, €€». Aicherpark se ha cambiado a «zona comercial y de oficinas» (según el ayuntamiento): ¿qué barrios residenciales pondrías para estudiantes y con qué precio relativo (€/€€/€€€)?
+- Ambiente: «tranquila y asequible, lejos del turismo masivo», «ambiente bávaro muy auténtico», «Baviera sin filtro turístico», «biergärten centenarios» (¿cuáles?), mercado de Navidad «de los más bonitos del país», comunidad Erasmus «pequeña pero muy unida», el ocio principal es la naturaleza y los viajes a Múnich, vida nocturna «muy local».
+- Gente e idioma: menos inglés que en Múnich y el alemán es esencial, locales muy acogedores con extranjeros, integración y amistades «desde los primeros días».
+- Coste del día a día: supermercados «bien surtidos a precios razonables», ocio más barato que en Múnich, grupos de Facebook o webs para buscar piso además de WG-Gesucht.
+- Clima: invierno con «nieve frecuente» / «nieve asegurada».
+- Empleo: «muchos estudiantes hacen prácticas en Múnich», prácticas accesibles en empresas locales.
+- Seguridad: «de las ciudades más seguras de la guía», «todos se conocen».
+- Texto de ambiente: «huele a madera de pino y cerveza artesanal», «el silencio de los Alpes».
