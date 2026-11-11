@@ -707,6 +707,9 @@ a { text-decoration: none; color: inherit; }
   /* Dark bg while image loads */
   background: #0F1E2D;
   transform: translateY(0);
+  /* La tarjeta es contenedor de consulta: el nombre mide su hueco en cqi. */
+  container-type: inline-size;
+  --name-gap: 86px; /* 2×16 de margen + 44 del anillo + 10 de separación */
   /* isolation: recorta bien la foto ampliada en las esquinas redondeadas
      (sin ello Safari deja ver el borde de la imagen durante la transición). */
   isolation: isolate;
@@ -768,9 +771,21 @@ a { text-decoration: none; color: inherit; }
 .city-card__contentTop {
   display: flex; align-items: flex-end; justify-content: space-between; gap: 10px;
 }
+/* El bloque nombre+país puede encoger: sin esto una palabra larga lo
+   ensanchaba y empujaba el anillo de score fuera de la tarjeta. */
+.city-card__contentTop > div:first-child { min-width: 0; }
 .city-card__name {
   font-family: var(--font-display); font-size: clamp(18px, 2.5vw, 22px);
   font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 3px;
+  /* Nombres de una palabra larga ("Maastricht", "Copenhague") en tarjetas
+     estrechas (2 columnas en un móvil de 360px): la letra baja lo justo para
+     que la palabra quepa en el hueco que deja el anillo. Hueco = ancho de la
+     tarjeta (100cqi) menos --name-gap (márgenes + anillo); cada letra ocupa
+     ~0,56em. En tarjetas anchas el cálculo supera el tamaño normal y no
+     cambia nada. Navegadores sin unidades cqi se quedan con la línea de
+     arriba. Último recurso para nombres larguísimos: partir la palabra. */
+  font-size: clamp(13px, calc((100cqi - var(--name-gap)) / (var(--name-len, 6) * 0.56)), clamp(18px, 2.5vw, 22px));
+  overflow-wrap: anywhere;
 }
 .city-card__country { font-size: 12px; color: rgba(255,255,255,0.72); margin-bottom: 8px; }
 .city-card__phrase {
@@ -786,6 +801,7 @@ a { text-decoration: none; color: inherit; }
 /* Móviles estrechos (2 columnas de ~147px): algo menos de margen lateral para
    que bandera y país («Portugal», «Alemania») quepan en una línea a 12px. */
 @media (max-width: 400px) {
+  .city-card { --name-gap: 74px; } /* 2×12 + 44 + 6 */
   .city-card__content { padding: 14px 12px 16px; }
   .city-card__contentTop { gap: 6px; }
 }
