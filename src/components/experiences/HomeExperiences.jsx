@@ -1,4 +1,5 @@
 import { useEffect, useId, useState } from "react";
+import Flag from "../Flag";
 import { Link, useSearchParams } from "react-router-dom";
 import { FOUNDER_EXPERIENCE } from "../../data/cityExperiences";
 import { getAllExperiences, getFounderEntry, getCityBySlug } from "../../lib/cities";
@@ -92,7 +93,7 @@ function FounderStory({ titleId, onShare }) {
           </div>
         )}
         <figcaption className={styles.founderChip}>
-          {city?.emoji} Erasmus en {city?.name || f.hostUniversity}
+          <Flag emoji={city?.emoji} /> Erasmus en {city?.name || f.hostUniversity}
         </figcaption>
       </figure>
 

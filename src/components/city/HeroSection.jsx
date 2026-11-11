@@ -7,6 +7,7 @@ import { IconUniversidad, IconIdiomas, IconFiesta, IconBeca, IconSol, IconBici, 
 import ScoreRing from "../ScoreRing";
 import { heroImage } from "../../lib/images";
 import PhotoCredit from "../PhotoCredit";
+import Flag from "../Flag";
 
 // ─── MOOD TAGS CONFIG ─────────────────────────────────────────────────────────
 const MOOD_ICONS = {
@@ -139,7 +140,7 @@ export default function HeroSection({ city, overallScore, insights }) {
         {/* LEFT */}
         <div className={styles.heroLeft}>
           <div className={styles.heroBreadcrumb}>
-            <span>{city.emoji}</span>
+            <Flag emoji={city.emoji} />
             <span>{city.country}</span>
             <span className={styles.heroBreadSep}>·</span>
             <span>{city.region}</span>
@@ -241,7 +242,7 @@ export default function HeroSection({ city, overallScore, insights }) {
                 {city.tag === "Trending" && <IconFuego size={14} />} {city.tag}
               </p>
             </div>
-            <span className={styles.heroCardFlag}>{city.emoji}</span>
+            <span className={styles.heroCardFlag}><Flag emoji={city.emoji} /></span>
           </div>
 
           <ScoreRing score={overallScore} />

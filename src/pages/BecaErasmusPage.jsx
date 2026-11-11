@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useId } from "react";
+import Flag from "../components/Flag";
 import { Link } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { IconCorazonInclusion, IconAccesibilidad, IconHoja, IconBombilla, IconGrafica, IconPin, IconTarjeta, IconLibros, IconEdificio, IconUniversidad, IconCasa, IconComida, IconTransporte, IconFiesta, IconBeca, IconAlerta, IconCheck, IconViajes } from "../components/icons";
@@ -62,7 +63,7 @@ function SearchableInput({ value, onChange, options, placeholder, onSelect }) {
               className="beca-searchable__option"
               onMouseDown={() => handleSelect(opt)}
             >
-              {opt.emoji && <span className="beca-searchable__emoji">{opt.emoji}</span>}
+              {opt.emoji && <span className="beca-searchable__emoji"><Flag emoji={opt.emoji} /></span>}
               <span className="beca-searchable__label">{opt.label}</span>
               {opt.sublabel && <span className="beca-searchable__sublabel">{opt.sublabel}</span>}
             </button>
@@ -315,7 +316,7 @@ function Calculator() {
               {/* País detectado automáticamente */}
               {destCity && (
                 <div className="beca-country-detected">
-                  <span className="beca-country-detected__flag">{destCity.emoji}</span>
+                  <span className="beca-country-detected__flag"><Flag emoji={destCity.emoji} /></span>
                   <span>
                     País detectado: <strong>{country}</strong>
                     {group && <span className="beca-country-group"> · Grupo {group} — desde {baseRate}€/mes</span>}
@@ -429,7 +430,7 @@ function Calculator() {
               <>
                 <div className="beca-calc__result-group">
                   <span className="beca-calc__result-label">Destino</span>
-                  <span className="beca-calc__result-val">{destCity.emoji} {destCity.name} — {country} (Grupo {group})</span>
+                  <span className="beca-calc__result-val"><Flag emoji={destCity.emoji} /> {destCity.name} — {country} (Grupo {group})</span>
                 </div>
                 <div className="beca-calc__result-group">
                   <span className="beca-calc__result-label">Erasmus base ({months} meses)</span>

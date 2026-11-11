@@ -7,6 +7,7 @@ import { Navbar, Footer, SectionLabel, MASymbol, NAV_LINKS, isPlainClick } from 
 import { IconCityMatch, IconComparar, IconBeca, IconRanking, IconComunidad, IconSeguridad, IconUniversidad, IconMedalla, IconEdificio, IconFiesta, IconPausa, IconReproducir } from "../components/icons";
 import SearchBar from "../components/SearchBar";
 import CityCard from "../components/CityCard";
+import Flag from "../components/Flag";
 import { useCityFilter } from "../hooks/useCityFilter";
 import { useSEO } from "../hooks/useSEO";
 import { useIsoLayoutEffect } from "../hooks/useIsoLayoutEffect";
@@ -549,7 +550,7 @@ function RankingsSection() {
               <span className="rankings-row__pos">
                 {i < 3 ? <IconMedalla size={26} tone={i === 0 ? "gold" : i === 1 ? "silver" : "bronze"} /> : `#${i + 1}`}
               </span>
-              <span className="rankings-row__city">{r.city.emoji} {r.city.name}<span className="rankings-row__country">{r.city.country}</span></span>
+              <span className="rankings-row__city"><span><Flag emoji={r.city.emoji} /> {r.city.name}</span><span className="rankings-row__country">{r.city.country}</span></span>
               <div className="rankings-row__bar">
                 <div className="rankings-row__bar-fill" style={{ width: `${(r.score / 10) * 100}%` }} />
               </div>

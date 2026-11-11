@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { searchCities, findBestCityMatch } from "../lib/cities";
 import { IconLupa, IconPin } from "./icons";
+import Flag from "./Flag";
 
 export default function SearchBar({ light = false }) {
   const [query, setQuery] = useState("");
@@ -67,7 +68,7 @@ export default function SearchBar({ light = false }) {
               <span style={{ display: "inline-flex" }}><IconPin size={16} /></span>
               <span className="search-bar__city">{city.name}</span>
               <span className="search-bar__country">
-                {city.emoji} {city.country}
+                <Flag emoji={city.emoji} /> {city.country}
               </span>
             </div>
           ))}

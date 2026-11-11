@@ -2816,3 +2816,15 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
 @media (max-width: 768px) {
   .hero { padding-top: 130px; }
 }
+
+/* ─── BANDERAS (SVG) ─────────────────────────────────────────────────────────
+   <Flag> (src/components/Flag.jsx) sustituye al emoji de bandera, que Windows
+   pinta como dos letras. Mide en em: hereda el tamaño del texto de alrededor
+   (o del contenedor que antes daba tamaño al emoji), proporción 3:2. */
+.flag {
+  display: inline-block; flex-shrink: 0;
+  width: 1.35em; height: 0.9em;
+  vertical-align: -0.08em;
+  border-radius: 0.14em;
+  box-shadow: 0 0 0 0.5px rgba(15,30,45,0.22);
+}

@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
+import Flag from "../components/Flag";
 import { Link, useSearchParams } from "react-router-dom";
 import { CITIES } from "../data/cities";
 import { getScoreMap, getOverallScore, parseMinCost, isErasmusEligible } from "../lib/cities";
@@ -111,7 +112,7 @@ function RadarChart({ scoreIds, selectedCities, scoreMaps }) {
         {selectedCities.map((city, i) => (
           <div key={city.slug} className={styles.radarLegendItem}>
             <span className={styles.radarLegendDot} style={{ background: COL_COLORS[i] }} />
-            <span>{city.emoji} {city.name}</span>
+            <span><Flag emoji={city.emoji} /> {city.name}</span>
           </div>
         ))}
       </div>
@@ -293,7 +294,7 @@ function MiniCard({ city, checked = false, disabled = false, accentColor, onClic
           decoding="async"
           onError={(e) => { e.currentTarget.style.opacity = 0; }}
         />
-        <span className={styles.miniEmoji}>{city.emoji}</span>
+        <span className={styles.miniEmoji}><Flag emoji={city.emoji} /></span>
         {checked && (
           <span className={styles.miniCheck}>
             <IconCheck size={20} />
@@ -324,7 +325,7 @@ function FeaturedCard({ city, checked = false, accentColor, onClick }) {
       {checked && <span className={styles.featuredCheck}><IconCheck size={18} /></span>}
       <div className={styles.featuredBody}>
         <div>
-          <p className={styles.featuredName}>{city.emoji} {city.name}</p>
+          <p className={styles.featuredName}><Flag emoji={city.emoji} /> {city.name}</p>
           <p className={styles.featuredCountry}>{city.country}</p>
         </div>
         <ScoreRing score={overall} size={46} showLabel={false} animate={false} />
@@ -511,7 +512,9 @@ export default function ComparePage() {
               </button>
               <h1 className={styles.compareTitle}>Comparativa de destinos</h1>
               <p className={styles.compareSubtitle}>
-                {selectedCities.map((c) => `${c.emoji} ${c.name}`).join("  vs  ")}
+                {selectedCities.map((c, i) => (
+                  <span key={c.slug}>{i > 0 && "  vs  "}<Flag emoji={c.emoji} /> {c.name}</span>
+                ))}
               </p>
             </div>
           </div>
@@ -537,7 +540,7 @@ export default function ComparePage() {
                       <PhotoCredit src={city.img} corner="bottom-right" />
                       <div className={styles.cityCardOverlay} style={{ background: `linear-gradient(to top, ${COL_COLORS[i]}cc 0%, rgba(0,0,0,0.2) 60%)` }} />
                       <div className={styles.cityCardTop}>
-                        <span className={styles.cityEmoji}>{city.emoji}</span>
+                        <span className={styles.cityEmoji}><Flag emoji={city.emoji} /></span>
                         <button className={styles.removeBtn} onClick={() => remove(city.slug)}>✕</button>
                       </div>
                       <div className={styles.cityCardInfo}>
@@ -588,7 +591,7 @@ export default function ComparePage() {
                   const { pros, cons } = buildProsCons(scoreMaps[i]);
                   return (
                     <div key={city.slug} className={styles.prosConsCol} style={{ borderTopColor: COL_COLORS[i] }}>
-                      <div className={styles.prosConsHead} style={{ color: COL_COLORS[i] }}>{city.emoji} {city.name}</div>
+                      <div className={styles.prosConsHead} style={{ color: COL_COLORS[i] }}><Flag emoji={city.emoji} /> {city.name}</div>
                       <div className={styles.prosConsBlock}>
                         <span className={styles.prosConsLabel} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><IconCheck size={16} /> Puntos fuertes</span>
                         <ul className={styles.prosConsList}>
@@ -630,7 +633,7 @@ export default function ComparePage() {
                           return (
                             <div key={r.city.slug} className={styles.diffBarItem}>
                               <span className={styles.diffBarLabel} style={{ color: isWinner ? r.color : "var(--color-slate-light)" }}>
-                                {r.city.emoji} {r.city.name}
+                                <Flag emoji={r.city.emoji} /> {r.city.name}
                               </span>
                               <div className={styles.diffBarTrack}>
                                 <div className={styles.diffBarFill} style={{ width: `${(score / 10) * 100}%`, background: r.color, opacity: isWinner ? 1 : 0.45 }} />
@@ -665,7 +668,7 @@ export default function ComparePage() {
                   <div key={city.slug} className={styles.featureCol}
                     style={{ "--accent": COL_COLORS[i], borderTopColor: COL_COLORS[i] }}>
                     <div className={styles.featureColHead} style={{ color: COL_COLORS[i] }}>
-                      {city.emoji} {city.name}
+                      <Flag emoji={city.emoji} /> {city.name}
                     </div>
                     <div className={styles.featureBlock}>
                       <span className={styles.featureLabel}>Vibe</span>
@@ -746,7 +749,7 @@ export default function ComparePage() {
             <div className={styles.stickyChips}>
               {selectedCities.map((city, i) => (
                 <div key={city.slug} className={styles.pill} style={{ "--pill-color": COL_COLORS[i] }}>
-                  <span>{city.emoji} {city.name}</span>
+                  <span><Flag emoji={city.emoji} /> {city.name}</span>
                   <button className={styles.pillRemove} onClick={() => remove(city.slug)} aria-label={`Quitar ${city.name} de la selección`}>✕</button>
                 </div>
               ))}

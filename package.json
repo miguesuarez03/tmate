@@ -8,6 +8,7 @@
     "build:ssr": "vite build --ssr src/entry-server.jsx --outDir .ssr-temp",
     "prerender": "node scripts/prerender.mjs",
     "photos:meta": "node scripts/wikimedia-photos.mjs",
+    "flags:sprite": "node scripts/build-flags.mjs",
     "build": "npm run build:client && npm run build:ssr && npm run prerender",
     "preview": "vite preview",
     "test": "node --import ./tests/resolve-hook.mjs --test \"tests/**/*.test.mjs\""
@@ -26,6 +27,7 @@
     "@types/react": "^19.2.15",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^4.2.1",
+    "country-flag-icons": "^1.6.20",
     "typescript": "^6.0.3",
     "vite": "^5.1.0",
     "world-atlas": "^2.0.2"

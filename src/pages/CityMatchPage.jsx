@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo, useRef, useId } from "react";
+import Flag from "../components/Flag";
 import { Link, useSearchParams } from "react-router-dom";
 import { CITIES } from "../data/cities";
 import { getScoreMap, getOverallScore, isErasmusEligible, getCitySize } from "../lib/cities";
@@ -497,7 +498,7 @@ export default function CityMatchPage() {
                   <div className={styles.resultBody}>
                     <div className={styles.resultHead}>
                       <div>
-                        <h2 className={styles.resultName}>{m.city.emoji} {m.city.name}</h2>
+                        <h2 className={styles.resultName}><Flag emoji={m.city.emoji} /> {m.city.name}</h2>
                         <span className={styles.resultCountry}>{m.city.country}</span>
                       </div>
                       <div className={styles.resultHeadRight}>

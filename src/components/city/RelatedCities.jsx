@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Flag from "../Flag";
 import styles from "./RelatedCities.module.css";
 import { IconComparar } from "../icons";
 import { responsiveImage } from "../../lib/images";
@@ -29,7 +30,7 @@ function RelatedCard({ city }) {
       <div className={styles.cardOverlay} />
       <PhotoCredit src={city.img} corner="bottom-right" nested />
       <div className={styles.cardContent}>
-        <span className={styles.cardFlag} aria-hidden="true">{city.emoji}</span>
+        <span className={styles.cardFlag}><Flag emoji={city.emoji} /></span>
         <div className={styles.cardInfo}>
           <h3 className={styles.cardName}>{city.name}</h3>
           <p className={styles.cardCountry}>{city.country}</p>

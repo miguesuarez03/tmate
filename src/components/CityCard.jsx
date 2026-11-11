@@ -4,6 +4,7 @@ import { IconFuego } from "./icons";
 import { isErasmusEligible, getOverallScore } from "../lib/cities";
 import ScoreRing from "./ScoreRing";
 import PhotoCredit from "./PhotoCredit";
+import Flag from "./Flag";
 import { responsiveImage } from "../lib/images";
 import { useIsoLayoutEffect } from "../hooks/useIsoLayoutEffect";
 
@@ -88,7 +89,7 @@ export default function CityCard({ city }) {
         <div className="city-card__contentTop">
           <div>
             <p className="city-card__name">{city.name}</p>
-            <p className="city-card__country">{city.emoji} {city.country}</p>
+            <p className="city-card__country"><Flag emoji={city.emoji} /> {city.country}</p>
           </div>
           <ScoreRing score={overall} size={44} showLabel={false} animate={false} />
         </div>

@@ -245,7 +245,7 @@ export default function ShareExperienceModal({ open, onClose, initialCity = "" }
                 >
                   <option value="">Elige la ciudad…</option>
                   {SORTED_CITIES.map((c) => (
-                    <option key={c.slug} value={c.slug}>{c.emoji} {c.name} — {c.country}</option>
+                    <option key={c.slug} value={c.slug}>{c.name} — {c.country}</option>
                   ))}
                 </select>
               </div>

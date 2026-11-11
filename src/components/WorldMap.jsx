@@ -12,6 +12,7 @@ import { getOverallScore, getScoreMap, getCityBySlug, getScoreLevel } from "../l
 import { IconFiesta, IconEdificio, IconBeca, IconGlobo } from "./icons";
 import { responsiveImage } from "../lib/images";
 import PhotoCredit from "./PhotoCredit";
+import Flag, { SvgFlag } from "./Flag";
 
 // Foto de la ficha emergente: 240px de ancho × 130px de alto (WorldMap.module.css).
 const POPUP_PHOTO_SLOTS = [[null, "240px", 240 / 130]];
@@ -51,7 +52,7 @@ const CITIES = [
   { slug: "oslo",       name: "Oslo",       country: "Noruega",   flag: "🇳🇴", coords: [10.75, 59.91] },
   { slug: "reikiavik",  name: "Reikiavik",  country: "Islandia",  flag: "🇮🇸", coords: [-21.94, 64.15] },
   { slug: "dublin",     name: "Dublín",     country: "Irlanda",   flag: "🇮🇪", coords: [-6.27, 53.35] },
-  { slug: "edimburgo",  name: "Edimburgo",  country: "Reino Unido", flag: "🏴", coords: [-3.19, 55.95] },
+  { slug: "edimburgo",  name: "Edimburgo",  country: "Reino Unido", flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", coords: [-3.19, 55.95] },
   { slug: "atenas",     name: "Atenas",     country: "Grecia",    flag: "🇬🇷", coords: [23.73, 37.98] },
   { slug: "zagreb",     name: "Zagreb",     country: "Croacia",   flag: "🇭🇷", coords: [15.98, 45.81] },
   { slug: "liubliana",  name: "Liubliana",  country: "Eslovenia", flag: "🇸🇮", coords: [14.51, 46.06] },
@@ -110,7 +111,7 @@ const CITIES = [
   { slug: "genova",      name: "Génova",      country: "Italia",   flag: "🇮🇹", coords: [8.93, 44.41] },
   { slug: "perugia",     name: "Perugia",     country: "Italia",   flag: "🇮🇹", coords: [12.39, 43.11] },
   { slug: "manchester",  name: "Mánchester",  country: "Reino Unido", flag: "🇬🇧", coords: [-2.24, 53.48] },
-  { slug: "glasgow",     name: "Glasgow",     country: "Reino Unido", flag: "🏴", coords: [-4.25, 55.86] },
+  { slug: "glasgow",     name: "Glasgow",     country: "Reino Unido", flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", coords: [-4.25, 55.86] },
   { slug: "bristol",     name: "Bristol",     country: "Reino Unido", flag: "🇬🇧", coords: [-2.59, 51.45] },
   { slug: "basilea",     name: "Basilea",     country: "Suiza",    flag: "🇨🇭", coords: [7.59, 47.56] },
   { slug: "berna",       name: "Berna",       country: "Suiza",    flag: "🇨🇭", coords: [7.45, 46.95] },
@@ -283,7 +284,7 @@ function CityPopup({ city, onClose }) {
         <div className={styles.popupScore} style={{ color: scoreColor(city.score) }}>
           {city.score}<span>/10</span>
         </div>
-        <span className={styles.popupFlag}>{city.flag}</span>
+        <span className={styles.popupFlag}><Flag emoji={city.flag} /></span>
         <PhotoCredit src={city.img} corner="bottom-right" style={{ "--credit-inset": "8px" }} />
       </div>
       <div className={styles.popupBody}>
@@ -450,14 +451,7 @@ export default function WorldMap() {
               const emojiSize = Math.max(7, Math.min(18, base * 16));
               return (
                 <Marker key={c.name} coordinates={c.coords} style={{ pointerEvents: "none" }}>
-                  <text
-                    textAnchor="middle"
-                    y={0}
-                    fontSize={emojiSize}
-                    style={{ pointerEvents: "none", userSelect: "none" }}
-                  >
-                    {c.flag}
-                  </text>
+                  <SvgFlag emoji={c.flag} y={0} height={emojiSize * 0.8} />
                   <text
                     textAnchor="middle"
                     y={emojiSize + 2}
@@ -513,14 +507,7 @@ export default function WorldMap() {
                   />
                   {/* Emoji de bandera para ciudades seleccionadas o en zoom alto */}
                   {isSelected && (
-                    <text
-                      textAnchor="middle"
-                      y={-10}
-                      fontSize={10}
-                      style={{ pointerEvents: "none", userSelect: "none" }}
-                    >
-                      {city.flag}
-                    </text>
+                    <SvgFlag emoji={city.flag} y={-10} height={8} />
                   )}
                 </Marker>
               );
@@ -536,7 +523,7 @@ export default function WorldMap() {
             onMouseEnter={() => setTooltip(null)}
           >
             <div className={styles.tooltipBody}>
-              <span className={styles.tooltipFlag}>{tooltip.city.flag}</span>
+              <span className={styles.tooltipFlag}><Flag emoji={tooltip.city.flag} /></span>
               <div>
                 <span className={styles.tooltipName}>{tooltip.city.name}</span>
                 <span className={styles.tooltipCountry}>{tooltip.city.country}</span>
