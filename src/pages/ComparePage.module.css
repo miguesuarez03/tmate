@@ -93,6 +93,13 @@
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
+  /* Mismo alto vacía que con una ciudad: la barra no crece al elegir. */
+  min-height: 37px;
+}
+.stickyChipsEmpty {
+  font-size: 13px; color: var(--color-muted);
+  border: 1.5px dashed var(--color-border); border-radius: var(--radius-full);
+  padding: 6px 14px; white-space: nowrap;
 }
 .pill {
   display: flex;
@@ -331,6 +338,8 @@
 .featuredCardSelected {
   box-shadow: 0 0 0 3px var(--tile-color), var(--shadow-lg);
 }
+/* Con 3 ya elegidas, las demás quedan atenuadas (como las mini). */
+.featuredCardDisabled { opacity: 0.45; cursor: not-allowed; }
 .featuredCheck {
   position: absolute; top: 12px; left: 12px; z-index: 2;
   width: 28px; height: 28px; border-radius: 50%;

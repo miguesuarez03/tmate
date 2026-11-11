@@ -32,6 +32,14 @@ const RESULT_HERO_SLOTS = [
 // como bloque destacado en vez de empezar directo con la sopa de acordeones.
 const TRENDING_SLUGS = ["bolonia", "lisboa", "berlin", "praga", "viena"];
 
+// Texto guía del selector según cuántas ciudades hay elegidas (0–3).
+const SELECTION_HINTS = [
+  "Selecciona de 2 a 3 ciudades para empezar la comparativa",
+  "1 de 3 elegida: añade al menos una más",
+  "2 de 3 elegidas: ya puedes comparar, o añade una tercera",
+  "3 de 3 elegidas: pulsa «Comparar» o quita una para cambiarla",
+];
+
 const SCORE_IDS = [
   "coste", "alojamiento", "vida_social", "integracion",
   "movilidad", "estilo_vida", "empleo", "seguridad",
@@ -270,10 +278,9 @@ function VersusGrid({ scoreIds, selectedCities, scoreMaps }) {
 }
 
 /* ─── Mini card (selector view) ─────────────────────────────────────────
-   Tarjeta compacta con miniatura de ciudad — se usa tanto para las ciudades
-   ya seleccionadas (checked, dispara `remove`, con IconCheck superpuesto)
-   como para el resto de destinos dentro de cada acordeón de región (sin
-   marcar, dispara `toggle`). */
+   Tarjeta compacta con miniatura de ciudad dentro de cada acordeón de
+   región. Al elegirla NO se mueve de sitio: se queda donde estaba, marcada
+   (checked: borde de su color e IconCheck); volver a pulsarla la quita. */
 function MiniCard({ city, checked = false, disabled = false, accentColor, onClick }) {
   return (
     <button
@@ -282,6 +289,7 @@ function MiniCard({ city, checked = false, disabled = false, accentColor, onClic
       style={checked ? { "--tile-color": accentColor } : {}}
       onClick={onClick}
       disabled={disabled}
+      aria-pressed={checked}
     >
       <span className={styles.miniThumb}>
         <img
@@ -309,16 +317,19 @@ function MiniCard({ city, checked = false, disabled = false, accentColor, onClic
   );
 }
 
-/* ─── Featured card (seleccionadas / trending) — jerarquía visual clara,
-   nada que ver con el tamaño mini de las regiones de debajo ──────────────── */
-function FeaturedCard({ city, checked = false, accentColor, onClick }) {
+/* ─── Featured card (destinos trending) — jerarquía visual clara, nada que
+   ver con el tamaño mini de las regiones de debajo. Igual que las mini, se
+   marca en su sitio al elegirla. ─────────────────────────────────────────── */
+function FeaturedCard({ city, checked = false, disabled = false, accentColor, onClick }) {
   const overall = getOverallScore(city.slug);
   return (
     <button
       type="button"
-      className={`${styles.featuredCard} ${checked ? styles.featuredCardSelected : ""}`}
+      className={`${styles.featuredCard} ${checked ? styles.featuredCardSelected : ""} ${disabled ? styles.featuredCardDisabled : ""}`}
       style={checked ? { "--tile-color": accentColor } : {}}
       onClick={onClick}
+      disabled={disabled}
+      aria-pressed={checked}
     >
       <PhotoCredit src={city.img} corner="bottom-right" nested /><img className={styles.featuredImg} {...responsiveImage(city.img, { slots: FEATURED_SLOTS })} width={800} height={600} alt="" loading="lazy" decoding="async" onError={(e) => { e.currentTarget.style.opacity = 0; }} />
       <div className={styles.featuredOverlay} />
@@ -335,7 +346,7 @@ function FeaturedCard({ city, checked = false, accentColor, onClick }) {
 }
 
 /* ─── Region accordion (selector view) ──────────────────────────────────── */
-function RegionAccordion({ region, cities, open, onToggle, isFull, toggle }) {
+function RegionAccordion({ region, cities, open, onToggle, isFull, toggle, selected }) {
   return (
     <div className={styles.regionAccordion}>
       <button type="button" className={styles.regionHeader} onClick={onToggle} aria-expanded={open}>
@@ -346,14 +357,20 @@ function RegionAccordion({ region, cities, open, onToggle, isFull, toggle }) {
       {open && (
         <div className={styles.regionBody}>
           <div className={styles.miniGrid}>
-            {cities.map((city) => (
-              <MiniCard
-                key={city.slug}
-                city={city}
-                disabled={isFull}
-                onClick={() => toggle(city.slug)}
-              />
-            ))}
+            {cities.map((city) => {
+              const pos = selected.indexOf(city.slug);
+              const checked = pos !== -1;
+              return (
+                <MiniCard
+                  key={city.slug}
+                  city={city}
+                  checked={checked}
+                  accentColor={COL_COLORS[pos]}
+                  disabled={isFull && !checked}
+                  onClick={() => toggle(city.slug)}
+                />
+              );
+            })}
           </div>
         </div>
       )}
@@ -418,21 +435,19 @@ export default function ComparePage() {
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim();
     return CITIES.filter(
-      (c) =>
-        !selected.includes(c.slug) &&
-        (!q || c.name.toLowerCase().includes(q) || c.country.toLowerCase().includes(q) || c.tag.toLowerCase().includes(q))
+      (c) => !q || c.name.toLowerCase().includes(q) || c.country.toLowerCase().includes(q) || c.tag.toLowerCase().includes(q)
     );
-  }, [search, selected]);
+  }, [search]);
 
   const selectedCities = useMemo(
     () => selected.map((s) => CITIES.find((c) => c.slug === s)).filter(Boolean),
     [selected]
   );
 
-  // Ciudades no seleccionadas que coinciden con la búsqueda, agrupadas por
-  // región y ordenadas alfabéticamente dentro de cada grupo. Se apoya en
-  // `filtered` (ya filtra por nombre/país/tag y excluye las seleccionadas)
-  // para no duplicar esa lógica.
+  // Ciudades que coinciden con la búsqueda, agrupadas por región y ordenadas
+  // alfabéticamente dentro de cada grupo. Las seleccionadas NO se quitan de
+  // la lista: antes desaparecían y todo se recolocaba bajo el dedo (el
+  // segundo toque caía en otra ciudad); ahora se quedan en su sitio, marcadas.
   const regionGroups = useMemo(() => {
     return REGION_ORDER
       .map((region) => ({
@@ -745,57 +760,51 @@ export default function ComparePage() {
             )}
           </div>
 
-          {selected.length > 0 && (
-            <div className={styles.stickyChips}>
-              {selectedCities.map((city, i) => (
-                <div key={city.slug} className={styles.pill} style={{ "--pill-color": COL_COLORS[i] }}>
-                  <span><Flag emoji={city.emoji} /> {city.name}</span>
-                  <button className={styles.pillRemove} onClick={() => remove(city.slug)} aria-label={`Quitar ${city.name} de la selección`}>✕</button>
-                </div>
-              ))}
-            </div>
-          )}
+          {/* Bandeja de la selección: siempre presente (con un texto guía
+              cuando está vacía) para que la barra no cambie de alto —y empuje
+              la lista— al elegir la primera ciudad. */}
+          <div className={styles.stickyChips}>
+            {selected.length === 0 && (
+              <span className={styles.stickyChipsEmpty}>Tu selección aparecerá aquí (0/3)</span>
+            )}
+            {selectedCities.map((city, i) => (
+              <div key={city.slug} className={styles.pill} style={{ "--pill-color": COL_COLORS[i] }}>
+                <span><Flag emoji={city.emoji} /> {city.name}</span>
+                <button className={styles.pillRemove} onClick={() => remove(city.slug)} aria-label={`Quitar ${city.name} de la selección`}>✕</button>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
       <main className={`${styles.selectorMain} ${canCompare ? styles.selectorMainWithBar : ""}`}>
 
-        {selected.length === 0 && (
-          <p className={styles.hint}>Selecciona de 2 a 3 ciudades para empezar la comparativa</p>
-        )}
+        {/* Guía de estado: siempre ocupa su línea (cambia el texto, no el
+            alto), para que la lista no salte al elegir. */}
+        <p className={styles.hint} aria-live="polite">{SELECTION_HINTS[Math.min(selected.length, 3)]}</p>
 
-        {/* Seleccionadas — destacadas en grande arriba del todo, fuera de
-            las regiones, para que no compitan visualmente con el resto. */}
-        {selected.length > 0 && (
-          <section className={styles.selectedSection}>
-            <h2 className={styles.groupTitle}>
-              Seleccionadas <span className={styles.groupCount}>{selected.length}/3</span>
-            </h2>
-            <div className={styles.featuredGrid}>
-              {selectedCities.map((city, i) => (
-                <FeaturedCard
-                  key={city.slug}
-                  city={city}
-                  checked
-                  accentColor={COL_COLORS[i]}
-                  onClick={() => remove(city.slug)}
-                />
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* Sin nada seleccionado todavía: destinos trending destacados en
-            grande, en vez de arrancar directo en la sopa de acordeones. */}
-        {selected.length === 0 && !search && (
+        {/* Destinos trending destacados en grande, en vez de arrancar directo
+            en la sopa de acordeones. Se quedan a la vista también con ciudades
+            elegidas (marcadas en su sitio): antes esta sección se cambiaba por
+            otra de «Seleccionadas» y todo lo de debajo se movía. */}
+        {!search && (
           <section className={styles.selectedSection}>
             <h2 className={styles.groupTitle}>Destinos con más tirón ahora mismo</h2>
             <div className={styles.featuredGrid}>
               {TRENDING_SLUGS.map((slug) => {
                 const city = CITIES.find((c) => c.slug === slug);
                 if (!city) return null;
+                const pos = selected.indexOf(slug);
+                const checked = pos !== -1;
                 return (
-                  <FeaturedCard key={slug} city={city} onClick={() => toggle(slug)} />
+                  <FeaturedCard
+                    key={slug}
+                    city={city}
+                    checked={checked}
+                    accentColor={COL_COLORS[pos]}
+                    disabled={selected.length >= 3 && !checked}
+                    onClick={() => toggle(slug)}
+                  />
                 );
               })}
             </div>
@@ -813,6 +822,7 @@ export default function ComparePage() {
               onToggle={() => toggleRegion(group.region)}
               isFull={selected.length >= 3}
               toggle={toggle}
+              selected={selected}
             />
           ))}
         </div>
