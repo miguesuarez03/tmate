@@ -3,6 +3,7 @@ import Flag from "../components/Flag";
 import SearchableInput from "../components/SearchableInput";
 import { Link } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
+import JourneySteps from "../components/JourneySteps";
 import { IconCorazonInclusion, IconAccesibilidad, IconHoja, IconBombilla, IconGrafica, IconPin, IconTarjeta, IconLibros, IconEdificio, IconUniversidad, IconCasa, IconComida, IconTransporte, IconFiesta, IconBeca, IconAlerta, IconCheck, IconViajes } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
 import { useCityDetails } from "../hooks/useCityDetail";
@@ -779,6 +780,8 @@ export default function BecaErasmusPage() {
           </div>
         </section>
       </div>
+
+      <JourneySteps current="beca" />
 
       <Footer />
     </div>

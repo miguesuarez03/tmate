@@ -4,6 +4,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { getAllCities, getScoreMap, getOverallScore, parseMinCost, isErasmusEligible, getCompareLeader, buildCompareVerdict, COMPARE_MIN_CATEGORY_GAP } from "../lib/cities";
 import { getComparePhrase } from "../data/comparePhrases";
 import { Navbar, Footer } from "../components/Layout";
+import JourneySteps from "../components/JourneySteps";
 import { IconRanking, IconCorona, IconBeca, IconUniversidad, IconClima, IconIdiomas, IconCheck, IconAlerta, IconComparar, IconLupa } from "../components/icons";
 import { getCategoryIcon } from "../lib/categoryIcons";
 import MethodologyNote from "../components/MethodologyNote";
@@ -813,6 +814,7 @@ export default function ComparePage() {
 
           </div>
         </main>
+        <JourneySteps current="comparar" />
         <Footer />
       </div>
     );
@@ -938,6 +940,8 @@ export default function ComparePage() {
           </div>
         </div>
       )}
+
+      <JourneySteps current="comparar" />
 
       <Footer />
     </div>

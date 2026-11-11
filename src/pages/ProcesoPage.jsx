@@ -1,6 +1,7 @@
 import { useRef, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
+import JourneySteps from "../components/JourneySteps";
 import { IconLupa, IconClipboard, IconSobre, IconCheck, IconEdificio, IconMaleta, IconFiesta, IconCasa, IconBombilla, IconLearningAgreement } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
 
@@ -605,6 +606,8 @@ export default function ProcesoPage() {
           </Link>
         </div>
       </section>
+
+      <JourneySteps current="proceso" />
 
       <Footer />
     </div>

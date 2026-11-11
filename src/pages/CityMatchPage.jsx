@@ -5,6 +5,7 @@ import { CITY_MATCH_QUESTION_IDS, CITY_MATCH_QUESTION_COUNT } from "../data/city
 import { getAllCities, getScoreMap, getOverallScore, isErasmusEligible, getCitySize } from "../lib/cities";
 import { useSEO } from "../hooks/useSEO";
 import { Navbar, Footer } from "../components/Layout";
+import JourneySteps from "../components/JourneySteps";
 import {
   IconBeca, IconClima, IconIdiomas, IconFiesta, IconEdificio, IconHoja, IconUniversidad,
   IconExperiencia, IconCityMatch, IconMedalla, IconCasa, IconAmigos, IconTransporte,
@@ -589,6 +590,12 @@ export default function CityMatchPage() {
             )}
           </div>
         </main>
+        {/* El siguiente paso ya va con tu top 3. */}
+        <JourneySteps
+          current="city-match"
+          nextTo={top.length >= 2 ? `/comparar?cities=${compareSlugs}&view=compare` : undefined}
+          nextDesc={top.length >= 2 ? `${top.slice(0, 3).map((m) => m.city.name).join(", ")}, lado a lado.` : undefined}
+        />
         <Footer />
       </div>
     );
@@ -625,6 +632,7 @@ export default function CityMatchPage() {
             </div>
           </div>
         </main>
+        <JourneySteps current="city-match" />
         <Footer />
       </div>
     );

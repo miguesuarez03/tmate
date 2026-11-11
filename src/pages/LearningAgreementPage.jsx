@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
+import JourneySteps from "../components/JourneySteps";
 import { IconUniversidad, IconEdificio, IconGlobo, IconManos, IconAmigos, IconLibros, IconLapiz, IconRobot, IconAlerta, IconSobre, IconCheck, IconCiclo, IconReloj, IconFiesta, IconClipboard } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
 import { useStoredState } from "../hooks/useStoredState";
@@ -938,6 +939,8 @@ export default function LearningAgreementPage() {
           </Link>
         </div>
       </section>
+
+      <JourneySteps current="learning-agreement" />
 
       <Footer />
     </div>
