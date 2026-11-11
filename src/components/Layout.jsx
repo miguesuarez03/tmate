@@ -182,6 +182,7 @@ function HorizontalNav() {
             key={link.path}
             to={link.path}
             className={`navbar__link${active ? " navbar__link--active" : ""}`}
+            aria-current={active ? "page" : undefined}
           >
             {link.label}
           </Link>
@@ -453,11 +454,12 @@ const FOOTER_LINKS = [
 
 export function Footer() {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   return (
     <footer className="footer">
       <Logo dark={false} onClick={() => navigate("/")} />
       <p className="footer__copy">
-        © 2025 MAbroad · Hecho para ciudadanos globales ·{" "}
+        © {new Date().getFullYear()} MAbroad · Hecho para ciudadanos globales ·{" "}
         <Link to="/privacidad" className="footer__link">Aviso legal y privacidad</Link>
         {" · "}
         <Link to="/creditos" className="footer__link">Créditos de las fotos</Link>
@@ -467,7 +469,7 @@ export function Footer() {
       <nav aria-label="Secciones de MAbroad">
         <ul className="footer__nav">
           {FOOTER_LINKS.map((l) => (
-            <li key={l.path}><Link to={l.path}>{l.label}</Link></li>
+            <li key={l.path}><Link to={l.path} aria-current={pathname === l.path ? "page" : undefined}>{l.label}</Link></li>
           ))}
         </ul>
       </nav>

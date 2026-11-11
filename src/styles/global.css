@@ -181,6 +181,17 @@ html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
   position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
 }
+/* «Saltar al contenido»: primer elemento enfocable de cada página (App.jsx).
+   Invisible hasta que recibe el foco con el teclado. */
+.skip-link {
+  position: fixed; top: 10px; left: 10px; z-index: 3000;
+  padding: 12px 18px; border-radius: var(--radius-sm);
+  background: #16364D; color: #fff; font-size: 15px; font-weight: 700;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-200%);
+}
+.skip-link:focus-visible { transform: none; outline: 3px solid var(--color-primary); outline-offset: 2px; }
+[data-skip-target]:focus { outline: none; }
 body { font-family: var(--font-body); background: var(--color-white); color: var(--color-dark); overflow-x: hidden; line-height: 1.5; }
 img { max-width: 100%; display: block; }
 button { cursor: pointer; font-family: var(--font-body); }
@@ -709,7 +720,7 @@ a { text-decoration: none; color: inherit; }
      24px: el fundido es nivel 2, el desplazamiento no (ver arriba). */
   .js .city-card:not(.city-card--in-view) { transform: none; }
 }
-.city-card:focus { outline: 2px solid var(--color-primary); outline-offset: 3px; }
+.city-card:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; }
 
 /* Image fills entire card — position absolute */
 .city-card__img {
@@ -785,6 +796,9 @@ a { text-decoration: none; color: inherit; }
   transition: background var(--transition-fast), border-color var(--transition-fast);
 }
 .btn-ghost:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.38); }
+/* Cuando el "botón" navega es un enlace real (<a>/<Link>), no un <button>
+   dentro de un <a>: misma caja y misma altura de línea que el botón. */
+a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-align: center; text-decoration: none; }
 
 /* ─── CTA ────────────────────────────────────────────────────────────────── */
 .cta { padding: var(--section-py) var(--section-px); background: var(--gradient-dark); position: relative; overflow: hidden; text-align: center; }

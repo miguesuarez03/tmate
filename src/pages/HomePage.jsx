@@ -9,7 +9,9 @@ import SearchBar from "../components/SearchBar";
 import CityCard from "../components/CityCard";
 import { useCityFilter } from "../hooks/useCityFilter";
 import { useSEO } from "../hooks/useSEO";
+import { useIsoLayoutEffect } from "../hooks/useIsoLayoutEffect";
 import { HOME_JSON_LD } from "../lib/seo";
+import { isPrerenderedFirstRender } from "../lib/firstRender";
 import HomeExperiences from "../components/experiences/HomeExperiences";
 
 // WorldMap arrastra react-simple-maps + d3 (pesado). Se carga bajo demanda
@@ -108,22 +110,28 @@ function QuickAccessSection() {
 // sufijo. Cualquier otro valor no numérico ("Gratis") se muestra tal cual,
 // sin animar. Dispara una sola vez al entrar en el viewport y respeta
 // prefers-reduced-motion (muestra el valor final directamente).
+//
+// El estado inicial es el valor REAL: es lo que se prerenderiza (antes el
+// HTML decía "0 Destinos" a buscadores y a quien aún no tenía el JS). El
+// contador solo arranca desde cero —puesto antes de pintar, sin parpadeo—
+// cuando se llega a la home navegando dentro de la web; en la primera carga
+// sobre el HTML prerenderizado la cifra ya está en pantalla y no se reinicia.
+
 function CountUpStat({ value }) {
   const ref = useRef(null);
   const intMatch = /^(\d+)$/.exec(value);
   const decMatch = /^(\d+),(\d+)(\D*)$/.exec(value);
   const animatable = Boolean(intMatch || decMatch);
-  const [display, setDisplay] = useState(
-    animatable ? (intMatch ? "0" : `0,0${decMatch[3]}`) : value
-  );
+  const [display, setDisplay] = useState(value);
   const done = useRef(false);
 
-  useEffect(() => {
+  useIsoLayoutEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion || !animatable) { setDisplay(value); return; }
+    if (reduceMotion || !animatable || isPrerenderedFirstRender()) { setDisplay(value); return; }
 
     const el = ref.current;
     if (!el) return;
+    setDisplay(intMatch ? "0" : `0,0${decMatch[3]}`);
 
     const observer = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting || done.current) return;
@@ -715,8 +723,8 @@ export default function HomePage() {
             <button className="btn-primary" onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }}>
               Explorar destinos
             </button>
-            <a href="https://erasmus-plus.ec.europa.eu" target="_blank" rel="noopener noreferrer">
-              <button className="btn-ghost">Más info sobre Erasmus+</button>
+            <a className="btn-ghost" href="https://erasmus-plus.ec.europa.eu" target="_blank" rel="noopener noreferrer">
+              Más info sobre Erasmus+
             </a>
           </div>
         </div>

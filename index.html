@@ -24,7 +24,11 @@
     <meta property="og:image:alt" content="MAbroad — Descubre y compara tu ciudad Erasmus ideal" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://www.mabroad.com/og-image.png" />
-    <meta name="theme-color" content="#2F5073" />
+    <!-- Barra del navegador móvil: navy en claro, navy oscuro en oscuro
+         (useTheme.js los iguala al tema elegido con el interruptor). -->
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#2F5073" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0F1E2D" />
+    <link rel="manifest" href="/manifest.webmanifest" />
 
     <!-- Tipografías: autoalojadas con Fontsource (ver src/main.jsx), sin
          peticiones a Google Fonts. Bricolage Grotesque = UI/cuerpo/logotipo;

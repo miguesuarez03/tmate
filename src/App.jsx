@@ -5,6 +5,7 @@ import RouteLoader from "./components/RouteLoader";
 import FeedbackWidget from "./components/FeedbackWidget";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { markFirstRenderDone } from "./lib/firstRender";
 import "./styles/global.css";
 
 // Code-splitting por ruta: cada página se descarga bajo demanda en vez de
@@ -26,6 +27,17 @@ const GuiasPage             = lazy(() => import("./pages/GuiasPage"));
 const GuidePage             = lazy(() => import("./pages/GuidePage"));
 const NotFoundPage          = lazy(() => import("./pages/NotFoundPage"));
 
+// «Saltar al contenido»: lleva el foco al <main> de la página o, si no lo
+// tiene, a su <h1> — así el teclado no recorre el menú entero en cada página.
+function skipToContent(e) {
+  e.preventDefault();
+  const target = document.querySelector("main") || document.querySelector("h1");
+  if (!target) return;
+  target.setAttribute("tabindex", "-1");
+  target.setAttribute("data-skip-target", "");
+  target.focus();
+}
+
 export default function App() {
   // <html class="js">: activa los estados "oculto hasta entrar en pantalla"
   // (p. ej. .city-card en global.css). Se pone DESPUÉS del primer render: los
@@ -33,10 +45,12 @@ export default function App() {
   // estaban a la vista se han marcado y no llegan a ocultarse.
   useEffect(() => {
     document.documentElement.classList.add("js");
+    markFirstRenderDone();
   }, []);
 
   return (
     <BrowserRouter>
+      <a className="skip-link" href="#contenido" onClick={skipToContent}>Saltar al contenido</a>
       <ScrollRestoration />
       <Suspense fallback={<RouteLoader />}>
         <Routes>

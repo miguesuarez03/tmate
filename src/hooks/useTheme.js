@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback } from "react";
 
 const STORAGE_KEY = "tmate-theme";
 const isBrowser = typeof window !== "undefined";
+// Mismos valores que los <meta name="theme-color"> de index.html.
+const THEME_COLOR = { light: "#2F5073", dark: "#0F1E2D" };
 
 function getStoredTheme() {
   if (!isBrowser) return null;
@@ -37,6 +39,11 @@ export function useTheme() {
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
+    // Color de la barra del navegador móvil: sigue al tema ELEGIDO en la web
+    // (index.html trae dos <meta theme-color> según el tema del sistema; aquí
+    // se igualan los dos para que mande el interruptor manual).
+    const color = THEME_COLOR[theme];
+    document.querySelectorAll('meta[name="theme-color"]').forEach((m) => m.setAttribute("content", color));
   }, [theme]);
 
   useEffect(() => {
