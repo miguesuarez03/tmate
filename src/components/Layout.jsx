@@ -353,12 +353,15 @@ function NavMenuDrawer({ menuOpen, setMenuOpen, triggerRef }) {
   );
 }
 
-export function HamburgerButton({ menuOpen, setMenuOpen, isDark, buttonRef }) {
+// mobileOnly: el navbar ya enseña los enlaces en horizontal en pantallas
+// anchas, así que ahí la hamburguesa se oculta (ver .navbar__hamburger--
+// mobile-only en global.css). NavbarCity no lo pasa: no tiene otro menú.
+export function HamburgerButton({ menuOpen, setMenuOpen, isDark, buttonRef, mobileOnly = false }) {
   return (
     <button
       ref={buttonRef}
       type="button"
-      className={`navbar__hamburger${menuOpen ? " navbar__hamburger--open" : ""}`}
+      className={`navbar__hamburger${mobileOnly ? " navbar__hamburger--mobile-only" : ""}${menuOpen ? " navbar__hamburger--open" : ""}`}
       aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
       aria-expanded={menuOpen}
       aria-controls={MENU_ID}
@@ -400,7 +403,7 @@ export function Navbar({ transparent = false }) {
         <HorizontalNav />
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginLeft: "auto" }}>
           <ThemeToggle isDark={overlay} />
-          <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={overlay} buttonRef={menuButtonRef} />
+          <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={overlay} buttonRef={menuButtonRef} mobileOnly />
         </div>
       </nav>
 

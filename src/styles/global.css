@@ -305,7 +305,6 @@ a { text-decoration: none; color: inherit; }
     position: absolute; left: 50%; top: 50%;
     transform: translate(-50%, -50%);
   }
-  .navbar__hamburger { display: none; }
 }
 .navbar__hamburger {
   display: flex; flex-direction: column; gap: 5px;
@@ -333,6 +332,15 @@ a { text-decoration: none; color: inherit; }
 .navbar__hamburger span {
   display: block; width: 22px; height: 2px;
   border-radius: 2px; /* transiciones: ver "NAV DRAWER" */
+}
+/* Con la navegación horizontal a la vista (≥1200px, y en iPad horizontal: ver
+   el bloque 1024–1199px más abajo) la hamburguesa sobra. Va DESPUÉS de la
+   regla base: antes estaba delante y la base la pisaba, así que el botón se
+   veía también en escritorio. Solo se oculta en el navbar que SÍ tiene esos
+   enlaces (--mobile-only): el de las fichas de ciudad no los tiene y la
+   hamburguesa es su único menú. */
+@media (min-width: 1200px) {
+  .navbar__hamburger--mobile-only { display: none; }
 }
 
 /* ─── THEME TOGGLE ───────────────────────────────────────────────────────── */
@@ -1092,7 +1100,7 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
 @media (min-width: 1024px) and (max-width: 1199px) and (min-height: 600px) {
   .hero { padding-top: 90px; }
   .hero__quicklinks { display: none; }
-  .navbar__hamburger { display: none; }
+  .navbar__hamburger--mobile-only { display: none; }
   .navbar__links {
     display: flex; align-items: center; gap: 4px;
     position: absolute; left: 50%; top: 50%;
