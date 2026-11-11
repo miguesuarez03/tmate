@@ -542,7 +542,7 @@ a { text-decoration: none; color: inherit; }
 .hero__stat { text-align: center; }
 .hero__stat-label { display: block; margin-top: 2px; }
 .hero__stat-val { font-family: var(--font-display); font-size: clamp(16px, 2vw, 20px); font-weight: 700; color: #fff; display: block; text-shadow: 0 2px 10px rgba(0,0,0,0.55), 0 1px 2px rgba(0,0,0,0.4); }
-.hero__stat-label { font-size: 10px; color: rgba(255,255,255,0.88); letter-spacing: 0.5px; text-transform: uppercase; text-shadow: 0 1px 2px rgba(15,30,45,0.65), 0 1px 8px rgba(15,30,45,0.6); }
+.hero__stat-label { font-size: 12px; color: rgba(255,255,255,0.88); letter-spacing: 0.5px; text-transform: uppercase; text-shadow: 0 1px 2px rgba(15,30,45,0.65), 0 1px 8px rgba(15,30,45,0.6); }
 
 /* Accesos rápidos del hero, en móvil/tablet (ver breakpoint 1199px):
    flotan justo debajo del navbar, cada uno su propio chip — mismo
@@ -740,11 +740,17 @@ a { text-decoration: none; color: inherit; }
   position: absolute; top: 13px; left: 13px; z-index: 2;
   background: rgba(255,255,255,0.18); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.25); border-radius: var(--radius-full);
-  padding: 4px 12px; font-size: 10px; font-weight: 700; color: #fff; letter-spacing: 0.3px;
+  padding: 4px 12px; font-size: 12px; font-weight: 700; color: #fff; letter-spacing: 0.2px;
+  /* Una sola línea: si la etiqueta no cabe en la tarjeta (móvil, 2 columnas)
+     se corta con puntos suspensivos en vez de salirse por el borde. */
+  max-width: calc(100% - 26px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 
+.city-card__tag svg { display: inline-block; vertical-align: -3px; margin-right: 3px; }
+/* Segunda etiqueta (destinos no Erasmus): debajo de la primera, no a su
+   derecha — a 12px las dos ya no caben en la misma fila. */
 .city-card__tag--program {
-  left: auto; right: 13px;
+  top: 47px;
 }
 
 .city-card__content {
@@ -758,13 +764,22 @@ a { text-decoration: none; color: inherit; }
   font-family: var(--font-display); font-size: clamp(18px, 2.5vw, 22px);
   font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 3px;
 }
-.city-card__country { font-size: 11px; color: rgba(255,255,255,0.65); margin-bottom: 8px; }
+.city-card__country { font-size: 12px; color: rgba(255,255,255,0.72); margin-bottom: 8px; }
 .city-card__phrase {
-  font-size: 11px; color: rgba(255,255,255,0.78); line-height: 1.45;
+  font-size: 12px; color: rgba(255,255,255,0.82); line-height: 1.45;
   font-style: italic; padding-top: 8px;
+  /* Como mucho 2 líneas (el resto, con puntos suspensivos): a 12px la frase
+     entera taparía media foto en las tarjetas estrechas. */
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden;
   /* Deja libre la esquina inferior derecha para el crédito de la foto. */
   padding-right: 14px;
   border-top: 1px solid rgba(255,255,255,0.2);
+}
+/* Móviles estrechos (2 columnas de ~147px): algo menos de margen lateral para
+   que bandera y país («Portugal», «Alemania») quepan en una línea a 12px. */
+@media (max-width: 400px) {
+  .city-card__content { padding: 14px 12px 16px; }
+  .city-card__contentTop { gap: 6px; }
 }
 
 /* ─── EXPERIENCE CARDS ───────────────────────────────────────────────────── */
@@ -1101,11 +1116,11 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
   .hero__stat { min-width: 0; }
   .hero__video-toggle { width: 36px; height: 36px; bottom: calc(24px + env(safe-area-inset-bottom)); }
   .hero__stat-val { font-size: 15px; line-height: 1.2; }
-  .hero__stat-label { display: block; font-size: 9px; line-height: 1.3; letter-spacing: 0.3px; overflow-wrap: anywhere; }
+  .hero__stat-label { display: block; font-size: 11px; line-height: 1.3; letter-spacing: 0.2px; overflow-wrap: anywhere; }
   .search-bar__btn { padding: 11px 16px; font-size: 13px; }
   .cities-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .city-card { aspect-ratio: 3/4; }
-  .city-card__phrase { font-size: 10px; }
+
   .exp-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .exp-card { padding: 20px 16px; }
   .section { padding: 48px var(--section-px); }

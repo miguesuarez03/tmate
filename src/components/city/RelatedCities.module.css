@@ -39,7 +39,7 @@
 
 .card:hover .cardArrow { transform: translateX(3px); color: #fff; }
 
-.cardTag { position: absolute; top: 0.9rem; right: 0.9rem; z-index: 1; background: rgba(255,255,255,0.14); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius-full); padding: 0.2rem 0.65rem; font-family: var(--font-body); font-size: 0.65rem; color: rgba(255,255,255,0.9); text-transform: uppercase; letter-spacing: 0.06em; }
+.cardTag { position: absolute; top: 0.9rem; right: 0.9rem; z-index: 1; background: rgba(255,255,255,0.14); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius-full); padding: 0.2rem 0.65rem; font-family: var(--font-body); font-size: 0.75rem; color: rgba(255,255,255,0.9); text-transform: uppercase; letter-spacing: 0.06em; }
 
 /* Conversion */
 .conv { background: var(--gradient-dark); border-radius: var(--radius-xl); overflow: hidden; }

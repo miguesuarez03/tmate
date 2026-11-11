@@ -71,7 +71,7 @@ export default function CityCard({ city }) {
       <div className="city-card__overlay" />
 
       {/* Tag pill */}
-      <span className="city-card__tag" style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
+      <span className="city-card__tag">
         {city.tag === "Trending" && <IconFuego size={16} />} {city.tag}
       </span>
 
