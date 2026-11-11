@@ -62,20 +62,31 @@
   max-width: 520px;
   margin-bottom: 40px;
 }
+/* Tres columnas con separador a la izquierda de la 2ª y la 3ª. En pantallas
+   estrechas se reparten el ancho a partes iguales (antes era una fila flex
+   con wrap: cada dato saltaba de línea por su cuenta y los separadores
+   quedaban sueltos). El valor encoge con el ancho para que «Variable» quepa
+   en un móvil de 360px. */
 .heroStats {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+  align-items: start;
 }
-.heroStat { text-align: center; }
+.heroStat { text-align: left; padding: 0 28px; max-width: 220px; }
+.heroStat:first-child { padding-left: 0; }
+.heroStat + .heroStat { border-left: 1px solid rgba(255,255,255,0.2); }
 .heroStatVal {
   font-family: var(--font-display);
-  font-size: 32px;
+  font-size: clamp(18px, 5.2vw, 32px);
   font-weight: 900;
   color: #fff;
   display: block;
   line-height: 1;
+}
+@media (max-width: 560px) {
+  .heroStats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .heroStat { padding: 0 12px; max-width: none; }
 }
 .heroStatLabel {
   font-size: 12px;
@@ -83,11 +94,6 @@
   font-weight: 500;
   display: block;
   margin-top: 4px;
-}
-.heroStatDiv {
-  width: 1px;
-  height: 36px;
-  background: rgba(255,255,255,0.2);
 }
 
 /* ── SECTIONS ── */

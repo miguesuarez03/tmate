@@ -858,20 +858,20 @@ export default function LearningAgreementPage() {
             El contrato que define qué estudias y qué te convalidan.
             El documento que más agobia — y el que mejor puedes preparar si sabes cómo.
           </p>
+          {/* Tres datos con el mismo formato (valor + etiqueta). El tercero
+              era un icono suelto sin valor y en móvil la fila se descolocaba. */}
           <div className={styles.heroStats}>
             <div className={styles.heroStat}>
               <span className={styles.heroStatVal}>3</span>
               <span className={styles.heroStatLabel}>Firmas necesarias</span>
             </div>
-            <div className={styles.heroStatDiv} />
             <div className={styles.heroStat}>
               <span className={styles.heroStatVal}>Digital</span>
               <span className={styles.heroStatLabel}>Cada vez más con Erasmus Without Paper</span>
             </div>
-            <div className={styles.heroStatDiv} />
             <div className={styles.heroStat}>
-              <span className={styles.heroStatVal}><IconReloj size={28} /></span>
-              <span className={styles.heroStatLabel}>Plazo de cambios según uni</span>
+              <span className={styles.heroStatVal}>Variable</span>
+              <span className={styles.heroStatLabel}>Plazo de cambios, según tu uni</span>
             </div>
           </div>
         </div>
