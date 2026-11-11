@@ -753,7 +753,6 @@ export default function HomePage() {
 
       {/* CTA */}
       <section className="cta">
-        <div className="cta__bg-img" />
         <div className="cta__inner">
           <h2 className="cta__title">Tu Erasmus empieza aquí.</h2>
           <p className="cta__subtitle">

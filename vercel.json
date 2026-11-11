@@ -30,6 +30,12 @@
       ]
     },
     {
+      "source": "/maps/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }
+      ]
+    },
+    {
       "source": "/indexnow-(manifest|changed).json",
       "headers": [
         { "key": "X-Robots-Tag", "value": "noindex" },

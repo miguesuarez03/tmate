@@ -1,8 +1,7 @@
-import { Suspense, lazy, useEffect } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ScrollRestoration from "./components/ScrollRestoration";
 import RouteLoader from "./components/RouteLoader";
-import FeedbackWidget from "./components/FeedbackWidget";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { markFirstRenderDone } from "./lib/firstRender";
@@ -27,6 +26,24 @@ const GuiasPage             = lazy(() => import("./pages/GuiasPage"));
 const GuidePage             = lazy(() => import("./pages/GuidePage"));
 const NotFoundPage          = lazy(() => import("./pages/NotFoundPage"));
 
+// El botón flotante «¿Qué te falta?» no hace falta para pintar la página:
+// su código (formulario, envío, estilos) sale del bundle inicial y se pide
+// cuando el navegador queda libre tras la carga.
+const FeedbackWidget = lazy(() => import("./components/FeedbackWidget"));
+
+function useIdleReady(timeout = 3000) {
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    if ("requestIdleCallback" in window) {
+      const id = window.requestIdleCallback(() => setReady(true), { timeout });
+      return () => window.cancelIdleCallback(id);
+    }
+    const id = setTimeout(() => setReady(true), 1500); // Safari: sin requestIdleCallback
+    return () => clearTimeout(id);
+  }, [timeout]);
+  return ready;
+}
+
 // «Saltar al contenido»: lleva el foco al <main> de la página o, si no lo
 // tiene, a su <h1> — así el teclado no recorre el menú entero en cada página.
 function skipToContent(e) {
@@ -47,6 +64,7 @@ export default function App() {
     document.documentElement.classList.add("js");
     markFirstRenderDone();
   }, []);
+  const idle = useIdleReady();
 
   return (
     <BrowserRouter>
@@ -71,7 +89,11 @@ export default function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
-      <FeedbackWidget />
+      {idle && (
+        <Suspense fallback={null}>
+          <FeedbackWidget />
+        </Suspense>
+      )}
       {/* Vercel Web Analytics + Speed Insights: sin cookies, datos anónimos.
           App es la raíz en cliente para TODAS las rutas (también las
           prerenderizadas, que se montan con createRoot), y el script detecta

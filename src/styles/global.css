@@ -825,7 +825,15 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
 
 /* ─── CTA ────────────────────────────────────────────────────────────────── */
 .cta { padding: var(--section-py) var(--section-px); background: var(--gradient-dark); position: relative; overflow: hidden; text-align: center; }
-.cta__bg-img { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1400&q=60'); background-size: cover; background-position: center; opacity: 0.08; }
+/* Antes había aquí una foto de Unsplash al 8% de opacidad: una petición a
+   otro dominio para una textura que apenas se veía. El mismo matiz, con un
+   degradado: sin red y sin depender de un tercero. */
+.cta::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 80% at 18% 20%, rgba(245,150,58,0.10) 0%, transparent 70%),
+    radial-gradient(ellipse 55% 75% at 85% 85%, rgba(63,122,125,0.16) 0%, transparent 70%);
+}
 .cta__inner { position: relative; max-width: 680px; margin: 0 auto; }
 .cta__title { font-family: var(--font-display); font-size: clamp(32px, 5vw, 54px); font-weight: 800; color: #fff; letter-spacing: -1.5px; line-height: 1.05; margin-bottom: 16px; }
 .cta__subtitle { font-size: clamp(15px, 2vw, 17px); color: rgba(255,255,255,0.57); line-height: 1.6; margin-bottom: 36px; }
