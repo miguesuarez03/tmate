@@ -400,6 +400,9 @@ export default function CityMatchPage() {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState({});
   const [limitNotice, setLimitNotice] = useState(false);
+  // Portada: antes de la primera pregunta se explica qué es el test y cuánto
+  // dura. Un enlace con resultados (?r=…) se la salta.
+  const [started, setStarted] = useState(false);
   const headingRef = useRef(null);
   const resultsTitleRef = useRef(null);
   const firstRender = useRef(true);
@@ -431,7 +434,7 @@ export default function CityMatchPage() {
     if (firstRender.current) { firstRender.current = false; return; }
     (showResults ? resultsTitleRef : headingRef).current?.focus({ preventScroll: false });
     setLimitNotice(false);
-  }, [step, showResults]);
+  }, [step, showResults, started]);
 
   function goTo(nextAnswers, nextStep) {
     if (nextStep >= QUESTIONS.length) {
@@ -467,6 +470,7 @@ export default function CityMatchPage() {
   function restart() {
     setAnswers({});
     setStep(0);
+    setStarted(true); // repetir el test va directo a la primera pregunta, sin portada
     setSearchParams({}, { replace: true });
   }
 
@@ -559,6 +563,42 @@ export default function CityMatchPage() {
                 </div>
               );
             })}
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  /* ─── PORTADA ───────────────────────────────────────────────────────── */
+  if (!started) {
+    return (
+      <div className={styles.page}>
+        <Navbar />
+        <main className={styles.quizMain}>
+          <div className={styles.quizBgBlur} aria-hidden="true" />
+          <div className={styles.quizWrap}>
+            <div className={`${styles.questionCard} ${styles.introCard}`}>
+              <div className={styles.quizBrand}>
+                <IconCityMatch size={26} />
+                <span>City Match</span>
+              </div>
+              <h1 className={styles.introTitle}>Encuentra tu ciudad Erasmus ideal</h1>
+              <p className={styles.introText}>
+                Dinos qué buscas —presupuesto, clima, idioma, ambiente— y te enseñamos las cinco ciudades que mejor encajan contigo, con el porqué de cada una.
+              </p>
+              <ul className={styles.introFacts}>
+                <li><strong>{CITY_MATCH_QUESTION_COUNT}</strong><span>preguntas</span></li>
+                <li><strong>~2</strong><span>minutos</span></li>
+                <li><strong>{CITIES.length}</strong><span>destinos</span></li>
+              </ul>
+              <button type="button" className={`${styles.continueBtn} ${styles.introStart}`} onClick={() => setStarted(true)}>
+                Empezar →
+              </button>
+              <p className={styles.introNote}>
+                Sin registro. Si una pregunta te da igual, puedes decirlo: no cuenta en el resultado.
+              </p>
+            </div>
           </div>
         </main>
         <Footer />
