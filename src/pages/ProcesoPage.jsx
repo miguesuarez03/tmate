@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { IconLupa, IconClipboard, IconSobre, IconCheck, IconEdificio, IconMaleta, IconFiesta, IconCasa, IconBombilla, IconLearningAgreement } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
@@ -236,7 +236,6 @@ function StepCard({ step, isActive, onClick }) {
 }
 
 function StepDetail({ step }) {
-  const navigate = useNavigate();
 
   return (
     <div className="proceso-detail" style={{ "--step-color": step.color }}>
@@ -298,12 +297,9 @@ function StepDetail({ step }) {
             <p className="proceso-la-callout__text">
               En esta fase arranca el <strong>Learning Agreement</strong> — el contrato académico más importante de todo el proceso. Define qué asignaturas cursarás y cómo se convalidarán.
             </p>
-            <button
-              className="proceso-la-callout__btn"
-              onClick={() => navigate("/learning-agreement")}
-            >
+            <Link className="proceso-la-callout__btn link-btn" to="/learning-agreement">
               Guía completa del Learning Agreement →
-            </button>
+            </Link>
           </div>
         </div>
       )}
@@ -322,7 +318,7 @@ function StepDetail({ step }) {
 }
 
 /* ─── MOBILE STORIES VIEW ───────────────────────────────────────── */
-function MobileStories({ steps, navigate }) {
+function MobileStories({ steps }) {
   const [active, setActive] = useState(0);
   const touchStartX = useRef(null);
   const touchStartY = useRef(null);
@@ -390,13 +386,13 @@ function MobileStories({ steps, navigate }) {
         </ul>
 
         {step.laLink && (
-          <button
-            className="proceso-la-callout__btn"
+          <Link
+            className="proceso-la-callout__btn link-btn"
             style={{ marginTop: 8 }}
-            onClick={() => navigate("/learning-agreement")}
+            to="/learning-agreement"
           >
             Guía del Learning Agreement →
-          </button>
+          </Link>
         )}
       </div>
 
@@ -434,7 +430,6 @@ function MobileStories({ steps, navigate }) {
 
 export default function ProcesoPage() {
   const [activeStep, setActiveStep] = useState(0);
-  const navigate = useNavigate();
   const detailRef = useRef(null);
 
   useSEO({
@@ -461,9 +456,9 @@ export default function ProcesoPage() {
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1600&q=70')", backgroundPosition: "center 40%" }}
         />
         <div className="proceso-hero__content">
-          <button className="proceso-back" onClick={() => navigate("/")}>
+          <Link className="proceso-back link-btn" to="/">
             ← Volver al inicio
-          </button>
+          </Link>
           <SectionLabel color="#3F7A7D">Guía completa</SectionLabel>
           <h1 className="proceso-hero__title">
             ¿Cómo funciona<br />
@@ -557,7 +552,7 @@ export default function ProcesoPage() {
 
       {/* Main content — mobile (stories format) */}
       <section className="proceso-main--mobile-only">
-        <MobileStories steps={STEPS} navigate={navigate} />
+        <MobileStories steps={STEPS} />
       </section>
 
       {/* CTA */}
@@ -567,15 +562,15 @@ export default function ProcesoPage() {
           Ahora que conoces el proceso, encuentra el destino perfecto con scores por categoría y guías locales.
         </p>
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-          <button className="btn-primary" onClick={() => navigate("/")}>
+          <Link className="btn-primary" to="/">
             Explorar destinos →
-          </button>
-          <button className="btn-ghost" onClick={() => navigate("/comparar")}>
+          </Link>
+          <Link className="btn-ghost" to="/comparar">
             Comparar ciudades
-          </button>
-          <button className="btn-ghost" onClick={() => navigate("/tipos-de-intercambio")}>
+          </Link>
+          <Link className="btn-ghost" to="/tipos-de-intercambio">
             ¿Erasmus no es tu única opción? →
-          </button>
+          </Link>
         </div>
       </section>
 

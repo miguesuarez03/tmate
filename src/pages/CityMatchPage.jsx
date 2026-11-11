@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useRef, useId } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { CITIES } from "../data/cities";
 import { getScoreMap, getOverallScore, isErasmusEligible, getCitySize } from "../lib/cities";
 import { useSEO } from "../hooks/useSEO";
@@ -366,7 +366,6 @@ function decodeAnswers(encoded) {
 
 /* ─── Componente principal ────────────────────────────────────────────── */
 export default function CityMatchPage() {
-  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState({});
@@ -472,9 +471,9 @@ export default function CityMatchPage() {
               <div className={styles.resultsActions}>
                 <button className={styles.secondaryBtn} onClick={restart}>↺ Volver a hacer el test</button>
                 {compareSlugs && (
-                  <button className={styles.primaryBtn} onClick={() => navigate(`/comparar?cities=${compareSlugs}`)}>
+                  <Link className={`${styles.primaryBtn} link-btn`} to={`/comparar?cities=${compareSlugs}`}>
                     Comparar tu top 3 →
-                  </button>
+                  </Link>
                 )}
               </div>
             </div>
@@ -523,9 +522,9 @@ export default function CityMatchPage() {
                       )}
                     </ul>
 
-                    <button className={styles.resultBtn} onClick={() => navigate(`/city/${m.city.slug}`)}>
+                    <Link className={`${styles.resultBtn} link-btn`} to={`/city/${m.city.slug}`}>
                       Ver guía completa →
-                    </button>
+                    </Link>
                   </div>
                 </div>
               );

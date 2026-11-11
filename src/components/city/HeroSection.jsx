@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "./HeroSection.module.css";
 import { getCityWhatsappGroup } from "../../data/cityWhatsappGroups";
 import { isErasmusEligible, getScoreLevel, isAffordable } from "../../lib/cities";
@@ -110,7 +110,6 @@ function FloatingActionBubbles({ city, whatsappGroup }) {
 }
 
 export default function HeroSection({ city, overallScore, insights }) {
-  const navigate = useNavigate();
   const moodTags = getMoodTags(city);
   const color = getScoreLevel(overallScore).color;
   const whatsappGroup = getCityWhatsappGroup(city.slug);
@@ -177,9 +176,9 @@ export default function HeroSection({ city, overallScore, insights }) {
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
             </button>
-            <button className={styles.heroSecondary} onClick={() => navigate("/")}>
+            <Link className={`${styles.heroSecondary} link-btn`} to="/">
               ← Explorar más ciudades
-            </button>
+            </Link>
           </div>
 
           <div className={styles.heroBigLinks} id="hero-quick-links">

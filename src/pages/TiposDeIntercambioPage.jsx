@@ -1,4 +1,4 @@
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { IconGlobo, IconBeca, IconDocumento, IconMaleta, IconViajes } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
@@ -58,7 +58,6 @@ const PROGRAM_TYPES = [
 /* ─── PÁGINA ────────────────────────────────────────────────────────────── */
 
 export default function TiposDeIntercambioPage() {
-  const navigate = useNavigate();
 
   useSEO({
     title: "Tipos de intercambio: Erasmus+, UK y Suiza | MAbroad",
@@ -123,12 +122,12 @@ export default function TiposDeIntercambioPage() {
           <Link to="/guias/erasmus-o-intercambio-fuera-de-europa" className="guide-link-inline">guía Erasmus+ o intercambio fuera de Europa</Link>.
         </p>
         <div className={styles.ctaBtns}>
-          <button className="btn-primary" onClick={() => navigate("/")}>
+          <Link className="btn-primary" to="/">
             Explorar destinos →
-          </button>
-          <button className="btn-ghost" onClick={() => navigate("/city-match")}>
+          </Link>
+          <Link className="btn-ghost" to="/city-match">
             Hacer el City Match
-          </button>
+          </Link>
         </div>
       </section>
 

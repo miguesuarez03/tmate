@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useId } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { IconCorazonInclusion, IconAccesibilidad, IconHoja, IconBombilla, IconGrafica, IconPin, IconTarjeta, IconLibros, IconEdificio, IconUniversidad, IconCasa, IconComida, IconTransporte, IconFiesta, IconBeca, IconAlerta, IconCheck, IconViajes } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
@@ -566,7 +566,6 @@ function FaqItem({ item }) {
 /* ─── PAGE ───────────────────────────────────────────────────────────────── */
 
 export default function BecaErasmusPage() {
-  const navigate = useNavigate();
 
   useSEO({
     title: "Beca Erasmus+: cuánto se cobra y cómo funciona | MAbroad",
@@ -586,9 +585,9 @@ export default function BecaErasmusPage() {
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=70')", backgroundPosition: "center 35%" }}
         />
         <div className="proceso-hero__content">
-          <button className="proceso-back" onClick={() => navigate("/")}>
+          <Link className="proceso-back link-btn" to="/">
             ← Volver al inicio
-          </button>
+          </Link>
           <SectionLabel color="#3F7A7D">Guía de ayudas</SectionLabel>
           <h1 className="proceso-hero__title">
             La beca Erasmus+<br />
@@ -829,12 +828,12 @@ export default function BecaErasmusPage() {
             Ahora elige el destino perfecto. Compara ciudades con scores por categoría y guías locales.
           </p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-            <button className="btn-primary" onClick={() => navigate("/")}>
+            <Link className="btn-primary" to="/">
               Explorar destinos →
-            </button>
-            <button className="btn-ghost" onClick={() => navigate("/proceso")}>
+            </Link>
+            <Link className="btn-ghost" to="/proceso">
               ¿Cómo funciona el Erasmus?
-            </button>
+            </Link>
           </div>
         </section>
       </div>

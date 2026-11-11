@@ -1,5 +1,5 @@
 import { useId, useState, useEffect, useRef } from "react";
-import { useNavigate, useLocation, Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import {
   IconExplorar,
   IconCityMatch,
@@ -69,16 +69,29 @@ export function MASymbol({ size = 28, light = false }) {
   );
 }
 
+/**
+ * ¿Clic normal (botón principal, sin Ctrl/Cmd/Shift/Alt)? Los enlaces que
+ * sustituyen la navegación por un scroll (logo en la home, «Encontrar tu
+ * ciudad») solo lo hacen en ese caso: con un modificador el usuario quiere
+ * abrir el enlace en otra pestaña o ventana, y eso no se intercepta.
+ */
+export function isPlainClick(e) {
+  return e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey;
+}
+
+// Enlace real a la home (antes un <div role="button"> que no respondía a
+// Enter ni se podía abrir en otra pestaña). `onClick` es opcional: el navbar
+// de la home lo usa para "volver arriba" en vez de navegar.
 export function Logo({ dark = false, onClick, iconSize = 26, light = false }) {
   return (
-    <div className="navbar__logo" onClick={onClick} role="button" tabIndex={0} aria-label="Ir al inicio">
-      <div className="navbar__logo-icon">
+    <Link to="/" className="navbar__logo" onClick={onClick} aria-label="MAbroad, ir al inicio">
+      <span className="navbar__logo-icon">
         <MASymbol size={iconSize} light={light} />
-      </div>
+      </span>
       <span className="navbar__logo-text" style={{ color: dark ? "var(--color-dark)" : "#fff" }}>
         Abroad
       </span>
-    </div>
+    </Link>
   );
 }
 
@@ -92,48 +105,56 @@ const MENU_ITEMS = [
     label: "Explorar destinos",
     desc: "Todas las ciudades Erasmus con scores y guías",
     action: "explore",
+    to: "/",
   },
   {
     Icon: IconCityMatch,
     label: "City Match",
     desc: "Responde 8 preguntas y descubre tu ciudad ideal",
     action: "match",
+    to: "/city-match",
   },
   {
     Icon: IconComparar,
     label: "Comparativa de destinos",
     desc: "Compara tus ciudades favoritas lado a lado",
     action: "compare",
+    to: "/comparar",
   },
   {
     Icon: IconProceso,
     label: "¿Cómo funciona el Erasmus?",
     desc: "Todo el proceso explicado sin rodeos, paso a paso",
     action: "steps",
+    to: "/proceso",
   },
   {
     Icon: IconBeca,
     label: "Beca Erasmus+",
     desc: "Cuánto cobras, complementos y calculadora de ayudas",
     action: "beca",
+    to: "/beca-erasmus",
   },
   {
     Icon: IconLearningAgreement,
     label: "Tu Learning Agreement",
     desc: "Cómo preparar el contrato académico y conseguir las convalidaciones",
     action: "la",
+    to: "/learning-agreement",
   },
   {
     Icon: IconDocumento,
     label: "Guías Erasmus",
     desc: "Beca, Learning Agreement, destino y papeles, explicados a fondo",
     action: "guias",
+    to: "/guias",
   },
   {
     Icon: IconExperiencia,
     label: "Cuéntanos tu experiencia",
     desc: "Comparte tu Erasmus y ayuda a otros estudiantes",
     action: "share",
+    to: "/?accion=compartir",
   },
 ];
 
@@ -192,32 +213,17 @@ function HorizontalNav() {
   );
 }
 
-function useMenuAction(navigate, setMenuOpen) {
+// Los ítems del menú son enlaces (<Link to>): la navegación la hace el propio
+// enlace. Aquí solo se cierra el menú y, para "Explorar destinos", se baja a
+// la rejilla de ciudades de la home una vez montada.
+function useMenuAction(setMenuOpen) {
   return (action) => {
     setMenuOpen(false);
-    setTimeout(() => {
-      if (action === "explore") {
-        navigate("/");
-        setTimeout(() => {
-          const el = document.querySelector(".section");
-          if (el) el.scrollIntoView({ behavior: "smooth" });
-        }, 100);
-      } else if (action === "compare") {
-        navigate("/comparar");
-      } else if (action === "match") {
-        navigate("/city-match");
-      } else if (action === "steps") {
-        navigate("/proceso");
-      } else if (action === "beca") {
-        navigate("/beca-erasmus");
-      } else if (action === "la") {
-        navigate("/learning-agreement");
-      } else if (action === "guias") {
-        navigate("/guias");
-      } else if (action === "share") {
-        navigate("/?accion=compartir");
-      }
-    }, 50);
+    if (action === "explore") {
+      setTimeout(() => {
+        document.getElementById("destinos")?.scrollIntoView({ behavior: "smooth" });
+      }, 150);
+    }
   };
 }
 
@@ -254,8 +260,7 @@ function useScrollLock(active) {
  * vuelve a ese botón. Cerrado, el panel es `inert`: ni foco ni lector.
  */
 function NavMenuDrawer({ menuOpen, setMenuOpen, triggerRef }) {
-  const navigate = useNavigate();
-  const handleMenuAction = useMenuAction(navigate, setMenuOpen);
+  const handleMenuAction = useMenuAction(setMenuOpen);
   const drawerRef = useRef(null);
   useScrollLock(menuOpen);
 
@@ -321,9 +326,9 @@ function NavMenuDrawer({ menuOpen, setMenuOpen, triggerRef }) {
       >
         <nav className="nav-drawer__items" aria-label="Secciones">
           {MENU_ITEMS.map((item, i) => (
-            <button
+            <Link
               key={item.action}
-              type="button"
+              to={item.to}
               className="nav-drawer__item"
               style={{ "--i": i }}
               onClick={() => handleMenuAction(item.action)}
@@ -331,12 +336,12 @@ function NavMenuDrawer({ menuOpen, setMenuOpen, triggerRef }) {
               <span className={`nav-drawer__item-icon${item.Icon ? " nav-drawer__item-icon--illustrated" : ""}`}>
                 {item.Icon ? <item.Icon size={36} /> : item.icon}
               </span>
-              <div className="nav-drawer__item-text">
+              <span className="nav-drawer__item-text">
                 <span className="nav-drawer__item-label">{item.label}</span>
                 <span className="nav-drawer__item-desc">{item.desc}</span>
-              </div>
+              </span>
               <span className="nav-drawer__item-arrow" aria-hidden="true">›</span>
-            </button>
+            </Link>
           ))}
         </nav>
 
@@ -369,7 +374,6 @@ export function HamburgerButton({ menuOpen, setMenuOpen, isDark, buttonRef }) {
 export function Navbar({ transparent = false }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef(null);
-  const navigate = useNavigate();
   const { scrolled, overlay: atTop } = useNavbarOverlay(transparent);
   // Con el menú abierto, barra sólida (el drawer y el overlay van debajo).
   const overlay = atTop && !menuOpen;
@@ -381,12 +385,11 @@ export function Navbar({ transparent = false }) {
   // Solo en Home (transparent=true, exclusivo de HomePage): si ya se ha
   // hecho scroll, el logo actúa como "volver arriba" en vez de navegar.
   // En el resto de páginas mantiene su comportamiento normal (ir a "/").
-  const handleLogoClick = () => {
+  const handleLogoClick = (e) => {
     setMenuOpen(false);
-    if (transparent && scrolled) {
+    if (transparent && scrolled && isPlainClick(e)) {
+      e.preventDefault(); // ya estamos en la home: no se navega, se sube
       window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      navigate("/");
     }
   };
 
@@ -407,7 +410,6 @@ export function Navbar({ transparent = false }) {
 }
 
 export function NavbarCity({ cityName, overall }) {
-  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef(null);
   // Las fichas abren con la foto de la ciudad a pantalla completa: misma
@@ -418,12 +420,12 @@ export function NavbarCity({ cityName, overall }) {
   return (
     <>
       <nav className={`navbar ${overlay ? "navbar--overlay" : "navbar--scrolled"}`} style={{ position: "fixed", zIndex: 1000 }}>
-        <Logo dark={!overlay} light={overlay} onClick={() => navigate("/")} iconSize={HEADER_LOGO_ICON_SIZE} />
-        <div className="navbar__city-breadcrumb">
-          <span className="navbar__crumb-link" onClick={() => navigate("/")}>Inicio</span>
-          <span>›</span>
-          <span className="navbar__crumb-current">{cityName}</span>
-        </div>
+        <Logo dark={!overlay} light={overlay} iconSize={HEADER_LOGO_ICON_SIZE} />
+        <nav className="navbar__city-breadcrumb" aria-label="Migas de pan">
+          <Link to="/" className="navbar__crumb-link">Inicio</Link>
+          <span aria-hidden="true">›</span>
+          <span className="navbar__crumb-current" aria-current="page">{cityName}</span>
+        </nav>
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           {overall && (
             <div style={{ display: "flex", alignItems: "center", gap: 8, background: "var(--gradient-brand)", borderRadius: "var(--radius-full)", padding: "6px 18px" }}>
@@ -453,11 +455,10 @@ const FOOTER_LINKS = [
 ];
 
 export function Footer() {
-  const navigate = useNavigate();
   const { pathname } = useLocation();
   return (
     <footer className="footer">
-      <Logo dark={false} onClick={() => navigate("/")} />
+      <Logo dark={false} />
       <p className="footer__copy">
         © {new Date().getFullYear()} MAbroad · Hecho para ciudadanos globales ·{" "}
         <Link to="/privacidad" className="footer__link">Aviso legal y privacidad</Link>

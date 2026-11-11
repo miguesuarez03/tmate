@@ -6,7 +6,7 @@ import {
   Marker,
   ZoomableGroup,
 } from "react-simple-maps";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "./WorldMap.module.css";
 import { getOverallScore, getScoreMap, getCityBySlug, getScoreLevel } from "../lib/cities";
 import { IconFiesta, IconEdificio, IconBeca, IconGlobo } from "./icons";
@@ -273,7 +273,7 @@ const scoreColor = (score) => getScoreLevel(score).color;
 const scoreLabel = (score) => getScoreLevel(score).label;
 
 // ─── POPUP ────────────────────────────────────────────────────────────────────
-function CityPopup({ city, onClose, navigate }) {
+function CityPopup({ city, onClose }) {
   return (
     <div className={styles.popup} onClick={e => e.stopPropagation()}>
       <button className={styles.popupClose} onClick={onClose} aria-label="Cerrar">✕</button>
@@ -304,9 +304,9 @@ function CityPopup({ city, onClose, navigate }) {
             {scoreLabel(city.score)}
           </span>
         </div>
-        <button className={styles.popupCta} onClick={() => navigate(`/city/${city.slug}`)}>
+        <Link className={`${styles.popupCta} link-btn`} to={`/city/${city.slug}`}>
           Explorar guía →
-        </button>
+        </Link>
       </div>
     </div>
   );
@@ -314,7 +314,6 @@ function CityPopup({ city, onClose, navigate }) {
 
 // ─── MAIN ─────────────────────────────────────────────────────────────────────
 export default function WorldMap() {
-  const navigate = useNavigate();
   const [selected, setSelected]   = useState(null);
   const [tooltip, setTooltip]     = useState(null);
   const [position, setPosition]   = useState({ coordinates: [-44.9, 22.9], zoom: 0.29 });
@@ -557,7 +556,7 @@ export default function WorldMap() {
 
         {/* Popup ciudad */}
         {selected && (
-          <CityPopup city={selected} onClose={() => setSelected(null)} navigate={navigate} />
+          <CityPopup city={selected} onClose={() => setSelected(null)} />
         )}
 
         {/* Controles zoom */}

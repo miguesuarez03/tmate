@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import { CITIES } from "../data/cities";
 import { getScoreMap, getOverallScore, findBestCityMatch, getCitiesGroupedByRegion } from "../lib/cities";
 import { HOME_FAQS } from "../data/faqs";
-import { Navbar, Footer, SectionLabel, MASymbol, NAV_LINKS } from "../components/Layout";
+import { Navbar, Footer, SectionLabel, MASymbol, NAV_LINKS, isPlainClick } from "../components/Layout";
 import { IconCityMatch, IconComparar, IconBeca, IconRanking, IconComunidad, IconSeguridad, IconUniversidad, IconMedalla, IconEdificio, IconFiesta, IconPausa, IconReproducir } from "../components/icons";
 import SearchBar from "../components/SearchBar";
 import CityCard from "../components/CityCard";
@@ -52,54 +52,53 @@ const QUICK_ACCESS = [
     Icon: IconCityMatch,
     title: "Encontrar tu ciudad",
     desc: "Compara coste, ambiente y más, y descubre tu destino ideal",
-    action: "explore",
+    // Sin `to`: baja a la rejilla de destinos de esta misma página (#destinos).
   },
   {
     Icon: IconComparar,
     title: "Comparar ciudades",
     desc: "Pon dos o más destinos lado a lado",
-    action: "compare",
+    to: "/comparar",
   },
   {
     Icon: IconBeca,
     title: "Calcular tu beca",
     desc: "Cuánto vas a cobrar y cuánto necesitas para vivir",
-    action: "beca",
+    to: "/beca-erasmus",
   },
 ];
 
+// Enlaces reales (<a href>), no botones con navigate(): se pueden abrir en
+// otra pestaña, los rastrea Google y funcionan sin JS. El primero es un ancla
+// a la rejilla de destinos; con JS el salto se hace con scroll suave.
+function scrollToCities(e) {
+  const el = document.getElementById("destinos");
+  if (!el || !isPlainClick(e)) return;
+  e.preventDefault();
+  el.scrollIntoView({ behavior: "smooth" });
+}
+
 function QuickAccessSection() {
-  const navigate = useNavigate();
-
-  const handleClick = (action) => {
-    if (action === "explore") {
-      const el = document.querySelector(".section");
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    } else if (action === "compare") {
-      navigate("/comparar");
-    } else if (action === "beca") {
-      navigate("/beca-erasmus");
-    }
-  };
-
   return (
     <section className="quick-access">
       <div className="quick-access__grid">
-        {QUICK_ACCESS.map((item) => (
-          <button
-            key={item.action}
-            type="button"
-            className="quick-access__card"
-            onClick={() => handleClick(item.action)}
-          >
-            <span className="quick-access__icon quick-access__icon--illustrated">
-              <item.Icon size={56} />
-            </span>
-            <span className="quick-access__title">{item.title}</span>
-            <span className="quick-access__desc">{item.desc}</span>
-            <span className="quick-access__arrow">→</span>
-          </button>
-        ))}
+        {QUICK_ACCESS.map((item) => {
+          const content = (
+            <>
+              <span className="quick-access__icon quick-access__icon--illustrated">
+                <item.Icon size={56} />
+              </span>
+              <span className="quick-access__title">{item.title}</span>
+              <span className="quick-access__desc">{item.desc}</span>
+              <span className="quick-access__arrow" aria-hidden="true">→</span>
+            </>
+          );
+          return item.to ? (
+            <Link key={item.title} to={item.to} className="quick-access__card">{content}</Link>
+          ) : (
+            <a key={item.title} href="#destinos" className="quick-access__card" onClick={scrollToCities}>{content}</a>
+          );
+        })}
       </div>
     </section>
   );
@@ -509,7 +508,6 @@ const RANKING_CATEGORIES = [
 
 function RankingsSection() {
   const [active, setActive] = useState("overall");
-  const navigate = useNavigate();
 
   const ranked = useMemo(() => {
     return CITIES
@@ -547,12 +545,7 @@ function RankingsSection() {
 
         <div className="rankings-list">
           {ranked.map((r, i) => (
-            <button
-              key={r.city.slug}
-              type="button"
-              className="rankings-row"
-              onClick={() => navigate(`/city/${r.city.slug}`)}
-            >
+            <Link key={r.city.slug} to={`/city/${r.city.slug}`} className="rankings-row">
               <span className="rankings-row__pos">
                 {i < 3 ? <IconMedalla size={26} tone={i === 0 ? "gold" : i === 1 ? "silver" : "bronze"} /> : `#${i + 1}`}
               </span>
@@ -561,7 +554,7 @@ function RankingsSection() {
                 <div className="rankings-row__bar-fill" style={{ width: `${(r.score / 10) * 100}%` }} />
               </div>
               <span className="rankings-row__score">{r.score.toFixed(1)}</span>
-            </button>
+            </Link>
           ))}
         </div>
       </div>
@@ -669,11 +662,11 @@ export default function HomePage() {
             <span className="hero__trending-label">Trending:</span>
             {TRENDING.map((name) => {
               const city = CITIES.find((c) => c.name === name);
-              return (
-                <button key={name} className="hero__trending-pill" onClick={() => city && navigate(`/city/${city.slug}`)}>
+              return city ? (
+                <Link key={name} to={`/city/${city.slug}`} className="hero__trending-pill">
                   {name}
-                </button>
-              );
+                </Link>
+              ) : null;
             })}
           </div>
         </div>
@@ -699,7 +692,7 @@ export default function HomePage() {
       <GlobeSection />
 
       {/* CITIES */}
-      <section className="section" style={{ maxWidth: 1280, margin: "0 auto" }}>
+      <section id="destinos" className="section" style={{ maxWidth: 1280, margin: "0 auto" }}>
         <div className="section__header">
           <div>
             <SectionLabel>Destinos Erasmus</SectionLabel>

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { IconUniversidad, IconEdificio, IconGlobo, IconManos, IconAmigos, IconLibros, IconLapiz, IconRobot, IconAlerta, IconSobre, IconCheck, IconCiclo, IconReloj, IconFiesta, IconClipboard } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
@@ -752,7 +752,6 @@ function LAWizard() {
 /* ─── PAGE ───────────────────────────────────────────────────────────────── */
 
 export default function LearningAgreementPage() {
-  const navigate = useNavigate();
 
   useSEO({
     title: "Learning Agreement Erasmus: la guía completa | MAbroad",
@@ -771,9 +770,9 @@ export default function LearningAgreementPage() {
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1600&q=70')", backgroundPosition: "center 40%" }}
         />
         <div className={styles.heroContent}>
-          <button className={styles.backBtn} onClick={() => navigate("/proceso")}>
+          <Link className={`${styles.backBtn} link-btn`} to="/proceso">
             ← Volver al proceso
-          </button>
+          </Link>
           <SectionLabel color="#10B981">Documento clave</SectionLabel>
           <h1 className={styles.heroTitle}>
             Tu Learning<br />
@@ -861,12 +860,12 @@ export default function LearningAgreementPage() {
           <Link to="/guias/learning-agreement-paso-a-paso" className="guide-link-inline">guía del Learning Agreement paso a paso</Link>.
         </p>
         <div className={styles.ctaBtns}>
-          <button className="btn-primary" onClick={() => navigate("/proceso")}>
+          <Link className="btn-primary" to="/proceso">
             Ver todos los pasos →
-          </button>
-          <button className="btn-ghost" onClick={() => navigate("/")}>
+          </Link>
+          <Link className="btn-ghost" to="/">
             Explorar destinos
-          </button>
+          </Link>
         </div>
       </section>
 

@@ -814,6 +814,14 @@ a { text-decoration: none; color: inherit; }
 /* Cuando el "botón" navega es un enlace real (<a>/<Link>), no un <button>
    dentro de un <a>: misma caja y misma altura de línea que el botón. */
 a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-align: center; text-decoration: none; }
+/* .link-btn: lo mismo para el resto de "botones" que en realidad navegan
+   (volver, ver guía, CTA de tarjetas…): un <a>/<Link> con la caja, el
+   centrado y la altura de línea de un <button>, para que no cambie de
+   tamaño al pasar de botón a enlace. Se añade junto a la clase visual. */
+.link-btn { display: inline-flex; align-items: center; justify-content: center; line-height: normal; text-align: center; text-decoration: none; }
+/* Filas y tarjetas que ahora son enlaces: misma altura de línea que cuando
+   eran <button> (un <a> hereda el 1.5 del body y crecerían unos píxeles). */
+.rankings-row, .quick-access__card, .nav-drawer__item, .hero__trending-pill { line-height: normal; }
 
 /* ─── CTA ────────────────────────────────────────────────────────────────── */
 .cta { padding: var(--section-py) var(--section-px); background: var(--gradient-dark); position: relative; overflow: hidden; text-align: center; }

@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { CITIES } from "../data/cities";
 import { getScoreMap, getOverallScore, parseMinCost, isErasmusEligible } from "../lib/cities";
 import { getComparePhrase } from "../data/comparePhrases";
@@ -375,7 +375,6 @@ const REGION_ORDER = [
 
 /* ─── Main Component ────────────────────────────────────────────────────── */
 export default function ComparePage() {
-  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
   useSEO({
@@ -572,10 +571,10 @@ export default function ComparePage() {
                       <div className={styles.stat}><span><IconIdiomas size={18} /></span><span>{city.language}</span></div>
                     </div>
 
-                    <button className={styles.cityLinkBtn} style={{ borderColor: COL_COLORS[i], color: COL_COLORS[i] }}
-                      onClick={() => navigate(`/city/${city.slug}`)}>
+                    <Link className={`${styles.cityLinkBtn} link-btn`} style={{ borderColor: COL_COLORS[i], color: COL_COLORS[i] }}
+                      to={`/city/${city.slug}`}>
                       Ver guía completa →
-                    </button>
+                    </Link>
                   </div>
                 );
               })}
