@@ -922,24 +922,6 @@ export default function LearningAgreementPage() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className={styles.cta}>
-        <h2 className={styles.ctaTitle}>¿Quieres repasar el proceso completo?</h2>
-        <p className={styles.ctaSub}>
-          El Learning Agreement es solo uno de los 8 pasos. Que no se te escape ninguno. Y si quieres repasar
-          tablas, firmas y plazos de cambio, lee la{" "}
-          <Link to="/guias/learning-agreement-paso-a-paso" className="guide-link-inline">guía del Learning Agreement paso a paso</Link>.
-        </p>
-        <div className={styles.ctaBtns}>
-          <Link className="btn-primary" to="/proceso">
-            Ver todos los pasos →
-          </Link>
-          <Link className="btn-ghost" to="/">
-            Explorar destinos
-          </Link>
-        </div>
-      </section>
-
       <JourneySteps current="learning-agreement" />
 
       <Footer />

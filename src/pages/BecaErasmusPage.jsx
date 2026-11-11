@@ -764,21 +764,6 @@ export default function BecaErasmusPage() {
           </p>
         </section>
 
-        {/* ── CTA ── */}
-        <section className="proceso-cta">
-          <h2 className="proceso-cta__title">¿Tienes claro cuánto cobrarás?</h2>
-          <p className="proceso-cta__subtitle">
-            Ahora elige el destino perfecto. Compara ciudades con scores por categoría y guías locales.
-          </p>
-          <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link className="btn-primary" to="/">
-              Explorar destinos →
-            </Link>
-            <Link className="btn-ghost" to="/proceso">
-              ¿Cómo funciona el Erasmus?
-            </Link>
-          </div>
-        </section>
       </div>
 
       <JourneySteps current="beca" />

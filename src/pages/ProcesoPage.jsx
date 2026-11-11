@@ -618,25 +618,6 @@ export default function ProcesoPage() {
         <MobileStories steps={STEPS} active={activeStep} onChange={handleStepClick} />
       </section>
 
-      {/* CTA */}
-      <section className="proceso-cta">
-        <h2 className="proceso-cta__title">¿Listo para elegir tu ciudad?</h2>
-        <p className="proceso-cta__subtitle">
-          Ahora que conoces el proceso, encuentra el destino perfecto con scores por categoría y guías locales.
-        </p>
-        <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-          <Link className="btn-primary" to="/">
-            Explorar destinos →
-          </Link>
-          <Link className="btn-ghost" to="/comparar">
-            Comparar ciudades
-          </Link>
-          <Link className="btn-ghost" to="/tipos-de-intercambio">
-            ¿Erasmus no es tu única opción? →
-          </Link>
-        </div>
-      </section>
-
       <JourneySteps current="proceso" />
 
       <Footer />

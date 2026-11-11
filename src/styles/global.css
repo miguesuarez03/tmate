@@ -1792,21 +1792,6 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
 }
 .proceso-bottom-btn--next:hover { opacity: 0.88; transform: translateX(2px); }
 
-/* CTA section */
-.proceso-cta {
-  background: var(--gradient-hero); text-align: center;
-  padding: var(--section-py) var(--section-px);
-}
-.proceso-cta__title {
-  font-family: var(--font-display); font-weight: 900;
-  font-size: clamp(28px, 4vw, 48px); color: #fff;
-  margin-bottom: 14px; letter-spacing: -0.5px;
-}
-.proceso-cta__subtitle {
-  font-size: clamp(15px, 2vw, 17px); color: rgba(255,255,255,0.7);
-  max-width: 480px; margin: 0 auto 32px; line-height: 1.6;
-}
-
 /* Responsive */
 @media (max-width: 900px) {
   .proceso-main__inner { grid-template-columns: 1fr; }
