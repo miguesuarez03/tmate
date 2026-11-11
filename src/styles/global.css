@@ -282,7 +282,7 @@ a { text-decoration: none; color: inherit; }
 .navbar__links { display: none; }
 /* Chip con contorno: fondo blanco, hilo fino naranja, texto naranja — al
    pasar el ratón (o en el enlace activo) el naranja pasa a ser el fondo,
-   con una transición suave. Los 6 enlaces son iguales, incluido City
+   con una transición suave. Todos los enlaces son iguales, incluido City
    Match (antes tenía su propio degradado sólido; ahora es uno más). */
 .navbar__link {
   background: var(--color-white); border: 1.5px solid var(--color-primary);
@@ -305,6 +305,12 @@ a { text-decoration: none; color: inherit; }
     position: absolute; left: 50%; top: 50%;
     transform: translate(-50%, -50%);
   }
+}
+/* Con 7 enlaces (desde que entró «Guías Erasmus»), a 1200–1365px los chips
+   quedaban a ~13px del logo: un poco más compactos hasta que sobra sitio. */
+@media (min-width: 1200px) and (max-width: 1365px) {
+  .navbar__links { gap: 6px; }
+  .navbar__link { font-size: 14px; padding: 7px 12px; }
 }
 .navbar__hamburger {
   display: flex; flex-direction: column; gap: 5px;

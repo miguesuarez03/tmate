@@ -163,7 +163,7 @@ const MENU_ITEMS = [
 // global.css) — etiquetas cortas a propósito, distintas de las de
 // MENU_ITEMS (que sí llevan descripción larga, para el drawer móvil). No
 // incluye "Cuéntanos tu experiencia": es una acción secundaria (abre un
-// modal en Home), no una sección — se queda solo en el drawer móvil.
+// modal en Home), no una sección — en escritorio vive en el footer.
 export const NAV_LINKS = [
   { label: "Destinos", path: "/" },
   { label: "City Match", path: "/city-match" },
@@ -171,6 +171,7 @@ export const NAV_LINKS = [
   { label: "Proceso", path: "/proceso" },
   { label: "Beca", path: "/beca-erasmus" },
   { label: "Learning Agreement", path: "/learning-agreement" },
+  { label: "Guías Erasmus", path: "/guias" },
 ];
 
 /**
@@ -198,7 +199,9 @@ function HorizontalNav() {
       {NAV_LINKS.map((link) => {
         // "Destinos" ("/") no se marca como activo: es la home por
         // defecto, no una sección que tenga sentido ver "seleccionada".
-        const active = link.path !== "/" && location.pathname === link.path;
+        // Las guías sueltas (/guias/:slug) también marcan «Guías Erasmus».
+        const active = link.path !== "/" &&
+          (location.pathname === link.path || location.pathname.startsWith(`${link.path}/`));
         return (
           <Link
             key={link.path}
@@ -476,6 +479,10 @@ export function Footer() {
           {FOOTER_LINKS.map((l) => (
             <li key={l.path}><Link to={l.path} aria-current={pathname === l.path ? "page" : undefined}>{l.label}</Link></li>
           ))}
+          {/* Abre el formulario «Comparte tu experiencia» de la home (ver
+              HomeExperiences). En escritorio es el único acceso: el navbar
+              horizontal no lo lleva y el menú lateral no se ve. */}
+          <li><Link to="/?accion=compartir">Cuéntanos tu experiencia</Link></li>
         </ul>
       </nav>
       <p className="footer__independence">
