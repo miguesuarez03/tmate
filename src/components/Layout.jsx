@@ -11,6 +11,7 @@ import {
   IconDocumento,
 } from "./icons";
 import ThemeToggle, { ThemeToggleRow } from "./ThemeToggle";
+import { CITY_MATCH_QUESTION_COUNT } from "../data/cityMatch";
 
 // Símbolo MA — trazo grueso de puntas redondeadas que dibuja la M y la A de
 // un solo recorrido (vertical → valle → pico → base), con el tramo derecho
@@ -110,7 +111,7 @@ const MENU_ITEMS = [
   {
     Icon: IconCityMatch,
     label: "City Match",
-    desc: "Responde 8 preguntas y descubre tu ciudad ideal",
+    desc: `Responde ${CITY_MATCH_QUESTION_COUNT} preguntas y descubre tu ciudad ideal`,
     action: "match",
     to: "/city-match",
   },

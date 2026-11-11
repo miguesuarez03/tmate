@@ -38,6 +38,7 @@ import GuidePage from "./pages/GuidePage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 import { CITIES } from "./data/cities";
+import { CITY_MATCH_QUESTION_COUNT } from "./data/cityMatch";
 import { getCityBySlug, getOverallScore, getCityMeta, getHomeMeta } from "./lib/cities";
 import { getGuides, getGuideBySlug, getGuideMeta, GUIDES_INDEX_META, GUIDES_INDEX_JSON_LD } from "./lib/guides";
 import {
@@ -78,7 +79,7 @@ const STATIC_PAGE_META = {
   "/city-match": {
     title: "City Match — Encuentra tu ciudad Erasmus ideal | MAbroad",
     description:
-      "Responde 10 preguntas sobre tu presupuesto, clima ideal, idioma y estilo de vida, y descubre en segundos qué ciudad Erasmus encaja mejor contigo.",
+      `Responde ${CITY_MATCH_QUESTION_COUNT} preguntas sobre tu presupuesto, clima ideal, idioma y estilo de vida, y descubre en segundos qué ciudad Erasmus encaja mejor contigo.`,
     changefreq: "weekly",
     priority: 0.8,
   },

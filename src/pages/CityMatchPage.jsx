@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo, useRef, useId } from "react";
 import Flag from "../components/Flag";
 import { Link, useSearchParams } from "react-router-dom";
 import { CITIES } from "../data/cities";
+import { CITY_MATCH_QUESTION_IDS, CITY_MATCH_QUESTION_COUNT } from "../data/cityMatch";
 import { getScoreMap, getOverallScore, isErasmusEligible, getCitySize } from "../lib/cities";
 import { useSEO } from "../hooks/useSEO";
 import { Navbar, Footer } from "../components/Layout";
@@ -88,7 +89,7 @@ const closeness = (score, target) => Math.max(0, 1 - Math.abs(score - target) / 
 
 /* ─── Preguntas (copy + opciones) ─────────────────────────────────────── */
 // Valores cortos y sin "." ni "~": se usan tal cual en el enlace compartible.
-const QUESTIONS = [
+const QUESTION_DEFS = [
   {
     id: "destino",
     title: "¿Dónde te gustaría hacer tu intercambio?",
@@ -217,6 +218,20 @@ const QUESTIONS = [
     ],
   },
 ];
+
+// El test se monta en el orden de CITY_MATCH_QUESTION_IDS (src/data/cityMatch.js),
+// que es de donde sale el «10 preguntas» del menú y de la descripción SEO.
+// Si la lista y las definiciones no coinciden, mejor fallar aquí que enseñar
+// un número que no es.
+const QUESTIONS = CITY_MATCH_QUESTION_IDS.map((id) => {
+  const def = QUESTION_DEFS.find((q) => q.id === id);
+  if (!def) throw new Error(`City Match: falta la definición de la pregunta «${id}» (QUESTION_DEFS).`);
+  return def;
+});
+if (QUESTION_DEFS.length !== QUESTIONS.length) {
+  const missing = QUESTION_DEFS.filter((q) => !CITY_MATCH_QUESTION_IDS.includes(q.id)).map((q) => q.id);
+  throw new Error(`City Match: preguntas definidas pero no listadas en src/data/cityMatch.js: ${missing.join(", ")}.`);
+}
 
 const QUESTION_BY_ID = Object.fromEntries(QUESTIONS.map((q) => [q.id, q]));
 const optionOf = (qId, value) => QUESTION_BY_ID[qId].options.find((o) => o.value === value);
@@ -379,7 +394,7 @@ export default function CityMatchPage() {
 
   useSEO({
     title: "City Match — Encuentra tu ciudad Erasmus ideal | MAbroad",
-    description: "Responde 10 preguntas sobre tu presupuesto, clima ideal, idioma y estilo de vida, y descubre en segundos qué ciudad Erasmus encaja mejor contigo.",
+    description: `Responde ${CITY_MATCH_QUESTION_COUNT} preguntas sobre tu presupuesto, clima ideal, idioma y estilo de vida, y descubre en segundos qué ciudad Erasmus encaja mejor contigo.`,
   });
 
   // Si la URL trae respuestas guardadas (?r=…), restaura directamente la
