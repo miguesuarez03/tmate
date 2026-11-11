@@ -1572,6 +1572,8 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
 .proceso-hero__stat-label { font-size: 12px; color: rgba(255,255,255,0.6); }
 
 /* Main layout */
+/* Ancla de los pasos (ProcesoPage.jsx): deja el navbar fijo de 64px por encima. */
+.proceso-steps-anchor { scroll-margin-top: 64px; }
 .proceso-main { padding: 48px var(--section-px) 80px; }
 .proceso-main__inner {
   max-width: 1200px; margin: 0 auto;
