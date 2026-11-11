@@ -993,3 +993,86 @@
   .stickyCompareInfo { display: none; }
   .miniGrid { grid-template-columns: 1fr 1fr; }
 }
+
+/* ─── TABLA COMPACTA (móvil, MobileCompareTable) ─────────────────────────────
+   Solo ≤720px: sustituye a las tarjetas grandes de cada ciudad, al resumen
+   rápido y a las puntuaciones detalladas (que en móvil se apilaban y había
+   que subir y bajar para comparar). La cabecera de ciudades se queda fija
+   bajo el navbar (64px) mientras se baja por la tabla. */
+.mobileTableWrap { display: none; }
+
+@media (max-width: 720px) {
+  .mobileTableWrap { display: block; margin: 0 calc(-1 * var(--section-px) + 8px); }
+  .cityCards, .summarySection, .versusSection { display: none; }
+  /* Menos aire entre bloques: la tabla ya agrupa casi todo. */
+  .compareBody { gap: 32px; padding-top: 24px; }
+}
+
+.mobileTable {
+  width: 100%; table-layout: fixed;
+  border-collapse: separate; border-spacing: 0;
+  background: var(--color-white);
+  border: 1px solid var(--color-border); border-radius: var(--radius-lg);
+  font-size: 13.5px; color: var(--color-dark);
+}
+.mobileTable td {
+  padding: 6px 8px 12px; text-align: center; vertical-align: top;
+  line-height: 1.35; overflow-wrap: anywhere;
+}
+.mobileTable td + td { border-left: 1px solid var(--color-border); }
+
+/* Cabecera fija: una columna por ciudad. */
+.mtHead {
+  position: sticky; top: 64px; z-index: 5;
+  padding: 10px 6px 10px; vertical-align: top;
+  background: var(--color-white);
+  border-bottom: 2px solid var(--accent);
+  box-shadow: 0 6px 10px -8px rgba(0,0,0,0.25);
+}
+.mtHead:first-child { border-top-left-radius: var(--radius-lg); }
+.mtHead:last-child { border-top-right-radius: var(--radius-lg); }
+.mtHead + .mtHead { border-left: 1px solid var(--color-border); }
+.mtHeadName {
+  display: block; padding: 0 18px 0 2px;
+  font-family: var(--font-display); font-weight: 800; font-size: 14px; line-height: 1.2;
+  color: var(--accent); text-align: left;
+  overflow-wrap: anywhere;
+}
+.mtHeadScore {
+  display: inline-block; margin-top: 6px; padding: 2px 10px; border-radius: var(--radius-full);
+  font-family: var(--font-display); font-weight: 900; font-size: 15px; color: #fff;
+}
+.mtRemove {
+  position: absolute; top: 2px; right: 0;
+  width: 32px; height: 32px; border: 0; background: none; cursor: pointer;
+  font-size: 13px; color: var(--color-muted);
+}
+.mtRemove:focus-visible { outline: 2px solid var(--color-primary); outline-offset: -4px; border-radius: 8px; }
+
+/* Etiqueta de cada fila, a todo el ancho y encima de los valores. */
+.mtRowLabel {
+  padding: 10px 10px 2px; text-align: left;
+  font-size: 11.5px; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase;
+  color: var(--color-slate-light);
+}
+.mtRowLabel :global(svg) { vertical-align: -3px; margin-right: 6px; }
+.mtGroup + .mtGroup .mtRowLabel { border-top: 1px solid var(--color-border); }
+
+.mtScore {
+  display: inline-flex; align-items: center; justify-content: center; gap: 4px; flex-wrap: wrap;
+  font-family: var(--font-display); font-weight: 800; font-size: 16px;
+}
+.mtNote { font-family: var(--font-body); font-size: 11px; font-weight: 600; color: var(--color-slate-light); }
+.mtBest { font-weight: 800; color: var(--color-emerald); }
+.mtBar {
+  display: block; height: 4px; margin: 5px auto 0; max-width: 72px;
+  border-radius: 2px; background: var(--color-border); overflow: hidden;
+}
+.mtBar > span { display: block; height: 100%; border-radius: 2px; }
+
+.mtLink {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: 0 10px; margin-top: 6px;
+  border: 1.5px solid; border-radius: var(--radius-full);
+  font-size: 13px; font-weight: 700; text-decoration: none;
+}

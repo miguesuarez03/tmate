@@ -348,6 +348,106 @@ function VersusGrid({ scoreIds, selectedCities, scoreMaps }) {
   );
 }
 
+/* ─── Tabla compacta (solo móvil) ───────────────────────────────────────
+   En móvil las tarjetas de cada ciudad se apilaban una debajo de otra y
+   comparar obligaba a subir y bajar. Aquí todo va lado a lado, una columna
+   por ciudad, con la cabecera de ciudades fija bajo el navbar mientras se
+   baja. Sustituye (solo ≤720px, por CSS) a las tarjetas, al resumen rápido y
+   a las puntuaciones detalladas; mismas notas y mismo criterio de ganadora. */
+function MobileCompareTable({ cities, scoreMaps, overallScores, winnerIdx, tiedIdx, onRemove }) {
+  const cols = cities.length;
+  const minCost = Math.min(...cities.map((c) => parseMinCost(c.costDetail)));
+
+  const basics = [
+    {
+      id: "overall", label: "Nota global",
+      cell: (c, i) => (
+        <span className={styles.mtScore} style={{ color: winnerIdx === i ? COL_COLORS[i] : undefined }}>
+          {winnerIdx === i && <IconCorona size={14} />}
+          {overallScores[i].toFixed(1)}
+          {tiedIdx.includes(i) && <span className={styles.mtNote}>empate</span>}
+        </span>
+      ),
+    },
+    {
+      id: "coste", label: "Coste al mes",
+      cell: (c) => (
+        <span className={parseMinCost(c.costDetail) === minCost ? styles.mtBest : undefined}>
+          {c.costDetail.replace("/mes", "")}
+        </span>
+      ),
+    },
+    { id: "clima", label: "Clima", cell: (c) => c.weather },
+    { id: "idioma", label: "Idioma", cell: (c) => c.language },
+    { id: "programa", label: "Programa", cell: (c) => (isErasmusEligible(c) ? "Erasmus+" : "Bilateral") },
+  ];
+
+  const row = (id, label, cells, icon = null) => (
+    <tbody key={id} className={styles.mtGroup}>
+      <tr>
+        <th scope="rowgroup" colSpan={cols} className={styles.mtRowLabel}>{icon}{label}</th>
+      </tr>
+      <tr>{cells}</tr>
+    </tbody>
+  );
+
+  return (
+    <div className={styles.mobileTableWrap}>
+      <table className={styles.mobileTable} style={{ "--cols": cols }}>
+        <caption className="sr-only">Comparativa lado a lado de {cities.map((c) => c.name).join(", ")}</caption>
+        <thead>
+          <tr>
+            {cities.map((c, i) => (
+              <th key={c.slug} scope="col" className={styles.mtHead} style={{ "--accent": COL_COLORS[i] }}>
+                <span className={styles.mtHeadName}><Flag emoji={c.emoji} /> {c.name}</span>
+                <span className={styles.mtHeadScore} style={{ background: COL_GRADIENTS[i] }}>{overallScores[i].toFixed(1)}</span>
+                <button type="button" className={styles.mtRemove} onClick={() => onRemove(c.slug)} aria-label={`Quitar ${c.name} de la comparativa`}>✕</button>
+              </th>
+            ))}
+          </tr>
+        </thead>
+
+        {basics.map((b) => row(b.id, b.label, cities.map((c, i) => <td key={c.slug}>{b.cell(c, i)}</td>)))}
+
+        {SCORE_IDS.map((id) => {
+          const meta = scoreMaps.map((m) => m[id]).find(Boolean);
+          if (!meta) return null;
+          const scores = scoreMaps.map((m) => m[id]?.score ?? 0);
+          const max = Math.max(...scores);
+          const single = scores.filter((s) => s === max).length === 1;
+          const CatIcon = getCategoryIcon(id);
+          return row(id, meta.label, cities.map((c, i) => {
+            const best = single && scores[i] === max;
+            return (
+              <td key={c.slug}>
+                <span className={styles.mtScore} style={{ color: best ? COL_COLORS[i] : undefined }}>
+                  {scores[i].toFixed(1)}
+                  {best && <span className="sr-only"> (la mejor)</span>}
+                </span>
+                <span className={styles.mtBar} aria-hidden="true">
+                  <span style={{ width: `${scores[i] * 10}%`, background: COL_COLORS[i], opacity: best ? 1 : 0.45 }} />
+                </span>
+              </td>
+            );
+          }), <CatIcon size={16} />);
+        })}
+
+        <tbody className={styles.mtGroup}>
+          <tr>
+            {cities.map((c, i) => (
+              <td key={c.slug}>
+                <Link className={styles.mtLink} style={{ color: COL_COLORS[i], borderColor: COL_COLORS[i] }} to={`/city/${c.slug}`}>
+                  Ver guía →
+                </Link>
+              </td>
+            ))}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 /* ─── Mini card (selector view) ─────────────────────────────────────────
    Tarjeta compacta con miniatura de ciudad dentro de cada acordeón de
    región. Al elegirla NO se mueve de sitio: se queda donde estaba, marcada
@@ -624,6 +724,16 @@ export default function ComparePage() {
 
             {/* Veredicto: la conclusión antes que los datos */}
             <Verdict cities={selectedCities} />
+
+            {/* Móvil: tabla compacta lado a lado con cabecera fija */}
+            <MobileCompareTable
+              cities={selectedCities}
+              scoreMaps={scoreMaps}
+              overallScores={overallScores}
+              winnerIdx={winnerIdx}
+              tiedIdx={tiedIdx}
+              onRemove={remove}
+            />
 
             {/* City header cards */}
             <div className={styles.cityCards} style={{ "--cols": selectedCities.length }}>
