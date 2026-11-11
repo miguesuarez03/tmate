@@ -319,6 +319,10 @@ const WIZARD_STEPS = [
 const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || "";
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 const CONTACT_EMAIL = "suarezalvarez.ma03@gmail.com";
+// Plazo en el que Miguel responde a una solicitud de propuesta. Es un
+// compromiso con el estudiante: si cambia, se cambia aquí y se actualiza en
+// el hero, la introducción del formulario y las dos pantallas de confirmación.
+const PROPOSAL_RESPONSE_TIME = "48 horas";
 
 // El borrador del wizard se guarda en localStorage: es un formulario de 5
 // pasos y perder todo por recargar la página o salir sin querer sería
@@ -551,7 +555,8 @@ function LAWizard() {
         <span className={styles.wizardDoneIcon}><IconCheck size={48} /></span>
         <h3 className={styles.wizardDoneTitle}>¡Recibido!</h3>
         <p className={styles.wizardDoneText}>
-          Te preparamos una propuesta orientativa de equivalencias y te la mandamos a <strong>{data.email}</strong>.
+          Te preparamos una propuesta orientativa de equivalencias y te la mandamos a <strong>{data.email}</strong> en
+          un plazo de {PROPOSAL_RESPONSE_TIME}.
           Es una ayuda para preparar tu Learning Agreement: el documento oficial lo firmáis tú y las dos
           universidades.
         </p>
@@ -571,7 +576,7 @@ function LAWizard() {
         <h3 className={styles.wizardDoneTitle}>Se ha abierto tu cliente de correo</h3>
         <p className={styles.wizardDoneText}>
           Revisa que el email se haya generado bien y envíalo. En cuanto lo recibamos, te preparamos una
-          propuesta de equivalencias y te respondemos al correo que nos has dado.
+          propuesta de equivalencias y te respondemos al correo que nos has dado en un plazo de {PROPOSAL_RESPONSE_TIME}.
         </p>
         <p className={styles.wizardDoneText}>
           Si no se ha abierto ningún programa de correo (pasa en algunos móviles), copia el texto y envíalo
@@ -865,7 +870,7 @@ export default function LearningAgreementPage() {
             <a className={styles.heroCta} href="#wizard-la">
               Pide tu propuesta de equivalencias <span aria-hidden="true">↓</span>
             </a>
-            <span className={styles.heroCtaNote}>La revisamos a mano y te la mandamos por email.</span>
+            <span className={styles.heroCtaNote}>La revisamos a mano y te respondemos por email en {PROPOSAL_RESPONSE_TIME}.</span>
           </div>
 
           {/* Tres datos con el mismo formato (valor + etiqueta). El tercero
@@ -930,7 +935,7 @@ export default function LearningAgreementPage() {
           <h2 className={styles.sectionTitle}>Pide tu propuesta de equivalencias</h2>
           <p className={styles.sectionText}>
             Rellena estos datos en menos de 2 minutos y te ayudamos a preparar una propuesta de equivalencias para
-            tu Learning Agreement: la revisamos a mano y te la mandamos por email. Es una ayuda orientativa, no el
+            tu Learning Agreement: la revisamos a mano y te la mandamos por email en un plazo de {PROPOSAL_RESPONSE_TIME}. Es una ayuda orientativa, no el
             documento oficial, que se tramita con tu universidad y lo aprobáis tú y las dos universidades.
           </p>
           <LAWizard />
