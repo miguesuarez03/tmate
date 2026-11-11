@@ -117,6 +117,29 @@ export interface CityInsights {
   scores: ScoreItem[];
 }
 
+// ─── Índice ligero y ficha completa ──────────────────────────────────────────
+// Generados en el build por scripts/city-data.mjs (src/data/generated/).
+
+/** Lo que el navegador tiene de TODAS las ciudades desde el primer momento. */
+export interface CityIndexEntry extends Pick<City,
+  'slug' | 'name' | 'nameEn' | 'country' | 'emoji' | 'programType' | 'region' | 'tag' |
+  'phrase' | 'costDetail' | 'vibe' | 'erasmus' | 'weather' | 'language' | 'img' | 'experiences'> {
+  /** Nota 0–10 de cada categoría (id de SCORE_CATEGORIES → nota). */
+  scores: Record<string, number>;
+  /** Media de las 8 notas (computeOverallScore). */
+  overall: number;
+  /** 0 pequeña, 1 mediana, 2 grande; null sin dato de población. */
+  size: 0 | 1 | 2 | null;
+  /** Naturaleza para City Match: 0 poca, 1 algo, 2 mucha (heurística). */
+  nature: 0 | 1 | 2;
+}
+
+/** Ficha completa de una ciudad, cargada bajo demanda (loadCityDetail). */
+export interface CityDetail {
+  city: City;
+  insights: CityInsights;
+}
+
 // ─── Filtros y búsqueda ───────────────────────────────────────────────────────
 // Preparado para la feature de filtros avanzados
 

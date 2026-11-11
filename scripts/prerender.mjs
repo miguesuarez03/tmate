@@ -341,7 +341,7 @@ async function main() {
 
   for (const route of ALL_ROUTES) {
     try {
-      const { appHtml, meta } = renderPage(route.path);
+      const { appHtml, meta } = await renderPage(route.path);
       const html = renderTemplate(template, appHtml, meta, fontPreloadTags(fonts, route.path));
       if (!meta.noindex) indexNowPages[meta.canonical] = contentHash(appHtml, meta);
       const out = outPathFor(route.path);

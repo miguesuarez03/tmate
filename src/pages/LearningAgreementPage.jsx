@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { IconUniversidad, IconEdificio, IconGlobo, IconManos, IconAmigos, IconLibros, IconLapiz, IconRobot, IconAlerta, IconSobre, IconCheck, IconCiclo, IconReloj, IconFiesta, IconClipboard } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
-import { CITIES } from "../data/cities";
-import { isErasmusEligible } from "../lib/cities";
+import { useCityDetails } from "../hooks/useCityDetail";
+import { getAllCities, isErasmusEligible } from "../lib/cities";
 import SearchableInput from "../components/SearchableInput";
 import styles from "./LearningAgreementPage.module.css";
+
+// Índice ligero de ciudades (ver lib/cities.js).
+const ALL_CITIES = getAllCities();
 
 /* ─── DATA ──────────────────────────────────────────────────────────────── */
 
@@ -297,7 +300,7 @@ function Checklist() {
 
 // Destinos del formulario, por orden alfabético, para el buscador de ciudad
 // (antes un <select> con las 150 en el orden del fichero de datos).
-const WIZARD_CITY_OPTIONS = [...CITIES]
+const WIZARD_CITY_OPTIONS = [...ALL_CITIES]
   .sort((a, b) => a.name.localeCompare(b.name, "es"))
   .map((c) => ({ value: c.slug, label: c.name, sublabel: c.country, emoji: c.emoji }));
 
@@ -408,8 +411,11 @@ function LAWizard() {
 
   const update = (field, value) => setData(d => ({ ...d, [field]: value }));
 
-  const destinoCity = CITIES.find(c => c.slug === data.ciudadDestino);
-  const universidadesDestino = destinoCity?.universities ?? [];
+  const destinoCity = ALL_CITIES.find(c => c.slug === data.ciudadDestino);
+  // Las universidades están en la ficha completa de la ciudad (no en el
+  // índice ligero): se pide al elegir destino y el selector se rellena al llegar.
+  const destinoDetail = useCityDetails(destinoCity ? [destinoCity.slug] : [])[destinoCity?.slug];
+  const universidadesDestino = destinoDetail?.city.universities ?? [];
 
   // Qué falta en el paso actual: { campo: mensaje }. Vacío = se puede seguir.
   // El botón «Continuar» ya no se desactiva sin explicación: se puede pulsar
@@ -657,7 +663,7 @@ function LAWizard() {
                   la universidad: la lista depende de la ciudad. */}
               <div className={styles.wizardLabel}>
                 <label htmlFor="la-ciudad-destino">Ciudad de destino</label>
-                <span className={styles.wizardHint}>Escribe para buscar entre los {CITIES.length} destinos y elige uno de la lista.</span>
+                <span className={styles.wizardHint}>Escribe para buscar entre los {ALL_CITIES.length} destinos y elige uno de la lista.</span>
                 <SearchableInput
                   value={destinoCity?.name || ""}
                   onChange={(text) => {

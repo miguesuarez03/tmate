@@ -1,9 +1,12 @@
 import { useEffect, useId, useMemo, useRef, useState } from "react";
+import { getAllCities } from "../../lib/cities";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
-import { CITIES } from "../../data/cities";
 import { IconCheck, IconLapiz } from "../icons";
 import styles from "./ShareExperienceModal.module.css";
+
+// Índice ligero de ciudades (ver lib/cities.js).
+const ALL_CITIES = getAllCities();
 
 // ─────────────────────────────────────────────────────────────────────────────
 // «Compartir mi experiencia» — formulario real.
@@ -26,7 +29,7 @@ const RATING_WORDS = ["", "Regular", "Bien", "Muy bien", "Genial", "Imprescindib
 
 const EMPTY = { city: "", year: "", homeUniversity: "", name: "", text: "", rating: 0, email: "", consent: false };
 
-const SORTED_CITIES = [...CITIES].sort((a, b) => a.name.localeCompare(b.name, "es"));
+const SORTED_CITIES = [...ALL_CITIES].sort((a, b) => a.name.localeCompare(b.name, "es"));
 
 /** Bloque listo para pegar en src/data/cityExperiences.js (sin el email). */
 function publishSnippet(d) {
@@ -80,7 +83,7 @@ export default function ShareExperienceModal({ open, onClose, initialCity = "" }
     return Array.from({ length: YEARS_BACK + 1 }, (_, i) => now - i);
   }, []);
 
-  const city = CITIES.find((c) => c.slug === data.city);
+  const city = ALL_CITIES.find((c) => c.slug === data.city);
   const update = (field, value) => setData((d) => ({ ...d, [field]: value }));
 
   // Al abrir: formulario limpio (con la ciudad de la ficha, si viene de una),

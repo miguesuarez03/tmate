@@ -37,9 +37,8 @@ import GuiasPage from "./pages/GuiasPage";
 import GuidePage from "./pages/GuidePage";
 import NotFoundPage from "./pages/NotFoundPage";
 
-import { CITIES } from "./data/cities";
 import { CITY_MATCH_QUESTION_COUNT } from "./data/cityMatch";
-import { getCityBySlug, getOverallScore, getCityMeta, getHomeMeta } from "./lib/cities";
+import { getAllCities, getOverallScore, getCityMeta, getHomeMeta, loadCityDetail, getLoadedCityDetail } from "./lib/cities";
 import { getGuides, getGuideBySlug, getGuideMeta, GUIDES_INDEX_META, GUIDES_INDEX_JSON_LD } from "./lib/guides";
 import {
   getCityJsonLd, getBreadcrumbJsonLd, HOME_JSON_LD, BECA_JSON_LD,
@@ -149,7 +148,7 @@ export const ALL_ROUTES = [
     changefreq: "monthly",
     priority: 0.7,
   })),
-  ...CITIES.map((c) => ({
+  ...getAllCities().map((c) => ({
     path: `/city/${c.slug}`,
     changefreq: "monthly",
     priority: 0.6,
@@ -180,7 +179,9 @@ export function getMetaForPath(pathname) {
   // Ficha de ciudad
   if (pathname.startsWith("/city/")) {
     const slug = pathname.replace("/city/", "").replace(/\/$/, "");
-    const city = getCityBySlug(slug);
+    // Ficha completa (heroImg para og:image y JSON-LD): renderPage la ha
+    // cargado antes de llegar aquí.
+    const city = getLoadedCityDetail(slug)?.city;
     if (city) {
       const overall = getOverallScore(slug);
       const m = getCityMeta(city, overall);
@@ -263,11 +264,22 @@ function App({ url }) {
 }
 
 /**
+ * Datos que una ruta necesita YA cargados para pintarse de una vez (sin
+ * suspender): la ficha completa de la ciudad en /city/:slug. Lo mismo que
+ * hace main.jsx en el navegador antes de hidratar.
+ */
+function preloadData(url) {
+  const m = url.match(/^\/city\/([^/]+)\/?$/);
+  return m ? loadCityDetail(m[1]) : Promise.resolve();
+}
+
+/**
  * Renderiza una ruta a HTML de body + devuelve sus metadatos.
  * @param {string} url  ruta absoluta, p.ej. "/city/berlin"
- * @returns {{ appHtml: string, meta: object }}
+ * @returns {Promise<{ appHtml: string, meta: object }>}
  */
-export function renderPage(url) {
+export async function renderPage(url) {
+  await preloadData(url);
   const appHtml = renderToString(<App url={url} />);
   const meta = getMetaForPath(url);
   return { appHtml, meta };

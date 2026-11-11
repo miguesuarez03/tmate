@@ -1,8 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import Flag from "../components/Flag";
 import { Link, useSearchParams } from "react-router-dom";
-import { CITIES } from "../data/cities";
-import { getScoreMap, getOverallScore, parseMinCost, isErasmusEligible, getCompareLeader, buildCompareVerdict, COMPARE_MIN_CATEGORY_GAP } from "../lib/cities";
+import { getAllCities, getScoreMap, getOverallScore, parseMinCost, isErasmusEligible, getCompareLeader, buildCompareVerdict, COMPARE_MIN_CATEGORY_GAP } from "../lib/cities";
 import { getComparePhrase } from "../data/comparePhrases";
 import { Navbar, Footer } from "../components/Layout";
 import { IconRanking, IconCorona, IconBeca, IconUniversidad, IconClima, IconIdiomas, IconCheck, IconAlerta, IconComparar, IconLupa } from "../components/icons";
@@ -10,9 +9,13 @@ import { getCategoryIcon } from "../lib/categoryIcons";
 import MethodologyNote from "../components/MethodologyNote";
 import ScoreRing from "../components/ScoreRing";
 import { useSEO } from "../hooks/useSEO";
+import { useCityDetails } from "../hooks/useCityDetail";
 import styles from "./ComparePage.module.css";
 import { responsiveImage } from "../lib/images";
 import PhotoCredit from "../components/PhotoCredit";
+
+// Índice ligero de ciudades (ver lib/cities.js).
+const ALL_CITIES = getAllCities();
 
 // Huecos de las fotos del comparador (ver ComparePage.module.css).
 const MINI_THUMB_SLOTS = [[null, "42px", 1]]; // avatar circular
@@ -32,7 +35,7 @@ const RESULT_HERO_SLOTS = [
 // como bloque destacado en vez de empezar directo con la sopa de acordeones.
 const TRENDING_SLUGS = ["bolonia", "lisboa", "berlin", "praga", "viena"];
 
-const CITY_SLUGS = new Set(CITIES.map((c) => c.slug));
+const CITY_SLUGS = new Set(ALL_CITIES.map((c) => c.slug));
 
 // Texto guía del selector según cuántas ciudades hay elegidas (0–3).
 const SELECTION_HINTS = [
@@ -512,15 +515,18 @@ export default function ComparePage() {
 
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim();
-    return CITIES.filter(
+    return ALL_CITIES.filter(
       (c) => !q || c.name.toLowerCase().includes(q) || c.country.toLowerCase().includes(q) || c.tag.toLowerCase().includes(q)
     );
   }, [search]);
 
   const selectedCities = useMemo(
-    () => selected.map((s) => CITIES.find((c) => c.slug === s)).filter(Boolean),
+    () => selected.map((s) => ALL_CITIES.find((c) => c.slug === s)).filter(Boolean),
     [selected]
   );
+  // Highlights, universidades y tips solo están en la ficha completa de cada
+  // ciudad: se piden al elegirla y aparecen en «Características clave» al llegar.
+  const selectedDetails = useCityDetails(selected);
 
   // Ciudades que coinciden con la búsqueda, agrupadas por región y ordenadas
   // alfabéticamente dentro de cada grupo. Las seleccionadas NO se quitan de
@@ -785,19 +791,19 @@ export default function ComparePage() {
                     <div className={styles.featureBlock}>
                       <span className={styles.featureLabel}>Highlights</span>
                       <ul className={styles.highlightList}>
-                        {city.highlights.slice(0, 3).map((h, hi) => <li key={hi}>{h}</li>)}
+                        {(selectedDetails[city.slug]?.city.highlights ?? []).slice(0, 3).map((h, hi) => <li key={hi}>{h}</li>)}
                       </ul>
                     </div>
                     <div className={styles.featureBlock}>
                       <span className={styles.featureLabel}>Universidades</span>
                       <ul className={styles.highlightList}>
-                        {city.universities.slice(0, 2).map((u, ui) => <li key={ui}>{u}</li>)}
+                        {(selectedDetails[city.slug]?.city.universities ?? []).slice(0, 2).map((u, ui) => <li key={ui}>{u}</li>)}
                       </ul>
                     </div>
                     <div className={styles.featureBlock}>
                       <span className={styles.featureLabel}>Tips locales</span>
                       <ul className={styles.highlightList}>
-                        {city.tips.slice(0, 2).map((t, ti) => <li key={ti}>{t}</li>)}
+                        {(selectedDetails[city.slug]?.city.tips ?? []).slice(0, 2).map((t, ti) => <li key={ti}>{t}</li>)}
                       </ul>
                     </div>
                   </div>
@@ -875,7 +881,7 @@ export default function ComparePage() {
             <h2 className={styles.groupTitle}>Destinos con más tirón ahora mismo</h2>
             <div className={styles.featuredGrid}>
               {TRENDING_SLUGS.map((slug) => {
-                const city = CITIES.find((c) => c.slug === slug);
+                const city = ALL_CITIES.find((c) => c.slug === slug);
                 if (!city) return null;
                 const pos = selected.indexOf(slug);
                 const checked = pos !== -1;
