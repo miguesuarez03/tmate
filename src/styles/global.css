@@ -699,13 +699,15 @@ a { text-decoration: none; color: inherit; }
   --motion-safe-duration: var(--hover-duration);
 }
 /* Entrada suave al hacer scroll (ver CityCard.jsx / IntersectionObserver) —
-   estado inicial antes de entrar en el viewport. */
-.city-card:not(.city-card--in-view) { opacity: 0; transform: translateY(24px); }
+   estado inicial antes de entrar en el viewport. Solo con <html class="js">
+   (App.jsx): sin JS, o mientras el bundle aún no ha llegado, las tarjetas
+   del HTML prerenderizado se ven tal cual en vez de quedarse invisibles. */
+.js .city-card:not(.city-card--in-view) { opacity: 0; transform: translateY(24px); }
 .city-card--in-view { opacity: 1; }
 @media (prefers-reduced-motion: reduce) {
   /* Con reduced motion la tarjeta solo aparece con un fundido, sin subir
      24px: el fundido es nivel 2, el desplazamiento no (ver arriba). */
-  .city-card:not(.city-card--in-view) { transform: none; }
+  .js .city-card:not(.city-card--in-view) { transform: none; }
 }
 .city-card:focus { outline: 2px solid var(--color-primary); outline-offset: 3px; }
 

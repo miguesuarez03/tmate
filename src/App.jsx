@@ -1,4 +1,4 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ScrollRestoration from "./components/ScrollRestoration";
 import RouteLoader from "./components/RouteLoader";
@@ -27,6 +27,14 @@ const GuidePage             = lazy(() => import("./pages/GuidePage"));
 const NotFoundPage          = lazy(() => import("./pages/NotFoundPage"));
 
 export default function App() {
+  // <html class="js">: activa los estados "oculto hasta entrar en pantalla"
+  // (p. ej. .city-card en global.css). Se pone DESPUÉS del primer render: los
+  // efectos de los hijos van antes que este, así que las tarjetas que ya
+  // estaban a la vista se han marcado y no llegan a ocultarse.
+  useEffect(() => {
+    document.documentElement.classList.add("js");
+  }, []);
+
   return (
     <BrowserRouter>
       <ScrollRestoration />

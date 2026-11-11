@@ -1,10 +1,11 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { IconFuego } from "./icons";
 import { isErasmusEligible, getOverallScore } from "../lib/cities";
 import ScoreRing from "./ScoreRing";
 import PhotoCredit from "./PhotoCredit";
 import { responsiveImage } from "../lib/images";
+import { useIsoLayoutEffect } from "../hooks/useIsoLayoutEffect";
 
 // Huecos de la foto de la tarjeta (ver .cities-grid en global.css): 4
 // columnas de ~280px, 3 hasta 1100px y 2 en móvil; la tarjeta es vertical
@@ -26,9 +27,16 @@ export default function CityCard({ city }) {
   // gestiona globalmente (ver global.css), así que aquí no hace falta
   // duplicar esa comprobación: la transición simplemente se acorta a
   // instantánea si el usuario lo tiene activado.
-  useEffect(() => {
+  //
+  // El estado oculto solo existe con <html class="js"> (lo pone App.jsx tras
+  // el primer render): el HTML prerenderizado enseña las tarjetas sin esperar
+  // al JS. Y las que YA están en pantalla al montar se marcan antes de pintar
+  // (layout effect), para que al llegar el JS no parpadeen.
+  useIsoLayoutEffect(() => {
     const el = cardRef.current;
     if (!el) return;
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) { setInView(true); return; }
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) { setInView(true); observer.disconnect(); }
     }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
