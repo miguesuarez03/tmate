@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef, useMemo, useId, lazy, Suspense } from "react";
 import { useNavigate, useSearchParams, Link } from "react-router-dom";
-import { CITIES } from "../data/cities";
-import { getScoreMap, getOverallScore, findBestCityMatch, getCitiesGroupedByRegion } from "../lib/cities";
+import { getAllCities, getScoreMap, getOverallScore, findBestCityMatch, getCitiesGroupedByRegion } from "../lib/cities";
 import { HOME_FAQS } from "../data/faqs";
 import { CITY_MATCH_QUESTION_COUNT } from "../data/cityMatch";
 import { Navbar, Footer, SectionLabel, MASymbol, NAV_LINKS } from "../components/Layout";
@@ -15,6 +14,9 @@ import { useIsoLayoutEffect } from "../hooks/useIsoLayoutEffect";
 import { HOME_JSON_LD } from "../lib/seo";
 import { isPrerenderedFirstRender } from "../lib/firstRender";
 import HomeExperiences from "../components/experiences/HomeExperiences";
+
+// Índice ligero de ciudades (ver lib/cities.js).
+const ALL_CITIES = getAllCities();
 
 // WorldMap arrastra react-simple-maps + d3 (pesado). Se carga bajo demanda
 // para no engordar el bundle inicial — el globo está más abajo en la página,
@@ -30,7 +32,7 @@ const HERO_WORDS = [
 ];
 
 const STATS = [
-  { val: String(CITIES.length), label: "Destinos" },
+  { val: String(ALL_CITIES.length), label: "Destinos" },
   // Comisión Europea, informe anual Erasmus+ 2024 (publicado el 14/11/2025):
   // «casi 1,5 millones» de participantes en movilidad (estudiantes, docentes,
   // formadores y jóvenes), no solo estudiantes.
@@ -499,7 +501,7 @@ function RankingsSection() {
   const [active, setActive] = useState("overall");
 
   const ranked = useMemo(() => {
-    return CITIES
+    return ALL_CITIES
       .map((city) => ({
         city,
         score: active === "overall" ? getOverallScore(city.slug) : (getScoreMap(city.slug)[active]?.score ?? 0),
@@ -650,7 +652,7 @@ export default function HomePage() {
           <div className="hero__trending fade-up-5">
             <span className="hero__trending-label">Trending:</span>
             {TRENDING.map((name) => {
-              const city = CITIES.find((c) => c.name === name);
+              const city = ALL_CITIES.find((c) => c.name === name);
               return city ? (
                 <Link key={name} to={`/city/${city.slug}`} className="hero__trending-pill">
                   {name}
@@ -680,7 +682,7 @@ export default function HomePage() {
       {/* GLOBE */}
       <GlobeSection />
 
-      {/* CITIES */}
+      {/* ALL_CITIES */}
       <section id="destinos" className="section" style={{ maxWidth: 1280, margin: "0 auto" }}>
         <div className="section__header">
           <div>

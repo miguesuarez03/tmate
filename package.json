@@ -11,6 +11,7 @@
     "flags:sprite": "node scripts/build-flags.mjs",
     "build": "npm run build:client && npm run build:ssr && npm run prerender",
     "preview": "vite preview",
+    "pretest": "node --import ./tests/resolve-hook.mjs scripts/city-data.mjs",
     "test": "node --import ./tests/resolve-hook.mjs --test \"tests/**/*.test.mjs\""
   },
   "dependencies": {

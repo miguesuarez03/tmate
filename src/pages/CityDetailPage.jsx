@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
-import { getCityBySlug, getCityInsights, getRelatedCities, getOverallScore } from "../lib/cities";
+import { getCityBySlug, getRelatedCities, getOverallScore } from "../lib/cities";
+import { useCityDetail } from "../hooks/useCityDetail";
 import { getCityJsonLd, getBreadcrumbJsonLd } from "../lib/seo";
 import { useSEO } from "../hooks/useSEO";
 import { NavbarCity, Footer } from "../components/Layout";
@@ -16,10 +17,13 @@ import "../styles/cityDetailPage.css";
 
 export default function CityDetailPage() {
   const { slug }  = useParams();
-  const city          = getCityBySlug(slug);
-  const insights      = getCityInsights(slug);
+  // Ficha completa (datos + insights) bajo demanda: un chunk por ciudad. Si
+  // aún no ha llegado, la página suspende (ver useCityDetail).
+  const detail        = useCityDetail(slug);
+  const city          = detail?.city ?? null;
+  const insights      = detail?.insights ?? null;
   const overallScore  = getOverallScore(slug);
-  const relatedCities = city ? getRelatedCities(city, 4) : [];
+  const relatedCities = city ? getRelatedCities(getCityBySlug(slug), 4) : [];
 
   // Nota: el scroll (subir arriba al entrar / restaurar al volver atrás)
   // lo gestiona <ScrollRestoration /> de forma global, así que aquí no

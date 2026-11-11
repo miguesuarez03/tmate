@@ -14,7 +14,9 @@ src/
 │   └── useSEO.js         ← SEO dinámico por página (title, meta, OG)
 ├── data/
 │   ├── cities.js         ← Datos base de las 20 ciudades
-│   └── insights.js       ← Scores detallados por ciudad
+│   ├── insights.js       ← Scores detallados por ciudad
+│   └── generated/        ← Generado en el build (scripts/city-data.mjs), fuera de git:
+│                           cityIndex.js (índice ligero) + cities/<slug>.js (ficha completa)
 ├── components/
 │   ├── Layout.jsx        ← Navbar, Footer, Logo, SectionLabel
 │   ├── CityCard.jsx      ← Card de ciudad para el grid
@@ -154,7 +156,7 @@ useSEO({ city, overallScore }); // actualiza title + meta + OG automáticamente
 
 ## Reglas de arquitectura
 
-1. **Datos** → solo en `src/data/` (cities.js e insights.js)
+1. **Datos** → solo en `src/data/` (cities.js e insights.js). El navegador no los importa: usa el índice ligero generado (`getAllCities()`, `getCityBySlug()`, `getScoreMap()`…) y pide la ficha completa con `loadCityDetail(slug)` / `useCityDetail(slug)`. No importes `data/cities` ni `data/insights` desde código de cliente: meterías 1,5 MB en el bundle inicial.
 2. **Lógica** → solo en `src/lib/cities.js`
 3. **Estado reactivo** → solo en `src/hooks/`
 4. **Tipos** → solo en `src/types/index.ts`

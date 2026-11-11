@@ -7,7 +7,9 @@
 // Solo texto plano (sin JSX) para que sirva también al JSON-LD.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { CITIES } from "./cities";
+// El índice ligero (generado en el build): importar cities.js metería los
+// datos completos de todas las ciudades en el bundle inicial.
+import { CITY_INDEX } from "./generated/cityIndex";
 
 /** FAQ de la home. */
 export const HOME_FAQS = [
@@ -21,7 +23,7 @@ export const HOME_FAQS = [
   },
   {
     q: "¿Cuántas ciudades tenéis?",
-    a: `Ahora mismo hay ${CITIES.length} destinos de intercambio, cada uno con notas de 0 a 10 en 8 categorías (coste de vida, alojamiento, vida social, seguridad…), universidades, clima y consejos. Seguimos añadiendo ciudades.`,
+    a: `Ahora mismo hay ${CITY_INDEX.length} destinos de intercambio, cada uno con notas de 0 a 10 en 8 categorías (coste de vida, alojamiento, vida social, seguridad…), universidades, clima y consejos. Seguimos añadiendo ciudades.`,
   },
   {
     q: "¿Cómo funcionan los scores de las ciudades?",

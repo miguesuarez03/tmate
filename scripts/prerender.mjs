@@ -14,7 +14,7 @@
 // Next.js. Compila igual en local y en Vercel.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync, rmSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { createHash } from "node:crypto";
@@ -109,13 +109,74 @@ function fontPreloadTags(fonts, routePath) {
     .join("\n    ");
 }
 
+// ─── Chunks y CSS de cada página (manifest de Vite) ──────────────────────────
+// En el navegador, main.jsx descarga el chunk de la página (y en una ciudad,
+// su ficha) ANTES de hidratar. Sin aviso, el navegador no lo descubriría
+// hasta ejecutar el bundle principal: con <link rel="modulepreload"> lo pide
+// en paralelo desde el principio. La CSS de la página se enlaza ya en el
+// HTML (antes llegaba con el chunk: la página se veía un instante sin sus
+// estilos); Vite no la duplica al cargar el chunk porque ve que ya existe.
+// Se lee de dist/.vite/ (y se quita de ahí: no hace falta publicarlo); la
+// copia en .ssr-temp permite relanzar `npm run prerender` sin rehacer el build.
+const MANIFEST_PATH = join(DIST, ".vite", "manifest.json");
+const MANIFEST_COPY = join(ROOT, ".ssr-temp", "client-manifest.json");
+
+function loadManifest() {
+  if (existsSync(MANIFEST_PATH)) {
+    writeFileSync(MANIFEST_COPY, readFileSync(MANIFEST_PATH, "utf-8"), "utf-8");
+    rmSync(join(DIST, ".vite"), { recursive: true, force: true });
+  }
+  if (!existsSync(MANIFEST_COPY)) {
+    console.warn("  ⚠ No hay manifest de Vite (dist/.vite/manifest.json): las páginas salen sin modulepreload.");
+    return null;
+  }
+  const manifest = JSON.parse(readFileSync(MANIFEST_COPY, "utf-8"));
+  // Lo que ya carga el propio index.html (bundle principal y sus imports).
+  const inEntry = new Set();
+  const walk = (key, set) => {
+    const chunk = manifest[key];
+    if (!chunk || set.has(chunk.file)) return;
+    set.add(chunk.file);
+    (chunk.css || []).forEach((c) => set.add(c));
+    (chunk.imports || []).forEach((k) => walk(k, set));
+  };
+  walk("index.html", inEntry);
+  return { manifest, inEntry, walk };
+}
+
+/** <link> de modulepreload y stylesheet para los módulos de una ruta. */
+function routeAssetTags(assets, modules) {
+  if (!assets) return { preload: "", css: "" };
+  const files = new Set();
+  for (const mod of modules) {
+    // Sin entrada propia = va dentro del bundle principal (p. ej. HomePage).
+    if (!assets.manifest[mod]) continue;
+    assets.walk(mod, files);
+  }
+  const fresh = [...files].filter((f) => !assets.inEntry.has(f));
+  return {
+    preload: fresh.filter((f) => f.endsWith(".js"))
+      .map((f) => `<link rel="modulepreload" crossorigin href="/${f}" />`).join("\n    "),
+    css: fresh.filter((f) => f.endsWith(".css"))
+      .map((f) => `<link rel="stylesheet" crossorigin href="/${f}" />`).join("\n    "),
+  };
+}
+
 // ─── Transforma la plantilla para una ruta concreta ──────────────────────────
-function renderTemplate(template, appHtml, meta, preloadTags = "") {
+// rootPath: ruta para la que se renderizó el HTML (data-path de #root).
+// main.jsx solo hidrata si coincide con la URL real (la 404.html se sirve en
+// cualquier URL que no existe).
+function renderTemplate(template, appHtml, meta, preloadTags = "", rootPath = "", cssTags = "") {
   let html = template;
 
-  // 0) Preload de fuentes, justo antes del bundle (lo primero que pide el head)
+  // 0) Preload de fuentes y chunks, justo antes del bundle (lo primero que pide el head)
   if (preloadTags) {
     html = html.replace(/<script type="module"/, `${preloadTags}\n    <script type="module"`);
+  }
+  // 0b) CSS de la página DESPUÉS de la global (mismo orden de cascada que
+  // cuando la inyectaba Vite al cargar el chunk).
+  if (cssTags) {
+    html = html.replace(/(<link rel="stylesheet"[^>]*>)/, `$1\n    ${cssTags}`);
   }
 
   // 1) title
@@ -152,7 +213,7 @@ function renderTemplate(template, appHtml, meta, preloadTags = "") {
   // 5) Inyecta el contenido renderizado dentro de #root
   html = html.replace(
     /<div id="root">\s*<\/div>/,
-    `<div id="root">${appHtml}</div>`
+    `<div id="root"${rootPath ? ` data-path="${escapeHtml(rootPath)}"` : ""}>${appHtml}</div>`
   );
 
   return html;
@@ -312,7 +373,7 @@ async function main() {
     process.exit(1);
   }
 
-  const { renderPage, renderNotFound, ALL_ROUTES, SITE_URL, SITE_NAME: siteName, SITE_LOCALE: siteLocale } =
+  const { renderPage, renderNotFound, getRouteModules, ALL_ROUTES, SITE_URL, SITE_NAME: siteName, SITE_LOCALE: siteLocale } =
     await import(pathToFileURL(SSR_BUNDLE).href);
   if (siteName) SITE_NAME = siteName;
   if (siteLocale) SITE_LOCALE = siteLocale;
@@ -334,6 +395,7 @@ async function main() {
   checkCspHashes(template);
 
   const fonts = findFontPreloads();
+  const assets = loadManifest();
 
   let ok = 0;
   const failed = [];
@@ -341,8 +403,10 @@ async function main() {
 
   for (const route of ALL_ROUTES) {
     try {
-      const { appHtml, meta } = renderPage(route.path);
-      const html = renderTemplate(template, appHtml, meta, fontPreloadTags(fonts, route.path));
+      const { appHtml, meta } = await renderPage(route.path);
+      const tags = routeAssetTags(assets, getRouteModules(route.path));
+      const preload = [fontPreloadTags(fonts, route.path), tags.preload].filter(Boolean).join("\n    ");
+      const html = renderTemplate(template, appHtml, meta, preload, route.path, tags.css);
       if (!meta.noindex) indexNowPages[meta.canonical] = contentHash(appHtml, meta);
       const out = outPathFor(route.path);
       mkdirSync(dirname(out), { recursive: true });
@@ -358,8 +422,11 @@ async function main() {
   // 404.html: Vercel la sirve (con estado HTTP 404) para cualquier URL que no
   // exista en dist/. Lleva noindex y no aparece en el sitemap.
   try {
+    // data-path="/404": nunca coincide con la URL en la que se sirve, así que
+    // main.jsx la pinta desde cero con la ruta real (no se hidrata).
     const { appHtml, meta } = renderNotFound();
-    writeFileSync(join(DIST, "404.html"), renderTemplate(template, appHtml, meta, fontPreloadTags(fonts, "/404")), "utf-8");
+    const tags = routeAssetTags(assets, getRouteModules("/404"));
+    writeFileSync(join(DIST, "404.html"), renderTemplate(template, appHtml, meta, fontPreloadTags(fonts, "/404"), "/404", tags.css), "utf-8");
     console.log("  ✓ 404.html (noindex)");
   } catch (err) {
     console.error("  ✖ 404.html →", err.message.split("\n")[0]);

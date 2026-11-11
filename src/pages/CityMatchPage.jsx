@@ -1,9 +1,8 @@
 import { useState, useEffect, useMemo, useRef, useId } from "react";
 import Flag from "../components/Flag";
 import { Link, useSearchParams } from "react-router-dom";
-import { CITIES } from "../data/cities";
 import { CITY_MATCH_QUESTION_IDS, CITY_MATCH_QUESTION_COUNT } from "../data/cityMatch";
-import { getScoreMap, getOverallScore, isErasmusEligible, getCitySize } from "../lib/cities";
+import { getAllCities, getScoreMap, getOverallScore, isErasmusEligible, getCitySize } from "../lib/cities";
 import { useSEO } from "../hooks/useSEO";
 import { Navbar, Footer } from "../components/Layout";
 import {
@@ -15,6 +14,8 @@ import ScoreRing from "../components/ScoreRing";
 import PhotoCredit from "../components/PhotoCredit";
 import styles from "./CityMatchPage.module.css";
 import { responsiveImage } from "../lib/images";
+
+const ALL_CITIES = getAllCities();
 
 // Foto de cada resultado: columna de 160px junto al texto (vertical, ~160×210)
 // y, en móvil, a todo el ancho con 140px de alto.
@@ -64,22 +65,9 @@ function weatherBucket(weather = "") {
   return 1;
 }
 
-const NATURE_KEYWORDS = [
-  "parque", "playa", "montañ", "lago", "naturaleza", "jardín", "jardin",
-  "bosque", "canal", "costa", "río", "rio ", "senderismo", "aire libre",
-  "alpes", "mar ",
-];
-
-function natureLevel(city) {
-  const text = [...(city.highlights || []), ...(city.tips || []), city.description || ""]
-    .join(" ")
-    .toLowerCase();
-  const hits = NATURE_KEYWORDS.reduce((acc, kw) => acc + (text.includes(kw) ? 1 : 0), 0);
-  if (hits === 0) return 0;
-  if (hits <= 2) return 1;
-  return 2;
-}
-
+// Naturaleza (0 poca, 1 algo, 2 mucha): precalculada en el índice de
+// ciudades (natureLevel en lib/cityMetrics.js) a partir de los highlights,
+// tips y descripción, que ya no viajan en el bundle de esta página.
 function bucketSimilarity(a, b) {
   const dist = Math.abs(a - b);
   return dist === 0 ? 1 : dist === 1 ? 0.5 : 0.15;
@@ -293,7 +281,7 @@ const DIMENSIONS = {
     reason: "ofrece el contacto con naturaleza que valoras",
     caveat: "el contacto con la naturaleza no es el que buscas",
     similarity: (city, _sm, value) =>
-      bucketSimilarity(natureLevel(city), { poca: 0, algo: 1, mucha: 2 }[value]),
+      bucketSimilarity(city.nature ?? 1, { poca: 0, algo: 1, mucha: 2 }[value]),
   },
   universidad: {
     Icon: IconUniversidad,
@@ -364,9 +352,9 @@ function computeMatch(city, answers) {
 }
 
 function cityPool(destino) {
-  if (destino === "erasmus") return CITIES.filter(isErasmusEligible);
-  if (destino === "europa") return CITIES.filter((c) => c.region.startsWith("Europa"));
-  return CITIES; // "mundo" y "me da igual"
+  if (destino === "erasmus") return ALL_CITIES.filter(isErasmusEligible);
+  if (destino === "europa") return ALL_CITIES.filter((c) => c.region.startsWith("Europa"));
+  return ALL_CITIES; // "mundo" y "me da igual"
 }
 
 /* ─── Enlace compartible: ?r=resp1.resp2.… (varias en orden: a~b~c) ────── */
@@ -626,7 +614,7 @@ export default function CityMatchPage() {
               <ul className={styles.introFacts}>
                 <li><strong>{CITY_MATCH_QUESTION_COUNT}</strong><span>preguntas</span></li>
                 <li><strong>~2</strong><span>minutos</span></li>
-                <li><strong>{CITIES.length}</strong><span>destinos</span></li>
+                <li><strong>{ALL_CITIES.length}</strong><span>destinos</span></li>
               </ul>
               <button type="button" className={`${styles.continueBtn} ${styles.introStart}`} onClick={() => setStarted(true)}>
                 Empezar →

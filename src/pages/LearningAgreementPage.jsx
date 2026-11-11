@@ -1,12 +1,16 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { IconUniversidad, IconEdificio, IconGlobo, IconManos, IconAmigos, IconLibros, IconLapiz, IconRobot, IconAlerta, IconSobre, IconCheck, IconCiclo, IconReloj, IconFiesta, IconClipboard } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
-import { CITIES } from "../data/cities";
-import { isErasmusEligible } from "../lib/cities";
+import { useStoredState } from "../hooks/useStoredState";
+import { useCityDetails } from "../hooks/useCityDetail";
+import { getAllCities, isErasmusEligible } from "../lib/cities";
 import SearchableInput from "../components/SearchableInput";
 import styles from "./LearningAgreementPage.module.css";
+
+// Índice ligero de ciudades (ver lib/cities.js).
+const ALL_CITIES = getAllCities();
 
 /* ─── DATA ──────────────────────────────────────────────────────────────── */
 
@@ -221,23 +225,9 @@ function TipCard({ tip }) {
 const CHECKLIST_STORAGE_KEY = "tmate_la_checklist";
 
 function Checklist() {
-  const [checked, setChecked] = useState(() => {
-    try {
-      const saved = localStorage.getItem(CHECKLIST_STORAGE_KEY);
-      return saved ? JSON.parse(saved) : {};
-    } catch {
-      return {};
-    }
-  });
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(CHECKLIST_STORAGE_KEY, JSON.stringify(checked));
-    } catch {
-      // localStorage no disponible (modo privado, etc.) — se pierde el
-      // progreso al recargar, pero la checklist sigue funcionando.
-    }
-  }, [checked]);
+  // Se recupera tras el primer render (useStoredState): el HTML
+  // prerenderizado sale sin marcar y así se puede hidratar.
+  const [checked, setChecked] = useStoredState(CHECKLIST_STORAGE_KEY, {});
 
   const total = CHECKLIST_ITEMS.length;
   const done = Object.values(checked).filter(Boolean).length;
@@ -297,7 +287,7 @@ function Checklist() {
 
 // Destinos del formulario, por orden alfabético, para el buscador de ciudad
 // (antes un <select> con las 150 en el orden del fichero de datos).
-const WIZARD_CITY_OPTIONS = [...CITIES]
+const WIZARD_CITY_OPTIONS = [...ALL_CITIES]
   .sort((a, b) => a.name.localeCompare(b.name, "es"))
   .map((c) => ({ value: c.slug, label: c.name, sublabel: c.country, emoji: c.emoji }));
 
@@ -384,23 +374,9 @@ function LAWizard() {
   const [showErrors, setShowErrors] = useState(false);
   const cardRef = useRef(null);
   const botRef = useRef(null);
-  const [data, setData] = useState(() => {
-    try {
-      const saved = localStorage.getItem(WIZARD_STORAGE_KEY);
-      return saved ? { ...WIZARD_DEFAULTS, ...JSON.parse(saved) } : { ...WIZARD_DEFAULTS };
-    } catch {
-      return { ...WIZARD_DEFAULTS };
-    }
-  });
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(WIZARD_STORAGE_KEY, JSON.stringify(data));
-    } catch {
-      // localStorage no disponible — el borrador no se guarda, pero el
-      // wizard sigue funcionando con normalidad en esta sesión.
-    }
-  }, [data]);
+  // Borrador recuperado tras el primer render (useStoredState), para poder
+  // hidratar el HTML prerenderizado (que sale con el formulario vacío).
+  const [data, setData] = useStoredState(WIZARD_STORAGE_KEY, WIZARD_DEFAULTS, (saved) => ({ ...WIZARD_DEFAULTS, ...saved }));
 
   const total = WIZARD_STEPS.length;
   const isLast = step === total - 1;
@@ -408,8 +384,11 @@ function LAWizard() {
 
   const update = (field, value) => setData(d => ({ ...d, [field]: value }));
 
-  const destinoCity = CITIES.find(c => c.slug === data.ciudadDestino);
-  const universidadesDestino = destinoCity?.universities ?? [];
+  const destinoCity = ALL_CITIES.find(c => c.slug === data.ciudadDestino);
+  // Las universidades están en la ficha completa de la ciudad (no en el
+  // índice ligero): se pide al elegir destino y el selector se rellena al llegar.
+  const destinoDetail = useCityDetails(destinoCity ? [destinoCity.slug] : [])[destinoCity?.slug];
+  const universidadesDestino = destinoDetail?.city.universities ?? [];
 
   // Qué falta en el paso actual: { campo: mensaje }. Vacío = se puede seguir.
   // El botón «Continuar» ya no se desactiva sin explicación: se puede pulsar
@@ -657,7 +636,7 @@ function LAWizard() {
                   la universidad: la lista depende de la ciudad. */}
               <div className={styles.wizardLabel}>
                 <label htmlFor="la-ciudad-destino">Ciudad de destino</label>
-                <span className={styles.wizardHint}>Escribe para buscar entre los {CITIES.length} destinos y elige uno de la lista.</span>
+                <span className={styles.wizardHint}>Escribe para buscar entre los {ALL_CITIES.length} destinos y elige uno de la lista.</span>
                 <SearchableInput
                   value={destinoCity?.name || ""}
                   onChange={(text) => {

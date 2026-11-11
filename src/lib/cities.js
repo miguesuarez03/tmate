@@ -2,33 +2,81 @@
 // TMATE — Core utilities library
 // Todas las operaciones sobre ciudades viven aquí.
 // Añadir features nuevas = añadir funciones aquí, no tocar páginas.
+//
+// Datos: el navegador NO descarga src/data/cities.js ni insights.js. Trabaja
+// con el índice ligero que genera scripts/city-data.mjs en el build
+// (CITY_INDEX: lo justo para tarjetas, buscador, rankings, mapa, City Match y
+// Comparar) y pide la ficha completa de una ciudad con loadCityDetail(slug)
+// solo cuando hace falta (página de la ciudad, desglose del coste en Beca…).
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { CITIES } from '../data/cities';
-import { CITY_INSIGHTS, DEFAULT_INSIGHTS } from '../data/insights';
+import { CITY_INDEX } from '../data/generated/cityIndex';
+import { SCORE_CATEGORIES } from '../data/scoreCategories';
 import { CITY_EXPERIENCES, FOUNDER_EXPERIENCE } from '../data/cityExperiences';
-import { CITY_POPULATION } from '../data/cityPopulation';
+import { CITY_SIZE_LIMITS } from './cityMetrics';
 import { DEFAULT_OG_IMAGE, getCityOgImage } from './seo';
 
 /** @typedef {import('../types').City} City */
+/** @typedef {import('../types').CityIndexEntry} CityIndexEntry */
+/** @typedef {import('../types').CityDetail} CityDetail */
 /** @typedef {import('../types').CityFilters} CityFilters */
 /** @typedef {import('../types').CitySortKey} CitySortKey */
 /** @typedef {import('../types').CityInsights} CityInsights */
 
+// Alias interno: el resto del módulo trabaja con las entradas del índice.
+const CITIES = CITY_INDEX;
+const BY_SLUG = new Map(CITY_INDEX.map((c) => [c.slug, c]));
+
 // ─── LOOKUP ───────────────────────────────────────────────────────────────────
 
-/** Devuelve una ciudad por slug. Lanza si no existe y throwIfMissing=true. */
+/** Todas las ciudades (entradas del índice ligero), en el orden de cities.js. */
+export function getAllCities() {
+  return CITY_INDEX;
+}
+
+/** Devuelve una ciudad (entrada del índice) por slug. Lanza si no existe y throwIfMissing=true. */
 export function getCityBySlug(slug, throwIfMissing = false) {
-  const city = CITIES.find(c => c.slug === slug);
+  const city = BY_SLUG.get(slug);
   if (!city && throwIfMissing) throw new Error(`City not found: "${slug}"`);
   return city ?? null;
 }
 
-/** Devuelve insights de una ciudad. Siempre devuelve un objeto válido. */
-export function getCityInsights(slug) {
-  const city = getCityBySlug(slug);
-  const raw  = CITY_INSIGHTS[slug];
-  return raw ? raw : DEFAULT_INSIGHTS(city);
+// ─── FICHA COMPLETA (bajo demanda) ───────────────────────────────────────────
+// Un chunk por ciudad (src/data/generated/cities/<slug>.js): datos completos
+// de cities.js + sus insights. Se guardan en memoria una vez cargados, así que
+// el prerender, la hidratación (main.jsx los pide antes de hidratar) y las
+// visitas repetidas los leen de forma síncrona con getLoadedCityDetail.
+
+/** @type {Map<string, { promise: Promise<CityDetail>, value?: CityDetail, error?: unknown }>} */
+const detailCache = new Map();
+
+/**
+ * Carga la ficha completa de una ciudad. Devuelve null si el slug no existe.
+ * @param {string} slug
+ * @returns {Promise<CityDetail | null>}
+ */
+export function loadCityDetail(slug) {
+  if (!BY_SLUG.has(slug)) return Promise.resolve(null);
+  let entry = detailCache.get(slug);
+  if (!entry || entry.error) {
+    entry = {};
+    entry.promise = import(`../data/generated/cities/${slug}.js`).then(
+      (mod) => (entry.value = mod.default),
+      (err) => { entry.error = err; throw err; }
+    );
+    detailCache.set(slug, entry);
+  }
+  return entry.promise;
+}
+
+/** Ficha completa ya cargada, o null si aún no se ha pedido / no ha llegado. */
+export function getLoadedCityDetail(slug) {
+  return detailCache.get(slug)?.value ?? null;
+}
+
+/** Error de la última carga fallida de esa ficha (p. ej. sin conexión), o null. */
+export function getCityDetailError(slug) {
+  return detailCache.get(slug)?.error ?? null;
 }
 
 /** Devuelve true si la ciudad es elegible para Erasmus+ (no es un intercambio bilateral). */
@@ -39,53 +87,47 @@ export function isErasmusEligible(city) {
 // ─── TAMAÑO DE CIUDAD ─────────────────────────────────────────────────────────
 
 /** Umbrales de población oficial (CITY_POPULATION) para cada tamaño. */
-export const CITY_SIZE_LIMITS = { mediana: 300000, grande: 1000000 };
+export { CITY_SIZE_LIMITS };
 
 /**
  * Tamaño de la ciudad según su población oficial: 0 pequeña (<300.000 hab.),
  * 1 mediana (300.000 – 1 millón), 2 grande (1 millón o más).
- * Devuelve null si la ciudad no tiene dato de población.
+ * Devuelve null si la ciudad no tiene dato de población. Precalculado en el
+ * índice (citySizeFromPopulation en lib/cityMetrics.js).
  */
 export function getCitySize(city) {
-  const n = CITY_POPULATION[city.slug]?.population;
-  if (!n) return null;
-  if (n < CITY_SIZE_LIMITS.mediana) return 0;
-  if (n < CITY_SIZE_LIMITS.grande) return 1;
-  return 2;
+  return BY_SLUG.get(city.slug)?.size ?? null;
 }
 
 /**
  * Score global de una ciudad: la media, con el mismo peso, de las 8 notas de
- * categoría que se ven en su ficha (CITY_INSIGHTS). Es lo que explica la nota
+ * categoría que se ven en su ficha (CITY_INSIGHTS), precalculada en el índice
+ * con computeOverallScore (lib/cityMetrics.js). Es lo que explica la nota
  * «Cómo calculamos estos datos» (MethodologyNote): si cambias el cálculo,
  * actualiza también ese texto. userRatings queda preparado para combinar
  * valoraciones reales de usuarios (50 %) cuando existan.
  */
 export function getOverallScore(slug, userRatings = null) {
-  const scores = (getCityInsights(slug)?.scores ?? []).map((sc) => sc.score).filter((v) => typeof v === "number");
-  const base = scores.length
-    ? parseFloat((scores.reduce((acc, v) => acc + v, 0) / scores.length).toFixed(1))
-    : 7.0;
+  const base = BY_SLUG.get(slug)?.overall ?? 7.0;
   if (!userRatings || userRatings.length === 0) return base;
   const userAvg = parseFloat((userRatings.reduce((a, b) => a + b, 0) / userRatings.length).toFixed(1));
   return parseFloat(((base + userAvg) / 2).toFixed(1));
 }
 
-const SCORE_CATEGORY_IDS = [
-  "coste", "alojamiento", "vida_social", "integracion",
-  "movilidad", "estilo_vida", "empleo", "seguridad",
-];
+const SCORE_CATEGORY_IDS = SCORE_CATEGORIES.map((c) => c.id);
 
 /**
- * Devuelve un mapa { [categoriaId]: scoreObj } para una ciudad, usando los
- * insights reales. Se usa en el comparador y en City Match — vive aquí para
- * no duplicar la misma lógica en varias páginas.
+ * Devuelve un mapa { [categoriaId]: { id, label, icon, color, score } } para
+ * una ciudad, con las notas del índice. Se usa en la home, el mapa, el
+ * comparador y City Match — vive aquí para no duplicar la misma lógica en
+ * varias páginas. El resumen y el desglose de cada categoría solo están en la
+ * ficha completa (loadCityDetail).
  */
 export function getScoreMap(slug) {
-  const insights = getCityInsights(slug);
+  const scores = BY_SLUG.get(slug)?.scores ?? {};
   const map = {};
-  SCORE_CATEGORY_IDS.forEach((id) => {
-    map[id] = insights.scores.find((s) => s.id === id) ?? null;
+  SCORE_CATEGORIES.forEach((cat) => {
+    map[cat.id] = typeof scores[cat.id] === "number" ? { ...cat, score: scores[cat.id] } : null;
   });
   return map;
 }

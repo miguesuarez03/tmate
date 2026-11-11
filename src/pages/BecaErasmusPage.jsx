@@ -5,11 +5,14 @@ import { Link } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { IconCorazonInclusion, IconAccesibilidad, IconHoja, IconBombilla, IconGrafica, IconPin, IconTarjeta, IconLibros, IconEdificio, IconUniversidad, IconCasa, IconComida, IconTransporte, IconFiesta, IconBeca, IconAlerta, IconCheck, IconViajes } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
+import { useCityDetails } from "../hooks/useCityDetail";
 import { BECA_JSON_LD } from "../lib/seo";
 import { BECA_FAQS } from "../data/faqs";
 import { CITY_COORDS, haversineDistanceKm, distanceToRange, geocodeCity } from "../lib/cityCoords";
-import { getCityInsights, parseMinCost, parseMaxCost, isErasmusEligible } from "../lib/cities";
-import { CITIES } from "../data/cities";
+import { getAllCities, parseMinCost, parseMaxCost, isErasmusEligible } from "../lib/cities";
+
+// Índice ligero de ciudades (ver lib/cities.js).
+const ALL_CITIES = getAllCities();
 
 /* ─── CIUDADES DE ORIGEN (España + principales europeas) ─────────────────── */
 const ORIGIN_CITIES = [
@@ -132,7 +135,7 @@ function Calculator() {
   const [calcKm, setCalcKm] = useState(null);
 
   // País se deduce de la ciudad de destino seleccionada
-  const destCity = CITIES.find(c => c.slug === destinationSlug);
+  const destCity = ALL_CITIES.find(c => c.slug === destinationSlug);
   const country = destCity?.country || "";
 
   // Actualizar distanceRange sugerida cuando cambia el país
@@ -142,7 +145,7 @@ function Calculator() {
     setDestinationSlug(slug);
     setCalcStatus("idle");
     setCalcKm(null);
-    const city = CITIES.find(c => c.slug === slug);
+    const city = ALL_CITIES.find(c => c.slug === slug);
     if (city?.country && COUNTRY_DISTANCE[city.country]) {
       setDistanceRange(COUNTRY_DISTANCE[city.country]);
     }
@@ -198,9 +201,10 @@ function Calculator() {
   const costMax = destCity ? parseMaxCost(destCity.costDetail) : 0;
   const costMid = destCity ? Math.round((costMin + costMax) / 2) : 0;
 
-  const costeSubcats = destCity
-    ? getCityInsights(destCity.slug).scores.find((s) => s.id === "coste")?.subcategories || []
-    : [];
+  // El desglose está en la ficha completa de la ciudad, que se pide al
+  // elegir destino (un chunk pequeño); hasta que llega, no se enseña.
+  const destDetail = useCityDetails(destCity ? [destCity.slug] : [])[destCity?.slug];
+  const costeSubcats = destDetail?.insights.scores.find((s) => s.id === "coste")?.subcategories || [];
 
   const expenseBreakdown = costeSubcats.length
     ? (() => {
@@ -245,7 +249,7 @@ function Calculator() {
                   value={destCity?.name || ""}
                   onChange={() => {}}
                   onSelect={(opt) => handleDestinationChange(opt.value)}
-                  options={CITIES.filter(isErasmusEligible).map(c => ({ value: c.slug, label: c.name, sublabel: c.country, emoji: c.emoji }))}
+                  options={ALL_CITIES.filter(isErasmusEligible).map(c => ({ value: c.slug, label: c.name, sublabel: c.country, emoji: c.emoji }))}
                   placeholder="Ciudad de destino…"
                 />
               </div>
