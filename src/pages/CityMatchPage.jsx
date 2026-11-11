@@ -5,11 +5,13 @@ import { CITY_MATCH_QUESTION_IDS, CITY_MATCH_QUESTION_COUNT } from "../data/city
 import { getAllCities, getScoreMap, getOverallScore, isErasmusEligible, getCitySize } from "../lib/cities";
 import { useSEO } from "../hooks/useSEO";
 import { Navbar, Footer } from "../components/Layout";
+import JourneySteps from "../components/JourneySteps";
 import {
   IconBeca, IconClima, IconIdiomas, IconFiesta, IconEdificio, IconHoja, IconUniversidad,
   IconExperiencia, IconCityMatch, IconMedalla, IconCasa, IconAmigos, IconTransporte,
-  IconEmpleo, IconSeguridad, IconComparar, IconProceso,
+  IconEmpleo, IconSeguridad, IconComparar, IconProceso, IconLapiz,
 } from "../components/icons";
+import ShareButton from "../components/ShareButton";
 import ScoreRing from "../components/ScoreRing";
 import PhotoCredit from "../components/PhotoCredit";
 import styles from "./CityMatchPage.module.css";
@@ -382,6 +384,122 @@ function decodeAnswers(encoded) {
   return out;
 }
 
+/* ─── Tus respuestas en chips editables (sobre los resultados) ─────────── */
+// Nombre corto de cada pregunta para el chip («Presupuesto: Ajustado»).
+const CHIP_NAMES = {
+  destino: "Destino", presupuesto: "Presupuesto", clima: "Clima", idioma: "Idioma",
+  fiesta: "Ambiente", tamano: "Tamaño", naturaleza: "Naturaleza",
+  universidad: "Lo académico", estilo: "Calidad de vida", prioridades: "Prioridades",
+};
+
+function answerText(q, answer) {
+  if (!isAnswered(answer)) return "me da igual";
+  if (!q.multi) return optionOf(q.id, answer)?.label ?? "";
+  const picks = picksOf(answer);
+  return picks.map((v, i) => `${picks.length > 1 ? `${ORDINALS[i]} ` : ""}${optionOf(q.id, v)?.label}`).join(" · ");
+}
+
+/**
+ * Cada respuesta es un chip; al tocarlo se abre debajo esa pregunta con sus
+ * opciones y, al cambiarla, los resultados (y el enlace ?r=) se recalculan al
+ * momento, sin repetir el test entero.
+ */
+function AnswerChips({ answers, onChange }) {
+  const [editing, setEditing] = useState(null);
+  const editorId = useId();
+  const chipRefs = useRef({});
+  const q = editing ? QUESTION_BY_ID[editing] : null;
+  const picks = q?.multi ? picksOf(answers[q.id]) : [];
+
+  // Al cerrar el editor, el foco vuelve a su chip (el botón que se pulsó
+  // desaparece y el teclado/lector no debe perder el sitio).
+  const returnFocusTo = useRef(null);
+  function close() {
+    returnFocusTo.current = editing;
+    setEditing(null);
+  }
+  useEffect(() => {
+    if (editing !== null || !returnFocusTo.current) return;
+    chipRefs.current[returnFocusTo.current]?.focus();
+    returnFocusTo.current = null;
+  }, [editing]);
+
+  function choose(value) {
+    if (!q.multi || value === NEUTRAL) {
+      onChange(q.id, value);
+      close();
+      return;
+    }
+    const next = picks.includes(value)
+      ? picks.filter((v) => v !== value)
+      : picks.length < MAX_RANKED ? [...picks, value] : picks;
+    onChange(q.id, next.length ? next : NEUTRAL);
+  }
+
+  const editor = q && (
+    <div className={styles.chipEditor} id={editorId}>
+      <p className={styles.chipEditorTitle}>{q.title}</p>
+      {q.multi && <p className={styles.chipEditorHint}>Hasta 3, en orden de preferencia: tócalas por orden.</p>}
+      <div className={styles.chipEditorOptions} role="group" aria-label={q.title}>
+        {q.options.map((opt) => {
+          const rank = picks.indexOf(opt.value);
+          const neutralActive = opt.value === NEUTRAL && !isAnswered(answers[q.id]);
+          const active = neutralActive || (q.multi ? rank >= 0 : answers[q.id] === opt.value);
+          return (
+            <button
+              key={opt.value}
+              type="button"
+              aria-pressed={active}
+              className={`${styles.chipOption}${active ? ` ${styles.chipOptionActive}` : ""}`}
+              onClick={() => choose(opt.value)}
+            >
+              {q.multi && rank >= 0 && <span className={styles.chipOptionRank} aria-hidden="true">{ORDINALS[rank]}</span>}
+              {opt.label}
+              {q.multi && rank >= 0 && <span className="sr-only">, tu {ORDINAL_WORDS[rank]} opción</span>}
+            </button>
+          );
+        })}
+      </div>
+      <button type="button" className={styles.chipEditorDone} onClick={close}>Listo</button>
+    </div>
+  );
+
+  return (
+    <section className={styles.answers} aria-label="Tus respuestas">
+      <div className={styles.answersHead}>
+        <h2 className={styles.answersTitle}>Tus respuestas</h2>
+        <span className={styles.answersHint}>Toca una para cambiarla: los resultados se actualizan al momento.</span>
+      </div>
+      <ul className={styles.chips}>
+        {QUESTIONS.flatMap((question) => {
+          const answered = isAnswered(answers[question.id]);
+          const open = editing === question.id;
+          const chip = (
+            <li key={question.id}>
+              <button
+                type="button"
+                ref={(el) => { chipRefs.current[question.id] = el; }}
+                className={`${styles.chip}${answered ? "" : ` ${styles.chipNeutral}`}${open ? ` ${styles.chipOpen}` : ""}`}
+                aria-expanded={open}
+                aria-controls={open ? editorId : undefined}
+                onClick={() => setEditing(open ? null : question.id)}
+              >
+                <span className={styles.chipName}>{CHIP_NAMES[question.id] ?? question.id}:</span>{" "}
+                {answerText(question, answers[question.id])}
+                <span className={styles.chipEdit} aria-hidden="true"><IconLapiz size={16} /></span>
+              </button>
+            </li>
+          );
+          // El editor va justo debajo del chip que se toca, a todo el ancho.
+          return open
+            ? [chip, <li key={`${question.id}-editor`} className={styles.chipEditorItem}>{editor}</li>]
+            : [chip];
+        })}
+      </ul>
+    </section>
+  );
+}
+
 /* ─── Componente principal ────────────────────────────────────────────── */
 export default function CityMatchPage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -455,6 +573,14 @@ export default function CityMatchPage() {
     setStep((s) => Math.max(0, s - 1));
   }
 
+  // Cambiar una respuesta desde los chips de resultados: se recalcula y el
+  // enlace compartible (?r=) refleja lo nuevo.
+  function updateAnswer(qId, value) {
+    const next = { ...answers, [qId]: value };
+    setAnswers(next);
+    setSearchParams({ r: encodeAnswers(next) }, { replace: true });
+  }
+
   function restart() {
     setAnswers({});
     setStep(0);
@@ -492,6 +618,16 @@ export default function CityMatchPage() {
               </p>
               <div className={styles.resultsActions}>
                 <button className={styles.secondaryBtn} onClick={restart}>↺ Volver a hacer el test</button>
+                {top.length > 0 && (
+                  <ShareButton
+                    className={`${styles.secondaryBtn} ${styles.shareBtn}`}
+                    path={`/city-match?r=${encodeAnswers(answers)}`}
+                    title="Mi City Match en MAbroad"
+                    text={`Mis ciudades Erasmus ideales según City Match: ${top.slice(0, 3).map((m, i) => `${i + 1}. ${m.city.name} (${m.percent}%)`).join(", ")}.`}
+                  >
+                    Compartir resultado
+                  </ShareButton>
+                )}
                 {compareSlugs && (
                   <Link className={`${styles.primaryBtn} link-btn`} to={`/comparar?cities=${compareSlugs}`}>
                     Comparar tu top 3 →
@@ -502,6 +638,7 @@ export default function CityMatchPage() {
           </div>
 
           <div className={styles.resultsBody}>
+            <AnswerChips answers={answers} onChange={updateAnswer} />
             {top.map((m, i) => {
               const bestReasons = [...m.results].sort((a, b) => b.sim * b.weight - a.sim * a.weight).slice(0, 2);
               const weakest = [...m.results].filter((r) => r.weight === 1).sort((a, b) => a.sim - b.sim)[0];
@@ -589,6 +726,12 @@ export default function CityMatchPage() {
             )}
           </div>
         </main>
+        {/* El siguiente paso ya va con tu top 3. */}
+        <JourneySteps
+          current="city-match"
+          nextTo={top.length >= 2 ? `/comparar?cities=${compareSlugs}&view=compare` : undefined}
+          nextDesc={top.length >= 2 ? `${top.slice(0, 3).map((m) => m.city.name).join(", ")}, lado a lado.` : undefined}
+        />
         <Footer />
       </div>
     );
@@ -625,6 +768,7 @@ export default function CityMatchPage() {
             </div>
           </div>
         </main>
+        <JourneySteps current="city-match" />
         <Footer />
       </div>
     );

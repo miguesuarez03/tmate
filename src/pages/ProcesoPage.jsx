@@ -1,7 +1,8 @@
 import { useRef, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
-import { IconLupa, IconClipboard, IconSobre, IconCheck, IconEdificio, IconMaleta, IconFiesta, IconCasa, IconBombilla, IconLearningAgreement } from "../components/icons";
+import JourneySteps from "../components/JourneySteps";
+import { IconLupa, IconClipboard, IconSobre, IconCheck, IconEdificio, IconMaleta, IconFiesta, IconCasa, IconBombilla, IconLearningAgreement, IconDocumento, IconComparar, IconBeca } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
 
 /* ─── DATA ──────────────────────────────────────────────────────────────── */
@@ -13,6 +14,7 @@ const STEPS = [
     title: "Elige tu destino",
     color: "#3F7A7D",
     tag: "Preparación",
+    related: { to: "/guias/elegir-destino-erasmus", kind: "guide", label: "Cómo elegir destino Erasmus sin equivocarte", desc: "De la lista de convenios a tus preferencias ordenadas" },
     content: `Tómate en serio la elección — no vas a vivir solo en una ciudad bonita, vas a vivir allí varios meses. Lo que de verdad importa:
 
 · Tu nota media y créditos — suelen decidir el orden de adjudicación de plazas
@@ -43,6 +45,7 @@ Visita cuanto antes la ORI de tu facultad: tienen el listado de universidades co
     title: "Solicita en tu universidad",
     color: "#3F7A7D",
     tag: "Solicitud",
+    related: { to: "/comparar", kind: "tool", label: "Compara tus candidatas antes de ordenarlas", desc: "Coste y notas de 2 o 3 ciudades, lado a lado" },
     content: `Tu universidad abre un plazo oficial (normalmente entre octubre y febrero) en el que debes:
 
 · Entrar en la plataforma interna de movilidad
@@ -69,6 +72,7 @@ Después toca esperar: la resolución suele tardar entre 2 y 6 semanas.`,
     title: "Resolución: aceptado o lista de espera",
     color: "#8B5CF6",
     tag: "Resolución",
+    related: { to: "/beca-erasmus", kind: "tool", label: "Calcula cuánto cobrarías de beca", desc: "Con tu destino, el rango de su grupo de país; el importe lo confirma tu universidad" },
     content: `Llega el email con la resolución. Dos escenarios:
 
 ✅ Aceptado en uno de tus destinos — pasa directo al paso 4.
@@ -89,6 +93,7 @@ Lo importante: mantén contacto con tu ORI y responde rápido si te ofrecen plaz
     title: "Acepta la plaza formalmente",
     color: "#F59E0B",
     tag: "Aceptación",
+    related: { to: "/guias/beca-erasmus-cuanto-se-cobra", kind: "guide", label: "Cuánto se cobra y cuándo llega la beca", desc: "Importes oficiales, complementos y cuándo llega el anticipo" },
     content: `Al aceptar tu plaza, tu universidad de origen:
 
 · Comunica oficialmente tu nominación a la universidad de destino
@@ -133,6 +138,7 @@ Crea la cuenta cuanto antes y sube la documentación sin esperar al último día
     title: "Prepara la partida",
     color: "#10B981",
     tag: "Pre-partida",
+    related: { to: "/guias/tramites-antes-de-irte-erasmus", kind: "guide", label: "Papeles antes de irte", desc: "TSE, registro de residencia, banco y móvil" },
     content: `Esta fase tiene más papeleo del que parece. Organízate con tiempo:
 
 🏠 Piso — si no lo tienes, es urgente. Busca en grupos de Facebook de la ciudad, en la web de la universidad (algunas ofrecen residencias Erasmus) y pregunta a quien ya estuvo allí. Los mejores pisos vuelan semanas antes del curso.
@@ -160,6 +166,7 @@ Crea la cuenta cuanto antes y sube la documentación sin esperar al último día
     title: "Llegada y primeros días",
     color: "#F97316",
     tag: "Llegada",
+    related: { to: "/guias/learning-agreement-paso-a-paso", kind: "guide", label: "Cómo cambiar el Learning Agreement allí", desc: "Plazos y firmas para modificarlo durante la estancia" },
     content: `Ya estás ahí, pero quedan trámites importantes:
 
 📋 Certificado de llegada — uno de los documentos más críticos. Lo firma tu coordinador Erasmus de destino y debes enviarlo a tu ORI en España; sin él no cobras la beca. Consíguelo en los primeros días.
@@ -182,6 +189,7 @@ Crea la cuenta cuanto antes y sube la documentación sin esperar al último día
     title: "Vuelta y cierre",
     color: "#6366F1",
     tag: "Fin de estancia",
+    related: { to: "/learning-agreement", kind: "tool", label: "Tu Learning Agreement y las convalidaciones", desc: "Lo que apruebes se reconoce según el acuerdo firmado y sus cambios" },
     content: `El Erasmus no termina al coger el avión de vuelta. Queda por hacer:
 
 📋 Certificado de salida — lo firma la universidad de destino, igual que el de llegada. Obligatorio para cerrar la beca: no te vayas sin él.
@@ -232,6 +240,26 @@ function StepCard({ step, isActive, onClick }) {
       <span className="proceso-step-pill__emoji"><step.Icon size={24} /></span>
       <span className="proceso-step-pill__label">{step.tag}</span>
     </button>
+  );
+}
+
+/* Enlace contextual del paso: la herramienta o la guía que toca justo ahí. */
+const RELATED_ICONS = { "/comparar": IconComparar, "/beca-erasmus": IconBeca, "/learning-agreement": IconLearningAgreement };
+function StepRelated({ related }) {
+  if (!related) return null;
+  const Icon = RELATED_ICONS[related.to] ?? IconDocumento;
+  return (
+    <Link className="proceso-related" to={related.to}>
+      <span className="proceso-related__icon" aria-hidden="true">
+        <Icon size={26} />
+      </span>
+      <span className="proceso-related__text">
+        <span className="proceso-related__kicker">{related.kind === "guide" ? "Guía" : "Herramienta"}</span>
+        <span className="proceso-related__label">{related.label}</span>
+        <span className="proceso-related__desc">{related.desc}</span>
+      </span>
+      <span className="proceso-related__arrow" aria-hidden="true">→</span>
+    </Link>
   );
 }
 
@@ -303,6 +331,8 @@ function StepDetail({ step }) {
           </div>
         </div>
       )}
+
+      <StepRelated related={step.related} />
 
       {/* Urgency alert for step 02 */}
       {step.urgencyAlert && (
@@ -395,6 +425,7 @@ function MobileStories({ steps, active, onChange }) {
             Guía del Learning Agreement →
           </Link>
         )}
+        <StepRelated related={step.related} />
       </div>
 
       {/* Navigation buttons */}
@@ -587,24 +618,7 @@ export default function ProcesoPage() {
         <MobileStories steps={STEPS} active={activeStep} onChange={handleStepClick} />
       </section>
 
-      {/* CTA */}
-      <section className="proceso-cta">
-        <h2 className="proceso-cta__title">¿Listo para elegir tu ciudad?</h2>
-        <p className="proceso-cta__subtitle">
-          Ahora que conoces el proceso, encuentra el destino perfecto con scores por categoría y guías locales.
-        </p>
-        <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-          <Link className="btn-primary" to="/">
-            Explorar destinos →
-          </Link>
-          <Link className="btn-ghost" to="/comparar">
-            Comparar ciudades
-          </Link>
-          <Link className="btn-ghost" to="/tipos-de-intercambio">
-            ¿Erasmus no es tu única opción? →
-          </Link>
-        </div>
-      </section>
+      <JourneySteps current="proceso" />
 
       <Footer />
     </div>

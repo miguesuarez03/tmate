@@ -3,6 +3,7 @@ import Flag from "../components/Flag";
 import SearchableInput from "../components/SearchableInput";
 import { Link } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
+import JourneySteps from "../components/JourneySteps";
 import { IconCorazonInclusion, IconAccesibilidad, IconHoja, IconBombilla, IconGrafica, IconPin, IconTarjeta, IconLibros, IconEdificio, IconUniversidad, IconCasa, IconComida, IconTransporte, IconFiesta, IconBeca, IconAlerta, IconCheck, IconViajes } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
 import { useCityDetails } from "../hooks/useCityDetail";
@@ -763,22 +764,9 @@ export default function BecaErasmusPage() {
           </p>
         </section>
 
-        {/* ── CTA ── */}
-        <section className="proceso-cta">
-          <h2 className="proceso-cta__title">¿Tienes claro cuánto cobrarás?</h2>
-          <p className="proceso-cta__subtitle">
-            Ahora elige el destino perfecto. Compara ciudades con scores por categoría y guías locales.
-          </p>
-          <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link className="btn-primary" to="/">
-              Explorar destinos →
-            </Link>
-            <Link className="btn-ghost" to="/proceso">
-              ¿Cómo funciona el Erasmus?
-            </Link>
-          </div>
-        </section>
       </div>
+
+      <JourneySteps current="beca" />
 
       <Footer />
     </div>

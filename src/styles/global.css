@@ -181,6 +181,9 @@ html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
   position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
 }
+/* ShareButton: si no se pudo ni compartir ni copiar, el enlace a mano. */
+.share-fallback { display: flex; flex-direction: column; gap: 4px; width: 100%; max-width: 420px; font-size: 13px; color: inherit; }
+.share-fallback input { width: 100%; padding: 8px 10px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font: inherit; color: var(--color-dark); background: var(--color-white); }
 /* Página que no se pudo descargar (RouteErrorBoundary): mensaje y «Recargar». */
 .route-error {
   min-height: 70vh; min-height: 70svh;
@@ -1789,21 +1792,6 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
 }
 .proceso-bottom-btn--next:hover { opacity: 0.88; transform: translateX(2px); }
 
-/* CTA section */
-.proceso-cta {
-  background: var(--gradient-hero); text-align: center;
-  padding: var(--section-py) var(--section-px);
-}
-.proceso-cta__title {
-  font-family: var(--font-display); font-weight: 900;
-  font-size: clamp(28px, 4vw, 48px); color: #fff;
-  margin-bottom: 14px; letter-spacing: -0.5px;
-}
-.proceso-cta__subtitle {
-  font-size: clamp(15px, 2vw, 17px); color: rgba(255,255,255,0.7);
-  max-width: 480px; margin: 0 auto 32px; line-height: 1.6;
-}
-
 /* Responsive */
 @media (max-width: 900px) {
   .proceso-main__inner { grid-template-columns: 1fr; }
@@ -2011,6 +1999,33 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
   background: #059669;
   transform: translateY(-1px);
 }
+
+/* Enlace contextual de cada paso (StepRelated): la herramienta o la guía que
+   toca en ese momento del proceso. Usa el color del paso (--step-color). */
+.proceso-related {
+  display: flex; align-items: center; gap: 14px;
+  margin-top: 20px; padding: 14px 16px;
+  border: 1.5px solid var(--color-border); border-left: 4px solid var(--step-color, var(--color-primary));
+  border-radius: var(--radius-md); background: var(--color-white);
+  text-decoration: none; line-height: normal;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.proceso-related:hover { border-color: var(--step-color, var(--color-primary)); box-shadow: var(--shadow-sm); }
+.proceso-related:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
+.proceso-related__icon { display: inline-flex; flex-shrink: 0; }
+.proceso-related__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; text-align: left; }
+.proceso-related__kicker {
+  font-size: 11px; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase;
+  color: var(--step-color, var(--color-primary));
+}
+.proceso-related__label { font-family: var(--font-display); font-weight: 800; font-size: 15.5px; color: var(--color-dark); }
+.proceso-related__desc { font-size: 13.5px; line-height: 1.4; color: var(--color-slate-light); }
+.proceso-related__arrow {
+  margin-left: auto; flex-shrink: 0; font-size: 18px; color: var(--color-muted);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.proceso-related:hover .proceso-related__arrow { transform: translateX(3px); color: var(--step-color, var(--color-primary)); }
+.proceso-stories__card .proceso-related { margin-top: 14px; padding: 12px 14px; }
 
 /* ─── BECA ERASMUS PAGE ──────────────────────────────────────────────────── */
 .beca-page { min-height: 100vh; min-height: 100svh; background: var(--color-white); }

@@ -1,0 +1,104 @@
+/* «Tu recorrido» (JourneySteps.jsx) — al pie de las herramientas. */
+
+.journey {
+  padding: clamp(40px, 6vw, 72px) var(--section-px);
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+.inner { max-width: 1100px; margin: 0 auto; }
+
+.eyebrow {
+  display: inline-block; margin-bottom: 8px;
+  font-size: 12.5px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--color-primary);
+}
+.title {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(22px, 3vw, 30px); letter-spacing: -0.5px; line-height: 1.15;
+  color: var(--color-dark); margin-bottom: 22px;
+}
+.titleAccent { color: var(--color-primary); }
+
+/* ─── Pasos ─────────────────────────────────────────────────────────────── */
+.steps {
+  list-style: none; margin: 0 0 20px; padding: 0;
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px;
+}
+.stepBox {
+  position: relative; height: 100%;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 8px;
+  padding: 14px 14px 16px;
+  background: var(--color-white); border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md); text-decoration: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+a.stepBox:hover { border-color: var(--color-primary); box-shadow: var(--shadow-sm); }
+a.stepBox:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
+
+.num {
+  position: absolute; top: 12px; right: 12px;
+  width: 22px; height: 22px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 800;
+  color: var(--color-slate); background: var(--color-surface); border: 1px solid var(--color-border);
+}
+.icon { display: inline-flex; }
+.text { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.label {
+  font-family: var(--font-display); font-weight: 700; font-size: 15px; line-height: 1.25;
+  color: var(--color-dark);
+}
+.tag {
+  display: inline-block; padding: 3px 9px; border-radius: var(--radius-full);
+  font-size: 11.5px; font-weight: 800; letter-spacing: 0.3px;
+  color: var(--color-dark); background: var(--color-surface); border: 1px solid var(--color-border);
+}
+.tagNext { color: #16364D; background: var(--gradient-brand); border-color: transparent; }
+
+/* Estás aquí: fondo suave, sin enlace. */
+.current .stepBox { border-color: var(--color-dark); border-style: dashed; background: transparent; }
+.current .num { color: var(--color-white); background: var(--color-dark); border-color: var(--color-dark); }
+
+/* Siguiente: resaltado con el naranja de marca. */
+.next .stepBox { border-color: var(--color-primary); box-shadow: var(--shadow-brand); }
+.next .num { color: #16364D; background: var(--gradient-brand); border-color: transparent; }
+
+/* Pasos anteriores: un poco atenuados (siguen enlazados). */
+.past .stepBox, .later .stepBox { opacity: 0.82; }
+.past .stepBox:hover, .later .stepBox:hover { opacity: 1; }
+
+/* ─── Botón al siguiente paso ───────────────────────────────────────────── */
+.cta {
+  display: flex; align-items: center; gap: 16px;
+  padding: 18px 22px; border-radius: var(--radius-lg);
+  background: var(--gradient-dark); color: #fff; text-decoration: none;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.cta:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.cta:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
+.ctaIcon { display: inline-flex; flex-shrink: 0; }
+.ctaText { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.ctaLabel { font-family: var(--font-display); font-weight: 800; font-size: 18px; }
+.ctaDesc { font-size: 14px; line-height: 1.45; color: rgba(255,255,255,0.75); }
+.ctaArrow {
+  margin-left: auto; flex-shrink: 0;
+  width: 44px; height: 44px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 20px; font-weight: 700; color: #16364D; background: var(--gradient-brand);
+  transition: transform 0.2s ease;
+}
+.cta:hover .ctaArrow { transform: translateX(3px); }
+
+/* ─── Móvil: lista vertical compacta ───────────────────────────────────── */
+@media (max-width: 860px) {
+  .steps { grid-template-columns: 1fr; gap: 8px; }
+  .stepBox { flex-direction: row; align-items: center; gap: 12px; padding: 10px 44px 10px 12px; min-height: 56px; }
+  .num { top: 50%; transform: translateY(-50%); }
+  .icon :global(svg) { width: 26px; height: 26px; }
+  .text { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+  .label { font-size: 15px; }
+  .cta { padding: 16px; gap: 12px; }
+  .ctaLabel { font-size: 16.5px; }
+  .ctaDesc { font-size: 13.5px; }
+}
