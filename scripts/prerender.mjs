@@ -14,7 +14,7 @@
 // Next.js. Compila igual en local y en Vercel.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { createHash } from "node:crypto";
@@ -78,9 +78,45 @@ function buildHeadTags(meta) {
   return tags.map((t) => "    " + t).join("\n");
 }
 
+// ─── Preload de tipografías ──────────────────────────────────────────────────
+// Sin preload, el navegador no descubre los .woff2 hasta haber descargado y
+// procesado el CSS: el texto se pinta con la fuente de respaldo y salta al
+// llegar la buena. Se precargan solo las que se ven en el primer pantallazo:
+//   · Bricolage Grotesque (latin): cuerpo y UI de TODAS las páginas.
+//   · Fraunces 800 (latin): el titular del hero, solo en la home.
+// Los nombres llevan el hash que les pone Vite, así que se buscan en
+// dist/assets en cada build. Si alguno no aparece (cambio de fuente o de
+// versión de Fontsource) se avisa y esa página sale sin preload: no rompe.
+const FONT_PRELOADS = [
+  { pattern: /^bricolage-grotesque-latin-opsz-normal-[\w-]+\.woff2$/, routes: null },
+  { pattern: /^fraunces-latin-800-normal-[\w-]+\.woff2$/, routes: ["/"] },
+];
+
+function findFontPreloads() {
+  const assetsDir = join(DIST, "assets");
+  const files = existsSync(assetsDir) ? readdirSync(assetsDir) : [];
+  return FONT_PRELOADS.map(({ pattern, routes }) => {
+    const file = files.find((f) => pattern.test(f));
+    if (!file) console.warn(`  ⚠ Preload de fuentes: no hay ningún fichero que cumpla ${pattern} en dist/assets.`);
+    return file ? { href: `/assets/${file}`, routes } : null;
+  }).filter(Boolean);
+}
+
+function fontPreloadTags(fonts, routePath) {
+  return fonts
+    .filter((f) => !f.routes || f.routes.includes(routePath))
+    .map((f) => `<link rel="preload" href="${f.href}" as="font" type="font/woff2" crossorigin />`)
+    .join("\n    ");
+}
+
 // ─── Transforma la plantilla para una ruta concreta ──────────────────────────
-function renderTemplate(template, appHtml, meta) {
+function renderTemplate(template, appHtml, meta, preloadTags = "") {
   let html = template;
+
+  // 0) Preload de fuentes, justo antes del bundle (lo primero que pide el head)
+  if (preloadTags) {
+    html = html.replace(/<script type="module"/, `${preloadTags}\n    <script type="module"`);
+  }
 
   // 1) title
   html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(meta.title)}</title>`);
@@ -297,6 +333,8 @@ async function main() {
   }
   checkCspHashes(template);
 
+  const fonts = findFontPreloads();
+
   let ok = 0;
   const failed = [];
   const indexNowPages = {}; // URL canónica → hash del contenido (solo indexables)
@@ -304,7 +342,7 @@ async function main() {
   for (const route of ALL_ROUTES) {
     try {
       const { appHtml, meta } = renderPage(route.path);
-      const html = renderTemplate(template, appHtml, meta);
+      const html = renderTemplate(template, appHtml, meta, fontPreloadTags(fonts, route.path));
       if (!meta.noindex) indexNowPages[meta.canonical] = contentHash(appHtml, meta);
       const out = outPathFor(route.path);
       mkdirSync(dirname(out), { recursive: true });
@@ -321,7 +359,7 @@ async function main() {
   // exista en dist/. Lleva noindex y no aparece en el sitemap.
   try {
     const { appHtml, meta } = renderNotFound();
-    writeFileSync(join(DIST, "404.html"), renderTemplate(template, appHtml, meta), "utf-8");
+    writeFileSync(join(DIST, "404.html"), renderTemplate(template, appHtml, meta, fontPreloadTags(fonts, "/404")), "utf-8");
     console.log("  ✓ 404.html (noindex)");
   } catch (err) {
     console.error("  ✖ 404.html →", err.message.split("\n")[0]);
