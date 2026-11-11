@@ -357,9 +357,10 @@ function NavMenuDrawer({ menuOpen, setMenuOpen, triggerRef }) {
   );
 }
 
-// mobileOnly: el navbar ya enseña los enlaces en horizontal en pantallas
-// anchas, así que ahí la hamburguesa se oculta (ver .navbar__hamburger--
-// mobile-only en global.css). NavbarCity no lo pasa: no tiene otro menú.
+// mobileOnly: en iPad horizontal (1024–1199px) el navbar ya enseña los
+// enlaces en horizontal y la hamburguesa se oculta (ver .navbar__hamburger--
+// mobile-only en global.css); en escritorio (≥1200px) se ve, a propósito.
+// NavbarCity no lo pasa: no tiene otro menú.
 export function HamburgerButton({ menuOpen, setMenuOpen, isDark, buttonRef, mobileOnly = false }) {
   return (
     <button
