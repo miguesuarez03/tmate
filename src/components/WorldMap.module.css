@@ -407,3 +407,16 @@
   .popupName { font-size: 0.92rem; }
   .popupVibes { gap: 4px; }
 }
+
+/* Áreas táctiles de 44px (mismo criterio que "ÁREAS TÁCTILES" en global.css):
+   selector de país, filtros de ambiente y botones de zoom. */
+@media (pointer: coarse), (max-width: 768px) {
+  .countrySelect { min-height: 44px; }
+  .vibeBtn { min-height: 44px; min-width: 44px; justify-content: center; }
+  .zoomBtn { width: 44px; height: 44px; }
+}
+/* En 360px los tres filtros a 44px de ancho ya no caben junto al selector:
+   40px de ancho (el alto sigue en 44) los mantiene en una sola fila. */
+@media (max-width: 380px) {
+  .vibeBtn { min-width: 40px; }
+}

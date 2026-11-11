@@ -2765,3 +2765,31 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
     will-change: transform;
   }
 }
+
+/* ─── ÁREAS TÁCTILES ─────────────────────────────────────────────────────────
+   En táctil (o en pantalla estrecha) todo lo que se pulsa mide al menos 44px
+   de alto: es el mínimo que recomiendan WCAG 2.5.5 y las guías de iOS y
+   Android. Con ratón no cambia nada: las pills siguen compactas. */
+@media (pointer: coarse), (max-width: 768px) {
+  .hero__trending-pill,
+  .hero__quicklink,
+  .filter-pill,
+  .rankings-tab,
+  .navbar__link,
+  .search-bar__btn {
+    min-height: 44px;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .hero__trending-pill { padding-inline: 16px; }
+  /* Los accesos del hero crecen: suben 6px para no pegarse al contenido. */
+  .hero__quicklinks { top: 72px; }
+  .hero__video-toggle { width: 44px; height: 44px; }
+  .navbar__hamburger { min-height: 44px; justify-content: center; }
+  .navbar__logo { min-height: 44px; }
+  .faq-item__question { min-height: 44px; }
+  .footer__nav { gap: 0 20px; }
+  .footer__nav a { display: inline-flex; align-items: center; min-height: 44px; }
+}
+@media (max-width: 768px) {
+  .hero { padding-top: 130px; }
+}
