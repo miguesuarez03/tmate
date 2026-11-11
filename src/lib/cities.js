@@ -567,3 +567,35 @@ export function searchCities(query, limit = 6) {
 export function findBestCityMatch(query) {
   return searchCities(query, 1)[0] ?? null;
 }
+
+// ─── COMPARADOR ─────────────────────────────────────────────────────────────
+
+/**
+ * Ventaja mínima en la nota global (tal como se muestra, con un decimal) para
+ * decir que una ciudad tiene la «mejor puntuación». Por debajo es un empate
+ * técnico: las notas son una valoración editorial y una o dos décimas no
+ * distinguen de verdad dos ciudades.
+ */
+export const COMPARE_MIN_LEAD = 0.3;
+
+/**
+ * ¿Quién va por delante en una comparativa?
+ * @param {number[]} overallScores  nota global de cada ciudad comparada
+ * @returns {{ winnerIdx: number, tiedIdx: number[] }}
+ *   winnerIdx: índice de la ganadora clara, o -1 si no la hay.
+ *   tiedIdx:   si no hay ganadora, las que quedan a menos de minLead de la
+ *              mejor (empate técnico); vacío si hay ganadora.
+ */
+export function getCompareLeader(overallScores, minLead = COMPARE_MIN_LEAD) {
+  const shown = overallScores.map((s) => Math.round(s * 10) / 10);
+  if (shown.length < 2) return { winnerIdx: shown.length - 1, tiedIdx: [] };
+  const max = Math.max(...shown);
+  const gapTo = (s) => Math.round((max - s) * 10) / 10; // sin ruido de coma flotante
+  const leaders = shown.filter((s) => s === max).length;
+  const second = Math.max(...shown.filter((s) => s !== max), -Infinity);
+  if (leaders === 1 && gapTo(second) >= minLead) return { winnerIdx: shown.indexOf(max), tiedIdx: [] };
+  return {
+    winnerIdx: -1,
+    tiedIdx: shown.map((s, i) => (gapTo(s) < minLead ? i : -1)).filter((i) => i !== -1),
+  };
+}

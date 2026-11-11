@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import Flag from "../components/Flag";
 import { Link, useSearchParams } from "react-router-dom";
 import { CITIES } from "../data/cities";
-import { getScoreMap, getOverallScore, parseMinCost, isErasmusEligible } from "../lib/cities";
+import { getScoreMap, getOverallScore, parseMinCost, isErasmusEligible, getCompareLeader } from "../lib/cities";
 import { getComparePhrase } from "../data/comparePhrases";
 import { Navbar, Footer } from "../components/Layout";
 import { IconRanking, IconCorona, IconBeca, IconUniversidad, IconClima, IconIdiomas, IconCheck, IconAlerta, IconComparar, IconLupa } from "../components/icons";
@@ -519,7 +519,8 @@ export default function ComparePage() {
 
   /* ─── COMPARE VIEW ──────────────────────────────────────────────────── */
   if (comparing && canCompare) {
-    const maxIdx = overallScores.indexOf(Math.max(...overallScores));
+    // «Mejor puntuación» solo con ventaja clara (≥0,3); si no, empate técnico.
+    const { winnerIdx, tiedIdx } = getCompareLeader(overallScores);
 
     return (
       <div className={styles.page}>
@@ -547,7 +548,8 @@ export default function ComparePage() {
             {/* City header cards */}
             <div className={styles.cityCards} style={{ "--cols": selectedCities.length }}>
               {selectedCities.map((city, i) => {
-                const isTop = maxIdx === i;
+                const isTop = winnerIdx === i;
+                const isTied = tiedIdx.includes(i);
                 const isCheapest = parseMinCost(city.costDetail) === Math.min(...selectedCities.map((c) => parseMinCost(c.costDetail)));
                 const bestCategory = SCORE_IDS.reduce((best, id) => {
                   const s = scoreMaps[i][id]?.score ?? 0;
@@ -572,6 +574,7 @@ export default function ComparePage() {
                       </div>
                       <div className={styles.cityCardBadges}>
                         {isTop && <span className={`${styles.cityCardTag} ${styles.cityCardTagBest}`}><IconCorona size={16} /> Mejor puntuación</span>}
+                        {isTied && <span className={styles.cityCardTag}>Empate técnico</span>}
                         {isCheapest && <span className={styles.cityCardTag}><IconBeca size={16} /> Más económica</span>}
                         {bestScoreObj && (
                           <span className={styles.cityCardTag} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
@@ -584,10 +587,9 @@ export default function ComparePage() {
 
                     {/* Score badge */}
                     <div className={styles.overallBadge} style={{ background: COL_GRADIENTS[i] }}>
-                      {maxIdx === i && <span className={styles.crownIcon}><IconCorona size={20} /></span>}
+                      {isTop && <span className={styles.crownIcon}><IconCorona size={20} /></span>}
                       <span className={styles.overallNumber}>{overallScores[i].toFixed(1)}</span>
                       <span className={styles.overallLabel}>/ 10</span>
-                      {maxIdx === i && <span className={styles.bestLabel}>Mejor puntuación</span>}
                     </div>
 
                     {/* Quick stats */}
