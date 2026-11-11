@@ -76,6 +76,34 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ─── «¿Y ahora?» (tras los resultados) ─────────────────────────────────── */
+.nextSteps { margin-top: 30px; }
+.nextTitle {
+  font-family: var(--font-display); font-weight: 800; font-size: 24px;
+  color: var(--color-dark); letter-spacing: -0.4px; margin-bottom: 16px;
+}
+.nextGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.nextCard {
+  position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 6px;
+  background: var(--color-white); border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-xl); padding: 22px 22px 24px;
+  box-shadow: var(--shadow-sm); text-decoration: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.nextCard:hover { border-color: var(--color-primary); box-shadow: var(--shadow-md); }
+.nextCard:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
+.nextIcon { display: inline-flex; margin-bottom: 6px; }
+.nextCardTitle {
+  font-family: var(--font-display); font-weight: 800; font-size: 17px;
+  color: var(--color-dark); padding-right: 28px;
+}
+.nextCardDesc { font-size: 14px; line-height: 1.5; color: var(--color-slate-light); }
+.nextArrow {
+  position: absolute; top: 22px; right: 22px; font-size: 18px;
+  color: var(--color-muted); transition: transform 0.2s ease, color 0.2s ease;
+}
+.nextCard:hover .nextArrow { transform: translateX(3px); color: var(--color-primary); }
+
 /* ─── Portada (antes de la primera pregunta) ─────────────────────────────── */
 .introCard { text-align: center; display: flex; flex-direction: column; align-items: center; }
 .introCard .quizBrand { margin-bottom: 14px; }

@@ -9,7 +9,7 @@ import { Navbar, Footer } from "../components/Layout";
 import {
   IconBeca, IconClima, IconIdiomas, IconFiesta, IconEdificio, IconHoja, IconUniversidad,
   IconExperiencia, IconCityMatch, IconMedalla, IconCasa, IconAmigos, IconTransporte,
-  IconEmpleo, IconSeguridad,
+  IconEmpleo, IconSeguridad, IconComparar, IconProceso,
 } from "../components/icons";
 import ScoreRing from "../components/ScoreRing";
 import PhotoCredit from "../components/PhotoCredit";
@@ -563,6 +563,42 @@ export default function CityMatchPage() {
                 </div>
               );
             })}
+
+            {/* ¿Y ahora? — el resultado no es el final: tres siguientes pasos
+                con lo que ya sabemos (tu top 3 y tu ciudad nº 1). */}
+            {top.length > 0 && (
+              <section className={styles.nextSteps} aria-labelledby="city-match-next">
+                <h2 id="city-match-next" className={styles.nextTitle}>¿Y ahora?</h2>
+                <div className={styles.nextGrid}>
+                  {top.length >= 2 && (
+                    <Link className={styles.nextCard} to={`/comparar?cities=${compareSlugs}&view=compare`}>
+                      <span className={styles.nextIcon}><IconComparar size={34} /></span>
+                      <span className={styles.nextCardTitle}>Compara tu top {Math.min(3, top.length)}</span>
+                      <span className={styles.nextCardDesc}>
+                        {top.slice(0, 3).map((m) => m.city.name).join(", ")}: coste en euros, notas y diferencias, lado a lado.
+                      </span>
+                      <span className={styles.nextArrow} aria-hidden="true">→</span>
+                    </Link>
+                  )}
+                  <Link className={styles.nextCard} to="/beca-erasmus">
+                    <span className={styles.nextIcon}><IconBeca size={34} /></span>
+                    <span className={styles.nextCardTitle}>Calcula tu beca</span>
+                    <span className={styles.nextCardDesc}>
+                      {isErasmusEligible(top[0].city)
+                        ? `Cuánto cobrarías al mes en ${top[0].city.name} y cuánto tendrías que poner tú.`
+                        : "Cuánto cobrarías al mes con Erasmus+ y cuánto tendrías que poner tú."}
+                    </span>
+                    <span className={styles.nextArrow} aria-hidden="true">→</span>
+                  </Link>
+                  <Link className={styles.nextCard} to="/proceso">
+                    <span className={styles.nextIcon}><IconProceso size={34} /></span>
+                    <span className={styles.nextCardTitle}>Mira cómo es el proceso</span>
+                    <span className={styles.nextCardDesc}>El Erasmus paso a paso, desde elegir destino hasta la vuelta.</span>
+                    <span className={styles.nextArrow} aria-hidden="true">→</span>
+                  </Link>
+                </div>
+              </section>
+            )}
           </div>
         </main>
         <Footer />
