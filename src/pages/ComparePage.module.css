@@ -1076,3 +1076,13 @@
   border: 1.5px solid; border-radius: var(--radius-full);
   font-size: 13px; font-weight: 700; text-decoration: none;
 }
+
+/* Hero de la comparativa: «Cambiar selección» y «Compartir» en una fila. */
+.compareHeroActions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 20px; }
+.compareHeroActions .backBtn { margin-bottom: 0; min-height: 40px; }
+.shareBtn { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; color: #fff; font-weight: 700; }
+.compareHeroActions :global(.share-fallback) { color: rgba(255,255,255,0.85); }
+@media (max-width: 400px) {
+  .compareHeroActions { gap: 8px; }
+  .compareHeroActions .backBtn { padding: 8px 13px; }
+}

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "./HeroSection.module.css";
 import { getCityWhatsappGroup } from "../../data/cityWhatsappGroups";
 import { isErasmusEligible, getScoreLevel, isAffordable } from "../../lib/cities";
-import { IconUniversidad, IconIdiomas, IconFiesta, IconBeca, IconSol, IconBici, IconSeguridad, IconComida, IconArte, IconLaptop, IconPlaya, IconFuego } from "../icons";
+import { IconUniversidad, IconIdiomas, IconFiesta, IconBeca, IconSol, IconBici, IconSeguridad, IconComida, IconArte, IconLaptop, IconPlaya, IconFuego, IconComparar } from "../icons";
 import ScoreRing from "../ScoreRing";
 import { heroImage } from "../../lib/images";
 import PhotoCredit from "../PhotoCredit";
@@ -177,6 +177,11 @@ export default function HeroSection({ city, overallScore, insights }) {
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
             </button>
+            {/* Abre el comparador con esta ciudad ya elegida: solo falta la otra. */}
+            <Link className={`${styles.heroCompare} link-btn`} to={`/comparar?cities=${city.slug}`}>
+              <IconComparar size={22} />
+              Comparar con otra ciudad
+            </Link>
             <Link className={`${styles.heroSecondary} link-btn`} to="/">
               ← Explorar más ciudades
             </Link>

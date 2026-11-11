@@ -5,6 +5,7 @@ import { getAllCities, getScoreMap, getOverallScore, parseMinCost, isErasmusElig
 import { getComparePhrase } from "../data/comparePhrases";
 import { Navbar, Footer } from "../components/Layout";
 import JourneySteps from "../components/JourneySteps";
+import ShareButton from "../components/ShareButton";
 import { IconRanking, IconCorona, IconBeca, IconUniversidad, IconClima, IconIdiomas, IconCheck, IconAlerta, IconComparar, IconLupa } from "../components/icons";
 import { getCategoryIcon } from "../lib/categoryIcons";
 import MethodologyNote from "../components/MethodologyNote";
@@ -708,9 +709,19 @@ export default function ComparePage() {
           <div className={styles.compareHero}>
             <div className={styles.compareHeroBg} />
             <div className={styles.compareHeroContent}>
-              <button className={styles.backBtn} onClick={() => switchView(false)}>
-                ← Cambiar selección
-              </button>
+              <div className={styles.compareHeroActions}>
+                <button className={styles.backBtn} onClick={() => switchView(false)}>
+                  ← Cambiar selección
+                </button>
+                <ShareButton
+                  className={`${styles.backBtn} ${styles.shareBtn}`}
+                  path={`/comparar?cities=${selectedCities.map((c) => c.slug).join(",")}&view=compare`}
+                  title={`${selectedCities.map((c) => c.name).join(" vs ")} | MAbroad`}
+                  text={`${selectedCities.map((c) => c.name).join(" vs ")}: coste, notas por categoría y diferencias, lado a lado.`}
+                >
+                  Compartir
+                </ShareButton>
+              </div>
               <h1 className={styles.compareTitle}>Comparativa de destinos</h1>
               <p className={styles.compareSubtitle}>
                 {selectedCities.map((c, i) => (
