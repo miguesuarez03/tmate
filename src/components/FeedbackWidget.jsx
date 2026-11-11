@@ -64,8 +64,40 @@ export default function FeedbackWidget() {
     || location.pathname === "/comparar"
     || location.pathname.startsWith("/city/");
 
-  // Al cambiar de página se cierra el panel.
-  useEffect(() => { setOpen(false); }, [location.pathname]);
+  // Al cambiar de página se cierra el panel (y el botón vuelve a verse).
+  useEffect(() => { setOpen(false); setTucked(false); }, [location.pathname]);
+
+  // En móvil el botón tapaba el final de las líneas de texto mientras se leía
+  // (ocupa 44px de una pantalla de 360–390). No se puede reservar ese margen
+  // a todo el contenido sin estrechar la columna de lectura, así que es el
+  // botón el que se aparta: se esconde al bajar y vuelve en cuanto se sube.
+  // Arriba y abajo del todo siempre se ve: ahí el hero y el footer ya le
+  // dejan su hueco. En escritorio no cambia nada.
+  const [tucked, setTucked] = useState(false);
+  useEffect(() => {
+    const mobile = window.matchMedia("(max-width: 768px)");
+    const EDGE = 80;     // px desde arriba/abajo en los que siempre se ve
+    const MIN_MOVE = 8;  // px de scroll acumulado para cambiar de estado
+    let lastY = window.scrollY;
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const y = window.scrollY;
+      const maxY = document.documentElement.scrollHeight - window.innerHeight;
+      if (!mobile.matches || y < EDGE || y > maxY - EDGE) { setTucked(false); lastY = y; return; }
+      const delta = y - lastY;
+      if (Math.abs(delta) < MIN_MOVE) return; // se acumula hasta que sea un gesto claro
+      setTucked(delta > 0);
+      lastY = y;
+    };
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // Foco: al abrir, al textarea (o al botón cerrar si ya se envió); al cerrar,
   // de vuelta al botón flotante.
@@ -176,6 +208,7 @@ export default function FeedbackWidget() {
     styles.fab,
     compact ? styles.fabCompact : "",
     open ? styles.fabHidden : "",
+    tucked && !open ? styles.fabTucked : "",
   ].filter(Boolean).join(" ");
 
   return (
