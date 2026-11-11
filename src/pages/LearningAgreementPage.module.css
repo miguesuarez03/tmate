@@ -1,6 +1,6 @@
 /* ── PAGE ── */
 .page {
-  min-height: 100vh;
+  min-height: 100vh; min-height: 100svh;
   display: flex;
   flex-direction: column;
   background: var(--color-white);
@@ -508,7 +508,7 @@
 @media (max-width: 640px) {
   .firmaPlus { display: none; }
   .firmasRow { display: flex; flex-direction: column; gap: 12px; }
-  .tipModal { max-height: 90vh; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+  .tipModal { max-height: 90vh; max-height: 90dvh; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
   .tipModalOverlay { align-items: flex-end; padding: 0; }
   .checklistGrid { grid-template-columns: 1fr; }
   .checklistHeader { flex-wrap: wrap; }

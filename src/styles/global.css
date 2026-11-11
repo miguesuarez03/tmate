@@ -1475,7 +1475,7 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
 }
 
 /* ─── PROCESO PAGE ──────────────────────────────────────────────────────── */
-.proceso-page { min-height: 100vh; background: var(--color-white); }
+.proceso-page { min-height: 100vh; min-height: 100svh; background: var(--color-white); }
 
 /* Hero */
 .proceso-hero {
@@ -1967,7 +1967,7 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
 }
 
 /* ─── BECA ERASMUS PAGE ──────────────────────────────────────────────────── */
-.beca-page { min-height: 100vh; background: var(--color-white); }
+.beca-page { min-height: 100vh; min-height: 100svh; background: var(--color-white); }
 .beca-body { max-width: 1100px; margin: 0 auto; }
 
 .beca-section {

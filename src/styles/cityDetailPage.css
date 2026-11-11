@@ -3,7 +3,7 @@
   background: var(--color-white);
   color: var(--color-slate);
   font-family: var(--font-body);
-  min-height: 100vh;
+  min-height: 100vh; min-height: 100svh;
   overflow-x: hidden;
 }
 

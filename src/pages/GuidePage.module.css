@@ -1,5 +1,5 @@
 /* Página de una guía (/guias/:slug): columna de lectura de ~720px. */
-.page { background: var(--color-white); min-height: 100vh; display: flex; flex-direction: column; }
+.page { background: var(--color-white); min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
 .article { flex: 1; width: 100%; max-width: 760px; margin: 0 auto; padding: 112px var(--section-px) 72px; box-sizing: border-box; }
 
 .header { margin-bottom: 1.8rem; }
