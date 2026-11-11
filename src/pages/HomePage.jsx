@@ -198,9 +198,17 @@ function AnimatedWord() {
 // Retocado algo más cálido y saturado; recortado a 11 s con fundido del
 // final sobre el principio (bucle sin salto); MP4 H.264 + WebM VP9 a 1080p
 // (<4,5 MB cada uno). El poster es su primer fotograma, en WebP 1920/1280.
+// Para pantallas estrechas hay una versión a 720p (~1,1 MB, la cuarta parte):
+// el mismo corte reescalado con ffmpeg (VP9 y H.264 en dos pasadas, ~800 kbps).
 const HERO_VIDEO = {
   webm: "/videos/hero-rotterdam.webm",
   mp4: "/videos/hero-rotterdam.mp4",
+  small: {
+    webm: "/videos/hero-rotterdam-720.webm",
+    mp4: "/videos/hero-rotterdam-720.mp4",
+  },
+  // Misma frontera que el poster de 1280 (posterSizes).
+  smallQuery: "(max-width: 768px)",
   poster: "/videos/hero-rotterdam-poster.webp",
   posterSrcSet: "/videos/hero-rotterdam-poster-1280.webp 1280w, /videos/hero-rotterdam-poster.webp 1920w",
   // En móvil el hero se pinta por su alto: la versión de 1280 basta y pesa la mitad.
@@ -237,6 +245,14 @@ function saveHeroVideoPaused(paused) {
   } catch { /* sin almacenamiento: la elección dura solo esta visita */ }
 }
 
+// El fichero se elige UNA vez, al montar, según el ancho de la pantalla: en
+// móvil la versión 720p (1,1 MB en vez de 4 MB). No se cambia al girar el
+// dispositivo o redimensionar: recargar el vídeo a mitad sería peor.
+function pickHeroVideoSources() {
+  const small = window.matchMedia?.(HERO_VIDEO.smallQuery).matches;
+  return small ? HERO_VIDEO.small : { webm: HERO_VIDEO.webm, mp4: HERO_VIDEO.mp4 };
+}
+
 // Fondo del hero: SIEMPRE se pinta el poster (es la imagen LCP y la que ve
 // quien ahorra datos). El <video> se monta solo en cliente — así el HTML
 // prerenderizado no empieza a descargar 4 MB a quien no lo va a ver — y
@@ -251,6 +267,7 @@ function saveHeroVideoPaused(paused) {
 function HeroBackground() {
   const videoRef = useRef(null);
   const [videoAllowed, setVideoAllowed] = useState(false);
+  const [sources, setSources] = useState(null);
   const [paused, setPaused] = useState(false);   // elección del usuario (persistida)
   const [blocked, setBlocked] = useState(false); // el navegador no dejó arrancar solo
   const [inView, setInView] = useState(true);
@@ -258,6 +275,7 @@ function HeroBackground() {
 
   useEffect(() => {
     setPaused(readHeroVideoPaused());
+    setSources(pickHeroVideoSources());
     setVideoAllowed(!prefersReducedData());
   }, []);
 
@@ -314,7 +332,7 @@ function HeroBackground() {
         fetchpriority="high"
         decoding="async"
       />
-      {videoAllowed && (
+      {videoAllowed && sources && (
         <video
           ref={videoRef}
           className={`hero__video${started ? " hero__video--playing" : ""}`}
@@ -327,10 +345,10 @@ function HeroBackground() {
           onPlaying={() => { setStarted(true); setBlocked(false); }}
           onError={() => setVideoAllowed(false)}
         >
-          <source src={HERO_VIDEO.webm} type="video/webm" />
+          <source src={sources.webm} type="video/webm" />
           {/* Si falla el último formato, se queda el poster (el vídeo solo
               se hace visible cuando ya está reproduciendo). */}
-          <source src={HERO_VIDEO.mp4} type="video/mp4" onError={() => setVideoAllowed(false)} />
+          <source src={sources.mp4} type="video/mp4" onError={() => setVideoAllowed(false)} />
         </video>
       )}
       <div className="hero__video-overlay" />
