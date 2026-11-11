@@ -378,3 +378,62 @@
   .resultImg { min-height: 140px; }
   .resultsActions { flex-direction: column; align-items: stretch; }
 }
+
+/* ─── Tus respuestas: chips editables sobre los resultados ───────────────── */
+.answers {
+  background: var(--color-white); border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-xl); padding: 18px 20px 20px; box-shadow: var(--shadow-sm);
+}
+.answersHead { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; margin-bottom: 12px; }
+.answersTitle { font-family: var(--font-display); font-weight: 800; font-size: 18px; color: var(--color-dark); }
+.answersHint { font-size: 13px; color: var(--color-slate-light); }
+.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 4px; min-height: 40px;
+  padding: 7px 12px; border-radius: var(--radius-full);
+  background: var(--color-surface); border: 1.5px solid var(--color-border);
+  font-family: var(--font-body); font-size: 13.5px; font-weight: 600; color: var(--color-dark);
+  text-align: left; cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.chip:hover { border-color: var(--color-primary); }
+.chip:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 2px; }
+.chipName { font-weight: 800; color: var(--color-slate); }
+.chipNeutral { color: var(--color-slate-light); background: transparent; border-style: dashed; }
+.chipOpen { border-color: var(--color-primary); background: rgba(245,150,58,0.10); }
+.chipEdit { display: inline-flex; margin-left: 4px; opacity: 0.75; }
+
+.chipEditor {
+  margin-top: 14px; padding: 16px; border-radius: var(--radius-lg);
+  background: var(--color-surface); border: 1.5px solid var(--color-primary);
+}
+.chipEditorTitle { font-family: var(--font-display); font-weight: 800; font-size: 16px; color: var(--color-dark); }
+.chipEditorHint { margin-top: 4px; font-size: 13px; color: var(--color-slate-light); }
+.chipEditorOptions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.chipOption {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px;
+  padding: 8px 14px; border-radius: var(--radius-full);
+  background: var(--color-white); border: 1.5px solid var(--color-border);
+  font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--color-dark);
+  cursor: pointer; transition: border-color 0.2s ease, background 0.2s ease;
+}
+.chipOption:hover { border-color: var(--color-primary); }
+.chipOption:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 2px; }
+.chipOptionActive { background: var(--gradient-brand); border-color: transparent; color: #16364D; font-weight: 700; }
+.chipOptionRank {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 24px; height: 24px; padding: 0 4px; border-radius: var(--radius-full);
+  background: #16364D; color: #fff; font-size: 11.5px; font-weight: 800;
+}
+.chipEditorDone {
+  margin-top: 14px; min-height: 44px; padding: 10px 22px; border: none; cursor: pointer;
+  border-radius: var(--radius-full); background: var(--color-dark); color: var(--color-white);
+  font-family: var(--font-body); font-size: 14px; font-weight: 700;
+}
+.chipEditorDone:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 2px; }
+
+/* Botón «Compartir resultado» (ShareButton) en el hero de resultados. */
+.shareBtn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; }
+
+.chipEditorItem { flex-basis: 100%; }
+.chipEditorItem .chipEditor { margin-top: 2px; }

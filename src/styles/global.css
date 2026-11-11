@@ -181,6 +181,9 @@ html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
   position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
 }
+/* ShareButton: si no se pudo ni compartir ni copiar, el enlace a mano. */
+.share-fallback { display: flex; flex-direction: column; gap: 4px; width: 100%; max-width: 420px; font-size: 13px; color: inherit; }
+.share-fallback input { width: 100%; padding: 8px 10px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font: inherit; color: var(--color-dark); background: var(--color-white); }
 /* Página que no se pudo descargar (RouteErrorBoundary): mensaje y «Recargar». */
 .route-error {
   min-height: 70vh; min-height: 70svh;
