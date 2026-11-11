@@ -1,8 +1,9 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { IconUniversidad, IconEdificio, IconGlobo, IconManos, IconAmigos, IconLibros, IconLapiz, IconRobot, IconAlerta, IconSobre, IconCheck, IconCiclo, IconReloj, IconFiesta, IconClipboard } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
+import { useStoredState } from "../hooks/useStoredState";
 import { useCityDetails } from "../hooks/useCityDetail";
 import { getAllCities, isErasmusEligible } from "../lib/cities";
 import SearchableInput from "../components/SearchableInput";
@@ -224,23 +225,9 @@ function TipCard({ tip }) {
 const CHECKLIST_STORAGE_KEY = "tmate_la_checklist";
 
 function Checklist() {
-  const [checked, setChecked] = useState(() => {
-    try {
-      const saved = localStorage.getItem(CHECKLIST_STORAGE_KEY);
-      return saved ? JSON.parse(saved) : {};
-    } catch {
-      return {};
-    }
-  });
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(CHECKLIST_STORAGE_KEY, JSON.stringify(checked));
-    } catch {
-      // localStorage no disponible (modo privado, etc.) — se pierde el
-      // progreso al recargar, pero la checklist sigue funcionando.
-    }
-  }, [checked]);
+  // Se recupera tras el primer render (useStoredState): el HTML
+  // prerenderizado sale sin marcar y así se puede hidratar.
+  const [checked, setChecked] = useStoredState(CHECKLIST_STORAGE_KEY, {});
 
   const total = CHECKLIST_ITEMS.length;
   const done = Object.values(checked).filter(Boolean).length;
@@ -387,23 +374,9 @@ function LAWizard() {
   const [showErrors, setShowErrors] = useState(false);
   const cardRef = useRef(null);
   const botRef = useRef(null);
-  const [data, setData] = useState(() => {
-    try {
-      const saved = localStorage.getItem(WIZARD_STORAGE_KEY);
-      return saved ? { ...WIZARD_DEFAULTS, ...JSON.parse(saved) } : { ...WIZARD_DEFAULTS };
-    } catch {
-      return { ...WIZARD_DEFAULTS };
-    }
-  });
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(WIZARD_STORAGE_KEY, JSON.stringify(data));
-    } catch {
-      // localStorage no disponible — el borrador no se guarda, pero el
-      // wizard sigue funcionando con normalidad en esta sesión.
-    }
-  }, [data]);
+  // Borrador recuperado tras el primer render (useStoredState), para poder
+  // hidratar el HTML prerenderizado (que sale con el formulario vacío).
+  const [data, setData] = useStoredState(WIZARD_STORAGE_KEY, WIZARD_DEFAULTS, (saved) => ({ ...WIZARD_DEFAULTS, ...saved }));
 
   const total = WIZARD_STEPS.length;
   const isLast = step === total - 1;

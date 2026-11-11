@@ -15,6 +15,11 @@ function cityDataPlugin() {
   };
 }
 
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
   plugins: [cityDataPlugin(), react()],
-});
+  build: {
+    // dist/.vite/manifest.json: el prerender lo usa para saber qué chunks y
+    // CSS precargar en cada página (y después lo borra de dist/).
+    manifest: !isSsrBuild,
+  },
+}));

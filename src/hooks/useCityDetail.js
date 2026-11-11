@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { loadCityDetail, getLoadedCityDetail, getCityDetailError, getCityBySlug } from "../lib/cities";
+import { trackLoad } from "../lib/pendingLoads";
 
 /** @typedef {import('../types').CityDetail} CityDetail */
 
@@ -19,7 +20,20 @@ export function useCityDetail(slug) {
   if (loaded) return loaded;
   const error = getCityDetailError(slug);
   if (error) throw error;
-  throw loadCityDetail(slug).catch(() => {}); // reintenta el render al terminar
+  throw trackOnce(loadCityDetail(slug)).catch(() => {}); // reintenta el render al terminar
+}
+
+// Al navegar de una ciudad a otra, la página anterior sigue a la vista
+// mientras llega la ficha nueva: se cuenta como carga en curso para que
+// salga la barra de NavigationProgress. Una vez por descarga, aunque el
+// render suspenda varias veces.
+const tracked = new WeakSet();
+function trackOnce(promise) {
+  if (!tracked.has(promise)) {
+    tracked.add(promise);
+    trackLoad(promise);
+  }
+  return promise;
 }
 
 /**

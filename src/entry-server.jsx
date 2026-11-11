@@ -17,12 +17,14 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { StaticRouter } from "react-router-dom/server";
-import { Routes, Route, Navigate } from "react-router-dom";
 import { renderToString } from "react-dom/server";
+import AppShell from "./AppShell";
+import { matchRoute, preloadRouteData } from "./routes";
 
 // Páginas importadas de forma EAGER (no lazy): con renderToString, un
 // componente lazy sin resolver haría que Suspense pintara el fallback en vez
-// del contenido. Importándolas directas garantizamos HTML completo.
+// del contenido. Importándolas directas garantizamos HTML completo. El árbol
+// (AppShell + src/routes.js) es el mismo que en el cliente: así se hidrata.
 import HomePage from "./pages/HomePage";
 import CityDetailPage from "./pages/CityDetailPage";
 import ProcesoPage from "./pages/ProcesoPage";
@@ -38,7 +40,13 @@ import GuidePage from "./pages/GuidePage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 import { CITY_MATCH_QUESTION_COUNT } from "./data/cityMatch";
-import { getAllCities, getOverallScore, getCityMeta, getHomeMeta, loadCityDetail, getLoadedCityDetail } from "./lib/cities";
+import { getAllCities, getOverallScore, getCityMeta, getHomeMeta, getLoadedCityDetail } from "./lib/cities";
+
+const PAGES = {
+  HomePage, CityDetailPage, ProcesoPage, ComparePage, LearningAgreementPage,
+  BecaErasmusPage, CityMatchPage, TiposDeIntercambioPage, PrivacidadPage,
+  CreditosPage, GuiasPage, GuidePage, NotFoundPage,
+};
 import { getGuides, getGuideBySlug, getGuideMeta, GUIDES_INDEX_META, GUIDES_INDEX_JSON_LD } from "./lib/guides";
 import {
   getCityJsonLd, getBreadcrumbJsonLd, HOME_JSON_LD, BECA_JSON_LD,
@@ -242,44 +250,36 @@ export function getMetaForPath(pathname) {
 function App({ url }) {
   return (
     <StaticRouter location={url}>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/city/:slug" element={<CityDetailPage />} />
-        <Route path="/proceso" element={<ProcesoPage />} />
-        <Route path="/comparar" element={<ComparePage />} />
-        <Route path="/learning-agreement" element={<LearningAgreementPage />} />
-        <Route path="/beca-erasmus" element={<BecaErasmusPage />} />
-        <Route path="/city-match" element={<CityMatchPage />} />
-        <Route path="/tipos-de-intercambio" element={<TiposDeIntercambioPage />} />
-        <Route path="/privacidad" element={<PrivacidadPage />} />
-        {/* /aviso-legal → /privacidad (en producción la redirección la hace vercel.json) */}
-        <Route path="/aviso-legal" element={<Navigate to="/privacidad" replace />} />
-        <Route path="/creditos" element={<CreditosPage />} />
-        <Route path="/guias" element={<GuiasPage />} />
-        <Route path="/guias/:slug" element={<GuidePage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <AppShell pages={PAGES} />
     </StaticRouter>
   );
 }
 
 /**
- * Datos que una ruta necesita YA cargados para pintarse de una vez (sin
- * suspender): la ficha completa de la ciudad en /city/:slug. Lo mismo que
- * hace main.jsx en el navegador antes de hidratar.
+ * Módulos (rutas de src/) que la página necesita nada más cargar: el de la
+ * página y, en una ciudad, el chunk de su ficha. El prerender los busca en
+ * el manifest de Vite para añadir <link rel="modulepreload"> y la CSS de la
+ * página, de modo que main.jsx los encuentre ya descargados al hidratar.
+ * @param {string} url
+ * @returns {string[]}
  */
-function preloadData(url) {
-  const m = url.match(/^\/city\/([^/]+)\/?$/);
-  return m ? loadCityDetail(m[1]) : Promise.resolve();
+export function getRouteModules(url) {
+  const m = matchRoute(url);
+  if (!m || !m.route.page) return [];
+  const mods = [`src/pages/${m.route.page}.jsx`];
+  if (m.route.dataModule) mods.push(m.route.dataModule(m.params));
+  return mods;
 }
 
 /**
- * Renderiza una ruta a HTML de body + devuelve sus metadatos.
+ * Renderiza una ruta a HTML de body + devuelve sus metadatos. Antes carga los
+ * datos que la ruta necesita para pintarse sin suspender (src/routes.js), lo
+ * mismo que hace main.jsx en el navegador antes de hidratar.
  * @param {string} url  ruta absoluta, p.ej. "/city/berlin"
  * @returns {Promise<{ appHtml: string, meta: object }>}
  */
 export async function renderPage(url) {
-  await preloadData(url);
+  await preloadRouteData(url);
   const appHtml = renderToString(<App url={url} />);
   const meta = getMetaForPath(url);
   return { appHtml, meta };

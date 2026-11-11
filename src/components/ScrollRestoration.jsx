@@ -1,5 +1,6 @@
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useLocation, useNavigationType } from "react-router-dom";
+import { useIsoLayoutEffect } from "../hooks/useIsoLayoutEffect";
 
 /**
  * ScrollRestoration
@@ -68,7 +69,7 @@ export default function ScrollRestoration() {
 
   // Al cambiar de ruta: restaurar si es navegación "atrás/adelante",
   // o subir arriba si es una navegación nueva (clic en un enlace).
-  useLayoutEffect(() => {
+  useIsoLayoutEffect(() => {
     if (navigationType === "POP") {
       const saved = positionsRef.current[key];
       if (typeof saved === "number") {
