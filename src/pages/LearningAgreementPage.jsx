@@ -376,6 +376,9 @@ function LAWizard() {
   const [sentVia, setSentVia] = useState("web3forms"); // web3forms | mailto
   const [status, setStatus] = useState("idle"); // idle | sending | error
   const [copied, setCopied] = useState(false);
+  // Los errores de un paso solo se enseñan después de intentar continuar.
+  const [showErrors, setShowErrors] = useState(false);
+  const cardRef = useRef(null);
   const botRef = useRef(null);
   const [data, setData] = useState(() => {
     try {
@@ -404,19 +407,62 @@ function LAWizard() {
   const destinoCity = CITIES.find(c => c.slug === data.ciudadDestino);
   const universidadesDestino = destinoCity?.universities ?? [];
 
-  const canContinue = () => {
+  // Qué falta en el paso actual: { campo: mensaje }. Vacío = se puede seguir.
+  // El botón «Continuar» ya no se desactiva sin explicación: se puede pulsar
+  // siempre y, si falta algo, lo dice debajo de cada campo y lleva el foco al
+  // primero.
+  const stepErrors = () => {
+    const e = {};
     switch (current.id) {
-      case "origen":      return data.universidadOrigen.trim() && data.gradoOrigen.trim();
-      case "destino":     return data.ciudadDestino && data.universidadDestino && isErasmusEligible(destinoCity);
-      case "asignaturas": return data.asignaturas.trim().length > 0;
-      case "creditos":    return data.creditos.trim() && data.idioma;
-      case "contacto":    return data.nombre.trim() && /\S+@\S+\.\S+/.test(data.email);
-      default:            return true;
+      case "origen":
+        if (!data.universidadOrigen.trim()) e.universidadOrigen = "Escribe tu universidad de origen.";
+        if (!data.gradoOrigen.trim()) e.gradoOrigen = "Escribe tu grado o titulación.";
+        break;
+      case "destino":
+        if (!data.ciudadDestino) e.ciudadDestino = "Elige una ciudad de la lista.";
+        else if (!isErasmusEligible(destinoCity)) e.ciudadDestino = "Este formulario solo cubre destinos Erasmus+: elige otra ciudad.";
+        else if (!data.universidadDestino) e.universidadDestino = "Elige la universidad de destino.";
+        break;
+      case "asignaturas":
+        if (!data.asignaturas.trim()) e.asignaturas = "Escribe al menos una asignatura.";
+        break;
+      case "creditos":
+        if (!data.creditos.trim()) e.creditos = "Indica cuántos créditos ECTS necesitas.";
+        if (!data.idioma) e.idioma = "Elige el idioma de las asignaturas.";
+        break;
+      case "contacto":
+        if (!data.nombre.trim()) e.nombre = "Escribe tu nombre.";
+        if (!/\S+@\S+\.\S+/.test(data.email)) e.email = "Escribe un email válido: es donde te respondemos.";
+        break;
+      default:
     }
+    return e;
   };
+  const errors = showErrors ? stepErrors() : {};
+
+  // Atributos de un campo: identificador (para llevarle el foco) y, si tiene
+  // error, aria-invalid + el mensaje asociado para lectores de pantalla.
+  const fieldProps = (name) => ({
+    "data-field": name,
+    "aria-invalid": errors[name] ? true : undefined,
+    "aria-describedby": errors[name] ? `la-error-${name}` : undefined,
+  });
+  const fieldError = (name) => errors[name] && (
+    <span id={`la-error-${name}`} className={styles.wizardError} role="alert">{errors[name]}</span>
+  );
 
   const handleNext = () => {
-    if (!canContinue() || status === "sending") return;
+    if (status === "sending") return;
+    const missing = Object.keys(stepErrors());
+    if (missing.length) {
+      setShowErrors(true);
+      // El foco va al primer campo con error. El campo ya está en el DOM, así
+      // que se enfoca en el acto (sin esperar a un frame: en una pestaña en
+      // segundo plano requestAnimationFrame puede tardar o no llegar).
+      cardRef.current?.querySelector(`[data-field="${missing[0]}"]`)?.focus();
+      return;
+    }
+    setShowErrors(false);
     if (isLast) {
       sendRequest();
     } else {
@@ -478,6 +524,7 @@ function LAWizard() {
   };
 
   const restart = () => {
+    setShowErrors(false);
     setData({ ...WIZARD_DEFAULTS });
     setSent(false);
     setStatus("idle");
@@ -496,7 +543,7 @@ function LAWizard() {
     }
   };
 
-  const handleBack = () => setStep(s => Math.max(0, s - 1));
+  const handleBack = () => { setShowErrors(false); setStep(s => Math.max(0, s - 1)); };
 
   if (sent && sentVia === "web3forms") {
     return (
@@ -559,7 +606,7 @@ function LAWizard() {
         ))}
       </div>
 
-      <div className={styles.wizardCard}>
+      <div className={styles.wizardCard} ref={cardRef}>
         <div className={styles.wizardCardHeader}>
           <span className={styles.wizardCardEmoji}><current.Icon size={32} /></span>
           <div>
@@ -579,7 +626,9 @@ function LAWizard() {
                   placeholder="ej. Universidad Loyola Andalucía"
                   value={data.universidadOrigen}
                   onChange={e => update("universidadOrigen", e.target.value)}
+                  {...fieldProps("universidadOrigen")}
                 />
+                {fieldError("universidadOrigen")}
               </label>
               <label className={styles.wizardLabel}>
                 Grado / titulación
@@ -589,7 +638,9 @@ function LAWizard() {
                   placeholder="ej. Grado en Ingeniería en Tecnologías Industriales"
                   value={data.gradoOrigen}
                   onChange={e => update("gradoOrigen", e.target.value)}
+                  {...fieldProps("gradoOrigen")}
                 />
+                {fieldError("gradoOrigen")}
               </label>
             </>
           )}
@@ -611,8 +662,9 @@ function LAWizard() {
                   options={WIZARD_CITY_OPTIONS}
                   placeholder="ej. Bolonia"
                   inputClassName={styles.wizardInput}
-                  inputProps={{ id: "la-ciudad-destino" }}
+                  inputProps={{ id: "la-ciudad-destino", ...fieldProps("ciudadDestino") }}
                 />
+                {fieldError("ciudadDestino")}
               </div>
               {data.ciudadDestino && !isErasmusEligible(destinoCity) && (
                 <p className={styles.wizardHint} style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
@@ -626,12 +678,14 @@ function LAWizard() {
                     className={styles.wizardInput}
                     value={data.universidadDestino}
                     onChange={e => update("universidadDestino", e.target.value)}
+                    {...fieldProps("universidadDestino")}
                   >
                     <option value="">Selecciona una universidad…</option>
                     {universidadesDestino.map(u => (
                       <option key={u} value={u}>{u}</option>
                     ))}
                   </select>
+                  {fieldError("universidadDestino")}
                 </label>
               )}
             </>
@@ -647,7 +701,9 @@ function LAWizard() {
                 placeholder={"ej.\nCálculo II\nMecánica de Fluidos\nElectrotecnia"}
                 value={data.asignaturas}
                 onChange={e => update("asignaturas", e.target.value)}
+                {...fieldProps("asignaturas")}
               />
+              {fieldError("asignaturas")}
             </label>
           )}
 
@@ -662,7 +718,9 @@ function LAWizard() {
                   placeholder="ej. 30"
                   value={data.creditos}
                   onChange={e => update("creditos", e.target.value)}
+                  {...fieldProps("creditos")}
                 />
+                {fieldError("creditos")}
               </label>
               <label className={styles.wizardLabel}>
                 Idioma de las asignaturas
@@ -670,12 +728,14 @@ function LAWizard() {
                   className={styles.wizardInput}
                   value={data.idioma}
                   onChange={e => update("idioma", e.target.value)}
+                  {...fieldProps("idioma")}
                 >
                   <option value="">Selecciona un idioma…</option>
                   {WIZARD_LANGUAGES.map(l => (
                     <option key={l} value={l}>{l}</option>
                   ))}
                 </select>
+                {fieldError("idioma")}
               </label>
             </>
           )}
@@ -690,7 +750,9 @@ function LAWizard() {
                   placeholder="Tu nombre"
                   value={data.nombre}
                   onChange={e => update("nombre", e.target.value)}
+                  {...fieldProps("nombre")}
                 />
+                {fieldError("nombre")}
               </label>
               <label className={styles.wizardLabel}>
                 Email
@@ -700,7 +762,9 @@ function LAWizard() {
                   placeholder="tucorreo@uni.es"
                   value={data.email}
                   onChange={e => update("email", e.target.value)}
+                  {...fieldProps("email")}
                 />
+                {fieldError("email")}
               </label>
               <div className={styles.wizardSummary}>
                 <p className={styles.wizardSummaryTitle}>Resumen de tu solicitud</p>
@@ -713,17 +777,17 @@ function LAWizard() {
         </div>
 
         <div className={styles.wizardCardFooter}>
-          <button
-            className={styles.wizardBackBtn}
-            onClick={handleBack}
-            disabled={step === 0}
-          >
-            ← Atrás
-          </button>
+          {/* En el primer paso no hay «Atrás» (antes salía desactivado);
+              el hueco se mantiene para que «Continuar» no cambie de sitio. */}
+          {step > 0 ? (
+            <button className={styles.wizardBackBtn} onClick={handleBack}>
+              ← Atrás
+            </button>
+          ) : <span aria-hidden="true" />}
           <button
             className={styles.wizardNextBtn}
             onClick={handleNext}
-            disabled={!canContinue() || status === "sending"}
+            disabled={status === "sending"}
             aria-busy={status === "sending"}
             style={{ display: "inline-flex", alignItems: "center", gap: 6, justifyContent: "center" }}
           >

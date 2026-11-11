@@ -592,6 +592,11 @@
    esto el campo se queda con el ancho por defecto en vez de ocupar la fila. */
 .wizardLabel :global(.beca-searchable) > input { width: 100%; }
 
+/* Error de un campo: aparece al pulsar «Continuar» con algo sin rellenar. */
+.wizardError { font-size: 13px; font-weight: 600; color: #DC2626; }
+:root[data-theme="dark"] .wizardError { color: #F87171; }
+.wizardInput[aria-invalid="true"], .wizardTextarea[aria-invalid="true"] { border-color: #DC2626; }
+
 .wizardInput, .wizardTextarea {
   font-family: var(--font-body); font-size: 15px; font-weight: 500;
   color: var(--color-dark);
