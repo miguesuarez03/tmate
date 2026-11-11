@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import Flag from "../components/Flag";
 import { Link, useSearchParams } from "react-router-dom";
 import { CITIES } from "../data/cities";
-import { getScoreMap, getOverallScore, parseMinCost, isErasmusEligible, getCompareLeader } from "../lib/cities";
+import { getScoreMap, getOverallScore, parseMinCost, isErasmusEligible, getCompareLeader, buildCompareVerdict, COMPARE_MIN_CATEGORY_GAP } from "../lib/cities";
 import { getComparePhrase } from "../data/comparePhrases";
 import { Navbar, Footer } from "../components/Layout";
 import { IconRanking, IconCorona, IconBeca, IconUniversidad, IconClima, IconIdiomas, IconCheck, IconAlerta, IconComparar, IconLupa } from "../components/icons";
@@ -31,6 +31,8 @@ const RESULT_HERO_SLOTS = [
 // Mismo top trending que la home — cuando no hay nada seleccionado, se usa
 // como bloque destacado en vez de empezar directo con la sopa de acordeones.
 const TRENDING_SLUGS = ["bolonia", "lisboa", "berlin", "praga", "viena"];
+
+const CITY_SLUGS = new Set(CITIES.map((c) => c.slug));
 
 // Texto guía del selector según cuántas ciudades hay elegidas (0–3).
 const SELECTION_HINTS = [
@@ -142,6 +144,71 @@ function buildTopDifferences(scoreIds, selectedCities, scoreMaps, limit = 3) {
     .filter((d) => d.meta && d.gap > 0)
     .sort((a, b) => b.gap - a.gap)
     .slice(0, limit);
+}
+
+// ─── Veredicto ──────────────────────────────────────────────────────────
+// Lo primero que se lee en la comparativa: quién va por delante (o empate
+// técnico), cuánto cambia el coste EN EUROS y en qué gana cada ciudad. Todo
+// sale de buildCompareVerdict (src/lib/cities.js), es decir, de las mismas
+// notas y rangos de coste que aparecen debajo: aquí solo se redacta.
+const COST_SIMILAR_MAX = 25; // €/mes: por debajo, «coste muy parecido»
+
+function joinWithY(parts) {
+  return parts.map((p, i) => (
+    <span key={i}>{i > 0 && (i === parts.length - 1 ? " y " : ", ")}{p}</span>
+  ));
+}
+
+function Verdict({ cities }) {
+  const v = useMemo(() => buildCompareVerdict(cities), [cities]);
+  const name = (i) => <strong style={{ color: COL_COLORS[i] }}>{cities[i].name}</strong>;
+  const score = (i) => v.overall[i].toFixed(1);
+  const all = cities.map((_, i) => i);
+
+  let headline;
+  if (v.winnerIdx !== -1) {
+    const rest = all.filter((i) => i !== v.winnerIdx);
+    headline = <>{name(v.winnerIdx)} saca la mejor nota global: {score(v.winnerIdx)} frente a {joinWithY(rest.map((i) => <>{score(i)} de {name(i)}</>))}.</>;
+  } else if (v.tiedIdx.length === cities.length) {
+    headline = <>Empate técnico en la nota global ({joinWithY(all.map((i) => <>{name(i)} {score(i)}</>))}): decide por lo que más te importe.</>;
+  } else {
+    const behind = all.filter((i) => !v.tiedIdx.includes(i));
+    headline = <>{joinWithY(v.tiedIdx.map((i) => <>{name(i)} ({score(i)})</>))} empatan en cabeza; {joinWithY(behind.map((i) => <>{name(i)} ({score(i)})</>))} queda por detrás.</>;
+  }
+
+  // Coste: puede haber empate en los extremos (dos ciudades con el mismo
+  // rango), así que la más barata y la más cara son GRUPOS; «entre medias»
+  // solo se dice de la que queda estrictamente entre los dos.
+  const { cheapestIdx, priciestIdx, middleIdx, diff } = v.cost;
+  const plural = cheapestIdx.length > 1;
+  const ranges = joinWithY(all.map((i) => <>{cities[i].costDetail} en {name(i)}</>));
+  const costLine = diff < COST_SIMILAR_MAX
+    ? <>El coste de vida es muy parecido: {ranges}.</>
+    : <>{joinWithY(cheapestIdx.map(name))} {plural ? "salen" : "sale"} unos <strong>{diff} €/mes</strong> más {plural ? "baratas" : "barata"} que {joinWithY(priciestIdx.map(name))}{middleIdx.length > 0 && <>; {joinWithY(middleIdx.map(name))} queda entre medias</>} ({ranges}).</>;
+
+  const withStrengths = all.filter((i) => v.strengths[i].length > 0);
+
+  return (
+    <section className={styles.verdict} aria-labelledby="verdict-title">
+      <h2 id="verdict-title" className={styles.verdictTitle}>En resumen</h2>
+      <ul className={styles.verdictList}>
+        <li><span className={styles.verdictIcon}><IconRanking size={20} /></span><span>{headline}</span></li>
+        <li><span className={styles.verdictIcon}><IconBeca size={20} /></span><span>{costLine}</span></li>
+        {withStrengths.map((i) => (
+          <li key={cities[i].slug}>
+            <span className={styles.verdictIcon}><IconCheck size={20} /></span>
+            <span>{name(i)} gana en {joinWithY(v.strengths[i].map((s) => <>{s.label} (+{s.gap.toFixed(1)})</>))}.</span>
+          </li>
+        ))}
+        {withStrengths.length === 0 && (
+          <li><span className={styles.verdictIcon}><IconCheck size={20} /></span><span>Ninguna saca {COMPARE_MIN_CATEGORY_GAP.toFixed(1)} puntos de ventaja a todas las demás en ninguna categoría (sin contar el coste): mira las diferencias de abajo.</span></li>
+        )}
+      </ul>
+      <p className={styles.verdictNote}>
+        La diferencia de coste compara el punto medio de los rangos orientativos de cada ficha. Las notas son la valoración editorial de MAbroad.
+      </p>
+    </section>
+  );
 }
 
 // ─── Ventajas y a tener en cuenta ────────────────────────────────────────
@@ -405,8 +472,11 @@ export default function ComparePage() {
   // atrás, sigues exactamente donde estabas — selección y vista incluidas.
   // También hace que la comparativa se pueda compartir por enlace.
   const citiesParam = searchParams.get("cities") || "";
+  // Solo slugs que existen, sin repetir y como mucho 3: la URL se puede
+  // escribir o pegar a mano, y la comparativa (colores por posición,
+  // veredicto) da por hecho que cada elemento es una ciudad real.
   const selected = useMemo(
-    () => citiesParam.split(",").map((s) => s.trim()).filter(Boolean),
+    () => [...new Set(citiesParam.split(",").map((s) => s.trim()))].filter((s) => CITY_SLUGS.has(s)).slice(0, 3),
     [citiesParam]
   );
   const comparing = searchParams.get("view") === "compare";
@@ -544,6 +614,9 @@ export default function ComparePage() {
           </div>
 
           <div className={styles.compareBody}>
+
+            {/* Veredicto: la conclusión antes que los datos */}
+            <Verdict cities={selectedCities} />
 
             {/* City header cards */}
             <div className={styles.cityCards} style={{ "--cols": selectedCities.length }}>

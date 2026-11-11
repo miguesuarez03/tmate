@@ -823,6 +823,30 @@
 
 
 /* ─── RESUMEN AUTOMÁTICO ─────────────────────────────────────────────────── */
+/* ─── Veredicto («En resumen») ───────────────────────────────────────────── */
+.verdict {
+  background: linear-gradient(135deg, var(--surface-tint-primary), var(--surface-tint-teal));
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 24px 28px;
+}
+.verdictTitle {
+  font-family: var(--font-display); font-size: 22px; font-weight: 800;
+  color: var(--color-dark); letter-spacing: -0.3px; margin-bottom: 16px;
+}
+.verdictList { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.verdictList li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 16px; line-height: 1.5; color: var(--color-dark-mid);
+}
+.verdictIcon { flex-shrink: 0; display: inline-flex; margin-top: 2px; }
+.verdictNote { margin-top: 16px; font-size: 12.5px; line-height: 1.5; color: var(--color-slate-light); }
+@media (max-width: 540px) {
+  .verdict { padding: 18px 18px; }
+  .verdictTitle { font-size: 19px; }
+  .verdictList li { font-size: 15px; gap: 10px; }
+}
+
 .summarySection {}
 .summaryCard {
   background: linear-gradient(135deg, rgba(245,150,58,0.05), rgba(63,122,125,0.05));
