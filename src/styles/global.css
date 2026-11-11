@@ -2244,6 +2244,8 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
   transition: background 0.12s;
 }
 .beca-searchable__option:hover { background: var(--color-surface); }
+/* Sugerencia marcada con las flechas del teclado (SearchableInput.jsx). */
+.beca-searchable__option--active { background: var(--color-surface); box-shadow: inset 3px 0 0 var(--color-primary); }
 .beca-searchable__emoji { font-size: 15px; flex-shrink: 0; }
 .beca-searchable__label { font-weight: 600; color: var(--color-dark); flex: 1; }
 .beca-searchable__sublabel { font-size: 11px; color: var(--color-muted); }

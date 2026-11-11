@@ -588,6 +588,9 @@
 .wizardHint {
   font-size: 12px; font-weight: 400; color: var(--color-muted);
 }
+/* El buscador de ciudad (SearchableInput) envuelve su <input> en un div: sin
+   esto el campo se queda con el ancho por defecto en vez de ocupar la fila. */
+.wizardLabel :global(.beca-searchable) > input { width: 100%; }
 
 .wizardInput, .wizardTextarea {
   font-family: var(--font-body); font-size: 15px; font-weight: 500;

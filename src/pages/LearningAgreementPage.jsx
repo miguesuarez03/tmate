@@ -5,6 +5,7 @@ import { IconUniversidad, IconEdificio, IconGlobo, IconManos, IconAmigos, IconLi
 import { useSEO } from "../hooks/useSEO";
 import { CITIES } from "../data/cities";
 import { isErasmusEligible } from "../lib/cities";
+import SearchableInput from "../components/SearchableInput";
 import styles from "./LearningAgreementPage.module.css";
 
 /* ─── DATA ──────────────────────────────────────────────────────────────── */
@@ -293,6 +294,12 @@ function Checklist() {
     </div>
   );
 }
+
+// Destinos del formulario, por orden alfabético, para el buscador de ciudad
+// (antes un <select> con las 150 en el orden del fichero de datos).
+const WIZARD_CITY_OPTIONS = [...CITIES]
+  .sort((a, b) => a.name.localeCompare(b.name, "es"))
+  .map((c) => ({ value: c.slug, label: c.name, sublabel: c.country, emoji: c.emoji }));
 
 const WIZARD_LANGUAGES = ["Inglés", "Alemán", "Francés", "Italiano", "Portugués", "Neerlandés", "Polaco", "Húngaro", "Checo", "Otro"];
 
@@ -589,19 +596,24 @@ function LAWizard() {
 
           {current.id === "destino" && (
             <>
-              <label className={styles.wizardLabel}>
-                Ciudad de destino
-                <select
-                  className={styles.wizardInput}
-                  value={data.ciudadDestino}
-                  onChange={e => update("ciudadDestino", e.target.value)}
-                >
-                  <option value="">Selecciona una ciudad…</option>
-                  {CITIES.map(c => (
-                    <option key={c.slug} value={c.slug}>{c.name}</option>
-                  ))}
-                </select>
-              </label>
+              {/* Buscador con sugerencias (el mismo de la calculadora de
+                  beca). Elegir otra ciudad, o borrar la elegida, vacía también
+                  la universidad: la lista depende de la ciudad. */}
+              <div className={styles.wizardLabel}>
+                <label htmlFor="la-ciudad-destino">Ciudad de destino</label>
+                <span className={styles.wizardHint}>Escribe para buscar entre los {CITIES.length} destinos y elige uno de la lista.</span>
+                <SearchableInput
+                  value={destinoCity?.name || ""}
+                  onChange={(text) => {
+                    if (destinoCity && text !== destinoCity.name) setData(d => ({ ...d, ciudadDestino: "", universidadDestino: "" }));
+                  }}
+                  onSelect={(opt) => setData(d => ({ ...d, ciudadDestino: opt.value, universidadDestino: "" }))}
+                  options={WIZARD_CITY_OPTIONS}
+                  placeholder="ej. Bolonia"
+                  inputClassName={styles.wizardInput}
+                  inputProps={{ id: "la-ciudad-destino" }}
+                />
+              </div>
               {data.ciudadDestino && !isErasmusEligible(destinoCity) && (
                 <p className={styles.wizardHint} style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
                   <IconAlerta size={16} /> El Learning Agreement es un documento específico de Erasmus+, y {destinoCity.name} es un destino de intercambio bilateral (no Erasmus+). Para este tipo de programa, el papeleo de equivalencias lo define tu universidad de origen — consulta con tu oficina de relaciones internacionales.
