@@ -10,7 +10,7 @@ import { useCityDetails } from "../hooks/useCityDetail";
 import { BECA_JSON_LD } from "../lib/seo";
 import { BECA_FAQS } from "../data/faqs";
 import { CITY_COORDS, haversineDistanceKm, distanceToRange, geocodeCity } from "../lib/cityCoords";
-import { getAllCities, parseMinCost, parseMaxCost, isErasmusEligible } from "../lib/cities";
+import { getAllCities, parseMinCost, parseMaxCost, isErasmusEligible, getErasmusTransition } from "../lib/cities";
 
 // Índice ligero de ciudades (ver lib/cities.js).
 const ALL_CITIES = getAllCities();
@@ -59,6 +59,18 @@ const GROUP3 = [
   "Bulgaria", "Croacia", "Hungría", "Lituania", "Macedonia del Norte",
   "Polonia", "Rumanía", "Serbia", "Turquía",
 ];
+
+// Países que entran en Erasmus+ en el curso 2027-28 (erasmusStatus «confirmed»
+// en cities.js): su grupo aún no lo fija ninguna convocatoria. Reino Unido sale
+// en el grupo 1 de la tabla de 2026 del SEPIE como país no asociado, así que se
+// usa ese grupo como ESTIMACIÓN hasta que se publique la convocatoria 2027.
+const ESTIMATED_GROUPS = { "Reino Unido": 1 };
+const ESTIMATE_NOTE = "estimación, pendiente de la convocatoria 2027";
+
+/** «Escocia (Reino Unido)» → «Reino Unido»: el país del programa. */
+function programCountry(country) {
+  return country.match(/\(([^)]+)\)$/)?.[1] ?? country;
+}
 
 // Travel aid table (official EU Erasmus+ rates, unchanged 2024-25 through 2026-27; last verified against official sources: Aug 2026)
 const TRAVEL_AID = [
@@ -171,7 +183,14 @@ function Calculator() {
     }
   };
 
-  const group = GROUP1.includes(country) ? 1 : GROUP2.includes(country) ? 2 : GROUP3.includes(country) ? 3 : null;
+  const officialGroup = GROUP1.includes(country) ? 1 : GROUP2.includes(country) ? 2 : GROUP3.includes(country) ? 3 : null;
+  // Reino Unido (Erasmus+ desde 2027-28): grupo estimado, se marca como tal.
+  const transition = destCity ? getErasmusTransition(destCity) : null;
+  const estimatedGroup = officialGroup === null && transition?.status === "confirmed"
+    ? ESTIMATED_GROUPS[programCountry(country)] ?? null
+    : null;
+  const group = officialGroup ?? estimatedGroup;
+  const groupIsEstimate = estimatedGroup !== null;
   const baseRate = group === 1 ? 350 : group === 2 ? 300 : group === 3 ? 250 : null;
   const complemento = menosOport ? 250 : 0;
   const monthly = baseRate !== null ? baseRate + complemento : null;
@@ -261,7 +280,11 @@ function Calculator() {
                   <span className="beca-country-detected__flag"><Flag emoji={destCity.emoji} /></span>
                   <span>
                     País detectado: <strong>{country}</strong>
-                    {group && <span className="beca-country-group"> · Grupo {group} — desde {baseRate}€/mes</span>}
+                    {group && (
+                      <span className="beca-country-group">
+                        {" "}· Grupo {group} — desde {baseRate}€/mes{groupIsEstimate && ` (${ESTIMATE_NOTE})`}
+                      </span>
+                    )}
                   </span>
                 </div>
               )}
@@ -372,7 +395,7 @@ function Calculator() {
               <>
                 <div className="beca-calc__result-group">
                   <span className="beca-calc__result-label">Destino</span>
-                  <span className="beca-calc__result-val"><Flag emoji={destCity.emoji} /> {destCity.name} — {country} (Grupo {group})</span>
+                  <span className="beca-calc__result-val"><Flag emoji={destCity.emoji} /> {destCity.name} — {country} (Grupo {group}{groupIsEstimate && ", estimado"})</span>
                 </div>
                 <div className="beca-calc__result-group">
                   <span className="beca-calc__result-label">Erasmus base ({months} meses)</span>
@@ -411,7 +434,9 @@ function Calculator() {
                   <span className="beca-calc__total-monthly">({Math.round(total / months).toLocaleString("es-ES")}€/mes de media)</span>
                 </div>
                 <p className="beca-calc__disclaimer" style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
-                  <IconAlerta size={16} /> Estimación orientativa con los importes mínimos del SEPIE. Cada universidad fija su importe dentro del rango de la convocatoria y lo publica en su web: ese es el oficial.
+                  <IconAlerta size={16} /> {groupIsEstimate
+                    ? `${programCountry(country)} entra en Erasmus+ en el curso ${transition.from}: el grupo y los importes son una ${ESTIMATE_NOTE} del SEPIE, calculada con la tabla de 2026. Cada universidad fija después su importe y lo publica en su web: ese es el oficial.`
+                    : "Estimación orientativa con los importes mínimos del SEPIE. Cada universidad fija su importe dentro del rango de la convocatoria y lo publica en su web: ese es el oficial."}
                 </p>
               </>
             )}
@@ -604,6 +629,11 @@ export default function BecaErasmusPage() {
               </div>
               <div className="beca-group__countries">
                 {GROUP1.map((c) => <span key={c} className="beca-group__country">{c}</span>)}
+                {Object.entries(ESTIMATED_GROUPS).filter(([, g]) => g === 1).map(([c]) => (
+                  <span key={c} className="beca-group__country beca-group__country--estimate" title={`${c}: ${ESTIMATE_NOTE}`}>
+                    {c}*
+                  </span>
+                ))}
               </div>
             </div>
 
@@ -631,6 +661,11 @@ export default function BecaErasmusPage() {
               </div>
             </div>
           </div>
+          <p className="beca-groups__note">
+            * Reino Unido entra en Erasmus+ en el curso 2027-28. En la tabla de 2026 figura en el grupo 1 como país no
+            asociado, así que lo ponemos ahí como {ESTIMATE_NOTE}. Suiza prevé entrar en 2027, pero aún falta que lo
+            apruebe su Parlamento: de momento sus plazas siguen con convenios propios.
+          </p>
         </section>
 
         {/* ── COMPLEMENTOS ── */}

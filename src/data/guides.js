@@ -23,6 +23,8 @@
 const SRC = {
   sepieImportes: "https://www.sepie.es/doc/newsletter/2026/65/importes_ka1_hed.pdf",
   sepieFinanciacion: "https://www.sepie.es/doc/convocatoria/2026/infofinanciacioneplus2026.pdf",
+  govukErasmus2027: "https://www.gov.uk/government/news/uk-and-eu-finalise-agreement-to-bring-uk-into-erasmus-in-2027",
+  sefriMovilidad: "https://www.sbfi.admin.ch/en/international-mobility-and-cooperation-in-education",
   programmeGuide2026: "https://erasmus-plus.ec.europa.eu/sites/default/files/2025-11/programme-guide-2026_en.pdf",
   // p. 66: movilidad con beca cero; p. 446 (glosario): definición de viaje ecológico.
   programmeGuide2026ZeroGrant: "https://erasmus-plus.ec.europa.eu/sites/default/files/2025-11/programme-guide-2026_en.pdf#page=66",
@@ -48,6 +50,8 @@ const SRC = {
 };
 
 const REVIEWED = "2026-11-11";
+// Guías revisadas por la vuelta de Reino Unido a Erasmus+ (curso 2027-28).
+const REVIEWED_UK = "2026-11-12";
 
 /** @type {Array<import('../types').Guide>} */
 export const GUIDES = [
@@ -60,7 +64,7 @@ export const GUIDES = [
       "Rangos oficiales del SEPIE por grupo de países, complementos de +250 € y +150 €, ayuda de viaje, cuándo llega el anticipo y un ejemplo de cálculo.",
     summary: "Rangos oficiales por país, complementos, ayuda de viaje y cuándo cobras el anticipo.",
     datePublished: REVIEWED,
-    dateModified: REVIEWED,
+    dateModified: REVIEWED_UK,
     intro:
       "La beca Erasmus+ no es una cifra única: depende del país al que vas, de lo que decida tu universidad dentro de unos rangos oficiales y de si te corresponde algún complemento. Aquí tienes los números de la convocatoria 2026, de dónde salen y qué preguntar en tu oficina de relaciones internacionales (ORI) para saber lo que vas a cobrar tú.",
     sections: [
@@ -89,6 +93,7 @@ export const GUIDES = [
             ],
           },
           { type: "p", text: "El grupo 1 incluye también algunos países no asociados al programa, como Reino Unido y Suiza ([documento de financiación 2026 del SEPIE](" + SRC.sepieFinanciacion + "), apartado 3.3.2). Que estén en la tabla no significa que tu universidad tenga plazas Erasmus+ allí: lo explicamos en la [guía sobre Erasmus+ e intercambios fuera de Europa](/guias/erasmus-o-intercambio-fuera-de-europa)." },
+          { type: "p", text: "Reino Unido vuelve a Erasmus+ en el curso 2027-28 ([Gobierno británico](" + SRC.govukErasmus2027 + ")). Su grupo e importe como país del programa los fijará la convocatoria 2027 del SEPIE; mientras tanto, la [calculadora](/beca-erasmus) lo estima con el grupo 1 y lo marca como estimación." },
           { type: "p", text: "Según ese mismo documento (apartado 3.3.4), las universidades deciden sus importes según su presupuesto, deben publicarlos en su web, no pueden cambiarlos durante el convenio y dan **la misma cantidad base a todos los estudiantes que van al mismo grupo de países** con el mismo tipo de movilidad. Los complementos de abajo y la financiación especial de Canarias se suman aparte, así que el total sí puede variar entre compañeros. Y dos estudiantes que van a Italia desde universidades distintas pueden tener bases diferentes." },
         ],
       },
@@ -164,6 +169,7 @@ export const GUIDES = [
     sources: [
       { label: "SEPIE — Tabla de importes KA131 (educación superior), convocatoria 2026", url: SRC.sepieImportes },
       { label: "SEPIE — Información sobre financiación de los proyectos Erasmus+, convocatoria 2026", url: SRC.sepieFinanciacion },
+      { label: "GOV.UK — Acuerdo UE-Reino Unido para entrar en Erasmus+ en 2027", url: SRC.govukErasmus2027 },
       { label: "Comisión Europea — Guía del Programa Erasmus+ 2026 (beca cero, p. 66)", url: SRC.programmeGuide2026ZeroGrant },
       { label: "Comisión Europea — Guía del Programa Erasmus+ 2026 (viaje ecológico, glosario, p. 446)", url: SRC.programmeGuide2026Green },
       { label: "Comisión Europea — Carta del Estudiante Erasmus+", url: SRC.studentCharter },
@@ -303,7 +309,7 @@ export const GUIDES = [
       "De los convenios de tu universidad a una lista ordenada: asignaturas, idioma, beca frente a coste de vida, tipo de ciudad y un ejemplo comparando destinos.",
     summary: "Convenios, asignaturas, idioma, beca frente a coste de vida y un ejemplo comparando ciudades.",
     datePublished: REVIEWED,
-    dateModified: REVIEWED,
+    dateModified: REVIEWED_UK,
     intro:
       "Elegir destino no es escoger la ciudad más bonita de Instagram: es encontrar el sitio donde vas a aprobar, poder pagarte el día a día y disfrutar. Este es el orden que te recomendamos para decidir, con las herramientas de MAbroad en cada paso.",
     sections: [
@@ -312,7 +318,7 @@ export const GUIDES = [
         heading: "1. Parte de la lista de convenios de tu universidad",
         blocks: [
           { type: "p", text: "Para una plaza de estudios Erasmus+ solo puedes optar a las plazas que tu universidad oferta para tu titulación, en universidades con las que tiene acuerdo ([Comisión Europea, estudiar en el extranjero](" + SRC.studyingAbroad + ")). Cada universidad las publica en su convocatoria de movilidad; por ejemplo, la [Universidad de Granada](" + SRC.ugrMovilidad + ") reúne sus convocatorias de movilidad internacional de grado en una página. Esa lista es tu universo real de opciones, y suele ser más corta (y más interesante) de lo que parece." },
-          { type: "p", text: "Fíjate también en el tipo de plaza: no es lo mismo una plaza Erasmus+ dentro de Europa que un convenio bilateral con Reino Unido, Suiza o fuera de Europa. Lo explicamos en la [guía sobre Erasmus+ e intercambios fuera de Europa](/guias/erasmus-o-intercambio-fuera-de-europa) y en [tipos de intercambio](/tipos-de-intercambio)." },
+          { type: "p", text: "Fíjate también en el tipo de plaza: no es lo mismo una plaza Erasmus+ dentro de Europa que un convenio bilateral con Suiza o fuera de Europa. Reino Unido vuelve a Erasmus+ en el curso 2027-28; si vas antes, su plaza también es un convenio. Lo explicamos en la [guía sobre Erasmus+ e intercambios fuera de Europa](/guias/erasmus-o-intercambio-fuera-de-europa) y en [tipos de intercambio](/tipos-de-intercambio)." },
         ],
       },
       {
@@ -573,7 +579,7 @@ export const GUIDES = [
       "Erasmus+ en Europa, movilidad Erasmus+ internacional y convenios bilaterales comparados: beca, Learning Agreement, visado, sanidad y coste, con ejemplos.",
     summary: "Beca, Learning Agreement, visado, sanidad y coste: Erasmus+ frente a convenios fuera de Europa.",
     datePublished: REVIEWED,
-    dateModified: REVIEWED,
+    dateModified: REVIEWED_UK,
     intro:
       "No todos los intercambios son Erasmus+, y la diferencia se nota en la beca, en el papeleo y en el bolsillo. Esta guía te ayuda a saber qué tipo de plaza tienes delante y qué implica antes de ponerla en tu lista.",
     sections: [
@@ -589,7 +595,7 @@ export const GUIDES = [
               "**Programas propios y convenios bilaterales.** Acuerdos directos entre tu universidad y otra de fuera del programa, con las condiciones (ayudas, matrícula, reconocimiento) que fije cada convocatoria. Por ejemplo, la [Universidad de Granada](" + SRC.ugrMovilidad + ") publica, junto a sus convocatorias Erasmus+, las de su Programa Propio de movilidad internacional.",
             ],
           },
-          { type: "p", text: "Reino Unido y Suiza aparecen en el grupo 1 de la tabla de importes del SEPIE como países no asociados ([documento de financiación 2026](" + SRC.sepieFinanciacion + ")): eso permite que algunas universidades financien plazas allí con fondos Erasmus+. Si tu plaza es así o es un convenio bilateral, solo lo sabe tu ORI. Lo resumimos por país en [tipos de intercambio](/tipos-de-intercambio)." },
+          { type: "p", text: "Reino Unido vuelve a Erasmus+ en el curso 2027-28 ([Gobierno británico](" + SRC.govukErasmus2027 + ")): desde entonces sus plazas son Erasmus+ en Europa. Suiza prevé entrar en 2027, pero aún falta que su Parlamento apruebe la financiación ([SEFRI](" + SRC.sefriMovilidad + ")). Hasta entonces, los dos aparecen en el grupo 1 de la tabla de importes del SEPIE como países no asociados ([documento de financiación 2026](" + SRC.sepieFinanciacion + ")): eso permite que algunas universidades financien plazas allí con fondos Erasmus+. Si tu plaza es así o es un convenio bilateral, solo lo sabe tu ORI. Lo resumimos por país en [tipos de intercambio](/tipos-de-intercambio)." },
         ],
       },
       {
@@ -631,11 +637,11 @@ export const GUIDES = [
         blocks: [
           {
             type: "example",
-            title: "Ejemplo hipotético: Berlín, Londres o Buenos Aires",
+            title: "Ejemplo hipotético: Berlín, Zúrich o Buenos Aires",
             items: [
-              "Álex (estudiante inventado) tiene tres opciones inventadas para el ejemplo: una plaza Erasmus+ con financiación en [Berlín](/city/berlin), un convenio bilateral sin ayuda en [Londres](/city/londres) y otro sin ayuda en [Buenos Aires](/city/buenos-aires).",
+              "Álex (estudiante inventado) tiene tres opciones inventadas para el ejemplo: una plaza Erasmus+ con financiación en [Berlín](/city/berlin), un convenio bilateral sin ayuda en [Zúrich](/city/zurich) y otro sin ayuda en [Buenos Aires](/city/buenos-aires).",
               "Berlín: beca del grupo 1 (350–674 € al mes, según lo que pague su universidad) más ayuda de viaje, y Learning Agreement con reglas claras.",
-              "Londres: en este ejemplo su plaza no tiene ayuda; compara el presupuesto estimado de la ficha y consulta en la web oficial del Gobierno británico qué necesita para entrar a estudiar.",
+              "Zúrich: en este ejemplo su plaza no tiene ayuda; compara el presupuesto estimado de la ficha y consulta en la web oficial de las autoridades suizas qué trámites necesita para estudiar allí.",
               "Buenos Aires: en este ejemplo, como la plaza no tiene ayuda, el vuelo y el seguro corren de su cuenta; tendría que comprobar en la web oficial si necesita visado, y el reconocimiento depende de lo que fije su universidad.",
               "Con un presupuesto ajustado, Berlín le da más seguridad; si su prioridad es el español o vivir algo muy distinto, Buenos Aires puede compensar si encuentra una ayuda de su universidad o comunidad.",
             ],
@@ -665,6 +671,8 @@ export const GUIDES = [
       { label: "Comisión Europea — Guía del Programa: proyectos de movilidad en educación superior", url: SRC.heMobility },
       { label: "Comisión Europea — Guía del Programa Erasmus+ 2026 (beca cero, p. 66)", url: SRC.programmeGuide2026ZeroGrant },
       { label: "SEPIE — Información sobre financiación de los proyectos Erasmus+, convocatoria 2026", url: SRC.sepieFinanciacion },
+      { label: "GOV.UK — Acuerdo UE-Reino Unido para entrar en Erasmus+ en 2027", url: SRC.govukErasmus2027 },
+      { label: "SEFRI (Suiza) — Movilidad y cooperación internacional en educación", url: SRC.sefriMovilidad },
       { label: "Universidad Complutense de Madrid — Erasmus+ en países no asociados 2026/27 (ejemplo)", url: SRC.ucmNoAsociados },
       { label: "Universidad de Granada — Convocatorias de movilidad internacional de grado (ejemplo)", url: SRC.ugrMovilidad },
       { label: "Comisión Europea — Directrices del Learning Agreement (KA131)", url: SRC.laGuidelinesKa131 },
@@ -674,7 +682,7 @@ export const GUIDES = [
     ],
     related: [
       { to: "/tipos-de-intercambio", label: "Tipos de intercambio" },
-      { to: "/city/londres", label: "Ficha de Londres" },
+      { to: "/city/zurich", label: "Ficha de Zúrich" },
       { to: "/city/buenos-aires", label: "Ficha de Buenos Aires" },
     ],
   },

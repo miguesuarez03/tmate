@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./HeroSection.module.css";
 import { getCityWhatsappGroup } from "../../data/cityWhatsappGroups";
-import { isErasmusEligible, getScoreLevel, isAffordable } from "../../lib/cities";
+import { isErasmusEligible, getErasmusTransition, getScoreLevel, isAffordable } from "../../lib/cities";
 import { IconUniversidad, IconIdiomas, IconFiesta, IconBeca, IconSol, IconBici, IconSeguridad, IconComida, IconArte, IconLaptop, IconPlaya, IconFuego, IconComparar } from "../icons";
 import ScoreRing from "../ScoreRing";
 import { heroImage } from "../../lib/images";
@@ -115,6 +115,8 @@ export default function HeroSection({ city, overallScore, insights }) {
   const color = getScoreLevel(overallScore).color;
   const whatsappGroup = getCityWhatsappGroup(city.slug);
   const erasmusEligible = isErasmusEligible(city);
+  // Reino Unido: Erasmus+ desde 2027-28 (acuerdo cerrado). Suiza: previsto, pendiente.
+  const transition = getErasmusTransition(city);
 
   return (
     <>
@@ -150,8 +152,10 @@ export default function HeroSection({ city, overallScore, insights }) {
 
           <p className={erasmusEligible ? styles.heroProgramBadgeOk : styles.heroProgramBadgeWarn}>
             {erasmusEligible
-              ? "✅ Destino Erasmus+ · Beca si tu universidad tiene convenio"
-              : "🌍 Intercambio fuera de Erasmus+ · Según los convenios de tu universidad"}
+              ? `✅ ${transition ? transition.label : "Destino Erasmus+"} · Beca si tu universidad tiene convenio`
+              : transition
+                ? `🌍 Convenio bilateral por ahora · ${transition.label}`
+                : "🌍 Intercambio fuera de Erasmus+ · Según los convenios de tu universidad"}
           </p>
 
           <p className={styles.heroTagline}>

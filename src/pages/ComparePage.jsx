@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import Flag from "../components/Flag";
 import { Link, useSearchParams } from "react-router-dom";
 import {
-  getAllCities, getScoreMap, getOverallScore, parseMinCost, isErasmusEligible, getCompareLeader, buildCompareVerdict, COMPARE_MIN_CATEGORY_GAP,
+  getAllCities, getScoreMap, getOverallScore, parseMinCost, getProgramLabel, getCompareLeader, buildCompareVerdict, COMPARE_MIN_CATEGORY_GAP,
   getRankingCriteria, getCriterion, rankCities, filterByProgram, formatCriterionValue, getRankingPath, PROGRAM_FILTERS,
 } from "../lib/cities";
 import { getComparePhrase } from "../data/comparePhrases";
@@ -45,10 +45,11 @@ const CITY_SLUGS = new Set(ALL_CITIES.map((c) => c.slug));
 // Chips de orden rápido (?orden=<id>): los mismos criterios que los rankings
 // (src/data/rankings.js). Se combinan con el buscador y con ?programa=.
 const SORT_CRITERIA = getRankingCriteria();
-// «otros» = Reino Unido, Suiza y América (programType distinto de erasmus en
-// cities.js). Se nombran por lo que son, sin afirmar que nunca haya Erasmus+:
-// depende de la convocatoria de cada universidad.
-const PROGRAM_LABELS = { todos: "Todos", erasmus: "Erasmus+ (UE y asociados)", otros: "Reino Unido, Suiza y América" };
+// «otros» = Suiza y América (programType distinto de erasmus en cities.js).
+// Reino Unido entra en «erasmus» (Erasmus+ desde 2027-28, acuerdo cerrado).
+// Se nombran por lo que son, sin afirmar que nunca haya Erasmus+: depende de
+// la convocatoria de cada universidad.
+const PROGRAM_LABELS = { todos: "Todos", erasmus: "Erasmus+ (UE y asociados)", otros: "Suiza y América" };
 
 // Texto guía del selector según cuántas ciudades hay elegidas (0–3).
 const SELECTION_HINTS = [
@@ -391,7 +392,7 @@ function MobileCompareTable({ cities, scoreMaps, overallScores, winnerIdx, tiedI
     },
     { id: "clima", label: "Clima", cell: (c) => c.weather },
     { id: "idioma", label: "Idioma", cell: (c) => c.language },
-    { id: "programa", label: "Programa", cell: (c) => (isErasmusEligible(c) ? "Erasmus+" : "Bilateral") },
+    { id: "programa", label: "Programa", cell: (c) => getProgramLabel(c) },
   ];
 
   const row = (id, label, cells, icon = null) => (
@@ -699,7 +700,7 @@ export default function ComparePage() {
   // y se ocultan los que no tienen ninguno (ver filtro de arriba); al borrar
   // la búsqueda se vuelve al estado inicial (solo el primer grupo abierto).
   // Con el filtro de programa, el que se abre es el primer grupo que tenga
-  // ciudades (con «Reino Unido, Suiza y América» no hay ninguna de Europa del Sur).
+  // ciudades (con «Suiza y América» no hay ninguna de Europa del Sur).
   const [openRegions, setOpenRegions] = useState(() => new Set([regionGroups[0]?.region ?? REGION_ORDER[0]]));
   useEffect(() => {
     if (search.trim()) {
@@ -957,7 +958,7 @@ export default function ComparePage() {
                     <div className={styles.featureBlock}>
                       <span className={styles.featureLabel}>Tipo de programa</span>
                       <span className={styles.featureVal}>
-                        {isErasmusEligible(city) ? "Erasmus+" : "Bilateral (no Erasmus+)"}
+                        {getProgramLabel(city) === "Bilateral" ? "Bilateral (no Erasmus+)" : getProgramLabel(city)}
                       </span>
                     </div>
                     <div className={styles.featureBlock}>

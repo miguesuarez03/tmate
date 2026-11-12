@@ -2092,6 +2092,11 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
 /* Groups */
 .beca-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1100px; margin: 0 auto; }
 @media (max-width: 900px) { .beca-groups { grid-template-columns: 1fr; } }
+/* Nota bajo los grupos: países con grupo estimado (Reino Unido, 2027-28). */
+.beca-groups__note {
+  max-width: 1100px; margin: 18px auto 0;
+  font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.7);
+}
 
 .beca-group {
   background: rgba(255,255,255,0.06);
@@ -2139,6 +2144,12 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
   font-size: 12px;
   color: rgba(255,255,255,0.78);
   font-weight: 500;
+}
+/* País con grupo estimado: borde discontinuo para distinguirlo del dato oficial. */
+.beca-group__country--estimate {
+  background: transparent;
+  border: 1px dashed rgba(255,255,255,0.45);
+  padding: 3px 11px;
 }
 
 /* Extras */

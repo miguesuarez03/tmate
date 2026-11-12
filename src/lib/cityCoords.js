@@ -1,9 +1,10 @@
 /**
  * cityCoords.js — MAbroad
  *
- * Coordenadas [lng, lat] de las 20 ciudades destino (mismas que usa WorldMap.jsx
+ * Coordenadas [lng, lat] de todos los destinos Erasmus+ (mismas que usa WorldMap.jsx
  * para los pines del mapa). Se reutilizan aquí para la calculadora de distancia
- * de la Beca Erasmus+ (punto 12), evitando duplicar datos.
+ * de la Beca Erasmus+. Son una copia: si añades un destino Erasmus+, añádelo en los
+ * dos sitios (tests/erasmus-transition.test.mjs comprueba que no falte ninguno).
  */
 
 export const CITY_COORDS = {
@@ -47,6 +48,73 @@ export const CITY_COORDS = {
   florencia:  [11.26, 43.77],
   hamburgo:   [9.99, 53.55],
   gante:      [3.72, 51.05],
+  // Resto de destinos Erasmus+ (mismas coordenadas que WorldMap.jsx).
+  venecia:      [12.34, 45.44],
+  lyon:         [4.84, 45.76],
+  colonia:      [6.96, 50.94],
+  lovaina:      [4.70, 50.88],
+  utrecht:      [5.12, 52.09],
+  lund:         [13.19, 55.70],
+  innsbruck:    [11.40, 47.27],
+  split:        [16.44, 43.51],
+  salonica:     [22.94, 40.64],
+  napoles:      [14.25, 40.85],
+  groningen:    [6.57, 53.22],
+  coimbra:      [-8.43, 40.21],
+  uppsala:      [17.64, 59.86],
+  friburgo:     [7.85, 47.99],
+  nantes:       [-1.55, 47.22],
+  wroclaw:      [17.03, 51.11],
+  "cluj-napoca":[23.60, 46.77],
+  galway:       [-9.05, 53.27],
+  malmo:        [13.00, 55.60],
+  aarhus:       [10.20, 56.16],
+  heidelberg:   [8.69, 49.41],
+  toulouse:     [1.44, 43.60],
+  burdeos:      [-0.58, 44.84],
+  palermo:      [13.36, 38.12],
+  gdansk:       [18.65, 54.35],
+  nicosia:      [33.37, 35.17],
+  "la-valeta":  [14.51, 35.90],
+  brno:         [16.61, 49.20],
+  estrasburgo:  [7.75, 48.58],
+  montpellier:  [3.88, 43.61],
+  marsella:     [5.37, 43.30],
+  lille:        [3.06, 50.63],
+  dresde:       [13.74, 51.05],
+  leipzig:      [12.37, 51.34],
+  tubinga:      [9.06, 48.52],
+  poznan:       [16.93, 52.41],
+  katowice:     [19.02, 50.26],
+  braga:        [-8.43, 41.55],
+  bari:         [16.87, 41.12],
+  padua:        [11.88, 45.41],
+  genova:       [8.93, 44.41],
+  perugia:      [12.39, 43.11],
+  manchester:   [-2.24, 53.48],
+  glasgow:      [-4.25, 55.86],
+  bristol:      [-2.59, 51.45],
+  estambul:     [28.98, 41.01],
+  pisa:         [10.40, 43.72],
+  siena:        [11.33, 43.32],
+  trieste:      [13.78, 45.65],
+  parma:        [10.33, 44.80],
+  bergamo:      [9.67, 45.70],
+  ferrara:      [11.62, 44.84],
+  urbino:       [12.64, 43.73],
+  lecce:        [18.17, 40.35],
+  catania:      [15.09, 37.50],
+  cagliari:     [9.11, 39.22],
+  maastricht:   [5.69, 50.85],
+  grenoble:     [5.72, 45.19],
+  verona:       [10.99, 45.44],
+  gotemburgo:   [11.97, 57.71],
+  liverpool:    [-2.98, 53.41],
+  leeds:        [-1.55, 53.80],
+  turku:        [22.27, 60.45],
+  rennes:       [-1.68, 48.11],
+  pecs:         [18.23, 46.07],
+  kaunas:       [23.90, 54.90],
 };
 
 /**

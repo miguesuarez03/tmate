@@ -80,9 +80,41 @@ export function getCityDetailError(slug) {
   return detailCache.get(slug)?.error ?? null;
 }
 
-/** Devuelve true si la ciudad es elegible para Erasmus+ (no es un intercambio bilateral). */
+/**
+ * Devuelve true si la ciudad es elegible para Erasmus+ (no es un intercambio
+ * bilateral). Incluye los destinos en transición con acuerdo cerrado (Reino
+ * Unido, erasmusStatus «confirmed»); los pendientes (Suiza) siguen fuera.
+ */
 export function isErasmusEligible(city) {
   return city.programType === 'erasmus';
+}
+
+/**
+ * Destino que entra (o prevé entrar) en Erasmus+ a partir de un curso concreto.
+ * Devuelve null si la ciudad no está en transición, o
+ * { from, status, label, short }:
+ *  - confirmed (Reino Unido): «Erasmus+ desde 2027-28».
+ *  - pending (Suiza): «Erasmus+ previsto 2027 (pendiente)».
+ * @param {{ erasmusFrom?: string, erasmusStatus?: 'confirmed' | 'pending' }} city
+ */
+export function getErasmusTransition(city) {
+  if (!city?.erasmusFrom || !city.erasmusStatus) return null;
+  const from = city.erasmusFrom;
+  if (city.erasmusStatus === 'confirmed') {
+    return { from, status: 'confirmed', label: `Erasmus+ desde ${from}`, short: `Erasmus+ desde ${from}` };
+  }
+  const year = from.slice(0, 4);
+  return { from, status: 'pending', label: `Erasmus+ previsto ${year} (pendiente)`, short: `Erasmus+ ${year} (pendiente)` };
+}
+
+/**
+ * Etiqueta corta del programa para tablas y tarjetas: «Erasmus+»,
+ * «Erasmus+ desde 2027-28», «Bilateral · Erasmus+ 2027 (pendiente)» o «Bilateral».
+ */
+export function getProgramLabel(city) {
+  const t = getErasmusTransition(city);
+  if (isErasmusEligible(city)) return t ? t.label : 'Erasmus+';
+  return t ? `Bilateral · ${t.short}` : 'Bilateral';
 }
 
 // ─── TAMAÑO DE CIUDAD ─────────────────────────────────────────────────────────
@@ -356,8 +388,8 @@ export const PROGRAM_FILTERS = ['todos', 'erasmus', 'otros'];
 
 /**
  * @param {CityIndexEntry[]} cities
- * @param {ProgramFilter} program  'erasmus' (beca Erasmus+), 'otros' (Reino
- *   Unido, Suiza, América: convenios bilaterales) o 'todos'.
+ * @param {ProgramFilter} program  'erasmus' (beca Erasmus+, con Reino Unido desde
+ *   2027-28), 'otros' (Suiza y América: convenios bilaterales) o 'todos'.
  */
 export function filterByProgram(cities, program = 'todos') {
   if (program === 'erasmus') return cities.filter(isErasmusEligible);
@@ -418,7 +450,7 @@ const SIMILAR_MAX_PER_COUNTRY = 2;
 /**
  * Ciudades parecidas a una dada, para los enlaces internos de su ficha
  * («Otros destinos que te pueden gustar»). Puntúa cada ciudad por:
- *  - mismo tipo de programa (Erasmus+, UK, Suiza, América…) y misma región,
+ *  - mismo tipo de programa (Erasmus+, Suiza, América…) y misma región,
  *  - presupuesto mensual mínimo parecido (costDetail),
  *  - nota global parecida (getOverallScore) y mismo tamaño (getCitySize),
  *  - tipos de experiencia y etiqueta en común.

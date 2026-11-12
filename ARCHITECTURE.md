@@ -132,6 +132,15 @@ rankCities('ingles', { cities });       // cualquier lista; sin dato → al fina
 getCriterionValue(city, 'clima');       // 0–10 o null
 ```
 
+### Destinos que entran en Erasmus+ (Reino Unido, Suiza)
+En `cities.js`, `erasmusFrom` (curso, p. ej. `"2027-28"`) y `erasmusStatus` (`"confirmed"` | `"pending"`). Con acuerdo cerrado (Reino Unido) la ciudad ya es `programType: "erasmus"` y cuenta como Erasmus+ en toda la web; si está pendiente (Suiza) sigue siendo bilateral y solo cambia la etiqueta.
+```js
+import { getErasmusTransition, getProgramLabel } from '../lib/cities';
+
+getErasmusTransition(londres);  // { from: '2027-28', status: 'confirmed', label: 'Erasmus+ desde 2027-28', … }
+getProgramLabel(zurich);        // 'Bilateral · Erasmus+ 2027 (pendiente)'
+```
+
 ### Filtros avanzados
 ```js
 import { useCityFilter } from '../hooks/useCityFilter';

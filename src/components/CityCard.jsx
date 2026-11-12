@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { IconFuego } from "./icons";
-import { isErasmusEligible, getOverallScore } from "../lib/cities";
+import { isErasmusEligible, getErasmusTransition, getOverallScore } from "../lib/cities";
 import ScoreRing from "./ScoreRing";
 import PhotoCredit from "./PhotoCredit";
 import Flag from "./Flag";
@@ -83,10 +83,18 @@ export default function CityCard({ city }) {
         {city.tag === "Trending" && <IconFuego size={16} />} {city.tag}
       </span>
 
-      {/* Program type pill — solo se muestra para destinos no-Erasmus */}
-      {!isErasmusEligible(city) && (
-        <span className="city-card__tag city-card__tag--program">🌍 No Erasmus</span>
-      )}
+      {/* Program type pill — destinos no-Erasmus y los que entran en Erasmus+ en
+          un curso concreto (Reino Unido 2027-28; Suiza, prevista y pendiente). */}
+      {(() => {
+        const t = getErasmusTransition(city);
+        const eligible = isErasmusEligible(city);
+        if (eligible && !t) return null;
+        return (
+          <span className="city-card__tag city-card__tag--program">
+            {eligible ? "✅" : "🌍"} {t ? t.label : "No Erasmus"}
+          </span>
+        );
+      })()}
 
       {/* Crédito de la foto: esquina inferior derecha (la frase le deja hueco) */}
       <PhotoCredit src={city.img} corner="bottom-right" nested />

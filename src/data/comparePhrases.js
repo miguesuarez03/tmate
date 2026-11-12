@@ -268,7 +268,7 @@ export const COMPARE_PHRASES = {
     coste: "Cara, similar a Dublín, presupuesta 1.000–1.400€/mes",
     alojamiento: "Mercado tenso, especialmente si tu estancia coincide con agosto",
     vida_social: "El pub y el Fringe Festival definen la vida social de la ciudad",
-    integracion: "Inglés nativo y escoceses cercanos, ya fuera de Erasmus+ pero con convenios activos",
+    integracion: "Inglés nativo y escoceses cercanos, y de vuelta en Erasmus+ desde el curso 2027-28",
     movilidad: "Ciudad muy caminable, con bus y tranvía para completar el resto",
     estilo_vida: "Gótica y literaria, con las Highlands a un trayecto corto",
     empleo: "Fuerte en finanzas, ciencia de datos y el sector cultural",

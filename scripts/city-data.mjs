@@ -33,6 +33,7 @@ const HEADER = "// Generado por scripts/city-data.mjs a partir de src/data/ — 
 const INDEX_FIELDS = [
   "slug", "name", "nameEn", "country", "emoji", "programType", "region", "tag",
   "phrase", "costDetail", "vibe", "erasmus", "weather", "language", "img", "experiences",
+  "erasmusFrom", "erasmusStatus",
 ];
 
 function insightsFor(city) {

@@ -7,7 +7,9 @@ import styles from "./TiposDeIntercambioPage.module.css";
 /* ─── DATA ──────────────────────────────────────────────────────────────── */
 
 // Fuentes (consultadas en noviembre de 2026): Comisión Europea (learning
-// agreement, 19/12/2025), GOV.UK (Standard Visitor y ETA), SEM suiza (FAQ
+// agreement, 19/12/2025), GOV.UK (acuerdo UE-Reino Unido para entrar en
+// Erasmus+ en 2027, 17/12/2025; Standard Visitor y ETA), SEFRI suiza (acuerdo
+// de programas UE firmado el 10/11/2025), SEM suiza (FAQ
 // UE/AELC, 06/07/2026), SERI suiza (estado de Suiza en Erasmus+), Ministerio
 // de Exteriores de Türkiye (información de visados), UDI noruega (registro
 // UE/EEE) y SEPIE (convocatoria 2026, KA131 y KA171). Lo que no se ha podido
@@ -24,22 +26,22 @@ const PROGRAM_TYPES = [
     financing: "Beca Erasmus+ (el importe depende del grupo del país de destino y lo fija tu universidad dentro del rango del SEPIE) y posibles ayudas autonómicas o de tu universidad. El Learning Agreement sirve para que te reconozcan las asignaturas que apruebes según lo acordado.",
   },
   {
-    id: "uk_bilateral",
+    id: "uk",
     Icon: IconMaleta,
     color: "#3F7A7D",
     title: "Reino Unido",
-    tag: "Convenio bilateral",
-    what: "Desde el Brexit, Reino Unido no participa en Erasmus+. Ir a universidades como Londres, Edimburgo o Mánchester se hace a través de convenios bilaterales que tu universidad haya firmado directamente con la universidad británica.",
+    tag: "Erasmus+ desde 2027-28",
+    what: "Reino Unido salió de Erasmus+ con el Brexit, pero el 17 de diciembre de 2025 la UE y Reino Unido cerraron el acuerdo para que vuelva al programa en 2027. Las plazas en Londres, Edimburgo, Mánchester y el resto de ciudades británicas pasan a ser Erasmus+ desde el curso 2027-28, con Learning Agreement como en el resto de Europa. Si te vas antes (curso 2026-27), tu plaza todavía es un convenio bilateral que tu universidad firma directamente con la británica.",
     visa: "Depende de la duración. Para estudiar hasta 6 meses puedes entrar como visitante (Standard Visitor); con pasaporte europeo, normalmente necesitas una ETA, una autorización electrónica de viaje de pago. Para más de 6 meses necesitas el visado de estudiante (Student visa). Confírmalo en GOV.UK antes de aceptar la plaza.",
-    financing: "La mayoría de plazas son convenios bilaterales sin beca Erasmus+: cuenta con becas de tu universidad o comunidad autónoma, o con financiación propia. Algunas universidades financian estancias en Reino Unido con fondos Erasmus+ para países no asociados (la convocatoria del SEPIE lo incluye en el grupo 1): pregunta en tu oficina de relaciones internacionales. El papeleo de equivalencias lo define tu universidad de origen.",
+    financing: "Desde el curso 2027-28, beca Erasmus+ como en el resto de destinos. El grupo de país y el importe los fijará la convocatoria 2027 del SEPIE; mientras tanto, la calculadora de la beca lo estima con el grupo 1, donde figura en la tabla de 2026 como país no asociado. En el curso 2026-27 siguen los convenios bilaterales: becas de tu universidad o comunidad autónoma, fondos Erasmus+ para países no asociados si tu universidad los tiene (pregunta en tu oficina de relaciones internacionales) o financiación propia.",
   },
   {
     id: "switzerland_bilateral",
     Icon: IconGlobo,
     color: "#F59E0B",
     title: "Suiza",
-    tag: "Convenio bilateral",
-    what: "Suiza no está asociada a Erasmus+ 2021-2027: tiene su propio programa de movilidad, compatible con Erasmus+ (la «solución suiza»). Los intercambios a Ginebra, Lausana, Zúrich, Basilea o Berna funcionan con convenios entre universidades. Su gobierno prevé asociarse a Erasmus+ en 2027, pero depende de que el Parlamento apruebe la financiación.",
+    tag: "Erasmus+ previsto 2027 (pendiente)",
+    what: "Suiza no está asociada a Erasmus+ 2021-2027: tiene su propio programa de movilidad, compatible con Erasmus+ (la «solución suiza»). Los intercambios a Ginebra, Lausana, Zúrich, Basilea o Berna funcionan con convenios entre universidades. El 10 de noviembre de 2025 firmó con la UE el acuerdo para participar en sus programas y prevé entrar en Erasmus+ en 2027, pero aún falta que su Parlamento apruebe la financiación; el acuerdo se aplicaría de forma provisional, sin esperar a que se ratifique el paquete de acuerdos con la UE. Hasta entonces, sigue fuera.",
     visa: "Con nacionalidad de la UE no necesitas visado. Si vas a estudiar más de 3 meses, tienes que registrarte como máximo 14 días después de llegar y te darán un permiso para la duración de tus estudios; además, tendrás que contratar un seguro médico suizo. Si no tienes nacionalidad de la UE, consulta en el consulado de Suiza.",
     financing: "Normalmente no hay beca Erasmus+: Suiza suele compensar con sus propias ayudas (a veces gestionadas por la universidad de destino), pero no sustituyen a la beca Erasmus+. Algunas universidades usan fondos Erasmus+ para países no asociados (la convocatoria del SEPIE incluye a Suiza en el grupo 1): pregunta en tu oficina de relaciones internacionales.",
   },

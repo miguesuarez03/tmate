@@ -39,33 +39,58 @@ atención y conviene contrastarlos con los servicios meteorológicos nacionales 
 AEMET, IPMA…): **Friburgo 9.0** queda por delante de Roma, Atenas, Nápoles o Split (8.5), y
 **Montpellier 9.5** empata con La Valeta por encima de Lisboa (9.4). No se ha cambiado ninguna nota.
 
-### PRIORITARIO — Reino Unido y Suiza vuelven a Erasmus+ en 2027
+### Reino Unido y Suiza en Erasmus+ — hecho el 12/11/2026, con recordatorios
 
-Detectado por Codex al revisar los rankings. Afecta a toda la web, no solo a los rankings, así
-que no se ha cambiado en esta tarea (solo se ha suavizado el texto de `/ranking/*` y del filtro del
-comparador para no afirmar lo contrario):
+Decisión de Miguel, ya aplicada. Cada ciudad lleva `erasmusFrom: "2027-28"` y `erasmusStatus` en
+`src/data/cities.js`:
 
-- **Reino Unido**: el acuerdo para que entre en Erasmus+ en 2027 ya está cerrado
-  ([GOV.UK](https://www.gov.uk/government/news/uk-and-eu-finalise-agreement-to-bring-uk-into-erasmus-in-2027)).
-  El Turing Scheme 2026/27 financia a estudiantes de instituciones británicas, no a quien llega
-  desde España ([GOV.UK](https://www.gov.uk/government/publications/turing-scheme-international-placements-2026-to-2027/overview-of-the-turing-scheme-2026-to-2027)).
-- **Suiza**: en la convocatoria 2026 sigue el SEMP
-  ([Movetia](https://movetia.ch/de/beratung/hilfestellung-und-foerderpraxis/projekt-planen/swiss-european-mobility-programme));
-  la asociación a Erasmus+ está prevista para 2027, pendiente de la aprobación presupuestaria del
-  Consejo Nacional según la actualización oficial de octubre
-  ([Movetia](https://movetia.ch/en/latest/new-developments-for-erasmus)).
+- **Reino Unido** (7 ciudades): `programType: "erasmus"`, `erasmusStatus: "confirmed"` (acuerdo
+  UE-Reino Unido del 17/12/2025,
+  [GOV.UK](https://www.gov.uk/government/news/uk-and-eu-finalise-agreement-to-bring-uk-into-erasmus-in-2027)).
+  Badge «Erasmus+ desde 2027-28». Entra en los rankings, el comparador, City Match, la calculadora y
+  el Learning Agreement.
+- **Suiza** (5 ciudades): sigue `switzerland_bilateral`, `erasmusStatus: "pending"`. El acuerdo de
+  programas UE-Suiza se firmó el 10/11/2025, pero falta que el Parlamento apruebe la financiación;
+  el acuerdo se aplicaría de forma provisional antes de ratificarse el paquete con la UE
+  ([SEFRI](https://www.sbfi.admin.ch/en/international-mobility-and-cooperation-in-education),
+  [Gobierno suizo](https://www.bag.admin.ch/en/nsb?id=104716)). Badge
+  «Erasmus+ previsto 2027 (pendiente)». No entra en los rankings Erasmus+.
 
-Qué revisar: el `programType` (`uk_bilateral`, `switzerland_bilateral`) de esas ciudades para el
-curso 2027/28, `/tipos-de-intercambio`, la calculadora de `/beca-erasmus` (grupo de país e
-importes), la pregunta «destino» de City Match y las guías. Cuando cambie el `programType`, los
-rankings Erasmus+ y el filtro del comparador los incluirán solos.
+**Recordatorios:**
+
+1. **Revisar Suiza con la convocatoria 2027 del SEPIE** (y las novedades de
+   [Movetia](https://movetia.ch/en/latest/new-developments-for-erasmus)). Si el Parlamento aprueba la
+   financiación y Suiza entra, cambia en sus 5 ciudades `programType` a `"erasmus"` y
+   `erasmusStatus` a `"confirmed"`. Después revisa la tarjeta de Suiza en `/tipos-de-intercambio`, el
+   subtítulo de la pregunta «destino» de City Match, la nota bajo los grupos de `/beca-erasmus`, el
+   texto de `/ranking/*` y la guía «Erasmus+ o intercambio fuera de Europa». Añade también Suiza a
+   `ESTIMATED_GROUPS` en `BecaErasmusPage.jsx` (o a su grupo oficial) y quita `"Suiza"` del filtro
+   «Suiza y América» del comparador (`PROGRAM_LABELS`). Si no entra, actualiza `erasmusFrom` al curso
+   que se anuncie.
+2. **Grupo del Reino Unido en la convocatoria 2027.** La calculadora lo pone en el grupo 1 como
+   «estimación, pendiente de la convocatoria 2027» (`ESTIMATED_GROUPS`). Cuando se publique la tabla,
+   pásalo a `GROUP1/2/3` y quita la estimación. Revisa también los importes de 2027 del resto de
+   países.
+3. **Cuando empiece el curso 2027-28**, los badges «Erasmus+ desde 2027-28» dejarán de aportar. Se
+   puede quitar `erasmusFrom` del Reino Unido (seguirá siendo Erasmus+) y simplificar los textos que
+   hablan del curso 2026-27.
+4. **Visado del Reino Unido**: la web mantiene lo que dice GOV.UK (Standard Visitor/ETA hasta
+   6 meses, Student visa para más). Si con la entrada en Erasmus+ cambian los requisitos para
+   estudiantes de intercambio, hay que actualizar `/tipos-de-intercambio`.
 
 ### América y Erasmus+
 
-El filtro del comparador agrupa Reino Unido, Suiza y América como «Reino Unido, Suiza y América»
-(antes de esta revisión se llamaba «Fuera de Erasmus+»). Existen movilidades Erasmus+ con países no
-asociados, también en América ([Comisión Europea](https://erasmus-plus.ec.europa.eu/sites/default/files/2023-07/factsheet-erasmusplus-celac-2023_en.pdf)):
+El filtro del comparador agrupa Suiza y América como «Suiza y América» (antes «Reino Unido, Suiza
+y América», y antes aún «Fuera de Erasmus+»). Existen movilidades Erasmus+ con países no asociados,
+también en América ([Comisión Europea](https://erasmus-plus.ec.europa.eu/sites/default/files/2023-07/factsheet-erasmusplus-celac-2023_en.pdf)):
 conviene revisar si los textos de las fichas americanas dicen que «no hay Erasmus+».
+
+### Calculadora de la beca: coordenadas que faltaban (arreglado)
+
+`src/lib/cityCoords.js` solo tenía 40 ciudades, así que con otros 66 destinos Erasmus+ (Venecia,
+Lyon, Mánchester…) el cálculo de distancia de `/beca-erasmus` daba «No tenemos coordenadas de esa
+ciudad». Se han copiado las del mapa (`WorldMap.jsx`), y un test comprueba que no falte ninguna.
+Mejor a futuro: una sola fuente de coordenadas para el mapa y la calculadora.
 
 ## Mejoras propuestas
 
@@ -79,7 +104,7 @@ conviene revisar si los textos de las fichas americanas dicen que «no hay Erasm
    `dateModified` en el JSON-LD: ayuda a que Google entienda que el «2027» del título es real.
 4. **Año de los títulos.** `RANKING_YEAR` (`src/data/rankings.js`) está a mano: hay que pasarlo a
    2028 cuando empiece la convocatoria siguiente (~septiembre de 2027).
-5. **Rankings fuera de Erasmus+** (Reino Unido, Suiza, América) o por región: más páginas
+5. **Rankings fuera de Erasmus+** (Suiza, América) o por región: más páginas
    indexables con intención de búsqueda propia («ciudades más baratas para estudiar en
    Latinoamérica»).
 6. **Buscador del comparador en la URL** (`?q=`): hoy el orden y el programa se comparten por

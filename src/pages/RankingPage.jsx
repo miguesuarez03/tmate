@@ -106,10 +106,10 @@ function RankingDetail({ criterion }) {
           </h2>
           <p>{criterion.method}</p>
           <p>
-            Entran los {ERASMUS_COUNT} destinos de MAbroad en la Unión Europea y países asociados a Erasmus+. Reino
-            Unido (que vuelve a Erasmus+ en 2027), Suiza y los destinos de América no están en este ranking, pero puedes
-            ordenarlos igual en el comparador. Si una plaza lleva beca Erasmus+ lo dice la convocatoria de tu
-            universidad.
+            Entran los {ERASMUS_COUNT} destinos Erasmus+ de MAbroad: la Unión Europea, los países asociados al
+            programa y Reino Unido, que vuelve a Erasmus+ en el curso 2027-28. Suiza (su entrada en 2027 está pendiente
+            de aprobación) y los destinos de América no están en este ranking, pero puedes ordenarlos igual en el
+            comparador. Si una plaza lleva beca Erasmus+ lo dice la convocatoria de tu universidad.
           </p>
           <p className={styles.methodFine}>
             {isCost

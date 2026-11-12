@@ -10,7 +10,10 @@ export type PriceLevel = '€' | '€€' | '€€€' | '€€€€';
 export type ExperienceType = 'erasmus' | 'internship' | 'work-travel' | 'volunteering';
 
 // ── Tipo de programa de intercambio (Erasmus+ vs. bilateral) ──────────────────
-export type ProgramType = 'erasmus' | 'uk_bilateral' | 'switzerland_bilateral' | 'study_abroad_usa_canada' | 'study_abroad_latam';
+// Reino Unido es 'erasmus' (con erasmusFrom "2027-28", erasmusStatus confirmed);
+// Suiza sigue 'switzerland_bilateral' con erasmusStatus pending.
+export type ErasmusStatus = 'confirmed' | 'pending';
+export type ProgramType = 'erasmus' | 'switzerland_bilateral' | 'study_abroad_usa_canada' | 'study_abroad_latam';
 
 // ── Región geográfica ─────────────────────────────────────────────────────────
 export type Region =
@@ -48,6 +51,10 @@ export interface CityBase {
   heroImg: string;            // imagen hero (1400px)
   experiences: ExperienceType[];
   programType: ProgramType;
+  /** Curso desde el que el destino entra (o prevé entrar) en Erasmus+, p. ej. "2027-28". */
+  erasmusFrom?: string;
+  /** confirmed: acuerdo cerrado (ya cuenta como Erasmus+); pending: falta aprobación (no cuenta aún). */
+  erasmusStatus?: ErasmusStatus;
 }
 
 // ── Ciudad completa (detalle de página) ──────────────────────────────────────
@@ -123,7 +130,8 @@ export interface CityInsights {
 /** Lo que el navegador tiene de TODAS las ciudades desde el primer momento. */
 export interface CityIndexEntry extends Pick<City,
   'slug' | 'name' | 'nameEn' | 'country' | 'emoji' | 'programType' | 'region' | 'tag' |
-  'phrase' | 'costDetail' | 'vibe' | 'erasmus' | 'weather' | 'language' | 'img' | 'experiences'> {
+  'phrase' | 'costDetail' | 'vibe' | 'erasmus' | 'weather' | 'language' | 'img' | 'experiences' |
+  'erasmusFrom' | 'erasmusStatus'> {
   /** Nota 0–10 de cada categoría (id de SCORE_CATEGORIES → nota). */
   scores: Record<string, number>;
   /** Media de las 8 notas (computeOverallScore). */

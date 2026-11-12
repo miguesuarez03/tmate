@@ -88,10 +88,10 @@ const QUESTION_DEFS = [
   {
     id: "destino",
     title: "¿Dónde te gustaría hacer tu intercambio?",
-    subtitle: "La beca Erasmus+ cubre la UE y algunos países asociados; Reino Unido y Suiza van por otros convenios",
+    subtitle: "La beca Erasmus+ cubre la UE, los países asociados y Reino Unido (desde el curso 2027-28); Suiza, de momento, va por otros convenios",
     options: [
-      { value: "erasmus", label: "Solo destinos con beca Erasmus+", desc: "Europa" },
-      { value: "europa", label: "Toda Europa", desc: "También Reino Unido, Suiza… con otros convenios" },
+      { value: "erasmus", label: "Solo destinos con beca Erasmus+", desc: "Europa, con Reino Unido desde 2027-28" },
+      { value: "europa", label: "Toda Europa", desc: "También Suiza, con otros convenios" },
       { value: "mundo", label: "Europa y fuera de Europa", desc: "También América" },
       { value: NEUTRAL, label: "Me da igual" },
     ],
