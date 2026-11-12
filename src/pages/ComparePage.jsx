@@ -1,13 +1,16 @@
 import { useState, useMemo, useEffect } from "react";
 import Flag from "../components/Flag";
 import { Link, useSearchParams } from "react-router-dom";
-import { getAllCities, getScoreMap, getOverallScore, parseMinCost, isErasmusEligible, getCompareLeader, buildCompareVerdict, COMPARE_MIN_CATEGORY_GAP } from "../lib/cities";
+import {
+  getAllCities, getScoreMap, getOverallScore, parseMinCost, isErasmusEligible, getCompareLeader, buildCompareVerdict, COMPARE_MIN_CATEGORY_GAP,
+  getRankingCriteria, getCriterion, rankCities, filterByProgram, formatCriterionValue, getRankingPath, PROGRAM_FILTERS,
+} from "../lib/cities";
 import { getComparePhrase } from "../data/comparePhrases";
 import { Navbar, Footer } from "../components/Layout";
 import JourneySteps from "../components/JourneySteps";
 import ShareButton from "../components/ShareButton";
 import { IconRanking, IconCorona, IconBeca, IconUniversidad, IconClima, IconIdiomas, IconCheck, IconAlerta, IconComparar, IconLupa } from "../components/icons";
-import { getCategoryIcon } from "../lib/categoryIcons";
+import { getCategoryIcon, getCriterionIcon } from "../lib/categoryIcons";
 import MethodologyNote from "../components/MethodologyNote";
 import ScoreRing from "../components/ScoreRing";
 import { useSEO } from "../hooks/useSEO";
@@ -38,6 +41,14 @@ const RESULT_HERO_SLOTS = [
 const TRENDING_SLUGS = ["bolonia", "lisboa", "berlin", "praga", "viena"];
 
 const CITY_SLUGS = new Set(ALL_CITIES.map((c) => c.slug));
+
+// Chips de orden rápido (?orden=<id>): los mismos criterios que los rankings
+// (src/data/rankings.js). Se combinan con el buscador y con ?programa=.
+const SORT_CRITERIA = getRankingCriteria();
+// «otros» = Reino Unido, Suiza y América (programType distinto de erasmus en
+// cities.js). Se nombran por lo que son, sin afirmar que nunca haya Erasmus+:
+// depende de la convocatoria de cada universidad.
+const PROGRAM_LABELS = { todos: "Todos", erasmus: "Erasmus+ (UE y asociados)", otros: "Reino Unido, Suiza y América" };
 
 // Texto guía del selector según cuántas ciudades hay elegidas (0–3).
 const SELECTION_HINTS = [
@@ -453,16 +464,17 @@ function MobileCompareTable({ cities, scoreMaps, overallScores, winnerIdx, tiedI
    Tarjeta compacta con miniatura de ciudad dentro de cada acordeón de
    región. Al elegirla NO se mueve de sitio: se queda donde estaba, marcada
    (checked: borde de su color e IconCheck); volver a pulsarla la quita. */
-function MiniCard({ city, checked = false, disabled = false, accentColor, onClick }) {
+function MiniCard({ city, checked = false, disabled = false, accentColor, onClick, rank = null, metric = null }) {
   return (
     <button
       type="button"
-      className={`${styles.miniCard} ${checked ? styles.miniCardSelected : ""} ${disabled ? styles.miniCardDisabled : ""}`}
+      className={`${styles.miniCard} ${checked ? styles.miniCardSelected : ""} ${disabled ? styles.miniCardDisabled : ""}${metric ? ` ${styles.miniCardRanked}` : ""}`}
       style={checked ? { "--tile-color": accentColor } : {}}
       onClick={onClick}
       disabled={disabled}
       aria-pressed={checked}
     >
+      {metric && <span className={styles.miniRank}>{rank != null ? `#${rank}` : "–"}</span>}
       <span className={styles.miniThumb}>
         <img
           className={styles.miniThumbImg}
@@ -484,6 +496,7 @@ function MiniCard({ city, checked = false, disabled = false, accentColor, onClic
       <span className={styles.miniInfo}>
         <span className={styles.miniName}>{city.name}</span>
         <span className={styles.miniCountry}>{city.country}</span>
+        {metric && <span className={styles.miniMetric}>{metric}</span>}
       </span>
     </button>
   );
@@ -615,12 +628,47 @@ export default function ComparePage() {
 
   const [search, setSearch] = useState("");
 
+  // Orden rápido y programa también viven en la URL (?orden=baratas&programa=erasmus):
+  // el enlace se puede compartir tal cual. Valores desconocidos = sin filtro.
+  const sortCriterion = getCriterion(searchParams.get("orden") || "");
+  const programParam = searchParams.get("programa");
+  const program = PROGRAM_FILTERS.includes(programParam) ? programParam : "todos";
+
+  const setUrlParam = (name, value) => {
+    setSearchParams((prev) => {
+      const params = new URLSearchParams(prev);
+      if (value) params.set(name, value);
+      else params.delete(name);
+      return params;
+    }, { replace: true });
+  };
+  const setSort = (id) => setUrlParam("orden", id === sortCriterion?.id ? null : id);
+  const setProgram = (value) => setUrlParam("programa", value === "todos" ? null : value);
+  const clearFilters = () => {
+    setSearch("");
+    setSearchParams((prev) => {
+      const params = new URLSearchParams(prev);
+      params.delete("orden");
+      params.delete("programa");
+      return params;
+    }, { replace: true });
+  };
+
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim();
-    return ALL_CITIES.filter(
+    return filterByProgram(ALL_CITIES, program).filter(
       (c) => !q || c.name.toLowerCase().includes(q) || c.country.toLowerCase().includes(q) || c.tag.toLowerCase().includes(q)
     );
-  }, [search]);
+  }, [search, program]);
+
+  // Con un chip de orden activo, lista única ordenada por ese criterio (con
+  // su puesto y su dato) en vez de los acordeones por región.
+  const ranked = useMemo(
+    () => (sortCriterion ? rankCities(sortCriterion.id, { cities: filtered }) : null),
+    [sortCriterion, filtered]
+  );
+  const missingData = ranked ? ranked.filter((r) => r.value == null).length : 0;
+  const hasFilters = Boolean(search.trim() || sortCriterion || program !== "todos");
 
   const selectedCities = useMemo(
     () => selected.map((s) => ALL_CITIES.find((c) => c.slug === s)).filter(Boolean),
@@ -650,15 +698,17 @@ export default function ComparePage() {
   // Al buscar, se despliegan automáticamente solo los grupos con resultados
   // y se ocultan los que no tienen ninguno (ver filtro de arriba); al borrar
   // la búsqueda se vuelve al estado inicial (solo el primer grupo abierto).
-  const [openRegions, setOpenRegions] = useState(() => new Set([REGION_ORDER[0]]));
+  // Con el filtro de programa, el que se abre es el primer grupo que tenga
+  // ciudades (con «Reino Unido, Suiza y América» no hay ninguna de Europa del Sur).
+  const [openRegions, setOpenRegions] = useState(() => new Set([regionGroups[0]?.region ?? REGION_ORDER[0]]));
   useEffect(() => {
     if (search.trim()) {
       setOpenRegions(new Set(regionGroups.map((g) => g.region)));
     } else {
-      setOpenRegions(new Set([REGION_ORDER[0]]));
+      setOpenRegions(new Set([regionGroups[0]?.region ?? REGION_ORDER[0]]));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [search]);
+  }, [search, program]);
 
   function toggleRegion(region) {
     setOpenRegions((prev) => {
@@ -995,11 +1045,59 @@ export default function ComparePage() {
             alto), para que la lista no salte al elegir. */}
         <p className={styles.hint} aria-live="polite">{SELECTION_HINTS[Math.min(selected.length, 3)]}</p>
 
+        {/* Orden rápido + programa: se combinan entre sí y con el buscador, y
+            quedan en la URL (?orden=…&programa=…) para compartir el enlace. */}
+        <section className={styles.filterPanel} aria-label="Ordenar y filtrar destinos">
+          <div className={styles.filterRow}>
+            <span className={styles.filterLabel} id="compare-sort-label">Ordenar por</span>
+            <div className={styles.filterChips} role="group" aria-labelledby="compare-sort-label">
+              {SORT_CRITERIA.map((c) => {
+                const Icon = getCriterionIcon(c);
+                const active = sortCriterion?.id === c.id;
+                return (
+                  <button
+                    key={c.id}
+                    type="button"
+                    aria-pressed={active}
+                    className={`${styles.filterChip}${active ? ` ${styles.filterChipActive}` : ""}`}
+                    onClick={() => setSort(c.id)}
+                  >
+                    <Icon size={18} /> {c.chip}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+          <div className={styles.filterRow}>
+            <span className={styles.filterLabel} id="compare-program-label">Programa</span>
+            <div className={styles.segmented} role="group" aria-labelledby="compare-program-label">
+              {PROGRAM_FILTERS.map((p) => (
+                <button
+                  key={p}
+                  type="button"
+                  aria-pressed={program === p}
+                  className={`${styles.segment}${program === p ? ` ${styles.segmentActive}` : ""}`}
+                  onClick={() => setProgram(p)}
+                >
+                  {PROGRAM_LABELS[p]}
+                </button>
+              ))}
+            </div>
+            <span className={styles.filterEnd}>
+              {hasFilters && (
+                <button type="button" className={styles.filterReset} onClick={clearFilters}>Quitar filtros</button>
+              )}
+              <Link className={styles.filterRankings} to="/ranking">Rankings Erasmus+ →</Link>
+            </span>
+          </div>
+        </section>
+
         {/* Destinos trending destacados en grande, en vez de arrancar directo
             en la sopa de acordeones. Se quedan a la vista también con ciudades
             elegidas (marcadas en su sitio): antes esta sección se cambiaba por
-            otra de «Seleccionadas» y todo lo de debajo se movía. */}
-        {!search && (
+            otra de «Seleccionadas» y todo lo de debajo se movía. Con un filtro
+            activo se ocultan: lo que manda es la lista filtrada. */}
+        {!hasFilters && (
           <section className={styles.selectedSection}>
             <h2 className={styles.groupTitle}>Destinos con más tirón ahora mismo</h2>
             <div className={styles.featuredGrid}>
@@ -1023,27 +1121,70 @@ export default function ComparePage() {
           </section>
         )}
 
-        {/* Resto de destinos, agrupados por región en acordeones */}
-        <div className={styles.accordionList}>
-          {regionGroups.map((group) => (
-            <RegionAccordion
-              key={group.region}
-              region={group.region}
-              cities={group.cities}
-              open={openRegions.has(group.region)}
-              onToggle={() => toggleRegion(group.region)}
-              isFull={selected.length >= 3}
-              toggle={toggle}
-              selected={selected}
-            />
-          ))}
-        </div>
+        {/* Con orden rápido: una sola lista ordenada, con puesto y dato. */}
+        {ranked && ranked.length > 0 && (
+          <section className={styles.rankedSection} aria-labelledby="compare-ranked-title">
+            <div className={styles.rankedHead}>
+              <h2 id="compare-ranked-title" className={styles.groupTitle}>
+                {sortCriterion.chip}
+                <span className={styles.groupCount}>{ranked.length}</span>
+              </h2>
+              <Link className={styles.rankedLink} to={getRankingPath(sortCriterion)}>
+                Top Erasmus+ y cómo se calcula →
+              </Link>
+            </div>
+            {missingData > 0 && (
+              <p className={styles.rankedNote}>
+                {missingData === 1 ? "1 destino no tiene" : `${missingData} destinos no tienen`} dato de {sortCriterion.label.toLowerCase()}: {missingData === 1 ? "va" : "van"} al final, sin puesto.
+              </p>
+            )}
+            <div className={styles.miniGrid}>
+              {ranked.map((r) => {
+                const pos = selected.indexOf(r.city.slug);
+                const checked = pos !== -1;
+                return (
+                  <MiniCard
+                    key={r.city.slug}
+                    city={r.city}
+                    checked={checked}
+                    accentColor={COL_COLORS[pos]}
+                    disabled={selected.length >= 3 && !checked}
+                    onClick={() => toggle(r.city.slug)}
+                    rank={r.rank}
+                    metric={formatCriterionValue(r.city, sortCriterion.id, r.value)}
+                  />
+                );
+              })}
+            </div>
+          </section>
+        )}
 
-        {regionGroups.length === 0 && (
+        {/* Sin orden rápido: destinos agrupados por región en acordeones */}
+        {!ranked && (
+          <div className={styles.accordionList}>
+            {regionGroups.map((group) => (
+              <RegionAccordion
+                key={group.region}
+                region={group.region}
+                cities={group.cities}
+                open={openRegions.has(group.region)}
+                onToggle={() => toggleRegion(group.region)}
+                isFull={selected.length >= 3}
+                toggle={toggle}
+                selected={selected}
+              />
+            ))}
+          </div>
+        )}
+
+        {filtered.length === 0 && (
           <div className={styles.empty}>
             <span><IconLupa size={40} /></span>
-            <p>No hay ciudades que coincidan con "{search}"</p>
-            <button onClick={() => setSearch("")}>Ver todas</button>
+            <p>
+              {search.trim() ? `No hay ciudades que coincidan con "${search}"` : "No hay ciudades con estos filtros"}
+              {program !== "todos" && ` en «${PROGRAM_LABELS[program]}»`}
+            </p>
+            <button onClick={clearFilters}>Ver todas</button>
           </div>
         )}
       </main>

@@ -123,11 +123,13 @@ const { isFav, toggleFavorite } = useFavorites();
 ```
 
 ### Rankings
+Los criterios (Más baratas, Más vida social, Mejor clima, Más seguras, Se vive en inglés, Piso más fácil, Más prácticas y la nota global) están en `src/data/rankings.js`: de ahí salen los chips de orden del comparador (`/comparar?orden=<id>&programa=erasmus|otros`), las pestañas de rankings de la home y las páginas `/ranking` y `/ranking/<slug>` (prerenderizadas y en el sitemap).
 ```js
-import { getRankedCities } from '../lib/cities';
+import { rankCities, getErasmusRanking, getCriterionValue } from '../lib/cities';
 
-// En una página /rankings futura:
-const ranked = getRankedCities(); // ya ordenado por overallScore
+getErasmusRanking('baratas');           // top 20 Erasmus+ de /ranking/mas-baratas
+rankCities('ingles', { cities });       // cualquier lista; sin dato → al final, rank null
+getCriterionValue(city, 'clima');       // 0–10 o null
 ```
 
 ### Filtros avanzados

@@ -8,7 +8,8 @@
 //   · cityIndex.js       Índice ligero de TODAS las ciudades: lo justo para
 //                        tarjetas, buscador, filtros, rankings, mapa, City
 //                        Match y Comparar (nombre, foto, tag, coste, las 8
-//                        notas, nota global, tamaño…). Va en el bundle inicial.
+//                        notas, nota global, subnotas de clima e inglés,
+//                        tamaño…). Va en el bundle inicial.
 //   · cities/<slug>.js   Ficha completa de UNA ciudad (datos + insights). Se
 //                        carga con import() solo al abrir esa ciudad.
 //
@@ -24,7 +25,7 @@ import { CITIES } from "../src/data/cities.js";
 import { CITY_INSIGHTS, DEFAULT_INSIGHTS } from "../src/data/insights.js";
 import { CITY_POPULATION } from "../src/data/cityPopulation.js";
 import { SCORE_CATEGORIES } from "../src/data/scoreCategories.js";
-import { computeOverallScore, citySizeFromPopulation, natureLevel } from "../src/lib/cityMetrics.js";
+import { computeOverallScore, citySizeFromPopulation, natureLevel, pickSubscores } from "../src/lib/cityMetrics.js";
 
 const HEADER = "// Generado por scripts/city-data.mjs a partir de src/data/ — no editar a mano.\n";
 
@@ -61,6 +62,8 @@ export function buildCityData() {
     for (const f of INDEX_FIELDS) if (city[f] !== undefined) entry[f] = city[f];
     entry.scores = Object.fromEntries(insights.scores.map((s) => [s.id, s.score]));
     entry.overall = computeOverallScore(insights.scores);
+    // Subnotas para rankings/comparador (Clima, Nivel de inglés): sin dato, no van.
+    entry.subscores = pickSubscores(insights.scores);
     entry.size = citySizeFromPopulation(CITY_POPULATION[city.slug]?.population);
     entry.nature = natureLevel(city);
     index.push(entry);

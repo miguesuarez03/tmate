@@ -30,7 +30,8 @@ export const ROUTES = [
     dataModule: ({ slug }) => `src/data/generated/cities/${slug}.js`,
   },
   { path: "/proceso", page: "ProcesoPage", urlState: (url) => url.hash.length > 1 },
-  { path: "/comparar", page: "ComparePage", urlState: hasParam("cities", "view") },
+  // ?orden= (chip de orden) y ?programa= (Erasmus+ / fuera) también cambian lo que se pinta.
+  { path: "/comparar", page: "ComparePage", urlState: hasParam("cities", "view", "orden", "programa") },
   { path: "/learning-agreement", page: "LearningAgreementPage" },
   { path: "/beca-erasmus", page: "BecaErasmusPage" },
   { path: "/city-match", page: "CityMatchPage", urlState: hasParam("r") },
@@ -41,6 +42,9 @@ export const ROUTES = [
   { path: "/creditos", page: "CreditosPage" },
   { path: "/guias", page: "GuiasPage" },
   { path: "/guias/:slug", page: "GuidePage" },
+  // Rankings (src/data/rankings.js): índice y una página por criterio.
+  { path: "/ranking", page: "RankingPage" },
+  { path: "/ranking/:slug", page: "RankingPage" },
   { path: "*", page: "NotFoundPage" },
 ];
 

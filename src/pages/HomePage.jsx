@@ -1,10 +1,14 @@
 import { useState, useEffect, useRef, useMemo, useId, lazy, Suspense } from "react";
 import { useNavigate, useSearchParams, Link } from "react-router-dom";
-import { getAllCities, getScoreMap, getOverallScore, findBestCityMatch, getCitiesGroupedByRegion } from "../lib/cities";
+import {
+  getAllCities, findBestCityMatch, getCitiesGroupedByRegion,
+  getRankingCriteria, getCriterion, getErasmusRanking, formatCriterionValue, getRankingPath, RANKING_TOP,
+} from "../lib/cities";
+import { getCriterionIcon } from "../lib/categoryIcons";
 import { HOME_FAQS } from "../data/faqs";
 import { CITY_MATCH_QUESTION_COUNT } from "../data/cityMatch";
 import { Navbar, Footer, SectionLabel, MASymbol, NAV_LINKS } from "../components/Layout";
-import { IconCityMatch, IconComparar, IconBeca, IconRanking, IconComunidad, IconSeguridad, IconUniversidad, IconMedalla, IconEdificio, IconFiesta, IconPausa, IconReproducir } from "../components/icons";
+import { IconCityMatch, IconComparar, IconBeca, IconMedalla, IconEdificio, IconFiesta, IconPausa, IconReproducir } from "../components/icons";
 import SearchBar from "../components/SearchBar";
 import CityCard from "../components/CityCard";
 import Flag from "../components/Flag";
@@ -486,29 +490,19 @@ function FAQSection() {
   );
 }
 
-// Fase 8 — Rankings: 100% basado en los mismos scores que ya se muestran
-// en cada ficha de ciudad y en el comparador. No se inventa ningún dato
-// nuevo para esta sección, solo se reordena lo que ya existe.
-const RANKING_CATEGORIES = [
-  { id: "overall", label: "General", Icon: IconRanking },
-  { id: "coste", label: "Más económicas", Icon: IconBeca },
-  { id: "vida_social", label: "Vida social", Icon: IconComunidad },
-  { id: "seguridad", label: "Seguridad", Icon: IconSeguridad },
-  { id: "empleo", label: "Salidas profesionales", Icon: IconUniversidad },
-];
+// Rankings: los mismos criterios que /ranking/<slug> y los chips del
+// comparador (src/data/rankings.js), con las mismas notas de cada ficha. No se
+// inventa ningún dato: solo se reordena lo que ya existe. Top 5 de destinos con
+// beca Erasmus+, igual que el principio de cada página de ranking.
+const RANKING_CRITERIA = getRankingCriteria();
+const RANKING_DEFAULT = "nota";
+const rankingTabLabel = (c) => (c.id === RANKING_DEFAULT ? "General" : c.chip);
 
 function RankingsSection() {
-  const [active, setActive] = useState("overall");
-
-  const ranked = useMemo(() => {
-    return ALL_CITIES
-      .map((city) => ({
-        city,
-        score: active === "overall" ? getOverallScore(city.slug) : (getScoreMap(city.slug)[active]?.score ?? 0),
-      }))
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 5);
-  }, [active]);
+  const [active, setActive] = useState(RANKING_DEFAULT);
+  const criterion = getCriterion(active);
+  const isCost = criterion.source.kind === "cost";
+  const ranked = useMemo(() => getErasmusRanking(active, 5), [active]);
 
   return (
     <section className="rankings-section">
@@ -517,36 +511,53 @@ function RankingsSection() {
           <SectionLabel color="var(--color-teal)">Rankings</SectionLabel>
           <h2 className="section__title">Las ciudades mejor valoradas.</h2>
           <p className="rankings-subtitle">
-            Basado en los mismos scores que ves en cada ficha de ciudad y en el comparador.
+            Destinos con beca Erasmus+, con los mismos datos que ves en cada ficha de ciudad y en el comparador.
           </p>
         </div>
 
         <div className="rankings-tabs">
-          {RANKING_CATEGORIES.map((c) => (
-            <button
-              key={c.id}
-              type="button"
-              className={`rankings-tab${active === c.id ? " rankings-tab--active" : ""}`}
-              onClick={() => setActive(c.id)}
-            >
-              <c.Icon size={20} className="rankings-tab__icon" /> {c.label}
-            </button>
-          ))}
+          {RANKING_CRITERIA.map((c) => {
+            const Icon = getCriterionIcon(c);
+            return (
+              <button
+                key={c.id}
+                type="button"
+                aria-pressed={active === c.id}
+                className={`rankings-tab${active === c.id ? " rankings-tab--active" : ""}`}
+                onClick={() => setActive(c.id)}
+              >
+                <Icon size={20} className="rankings-tab__icon" /> {rankingTabLabel(c)}
+              </button>
+            );
+          })}
         </div>
 
         <div className="rankings-list">
           {ranked.map((r, i) => (
-            <Link key={r.city.slug} to={`/city/${r.city.slug}`} className="rankings-row">
+            <Link key={r.city.slug} to={`/city/${r.city.slug}`} className={`rankings-row${isCost ? " rankings-row--wide" : ""}`}>
               <span className="rankings-row__pos">
                 {i < 3 ? <IconMedalla size={26} tone={i === 0 ? "gold" : i === 1 ? "silver" : "bronze"} /> : `#${i + 1}`}
               </span>
               <span className="rankings-row__city"><span><Flag emoji={r.city.emoji} /> {r.city.name}</span><span className="rankings-row__country">{r.city.country}</span></span>
               <div className="rankings-row__bar">
-                <div className="rankings-row__bar-fill" style={{ width: `${(r.score / 10) * 100}%` }} />
+                <div className="rankings-row__bar-fill" style={{ width: `${Math.max(4, (r.value ?? 0) * 10)}%` }} />
               </div>
-              <span className="rankings-row__score">{r.score.toFixed(1)}</span>
+              <span className="rankings-row__score">{isCost ? formatCriterionValue(r.city, active, r.value) : r.value.toFixed(1)}</span>
             </Link>
           ))}
+        </div>
+
+        <div className="rankings-more">
+          <Link className="rankings-more__main" to={getRankingPath(criterion)}>
+            Ver el top {RANKING_TOP} y cómo se calcula →
+          </Link>
+          {/* Todas las páginas de ranking enlazadas en el HTML (no solo la pestaña activa). */}
+          <nav className="rankings-more__all" aria-label="Todos los rankings">
+            {RANKING_CRITERIA.map((c) => (
+              <Link key={c.id} to={getRankingPath(c)}>{c.title.replace(/ en \d{4}$/, "")}</Link>
+            ))}
+            <Link to="/ranking">Todos los rankings</Link>
+          </nav>
         </div>
       </div>
     </section>

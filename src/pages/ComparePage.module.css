@@ -1086,3 +1086,107 @@
   .compareHeroActions { gap: 8px; }
   .compareHeroActions .backBtn { padding: 8px 13px; }
 }
+
+/* ─── ORDEN RÁPIDO + PROGRAMA (selector) ─────────────────────────────────────
+   Chips de orden (?orden=) y filtro de programa (?programa=). Mismo lenguaje
+   que .rankings-tab de la home: pastilla con borde, activa en azul noche. */
+.filterPanel {
+  display: flex; flex-direction: column; gap: 12px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  padding: 16px 18px;
+  margin-bottom: 28px;
+}
+.filterRow { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.filterLabel {
+  font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--color-muted); min-width: 92px;
+}
+.filterChips { display: flex; flex-wrap: wrap; gap: 8px; flex: 1; min-width: 0; }
+.filterChip {
+  display: inline-flex; align-items: center; gap: 6px;
+  min-height: 40px; padding: 7px 14px;
+  border-radius: var(--radius-full); border: 1.5px solid var(--color-border);
+  background: transparent; color: var(--color-slate-light);
+  font-family: var(--font-body); font-size: 13px; font-weight: 600; white-space: nowrap;
+  transition: border-color 0.15s, color 0.15s, background 0.15s; --motion-safe-duration: 0.15s;
+}
+.filterChip:hover { border-color: var(--color-teal); color: var(--color-teal); }
+.filterChipActive,
+.filterChipActive:hover { background: #0F1E2D; border-color: #3F7A7D; color: #fff; font-weight: 700; }
+.filterChip:focus-visible,
+.segment:focus-visible,
+.filterReset:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 2px; }
+
+.segmented {
+  display: inline-flex; flex-wrap: wrap;
+  border: 1.5px solid var(--color-border); border-radius: var(--radius-full);
+  padding: 3px; gap: 2px; background: var(--color-surface);
+}
+.segment {
+  min-height: 36px; padding: 6px 14px;
+  border: none; border-radius: var(--radius-full); background: transparent;
+  font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--color-slate-light);
+  transition: background 0.15s, color 0.15s; --motion-safe-duration: 0.15s;
+}
+.segment:hover { color: var(--color-teal); }
+.segmentActive,
+.segmentActive:hover { background: var(--color-teal); color: #fff; font-weight: 700; }
+.filterEnd { margin-left: auto; display: inline-flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.filterReset {
+  background: none; border: none; padding: 6px 4px;
+  font-family: var(--font-body); font-size: 13px; font-weight: 600;
+  color: var(--color-muted); text-decoration: underline; text-underline-offset: 2px;
+}
+.filterReset:hover { color: var(--color-primary); }
+.filterRankings {
+  font-size: 13px; font-weight: 700; color: var(--color-teal); text-decoration: none;
+  display: inline-flex; align-items: center; min-height: 36px;
+}
+.filterRankings:hover { text-decoration: underline; }
+.filterRankings:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 2px; }
+
+/* Lista ordenada por el chip activo: puesto + dato dentro de cada mini. */
+.rankedSection { margin-bottom: 24px; }
+.rankedHead {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 12px; flex-wrap: wrap; margin-bottom: 4px;
+}
+.rankedLink { font-size: 13.5px; font-weight: 700; color: var(--color-teal); text-decoration: none; }
+.rankedLink:hover { text-decoration: underline; }
+.rankedNote { font-size: 13px; color: var(--color-muted); margin: 0 0 12px; }
+.miniCardRanked { gap: 10px; }
+.miniRank {
+  flex-shrink: 0; min-width: 30px; text-align: center;
+  font-family: var(--font-display); font-size: 13px; font-weight: 800; color: var(--color-muted);
+}
+.miniMetric {
+  font-size: 11.5px; font-weight: 700; color: var(--color-teal);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .filterPanel { padding: 14px; margin-bottom: 22px; }
+  .filterRow { flex-direction: column; align-items: stretch; gap: 8px; }
+  .filterLabel { min-width: 0; }
+  /* Chips en una sola fila con scroll lateral: no empujan la lista hacia abajo. */
+  .filterChips {
+    flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
+    margin: 0 -14px; padding: 2px 14px;
+    scroll-padding-inline: 14px;
+  }
+  .filterChips::-webkit-scrollbar { display: none; }
+  .filterChip, .segment { min-height: 44px; }
+  .segmented { display: flex; }
+  .segment { flex: 1 1 auto; }
+  .filterEnd { margin-left: 0; }
+  .filterReset, .filterRankings { min-height: 44px; }
+  .miniRank { min-width: 24px; }
+}
+
+@media (max-width: 540px) {
+  /* Con puesto + dato, la mini necesita el ancho entero. */
+  .rankedSection .miniGrid { grid-template-columns: 1fr; }
+}

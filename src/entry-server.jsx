@@ -37,20 +37,25 @@ import PrivacidadPage from "./pages/PrivacidadPage";
 import CreditosPage from "./pages/CreditosPage";
 import GuiasPage from "./pages/GuiasPage";
 import GuidePage from "./pages/GuidePage";
+import RankingPage from "./pages/RankingPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 import { CITY_MATCH_QUESTION_COUNT } from "./data/cityMatch";
-import { getAllCities, getOverallScore, getCityMeta, getHomeMeta, getLoadedCityDetail } from "./lib/cities";
+import {
+  getAllCities, getOverallScore, getCityMeta, getHomeMeta, getLoadedCityDetail,
+  getRankingCriteria, getCriterionBySlug, getRankingMeta, getRankingPath, getErasmusRanking,
+} from "./lib/cities";
+import { RANKINGS_INDEX_META } from "./data/rankings";
 
 const PAGES = {
   HomePage, CityDetailPage, ProcesoPage, ComparePage, LearningAgreementPage,
   BecaErasmusPage, CityMatchPage, TiposDeIntercambioPage, PrivacidadPage,
-  CreditosPage, GuiasPage, GuidePage, NotFoundPage,
+  CreditosPage, GuiasPage, GuidePage, RankingPage, NotFoundPage,
 };
 import { getGuides, getGuideBySlug, getGuideMeta, GUIDES_INDEX_META, GUIDES_INDEX_JSON_LD } from "./lib/guides";
 import {
   getCityJsonLd, getBreadcrumbJsonLd, HOME_JSON_LD, BECA_JSON_LD,
-  getGuideJsonLd,
+  getGuideJsonLd, getRankingJsonLd, getRankingsIndexJsonLd,
   SITE_URL, SITE_NAME, SITE_LOCALE,
   DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_WIDTH, DEFAULT_OG_IMAGE_HEIGHT, DEFAULT_OG_IMAGE_ALT,
 } from "./lib/seo";
@@ -127,6 +132,13 @@ const STATIC_PAGE_META = {
     priority: 0.8,
     jsonLd: GUIDES_INDEX_JSON_LD,
   },
+  // Índice de rankings: mismos title/description/JSON-LD que RankingPage sin slug.
+  "/ranking": {
+    ...RANKINGS_INDEX_META,
+    changefreq: "monthly",
+    priority: 0.8,
+    jsonLd: getRankingsIndexJsonLd(getRankingCriteria()),
+  },
   // noindex: se prerenderiza (con <meta robots noindex>, sin canonical) pero
   // no entra en el sitemap.
   "/creditos": {
@@ -153,6 +165,12 @@ export const ALL_ROUTES = [
   // Guías (src/data/guides.js): una URL limpia por guía.
   ...getGuides().map((g) => ({
     path: `/guias/${g.slug}`,
+    changefreq: "monthly",
+    priority: 0.7,
+  })),
+  // Rankings (src/data/rankings.js): una URL por criterio.
+  ...getRankingCriteria().map((c) => ({
+    path: getRankingPath(c),
     changefreq: "monthly",
     priority: 0.7,
   })),
@@ -217,6 +235,22 @@ export function getMetaForPath(pathname) {
         ogType: "article",
         ...DEFAULT_OG,
         jsonLd: getGuideJsonLd(guide),
+      };
+    }
+  }
+
+  // Ranking por criterio (mismos meta y JSON-LD que RankingPage)
+  if (pathname.startsWith("/ranking/")) {
+    const criterion = getCriterionBySlug(pathname.replace("/ranking/", "").replace(/\/$/, ""));
+    if (criterion) {
+      const rm = getRankingMeta(criterion);
+      return {
+        title: rm.title,
+        description: rm.description,
+        canonical,
+        ogType: "website",
+        ...DEFAULT_OG,
+        jsonLd: getRankingJsonLd(criterion, getErasmusRanking(criterion.id)),
       };
     }
   }

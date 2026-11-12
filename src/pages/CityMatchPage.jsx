@@ -2,14 +2,14 @@ import { useState, useEffect, useMemo, useRef, useId } from "react";
 import Flag from "../components/Flag";
 import { Link, useSearchParams } from "react-router-dom";
 import { CITY_MATCH_QUESTION_IDS, CITY_MATCH_QUESTION_COUNT } from "../data/cityMatch";
-import { getAllCities, getScoreMap, getOverallScore, isErasmusEligible, getCitySize } from "../lib/cities";
+import { getAllCities, getScoreMap, getOverallScore, isErasmusEligible, getCitySize, parseMinCost } from "../lib/cities";
 import { useSEO } from "../hooks/useSEO";
 import { Navbar, Footer } from "../components/Layout";
 import JourneySteps from "../components/JourneySteps";
 import {
   IconBeca, IconClima, IconIdiomas, IconFiesta, IconEdificio, IconHoja, IconUniversidad,
   IconExperiencia, IconCityMatch, IconMedalla, IconCasa, IconAmigos, IconTransporte,
-  IconEmpleo, IconSeguridad, IconComparar, IconProceso, IconLapiz,
+  IconEmpleo, IconSeguridad, IconComparar, IconProceso, IconLapiz, IconCheck, IconAlerta,
 } from "../components/icons";
 import ShareButton from "../components/ShareButton";
 import ScoreRing from "../components/ScoreRing";
@@ -46,6 +46,11 @@ const RESULT_PHOTO_SLOTS = [
    - Prioridades: cada área elegida añade una dimensión más (la nota real
      de la ciudad en esa categoría) con peso 1 / 0,6 / 0,3 según el puesto.
    - El % de match es la media ponderada de todo lo que cuenta.
+   - Imprescindibles (MUST_HAVES): en presupuesto, clima, idioma, ambiente y
+     tamaño la respuesta se puede marcar como «Imprescindible»; entonces
+     además descarta las ciudades que no cumplen su umbral. Si no queda
+     ninguna (o quedan menos de 5), se enseñan las que menos condiciones
+     incumplen, diciendo cuál falla. Van en el enlace como &imp=a~b.
    ───────────────────────────────────────────────────────────────────────── */
 
 const NEUTRAL = "x";
@@ -308,6 +313,101 @@ const DIMENSIONS = {
 const picksOf = (answer) => (Array.isArray(answer) ? answer : []);
 const isAnswered = (answer) => answer != null && answer !== NEUTRAL && !(Array.isArray(answer) && answer.length === 0);
 
+/* ─── Imprescindibles (filtro duro) ────────────────────────────────────────
+   En las preguntas clave cada respuesta se puede marcar como «Imprescindible»:
+   entonces deja de solo ponderar y DESCARTA las ciudades que no cumplen el
+   umbral de abajo (con los mismos datos que la puntuación). «Me gustaría» (lo
+   normal) solo pondera. check() devuelve null si cumple, o el motivo por el
+   que no, dicho con el dato real de la ciudad. Si una respuesta no filtra
+   nada (presupuesto «Flexible»), no se puede marcar como imprescindible. */
+const BUDGET_CAP = { bajo: 600, medio: 900 };
+const PARTY_RANGE = { tranquila: [0, 7.5], equilibrada: [7, 9], intensa: [8.5, 10] };
+const SIZE_VALUE = { pequena: 0, mediana: 1, grande: 2 };
+const SIZE_NAME = ["pequeña", "mediana", "grande"];
+const CLIMATE_VALUE = { calido: 0, templado: 1, frio: 2 };
+const CLIMATE_NAME = ["cálido", "templado", "frío"];
+const fmtScore = (n) => n.toFixed(1);
+
+function partyRangeText([min, max]) {
+  if (min === 0) return `hasta ${fmtScore(max)}`;
+  if (max === 10) return `${fmtScore(min)} o más`;
+  return `entre ${fmtScore(min)} y ${fmtScore(max)}`;
+}
+
+const MUST_HAVES = {
+  presupuesto: {
+    label: "Presupuesto",
+    applies: (value) => value in BUDGET_CAP,
+    rule: (value) => `que el coste mínimo de vivir allí sea de ${BUDGET_CAP[value]}€/mes o menos`,
+    check: (city, value) => {
+      const min = parseMinCost(city.costDetail || "");
+      return min && min <= BUDGET_CAP[value] ? null : `cuesta desde ${min}€/mes y tu tope es ${BUDGET_CAP[value]}€/mes`;
+    },
+  },
+  clima: {
+    label: "Clima",
+    applies: (picks) => picksOf(picks).length > 0,
+    rule: (picks) => `clima ${picksOf(picks).map((v) => CLIMATE_NAME[CLIMATE_VALUE[v]]).join(" o ")}`,
+    check: (city, picks) => {
+      const bucket = weatherBucket(city.weather);
+      return picksOf(picks).some((v) => CLIMATE_VALUE[v] === bucket)
+        ? null
+        : `su clima es ${CLIMATE_NAME[bucket]} (${city.weather.toLowerCase()})`;
+    },
+  },
+  idioma: {
+    label: "Idioma",
+    applies: (picks) => picksOf(picks).length > 0,
+    rule: (picks) => `que se hable ${picksOf(picks).map((v) => (v === "nordico" ? "un idioma nórdico" : optionOf("idioma", v)?.label.toLowerCase())).join(" o ")}`,
+    check: (city, picks) => {
+      const cityLang = city.language.toLowerCase();
+      return picksOf(picks).some((v) => (optionOf("idioma", v)?.match || []).some((l) => cityLang.includes(l)))
+        ? null
+        : `allí se habla ${cityLang}`;
+    },
+  },
+  fiesta: {
+    label: "Ambiente",
+    applies: (value) => value in PARTY_RANGE,
+    rule: (value) => `vida social ${partyRangeText(PARTY_RANGE[value])} sobre 10`,
+    check: (city, value) => {
+      const score = getScoreMap(city.slug).vida_social?.score;
+      const [min, max] = PARTY_RANGE[value];
+      if (typeof score !== "number") return "no tiene nota de vida social";
+      return score >= min && score <= max
+        ? null
+        : `su vida social es ${fmtScore(score)}/10 y pedías ${partyRangeText([min, max])}`;
+    },
+  },
+  tamano: {
+    label: "Tamaño",
+    applies: (picks) => picksOf(picks).length > 0,
+    rule: (picks) => `ciudad ${picksOf(picks).map((v) => SIZE_NAME[SIZE_VALUE[v]]).join(" o ")}`,
+    check: (city, picks) => {
+      const size = getCitySize(city);
+      if (size == null) return "no tenemos su población oficial";
+      return picksOf(picks).some((v) => SIZE_VALUE[v] === size) ? null : `es una ciudad ${SIZE_NAME[size]}`;
+    },
+  },
+};
+
+const MUST_HAVE_IDS = Object.keys(MUST_HAVES);
+
+/** Imprescindibles que cuentan de verdad: marcados, respondidos y que filtran algo. */
+function activeMustHaves(answers, must) {
+  return must.filter((id) => MUST_HAVES[id] && isAnswered(answers[id]) && MUST_HAVES[id].applies(answers[id]));
+}
+
+/** Condiciones imprescindibles que la ciudad NO cumple: [{ id, label, text }]. */
+function failedMustHaves(city, answers, mustIds) {
+  return mustIds
+    .map((id) => {
+      const text = MUST_HAVES[id].check(city, answers[id]);
+      return text ? { id, label: MUST_HAVES[id].label, text } : null;
+    })
+    .filter(Boolean);
+}
+
 function computeMatch(city, answers) {
   const scoreMap = getScoreMap(city.slug);
   const results = [];
@@ -384,6 +484,62 @@ function decodeAnswers(encoded) {
   return out;
 }
 
+/* Imprescindibles en el enlace: &imp=presupuesto~clima (aparte de ?r=, así los
+   enlaces de antes siguen funcionando igual). */
+function encodeMust(must) {
+  return MUST_HAVE_IDS.filter((id) => must.includes(id)).join("~");
+}
+
+function decodeMust(encoded) {
+  return [...new Set(String(encoded || "").split("~"))].filter((id) => MUST_HAVE_IDS.includes(id));
+}
+
+/** Parámetros de la URL de resultados (y del enlace para compartir). */
+function resultParams(answers, must) {
+  const imp = encodeMust(must);
+  return imp ? { r: encodeAnswers(answers), imp } : { r: encodeAnswers(answers) };
+}
+
+/**
+ * ¿Imprescindible o me gustaría? Dos botones, con lo que implica cada uno.
+ * `answer` (si ya hay respuesta) sirve para decir exactamente qué se descarta.
+ */
+function ImportanceToggle({ qId, answer, isMust, onChange }) {
+  const labelId = useId();
+  const def = MUST_HAVES[qId];
+  const answered = isAnswered(answer);
+  let note;
+  if (!isMust) note = "Solo pondera: las ciudades que no encajen bajan en el resultado, pero siguen.";
+  else if (answered && !def.applies(answer)) note = "Con esta respuesta no se descarta ninguna ciudad.";
+  else if (answered) note = `Descartamos las ciudades que no cumplan: ${def.rule(answer)}.`;
+  else note = "Descartamos las ciudades que no cumplan lo que elijas.";
+
+  return (
+    <div className={styles.importance}>
+      <span className={styles.importanceLabel} id={labelId}>Para ti esto es…</span>
+      <div className={styles.importanceToggle} role="group" aria-labelledby={labelId}>
+        <button
+          type="button"
+          aria-pressed={!isMust}
+          className={`${styles.importanceBtn}${!isMust ? ` ${styles.importanceBtnActive}` : ""}`}
+          onClick={() => onChange(false)}
+        >
+          Me gustaría
+        </button>
+        <button
+          type="button"
+          aria-pressed={isMust}
+          className={`${styles.importanceBtn} ${styles.importanceBtnMust}${isMust ? ` ${styles.importanceBtnMustActive}` : ""}`}
+          onClick={() => onChange(true)}
+        >
+          Imprescindible
+        </button>
+      </div>
+      <p className={styles.importanceNote} aria-live="polite">{note}</p>
+    </div>
+  );
+}
+
 /* ─── Tus respuestas en chips editables (sobre los resultados) ─────────── */
 // Nombre corto de cada pregunta para el chip («Presupuesto: Ajustado»).
 const CHIP_NAMES = {
@@ -404,7 +560,7 @@ function answerText(q, answer) {
  * opciones y, al cambiarla, los resultados (y el enlace ?r=) se recalculan al
  * momento, sin repetir el test entero.
  */
-function AnswerChips({ answers, onChange }) {
+function AnswerChips({ answers, must, onChange, onMustChange }) {
   const [editing, setEditing] = useState(null);
   const editorId = useId();
   const chipRefs = useRef({});
@@ -439,6 +595,14 @@ function AnswerChips({ answers, onChange }) {
   const editor = q && (
     <div className={styles.chipEditor} id={editorId}>
       <p className={styles.chipEditorTitle}>{q.title}</p>
+      {MUST_HAVES[q.id] && (
+        <ImportanceToggle
+          qId={q.id}
+          answer={answers[q.id]}
+          isMust={must.includes(q.id)}
+          onChange={(isMust) => onMustChange(q.id, isMust)}
+        />
+      )}
       {q.multi && <p className={styles.chipEditorHint}>Hasta 3, en orden de preferencia: tócalas por orden.</p>}
       <div className={styles.chipEditorOptions} role="group" aria-label={q.title}>
         {q.options.map((opt) => {
@@ -474,18 +638,20 @@ function AnswerChips({ answers, onChange }) {
         {QUESTIONS.flatMap((question) => {
           const answered = isAnswered(answers[question.id]);
           const open = editing === question.id;
+          const isMust = activeMustHaves(answers, must).includes(question.id);
           const chip = (
             <li key={question.id}>
               <button
                 type="button"
                 ref={(el) => { chipRefs.current[question.id] = el; }}
-                className={`${styles.chip}${answered ? "" : ` ${styles.chipNeutral}`}${open ? ` ${styles.chipOpen}` : ""}`}
+                className={`${styles.chip}${answered ? "" : ` ${styles.chipNeutral}`}${open ? ` ${styles.chipOpen}` : ""}${isMust ? ` ${styles.chipMust}` : ""}`}
                 aria-expanded={open}
                 aria-controls={open ? editorId : undefined}
                 onClick={() => setEditing(open ? null : question.id)}
               >
                 <span className={styles.chipName}>{CHIP_NAMES[question.id] ?? question.id}:</span>{" "}
                 {answerText(question, answers[question.id])}
+                {isMust && <span className={styles.chipMustBadge}>Imprescindible</span>}
                 <span className={styles.chipEdit} aria-hidden="true"><IconLapiz size={16} /></span>
               </button>
             </li>
@@ -505,6 +671,8 @@ export default function CityMatchPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState({});
+  // Preguntas clave marcadas como «Imprescindible» (filtro duro); el resto, «Me gustaría».
+  const [must, setMust] = useState([]);
   const [limitNotice, setLimitNotice] = useState(false);
   // Portada: antes de la primera pregunta se explica qué es el test y cuánto
   // dura. Un enlace con resultados (?r=…) se la salta.
@@ -528,6 +696,7 @@ export default function CityMatchPage() {
     const restored = decodeAnswers(encoded);
     if (!restored) return;
     setAnswers(restored);
+    setMust(decodeMust(searchParams.get("imp")));
     setStep(QUESTIONS.length);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -544,7 +713,7 @@ export default function CityMatchPage() {
 
   function goTo(nextAnswers, nextStep) {
     if (nextStep >= QUESTIONS.length) {
-      setSearchParams({ r: encodeAnswers(nextAnswers) }, { replace: true });
+      setSearchParams(resultParams(nextAnswers, must), { replace: true });
       window.scrollTo(0, 0);
     }
     setStep(nextStep);
@@ -578,29 +747,137 @@ export default function CityMatchPage() {
   function updateAnswer(qId, value) {
     const next = { ...answers, [qId]: value };
     setAnswers(next);
-    setSearchParams({ r: encodeAnswers(next) }, { replace: true });
+    setSearchParams(resultParams(next, must), { replace: true });
+  }
+
+  /** Marca/desmarca una pregunta clave como imprescindible (en el test o en los chips). */
+  function setMustFor(qId, isMust) {
+    const next = isMust ? [...new Set([...must, qId])] : must.filter((id) => id !== qId);
+    setMust(next);
+    if (step >= QUESTIONS.length) setSearchParams(resultParams(answers, next), { replace: true });
   }
 
   function restart() {
+    setMust([]);
     setAnswers({});
     setStep(0);
     setStarted(true); // repetir el test va directo a la primera pregunta, sin portada
     setSearchParams({}, { replace: true });
   }
 
+  // Imprescindibles que filtran de verdad (marcados y con una respuesta que descarta algo).
+  const mustIds = useMemo(() => activeMustHaves(answers, must), [answers, must]);
+
   const matches = useMemo(() => {
     if (!showResults) return [];
     return cityPool(answers.destino)
-      .map((c) => computeMatch(c, answers))
+      .map((c) => ({ ...computeMatch(c, answers), failed: failedMustHaves(c, answers, mustIds) }))
       .sort((a, b) => b.percent - a.percent || b.overall - a.overall);
-  }, [showResults, answers]);
+  }, [showResults, answers, mustIds]);
 
-  const top = matches.slice(0, 5);
+  // Las que cumplen TODOS los imprescindibles, por % de match.
+  const top = useMemo(() => matches.filter((m) => m.failed.length === 0).slice(0, 5), [matches]);
+  // Si quedan menos de 5 (o ninguna), las que más se acercan: menos
+  // condiciones incumplidas primero y, a igualdad, mejor match. Cada una dice
+  // qué imprescindible no cumple.
+  const near = useMemo(() => {
+    if (!mustIds.length || top.length >= 5) return [];
+    return matches
+      .filter((m) => m.failed.length > 0)
+      .sort((a, b) => a.failed.length - b.failed.length || b.percent - a.percent || b.overall - a.overall)
+      .slice(0, 5 - top.length);
+  }, [matches, mustIds, top]);
+  const shown = [...top, ...near];
 
   /* ─── RESULTADOS ────────────────────────────────────────────────────── */
   if (showResults) {
-    const compareSlugs = top.slice(0, 3).map((m) => m.city.slug).join(",");
+    // Top 3 para comparar/compartir: lo que se enseña (las que cumplen y, si
+    // faltan, las que más se acercan).
+    const lead = shown.slice(0, 3);
+    const compareSlugs = lead.map((m) => m.city.slug).join(",");
     const answeredCount = QUESTIONS.filter((q) => isAnswered(answers[q.id])).length;
+    const mustLabels = mustIds.map((id) => MUST_HAVES[id].label.toLowerCase());
+    const sharePath = `/city-match?${new URLSearchParams(resultParams(answers, must)).toString()}`;
+
+    let subtitle;
+    if (answeredCount === 0) subtitle = "No marcaste preferencias: te mostramos los destinos mejor valorados.";
+    else {
+      subtitle = `Calculado a partir de tus ${answeredCount} ${answeredCount === 1 ? "preferencia" : "preferencias"} y los datos de cada destino.`;
+      if (mustIds.length) {
+        subtitle += ` ${mustIds.length === 1 ? "Imprescindible" : "Imprescindibles"}: ${mustLabels.join(", ")}.`;
+      }
+    }
+
+    const renderCard = (m, i, isNear) => {
+      // Lo que incumple un imprescindible ya sale en «No cumple»: ni motivo
+      // positivo ni «Ten en cuenta». Y un motivo positivo solo si encaja de verdad.
+      const failedIds = new Set(m.failed.map((f) => f.id));
+      const own = m.results.filter((r) => !failedIds.has(r.id));
+      const bestReasons = own.filter((r) => r.sim >= 0.5).sort((a, b) => b.sim * b.weight - a.sim * a.weight).slice(0, 2);
+      const weakest = own.filter((r) => r.weight === 1).sort((a, b) => a.sim - b.sim)[0];
+      const podium = !isNear && i < 3;
+
+      return (
+        <div key={m.city.slug} className={`${styles.resultCard}${!isNear && i === 0 ? ` ${styles.resultCardTop}` : ""}${isNear ? ` ${styles.resultCardNear}` : ""}`}>
+          <div className={styles.resultRank}>{podium ? <IconMedalla size={28} tone={i === 0 ? "gold" : i === 1 ? "silver" : "bronze"} /> : `#${i + 1}`}</div>
+
+          <div className={styles.resultImg}>
+            <img className={styles.resultImgPhoto} {...responsiveImage(m.city.img, { slots: RESULT_PHOTO_SLOTS })} alt="" width={320} height={400} loading="lazy" decoding="async" />
+            <div className={styles.resultImgOverlay} />
+            <PhotoCredit src={m.city.img} corner="bottom-right" />
+          </div>
+
+          <div className={styles.resultBody}>
+            <div className={styles.resultHead}>
+              <div>
+                <h2 className={styles.resultName}><Flag emoji={m.city.emoji} /> {m.city.name}</h2>
+                <span className={styles.resultCountry}>{m.city.country}</span>
+              </div>
+              <div className={styles.resultHeadRight}>
+                <ScoreRing score={m.overall} size={48} showLabel={false} animate={false} />
+                <div className={styles.matchBadge}>
+                  <span className={styles.matchPercent}>{m.percent}%</span>
+                  <span className={styles.matchLabel}>match</span>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.matchBar}>
+              <div className={styles.matchBarFill} style={{ width: `${m.percent}%` }} />
+            </div>
+
+            {isNear && (
+              <div className={styles.mustFail}>
+                <p className={styles.mustFailTitle}><IconAlerta size={18} /> No cumple {m.failed.length === 1 ? "este imprescindible" : "estos imprescindibles"}:</p>
+                <ul className={styles.mustFailList}>
+                  {m.failed.map((f) => (
+                    <li key={f.id}><strong>{f.label}:</strong> {f.text}.</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <ul className={styles.reasonList}>
+              {!isNear && mustIds.length > 0 && (
+                <li className={styles.reasonMust} style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                  <IconCheck size={18} /> Cumple {mustIds.length === 1 ? "tu imprescindible" : `tus ${mustIds.length} imprescindibles`}: {mustLabels.join(", ")}
+                </li>
+              )}
+              {bestReasons.map((r) => (
+                <li key={r.id} style={{ display: "flex", alignItems: "center", gap: 6 }}><r.Icon size={18} /> {m.city.name} {r.reason}</li>
+              ))}
+              {weakest && weakest.sim < 0.4 && (
+                <li className={styles.reasonCaveat} style={{ display: "flex", alignItems: "center", gap: 6 }}><weakest.Icon size={18} /> Ten en cuenta: {weakest.caveat || "aquí es donde menos encaja con lo que buscas"}</li>
+              )}
+            </ul>
+
+            <Link className={`${styles.resultBtn} link-btn`} to={`/city/${m.city.slug}`}>
+              Ver guía completa →
+            </Link>
+          </div>
+        </div>
+      );
+    };
 
     return (
       <div className={styles.page}>
@@ -610,27 +887,25 @@ export default function CityMatchPage() {
             <div className={styles.resultsHeroBg} />
             <div className={styles.resultsHeroContent}>
               <span className={styles.badge} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><IconCityMatch size={18} /> Tu City Match</span>
-              <h1 className={styles.resultsTitle} ref={resultsTitleRef} tabIndex={-1}>Estas son tus ciudades ideales</h1>
-              <p className={styles.resultsSubtitle}>
-                {answeredCount > 0
-                  ? `Calculado a partir de tus ${answeredCount} ${answeredCount === 1 ? "preferencia" : "preferencias"} y los datos de cada destino.`
-                  : "No marcaste preferencias: te mostramos los destinos mejor valorados."}
-              </p>
+              <h1 className={styles.resultsTitle} ref={resultsTitleRef} tabIndex={-1}>
+                {top.length > 0 ? "Estas son tus ciudades ideales" : "Ninguna ciudad cumple todo lo imprescindible"}
+              </h1>
+              <p className={styles.resultsSubtitle}>{subtitle}</p>
               <div className={styles.resultsActions}>
                 <button className={styles.secondaryBtn} onClick={restart}>↺ Volver a hacer el test</button>
-                {top.length > 0 && (
+                {shown.length > 0 && (
                   <ShareButton
                     className={`${styles.secondaryBtn} ${styles.shareBtn}`}
-                    path={`/city-match?r=${encodeAnswers(answers)}`}
+                    path={sharePath}
                     title="Mi City Match en MAbroad"
-                    text={`Mis ciudades Erasmus ideales según City Match: ${top.slice(0, 3).map((m, i) => `${i + 1}. ${m.city.name} (${m.percent}%)`).join(", ")}.`}
+                    text={`Mis ciudades Erasmus ideales según City Match: ${lead.map((m, i) => `${i + 1}. ${m.city.name} (${m.percent}%)`).join(", ")}.`}
                   >
                     Compartir resultado
                   </ShareButton>
                 )}
                 {compareSlugs && (
                   <Link className={`${styles.primaryBtn} link-btn`} to={`/comparar?cities=${compareSlugs}`}>
-                    Comparar tu top 3 →
+                    Comparar tu top {lead.length} →
                   </Link>
                 )}
               </div>
@@ -638,69 +913,38 @@ export default function CityMatchPage() {
           </div>
 
           <div className={styles.resultsBody}>
-            <AnswerChips answers={answers} onChange={updateAnswer} />
-            {top.map((m, i) => {
-              const bestReasons = [...m.results].sort((a, b) => b.sim * b.weight - a.sim * a.weight).slice(0, 2);
-              const weakest = [...m.results].filter((r) => r.weight === 1).sort((a, b) => a.sim - b.sim)[0];
+            <AnswerChips answers={answers} must={must} onChange={updateAnswer} onMustChange={setMustFor} />
 
-              return (
-                <div key={m.city.slug} className={`${styles.resultCard}${i === 0 ? ` ${styles.resultCardTop}` : ""}`}>
-                  <div className={styles.resultRank}>{i < 3 ? <IconMedalla size={28} tone={i === 0 ? "gold" : i === 1 ? "silver" : "bronze"} /> : `#${i + 1}`}</div>
+            {top.map((m, i) => renderCard(m, i, false))}
 
-                  <div className={styles.resultImg}>
-                    <img className={styles.resultImgPhoto} {...responsiveImage(m.city.img, { slots: RESULT_PHOTO_SLOTS })} alt="" width={320} height={400} loading="lazy" decoding="async" />
-                    <div className={styles.resultImgOverlay} />
-                    <PhotoCredit src={m.city.img} corner="bottom-right" />
-                  </div>
-
-                  <div className={styles.resultBody}>
-                    <div className={styles.resultHead}>
-                      <div>
-                        <h2 className={styles.resultName}><Flag emoji={m.city.emoji} /> {m.city.name}</h2>
-                        <span className={styles.resultCountry}>{m.city.country}</span>
-                      </div>
-                      <div className={styles.resultHeadRight}>
-                        <ScoreRing score={m.overall} size={48} showLabel={false} animate={false} />
-                        <div className={styles.matchBadge}>
-                          <span className={styles.matchPercent}>{m.percent}%</span>
-                          <span className={styles.matchLabel}>match</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className={styles.matchBar}>
-                      <div className={styles.matchBarFill} style={{ width: `${m.percent}%` }} />
-                    </div>
-
-                    <ul className={styles.reasonList}>
-                      {bestReasons.map((r) => (
-                        <li key={r.id} style={{ display: "flex", alignItems: "center", gap: 6 }}><r.Icon size={18} /> {m.city.name} {r.reason}</li>
-                      ))}
-                      {weakest && weakest.sim < 0.4 && (
-                        <li className={styles.reasonCaveat} style={{ display: "flex", alignItems: "center", gap: 6 }}><weakest.Icon size={18} /> Ten en cuenta: {weakest.caveat || "aquí es donde menos encaja con lo que buscas"}</li>
-                      )}
-                    </ul>
-
-                    <Link className={`${styles.resultBtn} link-btn`} to={`/city/${m.city.slug}`}>
-                      Ver guía completa →
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
+            {/* Imprescindibles demasiado estrictos: las que más se acercan, con
+                lo que no cumplen dicho con su dato. */}
+            {near.length > 0 && (
+              <section className={styles.nearSection} aria-labelledby="city-match-near">
+                <h2 id="city-match-near" className={styles.nearTitle}>
+                  {top.length === 0 ? "Las que más se acercan" : "Casi encajan"}
+                </h2>
+                <p className={styles.nearText}>
+                  {top.length === 0
+                    ? "Ningún destino cumple a la vez todos tus imprescindibles. Estas son las ciudades que fallan en menos condiciones; cada una te dice cuál no cumple. Si quitas un imprescindible (toca su respuesta arriba), los resultados se recalculan."
+                    : `Solo ${top.length === 1 ? "1 ciudad cumple" : `${top.length} ciudades cumplen`} todos tus imprescindibles. Estas se quedan cerca, pero fallan en alguno:`}
+                </p>
+                {near.map((m, i) => renderCard(m, top.length + i, true))}
+              </section>
+            )}
 
             {/* ¿Y ahora? — el resultado no es el final: tres siguientes pasos
                 con lo que ya sabemos (tu top 3 y tu ciudad nº 1). */}
-            {top.length > 0 && (
+            {shown.length > 0 && (
               <section className={styles.nextSteps} aria-labelledby="city-match-next">
                 <h2 id="city-match-next" className={styles.nextTitle}>¿Y ahora?</h2>
                 <div className={styles.nextGrid}>
-                  {top.length >= 2 && (
+                  {lead.length >= 2 && (
                     <Link className={styles.nextCard} to={`/comparar?cities=${compareSlugs}&view=compare`}>
                       <span className={styles.nextIcon}><IconComparar size={34} /></span>
-                      <span className={styles.nextCardTitle}>Compara tu top {Math.min(3, top.length)}</span>
+                      <span className={styles.nextCardTitle}>Compara tu top {lead.length}</span>
                       <span className={styles.nextCardDesc}>
-                        {top.slice(0, 3).map((m) => m.city.name).join(", ")}: coste en euros, notas y diferencias, lado a lado.
+                        {lead.map((m) => m.city.name).join(", ")}: coste en euros, notas y diferencias, lado a lado.
                       </span>
                       <span className={styles.nextArrow} aria-hidden="true">→</span>
                     </Link>
@@ -709,8 +953,8 @@ export default function CityMatchPage() {
                     <span className={styles.nextIcon}><IconBeca size={34} /></span>
                     <span className={styles.nextCardTitle}>Calcula tu beca</span>
                     <span className={styles.nextCardDesc}>
-                      {isErasmusEligible(top[0].city)
-                        ? `Cuánto cobrarías al mes en ${top[0].city.name} y cuánto tendrías que poner tú.`
+                      {isErasmusEligible(shown[0].city)
+                        ? `Cuánto cobrarías al mes en ${shown[0].city.name} y cuánto tendrías que poner tú.`
                         : "Cuánto cobrarías al mes con Erasmus+ y cuánto tendrías que poner tú."}
                     </span>
                     <span className={styles.nextArrow} aria-hidden="true">→</span>
@@ -729,8 +973,8 @@ export default function CityMatchPage() {
         {/* El siguiente paso ya va con tu top 3. */}
         <JourneySteps
           current="city-match"
-          nextTo={top.length >= 2 ? `/comparar?cities=${compareSlugs}&view=compare` : undefined}
-          nextDesc={top.length >= 2 ? `${top.slice(0, 3).map((m) => m.city.name).join(", ")}, lado a lado.` : undefined}
+          nextTo={lead.length >= 2 ? `/comparar?cities=${compareSlugs}&view=compare` : undefined}
+          nextDesc={lead.length >= 2 ? `${lead.map((m) => m.city.name).join(", ")}, lado a lado.` : undefined}
         />
         <Footer />
       </div>
@@ -763,7 +1007,8 @@ export default function CityMatchPage() {
                 Empezar →
               </button>
               <p className={styles.introNote}>
-                Sin registro. Si una pregunta te da igual, puedes decirlo: no cuenta en el resultado.
+                Sin registro. Si una pregunta te da igual, puedes decirlo: no cuenta en el resultado. Y lo que no
+                negocias (presupuesto, clima, idioma, ambiente o tamaño) lo puedes marcar como imprescindible.
               </p>
             </div>
           </div>
@@ -803,6 +1048,17 @@ export default function CityMatchPage() {
           <div className={styles.questionCard} key={q.id}>
             <h1 className={styles.questionTitle} id={titleId} ref={headingRef} tabIndex={-1}>{q.title}</h1>
             {q.subtitle && <p className={styles.questionSubtitle}>{q.subtitle}</p>}
+
+            {/* Preguntas clave: antes de responder se elige si es un filtro duro
+                (las de respuesta única avanzan al tocar una opción). */}
+            {MUST_HAVES[q.id] && (
+              <ImportanceToggle
+                qId={q.id}
+                answer={answers[q.id]}
+                isMust={must.includes(q.id)}
+                onChange={(isMust) => setMustFor(q.id, isMust)}
+              />
+            )}
 
             {q.multi && (
               <p className={styles.rankHint} id={hintId} aria-live="polite">

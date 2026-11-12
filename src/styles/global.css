@@ -2783,10 +2783,31 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
   color: var(--color-primary); text-align: right;
 }
 
+/* «Más baratas» enseña el rango en euros («600–900€/mes»), no una nota. */
+.rankings-row--wide { grid-template-columns: 32px 1fr 80px 118px; }
+.rankings-row--wide .rankings-row__score { font-size: 14px; white-space: nowrap; }
+
+/* Enlaces a las páginas /ranking/<slug>: el de la pestaña activa y todos. */
+.rankings-more { margin-top: 22px; text-align: center; }
+.rankings-more__main {
+  display: inline-flex; align-items: center; min-height: 44px;
+  font-size: 14.5px; font-weight: 700; color: var(--color-teal);
+}
+.rankings-more__main:hover { text-decoration: underline; }
+.rankings-more__all {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 16px;
+  margin-top: 10px; font-size: 13px;
+}
+.rankings-more__all a { color: var(--color-slate-light); text-decoration: underline; text-underline-offset: 2px; }
+.rankings-more__all a:hover { color: var(--color-primary); }
+
 @media (max-width: 560px) {
   .rankings-row { grid-template-columns: 26px 1fr 44px; }
+  .rankings-row--wide { grid-template-columns: 26px 1fr auto; }
   .rankings-row__bar { display: none; }
   .rankings-row__city { flex-direction: column; align-items: flex-start; gap: 0; }
+  .rankings-more__all { gap: 2px 14px; }
+  .rankings-more__all a { display: inline-flex; align-items: center; min-height: 32px; }
 }
 
 /* ─── DARK MODE: pastel note/callout/badge overrides ─────────────────────────

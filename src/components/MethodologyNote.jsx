@@ -41,6 +41,11 @@ export default function MethodologyNote({ compact = false }) {
               «Excelente»; de 7 a 8,4, «Bueno»; de 5,5 a 6,9, «Regular»; y por debajo, «Difícil».
             </li>
             <li>
+              <strong>Rankings:</strong> los rankings y el orden rápido del comparador reordenan estas mismas notas (y,
+              en clima e inglés, la subnota del desglose). «Más baratas» ordena por el coste mensual en euros de cada
+              ficha.
+            </li>
+            <li>
               Los precios de las fichas son aproximados y pueden quedarse desfasados. El tamaño de ciudad de City Match
               sale de la población oficial del municipio que publica el instituto de estadística de cada país.
             </li>

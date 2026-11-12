@@ -13,6 +13,7 @@
 import { CITY_INDEX } from '../data/generated/cityIndex';
 import { SCORE_CATEGORIES } from '../data/scoreCategories';
 import { CITY_EXPERIENCES, FOUNDER_EXPERIENCE } from '../data/cityExperiences';
+import { RANKING_CRITERIA, RANKING_TOP } from '../data/rankings';
 import { CITY_SIZE_LIMITS } from './cityMetrics';
 import { DEFAULT_OG_IMAGE, getCityOgImage } from './seo';
 
@@ -228,6 +229,161 @@ export function getRankedCities() {
     }))
     .sort((a, b) => b.overallScore - a.overallScore)
     .map((city, i) => ({ ...city, rank: i + 1 }));
+}
+
+// ─── CRITERIOS DE RANKING (src/data/rankings.js) ─────────────────────────────
+// Los chips de orden del comparador, las pestañas de la home y las páginas
+// /ranking/<slug> usan estas funciones: así un ranking dice lo mismo en
+// todas partes.
+
+/** @typedef {import('../types').RankingCriterion} RankingCriterion */
+/** @typedef {import('../types').RankedEntry} RankedEntry */
+/** @typedef {import('../types').ProgramFilter} ProgramFilter */
+
+const CRITERIA_BY_ID = new Map(RANKING_CRITERIA.map((c) => [c.id, c]));
+const CRITERIA_BY_SLUG = new Map(RANKING_CRITERIA.map((c) => [c.slug, c]));
+
+export { RANKING_TOP };
+export const RANKINGS_PATH = '/ranking';
+
+/** @returns {RankingCriterion[]} */
+export function getRankingCriteria() {
+  return RANKING_CRITERIA;
+}
+
+/** Criterio por id (?orden= del comparador), o null. */
+export function getCriterion(id) {
+  return CRITERIA_BY_ID.get(id) ?? null;
+}
+
+/** Criterio por slug (/ranking/<slug>), o null. */
+export function getCriterionBySlug(slug) {
+  return CRITERIA_BY_SLUG.get(slug) ?? null;
+}
+
+export function getRankingPath(criterion) {
+  return `${RANKINGS_PATH}/${criterion.slug}`;
+}
+
+/** Rango de puntos medios de coste de todas las ciudades (para normalizar a 0–10). */
+let costRange = null;
+function getCostRange() {
+  if (!costRange) {
+    const mids = CITIES.map((c) => getCostMidpoint(c.costDetail)).filter((m) => m > 0);
+    costRange = { min: Math.min(...mids), max: Math.max(...mids) };
+  }
+  return costRange;
+}
+
+const round1 = (n) => Math.round(n * 10) / 10;
+
+/**
+ * Valor 0–10 de una ciudad en un criterio (más alto = mejor para un
+ * estudiante), o null si a esa ciudad le falta el dato. En «Más baratas» el
+ * 10 es la ciudad con el coste mensual más bajo de todas y el 0 la más cara
+ * (punto medio de costDetail, escala lineal).
+ * @param {CityIndexEntry} city
+ * @param {string} criterionId
+ * @returns {number | null}
+ */
+export function getCriterionValue(city, criterionId) {
+  const crit = CRITERIA_BY_ID.get(criterionId);
+  const entry = city && BY_SLUG.get(city.slug);
+  if (!crit || !entry) return null;
+  const { source } = crit;
+  switch (source.kind) {
+    case 'cost': {
+      const mid = getCostMidpoint(entry.costDetail);
+      if (!mid) return null;
+      const { min, max } = getCostRange();
+      return max > min ? round1((10 * (max - mid)) / (max - min)) : 10;
+    }
+    case 'score':
+      return typeof entry.scores?.[source.id] === 'number' ? entry.scores[source.id] : null;
+    case 'sub':
+      return typeof entry.subscores?.[source.id] === 'number' ? entry.subscores[source.id] : null;
+    case 'overall':
+      return entry.overall ?? null;
+    default:
+      return null;
+  }
+}
+
+/**
+ * Cómo se enseña el valor de una ciudad en un criterio: en coste, su rango en
+ * euros tal cual está en la ficha («600–900€/mes»); en el resto, la nota.
+ */
+export function formatCriterionValue(city, criterionId, value = getCriterionValue(city, criterionId)) {
+  if (CRITERIA_BY_ID.get(criterionId)?.source.kind === 'cost') return city.costDetail;
+  return value == null ? 'Sin dato' : `${value.toFixed(1)}/10`;
+}
+
+/**
+ * Ordena ciudades por un criterio, de mejor a peor. Las que no tienen el dato
+ * van al final (rank null), por nombre. Empates: en coste, el mínimo más bajo
+ * y luego la nota global; en el resto, la nota global; y por último el nombre.
+ * Determinista (mismo orden en el prerender y en el cliente).
+ * @param {string} criterionId
+ * @param {{ cities?: CityIndexEntry[] }} [options]
+ * @returns {RankedEntry[]}
+ */
+export function rankCities(criterionId, { cities = CITIES } = {}) {
+  const isCost = CRITERIA_BY_ID.get(criterionId)?.source.kind === 'cost';
+  const rows = cities.map((city) => ({
+    city,
+    value: getCriterionValue(city, criterionId),
+    // En coste se ordena por el euro exacto (el 0–10 redondeado empataría más).
+    key: isCost ? -getCostMidpoint(city.costDetail) : getCriterionValue(city, criterionId),
+  }));
+  rows.sort((a, b) => {
+    if ((a.value == null) !== (b.value == null)) return a.value == null ? 1 : -1;
+    if (a.value == null) return a.city.name.localeCompare(b.city.name, 'es');
+    if (b.key !== a.key) return b.key - a.key;
+    if (isCost) {
+      const byMin = parseMinCost(a.city.costDetail) - parseMinCost(b.city.costDetail);
+      if (byMin) return byMin;
+    }
+    const byOverall = (b.city.overall ?? 0) - (a.city.overall ?? 0);
+    if (byOverall && criterionId !== 'nota') return byOverall;
+    return a.city.name.localeCompare(b.city.name, 'es');
+  });
+  let rank = 0;
+  return rows.map(({ city, value }) => ({ city, value, rank: value == null ? null : ++rank }));
+}
+
+/** Filtros por programa del comparador (?programa=). */
+export const PROGRAM_FILTERS = ['todos', 'erasmus', 'otros'];
+
+/**
+ * @param {CityIndexEntry[]} cities
+ * @param {ProgramFilter} program  'erasmus' (beca Erasmus+), 'otros' (Reino
+ *   Unido, Suiza, América: convenios bilaterales) o 'todos'.
+ */
+export function filterByProgram(cities, program = 'todos') {
+  if (program === 'erasmus') return cities.filter(isErasmusEligible);
+  if (program === 'otros') return cities.filter((c) => !isErasmusEligible(c));
+  return cities;
+}
+
+/**
+ * Ranking que enseña /ranking/<slug> (y el top 5 de la home): solo destinos
+ * con beca Erasmus+, los títulos dicen «ciudades Erasmus».
+ * @returns {RankedEntry[]}
+ */
+export function getErasmusRanking(criterionId, limit = RANKING_TOP) {
+  return rankCities(criterionId, { cities: CITIES.filter(isErasmusEligible) })
+    .filter((r) => r.rank != null)
+    .slice(0, limit);
+}
+
+/** Número de destinos con beca Erasmus+ (lo que abarca cada ranking). */
+export function getErasmusCityCount() {
+  return CITIES.filter(isErasmusEligible).length;
+}
+
+/** Metadatos SEO de /ranking/<slug> (mismos en cliente y prerender). */
+export function getRankingMeta(criterion) {
+  return { title: criterion.seoTitle, description: criterion.description };
 }
 
 /**

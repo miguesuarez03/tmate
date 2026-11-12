@@ -128,6 +128,8 @@ export interface CityIndexEntry extends Pick<City,
   scores: Record<string, number>;
   /** Media de las 8 notas (computeOverallScore). */
   overall: number;
+  /** Subnotas 0–10 para rankings (INDEX_SUBSCORES); falta la clave si la ciudad no tiene ese dato. */
+  subscores: { clima?: number; ingles?: number };
   /** 0 pequeña, 1 mediana, 2 grande; null sin dato de población. */
   size: 0 | 1 | 2 | null;
   /** Naturaleza para City Match: 0 poca, 1 algo, 2 mucha (heurística). */
@@ -160,7 +162,37 @@ export type CitySortKey =
   | 'overall';                // score calculado de insights
 
 // ─── Rankings ─────────────────────────────────────────────────────────────────
-// Preparado para la feature de rankings
+// Criterios de src/data/rankings.js (chips del comparador y /ranking/<slug>).
+
+export type RankingSource =
+  | { kind: 'cost' }
+  | { kind: 'score'; id: string }
+  | { kind: 'sub'; id: 'clima' | 'ingles' }
+  | { kind: 'overall' };
+
+export interface RankingCriterion {
+  id: string;            // ?orden=<id> en /comparar
+  slug: string;          // /ranking/<slug>
+  chip: string;          // texto del chip
+  label: string;         // nombre corto del dato («Vida social»)
+  icon: string;          // clave de CRITERION_ICONS (lib/categoryIcons.js)
+  source: RankingSource;
+  title: string;         // H1
+  seoTitle: string;
+  description: string;
+  intro: string;
+  method: string;        // «Cómo lo calculamos»
+}
+
+/** Una ciudad dentro de un ranking: value 0–10, o null si le falta el dato. */
+export interface RankedEntry {
+  city: CityIndexEntry;
+  value: number | null;
+  rank: number | null;
+}
+
+/** Filtro por programa del comparador (?programa=). */
+export type ProgramFilter = 'todos' | 'erasmus' | 'otros';
 
 export interface RankedCity extends City {
   rank: number;

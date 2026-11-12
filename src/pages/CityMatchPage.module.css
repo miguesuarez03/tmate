@@ -437,3 +437,68 @@
 
 .chipEditorItem { flex-basis: 100%; }
 .chipEditorItem .chipEditor { margin-top: 2px; }
+
+/* ─── Imprescindible / Me gustaría ───────────────────────────────────────────
+   En las preguntas clave (MUST_HAVES): filtro duro o solo ponderación. */
+.importance {
+  margin: -12px 0 22px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  border: 1px dashed var(--color-border);
+}
+.chipEditor .importance { margin: 12px 0 4px; background: var(--color-white); }
+.importanceLabel {
+  display: block; margin-bottom: 8px;
+  font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--color-muted);
+}
+.importanceToggle {
+  display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 3px;
+  border: 1.5px solid var(--color-border); border-radius: var(--radius-full);
+  background: var(--color-white);
+}
+.importanceBtn {
+  min-height: 40px; padding: 7px 16px; border: none; border-radius: var(--radius-full);
+  background: transparent; cursor: pointer;
+  font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--color-slate-light);
+  transition: background 0.15s ease, color 0.15s ease; --motion-safe-duration: 0.15s;
+}
+.importanceBtn:hover { color: var(--color-teal); }
+.importanceBtn:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 2px; }
+.importanceBtnActive,
+.importanceBtnActive:hover { background: var(--color-teal); color: #fff; font-weight: 700; }
+.importanceBtnMustActive,
+.importanceBtnMustActive:hover { background: var(--gradient-brand); color: #16364D; font-weight: 800; }
+.importanceNote { margin: 8px 0 0; font-size: 13px; line-height: 1.5; color: var(--color-slate-light); }
+
+/* Chip de respuesta marcada como imprescindible. */
+.chipMust { border-color: var(--color-primary); }
+.chipMustBadge {
+  margin-left: 6px; padding: 2px 8px; border-radius: var(--radius-full);
+  background: #16364D; color: #fff; font-size: 11px; font-weight: 800; letter-spacing: 0.02em;
+}
+
+/* Resultado que cumple todos los imprescindibles. */
+.reasonMust { color: var(--color-teal) !important; font-weight: 700; }
+
+/* Las que más se acercan (fallan algún imprescindible). */
+.nearSection { display: flex; flex-direction: column; gap: 18px; margin-top: 10px; }
+.nearTitle { font-family: var(--font-display); font-weight: 800; font-size: 22px; color: var(--color-dark); letter-spacing: -0.3px; }
+.nearText { margin: -8px 0 0; font-size: 14px; line-height: 1.6; color: var(--color-slate); max-width: 760px; }
+.resultCardNear { border-style: dashed; }
+.mustFail {
+  padding: 10px 12px; border-radius: var(--radius-md);
+  background: rgba(245,158,11,0.10); border: 1px solid rgba(245,158,11,0.35);
+}
+.mustFailTitle {
+  display: flex; align-items: center; gap: 6px; margin: 0 0 4px;
+  font-size: 13px; font-weight: 800; color: var(--color-dark);
+}
+.mustFailList { margin: 0; padding-left: 1.3rem; display: flex; flex-direction: column; gap: 2px; }
+.mustFailList li { font-size: 13px; line-height: 1.5; color: var(--color-slate); }
+
+@media (max-width: 768px) {
+  .importanceToggle { display: flex; }
+  .importanceBtn { flex: 1 1 auto; min-height: 44px; }
+}

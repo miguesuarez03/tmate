@@ -160,6 +160,64 @@ export function getGuidesIndexJsonLd(guides) {
   };
 }
 
+/**
+ * /ranking/<slug>: ItemList con las ciudades en su orden (enlazan a su ficha)
+ * + migas de pan Inicio › Rankings › Ranking. `entries` son las filas de
+ * getErasmusRanking (lib/cities.js).
+ */
+export function getRankingJsonLd(criterion, entries) {
+  const url = `${SITE_URL}/ranking/${criterion.slug}`;
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "@id": `${url}#ranking`,
+      name: criterion.title,
+      description: criterion.description,
+      url,
+      inLanguage: "es",
+      itemListOrder: "https://schema.org/ItemListOrderDescending",
+      numberOfItems: entries.length,
+      itemListElement: entries.map((e, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: `${e.city.name}, ${e.city.country}`,
+        url: `${SITE_URL}/city/${e.city.slug}`,
+      })),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Inicio", item: `${SITE_URL}/` },
+        { "@type": "ListItem", position: 2, name: "Rankings", item: `${SITE_URL}/ranking` },
+        { "@type": "ListItem", position: 3, name: criterion.title, item: url },
+      ],
+    },
+  ];
+}
+
+/** Índice /ranking: CollectionPage con la lista de rankings. */
+export function getRankingsIndexJsonLd(criteria) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${SITE_URL}/ranking#page`,
+    name: "Rankings de ciudades Erasmus de MAbroad",
+    inLanguage: "es",
+    url: `${SITE_URL}/ranking`,
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: criteria.map((c, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: `${SITE_URL}/ranking/${c.slug}`,
+        name: c.title,
+      })),
+    },
+  };
+}
+
 /** Migas de pan (Inicio › Ciudad) para las fichas de destino. */
 export function getBreadcrumbJsonLd(city) {
   return {

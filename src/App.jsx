@@ -29,6 +29,7 @@ export const PAGES = {
   CreditosPage:           lazyPage(() => import("./pages/CreditosPage")),
   GuiasPage:              lazyPage(() => import("./pages/GuiasPage")),
   GuidePage:              lazyPage(() => import("./pages/GuidePage")),
+  RankingPage:            lazyPage(() => import("./pages/RankingPage")),
   NotFoundPage:           lazyPage(() => import("./pages/NotFoundPage")),
 };
 

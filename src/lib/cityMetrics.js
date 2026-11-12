@@ -21,6 +21,27 @@ export function computeOverallScore(scores = []) {
     : 7.0;
 }
 
+/**
+ * Subnotas del desglose que viajan en el índice ligero (`subscores`), para los
+ * rankings y los chips de orden del comparador (src/data/rankings.js):
+ * id → [categoría, etiqueta exacta de la subcategoría en insights.js].
+ * Si una ciudad no tiene esa subcategoría, se queda sin dato (no se inventa).
+ */
+export const INDEX_SUBSCORES = {
+  clima: ["estilo_vida", "Clima"],
+  ingles: ["integracion", "Nivel de inglés"],
+};
+
+/** @param {{ id: string, subcategories?: { label: string, score: number }[] }[]} scores */
+export function pickSubscores(scores = []) {
+  const out = {};
+  for (const [key, [catId, label]] of Object.entries(INDEX_SUBSCORES)) {
+    const sub = scores.find((s) => s.id === catId)?.subcategories?.find((x) => x.label === label);
+    if (typeof sub?.score === "number") out[key] = sub.score;
+  }
+  return out;
+}
+
 /** Umbrales de población oficial (CITY_POPULATION) para cada tamaño. */
 export const CITY_SIZE_LIMITS = { mediana: 300000, grande: 1000000 };
 

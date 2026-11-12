@@ -7,6 +7,9 @@ import {
   IconEstiloVida,
   IconEmpleo,
   IconSeguridad,
+  IconClima,
+  IconIdiomas,
+  IconRanking,
 } from "../components/icons";
 
 /**
@@ -28,4 +31,16 @@ export const CATEGORY_ICONS = {
 
 export function getCategoryIcon(id) {
   return CATEGORY_ICONS[id] || IconBeca;
+}
+
+/** Icono de cada criterio de ranking (campo `icon` de src/data/rankings.js). */
+const CRITERION_ICONS = {
+  ...CATEGORY_ICONS,
+  clima: IconClima,
+  ingles: IconIdiomas,
+  overall: IconRanking,
+};
+
+export function getCriterionIcon(criterion) {
+  return CRITERION_ICONS[criterion?.icon] || IconRanking;
 }
