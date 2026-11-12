@@ -1,7 +1,7 @@
 import { useEffect, useId, useState } from "react";
 import Flag from "../Flag";
 import { Link, useSearchParams } from "react-router-dom";
-import { FOUNDER_EXPERIENCE } from "../../data/cityExperiences";
+import { FOUNDER_EXPERIENCE, HOME_EXPERIENCES_REPLACE_FOUNDER_AT } from "../../data/cityExperiences";
 import { getAllExperiences, getFounderEntry, getCityBySlug } from "../../lib/cities";
 import { SectionLabel, MASymbol } from "../Layout";
 import { IconUniversidad, IconPin } from "../icons";
@@ -10,17 +10,19 @@ import ShareExperienceModal from "./ShareExperienceModal";
 import styles from "./Experiences.module.css";
 
 /**
- * Sección de experiencias de la portada, con dos estados automáticos:
- * - Sin ninguna experiencia real aprobada → «Mi experiencia»: quién está
+ * Experiencias de la portada, con tres estados automáticos:
+ * - Sin ninguna experiencia real aprobada → solo «Mi experiencia»: quién está
  *   detrás de MAbroad y por qué, con el botón «Comparte la tuya».
- * - Con al menos una → las experiencias de la gente, y la del fundador queda
- *   como una tarjeta más.
+ * - Con alguna, pero menos de HOME_EXPERIENCES_REPLACE_FOUNDER_AT → «Mi
+ *   experiencia» y, debajo, en una sección aparte, las tarjetas de la gente.
+ * - Desde ese umbral → solo las tarjetas, y la del fundador queda como una más.
  * Los datos salen de src/data/cityExperiences.js (solo lo aprobado a mano).
  */
 export default function HomeExperiences() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [shareOpen, setShareOpen] = useState(false);
   const titleId = useId();
+  const founderTitleId = useId();
   const experiences = getAllExperiences();
 
   // El menú lateral enlaza aquí con ?accion=compartir para abrir el
@@ -36,43 +38,54 @@ export default function HomeExperiences() {
   }, [searchParams, setSearchParams]);
 
   const modal = <ShareExperienceModal open={shareOpen} onClose={() => setShareOpen(false)} />;
-
-  if (experiences.length === 0) {
-    return (
-      <section className={styles.section} aria-labelledby={titleId}>
-        <FounderStory titleId={titleId} onShare={() => setShareOpen(true)} />
-        {modal}
-      </section>
-    );
-  }
+  // Con pocos testimonios, el bloque del fundador se queda y las tarjetas van
+  // debajo; desde el umbral, las tarjetas lo sustituyen.
+  const showFounderStory = experiences.length < HOME_EXPERIENCES_REPLACE_FOUNDER_AT;
 
   return (
-    <section className={styles.section} aria-labelledby={titleId}>
-      <div className={styles.sectionHeader}>
-        <SectionLabel color="var(--color-teal)">Experiencias reales</SectionLabel>
-        <h2 id={titleId} className="section__title">Erasmus contados por quien los vive.</h2>
-        <p className={styles.sectionSub}>
-          Las envían estudiantes como tú y las leemos una a una antes de publicarlas.
-        </p>
-      </div>
+    <>
+      {showFounderStory && (
+        <section className={styles.section} aria-labelledby={founderTitleId}>
+          <FounderStory titleId={founderTitleId} onShare={() => setShareOpen(true)} />
+        </section>
+      )}
 
-      <div className={styles.cardsRow}>
-        {experiences.map((e, i) => (
-          <ExperienceCard key={`${e.citySlug}-${e.name}-${i}`} entry={e} showCity />
-        ))}
-        <ExperienceCard entry={getFounderEntry()} showCity />
-      </div>
+      {experiences.length > 0 && (
+        <section
+          className={`${styles.section}${showFounderStory ? ` ${styles.sectionAfter}` : ""}`}
+          aria-labelledby={titleId}
+        >
+          <div className={styles.sectionHeader}>
+            <SectionLabel color="var(--color-teal)">Experiencias reales</SectionLabel>
+            <h2 id={titleId} className="section__title">Erasmus contados por quien los vive.</h2>
+            <p className={styles.sectionSub}>
+              Las envían estudiantes como tú y las leemos una a una antes de publicarlas.
+            </p>
+          </div>
 
-      <div className={styles.ctaBar}>
-        <p className={styles.ctaText}>
-          <strong>¿Has estado de intercambio?</strong> Tu experiencia es justo lo que le falta al siguiente que se va.
-        </p>
-        <button type="button" className={styles.primaryBtn} onClick={() => setShareOpen(true)}>
-          Comparte la tuya
-        </button>
-      </div>
+          <div className={styles.cardsRow}>
+            {experiences.map((e, i) => (
+              <ExperienceCard key={`${e.citySlug}-${e.name}-${i}`} entry={e} showCity />
+            ))}
+            {/* La del fundador solo como tarjeta cuando ya no está su bloque. */}
+            {!showFounderStory && <ExperienceCard entry={getFounderEntry()} showCity />}
+          </div>
+
+          {/* Con el bloque del fundador encima, su botón «Comparte la tuya» ya está a la vista. */}
+          {!showFounderStory && (
+            <div className={styles.ctaBar}>
+              <p className={styles.ctaText}>
+                <strong>¿Has estado de intercambio?</strong> Tu experiencia es justo lo que le falta al siguiente que se va.
+              </p>
+              <button type="button" className={styles.primaryBtn} onClick={() => setShareOpen(true)}>
+                Comparte la tuya
+              </button>
+            </div>
+          )}
+        </section>
+      )}
       {modal}
-    </section>
+    </>
   );
 }
 

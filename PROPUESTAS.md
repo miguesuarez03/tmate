@@ -96,8 +96,9 @@ y si la persona prefiere salir sin nombre. Mejora futura: campos separados por t
 
 1. **Lucía**: confirmar con ella el texto de sus consejos y si sale con nombre
    (`anonymous: true` en su entrada para que salga como «Estudiante de Universidad Loyola»).
-   Con su entrada, la portada pasa del bloque «Mi experiencia» a las tarjetas de experiencias
-   (comportamiento previsto de `HomeExperiences`).
+   En la portada, su tarjeta sale en una sección aparte debajo de «Hola, soy Miguel»; las
+   tarjetas sustituyen a ese bloque solo desde 6 testimonios publicados
+   (`HOME_EXPERIENCES_REPLACE_FOUNDER_AT` en `src/data/cityExperiences.js`).
 2. **«Blue a bar» (Roma)**: no se ha publicado. El candidato probable es el **Blue Bar San
    Lorenzo** (Largo degli Osci 21), pero solo aparece en un agregador. Si Lucía lo confirma,
    añádelo a su consejo de ocio.

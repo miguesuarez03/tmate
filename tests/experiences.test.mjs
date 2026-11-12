@@ -1,7 +1,7 @@
 // «Lo que dicen los que viven allí»: estructura de src/data/cityExperiences.js.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { CITY_EXPERIENCES, FOUNDER_EXPERIENCE, EXPERIENCE_TOPICS } from "../src/data/cityExperiences.js";
+import { CITY_EXPERIENCES, FOUNDER_EXPERIENCE, EXPERIENCE_TOPICS, HOME_EXPERIENCES_REPLACE_FOUNDER_AT } from "../src/data/cityExperiences.js";
 import { getCityBySlug, getCityExperiences, getCityExperienceCards, getAllExperiences } from "../src/lib/cities.js";
 
 test("cada experiencia es de una ciudad que existe y está completa", () => {
@@ -51,4 +51,8 @@ test("anonymous: true publica «Estudiante de <universidad>» y nunca el nombre"
   } finally {
     CITY_EXPERIENCES[slug] = saved;
   }
+});
+
+test("portada: el umbral para sustituir el bloque del fundador es un entero positivo", () => {
+  assert.ok(Number.isInteger(HOME_EXPERIENCES_REPLACE_FOUNDER_AT) && HOME_EXPERIENCES_REPLACE_FOUNDER_AT >= 1);
 });

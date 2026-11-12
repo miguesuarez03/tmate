@@ -38,9 +38,10 @@
  *     },
  *   ],
  *
- * En cuanto haya al menos una, la portada deja de mostrar «Mi experiencia» y
- * pasa a mostrar las experiencias de la gente, y la ficha de esa ciudad las
- * enseña en lugar de la invitación «¿Estás de Erasmus aquí?».
+ * En la portada: con la primera, las tarjetas aparecen como sección aparte
+ * debajo de «Hola, soy Miguel»; a partir de HOME_EXPERIENCES_REPLACE_FOUNDER_AT
+ * (abajo), sustituyen a ese bloque. La ficha de cada ciudad las enseña en
+ * lugar de la invitación «¿Estás de Erasmus aquí?».
  *
  * @typedef {import('../types').CityExperience} CityExperience
  * @type {Record<string, CityExperience[]>}
@@ -71,6 +72,14 @@ export const CITY_EXPERIENCES = {
     },
   ],
 };
+
+/**
+ * Cuántos testimonios publicados (de todas las ciudades, sin contar el del
+ * fundador) hacen falta para que las tarjetas de la portada sustituyan al
+ * bloque «Hola, soy Miguel». Por debajo, salen las dos cosas: el bloque y,
+ * debajo, las tarjetas.
+ */
+export const HOME_EXPERIENCES_REPLACE_FOUNDER_AT = 6;
 
 /**
  * Temas de los consejos (`tips[].topic`) y su etiqueta en la tarjeta.
