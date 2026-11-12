@@ -91,6 +91,7 @@ Deployed on Vercel (`vercel.json`): `buildCommand` runs the full `npm run build`
 
 - Nunca pruebes ni navegues la web tras hacer cambios (no levantes el servidor para comprobar visualmente) — solo revisa el código si quieres verificar que está bien. Las pruebas visuales las hace el usuario.
 - Nunca pidas permiso antes de avanzar. Actúa siempre según tu propio criterio y hazlo, salvo que el usuario indique explícitamente una excepción para ese caso concreto.
+- Mensajes de commit sin BOM: pásalos con `git commit -m "..."` o, si usas un archivo (`git commit -F`), escríbelo en UTF-8 **sin BOM**. En PowerShell 5.1, `Out-File -Encoding utf8` y `Set-Content -Encoding utf8` añaden BOM y el commit empieza con un carácter invisible; usa `[IO.File]::WriteAllText(ruta, texto, (New-Object Text.UTF8Encoding $false))`.
 
 ## Trabajo con Codex
 
