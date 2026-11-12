@@ -10,6 +10,7 @@ import InsightDashboard   from "../components/city/InsightDashboard";
 import NeighborhoodSlider from "../components/city/NeighborhoodSlider";
 import WeatherTimeline    from "../components/city/WeatherTimeline";
 import TipsSection        from "../components/city/TipsSection";
+import CityExperiences    from "../components/experiences/CityExperiences";
 import RelatedCities      from "../components/city/RelatedCities";
 import MethodologyNote    from "../components/MethodologyNote";
 import NotFoundPage       from "./NotFoundPage";
@@ -65,10 +66,13 @@ export default function CityDetailPage() {
       {/* 5. Tips insider — premium dark section */}
       <TipsSection tips={city.tips} cityName={city.name} />
 
-      {/* 6. Universities */}
+      {/* 6. Lo que dicen los que viven allí — consejos reales de estudiantes */}
+      <CityExperiences citySlug={slug} cityName={city.name} />
+
+      {/* 7. Universities */}
       <NeighborhoodSlider universities={city.universities} />
 
-      {/* 7. Related cities + CTA */}
+      {/* 8. Related cities + CTA */}
       <RelatedCities relatedCities={relatedCities} currentCity={city} />
 
       <Footer />

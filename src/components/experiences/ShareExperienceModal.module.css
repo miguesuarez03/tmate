@@ -83,6 +83,12 @@
 
 .textarea { min-height: 150px; resize: vertical; line-height: 1.6; }
 
+.checkField { justify-content: flex-end; }
+.checkLabel {
+  display: flex; align-items: center; gap: 10px;
+  min-height: 44px; font-size: 14px; font-weight: 600; color: var(--color-dark); cursor: pointer;
+}
+.checkLabel input { flex-shrink: 0; width: 20px; height: 20px; accent-color: var(--color-primary); cursor: pointer; }
 .hint { font-size: 12px; color: var(--color-muted); line-height: 1.45; }
 .count { text-align: right; }
 

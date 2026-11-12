@@ -145,8 +145,8 @@ export const CITY_INSIGHTS = {
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "WG (pisos compartidos) 450–700€. La demanda es alta pero la oferta también." },
-          { label: "Comida y supermercados", score: 8.5, desc: "Mercados turcos, döner y supermercados económicos. Comer sano y barato es fácil." },
-          { label: "Transporte", score: 8.5, desc: "Deutschlandticket a 63 €/mes (2026). Metro, bus, tram 24h los fines de semana." },
+          { label: "Comida y supermercados", score: 8.5, desc: "Mercados turcos, döner y discounters como Lidl y Aldi. Comer sano y barato es fácil." },
+          { label: "Transporte", score: 8.5, desc: "Deutschland-Ticket: 63 €/mes en 2026 y 66,80 € desde enero de 2027; universidades como la FU lo incluyen en la cuota semestral como Deutschlandsemesterticket (37,80 €/mes). Metro, bus y tram 24h los fines de semana." },
           { label: "Ocio y gastos diarios", score: 8.0, desc: "Salir de clubs cuesta dinero, pero la vida cultural (museos, galerías) tiene mucho gratis." },
         ],
       },
@@ -206,7 +206,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Transporte público", score: 9.5, desc: "Red amplísima y frecuente. U-Bahn (salvo la U4) y S-Bahn toda la noche los fines de semana; entre semana, buses nocturnos." },
           { label: "Ciudad caminable", score: 9.0, desc: "Red de carriles bici muy extensa. La bici es de los transportes más usados por jóvenes." },
-          { label: "Conexiones nacionales", score: 10.0, desc: "Deutschlandticket: 63 €/mes en 2026 para el transporte regional de toda Alemania. El mayor cambio en transporte público europeo en décadas." },
+          { label: "Conexiones nacionales", score: 10.0, desc: "Deutschland-Ticket: transporte regional de toda Alemania por 63 €/mes en 2026 (66,80 € desde enero de 2027). El mayor cambio en transporte público europeo en décadas." },
         ],
       },
       // 6. ESTILO DE VIDA Y ENTORNO
@@ -650,8 +650,8 @@ export const CITY_INSIGHTS = {
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "La TH estima 450–600€/mes de alojamiento, bastante menos que Múnich, a menos de una hora en tren." },
-          { label: "Comida y supermercados", score: 8.0, desc: "Mercado semanal en la Ludwigsplatz con productos bávaros frescos. Supermercados bien surtidos a precios razonables." },
-          { label: "Transporte", score: 7.5, desc: "Deutschlandticket (63 €/mes en 2026): bus y trenes regionales, incluido el regional a Múnich (no el ICE). Sin coche es completamente viable." },
+          { label: "Comida y supermercados", score: 8.0, desc: "Mercado semanal en la Ludwigsplatz con productos bávaros frescos. Lidl y Aldi, los más usados por los Erasmus, mantienen la compra a precios razonables." },
+          { label: "Transporte", score: 7.5, desc: "Deutschland-Ticket (63 €/mes en 2026; 66,80 € desde enero de 2027): bus y trenes regionales, incluido el regional a Múnich (no el ICE). Los estudiantes de la TH lo piden rebajado a la MVG por 43 €/mes (46,80 € en 2027). Sin coche es completamente viable." },
           { label: "Ocio y gastos diarios", score: 8.0, desc: "Cervezas en biergartens locales a 3–4€. Naturaleza gratuita por todas partes. Sin el precio premium de las grandes ciudades." },
         ],
       },
@@ -710,7 +710,7 @@ export const CITY_INSIGHTS = {
         color: "#F59E0B",
         subcategories: [
           { label: "Ciudad caminable", score: 9.5, desc: "Ciudad completamente caminable. Del campus al centro en 15 minutos. Bici para los más activos." },
-          { label: "Tren a Múnich", score: 9.0, desc: "Tren regional directo a Múnich cada 30 minutos (unos 45–50 minutos), incluido en el Deutschlandticket; los ICE, no." },
+          { label: "Tren a Múnich", score: 9.0, desc: "Tren regional directo a Múnich cada 30 minutos (unos 45–50 minutos), incluido en el Deutschland-Ticket; los ICE, no." },
           { label: "Escapadas de fin de semana", score: 9.5, desc: "Chiemsee en autobús, estaciones de ski en coche compartido o bus regional. Todo muy accesible." },
         ],
       },
@@ -904,7 +904,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Alojamiento", score: 4.5, desc: "Habitaciones desde 700–1.000€. El mercado más tenso de Alemania. WG (pisos compartidos) es la única opción realista." },
           { label: "Comida y supermercados", score: 7.0, desc: "Viktualienmarkt para productos frescos de calidad. Supermercados Aldi y Lidl para el día a día. Comer fuera es caro." },
-          { label: "Transporte", score: 7.5, desc: "Deutschlandticket a 63€/mes — metro, autobús, tranvía y tren regional incluidos (salvo alta velocidad). Bien conectada internamente." },
+          { label: "Transporte", score: 7.5, desc: "Deutschland-Ticket: 63 €/mes en 2026 y 66,80 € desde enero de 2027 — metro, autobús, tranvía y tren regional (no ICE ni IC). Si estudias en Baviera, la MVG lo vende rebajado a 43 €/mes (46,80 € en 2027)." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Cerveza asequible en los biergarten; en el Oktoberfest la Mass (litro) sale bastante más cara. Mucha oferta cultural gratuita." },
         ],
       },
@@ -2048,8 +2048,8 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Alojamiento", score: 5.5, desc: "Habitaciones desde 450–650€. Zonas estudiantiles como Pigneto o Nomentano son más asequibles que el centro." },
           { label: "Comida y supermercados", score: 8.0, desc: "Pizza al taglio desde 2€. Mercados de barrio baratos. Comer auténtico y barato es parte de la cultura romana." },
-          { label: "Transporte", score: 7.0, desc: "Abono mensual Metrebus Roma a 35€. Metro limitado (solo 3 líneas) pero autobuses y tranvías cubren bien la ciudad." },
-          { label: "Ocio y gastos diarios", score: 7.5, desc: "Cervezas a 4–5€. Mucha vida gratuita: Coliseo exterior, fontanas, Villa Borghese. La ciudad entera es un museo al aire libre." },
+          { label: "Transporte", score: 7.0, desc: "Abono Metrebus Roma: 35 € al mes o 250 € al año (365 días desde la recarga), que sale más a cuenta si te quedas el curso entero. Metro limitado (solo 3 líneas), pero autobuses y tranvías cubren bien la ciudad." },
+          { label: "Ocio y gastos diarios", score: 7.5, desc: "Cervezas a 4–5 € en un bar normal, aunque hay clásicos estudiantiles como Bar San Calisto (Trastevere), con la Peroni grande a unos 2,50 €. Mucha vida gratuita: Coliseo exterior, fontanas, Villa Borghese. La ciudad entera es un museo al aire libre." },
         ],
       },
       // 2. ALOJAMIENTO
@@ -2062,7 +2062,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 5.0, desc: "Alta demanda. Sapienza es una de las universidades más grandes de Europa — eso lo dice todo." },
-          { label: "Precio", score: 5.5, desc: "450–650€ habitación. Pigneto, Nomentano y Ostiense son las zonas más asequibles para estudiantes." },
+          { label: "Precio", score: 5.5, desc: "450–650€ habitación. Pigneto, Nomentano y Ostiense son de las zonas más asequibles. Si estudias en La Sapienza, mira Piazza Bologna (metro B), San Giovanni (metro A y C, tranvía 3 al campus) o San Lorenzo, pegado al campus." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "Idealista, Uniplaces, grupos de Facebook de Sapienza y LUISS. Empieza 3 meses antes mínimo." },
           { label: "Residencias universitarias", score: 6.0, desc: "Las residencias de Sapienza son muy limitadas. No cuentes con ellas y busca por libre desde el principio." },
         ],
@@ -2154,7 +2154,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Seguridad general", score: 7.5, desc: "La violencia es rara. Los problemas más comunes son hurtos y carteristas, no agresiones." },
           { label: "Ambiente de la ciudad", score: 6.0, desc: "Más frecuentes que en Bolonia o Turín. Especial atención en el metro, autobuses llenos y zonas turísticas muy concurridas." },
-          { label: "Seguridad nocturna", score: 7.5, desc: "Trastevere y Testaccio son seguros y muy concurridos. Precaución normal en zonas más oscuras." },
+          { label: "Seguridad nocturna", score: 7.5, desc: "Trastevere y Testaccio son seguros y muy concurridos. En San Lorenzo, la zona de fiesta universitaria, conviene ir atento de noche y volver acompañado, como en cualquier zona de mucho ocio." },
         ],
       },
       ],
@@ -4824,7 +4824,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "La Universität Hamburg calcula 400–700€/mes de vivienda; Sternschanze y St. Pauli, entre las zonas más demandadas." },
           { label: "Comida y supermercados", score: 6.5, desc: "Edeka, Rewe y Aldi para el día a día; el Fischmarkt dominical para pescado fresco barato." },
-          { label: "Transporte", score: 7.0, desc: "Deutschlandticket (63 €/mes en 2026) cubre HVV y trenes regionales por toda Alemania." },
+          { label: "Transporte", score: 7.0, desc: "Deutschland-Ticket (63 €/mes en 2026; 66,80 € desde enero de 2027): HVV y trenes regionales por toda Alemania. Universidades como la TUHH lo incluyen en la cuota semestral como Deutschlandsemesterticket." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Precios de gran ciudad alemana; St. Pauli y Sternschanze tienen bares para todos los bolsillos." },
         ],
       },
@@ -5249,7 +5249,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Alojamiento", score: 5.5, desc: "Según la TH Köln, 450–700€ por habitación en zonas céntricas y 350–550€ en la periferia; el WG (piso compartido) es la norma." },
           { label: "Comida y supermercados", score: 7.0, desc: "Aldi, Lidl y Rewe cubren la compra básica a precios razonables para Alemania." },
-          { label: "Transporte", score: 7.5, desc: "El Deutschlandticket (63 €/mes en 2026) cubre KVB y trenes regionales por todo el país." },
+          { label: "Transporte", score: 7.5, desc: "El Deutschland-Ticket (63 €/mes en 2026; 66,80 € desde enero de 2027) cubre KVB y trenes regionales por todo el país. La Universität zu Köln lo incluye en la cuota semestral como Deutschlandsemesterticket." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "La Kölsch se sirve en vasos pequeños de 0,2 l; en Carnaval el gasto se dispara puntualmente." },
         ],
       },
@@ -6294,7 +6294,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "La universidad calcula unos 500€/mes de alojamiento; el mercado está tensionado por la fuerte demanda." },
           { label: "Comida y supermercados", score: 6.5, desc: "Supermercados alemanes estándar (Aldi, Lidl, Rewe) mantienen el gasto en comida controlado." },
-          { label: "Transporte", score: 6.5, desc: "El Deutschlandticket (63 €/mes en 2026) cubre tranvía y bus por toda la ciudad y buena parte del país." },
+          { label: "Transporte", score: 6.5, desc: "Deutschland-Ticket: 63 €/mes en 2026 y 66,80 € desde enero de 2027. No hay Deutschlandsemesterticket: con menos de 27 años y estudiando en Baden-Württemberg, el D-Ticket JugendBW cuesta 45 €/mes (abono anual, con permanencia de un año)." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Salir de bares y biergartens tiene precios estándar del sur de Alemania." },
         ],
       },
@@ -7054,7 +7054,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "El alquiler es alto para el tamaño de la ciudad por la fuerte demanda universitaria." },
           { label: "Comida y supermercados", score: 6.5, desc: "Supermercados alemanes estándar (Aldi, Lidl, Rewe) mantienen el gasto en comida razonable." },
-          { label: "Transporte", score: 6.5, desc: "El Deutschlandticket (63 €/mes en 2026) cubre tranvía y bus por toda la ciudad y buena parte del país." },
+          { label: "Transporte", score: 6.5, desc: "Deutschland-Ticket: 63 €/mes en 2026 y 66,80 € desde enero de 2027. No hay Deutschlandsemesterticket: con menos de 27 años y estudiando en Baden-Württemberg, el D-Ticket JugendBW cuesta 45 €/mes (abono anual, con permanencia de un año)." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Salir en el centro histórico tiene precios algo elevados por el turismo, aunque razonables fuera de él." },
         ],
       },
@@ -8288,8 +8288,8 @@ export const CITY_INSIGHTS = {
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.0, desc: "TU Dresden calcula 230–500€/mes de alojamiento para estudiantes de intercambio." },
-          { label: "Comida y supermercados", score: 7.5, desc: "Supermercados alemanes estándar mantienen el gasto en comida muy controlado." },
-          { label: "Transporte", score: 8.0, desc: "El Deutschlandsemesterticket va incluido en la contribución semestral de TU Dresden: tranvía, bus y regionales por toda Alemania." },
+          { label: "Comida y supermercados", score: 7.5, desc: "Lidl y Aldi, los discounters que más usan los Erasmus, mantienen el gasto en comida muy controlado." },
+          { label: "Transporte", score: 8.0, desc: "El Deutschlandsemesterticket (37,80 €/mes) va incluido en la contribución semestral de TU Dresden: tranvía, bus y regionales por toda Alemania." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Salir de bares y restaurantes es notablemente más barato que en el oeste de Alemania." },
         ],
       },
@@ -8383,8 +8383,8 @@ export const CITY_INSIGHTS = {
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Alquileres por debajo de Berlín o Múnich; las residencias del Studentenwerk varían de precio según el edificio." },
-          { label: "Comida y supermercados", score: 7.5, desc: "Supermercados alemanes estándar mantienen el gasto en comida muy controlado." },
-          { label: "Transporte", score: 8.0, desc: "El Deutschlandticket (63 €/mes en 2026) cubre tranvía y bus por toda la ciudad y el país." },
+          { label: "Comida y supermercados", score: 7.5, desc: "Lidl y Aldi, los discounters que más usan los Erasmus, mantienen el gasto en comida muy controlado." },
+          { label: "Transporte", score: 8.0, desc: "La cuota semestral incluye el Deutschlandsemesterticket (37,80 €/mes, en la app LeipzigMOVE): tranvía, bus y regionales por todo el país. Sin él, el Deutschland-Ticket cuesta 63 €/mes (66,80 € desde enero de 2027)." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Salir de clubs y bares es notablemente más barato que en Berlín, con oferta similar." },
         ],
       },
@@ -8478,8 +8478,8 @@ export const CITY_INSIGHTS = {
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 4.5, desc: "Una habitación ronda los 430€/mes en Tubinga, según la universidad; conseguirla cuesta por la fuerte demanda." },
-          { label: "Comida y supermercados", score: 6.5, desc: "Supermercados alemanes estándar mantienen el gasto en comida razonable." },
-          { label: "Transporte", score: 6.5, desc: "El Deutschlandticket (63 €/mes en 2026) cubre bus por toda la ciudad y regionales por el país." },
+          { label: "Comida y supermercados", score: 6.5, desc: "Lidl y Aldi, los discounters que más usan los Erasmus, mantienen el gasto en comida razonable." },
+          { label: "Transporte", score: 6.5, desc: "Deutschland-Ticket: 63 €/mes en 2026 y 66,80 € desde enero de 2027 (bus y regionales por todo el país). No hay Deutschlandsemesterticket: con menos de 27 años y estudiando en Baden-Württemberg, el D-Ticket JugendBW cuesta 45 €/mes (abono anual, con permanencia de un año)." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Salir en el centro histórico tiene precios moderados, típicos del sur de Alemania." },
         ],
       },

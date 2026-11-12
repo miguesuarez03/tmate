@@ -10,7 +10,7 @@ import { useCityDetails } from "../hooks/useCityDetail";
 import { BECA_JSON_LD } from "../lib/seo";
 import { BECA_FAQS } from "../data/faqs";
 import { CITY_COORDS, haversineDistanceKm, distanceToRange, geocodeCity } from "../lib/cityCoords";
-import { getAllCities, parseMinCost, parseMaxCost, isErasmusEligible, getErasmusTransition } from "../lib/cities";
+import { getAllCities, parseMinCost, parseMaxCost, isErasmusEligible, getErasmusTransition, getStateCountry } from "../lib/cities";
 
 // Índice ligero de ciudades (ver lib/cities.js).
 const ALL_CITIES = getAllCities();
@@ -67,9 +67,16 @@ const GROUP3 = [
 const ESTIMATED_GROUPS = { "Reino Unido": 1 };
 const ESTIMATE_NOTE = "estimación, pendiente de la convocatoria 2027";
 
-/** «Escocia (Reino Unido)» → «Reino Unido»: el país del programa. */
+// Nombre del país en la tabla del SEPIE cuando cities.js usa otro.
+const SEPIE_NAMES = { "República Checa": "Chequia" };
+
+/**
+ * El país con el que se busca en las tablas del SEPIE:
+ * «Escocia (Reino Unido)» → «Reino Unido», «República Checa» → «Chequia».
+ */
 function programCountry(country) {
-  return country.match(/\(([^)]+)\)$/)?.[1] ?? country;
+  const state = getStateCountry(country);
+  return SEPIE_NAMES[state] ?? state;
 }
 
 // Travel aid table (official EU Erasmus+ rates, unchanged 2024-25 through 2026-27; last verified against official sources: Aug 2026)
@@ -150,17 +157,20 @@ function Calculator() {
   // País se deduce de la ciudad de destino seleccionada
   const destCity = ALL_CITIES.find(c => c.slug === destinationSlug);
   const country = destCity?.country || "";
+  // El mismo país, con el nombre de las tablas del SEPIE (grupos y distancias).
+  const sepieCountry = country ? programCountry(country) : "";
 
   // Actualizar distanceRange sugerida cuando cambia el país
-  const suggestedRange = country && COUNTRY_DISTANCE[country] ? COUNTRY_DISTANCE[country] : distanceRange;
+  const suggestedRange = sepieCountry && COUNTRY_DISTANCE[sepieCountry] ? COUNTRY_DISTANCE[sepieCountry] : distanceRange;
 
   const handleDestinationChange = (slug) => {
     setDestinationSlug(slug);
     setCalcStatus("idle");
     setCalcKm(null);
     const city = ALL_CITIES.find(c => c.slug === slug);
-    if (city?.country && COUNTRY_DISTANCE[city.country]) {
-      setDistanceRange(COUNTRY_DISTANCE[city.country]);
+    const sepie = city?.country ? programCountry(city.country) : "";
+    if (sepie && COUNTRY_DISTANCE[sepie]) {
+      setDistanceRange(COUNTRY_DISTANCE[sepie]);
     }
   };
 
@@ -183,11 +193,11 @@ function Calculator() {
     }
   };
 
-  const officialGroup = GROUP1.includes(country) ? 1 : GROUP2.includes(country) ? 2 : GROUP3.includes(country) ? 3 : null;
+  const officialGroup = GROUP1.includes(sepieCountry) ? 1 : GROUP2.includes(sepieCountry) ? 2 : GROUP3.includes(sepieCountry) ? 3 : null;
   // Reino Unido (Erasmus+ desde 2027-28): grupo estimado, se marca como tal.
   const transition = destCity ? getErasmusTransition(destCity) : null;
   const estimatedGroup = officialGroup === null && transition?.status === "confirmed"
-    ? ESTIMATED_GROUPS[programCountry(country)] ?? null
+    ? ESTIMATED_GROUPS[sepieCountry] ?? null
     : null;
   const group = officialGroup ?? estimatedGroup;
   const groupIsEstimate = estimatedGroup !== null;

@@ -1,10 +1,10 @@
 /**
  * cityCoords.js — MAbroad
  *
- * Coordenadas [lng, lat] de todos los destinos Erasmus+ (mismas que usa WorldMap.jsx
- * para los pines del mapa). Se reutilizan aquí para la calculadora de distancia
- * de la Beca Erasmus+. Son una copia: si añades un destino Erasmus+, añádelo en los
- * dos sitios (tests/erasmus-transition.test.mjs comprueba que no falte ninguno).
+ * Coordenadas [lng, lat] de TODOS los destinos (la única fuente): las usan los
+ * pines del mapa (WorldMap.jsx) y la calculadora de distancia de la Beca
+ * Erasmus+. Si añades una ciudad, añádela aquí (tests/flags.test.mjs falla si
+ * falta alguna).
  */
 
 export const CITY_COORDS = {
@@ -115,6 +115,51 @@ export const CITY_COORDS = {
   rennes:       [-1.68, 48.11],
   pecs:         [18.23, 46.07],
   kaunas:       [23.90, 54.90],
+  // Fuera de Erasmus+ (América): solo las usa el mapa.
+  lausana:               [6.63, 46.52],
+  zurich:                [8.54, 47.37],
+  basilea:               [7.59, 47.56],
+  berna:                 [7.45, 46.95],
+  "nueva-york":          [-74.01, 40.71],
+  boston:                [-71.06, 42.36],
+  chicago:               [-87.63, 41.88],
+  "los-angeles":         [-118.24, 34.05],
+  "san-francisco":       [-122.42, 37.77],
+  miami:                 [-80.19, 25.76],
+  austin:                [-97.74, 30.27],
+  seattle:               [-122.33, 47.61],
+  washington:            [-77.04, 38.91],
+  "nueva-orleans":       [-90.07, 29.95],
+  "ann-arbor":           [-83.74, 42.28],
+  "san-diego":           [-117.16, 32.72],
+  toronto:               [-79.38, 43.65],
+  vancouver:             [-123.12, 49.28],
+  montreal:              [-73.57, 45.50],
+  quebec:                [-71.21, 46.81],
+  ottawa:                [-75.70, 45.42],
+  "ciudad-de-mexico":    [-99.13, 19.43],
+  guadalajara:           [-103.35, 20.68],
+  monterrey:             [-100.32, 25.69],
+  "buenos-aires":        [-58.38, -34.60],
+  "cordoba-argentina":   [-64.18, -31.42],
+  "santiago-de-chile":   [-70.65, -33.45],
+  bogota:                [-74.08, 4.71],
+  medellin:              [-75.57, 6.25],
+  "cartagena-de-indias": [-75.51, 10.39],
+  lima:                  [-77.03, -12.05],
+  cusco:                 [-71.97, -13.53],
+  "ciudad-de-panama":    [-79.52, 8.98],
+  "san-jose-costa-rica": [-84.09, 9.93],
+  montevideo:            [-56.19, -34.90],
+  quito:                 [-78.47, -0.18],
+  "sao-paulo":           [-46.63, -23.55],
+  "rio-de-janeiro":      [-43.21, -22.91],
+  florianopolis:         [-48.55, -27.60],
+  "la-paz":              [-68.15, -16.50],
+  asuncion:              [-57.63, -25.30],
+  "ciudad-de-guatemala": [-90.51, 14.63],
+  "san-salvador":        [-89.19, 13.69],
+  "santo-domingo":       [-69.90, 18.49],
 };
 
 /**

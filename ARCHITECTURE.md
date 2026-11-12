@@ -72,7 +72,7 @@ Copia el bloque de cualquier ciudad existente y modifica el contenido:
 **Eso es todo.** La ciudad aparecerá automáticamente en:
 - El grid de la homepage
 - El buscador con autocomplete
-- El mapa interactivo (si añades las coordenadas en `WorldMap.jsx`)
+- El mapa interactivo (si añades sus coordenadas en `src/lib/cityCoords.js`; si es un país nuevo, también su rótulo en `src/data/mapCountries.js` y `npm run flags:sprite` para la bandera)
 - Los filtros por región
 - Los rankings (calculados automáticamente)
 
@@ -105,8 +105,10 @@ sevilla: {
 ```
 
 Las opiniones NO van aquí: las experiencias reales de estudiantes viven en
-`src/data/cityExperiences.js` y solo entran las recibidas por el formulario
-«Comparte tu experiencia» y aprobadas a mano (nunca texto inventado).
+`src/data/cityExperiences.js` (sección «Lo que dicen los que viven allí» de la ficha) y solo
+entran las que manda una persona real (formulario «Comparte tu experiencia» o directamente)
+y se aprueban a mano (nunca texto inventado). Cada una lleva curso, universidades, `text` y/o
+`tips` por tema; con `anonymous: true` se publica sin nombre.
 
 ---
 

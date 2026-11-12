@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Flag from "../Flag";
 import styles from "./Experiences.module.css";
 
 /** @typedef {import('../../types').ExperienceEntry} ExperienceEntry */
 
 // A partir de esta longitud el texto se recorta y aparece «Leer más».
-const CLAMP_FROM = { row: 280, compact: 360 };
+const CLAMP_FROM = { row: 280, compact: 360, wide: 520 };
+// En la portada (fila de tarjetas) solo caben unos pocos consejos: el resto,
+// en la ficha de la ciudad.
+const MAX_TIPS = { row: 3, compact: Infinity, wide: Infinity };
 
 /** Valoración de 1 a 5 en estrellas (solo lectura). */
 export function Stars({ value }) {
@@ -40,38 +44,65 @@ export function Avatar({ name, photo, size = 44 }) {
 /**
  * Tarjeta de una experiencia real (o la del fundador, con su distintivo).
  * - variant "row": tarjeta de la portada (en una fila con scroll).
- * - variant "compact": columna de la ficha de ciudad.
+ * - variant "compact": tarjeta estrecha.
+ * - variant "wide": sección «Lo que dicen los que viven allí» de la ficha.
  * - showCity: enlace a la ficha de la ciudad (en la portada).
- * @param {{ entry: ExperienceEntry & { role?: string, photo?: string|null }, variant?: "row"|"compact", showCity?: boolean }} props
+ * @param {{ entry: ExperienceEntry & { role?: string, photo?: string|null }, variant?: "row"|"compact"|"wide", showCity?: boolean }} props
  */
 export default function ExperienceCard({ entry, variant = "row", showCity = false }) {
   const [expanded, setExpanded] = useState(false);
-  const long = entry.text.length > CLAMP_FROM[variant];
+  const text = entry.text || "";
+  const allTips = entry.tips || [];
+  const tips = allTips.slice(0, MAX_TIPS[variant]);
+  const hiddenTips = allTips.length - tips.length;
+  const long = text.length > CLAMP_FROM[variant];
 
-  const meta = [entry.stayLabel, entry.year].filter(Boolean).join(" · ");
+  const meta = [entry.stayLabel, entry.course && `curso ${entry.course}`].filter(Boolean).join(" · ");
+  const unis = [
+    entry.homeUniversity && `Desde ${entry.homeUniversity}`,
+    entry.hostUniversity && !entry.founder && `en ${entry.hostUniversity}`,
+  ].filter(Boolean).join(" ");
 
   return (
     <article className={`${styles.card} ${styles[variant]}${entry.founder ? ` ${styles.founderCard}` : ""}`}>
       <div className={styles.cardTop}>
-        <span className={styles.quoteMark} aria-hidden="true">“</span>
+        {text
+          ? <span className={styles.quoteMark} aria-hidden="true">“</span>
+          : <span className={styles.tipsLabel}>Sus consejos</span>}
         {entry.founder
           ? <span className={styles.founderBadge}>{entry.role || "Fundador de MAbroad"}</span>
           : entry.rating ? <Stars value={entry.rating} /> : null}
       </div>
 
-      <p className={`${styles.cardText}${long && !expanded ? ` ${styles.clamped}` : ""}`}>{entry.text}</p>
-      {long && (
+      {text && <p className={`${styles.cardText}${long && !expanded ? ` ${styles.clamped}` : ""}`}>{text}</p>}
+      {text && long && (
         <button type="button" className={styles.moreBtn} onClick={() => setExpanded((v) => !v)} aria-expanded={expanded}>
           {expanded ? "Leer menos" : "Leer más"}
         </button>
+      )}
+
+      {tips.length > 0 && (
+        <ul className={styles.tipList}>
+          {tips.map((t, i) => (
+            <li key={i} className={styles.tip}>
+              <span className={styles.tipTopic}>{t.topicLabel}</span>
+              <span className={styles.tipText}>{t.text}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+      {hiddenTips > 0 && (
+        <p className={styles.moreTips}>
+          {hiddenTips === 1 ? "Y 1 consejo más" : `Y ${hiddenTips} consejos más`} en la ficha de {entry.cityName}.
+        </p>
       )}
 
       <footer className={styles.author}>
         <Avatar name={entry.name} photo={entry.photo} />
         <div className={styles.authorText}>
           <p className={styles.authorName}>{entry.name}</p>
-          <p className={styles.authorMeta}>{entry.cityEmoji} {meta}</p>
-          {entry.homeUniversity && <p className={styles.authorMeta}>Desde {entry.homeUniversity}</p>}
+          <p className={styles.authorMeta}><Flag emoji={entry.cityEmoji} /> {meta}</p>
+          {unis && <p className={styles.authorMeta}>{unis}</p>}
         </div>
       </footer>
 

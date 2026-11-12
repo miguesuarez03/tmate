@@ -228,24 +228,66 @@
 }
 .cityLink:hover { text-decoration: underline; }
 
-/* ── Ficha de ciudad (columna derecha del análisis) ── */
-.cityBlock { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
-.cityTitle {
-  margin: 0;
-  font-family: var(--font-body); font-size: 0.72rem; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-muted);
+/* ── Consejos dentro de una tarjeta ── */
+.tipsLabel {
+  display: inline-flex; align-items: center;
+  padding: 4px 10px; border-radius: var(--radius-full);
+  background: var(--surface-tint-primary); color: var(--color-dark-mid);
+  font-size: 11.5px; font-weight: 800; letter-spacing: 0.2px; white-space: nowrap;
 }
-.cityList { display: flex; flex-direction: column; gap: 12px; }
+.tipList {
+  list-style: none; margin: 12px 0 0; padding: 0;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.tip { display: flex; flex-direction: column; gap: 3px; }
+.tipTopic {
+  font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--color-teal);
+}
+.tipText { font-size: 14.5px; line-height: 1.55; color: var(--color-slate); }
+.moreTips { margin: 10px 0 0; font-size: 13px; font-weight: 600; color: var(--color-muted); }
+
+/* ── Ficha de ciudad: «Lo que dicen los que viven allí» ── */
+.citySection {
+  padding: var(--section-py) 0;
+  background: var(--color-white);
+}
+.cityInner {
+  max-width: 1320px; margin: 0 auto;
+  padding: 0 var(--section-px);
+  display: flex; flex-direction: column; gap: 20px;
+}
+.cityHeader { max-width: 680px; }
+.cityEyebrow {
+  font-family: var(--font-body); font-size: 0.75rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--color-teal); margin: 0 0 0.4rem;
+}
+.cityHeading {
+  font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 800; line-height: 1.1; color: var(--color-dark); margin: 0 0 0.5rem;
+}
+.citySub { margin: 0; font-size: 0.95rem; line-height: 1.55; color: var(--color-slate); }
+
+.cityGrid {
+  display: grid; gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr));
+  align-items: start;
+}
+.wide { padding: 22px 22px 20px; }
 
 .cityShare {
-  display: flex; flex-direction: column; gap: 10px;
-  margin-top: 4px; padding: 14px;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 20px;
+  padding: 16px 20px;
   border-radius: var(--radius-md);
   border: 1.5px dashed var(--color-border);
 }
-.cityShare p { margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--color-slate); }
+.cityShare p { margin: 0; flex: 1; min-width: 220px; font-size: 14px; line-height: 1.5; color: var(--color-slate); }
+.cityShare p strong { color: var(--color-dark); }
+.cityShare .secondaryBtn { width: auto; }
 
 .empty {
+  max-width: 560px;
   display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px;
   padding: 26px 18px 22px;
   border-radius: var(--radius-lg);
@@ -255,7 +297,7 @@
 .emptyIcon { display: inline-flex; margin-bottom: 4px; }
 .emptyTitle { margin: 0; font-size: 15px; font-weight: 800; line-height: 1.4; color: var(--color-dark); }
 .emptyText { margin: 0 0 12px; font-size: 14px; line-height: 1.5; color: var(--color-slate); }
-.empty .primaryBtn { width: 100%; white-space: normal; padding: 12px 18px; font-size: 14px; }
+.empty .primaryBtn { width: 100%; max-width: 320px; white-space: normal; padding: 12px 18px; font-size: 14px; }
 
 /* ── Responsive ── */
 @media (max-width: 860px) {
@@ -267,4 +309,6 @@
   .founder { padding: 22px 18px 26px; }
   .founderActions .primaryBtn { width: 100%; }
   .ctaBar .primaryBtn { width: 100%; }
+  .cityShare .secondaryBtn { width: 100%; }
+  .wide { padding: 18px 16px 16px; }
 }

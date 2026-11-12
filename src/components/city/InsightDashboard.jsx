@@ -3,7 +3,6 @@ import styles from "./InsightDashboard.module.css";
 import { getCityWhatsappGroup } from "../../data/cityWhatsappGroups";
 import { getCategoryIcon } from "../../lib/categoryIcons";
 import { getScoreLevel } from "../../lib/cities";
-import CityExperiences from "../experiences/CityExperiences";
 
 const scoreColor = (s) => getScoreLevel(s).color;
 const scoreLabel = (s) => getScoreLevel(s).label;
@@ -145,11 +144,6 @@ export default function InsightDashboard({ scores = [], overallScore, citySlug, 
             )}
           </div>
         )}
-
-        {/* RIGHT — experiencias reales de la ciudad (src/data/cityExperiences.js) */}
-        <div className={styles.experiences}>
-          <CityExperiences citySlug={citySlug} cityName={cityName} />
-        </div>
       </div>
     </section>
   );

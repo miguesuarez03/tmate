@@ -151,8 +151,9 @@ export default function PrivacidadPage() {
         <h2>4. Formulario «Comparte tu experiencia»</h2>
         <ul>
           <Item label="Qué datos">
-            la ciudad, el año, tu universidad de origen, el nombre o alias que elijas, tu texto, la valoración
-            (si la das), tu email (solo si lo indicas) y la fecha en que aceptas la casilla. Web3Forms
+            la ciudad, el curso, tu universidad de origen y la de destino (si la indicas), el nombre o alias
+            que elijas, si prefieres salir sin nombre, tu texto, la valoración (si la das), tu email (solo si
+            lo indicas) y la fecha en que aceptas la casilla. Web3Forms
             registra además la IP y la fecha y hora del envío.
           </Item>
           <Item label="Para qué">
@@ -160,8 +161,9 @@ export default function PrivacidadPage() {
             email solo lo usamos para avisarte cuando se publique o preguntarte algo sobre ella.
           </Item>
           <Item label="Qué se publica">
-            tu nombre o alias, la ciudad, el año, tu universidad de origen, la valoración y el texto. Tu email,
-            nunca. Lo publicado lo puede ver cualquier visitante.
+            tu nombre o alias (o «Estudiante de» tu universidad, si prefieres salir sin nombre), la ciudad, el
+            curso, tus universidades, la valoración y el texto. Tu email, nunca. Lo publicado lo puede ver
+            cualquier visitante.
           </Item>
           <Item label="Base legal">
             tu consentimiento, que das al marcar la casilla antes de enviar (art. 6.1.a RGPD). Puedes retirarlo

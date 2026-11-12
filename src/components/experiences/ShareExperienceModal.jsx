@@ -24,19 +24,29 @@ const CONTACT_EMAIL = "suarezalvarez.ma03@gmail.com";
 const MAX_LEN = 1500;
 const MIN_LEN = 40;
 const YEARS_BACK = 15;
+const CONSENT_TEXT = "Acepto que MAbroad publique mi experiencia (con el nombre o alias que indico, o sin nombre si lo he marcado) tras revisarla.";
+
+/** Curso «2026-27» a partir del año en que empieza. */
+const courseLabel = (y) => `${y}-${String((y + 1) % 100).padStart(2, "0")}`;
 
 const RATING_WORDS = ["", "Regular", "Bien", "Muy bien", "Genial", "Imprescindible"];
 
-const EMPTY = { city: "", year: "", homeUniversity: "", name: "", text: "", rating: 0, email: "", consent: false };
+const EMPTY = { city: "", course: "", homeUniversity: "", hostUniversity: "", name: "", anonymous: false, text: "", rating: 0, email: "", consent: false };
 
 const SORTED_CITIES = [...ALL_CITIES].sort((a, b) => a.name.localeCompare(b.name, "es"));
 
-/** Bloque listo para pegar en src/data/cityExperiences.js (sin el email). */
+/**
+ * Bloque listo para pegar en src/data/cityExperiences.js (sin el email). Si la
+ * persona prefiere salir sin nombre, el nombre real no entra en el bloque (iría
+ * al JavaScript público): solo llega en el campo «nombre_o_alias» del correo.
+ */
 function publishSnippet(d) {
   const fields = [
-    `name: ${JSON.stringify(d.name.trim())}`,
-    `year: ${Number(d.year)}`,
+    `name: ${JSON.stringify(d.anonymous ? "Anónimo" : d.name.trim())}`,
+    ...(d.anonymous ? ["anonymous: true"] : []),
     `homeUniversity: ${JSON.stringify(d.homeUniversity.trim())}`,
+    ...(d.hostUniversity.trim() ? [`hostUniversity: ${JSON.stringify(d.hostUniversity.trim())}`] : []),
+    `course: ${JSON.stringify(d.course)}`,
     `text: ${JSON.stringify(d.text.trim())}`,
     ...(d.rating ? [`rating: ${d.rating}`] : []),
   ];
@@ -44,17 +54,18 @@ function publishSnippet(d) {
 }
 
 function buildMailto(d, cityName) {
-  const subject = `Mi experiencia en ${cityName} (${d.year})`;
+  const subject = `Mi experiencia en ${cityName} (curso ${d.course})`;
   const body = [
     `Ciudad: ${cityName}`,
-    `Año: ${d.year}`,
+    `Curso: ${d.course}`,
     `Universidad de origen: ${d.homeUniversity.trim()}`,
-    `Nombre o alias: ${d.name.trim()}`,
+    `Universidad de destino: ${d.hostUniversity.trim() || "(no indicada)"}`,
+    `Nombre o alias: ${d.name.trim()}${d.anonymous ? " (prefiero salir sin nombre)" : ""}`,
     `Valoración: ${d.rating ? `${d.rating}/5` : "sin valoración"}`,
     "",
     d.text.trim(),
     "",
-    "Acepto que MAbroad publique mi experiencia (con el nombre o alias que indico) tras revisarla.",
+    CONSENT_TEXT,
   ].join("\n");
   return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
@@ -78,9 +89,12 @@ export default function ShareExperienceModal({ open, onClose, initialCity = "" }
   const id = (name) => `exp-${name}-${uid}`;
   const titleId = id("title");
 
-  const years = useMemo(() => {
-    const now = new Date().getFullYear();
-    return Array.from({ length: YEARS_BACK + 1 }, (_, i) => now - i);
+  // Cursos desde el actual hacia atrás (el formulario solo se pinta en el
+  // cliente, al abrirlo, así que leer la fecha aquí no afecta a la hidratación).
+  const courses = useMemo(() => {
+    const now = new Date();
+    const start = now.getMonth() >= 6 ? now.getFullYear() : now.getFullYear() - 1;
+    return Array.from({ length: YEARS_BACK + 1 }, (_, i) => courseLabel(start - i));
   }, []);
 
   const city = ALL_CITIES.find((c) => c.slug === data.city);
@@ -163,16 +177,18 @@ export default function ShareExperienceModal({ open, onClose, initialCity = "" }
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: WEB3FORMS_KEY,
-          subject: `Nueva experiencia para revisar: ${city.name} (${data.year})`,
+          subject: `Nueva experiencia para revisar: ${city.name} (curso ${data.course})`,
           from_name: "Experiencias MAbroad",
           ciudad: `${city.name} (${city.slug})`,
-          año: data.year,
+          curso: data.course,
           universidad_origen: data.homeUniversity.trim(),
+          universidad_destino: data.hostUniversity.trim() || "(no indicada)",
           nombre_o_alias: data.name.trim(),
+          publicar_sin_nombre: data.anonymous ? "Sí" : "No",
           valoracion: data.rating ? `${data.rating}/5` : "Sin valoración",
           experiencia: data.text.trim(),
           ...(data.email.trim() ? { email: data.email.trim() } : {}),
-          consentimiento_publicacion: `Sí: «Acepto que MAbroad publique mi experiencia (con el nombre o alias que indico) tras revisarla» — ${new Date().toISOString()}`,
+          consentimiento_publicacion: `Sí: «${CONSENT_TEXT}» — ${new Date().toISOString()}`,
           para_publicar: publishSnippet(data),
           botcheck: false,
         }),
@@ -253,17 +269,17 @@ export default function ShareExperienceModal({ open, onClose, initialCity = "" }
                 </select>
               </div>
               <div className={styles.field}>
-                <label htmlFor={id("year")} className={styles.label}>Año</label>
+                <label htmlFor={id("course")} className={styles.label}>Curso</label>
                 <select
-                  id={id("year")}
+                  id={id("course")}
                   className={`${styles.input} ${styles.select}`}
-                  value={data.year}
-                  onChange={(e) => update("year", e.target.value)}
+                  value={data.course}
+                  onChange={(e) => update("course", e.target.value)}
                   required
                   disabled={sending}
                 >
-                  <option value="">Año…</option>
-                  {years.map((y) => <option key={y} value={y}>{y}</option>)}
+                  <option value="">Curso…</option>
+                  {courses.map((c) => <option key={c} value={c}>{c}</option>)}
                 </select>
               </div>
             </div>
@@ -297,18 +313,49 @@ export default function ShareExperienceModal({ open, onClose, initialCity = "" }
                   aria-describedby={id("name-hint")}
                   disabled={sending}
                 />
-                <span id={id("name-hint")} className={styles.hint}>Es lo que se publicará junto a tu experiencia.</span>
+                <span id={id("name-hint")} className={styles.hint}>
+                  {data.anonymous ? "No se publicará: solo lo vemos nosotros." : "Es lo que se publicará junto a tu experiencia."}
+                </span>
+              </div>
+            </div>
+
+            <div className={styles.row}>
+              <div className={styles.field}>
+                <label htmlFor={id("host")} className={styles.label}>
+                  Universidad de destino <span className={styles.optional}>(opcional)</span>
+                </label>
+                <input
+                  id={id("host")}
+                  className={styles.input}
+                  value={data.hostUniversity}
+                  onChange={(e) => update("hostUniversity", e.target.value)}
+                  placeholder="Ej. Sapienza"
+                  maxLength={120}
+                  disabled={sending}
+                />
+              </div>
+              <div className={`${styles.field} ${styles.checkField}`}>
+                <label className={styles.checkLabel}>
+                  <input
+                    type="checkbox"
+                    checked={data.anonymous}
+                    onChange={(e) => update("anonymous", e.target.checked)}
+                    disabled={sending}
+                  />
+                  Prefiero salir sin nombre
+                </label>
+                <span className={styles.hint}>Saldrá como «Estudiante de» tu universidad.</span>
               </div>
             </div>
 
             <div className={styles.field}>
-              <label htmlFor={id("text")} className={styles.label}>Tu experiencia</label>
+              <label htmlFor={id("text")} className={styles.label}>Tus consejos y tu experiencia</label>
               <textarea
                 id={id("text")}
                 className={`${styles.input} ${styles.textarea}`}
                 value={data.text}
                 onChange={(e) => update("text", e.target.value)}
-                placeholder="¿Qué te sorprendió? ¿Qué consejo le darías a alguien que va a tu ciudad? Sé honesto/a."
+                placeholder="Transporte (qué abono coger), barrios para vivir, supermercados, sitios baratos para salir, apps útiles… y lo que te sorprendió. Sé honesto/a."
                 rows={6}
                 minLength={MIN_LEN}
                 maxLength={MAX_LEN}
@@ -382,7 +429,7 @@ export default function ShareExperienceModal({ open, onClose, initialCity = "" }
                 disabled={sending}
               />
               <label htmlFor={id("consent")}>
-                Acepto que MAbroad publique mi experiencia (con el nombre o alias que indico) tras revisarla.{" "}
+                {CONSENT_TEXT}{" "}
                 <Link to="/privacidad" target="_blank" rel="noopener">Política de privacidad</Link>
               </label>
             </div>
@@ -404,7 +451,7 @@ export default function ShareExperienceModal({ open, onClose, initialCity = "" }
             <p className={styles.fine}>
               Responsable: Miguel Ángel Suárez Álvarez (MAbroad). Usamos estos datos solo para revisar y
               publicar tu experiencia; se envían con Web3Forms. Si se publica, aparecen tu nombre o alias, la
-              ciudad, el año, tu universidad, la valoración y el texto; el email, nunca. Puedes retirar tu
+              ciudad, el curso, tus universidades, la valoración y el texto; el email, nunca. Puedes retirar tu
               consentimiento cuando quieras y la quitaremos.{" "}
               <Link to="/privacidad" target="_blank" rel="noopener">Privacidad y tus derechos</Link>
             </p>

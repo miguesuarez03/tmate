@@ -12,8 +12,9 @@
 
 import { CITY_INDEX } from '../data/generated/cityIndex';
 import { SCORE_CATEGORIES } from '../data/scoreCategories';
-import { CITY_EXPERIENCES, FOUNDER_EXPERIENCE } from '../data/cityExperiences';
+import { CITY_EXPERIENCES, FOUNDER_EXPERIENCE, EXPERIENCE_TOPICS } from '../data/cityExperiences';
 import { RANKING_CRITERIA, RANKING_TOP } from '../data/rankings';
+import { MAP_COUNTRIES } from '../data/mapCountries';
 import { CITY_SIZE_LIMITS } from './cityMetrics';
 import { DEFAULT_OG_IMAGE, getCityOgImage } from './seo';
 
@@ -115,6 +116,41 @@ export function getProgramLabel(city) {
   const t = getErasmusTransition(city);
   if (isErasmusEligible(city)) return t ? t.label : 'Erasmus+';
   return t ? `Bilateral · ${t.short}` : 'Bilateral';
+}
+
+// ─── PAÍSES (mapa, beca) ──────────────────────────────────────────────────────
+
+/**
+ * El Estado al que pertenece un país de cities.js: «Escocia (Reino Unido)» →
+ * «Reino Unido». Es el que cuenta para la beca y el que agrupa el mapa.
+ * @param {string} country
+ */
+export function getStateCountry(country) {
+  return country?.match(/\(([^)]+)\)$/)?.[1] ?? country;
+}
+
+/**
+ * Países con destinos para el mapa de la portada: nombre, bandera (la más
+ * repetida entre sus ciudades, así Reino Unido lleva la británica aunque tenga
+ * ciudades escocesas), número de ciudades y su posición en MAP_COUNTRIES
+ * (null si falta: tests/flags.test.mjs lo detecta). Por orden alfabético.
+ */
+export function getMapCountries() {
+  const byCountry = new Map();
+  for (const city of CITY_INDEX) {
+    const name = getStateCountry(city.country);
+    if (!byCountry.has(name)) byCountry.set(name, []);
+    byCountry.get(name).push(city);
+  }
+  return [...byCountry.entries()]
+    .map(([name, cities]) => {
+      const flags = new Map();
+      for (const c of cities) flags.set(c.emoji, (flags.get(c.emoji) || 0) + 1);
+      const flag = [...flags.entries()].sort((a, b) => b[1] - a[1])[0][0];
+      const pos = MAP_COUNTRIES[name] || null;
+      return { name, short: pos?.short || name, flag, count: cities.length, position: pos };
+    })
+    .sort((a, b) => a.name.localeCompare(b.name, 'es'));
 }
 
 // ─── TAMAÑO DE CIUDAD ─────────────────────────────────────────────────────────
@@ -582,15 +618,45 @@ export function clearCompare() {
 
 /** @typedef {import('../types').ExperienceEntry} ExperienceEntry */
 
+const str = (v) => String(v ?? '').trim();
+
+/** Consejos válidos (tema conocido y texto), con la etiqueta de su tema. */
+function toTips(tips) {
+  if (!Array.isArray(tips)) return [];
+  return tips
+    .filter(t => t && EXPERIENCE_TOPICS[t.topic] && str(t.text))
+    .map(t => ({ topic: t.topic, topicLabel: EXPERIENCE_TOPICS[t.topic], text: str(t.text) }));
+}
+
+/** Año en que empieza un curso «2026-27» (para ordenar). */
+function courseStart(course) {
+  return Number(String(course || '').slice(0, 4)) || 0;
+}
+
+/**
+ * Nombre que se publica: el alias o, si la persona prefiere salir anónima
+ * (`anonymous: true`), «Estudiante de <universidad>».
+ */
+function publicName(exp) {
+  if (exp.anonymous) return str(exp.homeUniversity) ? `Estudiante de ${str(exp.homeUniversity)}` : 'Estudiante anónimo';
+  return str(exp.name);
+}
+
 function toEntry(slug, exp) {
   const city = getCityBySlug(slug);
-  if (!city || !exp || !String(exp.name || '').trim() || !String(exp.text || '').trim()) return null;
+  if (!city || !exp) return null;
+  const name = publicName(exp);
+  const text = str(exp.text);
+  const tips = toTips(exp.tips);
+  if (!name || (!text && !tips.length)) return null;
   const rating = Number(exp.rating);
   return {
-    name: String(exp.name).trim(),
-    year: Number(exp.year) || null,
-    homeUniversity: String(exp.homeUniversity || '').trim(),
-    text: String(exp.text).trim(),
+    name,
+    homeUniversity: str(exp.homeUniversity),
+    hostUniversity: str(exp.hostUniversity),
+    course: str(exp.course),
+    text,
+    tips,
     ...(rating >= 1 && rating <= 5 ? { rating: Math.round(rating) } : {}),
     citySlug: slug,
     cityName: city.name,
@@ -604,14 +670,14 @@ export function getCityExperiences(slug) {
   return (CITY_EXPERIENCES[slug] || [])
     .map(exp => toEntry(slug, exp))
     .filter(Boolean)
-    .sort((a, b) => (b.year || 0) - (a.year || 0));
+    .sort((a, b) => courseStart(b.course) - courseStart(a.course));
 }
 
 /** Todas las experiencias reales de todas las ciudades, la más reciente primero. */
 export function getAllExperiences() {
   return Object.keys(CITY_EXPERIENCES)
     .flatMap(slug => getCityExperiences(slug))
-    .sort((a, b) => (b.year || 0) - (a.year || 0));
+    .sort((a, b) => courseStart(b.course) - courseStart(a.course));
 }
 
 /** La experiencia del fundador como tarjeta (versión corta), con su ciudad. */
@@ -620,9 +686,11 @@ export function getFounderEntry() {
   const city = getCityBySlug(f.citySlug);
   return {
     name: f.name,
-    year: null,
     homeUniversity: f.homeUniversity,
+    hostUniversity: f.hostUniversity,
+    course: f.course || '',
     text: f.short,
+    tips: toTips(f.tips),
     citySlug: f.citySlug,
     cityName: city?.name || f.hostUniversity,
     cityEmoji: city?.emoji || '',

@@ -8,7 +8,9 @@ import {
 } from "react-simple-maps";
 import { Link } from "react-router-dom";
 import styles from "./WorldMap.module.css";
-import { getOverallScore, getScoreMap, getCityBySlug, getScoreLevel } from "../lib/cities";
+import { getAllCities, getOverallScore, getScoreMap, getScoreLevel, getStateCountry, getMapCountries } from "../lib/cities";
+import { CITY_COORDS } from "../lib/cityCoords";
+import { MAP_ALL_VIEW } from "../data/mapCountries";
 import { IconFiesta, IconEdificio, IconBeca, IconGlobo } from "./icons";
 import { responsiveImage } from "../lib/images";
 import PhotoCredit from "./PhotoCredit";
@@ -21,244 +23,41 @@ const POPUP_PHOTO_SLOTS = [[null, "240px", 240 / 130]];
 // geometrías de Natural Earth, dominio público), servido desde el propio dominio.
 const GEO_URL = "/maps/countries-110m.json";
 
-// ─── CITIES del mapa — solo coordenadas y rótulos ───────────────────────────
-// Foto y coste se leen de la ficha (cities.js).
-// El score se calcula dinámicamente con getOverallScore() para mantener
-// consistencia con la página de detalle de cada ciudad.
-const CITIES = [
-  { slug: "bolonia",   name: "Bolonia",   country: "Italia",       flag: "🇮🇹", coords: [11.34, 44.49] },
-  { slug: "milan",     name: "Milán",     country: "Italia",       flag: "🇮🇹", coords: [9.19,  45.46] },
-  { slug: "roma",      name: "Roma",      country: "Italia",       flag: "🇮🇹", coords: [12.49, 41.90] },
-  { slug: "turin",     name: "Turín",     country: "Italia",       flag: "🇮🇹", coords: [7.68,  45.07] },
-  { slug: "cracovia",  name: "Cracovia",  country: "Polonia",      flag: "🇵🇱", coords: [19.94, 50.06] },
-  { slug: "varsovia",  name: "Varsovia",  country: "Polonia",      flag: "🇵🇱", coords: [21.01, 52.23] },
-  { slug: "budapest",  name: "Budapest",  country: "Hungría",      flag: "🇭🇺", coords: [19.04, 47.50] },
-  { slug: "praga",     name: "Praga",     country: "Rep. Checa",   flag: "🇨🇿", coords: [14.42, 50.08] },
-  { slug: "la-haya",   name: "La Haya",   country: "Países Bajos", flag: "🇳🇱", coords: [4.30,  52.07] },
-  { slug: "rotterdam", name: "Rotterdam", country: "Países Bajos", flag: "🇳🇱", coords: [4.48,  51.92] },
-  { slug: "munich",    name: "Múnich",    country: "Alemania",     flag: "🇩🇪", coords: [11.58, 48.14] },
-  { slug: "berlin",    name: "Berlín",    country: "Alemania",     flag: "🇩🇪", coords: [13.40, 52.52] },
-  { slug: "lisboa",    name: "Lisboa",    country: "Portugal",     flag: "🇵🇹", coords: [-9.14, 38.71] },
-  { slug: "oporto",    name: "Oporto",    country: "Portugal",     flag: "🇵🇹", coords: [-8.61, 41.15] },
-  { slug: "paris",     name: "París",     country: "Francia",      flag: "🇫🇷", coords: [2.35,  48.85] },
-  { slug: "londres",   name: "Londres",   country: "Reino Unido",  flag: "🇬🇧", coords: [-0.12, 51.51] },
-  { slug: "amsterdam", name: "Ámsterdam", country: "Países Bajos", flag: "🇳🇱", coords: [4.90,  52.37] },
-  { slug: "viena",     name: "Viena",     country: "Austria",      flag: "🇦🇹", coords: [16.37, 48.21] },
-  { slug: "rosenheim", name: "Rosenheim", country: "Alemania",     flag: "🇩🇪", coords: [12.12, 47.85] },
-  { slug: "bruselas",  name: "Bruselas",  country: "Bélgica",      flag: "🇧🇪", coords: [4.35,  50.85] },
-  { slug: "estocolmo", name: "Estocolmo", country: "Suecia",       flag: "🇸🇪", coords: [18.07, 59.33] },
-  { slug: "copenhague", name: "Copenhague", country: "Dinamarca", flag: "🇩🇰", coords: [12.57, 55.68] },
-  { slug: "helsinki",   name: "Helsinki",   country: "Finlandia", flag: "🇫🇮", coords: [24.94, 60.17] },
-  { slug: "oslo",       name: "Oslo",       country: "Noruega",   flag: "🇳🇴", coords: [10.75, 59.91] },
-  { slug: "reikiavik",  name: "Reikiavik",  country: "Islandia",  flag: "🇮🇸", coords: [-21.94, 64.15] },
-  { slug: "dublin",     name: "Dublín",     country: "Irlanda",   flag: "🇮🇪", coords: [-6.27, 53.35] },
-  { slug: "edimburgo",  name: "Edimburgo",  country: "Reino Unido", flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", coords: [-3.19, 55.95] },
-  { slug: "atenas",     name: "Atenas",     country: "Grecia",    flag: "🇬🇷", coords: [23.73, 37.98] },
-  { slug: "zagreb",     name: "Zagreb",     country: "Croacia",   flag: "🇭🇷", coords: [15.98, 45.81] },
-  { slug: "liubliana",  name: "Liubliana",  country: "Eslovenia", flag: "🇸🇮", coords: [14.51, 46.06] },
-  { slug: "tallin",     name: "Tallin",     country: "Estonia",   flag: "🇪🇪", coords: [24.75, 59.44] },
-  { slug: "vilna",      name: "Vilna",      country: "Lituania",  flag: "🇱🇹", coords: [25.28, 54.69] },
-  { slug: "riga",       name: "Riga",       country: "Letonia",   flag: "🇱🇻", coords: [24.11, 56.95] },
-  { slug: "bratislava", name: "Bratislava", country: "Eslovaquia", flag: "🇸🇰", coords: [17.11, 48.15] },
-  { slug: "bucarest",   name: "Bucarest",   country: "Rumanía",   flag: "🇷🇴", coords: [26.10, 44.43] },
-  { slug: "sofia",      name: "Sofía",      country: "Bulgaria",  flag: "🇧🇬", coords: [23.32, 42.70] },
-  { slug: "ginebra",    name: "Ginebra",    country: "Suiza",     flag: "🇨🇭", coords: [6.14, 46.20] },
-  { slug: "florencia",  name: "Florencia",  country: "Italia",    flag: "🇮🇹", coords: [11.26, 43.77] },
-  { slug: "hamburgo",   name: "Hamburgo",   country: "Alemania",  flag: "🇩🇪", coords: [9.99, 53.55] },
-  { slug: "gante",      name: "Gante",      country: "Bélgica",   flag: "🇧🇪", coords: [3.72, 51.05] },
-  { slug: "venecia",    name: "Venecia",    country: "Italia",   flag: "🇮🇹", coords: [12.34, 45.44] },
-  { slug: "lyon",       name: "Lyon",       country: "Francia",  flag: "🇫🇷", coords: [4.84, 45.76] },
-  { slug: "colonia",    name: "Colonia",    country: "Alemania", flag: "🇩🇪", coords: [6.96, 50.94] },
-  { slug: "lovaina",    name: "Lovaina",    country: "Bélgica",  flag: "🇧🇪", coords: [4.70, 50.88] },
-  { slug: "utrecht",    name: "Utrecht",    country: "Países Bajos", flag: "🇳🇱", coords: [5.12, 52.09] },
-  { slug: "lund",       name: "Lund",       country: "Suecia",   flag: "🇸🇪", coords: [13.19, 55.70] },
-  { slug: "innsbruck",  name: "Innsbruck",  country: "Austria",  flag: "🇦🇹", coords: [11.40, 47.27] },
-  { slug: "split",      name: "Split",      country: "Croacia",  flag: "🇭🇷", coords: [16.44, 43.51] },
-  { slug: "salonica",   name: "Salónica",   country: "Grecia",   flag: "🇬🇷", coords: [22.94, 40.64] },
-  { slug: "napoles",    name: "Nápoles",    country: "Italia",   flag: "🇮🇹", coords: [14.25, 40.85] },
-  { slug: "groningen",  name: "Groningen",  country: "Países Bajos", flag: "🇳🇱", coords: [6.57, 53.22] },
-  { slug: "coimbra",    name: "Coimbra",    country: "Portugal", flag: "🇵🇹", coords: [-8.43, 40.21] },
-  { slug: "uppsala",    name: "Uppsala",    country: "Suecia",   flag: "🇸🇪", coords: [17.64, 59.86] },
-  { slug: "friburgo",   name: "Friburgo",   country: "Alemania", flag: "🇩🇪", coords: [7.85, 47.99] },
-  { slug: "nantes",     name: "Nantes",     country: "Francia",  flag: "🇫🇷", coords: [-1.55, 47.22] },
-  { slug: "wroclaw",    name: "Breslavia",  country: "Polonia",  flag: "🇵🇱", coords: [17.03, 51.11] },
-  { slug: "cluj-napoca",name: "Cluj-Napoca",country: "Rumanía",  flag: "🇷🇴", coords: [23.60, 46.77] },
-  { slug: "galway",     name: "Galway",     country: "Irlanda",  flag: "🇮🇪", coords: [-9.05, 53.27] },
-  { slug: "lausana",    name: "Lausana",    country: "Suiza",    flag: "🇨🇭", coords: [6.63, 46.52] },
-  { slug: "malmo",      name: "Malmö",      country: "Suecia",   flag: "🇸🇪", coords: [13.00, 55.60] },
-  { slug: "aarhus",     name: "Aarhus",     country: "Dinamarca", flag: "🇩🇰", coords: [10.20, 56.16] },
-  { slug: "heidelberg", name: "Heidelberg", country: "Alemania", flag: "🇩🇪", coords: [8.69, 49.41] },
-  { slug: "toulouse",   name: "Toulouse",   country: "Francia",  flag: "🇫🇷", coords: [1.44, 43.60] },
-  { slug: "burdeos",    name: "Burdeos",    country: "Francia",  flag: "🇫🇷", coords: [-0.58, 44.84] },
-  { slug: "palermo",    name: "Palermo",    country: "Italia",   flag: "🇮🇹", coords: [13.36, 38.12] },
-  { slug: "gdansk",     name: "Gdansk",     country: "Polonia",  flag: "🇵🇱", coords: [18.65, 54.35] },
-  { slug: "nicosia",    name: "Nicosia",    country: "Chipre",   flag: "🇨🇾", coords: [33.37, 35.17] },
-  { slug: "la-valeta",  name: "La Valeta",  country: "Malta",    flag: "🇲🇹", coords: [14.51, 35.90] },
-  { slug: "zurich",     name: "Zúrich",     country: "Suiza",    flag: "🇨🇭", coords: [8.54, 47.37] },
-  { slug: "brno",       name: "Brno",       country: "República Checa", flag: "🇨🇿", coords: [16.61, 49.20] },
-  { slug: "estrasburgo", name: "Estrasburgo", country: "Francia",  flag: "🇫🇷", coords: [7.75, 48.58] },
-  { slug: "montpellier", name: "Montpellier", country: "Francia",  flag: "🇫🇷", coords: [3.88, 43.61] },
-  { slug: "marsella",    name: "Marsella",    country: "Francia",  flag: "🇫🇷", coords: [5.37, 43.30] },
-  { slug: "lille",       name: "Lille",       country: "Francia",  flag: "🇫🇷", coords: [3.06, 50.63] },
-  { slug: "dresde",      name: "Dresde",      country: "Alemania", flag: "🇩🇪", coords: [13.74, 51.05] },
-  { slug: "leipzig",     name: "Leipzig",     country: "Alemania", flag: "🇩🇪", coords: [12.37, 51.34] },
-  { slug: "tubinga",     name: "Tubinga",     country: "Alemania", flag: "🇩🇪", coords: [9.06, 48.52] },
-  { slug: "poznan",      name: "Poznan",      country: "Polonia",  flag: "🇵🇱", coords: [16.93, 52.41] },
-  { slug: "katowice",    name: "Katowice",    country: "Polonia",  flag: "🇵🇱", coords: [19.02, 50.26] },
-  { slug: "braga",       name: "Braga",       country: "Portugal", flag: "🇵🇹", coords: [-8.43, 41.55] },
-  { slug: "bari",        name: "Bari",        country: "Italia",   flag: "🇮🇹", coords: [16.87, 41.12] },
-  { slug: "padua",       name: "Padua",       country: "Italia",   flag: "🇮🇹", coords: [11.88, 45.41] },
-  { slug: "genova",      name: "Génova",      country: "Italia",   flag: "🇮🇹", coords: [8.93, 44.41] },
-  { slug: "perugia",     name: "Perugia",     country: "Italia",   flag: "🇮🇹", coords: [12.39, 43.11] },
-  { slug: "manchester",  name: "Mánchester",  country: "Reino Unido", flag: "🇬🇧", coords: [-2.24, 53.48] },
-  { slug: "glasgow",     name: "Glasgow",     country: "Reino Unido", flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", coords: [-4.25, 55.86] },
-  { slug: "bristol",     name: "Bristol",     country: "Reino Unido", flag: "🇬🇧", coords: [-2.59, 51.45] },
-  { slug: "basilea",     name: "Basilea",     country: "Suiza",    flag: "🇨🇭", coords: [7.59, 47.56] },
-  { slug: "berna",       name: "Berna",       country: "Suiza",    flag: "🇨🇭", coords: [7.45, 46.95] },
-  { slug: "estambul",    name: "Estambul",    country: "Turquía",  flag: "🇹🇷", coords: [28.98, 41.01] },
-  { slug: "pisa",        name: "Pisa",        country: "Italia",   flag: "🇮🇹", coords: [10.40, 43.72] },
-  { slug: "siena",       name: "Siena",       country: "Italia",   flag: "🇮🇹", coords: [11.33, 43.32] },
-  { slug: "trieste",     name: "Trieste",     country: "Italia",   flag: "🇮🇹", coords: [13.78, 45.65] },
-  { slug: "parma",       name: "Parma",       country: "Italia",   flag: "🇮🇹", coords: [10.33, 44.80] },
-  { slug: "bergamo",     name: "Bérgamo",     country: "Italia",   flag: "🇮🇹", coords: [9.67, 45.70] },
-  { slug: "ferrara",     name: "Ferrara",     country: "Italia",   flag: "🇮🇹", coords: [11.62, 44.84] },
-  { slug: "urbino",      name: "Urbino",      country: "Italia",   flag: "🇮🇹", coords: [12.64, 43.73] },
-  { slug: "lecce",       name: "Lecce",       country: "Italia",   flag: "🇮🇹", coords: [18.17, 40.35] },
-  { slug: "catania",     name: "Catania",     country: "Italia",   flag: "🇮🇹", coords: [15.09, 37.50] },
-  { slug: "cagliari",    name: "Cagliari",    country: "Italia",   flag: "🇮🇹", coords: [9.11, 39.22] },
-  { slug: "maastricht",  name: "Maastricht",  country: "Países Bajos", flag: "🇳🇱", coords: [5.69, 50.85] },
-  { slug: "grenoble",    name: "Grenoble",    country: "Francia",  flag: "🇫🇷", coords: [5.72, 45.19] },
-  { slug: "verona",      name: "Verona",      country: "Italia",   flag: "🇮🇹", coords: [10.99, 45.44] },
-  { slug: "gotemburgo",  name: "Gotemburgo",  country: "Suecia",   flag: "🇸🇪", coords: [11.97, 57.71] },
-  { slug: "liverpool",   name: "Liverpool",   country: "Reino Unido", flag: "🇬🇧", coords: [-2.98, 53.41] },
-  { slug: "leeds",       name: "Leeds",       country: "Reino Unido", flag: "🇬🇧", coords: [-1.55, 53.80] },
-  { slug: "turku",       name: "Turku",       country: "Finlandia", flag: "🇫🇮", coords: [22.27, 60.45] },
-  { slug: "rennes",      name: "Rennes",      country: "Francia",  flag: "🇫🇷", coords: [-1.68, 48.11] },
-  { slug: "pecs",        name: "Pécs",        country: "Hungría",  flag: "🇭🇺", coords: [18.23, 46.07] },
-  { slug: "kaunas",      name: "Kaunas",      country: "Lituania", flag: "🇱🇹", coords: [23.90, 54.90] },
-  { slug: "nueva-york",   name: "Nueva York",   country: "Estados Unidos", flag: "🇺🇸", coords: [-74.01, 40.71] },
-  { slug: "boston",       name: "Boston",       country: "Estados Unidos", flag: "🇺🇸", coords: [-71.06, 42.36] },
-  { slug: "chicago",      name: "Chicago",      country: "Estados Unidos", flag: "🇺🇸", coords: [-87.63, 41.88] },
-  { slug: "los-angeles",  name: "Los Ángeles",  country: "Estados Unidos", flag: "🇺🇸", coords: [-118.24, 34.05] },
-  { slug: "san-francisco",name: "San Francisco",country: "Estados Unidos", flag: "🇺🇸", coords: [-122.42, 37.77] },
-  { slug: "miami",        name: "Miami",        country: "Estados Unidos", flag: "🇺🇸", coords: [-80.19, 25.76] },
-  { slug: "austin",       name: "Austin",       country: "Estados Unidos", flag: "🇺🇸", coords: [-97.74, 30.27] },
-  { slug: "seattle",      name: "Seattle",      country: "Estados Unidos", flag: "🇺🇸", coords: [-122.33, 47.61] },
-  { slug: "washington",   name: "Washington D.C.", country: "Estados Unidos", flag: "🇺🇸", coords: [-77.04, 38.91] },
-  { slug: "nueva-orleans",name: "Nueva Orleans",country: "Estados Unidos", flag: "🇺🇸", coords: [-90.07, 29.95] },
-  { slug: "ann-arbor",    name: "Ann Arbor",    country: "Estados Unidos", flag: "🇺🇸", coords: [-83.74, 42.28] },
-  { slug: "san-diego",    name: "San Diego",    country: "Estados Unidos", flag: "🇺🇸", coords: [-117.16, 32.72] },
-  { slug: "toronto",      name: "Toronto",      country: "Canadá", flag: "🇨🇦", coords: [-79.38, 43.65] },
-  { slug: "vancouver",    name: "Vancouver",    country: "Canadá", flag: "🇨🇦", coords: [-123.12, 49.28] },
-  { slug: "montreal",     name: "Montreal",     country: "Canadá", flag: "🇨🇦", coords: [-73.57, 45.50] },
-  { slug: "quebec",       name: "Quebec",       country: "Canadá", flag: "🇨🇦", coords: [-71.21, 46.81] },
-  { slug: "ottawa",       name: "Ottawa",       country: "Canadá", flag: "🇨🇦", coords: [-75.70, 45.42] },
-  { slug: "ciudad-de-mexico", name: "Ciudad de México", country: "México", flag: "🇲🇽", coords: [-99.13, 19.43] },
-  { slug: "guadalajara",  name: "Guadalajara",  country: "México", flag: "🇲🇽", coords: [-103.35, 20.68] },
-  { slug: "monterrey",    name: "Monterrey",    country: "México", flag: "🇲🇽", coords: [-100.32, 25.69] },
-  { slug: "buenos-aires", name: "Buenos Aires", country: "Argentina", flag: "🇦🇷", coords: [-58.38, -34.60] },
-  { slug: "cordoba-argentina", name: "Córdoba", country: "Argentina", flag: "🇦🇷", coords: [-64.18, -31.42] },
-  { slug: "santiago-de-chile", name: "Santiago de Chile", country: "Chile", flag: "🇨🇱", coords: [-70.65, -33.45] },
-  { slug: "bogota",       name: "Bogotá",       country: "Colombia", flag: "🇨🇴", coords: [-74.08, 4.71] },
-  { slug: "medellin",     name: "Medellín",     country: "Colombia", flag: "🇨🇴", coords: [-75.57, 6.25] },
-  { slug: "cartagena-de-indias", name: "Cartagena de Indias", country: "Colombia", flag: "🇨🇴", coords: [-75.51, 10.39] },
-  { slug: "lima",         name: "Lima",         country: "Perú", flag: "🇵🇪", coords: [-77.03, -12.05] },
-  { slug: "cusco",        name: "Cusco",        country: "Perú", flag: "🇵🇪", coords: [-71.97, -13.53] },
-  { slug: "ciudad-de-panama", name: "Ciudad de Panamá", country: "Panamá", flag: "🇵🇦", coords: [-79.52, 8.98] },
-  { slug: "san-jose-costa-rica", name: "San José", country: "Costa Rica", flag: "🇨🇷", coords: [-84.09, 9.93] },
-  { slug: "montevideo",   name: "Montevideo",   country: "Uruguay", flag: "🇺🇾", coords: [-56.19, -34.90] },
-  { slug: "quito",        name: "Quito",        country: "Ecuador", flag: "🇪🇨", coords: [-78.47, -0.18] },
-  { slug: "sao-paulo",    name: "São Paulo",    country: "Brasil", flag: "🇧🇷", coords: [-46.63, -23.55] },
-  { slug: "rio-de-janeiro", name: "Río de Janeiro", country: "Brasil", flag: "🇧🇷", coords: [-43.21, -22.91] },
-  { slug: "florianopolis",name: "Florianópolis",country: "Brasil", flag: "🇧🇷", coords: [-48.55, -27.60] },
-  { slug: "la-paz",       name: "La Paz",       country: "Bolivia", flag: "🇧🇴", coords: [-68.15, -16.50] },
-  { slug: "asuncion",     name: "Asunción",     country: "Paraguay", flag: "🇵🇾", coords: [-57.63, -25.30] },
-  { slug: "ciudad-de-guatemala", name: "Ciudad de Guatemala", country: "Guatemala", flag: "🇬🇹", coords: [-90.51, 14.63] },
-  { slug: "san-salvador", name: "San Salvador", country: "El Salvador", flag: "🇸🇻", coords: [-89.19, 13.69] },
-  { slug: "santo-domingo",name: "Santo Domingo",country: "República Dominicana", flag: "🇩🇴", coords: [-69.90, 18.49] },
-].map(city => {
-  // Mismas notas de categoría que la ficha de la ciudad (una sola fuente).
-  const scores = getScoreMap(city.slug);
-  const data = getCityBySlug(city.slug);
-  return {
-    ...city,
-    img: data?.img ?? null,
-    // El coste sale de la ficha (cities.js), no de una copia aquí que se desfase.
-    cost: data?.costDetail ?? null,
-    score: getOverallScore(city.slug),
-    fiesta: scores.vida_social?.score ?? 7,
-    cultura: scores.estilo_vida?.score ?? 7,
-    economia: scores.coste?.score ?? 7,
-    dinero: scores.coste?.score ?? 7,
-  };
-})
+// ─── CIUDADES del mapa ───────────────────────────────────────────────────────
+// Todo sale de una sola fuente: nombre, país, bandera, foto y coste de la ficha
+// (índice de lib/cities.js) y las coordenadas de lib/cityCoords.js. Así un
+// destino nuevo aparece en el mapa con su bandera sin tocar este archivo. El
+// score se calcula con getOverallScore(), igual que en la ficha.
+const CITIES = getAllCities()
+  .filter(city => CITY_COORDS[city.slug])
+  .map(city => {
+    // Mismas notas de categoría que la ficha de la ciudad (una sola fuente).
+    const scores = getScoreMap(city.slug);
+    return {
+      slug: city.slug,
+      name: city.name,
+      // «Escocia (Reino Unido)» se agrupa con Reino Unido (filtro y rótulo);
+      // el pin conserva su bandera escocesa.
+      country: getStateCountry(city.country),
+      flag: city.emoji,
+      coords: CITY_COORDS[city.slug],
+      img: city.img ?? null,
+      cost: city.costDetail ?? null,
+      score: getOverallScore(city.slug),
+      fiesta: scores.vida_social?.score ?? 7,
+      cultura: scores.estilo_vida?.score ?? 7,
+      economia: scores.coste?.score ?? 7,
+      dinero: scores.coste?.score ?? 7,
+    };
+  });
 
-// ─── PAÍSES con coordenadas para zoom ─────────────────────────────────────────
-const COUNTRY_ZOOM = {
-  "Todos":         { coords: [-44.9, 22.9], zoom: 0.29 },
-  "Italia":        { coords: [12.5, 42], zoom: 3.0 },
-  "Alemania":      { coords: [10.5, 51], zoom: 3.2 },
-  "Polonia":       { coords: [20, 52],   zoom: 3.5 },
-  "Portugal":      { coords: [-8.5, 39], zoom: 3.8 },
-  "Francia":       { coords: [2.5, 46],  zoom: 3.2 },
-  "Reino Unido":   { coords: [-1, 52],   zoom: 3.5 },
-  "Países Bajos":  { coords: [5, 52.3],  zoom: 4.5 },
-  "Hungría":       { coords: [19, 47],   zoom: 4.5 },
-  "Rep. Checa":    { coords: [15.5, 50], zoom: 4.5 },
-  "Austria":       { coords: [14, 47.5], zoom: 4.5 },
-  "Bélgica":       { coords: [4.5, 50.5],zoom: 5.5 },
-  "Suiza":         { coords: [8.2, 46.8], zoom: 4.0 },
-  "Estados Unidos": { coords: [-96, 38],   zoom: 1.2 },
-  "Canadá":         { coords: [-90, 46],   zoom: 1.4 },
-  "México":         { coords: [-101, 22],  zoom: 2.2 },
-  "Argentina":      { coords: [-61, -33],  zoom: 2.5 },
-  "Chile":          { coords: [-70.65, -33.45], zoom: 4.0 },
-  "Colombia":       { coords: [-75, 5.5],  zoom: 3.0 },
-  "Perú":           { coords: [-75, -12.5],zoom: 2.8 },
-  "Panamá":         { coords: [-79.52, 8.98], zoom: 4.5 },
-  "Costa Rica":     { coords: [-84.09, 9.93], zoom: 5.0 },
-  "Uruguay":        { coords: [-56.19, -34.90], zoom: 4.5 },
-  "Ecuador":        { coords: [-78.47, -0.18], zoom: 4.5 },
-  "Brasil":         { coords: [-46, -25],  zoom: 2.5 },
-  "Bolivia":        { coords: [-68.15, -16.50], zoom: 4.0 },
-  "Paraguay":       { coords: [-57.63, -25.30], zoom: 4.5 },
-  "Guatemala":      { coords: [-90.51, 14.63], zoom: 5.0 },
-  "El Salvador":    { coords: [-89.19, 13.69], zoom: 5.5 },
-  "República Dominicana": { coords: [-69.90, 18.49], zoom: 5.0 },
-};
-
-// ─── ETIQUETAS DE PAÍS ───────────────────────────────────────────────────────
-const COUNTRY_LABELS = [
-  { name: "Italia",       flag: "🇮🇹", coords: [12.5, 42.5] },
-  { name: "Alemania",    flag: "🇩🇪", coords: [10.5, 51.2] },
-  { name: "Polonia",     flag: "🇵🇱", coords: [19.5, 52.0] },
-  { name: "Portugal",    flag: "🇵🇹", coords: [-8.0, 39.5] },
-  { name: "Francia",     flag: "🇫🇷", coords: [2.5,  46.5] },
-  { name: "Reino Unido", flag: "🇬🇧", coords: [-2.0, 53.5] },
-  { name: "Países Bajos",flag: "🇳🇱", coords: [5.3,  52.3] },
-  { name: "Hungría",     flag: "🇭🇺", coords: [19.0, 47.2] },
-  { name: "Rep. Checa",  flag: "🇨🇿", coords: [15.5, 49.8] },
-  { name: "Austria",     flag: "🇦🇹", coords: [14.0, 47.5] },
-  { name: "Bélgica",     flag: "🇧🇪", coords: [4.5,  50.5] },
-  { name: "Suiza",       flag: "🇨🇭", coords: [8.2,  46.8] },
-  { name: "Estados Unidos", flag: "🇺🇸", coords: [-96, 38] },
-  { name: "Canadá",         flag: "🇨🇦", coords: [-90, 55] },
-  { name: "México",         flag: "🇲🇽", coords: [-101, 22] },
-  { name: "Argentina",      flag: "🇦🇷", coords: [-61, -35] },
-  { name: "Chile",          flag: "🇨🇱", coords: [-70.65, -33.45] },
-  { name: "Colombia",       flag: "🇨🇴", coords: [-75, 5.5] },
-  { name: "Perú",           flag: "🇵🇪", coords: [-75, -10] },
-  { name: "Panamá",         flag: "🇵🇦", coords: [-79.52, 8.98] },
-  { name: "Costa Rica",     flag: "🇨🇷", coords: [-84.09, 9.93] },
-  { name: "Uruguay",        flag: "🇺🇾", coords: [-56.19, -34.90] },
-  { name: "Ecuador",        flag: "🇪🇨", coords: [-78.47, -0.18] },
-  { name: "Brasil",         flag: "🇧🇷", coords: [-48, -20] },
-  { name: "Bolivia",        flag: "🇧🇴", coords: [-68.15, -16.50] },
-  { name: "Paraguay",       flag: "🇵🇾", coords: [-57.63, -25.30] },
-  { name: "Guatemala",      flag: "🇬🇹", coords: [-90.51, 14.63] },
-  { name: "El Salvador",    flag: "🇸🇻", coords: [-89.19, 13.69] },
-  { name: "República Dominicana", flag: "🇩🇴", coords: [-69.90, 18.49] },
-];
+// ─── PAÍSES: rótulo (bandera + nombre) y zoom al elegirlos ───────────────────
+// Cada país con destinos, con su posición de src/data/mapCountries.js
+// (tests/flags.test.mjs comprueba que no falte ninguno).
+const MAP_COUNTRY_LIST = getMapCountries().filter(c => c.position);
+// Zoom mínimo: el del mapa y el del botón «Alejar» (la vista mundial es 0.29).
+const MIN_ZOOM = 0.22;
+const COUNTRY_VIEW = Object.fromEntries(MAP_COUNTRY_LIST.map(c => [c.name, c.position]));
 
 // ─── FILTROS DE VIBE ──────────────────────────────────────────────────────────
 const VIBE_FILTERS = [
@@ -267,7 +66,7 @@ const VIBE_FILTERS = [
   { key: "barato",   label: "Barato",   Icon: IconBeca, desc: "Coste de vida bajo" },
 ];
 
-const ALL_COUNTRIES = ["Todos", ...Array.from(new Set(CITIES.map(c => c.country))).sort()];
+const ALL_COUNTRIES = ["Todos", ...MAP_COUNTRY_LIST.map(c => c.name)];
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
 const scoreColor = (score) => getScoreLevel(score).color;
@@ -317,7 +116,7 @@ function CityPopup({ city, onClose }) {
 export default function WorldMap() {
   const [selected, setSelected]   = useState(null);
   const [tooltip, setTooltip]     = useState(null);
-  const [position, setPosition]   = useState({ coordinates: [-44.9, 22.9], zoom: 0.29 });
+  const [position, setPosition]   = useState({ coordinates: MAP_ALL_VIEW.center, zoom: MAP_ALL_VIEW.zoom });
   const zoom = position.zoom;
   const [country, setCountry]     = useState("Todos");
   const [vibeFilter, setVibeFilter] = useState(null); // null | "fiesta"|"cultura"|"economia"|"dinero"
@@ -327,8 +126,8 @@ export default function WorldMap() {
 
   // Zoom al país al seleccionar
   useEffect(() => {
-    const target = COUNTRY_ZOOM[country] || COUNTRY_ZOOM["Todos"];
-    setPosition({ coordinates: target.coords, zoom: target.zoom });
+    const target = COUNTRY_VIEW[country] || MAP_ALL_VIEW;
+    setPosition({ coordinates: target.center, zoom: target.zoom });
     setSelected(null);
     setTooltip(null);
   }, [country]);
@@ -425,7 +224,7 @@ export default function WorldMap() {
             center={position.coordinates}
             zoom={position.zoom}
             onMoveEnd={handleMoveEnd}
-            minZoom={0.22}
+            minZoom={MIN_ZOOM}
             maxZoom={14}
           >
             <Geographies geography={GEO_URL}>
@@ -445,12 +244,12 @@ export default function WorldMap() {
             </Geographies>
 
             {/* Etiquetas de país */}
-            {COUNTRY_LABELS.map(c => {
+            {MAP_COUNTRY_LIST.map(c => {
               const base = 1 / zoom;
               const fontSize = Math.max(4, Math.min(10, base * 10));
               const emojiSize = Math.max(7, Math.min(18, base * 16));
               return (
-                <Marker key={c.name} coordinates={c.coords} style={{ pointerEvents: "none" }}>
+                <Marker key={c.name} coordinates={c.position.label} style={{ pointerEvents: "none" }}>
                   <SvgFlag emoji={c.flag} y={0} height={emojiSize * 0.8} />
                   <text
                     textAnchor="middle"
@@ -461,7 +260,7 @@ export default function WorldMap() {
                     fontWeight="600"
                     style={{ pointerEvents: "none", userSelect: "none" }}
                   >
-                    {c.name}
+                    {c.short}
                   </text>
                 </Marker>
               );
@@ -549,7 +348,7 @@ export default function WorldMap() {
         {/* Controles zoom */}
         <div className={styles.zoomControls}>
           <button className={styles.zoomBtn} onClick={() => setPosition(p => ({ ...p, zoom: Math.min(p.zoom * 1.4, 14) }))} aria-label="Acercar">+</button>
-          <button className={styles.zoomBtn} onClick={() => setPosition(p => ({ ...p, zoom: Math.max(p.zoom / 1.4, 1) }))} aria-label="Alejar">−</button>
+          <button className={styles.zoomBtn} onClick={() => setPosition(p => ({ ...p, zoom: Math.max(p.zoom / 1.4, MIN_ZOOM) }))} aria-label="Alejar">−</button>
         </div>
 
         <div className={styles.cityCount}>

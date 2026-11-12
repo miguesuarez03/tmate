@@ -86,12 +86,28 @@ export interface ScoreItem {
 
 // ─── Experiencias reales (src/data/cityExperiences.js) ───────────────────────
 
-/** Experiencia enviada por el formulario y aprobada a mano. Nunca lleva email. */
+/** Tema de un consejo (claves de EXPERIENCE_TOPICS en cityExperiences.js). */
+export type ExperienceTopic =
+  | 'transporte' | 'alojamiento' | 'ocio' | 'compras' | 'apps' | 'universidad' | 'otros';
+
+/** Un consejo concreto de un estudiante. */
+export interface ExperienceTip {
+  topic: ExperienceTopic;
+  text: string;
+}
+
+/**
+ * Experiencia real de un estudiante, aprobada a mano. Nunca lleva email.
+ * Necesita `text`, `tips` o las dos cosas.
+ */
 export interface CityExperience {
   name: string;               // nombre o alias elegido por la persona
-  year: number;               // año del intercambio
+  anonymous?: boolean;        // true → se publica sin nombre («Estudiante de …»)
   homeUniversity: string;     // universidad de origen
-  text: string;
+  hostUniversity?: string;    // universidad de destino, si la dio
+  course: string;             // curso del intercambio: "2026-27"
+  text?: string;              // su experiencia, con sus palabras
+  tips?: ExperienceTip[];     // sus consejos, por tema
   rating?: number;            // 1-5, opcional
 }
 
@@ -103,18 +119,30 @@ export interface FounderExperience {
   homeUniversity: string;
   hostUniversity: string;
   citySlug: string;
+  course: string;             // curso del intercambio: "2026-27"
   photo: string | null;       // retrato en /public (vertical 4:5, 640×800)
   avatar?: string | null;     // recorte cuadrado de la cara (160×160)
   story: string[];            // párrafos de la portada
   short: string;              // versión corta para tarjetas
+  tips?: ExperienceTip[];     // sus consejos de la ciudad, por tema
 }
 
 /** Experiencia lista para pintar: con su ciudad resuelta. */
-export interface ExperienceEntry extends CityExperience {
+export interface ExperienceEntry {
+  name: string;               // ya resuelto: el alias o «Estudiante de …» si es anónima
+  homeUniversity: string;
+  hostUniversity: string;
+  course: string;
+  text: string;               // '' si solo dejó consejos
+  tips: (ExperienceTip & { topicLabel: string })[];
+  rating?: number;
   citySlug: string;
   cityName: string;
   cityEmoji: string;
+  stayLabel: string;          // «Erasmus en Roma»
   founder?: boolean;
+  role?: string;
+  photo?: string | null;
 }
 
 export interface CityInsights {

@@ -80,7 +80,7 @@ export const CITIES = [
       { name: "Pigneto", vibe: "Alternativo & local", price: "€€" },
       { name: "Nomentano", vibe: "Estudiantil & tranquilo", price: "€" },
     ],
-    tips: ["Abono mensual Metrebus Roma: 35€ (metro, bus y tranvía)", "Fuentes de agua gratuitas (nasoni) por toda la ciudad", "Museos estatales gratis el primer domingo de mes"],
+    tips: ["Abono Metrebus Roma: 35 € al mes o 250 € al año (365 días desde la recarga). Si te quedas el curso entero, el anual sale más a cuenta", "Si estudias en La Sapienza: Piazza Bologna (metro B), San Giovanni (metro A y C, con el tranvía 3 al campus) o San Lorenzo, pegado al campus y con mucha vida", "Bar San Calisto (Trastevere): un clásico entre estudiantes, con la Peroni grande a unos 2,50 €", "Fuentes de agua gratuitas (nasoni) por toda la ciudad", "Museos estatales gratis el primer domingo de mes"],
     experiences: ["erasmus", "volunteering"],
   },
   {
@@ -304,7 +304,7 @@ export const CITIES = [
       { name: "Maxvorstadt", vibe: "Universidad & museos", price: "€€€" },
       { name: "Sendling", vibe: "Local & tranquilo", price: "€€" },
     ],
-    tips: ["Deutschlandticket: 63€/mes — todo el transporte local y regional de Alemania", "English Garden: playa urbana en verano", "WG (pisos compartidos): la opción más asequible"],
+    tips: ["Deutschland-Ticket: 63 €/mes en 2026 y 66,80 € desde enero de 2027; si estudias en Baviera, la MVG te lo vende rebajado a 43 €/mes (46,80 € en 2027) con tu certificado de matrícula", "Apps: DB Navigator (trenes de toda Alemania y el Deutschland-Ticket) y MVGO o la MVV-App para metro, tranvía y bus", "Para la compra, Lidl y Aldi: los discounters que más usan los Erasmus, con un surtido parecido al de Mercadona", "English Garden: playa urbana en verano", "WG (pisos compartidos): la opción más asequible"],
     experiences: ["erasmus", "internship"],
   },
   {
@@ -332,7 +332,7 @@ export const CITIES = [
       { name: "Prenzlauer Berg", vibe: "Familiar & bohemio", price: "€€€" },
       { name: "Kreuzberg", vibe: "Artístico & rebelde", price: "€€" },
     ],
-    tips: ["Deutschlandticket: 63 €/mes en 2026 — transporte regional por toda Alemania", "Mercado de pulgas Mauerpark los domingos", "Museos gratis para menores de 18"],
+    tips: ["Deutschland-Ticket: 63 €/mes en 2026 y 66,80 € desde enero de 2027; muchas universidades lo incluyen en la cuota semestral como Deutschlandsemesterticket (37,80 €/mes), pero depende de cada una: confírmalo en la tuya", "Apps: DB Navigator (trenes de toda Alemania y el Deutschland-Ticket) y BVG Tickets o BVG Fahrinfo para metro, S-Bahn, tranvía y bus", "Para la compra, Lidl y Aldi: los discounters que más usan los Erasmus, con un surtido parecido al de Mercadona", "Mercado de pulgas Mauerpark los domingos", "Museos gratis para menores de 18"],
     experiences: ["erasmus", "internship", "work-travel"],
   },
   {
@@ -529,7 +529,7 @@ export const CITIES = [
       { name: "Innenstadt", vibe: "Centro histórico tranquilo", price: "€€" },
       { name: "Aicherpark", vibe: "Zona comercial & de oficinas", price: "€€" },
     ],
-    tips: ["Deutschlandticket (63 €/mes en 2026) conecta con toda Alemania", "Chiemsee a 20 minutos — el mar de Baviera", "Mercado de Navidad de los más bonitos del país"],
+    tips: ["Deutschland-Ticket: 63 €/mes en 2026 y 66,80 € desde enero de 2027. Los estudiantes de la TH Rosenheim lo piden rebajado a la MVG: 43 €/mes en vez de 63 € (46,80 € en 2027)", "Apps: DB Navigator (trenes de toda Alemania y el Deutschland-Ticket) y la MVV-App para el bus urbano, que va con el MVV", "Para la compra, Lidl y Aldi: los discounters que más usan los Erasmus, con un surtido parecido al de Mercadona", "Chiemsee a 20 minutos — el mar de Baviera", "Mercado de Navidad de los más bonitos del país"],
     experiences: ["erasmus"],
   },
   {
@@ -1093,7 +1093,7 @@ export const CITIES = [
       { name: "Sternschanze", vibe: "Alternativo & estudiantil", price: "€€" },
       { name: "Eimsbüttel", vibe: "Residencial & familiar", price: "€€€" },
     ],
-    tips: ["Deutschlandticket (63 €/mes en 2026) cubre HVV y trenes regionales por toda Alemania", "Fischmarkt los domingos de madrugada — clásico entre estudiantes tras la fiesta", "Plaza de la Elbphilharmonie: 5 € (3 € reducida), con las entradas en su web", "Alster (los dos lagos urbanos) para correr, remar o hacer picnic"],
+    tips: ["Deutschland-Ticket: 63 €/mes en 2026 y 66,80 € desde enero de 2027 (cubre HVV y regionales); muchas universidades lo incluyen en la cuota semestral como Deutschlandsemesterticket (37,80 €/mes), pero depende de cada una: confírmalo en la tuya", "Apps: DB Navigator (trenes de toda Alemania y el Deutschland-Ticket) y hvv switch para el transporte de la ciudad", "Para la compra, Lidl y Aldi: los discounters que más usan los Erasmus, con un surtido parecido al de Mercadona", "Fischmarkt los domingos de madrugada — clásico entre estudiantes tras la fiesta", "Plaza de la Elbphilharmonie: 5 € (3 € reducida), con las entradas en su web", "Alster (los dos lagos urbanos) para correr, remar o hacer picnic"],
     experiences: ["erasmus", "internship"],
   },
   {
@@ -1205,7 +1205,7 @@ export const CITIES = [
       { name: "Belgisches Viertel", vibe: "Moderno & animado", price: "€€€" },
       { name: "Südstadt", vibe: "Estudiantil & tranquilo", price: "€€" },
     ],
-    tips: ["Deutschlandticket (63 €/mes en 2026) cubre KVB y regionales por toda Alemania", "Si llegas en Carnaval (febrero o marzo), reserva pronto: la ciudad se llena", "En los brauhaus, deja el posavasos sobre la copa para dejar de beber", "Museo Ludwig y subida a la torre de la catedral, con entrada reducida para estudiantes"],
+    tips: ["Deutschland-Ticket: 63 €/mes en 2026 y 66,80 € desde enero de 2027 (cubre KVB y regionales); la Universität zu Köln lo incluye en la cuota semestral como Deutschlandsemesterticket", "Apps: DB Navigator (trenes de toda Alemania y el Deutschland-Ticket) y la KVB-App para metro ligero, tranvía y bus", "Para la compra, Lidl y Aldi: los discounters que más usan los Erasmus, con un surtido parecido al de Mercadona", "Si llegas en Carnaval (febrero o marzo), reserva pronto: la ciudad se llena", "En los brauhaus, deja el posavasos sobre la copa para dejar de beber", "Museo Ludwig y subida a la torre de la catedral, con entrada reducida para estudiantes"],
     experiences: ["erasmus", "internship"],
   },
   {
@@ -1513,7 +1513,7 @@ export const CITIES = [
       { name: "Stühlinger", vibe: "Estudiantil & multicultural", price: "€€" },
       { name: "Vauban", vibe: "Eco-barrio & tranquilo", price: "€€" },
     ],
-    tips: ["Deutschlandticket (63 €/mes en 2026) cubre tranvías, bus y regionales por toda Alemania", "No pises los Bächle con zapatos nuevos — la leyenda local dice que te casarás con un friburgués", "Vauban, el eco-barrio, es visita obligada para ver urbanismo sostenible real", "Excursión al Feldberg, el pico más alto de la Selva Negra, en tren y autobús"],
+    tips: ["Deutschland-Ticket: 63 €/mes en 2026 y 66,80 € desde enero de 2027; aquí no hay Deutschlandsemesterticket, pero si tienes menos de 27 años y estudias aquí, tienes el D-Ticket JugendBW por 45 €/mes (abono anual: te comprometes un año)", "Apps: DB Navigator (trenes de toda Alemania y el Deutschland-Ticket) y VAG mobil o RVF mobil para tranvía y bus", "Para la compra, Lidl y Aldi: los discounters que más usan los Erasmus, con un surtido parecido al de Mercadona", "No pises los Bächle con zapatos nuevos — la leyenda local dice que te casarás con un friburgués", "Vauban, el eco-barrio, es visita obligada para ver urbanismo sostenible real", "Excursión al Feldberg, el pico más alto de la Selva Negra, en tren y autobús"],
     experiences: ["erasmus", "internship"],
   },
   {
@@ -1739,7 +1739,7 @@ export const CITIES = [
       { name: "Weststadt", vibe: "Residencial & tranquilo", price: "€€" },
       { name: "Bergheim", vibe: "Estudiantil & asequible", price: "€€" },
     ],
-    tips: ["Deutschlandticket (63 €/mes en 2026) cubre tranvía, bus y regionales por toda Alemania", "Sube al castillo a pie por el Kurzer Buckel para evitar el funicular en horas punta", "El Philosophenweg al atardecer, la vista más fotografiada de la ciudad", "Mannheim y Frankfurt, ambas a menos de una hora, para escapadas rápidas"],
+    tips: ["Deutschland-Ticket: 63 €/mes en 2026 y 66,80 € desde enero de 2027; aquí no hay Deutschlandsemesterticket, pero si tienes menos de 27 años y estudias aquí, tienes el D-Ticket JugendBW por 45 €/mes (abono anual: te comprometes un año)", "Apps: DB Navigator (trenes de toda Alemania y el Deutschland-Ticket) y myVRN para tranvía y bus", "Para la compra, Lidl y Aldi: los discounters que más usan los Erasmus, con un surtido parecido al de Mercadona", "Sube al castillo a pie por el Kurzer Buckel para evitar el funicular en horas punta", "El Philosophenweg al atardecer, la vista más fotografiada de la ciudad", "Mannheim y Frankfurt, ambas a menos de una hora, para escapadas rápidas"],
     experiences: ["erasmus", "internship"],
   },
   {
@@ -2105,7 +2105,7 @@ export const CITIES = [
       { name: "Altstadt", vibe: "Histórico & monumental", price: "€€" },
       { name: "Löbtau", vibe: "Residencial & asequible", price: "€" },
     ],
-    tips: ["La contribución semestral de TU Dresden incluye el Deutschlandsemesterticket: tranvía, bus y regionales por toda Alemania", "Äußere Neustadt concentra bares, música en directo y vida nocturna", "Entradas de pie de la Semperoper, mucho más baratas que sentado", "Praga, a unas dos horas y media en tren, para una escapada de fin de semana"],
+    tips: ["La contribución semestral de TU Dresden incluye el Deutschlandsemesterticket (37,80 €/mes): tranvía, bus y regionales por toda Alemania. Sin él, el Deutschland-Ticket cuesta 63 €/mes en 2026 y 66,80 € desde enero de 2027", "Apps: DB Navigator (trenes de toda Alemania y el Deutschland-Ticket) y DVB mobil para tranvía y bus", "Para la compra, Lidl y Aldi: los discounters que más usan los Erasmus, con un surtido parecido al de Mercadona", "Äußere Neustadt concentra bares, música en directo y vida nocturna", "Entradas de pie de la Semperoper, mucho más baratas que sentado", "Praga, a unas dos horas y media en tren, para una escapada de fin de semana"],
     experiences: ["erasmus", "internship"],
   },
   {
@@ -2133,7 +2133,7 @@ export const CITIES = [
       { name: "Plagwitz", vibe: "Creativo & industrial", price: "€€" },
       { name: "Südvorstadt", vibe: "Animado & céntrico", price: "€€" },
     ],
-    tips: ["Deutschlandticket cubre tranvía y bus por toda la ciudad y el país", "Spinnerei abre sus galerías al público los sábados", "Auerbachs Keller, la taberna que inspiró el Fausto de Goethe", "Connewitz concentra la vida nocturna alternativa de la ciudad"],
+    tips: ["Deutschland-Ticket: 63 €/mes en 2026 y 66,80 € desde enero de 2027; en Leipzig la cuota semestral incluye el Deutschlandsemesterticket (37,80 €/mes), que se lleva en la app LeipzigMOVE", "Apps: DB Navigator (trenes de toda Alemania y el Deutschland-Ticket) y LeipzigMOVE para tranvía y bus", "Para la compra, Lidl y Aldi: los discounters que más usan los Erasmus, con un surtido parecido al de Mercadona", "Spinnerei abre sus galerías al público los sábados", "Auerbachs Keller, la taberna que inspiró el Fausto de Goethe", "Connewitz concentra la vida nocturna alternativa de la ciudad"],
     experiences: ["erasmus", "internship"],
   },
   {
@@ -2161,7 +2161,7 @@ export const CITIES = [
       { name: "Französisches Viertel", vibe: "Moderno & familiar", price: "€€€" },
       { name: "Weststadt", vibe: "Residencial & tranquilo", price: "€€" },
     ],
-    tips: ["Prueba el Stocherkahn, la batea tradicional del Neckar, al menos una vez", "Bici imprescindible para moverte por la ciudad y sus cuestas", "Stuttgart a menos de una hora en tren para escapadas de fin de semana", "Hölderlinturm y los jardines botánicos, ideales para estudiar al aire libre"],
+    tips: ["Deutschland-Ticket: 63 €/mes en 2026 y 66,80 € desde enero de 2027; aquí no hay Deutschlandsemesterticket, pero si tienes menos de 27 años y estudias aquí, tienes el D-Ticket JugendBW por 45 €/mes (abono anual: te comprometes un año)", "Apps: DB Navigator (trenes de toda Alemania y el Deutschland-Ticket) y la app naldo, que también vende los billetes de TüBus", "Para la compra, Lidl y Aldi: los discounters que más usan los Erasmus, con un surtido parecido al de Mercadona", "Prueba el Stocherkahn, la batea tradicional del Neckar, al menos una vez", "Bici imprescindible para moverte por la ciudad y sus cuestas", "Stuttgart a menos de una hora en tren para escapadas de fin de semana"],
     experiences: ["erasmus"],
   },
   {

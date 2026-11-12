@@ -78,6 +78,48 @@ Decisión de Miguel, ya aplicada. Cada ciudad lleva `erasmusFrom: "2027-28"` y `
    6 meses, Student visa para más). Si con la entrada en Erasmus+ cambian los requisitos para
    estudiantes de intercambio, hay que actualizar `/tipos-de-intercambio`.
 
+### Consejos de estudiantes (Roma, Alemania) — hecho el 12/11/2026, con pendientes
+
+Nueva sección «Lo que dicen los que viven allí» en cada ficha (`src/data/cityExperiences.js`).
+Se estrena con Lucía (Roma) y con Miguel (Rosenheim, como fundador: no cuenta como opinión de la
+gente). Los datos de sus consejos y de las fichas de Roma y Alemania los ha verificado el agente
+`contenido-verificacion` (ATAC, MVG, TH Rosenheim, Bundesregierung, operadores locales).
+
+**Formulario:** las fichas sin testimonios muestran «¿Estás de Erasmus en X? Cuéntanos tus
+consejos» con el formulario que ya existía (`ShareExperienceModal.jsx`). No tiene backend
+propio: envía con Web3Forms a tu correo (y, sin clave, abre un `mailto:`), así que no hace falta
+un Google Form. Ahora pide el curso (2026-27) en vez del año, la universidad de destino (opcional)
+y si la persona prefiere salir sin nombre. Mejora futura: campos separados por tema
+(transporte, barrios, ocio…) para que llegue ya en forma de `tips`.
+
+**Pendientes:**
+
+1. **Lucía**: confirmar con ella el texto de sus consejos y si sale con nombre
+   (`anonymous: true` en su entrada para que salga como «Estudiante de Universidad Loyola»).
+   Con su entrada, la portada pasa del bloque «Mi experiencia» a las tarjetas de experiencias
+   (comportamiento previsto de `HomeExperiences`).
+2. **«Blue a bar» (Roma)**: no se ha publicado. El candidato probable es el **Blue Bar San
+   Lorenzo** (Largo degli Osci 21), pero solo aparece en un agregador. Si Lucía lo confirma,
+   añádelo a su consejo de ocio.
+3. **San Lorenzo «más barato»**: no se ha dicho del alquiler (immobiliare.it lo da algo por
+   encima de la media de Roma); solo «más barato para salir».
+4. **Precios que cambian el 1/1/2027**: Deutschland-Ticket 63 € → 66,80 €; el rebajado de
+   Baviera (Múnich, Rosenheim) 43 € → 46,80 €; el Deutschlandsemesterticket pasa a ~40,08 €/mes,
+   pero muchas universidades solo desde el semestre de invierno 2027/28. Las fichas ya dicen
+   los dos precios; en enero de 2027 se pueden dejar solo los nuevos.
+5. **Roma, billete sencillo de ATAC**: desde 2025 se habla de subirlo de 1,50 € a 2 €. A
+   noviembre de 2026 siguen 35 € (mensual) y 250 € (anual), pero conviene revisarlo.
+6. **Heidelberg**: el VRN prevé retirar la app rnv/VRN Handy-Ticket en primavera de 2027; la
+   ficha ya recomienda myVRN.
+7. **Miguel (Rosenheim)**: añadir más adelante sus consejos de la universidad y el alojamiento
+   (`FOUNDER_EXPERIENCE.tips`, temas `universidad` y `alojamiento`).
+
+### Calculadora: Praga y Brno sin grupo (arreglado)
+
+La calculadora buscaba «República Checa» en la tabla del SEPIE, donde figura como «Chequia», así
+que Praga y Brno no tenían grupo ni importe. Ahora pasa por `programCountry()`
+(`SEPIE_NAMES` en `BecaErasmusPage.jsx`).
+
 ### América y Erasmus+
 
 El filtro del comparador agrupa Suiza y América como «Suiza y América» (antes «Reino Unido, Suiza
@@ -90,7 +132,9 @@ conviene revisar si los textos de las fichas americanas dicen que «no hay Erasm
 `src/lib/cityCoords.js` solo tenía 40 ciudades, así que con otros 66 destinos Erasmus+ (Venecia,
 Lyon, Mánchester…) el cálculo de distancia de `/beca-erasmus` daba «No tenemos coordenadas de esa
 ciudad». Se han copiado las del mapa (`WorldMap.jsx`), y un test comprueba que no falte ninguna.
-Mejor a futuro: una sola fuente de coordenadas para el mapa y la calculadora.
+Desde el 12/11/2026 `cityCoords.js` es la única fuente: el mapa también lee de ahí, y su bandera
+y su país salen del índice (antes el mapa tenía su propia copia y le faltaban los rótulos de 18
+países, como Suecia, Grecia o Irlanda).
 
 ## Mejoras propuestas
 
