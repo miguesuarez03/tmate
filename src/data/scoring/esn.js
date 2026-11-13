@@ -473,5 +473,16 @@ export const CITY_ESN_SECTIONS = {
  ],
  "trento": [
   "ESN Trento"
- ]
+ ],
+ "pavia": [
+  "ESN STEP Pavia"
+ ],
+ "braganza": [],
+ "newcastle": [
+  "ESN Newcastle"
+ ],
+ "geel": [
+  "ESN Geel"
+ ],
+ "kleve": []
 };

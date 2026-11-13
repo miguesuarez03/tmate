@@ -320,6 +320,67 @@ Ninguna tiene nota provisional.
 - Las normales de clima no las pudo volver a leer el agente de verificación, porque los PDF no se dejan leer.
 - Revisión de Codex: pendiente (sin cuota hasta el 17-11-2026).
 
+### Tanda Loyola B — 13-11-2026: Pavía, Braganza, Newcastle, Geel, Kleve
+
+**Notas y datos de la nota:**
+
+| Ciudad | Nota | Nivel | Puesto | Te faltan tras la beca | Particularidades |
+|---|---|---|---|---|---|
+| Pavía | 7,3 | Muy buena | 60.º | 450 €/mes | |
+| Braganza | 6,7 | Buena | 115.º | 250 €/mes | Sin ESN. Académico 4,5: THE 2024, 1201–1500 |
+| Newcastle | 6,9 | Buena | 107.º | 950 €/mes | Reino Unido, Erasmus+ desde 2027-28 |
+| Geel | 6,9 | Buena | sin puesto | 650 €/mes | Provisional |
+| Kleve | 6,6 | Buena | sin puesto | 700 €/mes | Provisional, sin ESN |
+
+Geel y Kleve tienen nota provisional, así que no entran en los rankings. Les falta la vida estudiantil: ni Thomas More ni la Hochschule Rhein-Waal publican datos en THE.
+
+He cambiado `tests/rankings.test.mjs` para que admita hasta un 5 % de destinos Erasmus+ con subnota pendiente, en vez de 3 fijos.
+
+**Coste:**
+- Pavía: `costSource` de la Universidad de Pavía. Es un total con desglose, pero la página no tiene fecha.
+- Kleve: `costSource` de la Hochschule Rhein-Waal. Ojo: los 900–1.200 € son la media de toda Alemania según el Deutsches Studierendenwerk, no una cifra de Kleve. **Decisión de Miguel: ¿vale como fuente oficial?**
+- Geel: estimación MAbroad. Thomas More da 850–1.150 € sin transporte, así que no cumple el criterio.
+- Braganza y Newcastle: estimación MAbroad.
+  - Braganza: no hay ninguna cifra total oficial.
+  - Newcastle: el total de Northumbria (1.203 £) viene de un tercero y no cuadra con su propio desglose.
+
+**Fuentes:**
+- Población:
+  - Pavía: ISTAT provisional a 1-1-2026.
+  - Braganza: INE vía PORDATA, 2025.
+  - Newcastle: ONS, mitad de 2025.
+  - Geel: Statbel a 1-1-2026. Lo comprobé yo en el Excel oficial `Bevolking_per_gemeente.xlsx` (42.650).
+  - Kleve: IT.NRW, 2024.
+- Clima, normales 1991–2020:
+  - Pavía: Milano Linate (OMM 16080).
+  - Braganza: IPMA, estación 575.
+  - Newcastle: Tynemouth, Met Office (estación en la costa).
+  - Geel: Uccle, KMI. La ficha de Geel del KMI solo trae gráficos.
+  - Kleve: sin bloque de clima; el DWD solo publica medias.
+- Fotos: las cinco miniaturas revisadas a ojo.
+- Braganza: el IPB es la Universidade Politécnica de Bragança desde agosto de 2026, y el Gobierno ha anunciado otro cambio de nombre. Hay que volver a revisarlo en 6–12 meses.
+
+**Correcciones del agente de verificación (aplicadas):**
+- Braganza:
+  - Verano a 13–28 °C.
+  - Fuera las «355 plazas», los «211 km» y el «corcho».
+  - El tip de Zamora pasa a hablar del autobús Zamora–Braganza, que sale algunos días a la semana.
+- Newcastle:
+  - Millennium Bridge: «puente inclinable», no «basculante».
+  - Abono de Metro «zona Inner Newcastle».
+  - Mayor's Fares completas: 1 £ hasta los 21 años y 2,50 £ desde los 22.
+- Geel: quitado el `costSource`.
+- Kleve:
+  - El ticket semestral solo está confirmado para matriculados; el tip dice que el estudiante de intercambio lo consulte con la universidad.
+  - Fuera los precios de residencia, la lista de pueblos y el «50 % internacionales» (solo aparece en una página de empleo).
+  - Aeropuerto de Weeze: tren RE10 hasta la estación y luego lanzadera.
+- No aplicada: el agente proponía 22 °C para el verano de Geel. La media de máximas es 22,5 °C y redondeando sale 23 °C, así que lo dejo en 23.
+
+**Sin confirmar:**
+- Población de Newcastle (320.838) y de Kleve (53.028).
+- Que la AEE-IPB siga activa.
+- Revisión de Codex: pendiente (sin cuota hasta el 17-11-2026).
+
 ## Pendiente de Miguel (Rosenheim, vive allí)
 
 Datos de Rosenheim que no se pueden comprobar con fuentes oficiales. Siguen como estaban hasta que Miguel los confirme o corrija (lo verificable ya se aplicó en la tanda 8):

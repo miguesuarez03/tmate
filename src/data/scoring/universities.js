@@ -2729,5 +2729,41 @@ export const CITY_UNIVERSITIES = {
    "students": 14284,
    "intlPct": 10
   }
- ]
+ ],
+ "pavia": [
+  {
+   "name": "University of Pavia",
+   "edition": 2027,
+   "rank": "401–450",
+   "students": 17939,
+   "intlPct": 12
+  }
+ ],
+ "braganza": [
+  {
+   "name": "Instituto Politécnico de Bragança",
+   "edition": 2024,
+   "rank": "1201–1500",
+   "students": 9626,
+   "intlPct": 34
+  }
+ ],
+ "newcastle": [
+  {
+   "name": "Newcastle University",
+   "edition": 2027,
+   "rank": "=154",
+   "students": 26470,
+   "intlPct": 29
+  },
+  {
+   "name": "Northumbria University",
+   "edition": 2027,
+   "rank": "451–500",
+   "students": 25215,
+   "intlPct": 30
+  }
+ ],
+ "geel": [],
+ "kleve": []
 };

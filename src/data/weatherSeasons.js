@@ -475,4 +475,32 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "12–18°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado: arranque de curso y Welcome Weeks de ESN.", tags: ["Inicio Erasmus","Templado","ESN"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "3–8°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y con niebla.", tags: ["Frío","Niebla","Tortellini"] },
   ],
+  // Pavía: Milano Linate (OMM 16080, a unos 31 km, normales 1991–2020 de la OMM).
+  pavia: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "9–20°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada para el Tesino y los colegios.", tags: ["Templada","Tesino","Aire libre"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "18–30°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano caluroso y húmedo en la llanura.", tags: ["Calor","Húmedo","Lagos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "10–19°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Niebla"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–8°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con niebla en la llanura.", tags: ["Frío","Niebla","Milán cerca"] },
+  ],
+  // Braganza: Bragança (IPMA, estación 575, normales 1991–2020).
+  braganza: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–18°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca en la sierra.", tags: ["Fresca","Montesinho","Senderismo"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–28°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano caluroso y seco.", tags: ["Calor","Seco","Montesinho"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "8–19°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Castañas"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "1–10°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con muchas heladas.", tags: ["Frío","Heladas","Tranquilo"] },
+  ],
+  // Newcastle: Tynemouth (Met Office, en la costa, a unos 12 km, normales 1991–2020).
+  newcastle: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–11°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca y con días cada vez más largos.", tags: ["Fresca","Días largos","Costa"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "12–18°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado, sin calor.", tags: ["Templado","Quayside","Costa"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "8–13°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco: arranque de curso y freshers.", tags: ["Inicio Erasmus","Fresco","Freshers"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "3–8°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y gris, con pocas horas de luz.", tags: ["Frío","Gris","Pubs"] },
+  ],
+  // Geel: Uccle (KMI/IRM, Bruselas, normales 1991–2020; no hay serie publicada en texto para Geel).
+  geel: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–15°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave en la Campine.", tags: ["Suave","Bici","Brezales"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–23°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Bici","Festivales"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "8–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco y lluvioso para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Lluvia"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "2–7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y húmedo.", tags: ["Frío","Húmedo","Tranquilo"] },
+  ],
 };

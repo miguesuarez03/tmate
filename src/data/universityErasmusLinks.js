@@ -571,6 +571,12 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Università della Calabria": "https://www.unical.it/internazionale/intenational-students/incoming-students-erasmus-plus/",
   "Università degli Studi di Modena e Reggio Emilia": "https://international.unimore.it/erasmusincoming.html",
   "Università degli Studi di Trento": "https://www.unitn.it/en/international/coming-unitrento/exchange-student",
+
+  // ── Tandas Loyola B ─────────────────────────────────────
+  "Università degli Studi di Pavia": "https://en.unipv.it/en/exchange-students",
+  "Northumbria University": "https://www.northumbria.ac.uk/international/incoming-students/i-am-an-erasmus-student/",
+  "Thomas More": "https://www.thomasmore.be/en/exchange-programmes",
+  "Hochschule Rhein-Waal": "https://www.hochschule-rhein-waal.de/en/study/during-your-studies/semester-abroad/a-semester-with-us",
 };
 
 /**

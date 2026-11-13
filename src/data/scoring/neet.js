@@ -1657,5 +1657,59 @@ export const CITY_NEET = {
    "2024": 6.9,
    "2025": 5.8
   }
+ },
+ "pavia": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "ITC4",
+  "name": "Lombardia",
+  "years": {
+   "2023": 9.1,
+   "2024": 8.9,
+   "2025": 6.3
+  }
+ },
+ "braganza": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "PT11",
+  "name": "Norte",
+  "years": {
+   "2023": 7.4,
+   "2024": 7.4,
+   "2025": 6.4
+  }
+ },
+ "newcastle": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "GBR",
+  "years": {
+   "2023": 12.8,
+   "2024": 14.3,
+   "2025": 14.4
+  }
+ },
+ "geel": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "BE21",
+  "name": "Prov. Antwerpen",
+  "years": {
+   "2023": 6.7,
+   "2024": 6.6,
+   "2025": 5.6
+  }
+ },
+ "kleve": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "DEA1",
+  "name": "Düsseldorf",
+  "years": {
+   "2023": 8.3,
+   "2024": 8.4,
+   "2025": 9.5
+  }
  }
 };

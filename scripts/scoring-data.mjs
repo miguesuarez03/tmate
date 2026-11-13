@@ -217,6 +217,12 @@ const THE_NAMES = {
   "cosenza": ["University of Calabria"],
   "modena": ["University of Modena and Reggio Emilia"],
   "trento": ["University of Trento"],
+  "pavia": ["University of Pavia"],
+  // Instituto Politécnico de Bragança (hoy Universidade Politécnica): última edición en la que sale, 2024.
+  "braganza": ["Instituto Politécnico de Bragança"],
+  "newcastle": ["Newcastle University", "Northumbria University"],
+  "geel": [],
+  "kleve": [],
 };
 
 /** Nombres con que ESN escribe cada ciudad (además del nombre de la ficha). */
