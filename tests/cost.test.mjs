@@ -69,7 +69,7 @@ test("«Asequible» solo si el coste tiene fuente oficial; si no, «Estimación 
   assert.equal(getCostSourceLabel({ costDetail: "450–700€/mes" }), "Estimación MAbroad");
   assert.equal(getCostSourceLabel({ costDetail: "450–700€/mes", costSource: "Universidad X" }), "Fuente: Universidad X");
   // Ciudades con coste estimado por MAbroad (pendiente de fuente, ver VERIFICACION.md).
-  for (const slug of ["parma", "bergamo", "ferrara", "genova", "grenoble", "venecia", "coimbra", "dresde", "tubinga", "catania", "palermo", "cagliari"]) {
+  for (const slug of ["parma", "bergamo", "ferrara", "genova", "grenoble", "venecia", "coimbra", "dresde", "tubinga", "catania", "palermo", "cagliari", "bolonia"]) {
     const c = CITIES.find((x) => x.slug === slug);
     assert.ok(c, slug);
     assert.equal(hasOfficialCost(c), false, `${slug} no debería tener costSource`);

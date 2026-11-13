@@ -155,7 +155,7 @@ export const COMPARE_PHRASES = {
     seguridad: "Tranquila, con las precauciones normales",
   },
   roma: {
-    coste: "Más barata que Milán, vive bien con 800–1.000€",
+    coste: "La Sapienza calcula al menos 800–900€/mes",
     alojamiento: "Competitivo por la gran población universitaria, mira fuera del centro",
     vida_social: "Trastevere y Pigneto marcan un ritmo apasionado",
     integracion: "Caótica pero acogedora, acostumbrada al turismo",
@@ -165,7 +165,7 @@ export const COMPARE_PHRASES = {
     seguridad: "Segura en general, cuidado con carteristas",
   },
   milan: {
-    coste: "La más cara de Italia, viable con 1.000–1.200€",
+    coste: "El Politecnico calcula unos 680–1.150€/mes",
     alojamiento: "El mercado más competitivo del país, busca con meses",
     vida_social: "Navigli e Isola marcan el ritmo del aperitivo",
     integracion: "Muy internacional en entornos universitarios",
@@ -375,7 +375,7 @@ export const COMPARE_PHRASES = {
     seguridad: "Una de las ciudades más seguras y ordenadas del mundo",
   },
   florencia: {
-    coste: "Moderada para Italia, aunque el turismo presiona el alquiler, 800€/mes",
+    coste: "La universidad calcula unos 800–1.000€/mes",
     alojamiento: "Tensionado por el turismo, pero manejable fuera del centro histórico",
     vida_social: "Aperitivo en Oltrarno y una enorme comunidad internacional todo el año",
     integracion: "Muy acostumbrada a estudiantes extranjeros, floresta cosmopolita",

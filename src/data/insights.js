@@ -2043,7 +2043,7 @@ export const CITY_INSIGHTS = {
         label: "Coste de vida",
         icon: "💰",
         score: 6.5,
-        summary: "Más asequible que Milán, más cara que Bolonia. Con 800–1.000€/mes se vive bien si controlas el ocio.",
+        summary: "La Sapienza calcula que hacen falta al menos 800–900€ al mes para vivir en Roma (guía para estudiantes internacionales, 2024).",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.5, desc: "Habitaciones desde 450–650€. Zonas estudiantiles como Pigneto o Nomentano son más asequibles que el centro." },
@@ -2170,7 +2170,7 @@ export const CITY_INSIGHTS = {
         label: "Coste de vida",
         icon: "💰",
         score: 6.0,
-        summary: "La más cara de Italia. Viable con 1.000–1.200€/mes si controlas el ocio y compartes piso.",
+        summary: "El Politecnico di Milano calcula al mes 400–700€ de alojamiento, 150–200€ de comida, 100–200€ de vida social, 22€ de transporte y 10–30€ de móvil: unos 680–1.150€.",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "Habitación individual: 600–1.100€/mes según la estimación de la Bocconi. El mercado es muy competitivo; Città Studi es de las zonas más buscadas por estudiantes." },
@@ -4700,10 +4700,10 @@ export const CITY_INSIGHTS = {
         label: "Coste de vida",
         icon: "💰",
         score: 6.0,
-        summary: "Moderada para Italia, aunque la presión turística ha subido el alquiler en el centro los últimos años. Con 800€/mes se vive bien.",
+        summary: "La Universidad de Florencia calcula unos 800–1.000€ al mes: 450–700€ de alojamiento y 250–300€ de comida (ficha de la Escuela de Economía 2025/26).",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 5.0, desc: "Habitaciones desde 400–550€ en el centro; más barato en Campo di Marte o Novoli." },
+          { label: "Alojamiento", score: 5.0, desc: "La universidad calcula 450–700€ al mes de alojamiento; Campo di Marte o Novoli suelen ser más baratos que el centro." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercado de San Lorenzo y Sant'Ambrogio para comprar barato; la trattoria de barrio sigue siendo asequible fuera de zonas turísticas." },
           { label: "Transporte", score: 7.5, desc: "Abono mensual urbano de bus y tranvía a 42,20€; el centro se recorre andando en 20 minutos." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Aperitivo con bebida + buffet desde 8–10€, la opción de cena más popular entre estudiantes." },
@@ -4718,7 +4718,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 4.5, desc: "Airbnb ha reducido la oferta de larga estancia en el centro; hay que mirar más allá del casco histórico." },
-          { label: "Precio", score: 5.0, desc: "400–550€ habitación en zonas bien conectadas; el centro histórico puede duplicar ese precio." },
+          { label: "Precio", score: 5.0, desc: "450–700€ al mes de alojamiento según la universidad; el centro histórico es lo más caro." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "Grupos de 'Erasmus Firenze' y la oficina de alojamiento de la universidad son los canales más fiables." },
           { label: "Residencias universitarias", score: 5.5, desc: "Las residencias las gestiona DSU Toscana; para Erasmus solo hay plazas si quedan libres y la demanda es muy alta." },
         ],

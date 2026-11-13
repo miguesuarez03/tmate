@@ -55,6 +55,7 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 | 11 | Pisa (`pisa`), Siena (`siena`), Bari (`bari`), Génova (`genova`), Perugia (`perugia`) | ✅ 13-11-2026 |
 | 12 | Trieste (`trieste`), Parma (`parma`), Bérgamo (`bergamo`), Ferrara (`ferrara`), Urbino (`urbino`) | ✅ 13-11-2026 |
 | 13 | Lecce (`lecce`), Catania (`catania`), Palermo (`palermo`), Cagliari (`cagliari`), Verona (`verona`) | ✅ 13-11-2026 |
+| 13b | Fuente del coste de Bolonia (`bolonia`), Roma (`roma`), Milán (`milan`) y Florencia (`florencia`) | ✅ 13-11-2026 (Bolonia, pendiente de fuente) |
 | 14 | Braga (`braga`), Atenas (`atenas`), Salónica (`salonica`), Breslavia (`wroclaw`), Gdansk (`gdansk`) | Pendiente |
 | 15 | Poznan (`poznan`), Katowice (`katowice`), Brno (`brno`), Bratislava (`bratislava`), Pécs (`pecs`) | Pendiente |
 | 16 | Liubliana (`liubliana`), Zagreb (`zagreb`), Split (`split`), Tallin (`tallin`), Riga (`riga`) | Pendiente |
@@ -200,8 +201,18 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 - Fuera récords sin fuente: «la ciudad más auténtica de la guía», «de los climas más soleados de la guía», «una de las ciudades/capitales más seguras de Italia» (Verona, Cagliari), «evento de primer nivel mundial», actividades de ESN «constantemente». Seguridad de Verona 8,3→8,0.
 - Clima con normales 1991–2020: Lecce (OMM 16332), Cagliari-Elmas (OMM 16560) y Verona-Villafranca (OMM 16090). **Catania y Palermo, pendientes de fuente**: Catania-Fontanarossa casi no tiene datos en la serie OMM y Sigonella está en el interior (veranos de 19–33 °C); Palermo no tiene serie OMM 1991–2020.
 - Enlaces Erasmus: los 5 responden.
-- Código: «Asequible» solo con fuente oficial de coste (`costSource` en `cities.js`: 47 ciudades de las tandas 1–12, más Lecce y Verona). Sin ella, la ficha muestra «Estimación MAbroad» bajo el coste y nunca «Asequible». Quedan como estimación Coímbra, Dresde, Tubinga, Grenoble, Venecia, Génova, Parma, Bérgamo, Ferrara, Catania, Palermo y Cagliari; también Bolonia, Roma, Milán y Florencia (la tanda 1 no apuntó fuente de su coste) y las ciudades aún sin verificar. Test en `tests/cost.test.mjs`.
+- Código: «Asequible» solo con fuente oficial de coste (`costSource` en `cities.js`: 47 ciudades de las tandas 1–12, más Lecce y Verona). Sin ella, la ficha muestra «Estimación MAbroad» bajo el coste y nunca «Asequible». Quedan como estimación Coímbra, Dresde, Tubinga, Grenoble, Venecia, Génova, Parma, Bérgamo, Ferrara, Catania, Palermo y Cagliari; también Bolonia (ver tanda 13b, donde Roma, Milán y Florencia sí consiguen fuente) y las ciudades aún sin verificar. Test en `tests/cost.test.mjs`.
 - Codex: la auditoría se cortó por el límite de uso de Codex (13-11-2026, hasta las 14:25); Claude la hizo con fuentes oficiales. Revisión de Codex: pendiente.
+
+### Tanda 13b — 13-11-2026 (fuente del coste de Bolonia, Roma, Milán y Florencia)
+La tanda 1 no apuntó de dónde salía el coste de estas cuatro ciudades. Solo se ha tocado el coste (y los textos que lo repiten); el resto de las fichas sigue como en la tanda 1.
+- Roma: 800–900 €/mes (antes 650–950 €). Sapienza, *International Student Guide* 2024: «On average, you will need at least €800-900/month to live in Rome». Otro folleto de la Sapienza (*International Admissions*, sin fecha clara) da 600–900 €; se usa la guía de 2024, que es la fechada. Nota de coste sin cambios (6,5).
+- Milán: 680–1.150 €/mes (antes 750–1.100 €). Politecnico di Milano, página «Useful information» (sin fecha; consultada el 13-11-2026): alojamiento 400–700 €, comida 150–200 €, vida social 100–200 €, transporte 22 € y móvil 10–30 €, que suman 682–1.152 €. Fuera «la más cara de Italia» (sin fuente). Nota de coste sin cambios (6,0).
+- Florencia: 800–1.000 €/mes (antes 650–950 €). Universidad de Florencia, ficha de intercambio de la Escuela de Economía 2025/26 (rev. 06-06-2025): alojamiento 450–700 €, comida 250–300 €, abono mensual 39 €, «Total approx. 800-1.000 euro». Los alquileres de la ficha (400–550 €) pasan a los de la universidad. Nota de coste sin cambios (6,0). **Pendiente de comprobar**: esa ficha da 39 € de abono mensual y la de MAbroad 42,20 € (verificado en la tanda 1); no se cambia hasta confirmar con Autolinee Toscane qué tarifa es cada una.
+- **Bolonia sigue como estimación de MAbroad, pendiente de fuente**: la Universidad de Bolonia solo publica precios sueltos («Living costs in Bologna»: habitación individual unos 400 € más gastos, compartida unos 300 €, comida unos 60 € a la semana, abono de bus para menores de 27 años 27 €), no un presupuesto mensual; tampoco lo da la guía de intercambio de Medicina 2025/26.
+- Ninguna de las tres con fuente baja de 500 €, así que ninguna lleva «Asequible». Las frases cortas del comparador (`comparePhrases.js`) de Roma, Milán y Florencia se ponen al día con las nuevas cifras.
+- Nota visible sobre «Asequible»: en la ficha, bajo «Estimación MAbroad», una línea explica que la etiqueta solo aparece con coste de fuente oficial y que se revisará al verificar ese coste; y en «Cómo calculamos estos datos» (ficha y comparador), un punto sobre «Fuente: …», «Estimación MAbroad» y «Asequible».
+- Codex: revisión pendiente (junto con la de la tanda 13).
 
 ## Pendiente de Miguel (Rosenheim, vive allí)
 
