@@ -43,6 +43,8 @@ export interface CityBase {
   tag: string;
   phrase: string;
   costDetail: string;         // ej: "600–900€/mes"
+  /** Quién publica la estimación oficial de costDetail (p. ej. "Universidad de Pisa"). Sin ella, el coste es estimación de MAbroad y no lleva «Asequible». */
+  costSource?: string;
   vibe: string;
   erasmus: number;            // score global 0-100
   weather: string;

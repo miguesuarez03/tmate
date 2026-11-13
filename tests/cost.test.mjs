@@ -1,4 +1,5 @@
-// Coste de vida: formato de costDetail, orden por coste y etiqueta «Asequible».
+// Coste de vida: formato de costDetail, orden por coste, etiqueta «Asequible»
+// (solo con fuente oficial, `costSource`) y «Estimación MAbroad».
 // Ejecutar con `npm test`.
 import { test } from "node:test";
 import assert from "node:assert/strict";
@@ -7,6 +8,8 @@ import {
   parseMinCost,
   parseMaxCost,
   isAffordable,
+  hasOfficialCost,
+  getCostSourceLabel,
   sortCities,
   AFFORDABLE_MAX_COST,
 } from "../src/lib/cities.js";
@@ -47,16 +50,35 @@ test("ordenar por coste usa el mínimo real del rango", () => {
 });
 
 test("«Asequible» solo con un mínimo de hasta 500 €/mes", () => {
-  assert.equal(isAffordable("350–550€/mes"), true);
-  assert.equal(isAffordable("500–750€/mes"), true);
-  assert.equal(isAffordable("550–850€/mes"), false);
+  const oficial = (costDetail) => ({ costDetail, costSource: "Universidad X" });
+  assert.equal(isAffordable(oficial("350–550€/mes")), true);
+  assert.equal(isAffordable(oficial("500–750€/mes")), true);
+  assert.equal(isAffordable(oficial("550–850€/mes")), false);
   // Antes se buscaba «500» o «350» en el texto y estas salían como baratas:
-  assert.equal(isAffordable("1.200–1.500€/mes"), false);
-  assert.equal(isAffordable("1.100–1.500€/mes"), false);
-  assert.equal(isAffordable("1.350–1.850€/mes"), false);
-  assert.equal(isAffordable(""), false);
+  assert.equal(isAffordable(oficial("1.200–1.500€/mes")), false);
+  assert.equal(isAffordable(oficial("1.100–1.500€/mes")), false);
+  assert.equal(isAffordable(oficial("1.350–1.850€/mes")), false);
+  assert.equal(isAffordable(oficial("")), false);
   assert.equal(isAffordable(undefined), false);
+});
+
+test("«Asequible» solo si el coste tiene fuente oficial; si no, «Estimación MAbroad»", () => {
+  // Mismo rango barato: sin costSource es estimación de MAbroad y no lleva la etiqueta.
+  assert.equal(isAffordable({ costDetail: "450–700€/mes" }), false);
+  assert.equal(isAffordable({ costDetail: "450–700€/mes", costSource: "  " }), false);
+  assert.equal(getCostSourceLabel({ costDetail: "450–700€/mes" }), "Estimación MAbroad");
+  assert.equal(getCostSourceLabel({ costDetail: "450–700€/mes", costSource: "Universidad X" }), "Fuente: Universidad X");
+  // Ciudades con coste estimado por MAbroad (pendiente de fuente, ver VERIFICACION.md).
+  for (const slug of ["parma", "bergamo", "ferrara", "genova", "grenoble", "venecia", "coimbra", "dresde", "tubinga", "catania", "palermo", "cagliari"]) {
+    const c = CITIES.find((x) => x.slug === slug);
+    assert.ok(c, slug);
+    assert.equal(hasOfficialCost(c), false, `${slug} no debería tener costSource`);
+    assert.equal(isAffordable(c), false, slug);
+    assert.equal(getCostSourceLabel(c), "Estimación MAbroad", slug);
+  }
   for (const c of CITIES) {
-    assert.equal(isAffordable(c.costDetail), parseMinCost(c.costDetail) <= AFFORDABLE_MAX_COST, c.slug);
+    if (c.costSource !== undefined) assert.ok(typeof c.costSource === "string" && c.costSource.trim(), `${c.slug}: costSource vacío`);
+    assert.equal(isAffordable(c), hasOfficialCost(c) && parseMinCost(c.costDetail) <= AFFORDABLE_MAX_COST, c.slug);
+    if (isAffordable(c)) assert.ok(hasOfficialCost(c), `${c.slug}: «Asequible» sin fuente oficial`);
   }
 });

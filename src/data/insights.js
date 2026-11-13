@@ -7329,18 +7329,18 @@ export const CITY_INSIGHTS = {
   },
   palermo: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Cattedrale_di_Palermo_Ap_2024.jpg/1920px-Cattedrale_di_Palermo_Ap_2024.jpg",
-    tagline: "El Mediterráneo real: mercados árabes, playas a 20 minutos y los precios más bajos de Italia.",
+    tagline: "El Mediterráneo real: mercados históricos, arte árabe-normando y el mar de Mondello.",
     atmosphere: "Palermo huele a especias, pescado a la brasa y azahar en el mercado de Ballarò, y suena a motos, campanas de iglesias barrocas y conversaciones a gritos en dialecto siciliano por cada callejón del centro histórico.",
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.3,
-        summary: "Uno de los costes de vida más bajos de toda Italia, muy por debajo de Milán, Roma o incluso Nápoles.",
+        summary: "Estimación de MAbroad: la universidad no publica un presupuesto mensual.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 8.0, desc: "Habitación desde 220–320€, de las más bajas entre las grandes ciudades universitarias italianas." },
+          { label: "Alojamiento", score: 8.0, desc: "La habitación en piso compartido es la opción habitual; no hay cifras oficiales del alquiler." },
           { label: "Comida y supermercados", score: 9.0, desc: "Mercados callejeros y street food hacen que comer bien cueste muy poco." },
-          { label: "Transporte", score: 7.5, desc: "Abono AMAT con tarifa estudiante muy económica; el centro se recorre bien a pie." },
-          { label: "Ocio y gastos diarios", score: 8.5, desc: "Salir de bares y restaurantes cuesta una fracción de lo que costaría en el norte de Italia." },
+          { label: "Transporte", score: 7.5, desc: "Bus y tranvía de AMAT; el centro histórico se recorre bien a pie." },
+          { label: "Ocio y gastos diarios", score: 8.5, desc: "Salir de bares y restaurantes suele costar menos que en el norte de Italia." },
         ],
       },
       {
@@ -7349,8 +7349,8 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 7.5, desc: "Buena oferta gracias al tamaño de la ciudad y la población universitaria." },
-          { label: "Precio", score: 8.0, desc: "220–320€ de media, de los alquileres más bajos de toda esta guía." },
-          { label: "Facilidad de búsqueda", score: 6.5, desc: "La Università di Palermo ofrece listados básicos; conviene visitar el piso antes de comprometerse." },
+          { label: "Precio", score: 8.0, desc: "Sin cifras oficiales; el alquiler suele ser más bajo que en el norte de Italia." },
+          { label: "Facilidad de búsqueda", score: 6.5, desc: "La página de alojamiento de la universidad recoge residencias como Camplus; conviene visitar el piso antes de comprometerse." },
           { label: "Residencias universitarias", score: 6.0, desc: "Plazas limitadas frente al número de estudiantes de la universidad." },
         ],
       },
@@ -7359,9 +7359,9 @@ export const CITY_INSIGHTS = {
         summary: "Vida social intensa y callejera, con un ambiente mediterráneo muy auténtico.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 8.0, desc: "ESN Palermo organiza salidas a Cefalù, las Islas Eolias y Agrigento constantemente." },
+          { label: "Comunidad Erasmus", score: 8.0, desc: "ESN Palermo organiza actividades y excursiones para estudiantes de intercambio." },
           { label: "Ambiente internacional", score: 7.0, desc: "Comunidad Erasmus más pequeña que en el norte de Italia, lo que favorece grupos muy unidos." },
-          { label: "Fiesta y vida nocturna", score: 8.5, desc: "Vucciria y el centro histórico concentran una vida nocturna callejera intensa y muy barata." },
+          { label: "Fiesta y vida nocturna", score: 8.5, desc: "La Vucciria y el centro histórico concentran una vida nocturna callejera intensa." },
           { label: "Eventos y actividades", score: 8.5, desc: "El Festino de Santa Rosalia en julio llena la ciudad de procesiones y fiesta callejera." },
         ],
       },
@@ -7371,7 +7371,7 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 5.0, desc: "Menos hablado que en el norte de Italia; el italiano básico ayuda mucho en el día a día." },
-          { label: "Actitud local", score: 8.5, desc: "Los palermitanos tienen fama, merecida, de ser extremadamente hospitalarios." },
+          { label: "Actitud local", score: 8.5, desc: "Los palermitanos tienen fama de hospitalarios." },
           { label: "Integración con locales", score: 7.0, desc: "Fácil hacer amigos locales gracias al carácter extrovertido siciliano." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "El tamaño de la comunidad Erasmus y el carácter local hacen la integración relativamente rápida." },
         ],
@@ -7384,27 +7384,27 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 5.0, desc: "AMAT (bus y algo de tranvía) es funcional pero limitado comparado con ciudades del norte." },
           { label: "Ciudad caminable", score: 6.5, desc: "El centro histórico se recorre a pie, aunque el tráfico es intenso en las horas punta." },
           { label: "Conexiones internacionales", score: 5.5, desc: "Aeropuerto Falcone-Borsellino bien conectado con Italia continental y algunas capitales europeas." },
-          { label: "Escapadas de fin de semana", score: 5.5, desc: "Cefalù, Agrigento y las Islas Eolias, aunque el resto de Italia solo se alcanza en avión o ferry largo." },
+          { label: "Escapadas de fin de semana", score: 5.5, desc: "Cefalù, Agrigento y, en verano, las islas Eolias; el resto de Italia queda lejos: avión, ferry o tren largo." },
         ],
       },
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.8,
-        summary: "El Mediterráneo en su forma más auténtica, con mercados, playas y un patrimonio árabe-normando único en Europa.",
+        summary: "El Mediterráneo en su forma más auténtica, con mercados, playas y un patrimonio árabe-normando Patrimonio de la Humanidad.",
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.5, desc: "Mondello y las playas cercanas, además de Monte Pellegrino, a un paso de la ciudad." },
-          { label: "Clima", score: 9.0, desc: "Mediterráneo con veranos muy calurosos e inviernos suaves, de los climas más soleados de esta guía." },
+          { label: "Clima", score: 9.0, desc: "Mediterráneo, con veranos muy calurosos e inviernos suaves." },
           { label: "Calidad de vida", score: 7.5, desc: "Ciudad caótica y ruidosa, con contrastes marcados entre barrios; no es para quien busca tranquilidad." },
-          { label: "Autenticidad local", score: 9.5, desc: "Probablemente la ciudad más auténtica de toda esta guía, lejos de cualquier filtro turístico." },
-          { label: "Estilo de vida", score: 9.0, desc: "Vivir la Sicilia real, con mercados árabes, playas y patrimonio único como constante diaria." },
+          { label: "Autenticidad local", score: 9.5, desc: "Identidad siciliana muy marcada, con mercados históricos y vida en la calle." },
+          { label: "Estilo de vida", score: 9.0, desc: "Vivir la Sicilia real, con mercados históricos, playas y patrimonio árabe-normando en el día a día." },
         ],
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 4.8,
-        summary: "El mercado laboral más limitado de esta guía en Italia, con la tasa de desempleo más alta del país.",
+        summary: "Mercado laboral limitado: Sicilia tiene una de las tasas de desempleo más altas de Italia.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Mercado laboral", score: 4.0, desc: "Sicilia tiene la tasa de desempleo más alta de Italia; el mercado laboral local es muy limitado." },
+          { label: "Mercado laboral", score: 4.0, desc: "Sicilia tiene una de las tasas de desempleo más altas de Italia; el mercado laboral local es muy limitado." },
           { label: "Prácticas", score: 5.0, desc: "La Università di Palermo tiene tradición en arqueología, agricultura y patrimonio cultural." },
           { label: "Empresas relevantes", score: 4.5, desc: "Economía centrada en turismo, agricultura y servicios públicos; poca industria o tecnología." },
           { label: "Oportunidades para estudiantes", score: 5.5, desc: "El patrimonio arqueológico siciliano ofrece prácticas específicas en conservación y arqueología." },
@@ -7415,7 +7415,7 @@ export const CITY_INSIGHTS = {
         summary: "Requiere más precaución que otras ciudades de esta guía, sobre todo con carteristas en el centro histórico y el transporte.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 6.0, desc: "Criminalidad menor (carteristas, hurtos) más frecuente que en el norte de Italia; la violencia grave no afecta al circuito estudiantil." },
+          { label: "Seguridad general", score: 6.0, desc: "Criminalidad menor (carteristas, hurtos) más frecuente que en el norte de Italia." },
           { label: "Seguridad nocturna", score: 6.0, desc: "Conviene evitar calles poco transitadas de madrugada y prestar atención a pertenencias en el centro." },
           { label: "Ambiente de la ciudad", score: 7.0, desc: "Ciudad caótica y ruidosa, pero con mucha vida en la calle que aporta cierta sensación de seguridad social." },
         ],
@@ -10464,18 +10464,18 @@ export const CITY_INSIGHTS = {
   },
   lecce: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Lecce_-_Santa_Croce_-_16.jpg/1920px-Lecce_-_Santa_Croce_-_16.jpg",
-    tagline: "Barroco esculpido en piedra dorada, con las playas del Salento a 20 minutos.",
+    tagline: "Barroco esculpido en piedra dorada, con el mar del Salento a un paso.",
     atmosphere: "Lecce huele a caffè leccese con hielo y leche de almendra en las terrazas del centro, y suena al eco de campanas barrocas sobre fachadas de piedra dorada, con el Salento y sus playas turquesa esperando a un paso.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 8.3,
-        summary: "Una de las ciudades más baratas de Italia, con playas de postal a un paso.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 7.5,
+        summary: "La Universidad del Salento calcula al menos unos 600€ al mes, con habitación en piso compartido de 150–250€ (cifras de 2020; hoy pueden ser más altas).",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 7.5, desc: "Habitación desde 250–350€, de las más bajas de Italia." },
+          { label: "Alojamiento", score: 7.5, desc: "La universidad daba 150–250€ por una habitación en piso compartido, más unos 50€ de gastos (cifras de 2020)." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercados y gastronomía del Salento a precios muy bajos." },
           { label: "Transporte", score: 7.5, desc: "El centro histórico se recorre a pie; el bus urbano cubre el resto a precio bajo." },
-          { label: "Ocio y gastos diarios", score: 8.5, desc: "Salir de bares y restaurantes cuesta una fracción de lo que costaría en el norte de Italia." },
+          { label: "Ocio y gastos diarios", score: 8.5, desc: "Salir de bares y restaurantes suele costar menos que en el norte de Italia." },
         ],
       },
       {
@@ -10484,9 +10484,9 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 7.5, desc: "Buena oferta de pisos compartidos gracias a la población universitaria de la ciudad." },
-          { label: "Precio", score: 8.0, desc: "250–350€ de media, de los alquileres más bajos de Italia." },
-          { label: "Facilidad de búsqueda", score: 7.0, desc: "La Università del Salento ofrece listados básicos de alojamiento para exchange students." },
-          { label: "Residencias universitarias", score: 6.5, desc: "Oferta limitada de residencias frente al número de estudiantes de la ciudad." },
+          { label: "Precio", score: 8.0, desc: "Sin cifras oficiales actuales; en 2020 la universidad daba 150–250€ por una habitación en piso compartido." },
+          { label: "Facilidad de búsqueda", score: 7.0, desc: "La universidad remite a CercoAlloggio.com, un servicio de búsqueda de alojamiento para estudiantes internacionales." },
+          { label: "Residencias universitarias", score: 6.5, desc: "Residencias de ADISU con plazas por concurso para estudiantes matriculados; los de intercambio suelen buscar piso." },
         ],
       },
       {
@@ -10494,7 +10494,7 @@ export const CITY_INSIGHTS = {
         summary: "Vida social intensa entre patrimonio barroco y playas del Salento, con un ambiente sureño muy auténtico.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 8.0, desc: "ESN Lecce organiza excursiones a las playas del Salento constantemente en verano." },
+          { label: "Comunidad Erasmus", score: 8.0, desc: "ESN Lecce organiza actividades y excursiones para estudiantes de intercambio." },
           { label: "Ambiente internacional", score: 7.0, desc: "Comunidad Erasmus más pequeña que en el norte de Italia, muy unida por serlo." },
           { label: "Fiesta y vida nocturna", score: 8.0, desc: "El centro histórico barroco concentra bares con ambiente hasta tarde en verano." },
           { label: "Eventos y actividades", score: 8.0, desc: "La Notte della Taranta, festival de música tradicional, es uno de los eventos del verano en el Salento." },
@@ -10506,7 +10506,7 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 5.0, desc: "Menos hablado que en el norte de Italia; el italiano básico ayuda mucho." },
-          { label: "Actitud local", score: 8.5, desc: "Los leccesi tienen fama, merecida, de ser extremadamente hospitalarios." },
+          { label: "Actitud local", score: 8.5, desc: "Los leccesi tienen fama de hospitalarios." },
           { label: "Integración con locales", score: 7.0, desc: "Fácil hacer amigos locales gracias al carácter extrovertido del Salento." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "El tamaño de la comunidad Erasmus y el carácter local hacen la integración relativamente rápida." },
         ],
@@ -10518,8 +10518,8 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Transporte público", score: 5.5, desc: "El bus urbano cubre bien el centro; para llegar a las playas conviene coche o moto compartida." },
           { label: "Ciudad caminable", score: 7.0, desc: "El centro histórico barroco se recorre bien a pie." },
-          { label: "Conexiones internacionales", score: 5.5, desc: "Aeropuertos de Bari y Brindisi, ambos a menos de una hora, con oferta low-cost." },
-          { label: "Escapadas de fin de semana", score: 7.5, desc: "Las playas del Salento, de las más bonitas de Italia, a menos de 30 minutos." },
+          { label: "Conexiones internacionales", score: 5.5, desc: "Aeropuerto de Brindisi, a menos de una hora, con vuelos de bajo coste; el de Bari queda bastante más lejos." },
+          { label: "Escapadas de fin de semana", score: 7.5, desc: "La costa del Salento, adriática y jónica, con playas a partir de unos 20 minutos en coche." },
         ],
       },
       {
@@ -10527,11 +10527,11 @@ export const CITY_INSIGHTS = {
         summary: "Barroco dorado y playas turquesa: el sur de Italia en su versión más fotogénica y accesible.",
         color: "#3F7A7D",
         subcategories: [
-          { label: "Naturaleza", score: 9.0, desc: "Las playas del Salento, con aguas turquesas comparables al Caribe, a 20 minutos." },
-          { label: "Clima", score: 9.0, desc: "Mediterráneo con veranos largos y calurosos, de los más soleados de esta guía." },
-          { label: "Calidad de vida", score: 8.5, desc: "Ciudad segura, elegante y con un ritmo de vida sureño muy agradable." },
-          { label: "Autenticidad local", score: 8.5, desc: "El Salento mantiene una identidad muy propia, con menos masificación que otras zonas de Italia." },
-          { label: "Estilo de vida", score: 9.0, desc: "La combinación de barroco espectacular y playas de postal a 20 minutos es única en Italia." },
+          { label: "Naturaleza", score: 9.0, desc: "La costa del Salento, con playas a partir de unos 20 minutos en coche." },
+          { label: "Clima", score: 9.0, desc: "Mediterráneo, con veranos largos y calurosos e inviernos suaves." },
+          { label: "Calidad de vida", score: 8.5, desc: "Ciudad tranquila y a escala humana, con un ritmo de vida sureño." },
+          { label: "Autenticidad local", score: 8.5, desc: "El Salento mantiene una identidad muy propia, con su dialecto, su música y su cocina." },
+          { label: "Estilo de vida", score: 9.0, desc: "Barroco en el centro y el mar a poca distancia marcan el día a día." },
         ],
       },
       {
@@ -10547,11 +10547,11 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 7.5,
-        summary: "Ciudad razonablemente segura, con el circuito estudiantil y turístico habitual tranquilo.",
+        summary: "Ciudad tranquila en general; aplica las precauciones habituales.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 7.5, desc: "Criminalidad moderada-baja para el estándar del sur de Italia." },
-          { label: "Seguridad nocturna", score: 7.0, desc: "El centro histórico barroco es seguro incluso de madrugada en verano." },
+          { label: "Seguridad general", score: 7.5, desc: "Ciudad tranquila en general; aplica las precauciones habituales." },
+          { label: "Seguridad nocturna", score: 7.0, desc: "El centro tiene vida de noche; de madrugada, mejor por calles concurridas." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad ordenada y con mucha vida en la calle en temporada alta." },
         ],
       },
@@ -10559,18 +10559,18 @@ export const CITY_INSIGHTS = {
   },
   catania: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Catania_vista_dall%27alto_e_il_vulcano_Etna_a_sovrastarla.jpg/1920px-Catania_vista_dall%27alto_e_il_vulcano_Etna_a_sovrastarla.jpg",
-    tagline: "El volcán activo más grande de Europa vigilando la ciudad, playas sicilianas incluidas.",
+    tagline: "El Etna vigilando la ciudad, con playas sicilianas incluidas.",
     atmosphere: "Catania huele a arancini y granita de almendra en Via Etnea, y suena al bullicio del mercado de La Pescheria compitiendo con el gruñido lejano del Etna, cuya lava negra tiñe hasta las fachadas barrocas de la ciudad.",
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.3,
-        summary: "Una de las ciudades más baratas de Italia, similar a Palermo.",
+        summary: "Estimación de MAbroad: la universidad no publica un presupuesto mensual actual.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 7.5, desc: "Habitación desde 250–350€, de las más bajas entre las grandes ciudades universitarias italianas." },
+          { label: "Alojamiento", score: 7.5, desc: "La habitación en piso compartido es la opción habitual; no hay cifras oficiales actuales del alquiler." },
           { label: "Comida y supermercados", score: 9.0, desc: "Mercados sicilianos y street food hacen que comer bien cueste muy poco." },
-          { label: "Transporte", score: 7.5, desc: "El metro y bus de AMT cubren la ciudad con tarifa estudiante muy económica." },
-          { label: "Ocio y gastos diarios", score: 8.5, desc: "Salir de bares en Via Plebiscito es de las opciones más baratas de toda Italia." },
+          { label: "Transporte", score: 7.5, desc: "El metro de FCE y los buses de AMTS cubren la ciudad; la universidad ofrece a sus estudiantes un abono a precio reducido." },
+          { label: "Ocio y gastos diarios", score: 8.5, desc: "Salir de bares y comer en la calle suele costar menos que en el norte de Italia." },
         ],
       },
       {
@@ -10578,21 +10578,21 @@ export const CITY_INSIGHTS = {
         summary: "Mercado accesible, aunque conviene elegir bien el barrio dado el contraste entre zonas de la ciudad.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 7.5, desc: "Buena oferta gracias a una de las mayores poblaciones universitarias de Sicilia." },
-          { label: "Precio", score: 8.0, desc: "250–350€ de media, de los alquileres más bajos de Italia." },
-          { label: "Facilidad de búsqueda", score: 6.5, desc: "La Università di Catania ofrece listados básicos; conviene visitar el piso antes de comprometerse." },
-          { label: "Residencias universitarias", score: 6.0, desc: "Plazas limitadas frente al enorme número de estudiantes de la ciudad." },
+          { label: "Disponibilidad", score: 7.5, desc: "Buena oferta de pisos compartidos en una gran ciudad universitaria." },
+          { label: "Precio", score: 8.0, desc: "Sin cifras oficiales actuales; el alquiler suele ser más bajo que en el norte de Italia." },
+          { label: "Facilidad de búsqueda", score: 6.5, desc: "La guía de la universidad remite a portales de anuncios y grupos de Facebook; conviene visitar el piso antes de comprometerse." },
+          { label: "Residencias universitarias", score: 6.0, desc: "Residencias de ERSU con plazas limitadas, que se asignan por concurso." },
         ],
       },
       {
         id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 8.5,
-        summary: "Una de las vidas nocturnas más intensas de Sicilia, con el Etna como telón de fondo constante.",
+        summary: "Vida nocturna intensa en el centro histórico, con el Etna como telón de fondo.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 8.5, desc: "ESN Catania organiza excursiones al Etna, Taormina y las playas cercanas constantemente." },
-          { label: "Ambiente internacional", score: 7.5, desc: "Una de las mayores poblaciones universitarias de Sicilia, con comunidad Erasmus consolidada." },
-          { label: "Fiesta y vida nocturna", score: 9.0, desc: "Via Plebiscito y Via Landolina concentran una vida nocturna intensa y muy asequible." },
-          { label: "Eventos y actividades", score: 8.0, desc: "La Festa di Sant'Agata en febrero es una de las fiestas religiosas más multitudinarias de Italia." },
+          { label: "Comunidad Erasmus", score: 8.5, desc: "ESN Catania organiza actividades y excursiones para estudiantes de intercambio." },
+          { label: "Ambiente internacional", score: 7.5, desc: "Gran ciudad universitaria, con comunidad Erasmus consolidada." },
+          { label: "Fiesta y vida nocturna", score: 9.0, desc: "La zona de Via Landolina y el Teatro Massimo concentra una vida nocturna intensa." },
+          { label: "Eventos y actividades", score: 8.0, desc: "La Festa di Sant'Agata, del 3 al 5 de febrero, llena la ciudad de procesiones." },
         ],
       },
       {
@@ -10601,7 +10601,7 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 5.0, desc: "Menos hablado que en el norte de Italia; el italiano básico ayuda mucho en el día a día." },
-          { label: "Actitud local", score: 8.5, desc: "Los catanesi tienen fama, merecida, de ser extremadamente hospitalarios." },
+          { label: "Actitud local", score: 8.5, desc: "Los catanesi tienen fama de hospitalarios." },
           { label: "Integración con locales", score: 7.0, desc: "Fácil hacer amigos locales gracias al carácter extrovertido siciliano." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "El tamaño de la comunidad Erasmus y el carácter local hacen la integración relativamente rápida." },
         ],
@@ -10611,10 +10611,10 @@ export const CITY_INSIGHTS = {
         summary: "El transporte urbano es funcional pero limitado; las conexiones a Taormina y el Etna compensan de sobra.",
         color: "#F59E0B",
         subcategories: [
-          { label: "Transporte público", score: 5.5, desc: "AMT (metro y bus) es funcional pero menos extenso que en ciudades del norte de Italia." },
+          { label: "Transporte público", score: 5.5, desc: "El metro de FCE y los buses de AMTS son funcionales, pero menos extensos que en el norte de Italia." },
           { label: "Ciudad caminable", score: 6.5, desc: "El centro histórico se recorre bien a pie, aunque el tráfico es intenso en las horas punta." },
-          { label: "Conexiones internacionales", score: 7.0, desc: "Aeropuerto de Catania-Fontanarossa, el más grande de Sicilia, con buena oferta de vuelos." },
-          { label: "Escapadas de fin de semana", score: 8.5, desc: "El Etna, Taormina y Siracusa, todas a menos de una hora." },
+          { label: "Conexiones internacionales", score: 7.0, desc: "Aeropuerto de Catania-Fontanarossa, el de más pasajeros de Sicilia, con buena oferta de vuelos." },
+          { label: "Escapadas de fin de semana", score: 8.5, desc: "El Etna, Taormina y Siracusa, a una hora o poco más." },
         ],
       },
       {
@@ -10622,10 +10622,10 @@ export const CITY_INSIGHTS = {
         summary: "Vivir a la sombra de un volcán activo, con playas sicilianas y una vida callejera intensa.",
         color: "#3F7A7D",
         subcategories: [
-          { label: "Naturaleza", score: 9.5, desc: "El Etna, el volcán activo más grande de Europa, y playas sicilianas, todo a un paso." },
-          { label: "Clima", score: 9.0, desc: "Mediterráneo con veranos largos y calurosos, de los climas más soleados de esta guía." },
+          { label: "Naturaleza", score: 9.5, desc: "El Etna y las playas de la costa jónica, a poca distancia." },
+          { label: "Clima", score: 9.0, desc: "Mediterráneo, con veranos largos y calurosos e inviernos suaves." },
           { label: "Calidad de vida", score: 7.5, desc: "Ciudad intensa y ruidosa, pero con mucha vida en la calle y personalidad propia." },
-          { label: "Autenticidad local", score: 9.0, desc: "Sicilia auténtica, con menos masificación turística que Palermo o Taormina." },
+          { label: "Autenticidad local", score: 9.0, desc: "Ciudad muy siciliana, con mercados y vida de barrio." },
           { label: "Estilo de vida", score: 9.0, desc: "Vivir bajo un volcán activo, con playas y una vida callejera constante, es una experiencia única." },
         ],
       },
@@ -10635,7 +10635,7 @@ export const CITY_INSIGHTS = {
         color: "#8B5CF6",
         subcategories: [
           { label: "Mercado laboral", score: 4.0, desc: "Tasa de desempleo alta, típica de Sicilia; el mercado laboral local es limitado." },
-          { label: "Prácticas", score: 5.5, desc: "La Università di Catania, una de las más antiguas de Italia, tiene fuerte tradición en informática y tecnología." },
+          { label: "Prácticas", score: 5.5, desc: "La Università di Catania, fundada en 1434, tiene una oferta amplia en ingeniería e informática." },
           { label: "Empresas relevantes", score: 5.0, desc: "Presencia de STMicroelectronics, que ha dado a Catania el apodo de 'Etna Valley'." },
           { label: "Oportunidades para estudiantes", score: 5.5, desc: "El sector tecnológico ligado a STMicroelectronics ofrece prácticas específicas en ingeniería." },
         ],
@@ -10654,18 +10654,18 @@ export const CITY_INSIGHTS = {
   },
   cagliari: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Castello_di_San_Michele%2C_skyline.jpg/1920px-Castello_di_San_Michele%2C_skyline.jpg",
-    tagline: "La única capital europea con una playa de arena blanca dentro de la propia ciudad.",
+    tagline: "Capital de Cerdeña, con la playa del Poetto a un bus del centro.",
     atmosphere: "Cagliari huele a sal marina y malloreddus recién servidos en el barrio de Marina, y suena a olas rompiendo en el Poetto, la playa de 8 kilómetros que en verano se convierte en el auténtico centro social de toda la ciudad.",
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.8,
-        summary: "Asequible para ser una capital regional con playa urbana de primer nivel.",
+        summary: "Estimación de MAbroad: la universidad no publica un presupuesto mensual.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 6.8, desc: "Habitación desde 300–420€, razonable para una capital regional con playa incluida." },
+          { label: "Alojamiento", score: 6.8, desc: "La habitación en piso compartido es la opción habitual; no hay cifras oficiales del alquiler." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercados locales de pescado y producto sardo a buen precio." },
-          { label: "Transporte", score: 7.5, desc: "CTM cubre bus y el metro ligero (metrotranvía) a precio razonable." },
-          { label: "Ocio y gastos diarios", score: 7.5, desc: "Salir de bares en el Poetto o Marina es más barato que en otras capitales costeras europeas." },
+          { label: "Transporte", score: 7.5, desc: "CTM gestiona el bus urbano y ARST el metro ligero (Metrocagliari)." },
+          { label: "Ocio y gastos diarios", score: 7.5, desc: "Marina y el Poetto concentran bares y ocio." },
         ],
       },
       {
@@ -10674,9 +10674,9 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 6.5, desc: "Buena oferta de pisos compartidos, aunque más ajustada cerca del Poetto en verano." },
-          { label: "Precio", score: 7.0, desc: "300–420€ de media, razonable para una capital regional con costa." },
-          { label: "Facilidad de búsqueda", score: 6.5, desc: "La Università di Cagliari ofrece listados básicos de alojamiento para exchange students." },
-          { label: "Residencias universitarias", score: 6.5, desc: "Oferta moderada de residencias, con precios asequibles." },
+          { label: "Precio", score: 7.0, desc: "Sin cifras oficiales del alquiler; el alojamiento es el gasto principal." },
+          { label: "Facilidad de búsqueda", score: 6.5, desc: "La universidad remite a ERSU Cagliari para sus residencias y a ESN Cagliari para buscar piso." },
+          { label: "Residencias universitarias", score: 6.5, desc: "Residencias de ERSU, con plazas limitadas por concurso." },
         ],
       },
       {
@@ -10684,7 +10684,7 @@ export const CITY_INSIGHTS = {
         summary: "Vida social marcada por el ritmo casi vacacional de una ciudad con playa urbana.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 7.5, desc: "ESN Cagliari organiza excursiones a Alghero y la Costa Esmeralda constantemente." },
+          { label: "Comunidad Erasmus", score: 7.5, desc: "ESN Cagliari organiza actividades y excursiones para estudiantes de intercambio." },
           { label: "Ambiente internacional", score: 7.0, desc: "Comunidad Erasmus moderada pero muy unida, con fuerte componente de vida al aire libre." },
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "El Poetto en verano y Marina el resto del año concentran la vida nocturna." },
           { label: "Eventos y actividades", score: 7.5, desc: "Sant'Efisio en mayo, una de las procesiones más multitudinarias de Cerdeña." },
@@ -10706,7 +10706,7 @@ export const CITY_INSIGHTS = {
         summary: "Buen transporte dentro de la ciudad, aunque la condición insular limita las escapadas fuera de Cerdeña.",
         color: "#F59E0B",
         subcategories: [
-          { label: "Transporte público", score: 7.0, desc: "CTM cubre bus y metrotranvía con buena frecuencia por la ciudad." },
+          { label: "Transporte público", score: 7.0, desc: "Buses de CTM y metro ligero de ARST; al Poetto se llega en bus." },
           { label: "Ciudad caminable", score: 6.5, desc: "Castello y Marina se recorren bien a pie, aunque con cuestas notables hacia el Castello." },
           { label: "Conexiones internacionales", score: 5.5, desc: "Aeropuerto de Cagliari-Elmas con buena oferta de vuelos a Italia continental." },
           { label: "Escapadas de fin de semana", score: 4.5, desc: "Al ser una isla, moverse a otras ciudades de Cerdeña requiere coche; el resto de Italia, avión o ferry." },
@@ -10714,14 +10714,14 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 9.0,
-        summary: "La única capital europea con playa urbana de arena blanca, con un estilo de vida casi vacacional.",
+        summary: "Playa urbana, barrio histórico en la colina y vida al aire libre.",
         color: "#3F7A7D",
         subcategories: [
-          { label: "Naturaleza", score: 9.5, desc: "La playa del Poetto, con 8 km de arena blanca, dentro de los límites de la ciudad." },
-          { label: "Clima", score: 9.0, desc: "Mediterráneo con veranos largos y calurosos, de los más soleados de esta guía." },
-          { label: "Calidad de vida", score: 8.5, desc: "Ciudad segura, relajada y con un ritmo de vida casi vacacional." },
+          { label: "Naturaleza", score: 9.5, desc: "La playa del Poetto, unos 8 km de arena, y el parque de Molentargius, con sus flamencos." },
+          { label: "Clima", score: 9.0, desc: "Mediterráneo, con veranos largos y calurosos e inviernos suaves." },
+          { label: "Calidad de vida", score: 8.5, desc: "Ciudad relajada y a escala humana." },
           { label: "Autenticidad local", score: 8.5, desc: "Identidad sarda muy marcada, distinta a la del resto de Italia." },
-          { label: "Estilo de vida", score: 9.5, desc: "Vivir en la única capital europea con una playa urbana de esta calidad es un privilegio único." },
+          { label: "Estilo de vida", score: 9.5, desc: "Ir a la playa en bus después de clase forma parte del día a día." },
         ],
       },
       {
@@ -10737,11 +10737,11 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
-        summary: "Una de las capitales más seguras y tranquilas de Italia.",
+        summary: "Ciudad tranquila en general; aplica las precauciones habituales.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 8.0, desc: "Criminalidad baja, típica de una capital regional de tamaño mediano." },
-          { label: "Seguridad nocturna", score: 7.5, desc: "Marina y el Poetto son seguros de noche, con ambiente animado hasta tarde en verano." },
+          { label: "Seguridad general", score: 8.0, desc: "Ciudad tranquila en general; aplica las precauciones habituales." },
+          { label: "Seguridad nocturna", score: 7.5, desc: "Marina y el Poetto tienen ambiente hasta tarde en verano; de madrugada, mejor por calles concurridas." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, relajada y con fuerte sentido de comunidad." },
         ],
       },
@@ -10939,29 +10939,29 @@ export const CITY_INSIGHTS = {
   },
   verona: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Ponte_Pietra_and_San_Giorgio_in_Braida._Verona%2C_Italy.jpg/1920px-Ponte_Pietra_and_San_Giorgio_in_Braida._Verona%2C_Italy.jpg",
-    tagline: "La ciudad de Romeo y Julieta, con la Arena romana y Venecia a 20 minutos.",
+    tagline: "La ciudad de Romeo y Julieta, con la Arena romana y el lago de Garda cerca.",
     atmosphere: "Verona huele a risotto all'Amarone en las trattorias junto al Adigio, y suena a ópera flotando desde la Arena romana en las noches de verano, mientras turistas y estudiantes se agolpan bajo el balcón de Julieta al atardecer.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 6.8,
-        summary: "Moderada para el Véneto, con precios por debajo de Venecia aunque algo por encima de Padua.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 5.5,
+        summary: "La Universidad de Verona calcula unos 1.000€ al mes: 450€ de habitación en piso compartido con gastos, 450€ de comida y 100€ de libros, transporte y otros gastos.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 6.0, desc: "Habitación desde 400–500€, moderada para una ciudad tan turística del Véneto." },
+          { label: "Alojamiento", score: 6.0, desc: "La universidad calcula 450€ al mes por una habitación en piso compartido, gastos incluidos." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercados locales y gastronomía véneta a precio razonable fuera de zonas turísticas." },
-          { label: "Transporte", score: 7.5, desc: "Abono ATV con descuento estudiantil para bus urbano." },
+          { label: "Transporte", score: 7.5, desc: "El bus urbano de ATV cubre la ciudad; la universidad calcula unos 50€ al mes para transporte y otros gastos." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Salir de bares en la zona de Veronetta es más barato que en el centro turístico." },
         ],
       },
       {
-        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.0,
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 5.5,
         summary: "Mercado accesible, con Veronetta como zona estudiantil por excelencia frente al centro más caro.",
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 6.5, desc: "Buena oferta de pisos compartidos, especialmente en Veronetta." },
-          { label: "Precio", score: 6.0, desc: "400–500€ de media, razonable para el Véneto." },
+          { label: "Precio", score: 6.0, desc: "La universidad calcula 450€ al mes por una habitación en piso compartido con gastos." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "La Università di Verona ofrece listados básicos de alojamiento para exchange students." },
-          { label: "Residencias universitarias", score: 6.0, desc: "Buena oferta de residencias (ESU), aunque conviene solicitar con antelación." },
+          { label: "Residencias universitarias", score: 6.0, desc: "Residencias de ESU Verona con plazas por convocatoria: conviene solicitarlas con antelación." },
         ],
       },
       {
@@ -10969,10 +10969,10 @@ export const CITY_INSIGHTS = {
         summary: "Vida universitaria activa, con la Arena y el ambiente romántico de la ciudad como telón de fondo.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 8.0, desc: "ESN Verona organiza excursiones a Venecia y el lago di Garda constantemente." },
+          { label: "Comunidad Erasmus", score: 8.0, desc: "ESN Verona organiza actividades y excursiones para estudiantes de intercambio." },
           { label: "Ambiente internacional", score: 7.5, desc: "La Università di Verona tiene programas internacionales consolidados." },
           { label: "Fiesta y vida nocturna", score: 8.0, desc: "Veronetta concentra bares con ambiente estudiantil animado toda la semana." },
-          { label: "Eventos y actividades", score: 8.5, desc: "La ópera de verano en la Arena di Verona es un evento cultural de primer nivel mundial." },
+          { label: "Eventos y actividades", score: 8.5, desc: "El festival de ópera de la Arena, cada verano, es la gran cita cultural de la ciudad." },
         ],
       },
       {
@@ -10980,21 +10980,21 @@ export const CITY_INSIGHTS = {
         summary: "Ciudad muy acostumbrada al turismo y al estudiante internacional gracias a su fama literaria.",
         color: "#3F7A7D",
         subcategories: [
-          { label: "Nivel de inglés", score: 7.0, desc: "Bien hablado gracias al enorme flujo turístico internacional de la ciudad." },
+          { label: "Nivel de inglés", score: 7.0, desc: "Bastante extendido en las zonas turísticas; el italiano ayuda en el día a día." },
           { label: "Actitud local", score: 7.5, desc: "Los veronesi son cordiales, aunque el turismo masivo en el centro puede saturar el trato inicial." },
           { label: "Integración con locales", score: 7.0, desc: "Veronetta, lejos del circuito turístico, ofrece un contacto más genuino con locales." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "La comunidad Erasmus, activa y consolidada, facilita mucho hacer amigos rápido." },
         ],
       },
       {
-        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.3,
-        summary: "Excelente posición en el Véneto, con Venecia a 20 minutos y el lago di Garda a un paso.",
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.0,
+        summary: "Buena posición en el norte de Italia, con el lago de Garda a un paso y Venecia y Milán en tren.",
         color: "#F59E0B",
         subcategories: [
           { label: "Transporte público", score: 7.5, desc: "ATV cubre bien la ciudad con bus urbano de buena frecuencia." },
           { label: "Ciudad caminable/ciclable", score: 8.0, desc: "Centro histórico compacto y muy ciclable, con el Adigio como referencia." },
           { label: "Conexiones internacionales", score: 7.5, desc: "Aeropuerto de Verona-Villafranca con buena oferta de vuelos europeos." },
-          { label: "Escapadas de fin de semana", score: 9.5, desc: "Venecia a 20 minutos en tren, y el lago di Garda a menos de 30 minutos." },
+          { label: "Escapadas de fin de semana", score: 8.5, desc: "El lago de Garda a unos 15 minutos en tren; Venecia y Milán, a algo más de una hora." },
         ],
       },
       {
@@ -11004,9 +11004,9 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Naturaleza", score: 8.0, desc: "El lago di Garda, con playas y montañas, a menos de 30 minutos." },
           { label: "Clima", score: 7.0, desc: "Continental templado, con veranos cálidos e inviernos con niebla ocasional." },
-          { label: "Calidad de vida", score: 8.5, desc: "Ciudad segura, elegante y con una calidad de vida muy alta." },
+          { label: "Calidad de vida", score: 8.5, desc: "Ciudad elegante y a escala humana." },
           { label: "Autenticidad local", score: 7.5, desc: "El centro histórico, muy turístico, contrasta con la Verona más local de Veronetta." },
-          { label: "Estilo de vida", score: 9.0, desc: "Vivir en la ciudad de Romeo y Julieta, con ópera romana y Venecia a un paso, es único." },
+          { label: "Estilo de vida", score: 9.0, desc: "Vivir entre monumentos romanos, ópera en la Arena y el lago de Garda cerca." },
         ],
       },
       {
@@ -11021,12 +11021,12 @@ export const CITY_INSIGHTS = {
         ],
       },
       {
-        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.3,
-        summary: "Una de las ciudades más seguras de Italia, con un ambiente ordenado y turístico.",
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
+        summary: "Ciudad tranquila en general; aplica las precauciones habituales.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 8.5, desc: "Criminalidad muy baja, entre las más reducidas de las ciudades italianas." },
-          { label: "Seguridad nocturna", score: 8.0, desc: "Veronetta y el centro son seguros incluso de madrugada." },
+          { label: "Seguridad general", score: 8.0, desc: "Ciudad tranquila en general; aplica las precauciones habituales." },
+          { label: "Seguridad nocturna", score: 7.5, desc: "El centro tiene vida de noche; de madrugada, mejor por calles concurridas." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, elegante y con fuerte identidad cultural." },
         ],
       },

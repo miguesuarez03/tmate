@@ -426,4 +426,25 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "10–19°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y temperaturas suaves.", tags: ["Inicio Erasmus","Suave","Muy animada"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–8°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas y niebla en la llanura.", tags: ["Frío","Heladas","Niebla"] },
   ],
+  // Lecce: Lecce (OMM 16332, normales 1991–2020).
+  lecce: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "9–20°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada, ideal para recorrer el barroco y estrenar la costa.", tags: ["Templada","Barroco","Costa"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "18–32°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos calurosos y secos: el Salento vive en la playa.", tags: ["Calor","Playas","Notte della Taranta"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "13–23°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y el mar todavía templado.", tags: ["Inicio Erasmus","Mar templado","Muy animada"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "4–14°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave, con días frescos y algo de lluvia.", tags: ["Suave","Lluvia","Tranquilo"] },
+  ],
+  // Cagliari: Cagliari-Elmas (OMM 16560, normales 1991–2020).
+  cagliari: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "10–21°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave, con Sant'Efisio el 1 de mayo.", tags: ["Suave","Sant'Efisio","Aire libre"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "19–31°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos calurosos: el Poetto se convierte en el centro de la ciudad.", tags: ["Calor","Poetto","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "14–24°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y todavía tiempo de playa.", tags: ["Inicio Erasmus","Playa","Muy animada"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "6–15°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave junto al mar, con viento algunos días.", tags: ["Suave","Viento","Tranquilo"] },
+  ],
+  // Verona: Verona-Villafranca (OMM 16090, normales 1991–2020).
+  verona: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "8–19°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada, buena para el lago de Garda y las colinas.", tags: ["Templada","Lago de Garda","Colinas"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "18–30°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos calurosos, con la temporada de ópera en la Arena.", tags: ["Calor","Ópera en la Arena","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "9–19°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y vendimia en los alrededores.", tags: ["Inicio Erasmus","Vendimia","Muy animada"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–8°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas y niebla en la llanura.", tags: ["Frío","Heladas","Niebla"] },
+  ],
 };

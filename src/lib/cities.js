@@ -776,9 +776,24 @@ export function parseMaxCost(costDetail) {
 /** Presupuesto mínimo (€/mes) hasta el que una ciudad se etiqueta como «Asequible». */
 export const AFFORDABLE_MAX_COST = 500;
 
-/** ¿Es asequible? Mira el mínimo del rango de costDetail (entiende los miles). */
-export function isAffordable(costDetail) {
-  const min = parseMinCost(costDetail || "");
+/** ¿El coste de la ciudad viene de una fuente oficial (`costSource` en cities.js)? */
+export function hasOfficialCost(city) {
+  return typeof city?.costSource === "string" && city.costSource.trim() !== "";
+}
+
+/** Texto de la procedencia del coste en la ficha: la fuente oficial o «Estimación MAbroad». */
+export function getCostSourceLabel(city) {
+  return hasOfficialCost(city) ? `Fuente: ${city.costSource}` : "Estimación MAbroad";
+}
+
+/**
+ * ¿Es asequible? Solo si el coste tiene fuente oficial y el mínimo del rango
+ * de costDetail (entiende los miles) no pasa de AFFORDABLE_MAX_COST. Un coste
+ * estimado por MAbroad nunca lleva la etiqueta «Asequible».
+ */
+export function isAffordable(city) {
+  if (!hasOfficialCost(city)) return false;
+  const min = parseMinCost(city.costDetail || "");
   return min > 0 && min <= AFFORDABLE_MAX_COST;
 }
 

@@ -327,6 +327,13 @@ a.heroBigLink:hover {
   margin: 0; font-family: var(--font-body);
 }
 
+/* Procedencia del coste: «Fuente: …» o «Estimación MAbroad». */
+.heroStatSource {
+  font-size: 0.7rem; color: rgba(255,255,255,0.55);
+  margin: 0.15rem 0 0; font-family: var(--font-body); font-style: italic;
+  line-height: 1.3;
+}
+
 .heroStatDiv {
   height: 1px; background: rgba(255,255,255,0.08);
 }
