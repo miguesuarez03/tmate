@@ -84,8 +84,10 @@ export function buildCityData() {
       language: COUNTRY_LANGUAGE[city.country],
       languagePending: CITY_LANGUAGE_PENDING[city.slug],
     });
-    const { overall, pending } = computeScore(subs);
+    const { overall, exact, pending } = computeScore(subs);
     entry.overall = overall;
+    // Sin redondear (4 decimales): los rankings ordenan por aquí.
+    entry.overallExact = exact;
     entry.nota = { subs, pending, extras };
     entry.beca = getBecaGap(city, costMid, BECA_DATA);
     // Subnotas para rankings/comparador (Clima, Nivel de inglés): sin dato, no van.

@@ -29,10 +29,10 @@ export function ProgressBar({ score, color, animate = true, delay = 0 }) {
 
 // ─── SCORE LEVEL ──────────────────────────────────────────────────────────────
 function getLevel(score) {
-  if (score >= 8.5) return { label: "Excelente", color: "#22C55E" };
-  if (score >= 7)   return { label: "Bueno",     color: "#3F7A7D" };
-  if (score >= 5.5) return { label: "Regular",   color: "#F59E0B" };
-  return               { label: "Difícil",   color: "#EF4444" };
+  if (score >= 8) return { label: "Excelente", color: "#22C55E" };
+  if (score >= 7) return { label: "Muy buena", color: "#3F7A7D" };
+  if (score >= 6) return { label: "Buena",     color: "#F59E0B" };
+  return            { label: "Mejorable", color: "#EF4444" };
 }
 
 // ─── SCORE CARD — new visual design ──────────────────────────────────────────

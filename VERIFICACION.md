@@ -254,7 +254,7 @@ Criterio completo en `docs/scoring.md`. Esta sección recoge de dónde sale cada
     - Comprobado a mano que cada ciudad cae en su región: Lisboa en PT1A Grande Lisboa, Rotterdam y La Haya en NL36 Zuid-Holland, Estambul en TR10, etc.
 - **Seguridad**: mitad país (UNODC) y mitad valoración de la ciudad (categoría «Seguridad»).
 - **Notas provisionales fuera de los rankings.** Quedan 6 provisionales, todas por vida estudiantil: Rosenheim, Leipzig, Cusco, La Paz, Ciudad de Guatemala y San Salvador.
-- **Umbral de «Excelente» (8,5)**: ninguna ciudad llega; la máxima es 8,4. Pendiente de decidir con la nota ya cerrada.
+- **Umbral de «Excelente» (8,5)**: ninguna ciudad llegaba (máxima 8,4). Resuelto por Miguel el 13-11-2026: Excelente 8,0 o más, Muy buena 7,0–7,9, Buena 6,0–6,9, Mejorable por debajo de 6,0; y los rankings ordenan por la nota sin redondear.
   - Propuesta: Excelente 8,0 o más (8 ciudades); Bueno, de 7,0 a 7,9 (97); Regular, de 6,0 a 6,9 (31); Difícil, por debajo de 6,0 (14, todas en América).
   - Hoy, con los umbrales actuales: 0 Excelente, 105 Bueno, 40 Regular y 5 Difícil.
 

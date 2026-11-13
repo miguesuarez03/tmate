@@ -15,9 +15,9 @@ import { getScoreLevel } from "../lib/cities";
  */
 const RING_FILL = {
   Excelente: "#15803D",
-  Bueno: "#3F7A7D",
-  Regular: "#B45309",
-  Difícil: "#B91C1C",
+  "Muy buena": "#3F7A7D",
+  Buena: "#B45309",
+  Mejorable: "#B91C1C",
 };
 
 export default function ScoreRing({ score, size = 96, showLabel = true, animate = true, className = "" }) {

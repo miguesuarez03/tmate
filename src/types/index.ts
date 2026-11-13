@@ -166,6 +166,8 @@ export interface CityIndexEntry extends Pick<City,
   scores: Record<string, number>;
   /** Nota MAbroad (src/lib/scoring.js): media ponderada de las 8 subnotas; null si falta más del 30 % del peso. */
   overall: number | null;
+  /** La misma nota sin redondear (4 decimales): los rankings ordenan por ella. */
+  overallExact: number | null;
   /** Subnotas de la nota (id de SUBSCORES → 0–10, null = pendiente) y las que faltan. */
   nota: { subs: Record<SubscoreId, number | null>; pending: SubscoreId[]; extras: Record<ExtraScoreId, number | null> };
   /** Lo que falta al mes tras la beca (getBecaGap): dato aparte, no cuenta en la nota. */

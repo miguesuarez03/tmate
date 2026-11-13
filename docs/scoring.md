@@ -19,7 +19,7 @@ La nota de cada ciudad **no se escribe a mano**. Es la media ponderada, con **pe
 
 **El idioma no cuenta para la nota**: es una preferencia personal. Se calcula igual y se enseña como dato aparte en el desglose y en el comparador (ver «Idioma» más abajo), y City Match lo pregunta.
 
-Niveles (`getScoreLevel`): 8,5 o más es «Excelente»; de 7 a 8,4, «Bueno»; de 5,5 a 6,9, «Regular»; por debajo, «Difícil». Con esta nota ninguna ciudad llega hoy a 8,5. El umbral está pendiente de decidir: ver la sección «Datos de la nota MAbroad» de [`VERIFICACION.md`](../VERIFICACION.md).
+Niveles (`getScoreLevel`, sobre la nota tal como se enseña, con un decimal): 8,0 o más es «Excelente»; de 7,0 a 7,9, «Muy buena»; de 6,0 a 6,9, «Buena»; por debajo de 6,0, «Mejorable». Los rankings ordenan por la nota **sin redondear** (`overallExact`, 4 decimales), así que dos ciudades que se enseñan con 7,8 no empatan por orden alfabético.
 
 ## Datos pendientes y notas provisionales
 

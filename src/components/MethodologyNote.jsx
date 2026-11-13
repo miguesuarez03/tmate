@@ -29,8 +29,8 @@ export default function MethodologyNote({ compact = false }) {
               <strong>La nota global:</strong> es la media ponderada, siempre con los mismos pesos, de 8 subnotas de 0 a
               10 (toca la nota para ver las de cada ciudad): coste de vida 20 %, vida estudiantil 20 %, seguridad 15 %,
               salidas profesionales 10 %, nivel académico 10 %, alojamiento 10 %, calidad de vida y clima 10 % y
-              conectividad 5 %. De 8,5 en adelante es «Excelente»; de 7 a 8,4, «Bueno»; de 5,5 a 6,9, «Regular»; y por
-              debajo, «Difícil».
+              conectividad 5 %. De 8,0 en adelante es «Excelente»; de 7,0 a 7,9, «Muy buena»; de 6,0 a 6,9, «Buena»; y por
+              debajo de 6,0, «Mejorable».
             </li>
             <li>
               <strong>Subnotas con dato:</strong> coste (coste mensual de la ficha: 400 €/mes o menos es un 10 y cada 200 €

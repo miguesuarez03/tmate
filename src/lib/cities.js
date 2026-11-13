@@ -442,7 +442,8 @@ export function formatCriterionValue(city, criterionId, value = getCriterionValu
 /**
  * Ordena ciudades por un criterio, de mejor a peor. Las que no tienen el dato
  * van al final (rank null), por nombre. Empates: en coste, el mínimo más bajo
- * y luego la nota global; en el resto, la nota global; y por último el nombre.
+ * y luego la nota global sin redondear; en el resto, la nota global sin
+ * redondear (overallExact); el nombre solo si también empatan ahí.
  * Determinista (mismo orden en el prerender y en el cliente).
  * @param {string} criterionId
  * @param {{ cities?: CityIndexEntry[] }} [options]
@@ -454,7 +455,11 @@ export function rankCities(criterionId, { cities = CITIES } = {}) {
     city,
     value: getCriterionValue(city, criterionId),
     // En coste se ordena por el euro exacto (el 0–10 redondeado empataría más).
-    key: isCost ? -getCostMidpoint(city.costDetail) : getCriterionValue(city, criterionId),
+    // En la nota global se ordena por la nota sin redondear (overallExact).
+    key: isCost ? -getCostMidpoint(city.costDetail)
+      : CRITERIA_BY_ID.get(criterionId)?.source.kind === 'overall' && getCriterionValue(city, criterionId) != null
+        ? BY_SLUG.get(city.slug)?.overallExact ?? getCriterionValue(city, criterionId)
+        : getCriterionValue(city, criterionId),
   }));
   rows.sort((a, b) => {
     if ((a.value == null) !== (b.value == null)) return a.value == null ? 1 : -1;
@@ -464,8 +469,9 @@ export function rankCities(criterionId, { cities = CITIES } = {}) {
       const byMin = parseMinCost(a.city.costDetail) - parseMinCost(b.city.costDetail);
       if (byMin) return byMin;
     }
-    const byOverall = (b.city.overall ?? 0) - (a.city.overall ?? 0);
-    if (byOverall && criterionId !== 'nota') return byOverall;
+    const exact = (c) => BY_SLUG.get(c.slug)?.overallExact ?? c.overall ?? 0;
+    const byOverall = exact(b.city) - exact(a.city);
+    if (byOverall) return byOverall;
     return a.city.name.localeCompare(b.city.name, 'es');
   });
   let rank = 0;
@@ -852,10 +858,12 @@ export function isAffordable(city) {
 
 /** Formatea un score de 0-10 con color semántico. */
 export function getScoreLevel(score) {
-  if (score >= 8.5) return { label: 'Excelente', color: '#22C55E' };
-  if (score >= 7)   return { label: 'Bueno',     color: '#3F7A7D' };
-  if (score >= 5.5) return { label: 'Regular',   color: '#F59E0B' };
-  return               { label: 'Difícil',   color: '#EF4444' };
+  // Umbrales sobre la nota tal como se enseña (un decimal): 7,95 cuenta como 8,0.
+  const shown = Math.round(score * 10) / 10;
+  if (shown >= 8) return { label: 'Excelente',  color: '#22C55E' };
+  if (shown >= 7) return { label: 'Muy buena',  color: '#3F7A7D' };
+  if (shown >= 6) return { label: 'Buena',      color: '#F59E0B' };
+  return            { label: 'Mejorable',  color: '#EF4444' };
 }
 
 /** Total de ciudades. */

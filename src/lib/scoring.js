@@ -177,7 +177,9 @@ export function englishShareToScore(pct) {
  * MIN_COVERAGE, no hay nota (overall null).
  * @param {Record<string, number | null>} subs
  * @param {Record<string, number>} [weights]
- * @returns {{ overall: number | null, coverage: number, pending: string[] }}
+ * `exact` es la misma nota sin redondear: los rankings ordenan por ella (se
+ * enseña con un decimal, pero dos 7,8 no tienen por qué empatar).
+ * @returns {{ overall: number | null, exact: number | null, coverage: number, pending: string[] }}
  */
 export function computeScore(subs, weights = SCORING_WEIGHTS) {
   let sum = 0;
@@ -198,6 +200,7 @@ export function computeScore(subs, weights = SCORING_WEIGHTS) {
   const coverage = wAll ? wWith / wAll : 0;
   return {
     overall: coverage >= MIN_COVERAGE && wWith ? round1(sum / wWith) : null,
+    exact: coverage >= MIN_COVERAGE && wWith ? Math.round((sum / wWith) * 10000) / 10000 : null,
     coverage: Math.round(coverage * 100) / 100,
     pending,
   };

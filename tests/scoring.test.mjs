@@ -8,7 +8,7 @@ import {
 } from "../src/lib/scoring.js";
 import {
   getAllCities, getCostMidpoint, getOverallScore, getScoreBreakdown, getBecaGapForCity, getCriterionValue,
-  formatCriterionValue, getErasmusRanking,
+  formatCriterionValue, getErasmusRanking, getScoreLevel, rankCities,
 } from "../src/lib/cities.js";
 import { CITY_NEET } from "../src/data/scoring/neet.js";
 import { CITIES } from "../src/data/cities.js";
@@ -109,7 +109,7 @@ test("vida estudiantil: puntos de ESN (0–4) y de estudiantes internacionales (
 
 test("nota: media ponderada; lo pendiente se reparte y sin el 70 % del peso no hay nota", () => {
   const all = Object.fromEntries(SUBSCORE_IDS.map((id) => [id, 8]));
-  assert.deepEqual(computeScore(all), { overall: 8, coverage: 1, pending: [] });
+  assert.deepEqual(computeScore(all), { overall: 8, exact: 8, coverage: 1, pending: [] });
   const sinSalidas = { ...all, salidas: null, coste: 10 };
   const r = computeScore(sinSalidas);
   assert.deepEqual(r.pending, ["salidas"]);
@@ -200,4 +200,18 @@ test("te faltan tras la beca: SEPIE en Erasmus+, SEMP en Suiza y 0 € en Améri
   }
   const uk = INDEX.find((c) => c.slug === "londres");
   assert.equal(getBecaGapForCity(uk.slug).estimated, true);
+});
+
+test("niveles: Excelente desde 8,0, Muy buena desde 7,0, Buena desde 6,0 y Mejorable por debajo", () => {
+  const label = (s) => getScoreLevel(s).label;
+  assert.deepEqual([9.2, 8, 7.95, 7.9, 7, 6.9, 6, 5.94, 3].map(label),
+    ["Excelente", "Excelente", "Excelente", "Muy buena", "Muy buena", "Buena", "Buena", "Mejorable", "Mejorable"]);
+});
+
+test("rankings de nota: ordenan por la nota sin redondear, no por el nombre", () => {
+  const all = rankCities("nota").filter((r) => r.rank != null);
+  for (let i = 1; i < all.length; i++) {
+    assert.ok(all[i - 1].city.overallExact >= all[i].city.overallExact, `${all[i - 1].city.slug} / ${all[i].city.slug}`);
+  }
+  for (const c of INDEX) if (c.overall != null) assert.equal(Math.round(c.overallExact * 10) / 10, c.overall, c.slug);
 });
