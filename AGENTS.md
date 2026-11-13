@@ -34,3 +34,4 @@ MAbroad (repo `tmate`): web en español para elegir ciudad de Erasmus. React + V
 8. Para verificar el build de verdad: `npm run build` (no basta con `vite dev`), **lanzado desde PowerShell, no desde Git Bash**: desde Git Bash la ruta llega a Vite como `c:/...` y falla con `[vite:html-inline-proxy] Could not load ...`. Los tests van con `npm test` (desde cualquiera de las dos).
 9. No tocar `.env.local` ni exponer claves.
 10. Idioma: textos de la web, comentarios y commits en español.
+11. Notas de trabajo siempre dentro del repo (las de cada tanda de verificación, en su sección de `VERIFICACION.md`), nunca solo en Temp o en un scratchpad.
