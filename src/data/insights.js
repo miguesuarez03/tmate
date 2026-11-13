@@ -5054,12 +5054,12 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 5.5,
-        summary: "Ca' Foscari y el IUAV recomiendan unos 900€/mes; con los alquileres que da el IUAV, 850–1.200€/mes.",
+        summary: "Ca' Foscari y el IUAV recomiendan unos 900€/mes; con los alquileres del IUAV (300–600€ más gastos), MAbroad estima 850–1.200€/mes.",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 3.0, desc: "Habitación individual de 300 a 600€ más gastos, según el IUAV: unos 410€ de media en Venecia y 340€ en Mestre." },
           { label: "Comida y supermercados", score: 5.5, desc: "Los supermercados de barrio (lejos de San Marco) tienen precios normales italianos; los bares turísticos cobran mucho más." },
-          { label: "Transporte", score: 6.5, desc: "Abono de bus, tranvía y vaporetto para menores de 26: 25€/mes o 230€/año; un billete suelto de vaporetto cuesta 9,50€." },
+          { label: "Transporte", score: 6.5, desc: "Abono de bus, tranvía y vaporetto para estudiantes menores de 26 con perfil de estudiante ACTV: 25€/mes o 230€/año; un billete suelto de vaporetto cuesta 9,50€." },
           { label: "Ocio y gastos diarios", score: 4.5, desc: "Los bacari de Cannaregio son mucho más baratos que los cafés de Piazza San Marco." },
         ],
       },
@@ -7904,7 +7904,7 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.5,
-        summary: "La EM Strasbourg (Universidad de Estrasburgo) calcula 300–600€ de alojamiento y 300–500€ de comida y gastos diarios al mes.",
+        summary: "La EM Strasbourg (Universidad de Estrasburgo, guía de 2023) calcula 300–600€ de alojamiento, 300–500€ de comida y gastos diarios y 28€ de abono joven al mes: unos 630–1.130€/mes.",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.8, desc: "De 300 a 600€/mes de alojamiento, según la EM Strasbourg; la demanda es alta." },
@@ -8194,7 +8194,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Según la universidad, 300–450€ por habitación en piso compartido y 450–650€ por un estudio." },
           { label: "Comida y supermercados", score: 7.5, desc: "El mercado de Wazemmes y los supermercados estándar mantienen el gasto bajo control." },
-          { label: "Transporte", score: 7.5, desc: "Ilévia: abono para menores de 26 años de 20–35€/mes, según los ingresos familiares." },
+          { label: "Transporte", score: 7.5, desc: "Ilévia: abono 4–25 años de 33,40€/mes (28,65€ con compromiso anual, solo para residentes de la Metrópoli de Lille); hay tarifas sociales según ingresos." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Salir de bares tiene precios razonables, con influencia belga en la oferta cervecera." },
         ],
       },
@@ -10921,7 +10921,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Mercado laboral", score: 8.0, desc: "Uno de los polos tecnológicos más importantes de Francia, especialmente en microelectrónica." },
           { label: "Prácticas", score: 8.5, desc: "Grenoble INP tiene conexiones directas con STMicroelectronics, el CEA y Schneider Electric." },
-          { label: "Empresas relevantes", score: 8.0, desc: "Sede de STMicroelectronics, el CEA-Leti y numerosas startups deep-tech." },
+          { label: "Empresas relevantes", score: 8.0, desc: "Presencia de STMicroelectronics, el CEA-Leti y numerosas startups deep-tech." },
           { label: "Oportunidades para estudiantes", score: 7.5, desc: "Las prácticas en el sector tecnológico y de semiconductores son de las más valoradas de Francia." },
         ],
       },

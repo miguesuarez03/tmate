@@ -369,7 +369,8 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "9–17°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y una ciudad llena de estudiantes.", tags: ["Inicio Erasmus","Lluvia frecuente","Muy animada"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "3–10°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y lluvioso; en diciembre, Les Trans Musicales.", tags: ["Suave","Lluvia","Trans Musicales"] },
   ],
-  // Venecia: Venezia-Tessera (OMM); la máxima de marzo falta en la serie y se estima con la media mensual.
+  // Venecia: Venezia-Tessera (OMM 1991–2020). La máxima de marzo falta en la serie: la de primavera (18°C)
+  // es una estimación a partir de la media mensual, pendiente de fuente (ver VERIFICACION.md).
   venecia: [
     { id: "spring", label: "Primavera", months: "Mar–May", temp: "9–18°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada, la mejor época para recorrer la laguna antes del calor.", tags: ["Templada","Laguna","Paseos"] },
     { id: "summer", label: "Verano", months: "Jun–Ago", temp: "19–28°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos calurosos y húmedos; el Lido y sus playas a un vaporetto.", tags: ["Calor","Humedad","Lido"] },
