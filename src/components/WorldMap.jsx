@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import styles from "./WorldMap.module.css";
 import { formatScore, getAllCities, getOverallScore, getScoreMap, getScoreLevel, getStateCountry, getMapCountries } from "../lib/cities";
 import { CITY_COORDS } from "../lib/cityCoords";
+import { useUniversity } from "../hooks/useUniversity";
 import { MAP_ALL_VIEW } from "../data/mapCountries";
 import { IconFiesta, IconEdificio, IconBeca, IconGlobo } from "./icons";
 import { responsiveImage } from "../lib/images";
@@ -121,6 +122,7 @@ export default function WorldMap() {
   const [country, setCountry]     = useState("Todos");
   const [vibeFilter, setVibeFilter] = useState(null); // null | "fiesta"|"cultura"|"economia"|"dinero"
   const containerRef              = useRef(null);
+  const uni                       = useUniversity();
 
   const handleMoveEnd = useCallback(pos => setPosition(pos), []);
 
@@ -134,6 +136,8 @@ export default function WorldMap() {
 
   // Filtrar ciudades según país y vibe
   const visibleCities = CITIES.filter(c => {
+    // Modo «Mi universidad»: solo destinos con plazas (apagado, no quita nada).
+    if (!uni.isIncluded(c.slug)) return false;
     if (country !== "Todos" && c.country !== country) return false;
     if (vibeFilter) {
       const val = vibeFilter === "barato"

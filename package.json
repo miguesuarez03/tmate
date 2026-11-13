@@ -10,6 +10,7 @@
     "photos:meta": "node scripts/wikimedia-photos.mjs",
     "flags:sprite": "node scripts/build-flags.mjs",
     "scoring:data": "node --import ./tests/resolve-hook.mjs scripts/scoring-data.mjs",
+    "universities:match": "node --import ./tests/resolve-hook.mjs scripts/match-university-cities.mjs",
     "build": "npm run build:client && npm run build:ssr && npm run prerender",
     "preview": "vite preview",
     "pretest": "node --import ./tests/resolve-hook.mjs scripts/city-data.mjs",

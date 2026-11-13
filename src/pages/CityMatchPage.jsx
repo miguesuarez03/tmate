@@ -16,6 +16,8 @@ import ScoreRing from "../components/ScoreRing";
 import PhotoCredit from "../components/PhotoCredit";
 import styles from "./CityMatchPage.module.css";
 import { responsiveImage } from "../lib/images";
+import UniversityBanner from "../components/university/UniversityBanner";
+import { useUniversity } from "../hooks/useUniversity";
 
 const ALL_CITIES = getAllCities();
 
@@ -682,6 +684,8 @@ export default function CityMatchPage() {
   const firstRender = useRef(true);
   const titleId = useId();
   const hintId = useId();
+  // Modo «Mi universidad»: solo destinos con plazas (apagado, no quita nada).
+  const uni = useUniversity();
 
   useSEO({
     title: "City Match — Encuentra tu ciudad Erasmus ideal | MAbroad",
@@ -771,9 +775,10 @@ export default function CityMatchPage() {
   const matches = useMemo(() => {
     if (!showResults) return [];
     return cityPool(answers.destino)
+      .filter((c) => uni.isIncluded(c.slug))
       .map((c) => ({ ...computeMatch(c, answers), failed: failedMustHaves(c, answers, mustIds) }))
       .sort((a, b) => b.percent - a.percent || b.overall - a.overall);
-  }, [showResults, answers, mustIds]);
+  }, [showResults, answers, mustIds, uni]);
 
   // Las que cumplen TODOS los imprescindibles, por % de match.
   const top = useMemo(() => matches.filter((m) => m.failed.length === 0).slice(0, 5), [matches]);
@@ -891,6 +896,7 @@ export default function CityMatchPage() {
                 {top.length > 0 ? "Estas son tus ciudades ideales" : "Ninguna ciudad cumple todo lo imprescindible"}
               </h1>
               <p className={styles.resultsSubtitle}>{subtitle}</p>
+              <UniversityBanner count={ALL_CITIES.filter((c) => uni.isIncluded(c.slug)).length} />
               <div className={styles.resultsActions}>
                 <button className={styles.secondaryBtn} onClick={restart}>↺ Volver a hacer el test</button>
                 {shown.length > 0 && (
@@ -1001,7 +1007,7 @@ export default function CityMatchPage() {
               <ul className={styles.introFacts}>
                 <li><strong>{CITY_MATCH_QUESTION_COUNT}</strong><span>preguntas</span></li>
                 <li><strong>~2</strong><span>minutos</span></li>
-                <li><strong>{ALL_CITIES.length}</strong><span>destinos</span></li>
+                <li><strong>{uni.filtering ? ALL_CITIES.filter((c) => uni.isIncluded(c.slug)).length : ALL_CITIES.length}</strong><span>destinos</span></li>
               </ul>
               <button type="button" className={`${styles.continueBtn} ${styles.introStart}`} onClick={() => setStarted(true)}>
                 Empezar →

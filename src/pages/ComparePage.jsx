@@ -22,6 +22,9 @@ import { useCityDetails } from "../hooks/useCityDetail";
 import styles from "./ComparePage.module.css";
 import { responsiveImage } from "../lib/images";
 import PhotoCredit from "../components/PhotoCredit";
+import UniversitySelector from "../components/university/UniversitySelector";
+import UniversityBanner from "../components/university/UniversityBanner";
+import { useUniversity } from "../hooks/useUniversity";
 
 // Índice ligero de ciudades (ver lib/cities.js).
 const ALL_CITIES = getAllCities();
@@ -800,12 +803,15 @@ export default function ComparePage() {
     }, { replace: true });
   };
 
+  // Modo «Mi universidad»: solo destinos con plazas (apagado, no quita nada).
+  const uni = useUniversity();
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim();
     return filterByProgram(ALL_CITIES, program).filter(
-      (c) => !q || c.name.toLowerCase().includes(q) || c.country.toLowerCase().includes(q) || c.tag.toLowerCase().includes(q)
+      (c) => uni.isIncluded(c.slug) &&
+        (!q || c.name.toLowerCase().includes(q) || c.country.toLowerCase().includes(q) || c.tag.toLowerCase().includes(q))
     );
-  }, [search, program]);
+  }, [search, program, uni]);
 
   // Con un chip de orden activo, lista única ordenada por ese criterio (con
   // su puesto y su dato) en vez de los acordeones por región.
@@ -1199,6 +1205,8 @@ export default function ComparePage() {
 
         {/* Guía de estado: siempre ocupa su línea (cambia el texto, no el
             alto), para que la lista no salte al elegir. */}
+        <UniversitySelector />
+        <UniversityBanner count={filtered.length} />
         <p className={styles.hint} aria-live="polite">{SELECTION_HINTS[Math.min(selected.length, 3)]}</p>
 
         {/* Orden rápido + programa: se combinan entre sí y con el buscador, y

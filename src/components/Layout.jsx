@@ -10,7 +10,10 @@ import {
   IconProceso,
   IconExperiencia,
   IconDocumento,
+  IconUniversidad,
 } from "./icons";
+import { useUniversity } from "../hooks/useUniversity";
+import { formatExtractedAt } from "../lib/universities";
 import ThemeToggle, { ThemeToggleRow } from "./ThemeToggle";
 import { CITY_MATCH_QUESTION_COUNT } from "../data/cityMatch";
 
@@ -150,6 +153,15 @@ const MENU_ITEMS = [
     desc: "Beca, Learning Agreement, destino y papeles, explicados a fondo",
     action: "guias",
     to: "/guias",
+  },
+  {
+    // Abre el selector «Mi universidad» de la home (UniversitySelector, id
+    // mi-universidad): el hash lo despliega y baja hasta él.
+    Icon: IconUniversidad,
+    label: "Mi universidad",
+    desc: "Ve solo los destinos con plazas de tu universidad y tu grado",
+    action: "universidad",
+    to: "/#mi-universidad",
   },
   {
     Icon: IconExperiencia,
@@ -465,8 +477,16 @@ const FOOTER_LINKS = [
 
 export function Footer() {
   const { pathname } = useLocation();
+  const uni = useUniversity();
   return (
     <footer className="footer">
+      {/* Modo «Mi universidad»: de dónde salen las plazas (sin modo, nada). */}
+      {uni.active && (
+        <p className="footer__uni-note">
+          Datos del portal de movilidad de {uni.entry.shortName} ({formatExtractedAt(uni.data.university.extractedAt)}).
+          Confirma siempre con la Oficina de Relaciones Internacionales.
+        </p>
+      )}
       <Logo dark={false} />
       <p className="footer__copy">
         © {new Date().getFullYear()} MAbroad · Hecho para ciudadanos globales ·{" "}

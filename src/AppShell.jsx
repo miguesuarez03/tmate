@@ -5,6 +5,7 @@ import RouteLoader from "./components/RouteLoader";
 import RouteErrorBoundary from "./components/RouteErrorBoundary";
 import { ROUTES } from "./routes";
 import { subscribePendingLoads, hasPendingLoads } from "./lib/pendingLoads";
+import { UniversityProvider } from "./hooks/useUniversity";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Estructura común de TODAS las páginas, igual en el cliente (App.jsx, con
@@ -62,7 +63,9 @@ function AppRoutes({ pages }) {
 export default function AppShell({ pages }) {
   const { pathname } = useLocation();
   return (
-    <>
+    // Modo «Mi universidad» (hooks/useUniversity): apagado en el primer render,
+    // igual que el HTML prerenderizado.
+    <UniversityProvider>
       <a className="skip-link" href="#contenido" onClick={skipToContent}>Saltar al contenido</a>
       <ScrollRestoration />
       <NavigationProgress />
@@ -73,6 +76,6 @@ export default function AppShell({ pages }) {
           <AppRoutes pages={pages} />
         </Suspense>
       </RouteErrorBoundary>
-    </>
+    </UniversityProvider>
   );
 }

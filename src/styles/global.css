@@ -777,6 +777,15 @@ a { text-decoration: none; color: inherit; }
 .city-card__tag--program {
   top: 47px;
 }
+/* Modo «Mi universidad»: plazas y tipo de convenio, encima del nombre. */
+.city-card__uni {
+  display: inline-block; max-width: 100%; margin-bottom: 8px;
+  padding: 3px 10px; border-radius: var(--radius-full);
+  background: rgba(245,150,58,0.92); color: #fff;
+  font: 700 11px/1.4 var(--font-body); letter-spacing: 0.2px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.city-card__uni-rri { font-weight: 600; }
 
 .city-card__content {
   position: absolute; bottom: 0; left: 0; right: 0;
@@ -891,6 +900,8 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
 .footer__link:hover { color: var(--color-primary); }
 /* Aviso de independencia: discreto, a todo el ancho bajo el logo y el copy. */
 .footer__independence { flex-basis: 100%; margin: 0; font-size: 11px; line-height: 1.5; color: rgba(255,255,255,0.32); max-width: 760px; }
+/* Modo «Mi universidad»: procedencia de las plazas (solo con el modo activo). */
+.footer__uni-note { flex-basis: 100%; margin: 0; font-size: 12px; line-height: 1.5; color: rgba(255,255,255,0.6); max-width: 760px; }
 
 /* ─── CITY DETAIL HERO ───────────────────────────────────────────────────── */
 .city-hero { position: relative; height: 82vh; min-height: 500px; overflow: hidden; }

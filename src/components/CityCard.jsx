@@ -7,6 +7,8 @@ import PhotoCredit from "./PhotoCredit";
 import Flag from "./Flag";
 import { responsiveImage } from "../lib/images";
 import { useIsoLayoutEffect } from "../hooks/useIsoLayoutEffect";
+import { useUniversity } from "../hooks/useUniversity";
+import { formatPlacesBadge } from "../lib/universities";
 
 // Huecos de la foto de la tarjeta (ver .cities-grid en global.css): 4
 // columnas de ~280px, 3 hasta 1100px y 2 en móvil; la tarjeta es vertical
@@ -29,6 +31,10 @@ export default function CityCard({ city }) {
   const [inView, setInView] = useState(false);
   const cardRef = useRef(null);
   const overall = getOverallScore(city.slug);
+  // Modo «Mi universidad»: nº de plazas y tipos de convenio (sin modo, nada).
+  const uni = useUniversity();
+  const places = uni.active ? uni.placesFor(city.slug) : [];
+  const onlyUnspecified = places.length > 0 && uni.degreeId && places.every((r) => r.degreesUnspecified);
 
   // Entrada suave al hacer scroll — una sola vez, con IntersectionObserver
   // en vez de un listener de scroll propio. prefers-reduced-motion ya se
@@ -101,6 +107,12 @@ export default function CityCard({ city }) {
 
       {/* Bottom content */}
       <div className="city-card__content">
+        {places.length > 0 && (
+          <p className="city-card__uni">
+            {formatPlacesBadge(places)}
+            {onlyUnspecified && <span className="city-card__uni-rri"> · Consulta en tu oficina de RRII</span>}
+          </p>
+        )}
         <div className="city-card__contentTop">
           <div>
             <p className="city-card__name" style={{ "--name-len": longestWord(city.name) }}>{city.name}</p>

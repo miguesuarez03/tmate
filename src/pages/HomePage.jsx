@@ -20,6 +20,10 @@ import { useIsoLayoutEffect } from "../hooks/useIsoLayoutEffect";
 import { HOME_JSON_LD } from "../lib/seo";
 import { isPrerenderedFirstRender } from "../lib/firstRender";
 import HomeExperiences from "../components/experiences/HomeExperiences";
+import UniversitySelector from "../components/university/UniversitySelector";
+import UniversityBanner from "../components/university/UniversityBanner";
+import PendingDestinations from "../components/university/PendingDestinations";
+import { useUniversity } from "../hooks/useUniversity";
 
 // Índice ligero de ciudades (ver lib/cities.js).
 const ALL_CITIES = getAllCities();
@@ -595,9 +599,13 @@ export default function HomePage() {
 
   // Filtro de vibe (se aplica encima del hook, que ya ignora región cuando es un vibe key)
   const activeVibe = VIBE_FILTERS.find(f => f.key === region);
-  const filtered = activeVibe
+  const vibeFiltered = activeVibe
     ? hookCities.filter(c => activeVibe.tags.includes(c.tag))
     : hookCities;
+  // Modo «Mi universidad»: solo destinos con plazas para el grado elegido.
+  // Apagado (sin universidad) no quita nada.
+  const uni = useUniversity();
+  const filtered = uni.filtering ? vibeFiltered.filter(c => uni.isIncluded(c.slug)) : vibeFiltered;
   const totalCount = filtered.length;
 
   // SEO dinámico
@@ -713,6 +721,8 @@ export default function HomePage() {
             <span className="section__count">{totalCount} ciudad{totalCount !== 1 ? 'es' : ''}</span>
           </div>
         </div>
+        <UniversitySelector id="mi-universidad" />
+        <UniversityBanner count={filtered.length + (uni.filtering ? uni.view.pending.length : 0)} />
         <div className="filters">
           {VIBE_FILTERS.map((f) => (
             <button
@@ -741,6 +751,9 @@ export default function HomePage() {
             )}
           </div>
         )}
+
+        {/* Modo «Mi universidad»: destinos de la universidad aún sin ficha. */}
+        <PendingDestinations />
       </section>
 
       {/* RANKINGS */}

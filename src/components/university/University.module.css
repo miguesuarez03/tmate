@@ -1,0 +1,144 @@
+/* ─── Modo «Mi universidad» ───────────────────────────────────────────────
+   Selector, aviso de filtrado, tarjetas «Ficha en preparación» y la sección
+   «Tus plazas desde…» de la ficha. Solo variables de la paleta (global.css),
+   así el modo oscuro sale solo. */
+
+/* ── Selector ── */
+.selector {
+  margin: 0 0 18px;
+}
+.trigger {
+  display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  padding: 8px 14px; border-radius: var(--radius-full);
+  border: 1px dashed var(--color-border); background: transparent;
+  color: var(--color-slate); font: 600 13px var(--font-body); cursor: pointer;
+  transition: border-color var(--transition-fast), color var(--transition-fast), background var(--transition-fast);
+}
+.trigger:hover, .trigger:focus-visible {
+  border-color: var(--color-teal); color: var(--color-teal); background: var(--surface-tint-teal);
+}
+.triggerHint { font-weight: 500; color: var(--color-muted); }
+
+.selectorOpen {
+  display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px 14px;
+  padding: 14px 16px; border-radius: var(--radius-md);
+  border: 1px solid var(--color-border); background: var(--surface-tint-teal);
+}
+.selectorTitle {
+  display: inline-flex; align-items: center; gap: 6px; align-self: center;
+  font: 700 14px var(--font-display); color: var(--color-teal);
+}
+.field { display: flex; flex-direction: column; gap: 4px; min-width: 0; flex: 1 1 220px; }
+.fieldLabel {
+  font: 700 11px var(--font-body); letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-slate);
+}
+.select {
+  width: 100%; padding: 9px 12px; border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border); background: var(--color-white); color: var(--color-dark);
+  font: 500 14px var(--font-body);
+}
+.select:disabled { opacity: 0.6; cursor: not-allowed; }
+.selectorActions { display: flex; gap: 8px; flex-wrap: wrap; }
+.ghostBtn {
+  padding: 9px 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border);
+  background: var(--color-white); color: var(--color-dark); font: 600 13px var(--font-body); cursor: pointer;
+}
+.ghostBtn:hover, .ghostBtn:focus-visible { border-color: var(--color-teal); color: var(--color-teal); }
+
+/* ── Aviso «Mostrando X destinos…» ── */
+.banner {
+  margin: 0 0 18px; padding: 10px 14px; border-radius: var(--radius-sm);
+  background: var(--glass-bg-strong); border: 1px solid var(--color-border); border-left: 3px solid var(--color-primary);
+  color: var(--color-dark); font: 500 14px/1.5 var(--font-body); text-align: left;
+}
+.linkBtn {
+  background: none; border: none; padding: 0; cursor: pointer;
+  color: var(--color-teal); font: 700 14px var(--font-body); text-decoration: underline; text-underline-offset: 2px;
+}
+
+/* ── Etiquetas comunes ── */
+.placesBadge {
+  display: inline-block; margin: 8px 0 0; padding: 3px 10px; border-radius: var(--radius-full);
+  background: var(--surface-tint-teal); color: var(--color-teal); font: 700 12px var(--font-body);
+}
+.rriTag {
+  display: inline-block; margin: 6px 0 0; padding: 3px 10px; border-radius: var(--radius-full);
+  background: var(--surface-tint-primary); color: var(--color-dark); font: 600 12px var(--font-body);
+}
+.prepTag {
+  display: inline-block; margin-bottom: 8px; padding: 3px 10px; border-radius: var(--radius-full);
+  border: 1px solid var(--color-border); color: var(--color-slate); font: 700 11px var(--font-body);
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+
+/* ── Destinos sin ficha ── */
+.pending { margin-top: 36px; }
+.pendingTitle {
+  display: flex; align-items: center; gap: 8px;
+  font: 700 clamp(18px, 2.4vw, 22px) var(--font-display); color: var(--color-dark);
+}
+.pendingCount {
+  padding: 2px 9px; border-radius: var(--radius-full); background: var(--surface-tint-teal);
+  color: var(--color-teal); font-size: 13px;
+}
+.pendingSub { margin: 4px 0 16px; color: var(--color-slate); font: 400 14px/1.5 var(--font-body); }
+.pendingGrid {
+  list-style: none; display: grid; gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+}
+.pendingCard {
+  padding: 16px; border-radius: var(--radius-md); border: 1px solid var(--color-border);
+  background: var(--color-white); box-shadow: var(--shadow-sm); min-width: 0;
+}
+.pendingCity { font: 700 18px var(--font-display); color: var(--color-dark); }
+.pendingCountry { font: 500 13px var(--font-body); color: var(--color-slate); }
+.pendingFacts, .placeFacts {
+  display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; margin-top: 12px;
+  font: 400 13px/1.45 var(--font-body); color: var(--color-dark-mid);
+}
+.pendingFacts dt, .placeFacts dt { font-weight: 700; color: var(--color-slate); }
+.pendingFacts dd, .placeFacts dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+
+/* ── Ficha: «Tus plazas desde…» ── */
+.places { padding: clamp(32px, 6vw, 56px) var(--section-px); background: var(--color-surface); }
+.placesInner { max-width: 1100px; margin: 0 auto; }
+.placesEyebrow {
+  font: 700 12px var(--font-body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-teal);
+}
+.placesTitle { margin-top: 4px; font: 700 clamp(24px, 3.4vw, 34px) var(--font-display); color: var(--color-dark); }
+.placesSub { margin-top: 6px; color: var(--color-slate); font: 400 15px/1.5 var(--font-body); }
+.toggle {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; cursor: pointer;
+  font: 600 14px var(--font-body); color: var(--color-dark);
+}
+.toggle input { width: 16px; height: 16px; accent-color: var(--color-teal); }
+.placesEmpty { margin-top: 18px; color: var(--color-slate); font: 400 15px/1.5 var(--font-body); }
+.placesList {
+  list-style: none; margin-top: 18px; display: grid; gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+}
+.placeCard {
+  padding: 16px 18px; border-radius: var(--radius-md); border: 1px solid var(--color-border);
+  background: var(--color-white); box-shadow: var(--shadow-sm); min-width: 0;
+}
+.placeHead { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.placeUni { font: 700 15px/1.35 var(--font-body); color: var(--color-dark); min-width: 0; overflow-wrap: anywhere; }
+.placeCity { font-weight: 500; color: var(--color-slate); }
+.agreementTag {
+  flex-shrink: 0; padding: 3px 10px; border-radius: var(--radius-full);
+  background: var(--surface-tint-teal); color: var(--color-teal); font: 700 12px var(--font-body);
+}
+.notes { margin-top: 12px; font: 400 13px/1.5 var(--font-body); color: var(--color-dark-mid); }
+.notes summary { cursor: pointer; font-weight: 700; color: var(--color-teal); }
+.notes p { margin-top: 8px; white-space: pre-line; overflow-wrap: anywhere; }
+.placesFoot {
+  display: flex; flex-direction: column; gap: 6px; margin-top: 20px;
+  font: 400 12px/1.5 var(--font-body); color: var(--color-slate);
+}
+.portalLink { font: 700 14px var(--font-body); color: var(--color-teal); }
+
+@media (max-width: 600px) {
+  .triggerHint { display: none; }
+  .selectorActions { width: 100%; }
+  .selectorActions .ghostBtn { flex: 1; }
+}

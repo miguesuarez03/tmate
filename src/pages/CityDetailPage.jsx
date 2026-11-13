@@ -13,6 +13,7 @@ import TipsSection        from "../components/city/TipsSection";
 import CityExperiences    from "../components/experiences/CityExperiences";
 import RelatedCities      from "../components/city/RelatedCities";
 import MethodologyNote    from "../components/MethodologyNote";
+import UniversityPlaces   from "../components/university/UniversityPlaces";
 import NotFoundPage       from "./NotFoundPage";
 import "../styles/cityDetailPage.css";
 
@@ -43,6 +44,9 @@ export default function CityDetailPage() {
 
       {/* 1. Hero */}
       <HeroSection city={city} overallScore={overallScore} insights={insights} scoreDetail={detail?.scoring?.detail} />
+
+      {/* Modo «Mi universidad»: tus plazas en esta ciudad (sin modo, nada) */}
+      <UniversityPlaces slug={slug} cityName={city.name} />
 
       {/* 2. Bento highlights — with photos */}
       <BentoHighlights highlights={city.highlights} cityName={city.name} cityImg={city.heroImg || city.img} />
