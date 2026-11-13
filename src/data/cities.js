@@ -1088,7 +1088,7 @@ export const CITIES = [
       { name: "San Lorenzo / Centro storico", vibe: "Histórico & turístico", price: "€€€" },
       { name: "Campo di Marte", vibe: "Residencial & asequible", price: "€€" },
     ],
-    tips: ["PassePartout o Amici degli Uffizi: entrada prioritaria y sin colas a los grandes museos", "Tranvía + bus con abono mensual urbano (42,20€), aunque el centro se recorre andando", "Aperitivo en Oltrarno: la cena más barata de la ciudad", "Escapadas de día a Siena, Pisa o Cinque Terre en tren regional"],
+    tips: ["PassePartout o Amici degli Uffizi: entrada prioritaria y sin colas a los grandes museos", "Estudiantes: abono anual «Urbano capoluogo» de estudiante de Autolinee Toscane, 278,70€ (no hay mensual de estudiante; el mensual ordinario cuesta 42,20€)", "Aperitivo en Oltrarno: la cena más barata de la ciudad", "Escapadas de día a Siena, Pisa o Cinque Terre en tren regional"],
     experiences: ["erasmus", "internship"],
   },
   {

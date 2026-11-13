@@ -4705,7 +4705,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "La universidad calcula 450–700€ al mes de alojamiento; Campo di Marte o Novoli suelen ser más baratos que el centro." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercado de San Lorenzo y Sant'Ambrogio para comprar barato; la trattoria de barrio sigue siendo asequible fuera de zonas turísticas." },
-          { label: "Transporte", score: 7.5, desc: "Abono mensual urbano de bus y tranvía a 42,20€; el centro se recorre andando en 20 minutos." },
+          { label: "Transporte", score: 7.5, desc: "Bus y tranvía: Autolinee Toscane no vende abono mensual de estudiante; el anual «Urbano capoluogo» de estudiante cuesta 278,70€ (221,20€ con ISEE) y el mensual ordinario, 42,20€. El centro se recorre andando en 20 minutos." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Aperitivo con bebida + buffet desde 8–10€, la opción de cena más popular entre estudiantes." },
         ],
       },
