@@ -9993,13 +9993,13 @@ export const CITY_INSIGHTS = {
     atmosphere: "Trieste huele a café tostado en el Caffè San Marco, con más de un siglo de historia literaria entre sus mesas, y suena a la bora golpeando la Piazza Unità d'Italia mientras el Adriático se extiende hasta el horizonte.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 7.5,
-        summary: "La Universidad de Trieste calcula al mes 250–400€ por una habitación individual, 250–300€ de comida y 39,20€ de transporte.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 7.0,
+        summary: "La Universidad de Trieste calcula al mes 250–400€ por una habitación individual, 300–400€ de comida y 51,60€ de transporte.",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.0, desc: "Habitación individual: 250–400€/mes; estudio, 350–550€ (Universidad de Trieste)." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercados locales y la influencia centroeuropea en la gastronomía mantienen precios razonables." },
-          { label: "Transporte", score: 7.5, desc: "El bus urbano de Trieste Trasporti cubre la ciudad; la universidad calcula 39,20€ al mes de transporte." },
+          { label: "Transporte", score: 7.5, desc: "El bus urbano de Trieste Trasporti cubre la ciudad; la universidad calcula 51,60€ al mes de transporte." },
           { label: "Ocio y gastos diarios", score: 8.0, desc: "Los cafés históricos y los bares del centro tienen precios de ciudad mediana." },
         ],
       },
@@ -10199,7 +10199,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 6.5, desc: "Buena oferta de pisos compartidos, especialmente en la Città Bassa." },
-          { label: "Precio", score: 7.0, desc: "Alquiler moderado para Lombardía; la universidad no publica cifras actualizadas." },
+          { label: "Precio", score: 7.0, desc: "Las residencias de la universidad cuestan unos 280–330€/mes, con plazas por convocatoria; no hay cifras oficiales del alquiler privado." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "La Università degli Studi di Bergamo ofrece listados básicos de alojamiento." },
           { label: "Residencias universitarias", score: 6.0, desc: "Oferta limitada de residencias frente al número de estudiantes de la ciudad." },
         ],
@@ -10374,10 +10374,10 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.3,
-        summary: "Coste de una ciudad pequeña de las Marcas; el alojamiento es el gasto principal.",
+        summary: "La Universidad de Urbino aconseja contar con 500–600€ al mes; avisa de que está revisando sus cifras.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 7.5, desc: "La habitación en piso compartido es la opción más habitual; la universidad no publica cifras de alquiler." },
+          { label: "Alojamiento", score: 7.5, desc: "La universidad indica 270–280€/mes por una habitación individual en piso privado, más unos 60€ de gastos (cifras en revisión)." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercados locales y trattorias familiares a precios muy bajos." },
           { label: "Transporte", score: 8.0, desc: "El centro histórico es zona de tráfico limitado y se recorre a pie." },
           { label: "Ocio y gastos diarios", score: 8.5, desc: "Bares de ambiente estudiantil en pocas calles, con precios de ciudad pequeña." },
@@ -10424,7 +10424,7 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 4.5, desc: "Bus regional limitado; el pueblo en sí se recorre entero a pie." },
           { label: "Ciudad caminable", score: 7.0, desc: "El centro histórico, aunque con muchas cuestas, se recorre entero a pie en minutos." },
           { label: "Conexiones internacionales", score: 3.5, desc: "Sin tren ni aeropuerto propio; hay que coger bus hasta Pesaro o Rímini para conectar." },
-          { label: "Escapadas de fin de semana", score: 6.0, desc: "La costa adriática (Pesaro, Fano), a menos de una hora en bus; Rímini y San Marino, algo más lejos." },
+          { label: "Escapadas de fin de semana", score: 6.0, desc: "La costa adriática (Pesaro, Fano), a una hora o algo más en bus; Rímini y San Marino, más lejos." },
         ],
       },
       {
@@ -10441,12 +10441,12 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 4.5,
-        summary: "Mercado laboral casi inexistente fuera de la propia universidad, propio de un pueblo pequeño.",
+        summary: "Mercado laboral pequeño, centrado en la universidad y el turismo, con algo de industria.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Mercado laboral", score: 3.5, desc: "Economía centrada casi por completo en la universidad; sin apenas mercado laboral externo." },
+          { label: "Mercado laboral", score: 3.5, desc: "Economía pequeña, dominada por la universidad y el turismo; pocas ofertas para estudiantes." },
           { label: "Prácticas", score: 5.0, desc: "La Università di Urbino tiene buena reputación en comunicación, diseño y humanidades." },
-          { label: "Empresas relevantes", score: 4.0, desc: "Sin empresas relevantes fuera del sector educativo y turístico local." },
+          { label: "Empresas relevantes", score: 4.0, desc: "Además de la universidad y el turismo, Benelli Armi tiene sede y producción en Urbino." },
           { label: "Oportunidades para estudiantes", score: 5.5, desc: "Las prácticas suelen requerir desplazarse a Pesaro, Rímini o ciudades más grandes." },
         ],
       },

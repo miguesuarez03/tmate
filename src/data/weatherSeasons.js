@@ -412,4 +412,18 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "10–18°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y colores de otoño en los Prealpes.", tags: ["Inicio Erasmus","Colores de otoño","Muy animada"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–9°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas y niebla en la llanura.", tags: ["Frío","Heladas","Niebla"] },
   ],
+  // Parma: Parma urbana (ARPAE, estación 6031, normales 1991–2020).
+  parma: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "9–20°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada, buena para salir en bici y recorrer la Emilia.", tags: ["Templada","Bici","Escapadas"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "18–31°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos calurosos y húmedos en plena llanura del Po.", tags: ["Calor","Humedad","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "10–19°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y, en otoño, el Festival Verdi.", tags: ["Inicio Erasmus","Festival Verdi","Muy animada"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–8°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas y niebla en la llanura.", tags: ["Frío","Heladas","Niebla"] },
+  ],
+  // Ferrara: Malborghetto di Boara, municipio de Ferrara (ARPAE, estación 3, normales 1991–2020).
+  ferrara: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "7–20°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada, ideal para recorrer las murallas en bici.", tags: ["Templada","Bici","Murallas"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "17–30°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos calurosos y húmedos, cerca del delta del Po.", tags: ["Calor","Humedad","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "10–19°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y temperaturas suaves.", tags: ["Inicio Erasmus","Suave","Muy animada"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–8°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas y niebla en la llanura.", tags: ["Frío","Heladas","Niebla"] },
+  ],
 };

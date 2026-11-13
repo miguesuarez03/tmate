@@ -2604,7 +2604,7 @@ export const CITIES = [
     region: "Europa del Sur",
     tag: "Frontera con los Balcanes",
     phrase: "Café vienés, mar Adriático y ambiente centroeuropeo en pleno corazón italiano",
-    costDetail: "585–785€/mes",
+    costDetail: "650–900€/mes",
     vibe: "Centroeuropea & Literaria",
     erasmus: 82,
     weather: "Templado, suavizado por el mar, con bora",
@@ -2639,8 +2639,8 @@ export const CITIES = [
     language: "Italiano",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Parma_dal_Duomo%2C_settembre_2014-1_%2815481932581%29.jpg/1920px-Parma_dal_Duomo%2C_settembre_2014-1_%2815481932581%29.jpg",
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Parma_dal_Duomo%2C_settembre_2014-1_%2815481932581%29.jpg/1920px-Parma_dal_Duomo%2C_settembre_2014-1_%2815481932581%29.jpg",
-    description: "Parma es la cuna del Parmigiano Reggiano y el Prosciutto di Parma, reconocida como Ciudad Creativa de la Gastronomía por la UNESCO. Ciudad natal de Verdi, con un centro elegante y a tamaño humano, combina una universidad centenaria con una de las grandes cocinas de la Emilia-Romaña.",
-    highlights: ["Ciudad Creativa de la Gastronomía por la UNESCO", "Cuna del Parmigiano Reggiano y el Prosciutto di Parma", "Ciudad natal de Giuseppe Verdi, con fuerte tradición musical y operística", "Módena y Bolonia a menos de una hora en tren; Milán, a algo más"],
+    description: "Parma es la cuna del Parmigiano Reggiano y el Prosciutto di Parma, reconocida como Ciudad Creativa de la Gastronomía por la UNESCO. De tradición verdiana, con un centro elegante y a tamaño humano, combina una universidad centenaria con una de las grandes cocinas de la Emilia-Romaña.",
+    highlights: ["Ciudad Creativa de la Gastronomía por la UNESCO", "Cuna del Parmigiano Reggiano y el Prosciutto di Parma", "Ciudad de tradición verdiana y operística: Verdi nació en su provincia", "Módena y Bolonia a menos de una hora en tren; Milán, a algo más"],
     universities: ["Università di Parma"],
     neighborhoods: [
       { name: "Centro storico", vibe: "Elegante & histórico", price: "€€" },
@@ -2715,7 +2715,7 @@ export const CITIES = [
     region: "Europa del Sur",
     tag: "Ciudad-Universidad",
     phrase: "Un pueblo renacentista entero convertido en campus universitario",
-    costDetail: "450–700€/mes",
+    costDetail: "500–600€/mes",
     vibe: "Renacentista & Universitaria",
     erasmus: 88,
     weather: "Continental templado",
@@ -2728,7 +2728,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro storico", vibe: "Histórico & íntimo", price: "€" },
     ],
-    tips: ["El centro histórico es zona de tráfico limitado y se recorre a pie, aunque con muchas cuestas", "Las playas de la costa adriática (Pesaro, Fano) están a menos de una hora", "Al ser tan pequeña, en semanas ya conocerás a la mayoría de tu facultad", "Rímini y Bolonia, en bus hasta Pesaro y después tren"],
+    tips: ["El centro histórico es zona de tráfico limitado y se recorre a pie, aunque con muchas cuestas", "Las playas de la costa adriática (Pesaro, Fano) están a una hora o algo más en bus", "Al ser tan pequeña, en semanas ya conocerás a la mayoría de tu facultad", "Rímini y Bolonia, en bus hasta Pesaro y después tren"],
     experiences: ["erasmus"],
   },
   {
