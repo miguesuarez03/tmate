@@ -143,8 +143,29 @@ export default function ScoreBreakdown({ slug, detail = null, align = "center", 
       </ul>
       {data.provisional && (
         <p className={styles.note}>
-          <strong>Nota provisional:</strong> aún no tenemos un dato fiable de {pendingLabels.join(" ni de ")}, así que la nota sale del resto de subnotas.
+          <strong>Nota provisional:</strong> aún no tenemos un dato fiable de {pendingLabels.join(" ni de ")}, así que la nota sale del resto de subnotas y la ciudad no entra en los rankings hasta tenerlo.
         </p>
+      )}
+      {data.extras.length > 0 && (
+        <>
+          <p className={styles.extraTitle}>No cuenta en la nota</p>
+          <ul className={styles.rows}>
+            {data.extras.map((r) => {
+              const Icon = getSubscoreIcon(r.id);
+              return (
+                <li key={r.id} className={styles.row}>
+                  <span className={styles.rowIcon} aria-hidden="true"><Icon size={18} /></span>
+                  <span className={styles.rowLabel}>{r.label}</span>
+                  <span className={styles.rowScore}>{r.score == null ? "Sin dato" : fmt(r.score)}</span>
+                  <span className={styles.bar} aria-hidden="true">
+                    {r.score != null && <span style={{ width: `${r.score * 10}%`, background: "var(--color-slate-light)" }} />}
+                  </span>
+                  {detail?.[r.id] && <span className={styles.rowDetail}>{detail[r.id]}</span>}
+                </li>
+              );
+            })}
+          </ul>
+        </>
       )}
       <p className={styles.foot}>Criterio y fuentes de cada subnota en «Cómo calculamos estos datos».</p>
     </div>

@@ -8,13 +8,18 @@
 //   coste          20 %  Punto medio de costDetail en una escala fija en euros
 //   vida           20 %  Comunidad (secciones ESN + estudiantes internacionales
 //                        de THE) y ambiente (valoración MAbroad), a medias
-//   seguridad      15 %  Tasa de homicidios del país (UNODC)
+//   seguridad      15 %  Mitad tasa de homicidios del país (UNODC), mitad
+//                        valoración MAbroad de la ciudad
+//   salidas        10 %  Mitad tasa NEET 15–24 de la región o el país
+//                        (Eurostat / OIT), mitad valoración MAbroad de empleo
 //   academico      10 %  Mejor puesto THE de las universidades de la ciudad
 //   alojamiento    10 %  Valoración MAbroad (categoría «Alojamiento»)
 //   calidad        10 %  Valoración MAbroad: subnotas «Clima» y «Calidad de vida»
-//   idioma         10 %  % que habla inglés (Eurobarómetro) o lengua nativa
-//                        inglesa/española
 //   conectividad    5 %  Valoración MAbroad: escapadas y conexiones
+//
+// El idioma (cuánto se puede vivir en inglés o en español) NO cuenta: es una
+// preferencia personal. Se calcula igual (dato aparte en el desglose y el
+// comparador) y City Match lo pregunta.
 //
 // Si a una subnota le falta el dato, queda PENDIENTE (null) en vez de
 // inventarla: la nota se calcula con los pesos que quedan y se marca como
@@ -30,10 +35,10 @@ export const SCORING_WEIGHTS = Object.freeze({
   coste: 20,
   vida: 20,
   seguridad: 15,
+  salidas: 10,
   academico: 10,
   alojamiento: 10,
   calidad: 10,
-  idioma: 10,
   conectividad: 5,
 });
 
@@ -50,21 +55,27 @@ export const SUBSCORES = [
     source: "Coste mensual de la ficha (fuente oficial o estimación MAbroad)" },
   { id: "vida", label: "Vida estudiantil", kind: "mixto",
     source: "Secciones de Erasmus Student Network, estudiantes internacionales (THE) y ambiente (MAbroad)" },
-  { id: "seguridad", label: "Seguridad", kind: "dato",
-    source: "Tasa de homicidios del país (UNODC)" },
+  { id: "seguridad", label: "Seguridad", kind: "mixto",
+    source: "Tasa de homicidios del país (UNODC) y valoración MAbroad de la ciudad" },
+  { id: "salidas", label: "Salidas profesionales", kind: "mixto",
+    source: "Jóvenes que ni trabajan ni estudian (Eurostat / OIT) y valoración MAbroad de empleo y prácticas" },
   { id: "academico", label: "Nivel académico", kind: "dato",
     source: "Times Higher Education World University Rankings" },
   { id: "alojamiento", label: "Alojamiento", kind: "valoracion",
     source: "Valoración MAbroad: disponibilidad, precio y residencias" },
   { id: "calidad", label: "Calidad de vida y clima", kind: "valoracion",
     source: "Valoración MAbroad: clima y calidad de vida" },
-  { id: "idioma", label: "Idioma (inglés o español)", kind: "dato",
-    source: "Eurobarómetro 540 (UE) o lengua oficial inglesa/española" },
   { id: "conectividad", label: "Conectividad para viajar", kind: "valoracion",
     source: "Valoración MAbroad: escapadas y conexiones" },
 ].map((s) => ({ ...s, weight: SCORING_WEIGHTS[s.id] }));
 
 export const SUBSCORE_IDS = SUBSCORES.map((s) => s.id);
+
+/** Datos que se enseñan junto al desglose pero NO cuentan en la nota. */
+export const EXTRA_SCORES = [
+  { id: "idioma", label: "Idioma (inglés o español)", kind: "dato",
+    source: "Eurobarómetro 540 (UE) o lengua oficial inglesa/española" },
+];
 
 const clamp10 = (n) => Math.max(0, Math.min(10, n));
 const round1 = (n) => Math.round(n * 10) / 10;
@@ -105,6 +116,18 @@ export function homicideToScore(rate) {
   const { best, worst } = HOMICIDE_SCALE;
   if (rate <= best) return 10;
   return round1(clamp10((10 * Math.log(worst / rate)) / Math.log(worst / best)));
+}
+
+/**
+ * Escala de la tasa NEET 15–24 (% de jóvenes que ni trabajan ni estudian ni
+ * se forman): 4 % o menos = 10; cada 2 puntos más restan 1; 24 % o más = 0.
+ */
+export const NEET_SCALE = Object.freeze({ best: 4, worst: 24 });
+
+export function neetToScore(rate) {
+  if (!isNum(rate) || rate < 0) return null;
+  const { best, worst } = NEET_SCALE;
+  return round1(clamp10((10 * (worst - rate)) / (worst - best)));
 }
 
 /** Tramos del puesto THE → nota (el número es el inicio del tramo que publica THE). */
@@ -233,7 +256,8 @@ function subcatAvg(scores, catId, test) {
 }
 
 /**
- * Calcula las 8 subnotas de una ciudad y una línea de detalle de cada una.
+ * Calcula las 8 subnotas de una ciudad (y el dato de idioma, que no cuenta)
+ * con una línea de detalle de cada una.
  * Solo lo llama scripts/city-data.mjs (el cliente recibe el resultado).
  * @param {object} p
  * @param {object} p.city              entrada de CITIES
@@ -244,13 +268,16 @@ function subcatAvg(scores, catId, test) {
  * @param {number} p.theEdition        edición actual de THE
  * @param {string[]} p.esnSections     CITY_ESN_SECTIONS[slug]
  * @param {Record<string, number>} p.homicides  COUNTRY_HOMICIDE_RATES[país]
+ * @param {object | null} p.neet               CITY_NEET[slug]
  * @param {object | undefined} p.language       COUNTRY_LANGUAGE[país]
  * @param {string | undefined} p.languagePending CITY_LANGUAGE_PENDING[slug]
  */
 export function computeCitySubscores(p) {
-  const { city, scores, costMid, costSourceLabel, universities = [], theEdition, esnSections = [], homicides = {}, language, languagePending } = p;
+  const { city, scores, costMid, costSourceLabel, universities = [], theEdition, esnSections = [], homicides = {}, neet = null, language, languagePending } = p;
   const subs = {};
+  const extras = {};
   const detail = {};
+  const catScore = (id) => scores.find((s) => s.id === id)?.score;
 
   // Coste
   subs.coste = costToScore(costMid);
@@ -276,12 +303,29 @@ export function computeCitySubscores(p) {
     detail.vida = `Comunidad ${comunidad}/10 (${esnTxt}; unos ${fmtInt(Math.round(intl / 100) * 100)} estudiantes internacionales en sus universidades de THE) y ambiente ${fmt1(ambiente)}/10 (valoración MAbroad).`;
   }
 
-  // Seguridad
+  // Seguridad: mitad país (UNODC), mitad ciudad (valoración MAbroad)
   const years = Object.keys(homicides).sort();
   const rate = years.length ? avg(years.map((y) => homicides[y])) : null;
-  subs.seguridad = homicideToScore(rate);
-  detail.seguridad = rate == null ? "Pendiente: sin dato de UNODC para el país."
-    : `${fmt1(rate)} homicidios por 100.000 habitantes en ${getStateCountry(city.country)} (media ${years[0]}–${years.at(-1)}, UNODC). Es un dato del país, no de la ciudad.`;
+  const segPais = homicideToScore(rate);
+  const segCiudad = catScore("seguridad");
+  subs.seguridad = isNum(segPais) && isNum(segCiudad) ? round1((segPais + segCiudad) / 2) : null;
+  detail.seguridad = subs.seguridad == null ? "Pendiente: sin dato de UNODC para el país."
+    : `País ${fmt1(segPais)}/10 (${fmt1(rate)} homicidios por 100.000 habitantes en ${getStateCountry(city.country)}, media ${years[0]}–${years.at(-1)}, UNODC) y ciudad ${fmt1(segCiudad)}/10 (valoración MAbroad de día, de noche y del ambiente).`;
+
+  // Salidas profesionales: mitad NEET de la región o el país, mitad valoración de empleo
+  const neetYears = neet ? Object.keys(neet.years).sort() : [];
+  const neetRate = neetYears.length ? avg(neetYears.map((y) => neet.years[y])) : null;
+  const salNeet = neetToScore(neetRate);
+  const salCiudad = catScore("empleo");
+  subs.salidas = isNum(salNeet) && isNum(salCiudad) ? round1((salNeet + salCiudad) / 2) : null;
+  if (subs.salidas == null) {
+    detail.salidas = "Pendiente: sin dato de jóvenes que ni trabajan ni estudian para la región ni el país.";
+  } else {
+    const donde = neet.scope === "region" ? `la región ${neet.name}` : getStateCountry(city.country);
+    const fuente = neet.source === "eurostat" ? "Eurostat" : "OIT";
+    const periodo = neetYears.length > 1 ? `media ${neetYears[0]}–${neetYears.at(-1)}` : neetYears[0];
+    detail.salidas = `Región o país ${fmt1(salNeet)}/10 (el ${fmt1(neetRate)} % de los jóvenes de 15 a 24 años ni trabaja ni estudia en ${donde}, ${periodo}, ${fuente}) y ciudad ${fmt1(salCiudad)}/10 (valoración MAbroad de mercado laboral, prácticas y empresas).`;
+  }
 
   // Nivel académico
   const ranked = universities
@@ -308,19 +352,19 @@ export function computeCitySubscores(p) {
     ? `Clima ${fmt1(clima)} y calidad de vida ${fmt1(calidad)} (valoración MAbroad).`
     : "Valoración MAbroad del estilo de vida.";
 
-  // Idioma
+  // Idioma: dato aparte, NO cuenta en la nota
   if (languagePending) {
-    subs.idioma = null;
-    detail.idioma = `Pendiente. ${languagePending}`;
+    extras.idioma = null;
+    detail.idioma = `Sin dato. ${languagePending}`;
   } else if (language?.native) {
-    subs.idioma = 10;
+    extras.idioma = 10;
     detail.idioma = `El ${language.native} es la lengua oficial y mayoritaria.`;
   } else if (isNum(language?.english)) {
-    subs.idioma = englishShareToScore(language.english);
+    extras.idioma = englishShareToScore(language.english);
     detail.idioma = `El ${language.english} % de la población puede mantener una conversación en inglés (Eurobarómetro 540, 2024).`;
   } else {
-    subs.idioma = null;
-    detail.idioma = "Pendiente: el Eurobarómetro solo cubre la UE y aún no tenemos un dato comparable para este país.";
+    extras.idioma = null;
+    detail.idioma = "Sin dato: el Eurobarómetro solo cubre la UE y aún no tenemos un dato comparable para este país.";
   }
 
   // Conectividad (valoración)
@@ -329,7 +373,7 @@ export function computeCitySubscores(p) {
   subs.conectividad = isNum(con) ? round1(con) : null;
   detail.conectividad = "Valoración MAbroad: escapadas de fin de semana y conexiones nacionales e internacionales.";
 
-  return { subs, detail };
+  return { subs, extras, detail };
 }
 
 // ─── City Match (preparado, sin activar) ─────────────────────────────────────
@@ -341,7 +385,8 @@ export function computeCitySubscores(p) {
  *
  * Regla: cada subnota que el estudiante marca como prioridad suma +50 % de
  * su peso base (1.ª prioridad), +30 % (2.ª) o +15 % (3.ª); el presupuesto
- * ajustado sube el coste un 50 % más. Después se renormaliza a 100.
+ * ajustado sube el coste un 50 % más. Después se renormaliza a 100. El idioma
+ * no tiene peso: City Match lo usa como pregunta/filtro, no en la nota.
  * @param {{ priorities?: string[], tightBudget?: boolean }} answers
  *        priorities: ids de SUBSCORES por orden de importancia
  */

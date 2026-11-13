@@ -39,6 +39,7 @@ const SUBSCORE_ICONS = {
   coste: IconBeca,
   vida: IconFiesta,
   seguridad: IconSeguridad,
+  salidas: IconEmpleo,
   academico: IconUniversidad,
   alojamiento: IconCasa,
   calidad: IconClima,

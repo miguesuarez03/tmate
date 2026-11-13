@@ -149,6 +149,21 @@ function NotaBreakdownTable({ cities }) {
               <span className={styles.ntScore}>{fmtScore(v)}{breakdowns[i]?.provisional ? " (provisional)" : ""}</span>
             )))}
           </tr>
+          {breakdowns[0]?.extras.map((x) => {
+            const Icon = getSubscoreIcon(x.id);
+            return (
+              <tr key={x.id}>
+                <th scope="row">
+                  <span className={styles.ntLabel}><Icon size={18} /> {x.label}</span>
+                  <span className={styles.ntWeight}>Dato aparte: no cuenta en la nota</span>
+                </th>
+                {breakdowns.map((b, i) => {
+                  const v = b?.extras.find((e) => e.id === x.id)?.score ?? null;
+                  return <td key={cities[i].slug}><span className={styles.ntScore}>{v == null ? "Sin dato" : v.toFixed(1)}</span></td>;
+                })}
+              </tr>
+            );
+          })}
           <tr>
             <th scope="row">
               <span className={styles.ntLabel}><IconBeca size={18} /> Te faltan tras la beca</span>

@@ -38,9 +38,10 @@ test("todas las ciudades Erasmus+ tienen dato en todos los criterios (rankings c
   for (const c of CRITERIA) {
     const missing = CITIES.filter(isErasmusEligible).filter((city) => getCriterionValue(city, c.id) == null);
     // Las subnotas de la nota (lib/scoring.js) pueden quedar pendientes si
-    // falta un dato fiable: esas ciudades van al final, sin puesto. Que sean
-    // pocas, para que el ranking siga representando a casi todas.
-    if (c.source.kind === "nota") {
+    // falta un dato fiable, y las notas provisionales no entran en los
+    // rankings: esas ciudades van al final, sin puesto. Que sean pocas, para
+    // que el ranking siga representando a casi todas.
+    if (c.source.kind === "nota" || c.source.kind === "overall") {
       assert.ok(missing.length <= 3, `${c.id}: ${missing.map((m) => m.slug).join(", ")}`);
     } else {
       assert.deepEqual(missing.map((m) => m.slug), [], c.id);

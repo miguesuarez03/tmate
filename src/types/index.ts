@@ -167,7 +167,7 @@ export interface CityIndexEntry extends Pick<City,
   /** Nota MAbroad (src/lib/scoring.js): media ponderada de las 8 subnotas; null si falta más del 30 % del peso. */
   overall: number | null;
   /** Subnotas de la nota (id de SUBSCORES → 0–10, null = pendiente) y las que faltan. */
-  nota: { subs: Record<SubscoreId, number | null>; pending: SubscoreId[] };
+  nota: { subs: Record<SubscoreId, number | null>; pending: SubscoreId[]; extras: Record<ExtraScoreId, number | null> };
   /** Lo que falta al mes tras la beca (getBecaGap): dato aparte, no cuenta en la nota. */
   beca: BecaGap | null;
   /** Subnotas 0–10 para rankings (INDEX_SUBSCORES); falta la clave si la ciudad no tiene ese dato. */
@@ -183,13 +183,16 @@ export interface CityDetail {
   city: City;
   insights: CityInsights;
   /** Una línea por subnota con el dato concreto y su fuente (desglose de la nota en la ficha). */
-  scoring: { detail: Record<SubscoreId, string> };
+  scoring: { detail: Record<SubscoreId | ExtraScoreId, string> };
 }
 
 /** Subnotas de la nota MAbroad (SUBSCORES en src/lib/scoring.js). */
 export type SubscoreId =
-  | 'coste' | 'vida' | 'seguridad' | 'academico'
-  | 'alojamiento' | 'calidad' | 'idioma' | 'conectividad';
+  | 'coste' | 'vida' | 'seguridad' | 'salidas' | 'academico'
+  | 'alojamiento' | 'calidad' | 'conectividad';
+
+/** Datos que se enseñan con el desglose pero NO cuentan en la nota (EXTRA_SCORES). */
+export type ExtraScoreId = 'idioma';
 
 export interface BecaGap {
   beca: number;            // €/mes de referencia (mínimo SEPIE, SEMP o 0)

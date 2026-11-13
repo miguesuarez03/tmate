@@ -16,7 +16,7 @@ import { CITY_EXPERIENCES, FOUNDER_EXPERIENCE, EXPERIENCE_TOPICS } from '../data
 import { RANKING_CRITERIA, RANKING_TOP } from '../data/rankings';
 import { MAP_COUNTRIES } from '../data/mapCountries';
 import { CITY_SIZE_LIMITS } from './cityMetrics';
-import { SUBSCORES } from './scoring';
+import { SUBSCORES, EXTRA_SCORES } from './scoring';
 import { DEFAULT_OG_IMAGE, getCityOgImage } from './seo';
 
 /** @typedef {import('../types').City} City */
@@ -188,20 +188,23 @@ export function getOverallScore(slug, userRatings = null) {
 /**
  * Desglose de la nota MAbroad: una fila por subnota (en el orden de
  * SUBSCORES) con su nota (null = pendiente) y peso, más la nota final y si es
- * provisional (le falta alguna subnota). Lo pintan ScoreBreakdown y el
- * comparador.
+ * provisional (le falta alguna subnota), y los datos aparte que NO cuentan
+ * (extras: idioma). Lo pintan ScoreBreakdown y el comparador.
  * @returns {{ overall: number | null, provisional: boolean, pending: string[],
- *   rows: Array<{ id: string, label: string, weight: number, kind: string, source: string, score: number | null }> } | null}
+ *   rows: Array<{ id: string, label: string, weight: number, kind: string, source: string, score: number | null }>,
+ *   extras: Array<{ id: string, label: string, kind: string, source: string, score: number | null }> } | null}
  */
 export function getScoreBreakdown(slug) {
   const entry = BY_SLUG.get(slug);
   if (!entry?.nota) return null;
-  const { subs, pending } = entry.nota;
+  const { subs, pending, extras = {} } = entry.nota;
+  const num = (v) => (typeof v === "number" ? v : null);
   return {
     overall: entry.overall ?? null,
     provisional: pending.length > 0,
     pending,
-    rows: SUBSCORES.map((s) => ({ ...s, score: typeof subs[s.id] === "number" ? subs[s.id] : null })),
+    rows: SUBSCORES.map((s) => ({ ...s, score: num(subs[s.id]) })),
+    extras: EXTRA_SCORES.map((s) => ({ ...s, score: num(extras[s.id]) })),
   };
 }
 
@@ -309,7 +312,7 @@ export function sortCities(cities, key = 'name') {
       return sorted.sort((a, b) => b.erasmus - a.erasmus);
 
     case 'overall':
-      return sorted.sort((a, b) => getOverallScore(b.slug) - getOverallScore(a.slug));
+      return sorted.sort((a, b) => (getOverallScore(b.slug) ?? 0) - (getOverallScore(a.slug) ?? 0));
 
     // Ordena por el mínimo del rango "600–900€/mes". parseMinCost entiende los
     // miles: "1.200–1.800€" es 1200, no 120.
@@ -415,7 +418,9 @@ export function getCriterionValue(city, criterionId) {
     case 'nota':
       return typeof entry.nota?.subs?.[source.id] === 'number' ? entry.nota.subs[source.id] : null;
     case 'overall':
-      return entry.overall ?? null;
+      // Las notas provisionales (les falta alguna subnota) no entran en los
+      // rankings: van al final, sin puesto, hasta que tengan todos sus datos.
+      return entry.nota?.pending?.length ? null : entry.overall ?? null;
     default:
       return null;
   }
@@ -426,8 +431,12 @@ export function getCriterionValue(city, criterionId) {
  * euros tal cual está en la ficha («600–900€/mes»); en el resto, la nota.
  */
 export function formatCriterionValue(city, criterionId, value = getCriterionValue(city, criterionId)) {
-  if (CRITERIA_BY_ID.get(criterionId)?.source.kind === 'cost') return city.costDetail;
-  return value == null ? 'Sin dato' : `${value.toFixed(1)}/10`;
+  const kind = CRITERIA_BY_ID.get(criterionId)?.source.kind;
+  if (kind === 'cost') return city.costDetail;
+  if (value == null) {
+    return kind === 'overall' && BY_SLUG.get(city?.slug)?.nota?.pending?.length ? 'Nota provisional' : 'Sin dato';
+  }
+  return `${value.toFixed(1)}/10`;
 }
 
 /**

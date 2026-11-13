@@ -28,27 +28,36 @@ export default function MethodologyNote({ compact = false }) {
             <li>
               <strong>La nota global:</strong> es la media ponderada, siempre con los mismos pesos, de 8 subnotas de 0 a
               10 (toca la nota para ver las de cada ciudad): coste de vida 20 %, vida estudiantil 20 %, seguridad 15 %,
-              nivel académico 10 %, alojamiento 10 %, calidad de vida y clima 10 %, idioma 10 % y conectividad 5 %.
-              De 8,5 en adelante es «Excelente»; de 7 a 8,4, «Bueno»; de 5,5 a 6,9, «Regular»; y por debajo, «Difícil».
+              salidas profesionales 10 %, nivel académico 10 %, alojamiento 10 %, calidad de vida y clima 10 % y
+              conectividad 5 %. De 8,5 en adelante es «Excelente»; de 7 a 8,4, «Bueno»; de 5,5 a 6,9, «Regular»; y por
+              debajo, «Difícil».
             </li>
             <li>
               <strong>Subnotas con dato:</strong> coste (coste mensual de la ficha: 400 €/mes o menos es un 10 y cada 200 €
-              más resta un punto); seguridad (tasa de homicidios del país según <strong>UNODC</strong>, media de los tres
-              últimos años con dato); nivel académico (mejor puesto de las universidades de la ciudad en el ranking
-              <strong> Times Higher Education</strong>; si ninguna aparece, un 4); idioma (porcentaje de la población que
-              puede conversar en inglés según el <strong>Eurobarómetro 540</strong> de la Comisión Europea, o un 10 si el
-              inglés o el español son la lengua oficial); y la mitad de vida estudiantil (secciones de
-              <strong> Erasmus Student Network</strong> en la ciudad y estudiantes internacionales de sus universidades,
-              según THE).
+              más resta un punto) y nivel académico (mejor puesto de las universidades de la ciudad en el ranking
+              <strong> Times Higher Education</strong>; si ninguna aparece, un 4).
             </li>
             <li>
-              <strong>Subnotas de valoración MAbroad:</strong> alojamiento, calidad de vida y clima, conectividad y la
-              otra mitad de vida estudiantil (fiesta y eventos) salen del desglose de cada ficha. No son datos oficiales
-              ni una encuesta, y así se marcan en el desglose.
+              <strong>Subnotas mitad dato, mitad valoración de la ciudad:</strong> seguridad (tasa de homicidios del país
+              según <strong>UNODC</strong> y la valoración de MAbroad de la ciudad); salidas profesionales (porcentaje de
+              jóvenes de 15 a 24 años que ni trabajan ni estudian en la región, según <strong>Eurostat</strong>, o en el
+              país, según la <strong>OIT</strong>, y la valoración de MAbroad de empleo y prácticas); y vida estudiantil
+              (secciones de <strong>Erasmus Student Network</strong> y estudiantes internacionales de sus universidades,
+              según THE, y el ambiente: fiesta y eventos).
+            </li>
+            <li>
+              <strong>Subnotas de valoración MAbroad:</strong> alojamiento, calidad de vida y clima, y conectividad salen
+              del desglose de cada ficha. No son datos oficiales ni una encuesta, y así se marcan en el desglose.
+            </li>
+            <li>
+              <strong>El idioma no cuenta:</strong> es una preferencia personal. En el desglose ves cuánto se puede vivir
+              en inglés o en español (porcentaje que habla inglés según el <strong>Eurobarómetro 540</strong>, o un 10 si
+              el inglés o el español son la lengua oficial), pero no suma ni resta.
             </li>
             <li>
               <strong>Si falta un dato:</strong> esa subnota queda «pendiente» en vez de inventarla, la nota se calcula
-              con el resto de pesos y se marca como provisional (un punto naranja junto a la nota).
+              con el resto de pesos y se marca como provisional (un punto naranja junto a la nota). Las notas
+              provisionales no entran en los rankings hasta tener todos sus datos.
             </li>
             <li>
               <strong>Categorías de la ficha:</strong> las 8 categorías del análisis completo (coste, alojamiento, vida

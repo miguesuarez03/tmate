@@ -128,9 +128,9 @@ export const RANKING_CRITERIA = [
     source: { kind: "overall" },
     title: `Las mejores ciudades Erasmus en ${RANKING_YEAR}`,
     seoTitle: `Las mejores ciudades Erasmus en ${RANKING_YEAR}: ranking | MAbroad`,
-    description: `Top ${RANKING_TOP} de ciudades Erasmus+ con mejor nota MAbroad: coste, vida estudiantil, seguridad, nivel académico, alojamiento, clima, idioma y conexiones.`,
-    intro: "Las ciudades con beca Erasmus+ que mejor salen cuando se mira todo a la vez: coste, vida estudiantil, seguridad, universidades, alojamiento, calidad de vida, idioma y conexiones para viajar.",
-    method: "Ordenamos por la nota MAbroad: la media ponderada, con pesos fijos, de 8 subnotas (coste de vida 20 %, vida estudiantil 20 %, seguridad 15 %, nivel académico 10 %, alojamiento 10 %, calidad de vida y clima 10 %, idioma 10 % y conectividad 5 %). Cada subnota sale de un dato con fuente (coste mensual, secciones de ESN y estudiantes internacionales, tasa de homicidios de UNODC, ranking de Times Higher Education, Eurobarómetro) o de una valoración de MAbroad con criterio publicado. Si a una ciudad le falta un dato, su nota es provisional y se calcula con el resto. Si dos ciudades empatan, va primero la de nombre anterior en orden alfabético.",
+    description: `Top ${RANKING_TOP} de ciudades Erasmus+ con mejor nota MAbroad: coste, vida estudiantil, seguridad, salidas, universidades, alojamiento, clima y conexiones.`,
+    intro: "Las ciudades con beca Erasmus+ que mejor salen cuando se mira todo a la vez: coste, vida estudiantil, seguridad, salidas profesionales, universidades, alojamiento, calidad de vida y conexiones para viajar.",
+    method: "Ordenamos por la nota MAbroad: la media ponderada, con pesos fijos, de 8 subnotas (coste de vida 20 %, vida estudiantil 20 %, seguridad 15 %, salidas profesionales 10 %, nivel académico 10 %, alojamiento 10 %, calidad de vida y clima 10 % y conectividad 5 %). Cada subnota sale de un dato con fuente (coste mensual, secciones de ESN y estudiantes internacionales, tasa de homicidios de UNODC, jóvenes que ni trabajan ni estudian según Eurostat y la OIT, ranking de Times Higher Education), de una valoración de MAbroad con criterio publicado o de los dos a medias. El idioma no cuenta. Las ciudades con nota provisional (les falta un dato) no entran en el ranking hasta tenerlo. Si dos ciudades empatan, va primero la de nombre anterior en orden alfabético.",
   },
 ];
 

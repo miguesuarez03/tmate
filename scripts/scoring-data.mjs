@@ -11,6 +11,8 @@
 //   · esn.js           Secciones ACTIVAS de Erasmus Student Network por ciudad.
 //   · homicides.js     Tasa de homicidios por 100.000 hab. por país (UNODC,
 //                      vía la API del Banco Mundial), últimos 3 años con dato.
+//   · neet.js          Tasa NEET 15–24 de la región (Eurostat) o del país (OIT)
+//                      de cada ciudad, últimos 3 años con dato.
 //
 // Qué se hace con cada dato y cómo se pasa a 0–10: docs/scoring.md y
 // src/lib/scoring.js. La lista de universidades de cada ciudad (THE_NAMES) es
@@ -308,6 +310,99 @@ async function buildHomicides() {
   return out;
 }
 
+// ─── Salidas profesionales: tasa NEET 15–24 años ─────────────────────────────
+// Jóvenes que ni trabajan ni estudian ni se forman. Región NUTS 2 de Eurostat
+// (edat_lfse_22) donde cae la ciudad (coordenadas de lib/cityCoords.js sobre
+// los límites oficiales GISCO, NUTS 2024); si la región no tiene dato, el país
+// en Eurostat; fuera de Eurostat (Reino Unido, América), el país según la OIT
+// (indicador SL.UEM.NEET.ZS que publica el Banco Mundial).
+const NEET_EUROSTAT_URL = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/edat_lfse_22?format=JSON&lang=EN&sex=T&age=Y15-24&sinceTimePeriod=2021";
+const NUTS_URL = "https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_10M_2024_4326_LEVL_2.geojson";
+const NEET_ILO_URL = "https://api.worldbank.org/v2/country/all/indicator/SL.UEM.NEET.ZS?format=json&per_page=20000&date=2015:2026";
+/** Eurostat usa EL para Grecia; GISCO y ESN, EL/GR: aquí se normaliza a la clave de Eurostat. */
+const EUROSTAT_CC = (iso2) => (iso2 === "GR" ? "EL" : iso2);
+
+/** Convierte la respuesta JSON-stat de Eurostat en { geo: { año: valor } }. */
+function jsonStatByGeo(d) {
+  const ids = d.id;
+  const keys = ids.map((k) => Object.keys(d.dimension[k].category.index)
+    .sort((a, b) => d.dimension[k].category.index[a] - d.dimension[k].category.index[b]));
+  const out = {};
+  for (const [pos, v] of Object.entries(d.value)) {
+    let rem = Number(pos);
+    const r = [];
+    for (let i = ids.length - 1; i >= 0; i--) { r[i] = rem % d.size[i]; rem = Math.floor(rem / d.size[i]); }
+    const o = Object.fromEntries(ids.map((id, i) => [id, keys[i][r[i]]]));
+    (out[o.geo] ??= {})[o.time] = v;
+  }
+  return out;
+}
+
+/** ¿Está el punto [lng, lat] dentro de un (Multi)Polygon GeoJSON? (ray casting) */
+function inGeometry([x, y], geom) {
+  const polys = geom.type === "Polygon" ? [geom.coordinates] : geom.coordinates;
+  const inRing = (ring) => {
+    let inside = false;
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      const [xi, yi] = ring[i];
+      const [xj, yj] = ring[j];
+      if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) inside = !inside;
+    }
+    return inside;
+  };
+  return polys.some(([outer, ...holes]) => inRing(outer) && !holes.some(inRing));
+}
+
+/** Distancia aproximada (grados) del punto al vértice más cercano de la geometría. */
+function nearestVertex([x, y], geom) {
+  const polys = geom.type === "Polygon" ? [geom.coordinates] : geom.coordinates;
+  let best = Infinity;
+  for (const poly of polys) for (const ring of poly) for (const [vx, vy] of ring) best = Math.min(best, Math.hypot(vx - x, vy - y));
+  return best;
+}
+
+/** Media de los 3 años más recientes con dato de una serie { año: valor }. */
+function last3(series) {
+  const years = Object.keys(series || {}).filter((y) => series[y] != null).sort().slice(-3);
+  return years.length ? { years: Object.fromEntries(years.map((y) => [y, series[y]])) } : null;
+}
+
+async function buildNeet() {
+  const { CITY_COORDS } = await import("../src/lib/cityCoords.js");
+  const eurostat = jsonStatByGeo(await getJson(NEET_EUROSTAT_URL));
+  const nuts = (await getJson(NUTS_URL)).features;
+  const [, ilo] = await getJson(NEET_ILO_URL);
+  const out = {};
+  for (const city of CITIES) {
+    const [iso2, iso3] = COUNTRY_ISO[city.country];
+    const cc = EUROSTAT_CC(iso2);
+    const pt = CITY_COORDS[city.slug];
+    let entry = null;
+    if (eurostat[cc] && pt) {
+      const inCountry = nuts.filter((f) => f.properties.CNTR_CODE === cc);
+      // Si el punto cae justo fuera por la generalización de la costa, la región más cercana.
+      const region = inCountry.find((f) => inGeometry(pt, f.geometry))
+        ?? inCountry.map((f) => ({ f, d: nearestVertex(pt, f.geometry) })).sort((a, b) => a.d - b.d)[0]?.f;
+      const id = region?.properties.NUTS_ID;
+      const reg = last3(eurostat[id]);
+      if (reg && Object.keys(reg.years).length >= 2) {
+        entry = { source: "eurostat", scope: "region", geo: id, name: region.properties.NAME_LATN, ...reg };
+      } else {
+        const nat = last3(eurostat[cc]);
+        if (nat) entry = { source: "eurostat", scope: "country", geo: cc, ...nat };
+      }
+    }
+    if (!entry) {
+      const series = Object.fromEntries(ilo.filter((r) => r.countryiso3code === iso3 && r.value != null)
+        .map((r) => [r.date, Math.round(r.value * 10) / 10]));
+      const nat = last3(series);
+      if (nat) entry = { source: "ilo", scope: "country", geo: iso3, ...nat };
+    }
+    out[city.slug] = entry; // null = sin dato (subnota pendiente)
+  }
+  return out;
+}
+
 const js = (name, value) => `export const ${name} = ${JSON.stringify(value, null, 1)};\n`;
 
 async function main() {
@@ -329,7 +424,13 @@ async function main() {
     HEADER(`UNODC, homicidios intencionados por 100.000 habitantes (indicador VC.IHR.PSRC.P5 que publica el Banco Mundial: ${WB_URL}).`) +
     `/** país (como en cities.js) → { año: tasa } con los 3 años más recientes con dato */\n` + js("COUNTRY_HOMICIDE_RATES", homicides));
 
-  console.log(`scoring-data: ${Object.keys(universities).length} ciudades, ${Object.keys(homicides).length} países.`);
+  const neet = await buildNeet();
+  writeFileSync(join(OUT, "neet.js"),
+    HEADER(`Tasa NEET (jóvenes de 15 a 24 años que ni trabajan ni estudian ni se forman, %). Eurostat edat_lfse_22 por región NUTS 2 (${NEET_EUROSTAT_URL}) con la región de cada ciudad según los límites GISCO NUTS 2024 (${NUTS_URL}); fuera de Eurostat, OIT por país (indicador SL.UEM.NEET.ZS del Banco Mundial: ${NEET_ILO_URL}).`) +
+    `/** slug → { source: "eurostat" | "ilo", scope: "region" | "country", geo, name?, years: { año: % } } o null (sin dato) */\n` +
+    js("CITY_NEET", neet));
+
+  console.log(`scoring-data: ${Object.keys(universities).length} ciudades, ${Object.keys(homicides).length} países, NEET sin dato: ${Object.entries(neet).filter(([, v]) => !v).map(([k]) => k).join(", ") || "ninguna"}.`);
 }
 
 await main();

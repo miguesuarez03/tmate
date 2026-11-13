@@ -239,9 +239,24 @@ Criterio completo en `docs/scoring.md`. Esta sección recoge de dónde sale cada
   - Idioma (11 ciudades): Oslo, Reikiavik, Ginebra, Lausana, Zúrich, Basilea y Berna; Estambul; São Paulo, Río de Janeiro y Florianópolis. El Eurobarómetro no cubre esos países, y la encuesta AES de Eurostat mide «lengua extranjera más conocida» (no siempre el inglés) con otra escala, así que no se mezcla.
   - Idioma (2 ciudades): Montreal y Quebec. Falta el dato de Statistics Canada sobre conocimiento del inglés por área metropolitana; su web bloquea la descarga automática y hay que copiarlo a mano.
   - Vida estudiantil (6 ciudades): Rosenheim, Leipzig, Cusco, La Paz, Ciudad de Guatemala y San Salvador, porque ninguna universidad de la ciudad publica datos en THE.
-- **Efecto de lo pendiente**: repartir el peso equivale a suponer la media de la ciudad. Estambul sale 1.ª entre los destinos Erasmus+ sin la subnota de idioma: según Eurostat AES 2022, solo un 31 % de los adultos turcos que conocen su lengua extranjera principal la dominan con nivel bueno o competente. **Decisión pendiente de Miguel** (ver resumen de la tarea).
+- **Efecto de lo pendiente**: repartir el peso equivale a suponer la media de la ciudad (Estambul salía 1.ª sin la subnota de idioma). Resuelto en la segunda versión, más abajo: el idioma sale de la nota y las notas provisionales no entran en los rankings.
 - **Seguridad**: la nota usa el dato del país; el ranking «Más seguras» y la categoría de la ficha siguen con la valoración por ciudad. Si el ranking usara el dato del país, saldrían 20 ciudades italianas empatadas.
 - Revisión de Codex: pendiente (sin cuota hasta el 17-11-2026). Hay que hacerla antes de pasar la rama a `main`.
+
+### 13-11-2026 — cambio de criterio de Miguel (segunda versión)
+- **El idioma sale de la nota.** Es una preferencia personal: sigue como dato aparte en el desglose y el comparador, y como pregunta de City Match. Por eso las notas de Suiza, Noruega, Islandia, Turquía, Brasil, Montreal y Quebec dejan de ser provisionales.
+- **Nueva subnota «Salidas profesionales» (10 %)**: la mitad es la tasa NEET 15–24 y la otra mitad, la categoría «Empleo» de la ficha.
+  - **Decisión de Claude, NEET en vez de paro juvenil:** el paro juvenil cuenta como parados a los estudiantes que buscan trabajo (Suecia, 24 %) y premia el empleo informal (Bolivia, 5 %; Guatemala, 4,8 %; México, 5,7 %). Con él, Latinoamérica volvía a subir.
+  - **Fuentes:**
+    - Eurostat `edat_lfse_22`, NUTS 2, 2023–2025, con la región sacada de las coordenadas sobre los límites GISCO NUTS 2024.
+    - Para Reino Unido y América, la OIT por país (`SL.UEM.NEET.ZS`, Banco Mundial), 2023–2025. Perú usa 2020–2022.
+    - Bratislava, Dresde y Leipzig usan el dato del país: su región no tiene dato en Eurostat.
+    - Comprobado a mano que cada ciudad cae en su región: Lisboa en PT1A Grande Lisboa, Rotterdam y La Haya en NL36 Zuid-Holland, Estambul en TR10, etc.
+- **Seguridad**: mitad país (UNODC) y mitad valoración de la ciudad (categoría «Seguridad»).
+- **Notas provisionales fuera de los rankings.** Quedan 6 provisionales, todas por vida estudiantil: Rosenheim, Leipzig, Cusco, La Paz, Ciudad de Guatemala y San Salvador.
+- **Umbral de «Excelente» (8,5)**: ninguna ciudad llega; la máxima es 8,4. Pendiente de decidir con la nota ya cerrada.
+  - Propuesta: Excelente 8,0 o más (8 ciudades); Bueno, de 7,0 a 7,9 (97); Regular, de 6,0 a 6,9 (31); Difícil, por debajo de 6,0 (14, todas en América).
+  - Hoy, con los umbrales actuales: 0 Excelente, 105 Bueno, 40 Regular y 5 Difícil.
 
 ## Pendiente de Miguel (Rosenheim, vive allí)
 

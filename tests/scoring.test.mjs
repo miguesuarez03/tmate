@@ -4,9 +4,13 @@ import assert from "node:assert/strict";
 import {
   SCORING_WEIGHTS, SUBSCORES, SUBSCORE_IDS, MIN_COVERAGE, costToScore, homicideToScore, theRankToScore,
   parseTheRank, computeScore, parseCostMidpoint, weightsFromMatch, esnPoints, intlStudentPoints,
-  englishShareToScore, THE_UNRANKED_SCORE,
+  englishShareToScore, THE_UNRANKED_SCORE, neetToScore, EXTRA_SCORES,
 } from "../src/lib/scoring.js";
-import { getAllCities, getCostMidpoint, getOverallScore, getScoreBreakdown, getBecaGapForCity } from "../src/lib/cities.js";
+import {
+  getAllCities, getCostMidpoint, getOverallScore, getScoreBreakdown, getBecaGapForCity, getCriterionValue,
+  formatCriterionValue, getErasmusRanking,
+} from "../src/lib/cities.js";
+import { CITY_NEET } from "../src/data/scoring/neet.js";
 import { CITIES } from "../src/data/cities.js";
 import { CITY_UNIVERSITIES } from "../src/data/scoring/universities.js";
 import { CITY_ESN_SECTIONS } from "../src/data/scoring/esn.js";
@@ -18,6 +22,12 @@ const INDEX = getAllCities();
 
 test("los pesos suman 100 y cada subnota tiene peso, etiqueta y fuente", () => {
   assert.equal(Object.values(SCORING_WEIGHTS).reduce((a, b) => a + b, 0), 100);
+  assert.deepEqual(SCORING_WEIGHTS, {
+    coste: 20, vida: 20, seguridad: 15, salidas: 10, academico: 10, alojamiento: 10, calidad: 10, conectividad: 5,
+  });
+  // El idioma es una preferencia personal: dato aparte, sin peso.
+  assert.ok(!("idioma" in SCORING_WEIGHTS));
+  assert.deepEqual(EXTRA_SCORES.map((e) => e.id), ["idioma"]);
   assert.deepEqual([...SUBSCORE_IDS].sort(), Object.keys(SCORING_WEIGHTS).sort());
   for (const s of SUBSCORES) {
     assert.ok(s.weight > 0 && s.label && s.source, s.id);
@@ -48,6 +58,32 @@ test("seguridad: escala logarítmica de 0,5 (10) a 40 homicidios (0), decrecient
   }
 });
 
+test("salidas: NEET 4 % o menos = 10, cada 2 puntos resta 1, 24 % o más = 0", () => {
+  assert.equal(neetToScore(3), 10);
+  assert.equal(neetToScore(4), 10);
+  assert.equal(neetToScore(10), 7);
+  assert.equal(neetToScore(14), 5);
+  assert.equal(neetToScore(24), 0);
+  assert.equal(neetToScore(30), 0);
+  assert.equal(neetToScore(null), null);
+});
+
+test("seguridad y salidas: mitad dato (país o región) y mitad valoración de la ciudad", () => {
+  for (const c of INDEX) {
+    const b = getScoreBreakdown(c.slug);
+    const seg = b.rows.find((r) => r.id === "seguridad").score;
+    const sal = b.rows.find((r) => r.id === "salidas").score;
+    assert.ok(seg != null, `${c.slug}: seguridad`);
+    assert.ok(sal != null || !CITY_NEET[c.slug], `${c.slug}: salidas`);
+    // La mitad de la ciudad pesa: con la misma valoración que el dato, sale igual.
+    assert.ok(seg >= Math.min(c.scores.seguridad, 10) / 2, c.slug);
+  }
+  // Mismo país, distinta valoración de la ciudad → distinta seguridad.
+  const nap = getScoreBreakdown("napoles").rows.find((r) => r.id === "seguridad").score;
+  const bol = getScoreBreakdown("bolonia").rows.find((r) => r.id === "seguridad").score;
+  assert.notEqual(nap, bol);
+});
+
 test("académico: tramos de THE y 4 si ninguna universidad está clasificada", () => {
   assert.equal(parseTheRank("=111"), 111);
   assert.equal(parseTheRank("301–325"), 301);
@@ -74,9 +110,9 @@ test("vida estudiantil: puntos de ESN (0–4) y de estudiantes internacionales (
 test("nota: media ponderada; lo pendiente se reparte y sin el 70 % del peso no hay nota", () => {
   const all = Object.fromEntries(SUBSCORE_IDS.map((id) => [id, 8]));
   assert.deepEqual(computeScore(all), { overall: 8, coverage: 1, pending: [] });
-  const sinIdioma = { ...all, idioma: null, coste: 10 };
-  const r = computeScore(sinIdioma);
-  assert.deepEqual(r.pending, ["idioma"]);
+  const sinSalidas = { ...all, salidas: null, coste: 10 };
+  const r = computeScore(sinSalidas);
+  assert.deepEqual(r.pending, ["salidas"]);
   assert.equal(r.coverage, 0.9);
   assert.equal(r.overall, Math.round(((10 * 20 + 8 * 70) / 90) * 10) / 10);
   const casiNada = Object.fromEntries(SUBSCORE_IDS.map((id) => [id, null]));
@@ -88,7 +124,7 @@ test("nota: media ponderada; lo pendiente se reparte y sin el 70 % del peso no h
 
 test("City Match (preparado): sin respuestas, los pesos de siempre; con prioridades, suman 100", () => {
   assert.deepEqual(weightsFromMatch({}), { ...SCORING_WEIGHTS });
-  const w = weightsFromMatch({ priorities: ["academico", "idioma", "vida"], tightBudget: true });
+  const w = weightsFromMatch({ priorities: ["academico", "salidas", "vida"], tightBudget: true });
   assert.ok(Math.abs(Object.values(w).reduce((a, b) => a + b, 0) - 100) < 0.5);
   assert.ok(w.academico > SCORING_WEIGHTS.academico && w.coste > SCORING_WEIGHTS.coste);
 });
@@ -106,13 +142,15 @@ test("cada ciudad tiene sus datos de puntuación (aunque sea una lista vacía)",
   }
 });
 
-test("idioma: Eurobarómetro en %, lengua nativa o pendiente, nunca un número inventado", () => {
+test("idioma (no cuenta): Eurobarómetro en %, lengua nativa o sin dato, nunca un número inventado", () => {
   for (const [country, v] of Object.entries(COUNTRY_LANGUAGE)) {
     if ("native" in v) assert.ok(["inglés", "español"].includes(v.native), country);
     else assert.ok(v.english > 0 && v.english <= 100, country);
   }
   for (const c of INDEX) {
-    const idioma = getScoreBreakdown(c.slug).rows.find((r) => r.id === "idioma").score;
+    const b = getScoreBreakdown(c.slug);
+    assert.ok(!b.rows.some((r) => r.id === "idioma"), c.slug);
+    const idioma = b.extras.find((r) => r.id === "idioma").score;
     const expected = CITY_LANGUAGE_PENDING[c.slug] ? null
       : COUNTRY_LANGUAGE[c.country]?.native ? 10
         : COUNTRY_LANGUAGE[c.country] ? englishShareToScore(COUNTRY_LANGUAGE[c.country].english) : null;
@@ -135,6 +173,15 @@ test("todas las ciudades tienen nota, subnotas entre 0 y 10 (o pendientes) y la 
     // Coste y seguridad salen siempre de un dato: nunca pendientes.
     assert.ok(subs.coste != null && subs.seguridad != null && subs.academico != null, c.slug);
   }
+});
+
+test("las notas provisionales no entran en los rankings", () => {
+  for (const c of INDEX) {
+    const provisional = getScoreBreakdown(c.slug).provisional;
+    assert.equal(getCriterionValue(c, "nota") == null, provisional, c.slug);
+    if (provisional) assert.equal(formatCriterionValue(c, "nota"), "Nota provisional");
+  }
+  assert.ok(getErasmusRanking("nota").every((r) => !getScoreBreakdown(r.city.slug).provisional));
 });
 
 test("te faltan tras la beca: SEPIE en Erasmus+, SEMP en Suiza y 0 € en América", () => {

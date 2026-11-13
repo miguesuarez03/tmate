@@ -30,6 +30,7 @@ import { computeCitySubscores, computeScore, getBecaGap, parseCostMidpoint } fro
 import { CITY_UNIVERSITIES, THE_EDITION } from "../src/data/scoring/universities.js";
 import { CITY_ESN_SECTIONS } from "../src/data/scoring/esn.js";
 import { COUNTRY_HOMICIDE_RATES } from "../src/data/scoring/homicides.js";
+import { CITY_NEET } from "../src/data/scoring/neet.js";
 import { COUNTRY_LANGUAGE, CITY_LANGUAGE_PENDING } from "../src/data/scoring/languages.js";
 import * as BECA_DATA from "../src/data/becaGroups.js";
 
@@ -70,7 +71,7 @@ export function buildCityData() {
     entry.scores = Object.fromEntries(insights.scores.map((s) => [s.id, s.score]));
     // Nota MAbroad: 8 subnotas con fuente y pesos fijos (src/lib/scoring.js).
     const costMid = parseCostMidpoint(city.costDetail);
-    const { subs, detail } = computeCitySubscores({
+    const { subs, extras, detail } = computeCitySubscores({
       city,
       scores: insights.scores,
       costMid,
@@ -79,12 +80,13 @@ export function buildCityData() {
       theEdition: THE_EDITION,
       esnSections: CITY_ESN_SECTIONS[city.slug],
       homicides: COUNTRY_HOMICIDE_RATES[city.country],
+      neet: CITY_NEET[city.slug],
       language: COUNTRY_LANGUAGE[city.country],
       languagePending: CITY_LANGUAGE_PENDING[city.slug],
     });
     const { overall, pending } = computeScore(subs);
     entry.overall = overall;
-    entry.nota = { subs, pending };
+    entry.nota = { subs, pending, extras };
     entry.beca = getBecaGap(city, costMid, BECA_DATA);
     // Subnotas para rankings/comparador (Clima, Nivel de inglés): sin dato, no van.
     entry.subscores = pickSubscores(insights.scores);
