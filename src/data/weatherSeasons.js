@@ -341,4 +341,39 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "12–21°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso con el mar todavía templado.", tags: ["Inicio Erasmus","Mar templado","Muy animada"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "4–12°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y luminoso, con días de mistral fuerte y frío.", tags: ["Suave","Mistral","Luminoso"] },
   ],
+  // Lille: Lille-Lesquin (Météo-France).
+  lille: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–15°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca y cambiante; la Grand Place y las terrazas recuperan vida.", tags: ["Fresca","Terrazas","Lluvia"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–23°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos templados y días largos, buenos para escapadas a Bruselas o la costa.", tags: ["Templado","Días largos","Escapadas"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "8–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y, a principios de septiembre, la Braderie.", tags: ["Inicio Erasmus","Braderie","Lluvia frecuente"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "2–7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno gris y húmedo, con algunas heladas; mercado navideño en el centro.", tags: ["Gris","Húmedo","Mercado navideño"] },
+  ],
+  // Estrasburgo: Strasbourg-Entzheim (Météo-France).
+  estrasburgo: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–17°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada; las orillas del Ill y la Petite France se llenan de gente.", tags: ["Templada","Petite France","Paseos en bici"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "14–26°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos cálidos, ideales para pedalear junto al Rin hasta Kehl.", tags: ["Cálido","Bici","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–16°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y vendimia en la ruta del vino de Alsacia.", tags: ["Inicio Erasmus","Vendimia","Muy animada"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–6°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas frecuentes; el mercado navideño llena la ciudad.", tags: ["Frío","Heladas","Mercado navideño"] },
+  ],
+  // Grenoble: Grenoble-Le Versoud (Météo-France), en el valle junto a la ciudad; temperaturas 1999–2020.
+  grenoble: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "7–19°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada en el valle y todavía nieve en las cumbres.", tags: ["Templada","Nieve arriba","Senderismo"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "15–28°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos calurosos en el valle; las montañas cercanas sirven de refugio.", tags: ["Calor","Montaña","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "8–18°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y montañas con colores de otoño.", tags: ["Inicio Erasmus","Colores de otoño","Senderismo"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-1–8°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Inviernos fríos con heladas en la ciudad y temporada de esquí en las estaciones cercanas.", tags: ["Frío","Heladas","Esquí"] },
+  ],
+  // Rennes: Rennes-Saint-Jacques (Météo-France).
+  rennes: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "7–16°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave y cambiante; el Thabor y las terrazas recuperan vida.", tags: ["Suave","Parques","Lluvia"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–24°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos templados, buenos para escapadas a la costa bretona.", tags: ["Templado","Costa cerca","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "9–17°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y una ciudad llena de estudiantes.", tags: ["Inicio Erasmus","Lluvia frecuente","Muy animada"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "3–10°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y lluvioso; en diciembre, Les Trans Musicales.", tags: ["Suave","Lluvia","Trans Musicales"] },
+  ],
+  // Venecia: Venezia-Tessera (OMM); la máxima de marzo falta en la serie y se estima con la media mensual.
+  venecia: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "9–18°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada, la mejor época para recorrer la laguna antes del calor.", tags: ["Templada","Laguna","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "19–28°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos calurosos y húmedos; el Lido y sus playas a un vaporetto.", tags: ["Calor","Humedad","Lido"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "10–19°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso; en otoño puede haber acqua alta en las zonas bajas.", tags: ["Inicio Erasmus","Acqua alta","Muy animada"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "1–8°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y húmedo, con niebla; al final del invierno, el Carnaval.", tags: ["Frío húmedo","Niebla","Carnaval"] },
+  ],
 };

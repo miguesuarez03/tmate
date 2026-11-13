@@ -5049,27 +5049,27 @@ export const CITY_INSIGHTS = {
   },
   venecia: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Venezia_aerial_view.jpg/1920px-Venezia_aerial_view.jpg",
-    tagline: "Vive dentro de la ciudad más fotografiada del mundo, sin coches y con vaporetto para todo.",
+    tagline: "Vive en una ciudad sin coches, con vaporetto para todo.",
     atmosphere: "Venecia huele a sal, madera húmeda y café en fondamenta al amanecer, antes de que lleguen los cruceros. De noche, lejos de San Marco, suena a remos, campanas y conversaciones en dialecto véneto.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 4.0,
-        summary: "El precio de vivir en la ciudad más fotografiada del mundo. El alquiler en el centro histórico compite con miles de pisos turísticos.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 5.5,
+        summary: "Ca' Foscari y el IUAV recomiendan unos 900€/mes; con los alquileres que da el IUAV, 850–1.200€/mes.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 3.0, desc: "Habitaciones desde 500–700€ en el centro histórico; bajan a 350–450€ en Mestre, en tierra firme." },
-          { label: "Comida y supermercados", score: 5.5, desc: "Los supermercados de barrio (lejos de San Marco) tienen precios normales italianos; los bares turísticos triplican el precio de un café." },
-          { label: "Transporte", score: 4.0, desc: "El abono ACTV de vaporetto para residentes/estudiantes ronda 25–35€/mes, pero un billete suelto para un turista cuesta 9,50€." },
-          { label: "Ocio y gastos diarios", score: 4.5, desc: "Un spritz en Cannaregio cuesta la mitad que uno en Piazza San Marco." },
+          { label: "Alojamiento", score: 3.0, desc: "Habitación individual de 300 a 600€ más gastos, según el IUAV: unos 410€ de media en Venecia y 340€ en Mestre." },
+          { label: "Comida y supermercados", score: 5.5, desc: "Los supermercados de barrio (lejos de San Marco) tienen precios normales italianos; los bares turísticos cobran mucho más." },
+          { label: "Transporte", score: 6.5, desc: "Abono de bus, tranvía y vaporetto para menores de 26: 25€/mes o 230€/año; un billete suelto de vaporetto cuesta 9,50€." },
+          { label: "Ocio y gastos diarios", score: 4.5, desc: "Los bacari de Cannaregio son mucho más baratos que los cafés de Piazza San Marco." },
         ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 3.5,
-        summary: "El mercado más difícil de Italia: la vivienda turística ha desplazado buena parte del parque de alquiler residencial.",
+        summary: "Mercado muy difícil: la vivienda turística ha desplazado buena parte del alquiler residencial.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 3.0, desc: "Miles de pisos están registrados como alquiler turístico; la oferta para residentes es escasa y hay que buscar con meses de antelación." },
-          { label: "Precio", score: 3.0, desc: "500–700€ en Cannaregio o Dorsoduro; 350–450€ cruzando a Mestre." },
+          { label: "Disponibilidad", score: 3.0, desc: "Muchos pisos se dedican al alquiler turístico; la oferta para residentes es escasa y hay que buscar con meses de antelación." },
+          { label: "Precio", score: 3.0, desc: "Unos 410€ de media en Venecia y 340€ en Mestre-Marghera por una habitación individual, más gastos (IUAV)." },
           { label: "Facilidad de búsqueda", score: 4.0, desc: "Ca' Foscari y el IUAV tienen oficinas de alojamiento para exchange students, aunque las plazas son limitadas." },
           { label: "Residencias universitarias", score: 3.5, desc: "Pocas plazas y muy solicitadas; conviene pedirlas nada más tener la admisión." },
         ],
@@ -5104,7 +5104,7 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 6.0, desc: "El vaporetto de ACTV conecta toda la ciudad y la laguna, pero es más lento y caro que un metro convencional." },
           { label: "Ciudad caminable", score: 8.5, desc: "Todo el centro histórico se recorre a pie; no hay coches ni bicis." },
           { label: "Conexiones internacionales", score: 7.0, desc: "Aeropuerto Marco Polo bien conectado; estación de Santa Lucia con trenes directos a Milán, Florencia y Roma." },
-          { label: "Escapadas de fin de semana", score: 8.0, desc: "Verona, Padua, Trieste y los Dolomitas, todos a un tren de menos de dos horas." },
+          { label: "Escapadas de fin de semana", score: 8.0, desc: "Padua y Verona a un tren corto; Trieste y los Dolomitas, para una escapada de fin de semana." },
         ],
       },
       {
@@ -5131,12 +5131,12 @@ export const CITY_INSIGHTS = {
         ],
       },
       {
-        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.7,
-        summary: "Una de las ciudades más seguras de Italia; el mayor riesgo es la propia masificación turística, no la delincuencia.",
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.5,
+        summary: "Ciudad tranquila; el mayor riesgo es la masificación turística, no la delincuencia.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja; los descuideros en zonas turísticas masificadas son el principal riesgo." },
-          { label: "Seguridad nocturna", score: 8.5, desc: "Calles estrechas pero seguras incluso de madrugada, salvo cuidado extra cerca de la estación." },
+          { label: "Seguridad general", score: 8.5, desc: "Ciudad tranquila; los carteristas en las zonas turísticas masificadas son el principal riesgo." },
+          { label: "Seguridad nocturna", score: 8.5, desc: "Calles tranquilas de noche; cuidado extra cerca de la estación." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, aunque saturada de turistas en las horas centrales del día." },
         ],
       },
@@ -7903,13 +7903,13 @@ export const CITY_INSIGHTS = {
     atmosphere: "Estrasburgo huele a tarta flambée y vino caliente en el mercado navideño, y suena a campanas de catedral gótica mezcladas con el murmullo del Ill bajo las casas de entramado de la Petite France.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 6.3,
-        summary: "Moderada para el estándar francés, algo por debajo de Estrasburgo su vecina alemana Friburgo.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 6.5,
+        summary: "La EM Strasbourg (Universidad de Estrasburgo) calcula 300–600€ de alojamiento y 300–500€ de comida y gastos diarios al mes.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 5.8, desc: "Habitación desde 420–540€, con demanda alta por las instituciones europeas y Erasmus." },
+          { label: "Alojamiento", score: 5.8, desc: "De 300 a 600€/mes de alojamiento, según la EM Strasbourg; la demanda es alta." },
           { label: "Comida y supermercados", score: 6.5, desc: "Mercados alsacianos y supermercados estándar franceses mantienen el gasto razonable." },
-          { label: "Transporte", score: 7.0, desc: "Abono CTS joven con buen descuento estudiantil para tranvía y bus." },
+          { label: "Transporte", score: 7.0, desc: "Abono CTS con tarifa reducida para jóvenes; tranvía y bus por toda la ciudad, y el tranvía llega a Kehl." },
           { label: "Ocio y gastos diarios", score: 6.3, desc: "Salir de bares tiene precios moderados, algo más altos en la Petite France turística." },
         ],
       },
@@ -7919,7 +7919,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 5.5, desc: "Oferta razonable, aunque conviene buscar con antelación en los meses de más demanda." },
-          { label: "Precio", score: 6.0, desc: "420–540€ de media, moderado para una ciudad de este perfil internacional." },
+          { label: "Precio", score: 6.0, desc: "300–600€/mes según la EM Strasbourg; las residencias del CROUS son lo más económico." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "El CROUS y portales locales facilitan la búsqueda para exchange students." },
           { label: "Residencias universitarias", score: 5.5, desc: "Plazas CROUS disponibles, aunque limitadas frente a la demanda internacional." },
         ],
@@ -7929,7 +7929,7 @@ export const CITY_INSIGHTS = {
         summary: "Comunidad Erasmus grande y muy internacional gracias a la presencia de las instituciones europeas.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 8.5, desc: "ESN Strasbourg es uno de los capítulos más activos de Francia, con eventos constantes." },
+          { label: "Comunidad Erasmus", score: 8.5, desc: "ESN Strasbourg organiza eventos y viajes para estudiantes internacionales durante todo el curso." },
           { label: "Ambiente internacional", score: 9.0, desc: "La presencia del Parlamento Europeo atrae a una comunidad internacional muy diversa." },
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "Krutenau concentra bares y ambiente estudiantil entre semana." },
           { label: "Eventos y actividades", score: 8.5, desc: "El mercado navideño de diciembre convierte la ciudad entera en un evento social." },
@@ -7962,9 +7962,9 @@ export const CITY_INSIGHTS = {
         summary: "Una identidad fronteriza única, entre la tradición alsaciana y el peso simbólico de ser capital europea.",
         color: "#3F7A7D",
         subcategories: [
-          { label: "Naturaleza", score: 7.5, desc: "El Rin y los Vosgos ofrecen naturaleza y rutas de senderimo a poca distancia." },
-          { label: "Clima", score: 7.0, desc: "Continental templado, con veranos agradables e inviernos fríos con nieve ocasional." },
-          { label: "Calidad de vida", score: 8.5, desc: "Ciudad segura, ordenada y con excelente calidad de vida para su tamaño." },
+          { label: "Naturaleza", score: 7.5, desc: "El Rin y los Vosgos ofrecen naturaleza y rutas de senderismo a poca distancia." },
+          { label: "Clima", score: 7.0, desc: "Continental templado: veranos cálidos (unos 14–26°C de media) e inviernos fríos, con heladas y nieve ocasional." },
+          { label: "Calidad de vida", score: 8.5, desc: "Ciudad ordenada y con excelente calidad de vida para su tamaño." },
           { label: "Autenticidad local", score: 8.5, desc: "La tradición alsaciana, mezcla de Francia y Alemania, le da una identidad única." },
           { label: "Estilo de vida", score: 9.0, desc: "Vivir en la capital simbólica de Europa, entre dos culturas, es una experiencia irrepetible." },
         ],
@@ -7985,8 +7985,8 @@ export const CITY_INSIGHTS = {
         summary: "Ciudad razonablemente segura, con el circuito estudiantil e institucional europeo muy tranquilo.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 7.8, desc: "Criminalidad moderada-baja para el estándar de una ciudad francesa de este tamaño." },
-          { label: "Seguridad nocturna", score: 7.5, desc: "Krutenau y la Petite France son seguros de noche, con ambiente animado hasta tarde." },
+          { label: "Seguridad general", score: 7.8, desc: "Ciudad tranquila en general; aplica las precauciones habituales." },
+          { label: "Seguridad nocturna", score: 7.5, desc: "Krutenau y la Petite France tienen ambiente hasta tarde; conviene tomar las precauciones habituales." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad ordenada, con fuerte presencia institucional que aporta tranquilidad general." },
         ],
       },
@@ -8184,17 +8184,17 @@ export const CITY_INSIGHTS = {
   },
   lille: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Grand_Place_Lille_1.jpg/1920px-Grand_Place_Lille_1.jpg",
-    tagline: "La ciudad universitaria mejor conectada de Europa: Bruselas, Londres y París a menos de una hora.",
+    tagline: "Ciudad universitaria muy bien conectada: Bruselas y París a una hora o menos, y Londres a menos de hora y media.",
     atmosphere: "Lille huele a moules-frites y waffles recién hechos en la Grand Place, y suena al eco de acordeones en el mercado de Wazemmes los domingos, con fachadas de ladrillo flamenco enmarcando cada esquina.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 7.2,
-        summary: "De las más asequibles entre las grandes ciudades universitarias francesas.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 6.0,
+        summary: "La Universidad de Lille calcula 650–1.100€/mes en piso compartido y 800–1.300€/mes en estudio.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 6.5, desc: "Habitación desde 380–480€, entre las más bajas de las grandes ciudades francesas." },
+          { label: "Alojamiento", score: 6.5, desc: "Según la universidad, 300–450€ por habitación en piso compartido y 450–650€ por un estudio." },
           { label: "Comida y supermercados", score: 7.5, desc: "El mercado de Wazemmes y los supermercados estándar mantienen el gasto bajo control." },
-          { label: "Transporte", score: 7.5, desc: "Abono Ilévia joven con buen descuento estudiantil para el metro automático." },
+          { label: "Transporte", score: 7.5, desc: "Ilévia: abono para menores de 26 años de 20–35€/mes, según los ingresos familiares." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Salir de bares tiene precios razonables, con influencia belga en la oferta cervecera." },
         ],
       },
@@ -8204,7 +8204,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 6.5, desc: "Amplia oferta de colocation gracias a su gran población estudiantil." },
-          { label: "Precio", score: 6.5, desc: "380–480€ de media, entre los más bajos de las grandes ciudades francesas." },
+          { label: "Precio", score: 6.5, desc: "300–450€ en piso compartido y 450–650€ en estudio, según la Universidad de Lille." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "El CROUS y portales locales facilitan bastante la búsqueda." },
           { label: "Residencias universitarias", score: 6.0, desc: "Buena oferta de residencias CROUS gracias al tamaño de la población estudiantil." },
         ],
@@ -8214,7 +8214,7 @@ export const CITY_INSIGHTS = {
         summary: "Una de las poblaciones universitarias más grandes de Francia da un ambiente estudiantil constante.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 9.0, desc: "ESN Lille es uno de los capítulos más grandes y activos de Francia." },
+          { label: "Comunidad Erasmus", score: 9.0, desc: "ESN Lille organiza actividades y viajes para estudiantes internacionales durante todo el curso." },
           { label: "Ambiente internacional", score: 8.5, desc: "La cercanía con Bélgica y el Reino Unido aporta un ambiente muy internacional." },
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "Vieux-Lille y Wazemmes concentran una vida nocturna intensa y variada." },
           { label: "Eventos y actividades", score: 9.0, desc: "La Braderie de Lille en septiembre es uno de los grandes eventos populares de Francia." },
@@ -8233,7 +8233,7 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 9.0,
-        summary: "Probablemente la mejor ubicación de toda esta guía: tres capitales europeas a menos de una hora y media.",
+        summary: "Una ubicación excelente: tres capitales europeas a menos de hora y media en tren.",
         color: "#F59E0B",
         subcategories: [
           { label: "Transporte público", score: 8.5, desc: "El metro VAL, automático y sin conductor, es de los más eficientes de Francia." },
@@ -8249,7 +8249,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Naturaleza", score: 6.0, desc: "Ciudad urbana, con parques como el Bois de Boulogne lillois como principal espacio verde." },
           { label: "Clima", score: 6.0, desc: "Oceánico, con lluvias frecuentes e inviernos suaves, típico del norte de Francia." },
-          { label: "Calidad de vida", score: 8.5, desc: "Ciudad segura, ordenada y con un ambiente estudiantil muy acogedor." },
+          { label: "Calidad de vida", score: 8.5, desc: "Ciudad ordenada y con un ambiente estudiantil muy acogedor." },
           { label: "Autenticidad local", score: 8.5, desc: "Arquitectura e identidad flamenca únicas dentro de Francia, herencia de siglos de historia compartida." },
           { label: "Estilo de vida", score: 8.5, desc: "La combinación de identidad flamenca, ambiente estudiantil y conexiones europeas es única en Francia." },
         ],
@@ -8261,7 +8261,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Mercado laboral", score: 7.5, desc: "Economía diversificada con fuerte peso en comercio, textil y tecnología digital." },
           { label: "Prácticas", score: 7.5, desc: "EDHEC y Sciences Po Lille tienen fuertes conexiones con empresas de la región y de Bélgica." },
-          { label: "Empresas relevantes", score: 7.5, desc: "Sede de Auchan, Decathlon, OVHcloud y un ecosistema digital en expansión (Euratechnologies)." },
+          { label: "Empresas relevantes", score: 7.5, desc: "Auchan, Decathlon y OVHcloud tienen su sede en la metrópoli, con un ecosistema digital en expansión (Euratechnologies)." },
           { label: "Oportunidades para estudiantes", score: 7.5, desc: "La cercanía con Bélgica y el Reino Unido multiplica las oportunidades de prácticas transfronterizas." },
         ],
       },
@@ -8270,8 +8270,8 @@ export const CITY_INSIGHTS = {
         summary: "Ciudad razonablemente segura, con el circuito estudiantil habitual tranquilo.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 7.5, desc: "Criminalidad moderada-baja para el estándar de una gran ciudad francesa." },
-          { label: "Seguridad nocturna", score: 7.0, desc: "Vieux-Lille y el centro son seguros de noche, con ambiente animado hasta tarde." },
+          { label: "Seguridad general", score: 7.5, desc: "Gran ciudad: aplica las precauciones habituales, sobre todo de noche." },
+          { label: "Seguridad nocturna", score: 7.0, desc: "Vieux-Lille y el centro tienen ambiente hasta tarde; conviene tomar las precauciones habituales." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad ordenada y acogedora, coherente con la fama de hospitalidad de sus habitantes." },
         ],
       },
@@ -10844,17 +10844,17 @@ export const CITY_INSIGHTS = {
   },
   grenoble: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Grenoble-Bastille_cable_car_-_T%C3%A9l%C3%A9ph%C3%A9rique_de_Grenoble_Bastille_photo1.jpg/1920px-Grenoble-Bastille_cable_car_-_T%C3%A9l%C3%A9ph%C3%A9rique_de_Grenoble_Bastille_photo1.jpg",
-    tagline: "Hub tecnológico francés rodeado de tres cordilleras alpinas, con esquí a menos de una hora.",
+    tagline: "Hub tecnológico francés rodeado de tres macizos alpinos, con las estaciones de esquí a un trayecto corto.",
     atmosphere: "Grenoble huele a raclette y vino caliente en los chalets al pie de las pistas, y suena al zumbido del teleférico de la Bastille subiendo sobre una ciudad rodeada de picos nevados por los cuatro costados.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 6.8,
-        summary: "Razonable para una ciudad tecnológica y alpina, más asequible que otras ciudades francesas de su perfil.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 6.5,
+        summary: "Estimación de MAbroad: 700–1.100€/mes, sumando las partidas que publica la Université Grenoble Alpes (alojamiento, comida, transporte).",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 6.0, desc: "Habitación desde 420–520€, razonable para una ciudad con este nivel tecnológico." },
+          { label: "Alojamiento", score: 6.0, desc: "Según la universidad: residencias del CROUS 250–500€, habitación en piso compartido unos 350€ y estudio 400–600€." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercados locales y supermercados estándar franceses mantienen el gasto razonable." },
-          { label: "Transporte", score: 7.5, desc: "Abono TAG joven con buen descuento estudiantil para tranvía y bus." },
+          { label: "Transporte", score: 7.5, desc: "Red M réso (antes TAG): abono de 18€/mes para estudiantes de 18 a 25 años." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Salir de bares tiene precios moderados, con el forfait de esquí como gasto extra habitual." },
         ],
       },
@@ -10864,7 +10864,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 6.5, desc: "Buena oferta de pisos compartidos gracias a la enorme población universitaria." },
-          { label: "Precio", score: 6.0, desc: "420–520€ de media, razonable para una ciudad tecnológica de este nivel." },
+          { label: "Precio", score: 6.0, desc: "CROUS 250–500€, piso compartido unos 350€ y estudio 400–600€, según la Université Grenoble Alpes." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "El CROUS gestiona residencias con demanda alta; conviene solicitar cuanto antes." },
           { label: "Residencias universitarias", score: 6.0, desc: "Buena oferta de residencias CROUS gracias al tamaño de la población estudiantil." },
         ],
@@ -10893,13 +10893,13 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.0,
-        summary: "Rodeada de tres cordilleras alpinas, con estaciones de esquí a menos de una hora.",
+        summary: "Rodeada de tres macizos alpinos, con las estaciones de esquí a un trayecto corto.",
         color: "#F59E0B",
         subcategories: [
-          { label: "Transporte público", score: 8.0, desc: "TAG tiene una de las redes de tranvía más extensas y eficientes de Francia fuera de las grandes capitales." },
+          { label: "Transporte público", score: 8.0, desc: "La red M réso (antes TAG) cubre la ciudad con tranvía y bus." },
           { label: "Ciudad caminable/ciclable", score: 8.0, desc: "Centro compacto y muy ciclable, con carriles bici en constante expansión." },
-          { label: "Conexiones internacionales", score: 7.0, desc: "Aeropuerto de Grenoble-Alpes-Isère con vuelos estacionales; Lyon, con más oferta, a menos de una hora." },
-          { label: "Escapadas de fin de semana", score: 9.5, desc: "Estaciones de esquí de los Alpes, algunas a menos de 30 minutos del centro." },
+          { label: "Conexiones internacionales", score: 7.0, desc: "Aeropuerto de Grenoble-Alpes-Isère con vuelos estacionales; el de Lyon-Saint-Exupéry, con más oferta, a un trayecto en autobús." },
+          { label: "Escapadas de fin de semana", score: 9.5, desc: "Estaciones de esquí de los Alpes a un trayecto corto, y Lyon a algo menos de hora y media en tren." },
         ],
       },
       {
@@ -10908,8 +10908,8 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.5, desc: "Las cordilleras de Belledonne, Chartreuse y Vercors rodean la ciudad, visibles desde cualquier calle." },
-          { label: "Clima", score: 7.5, desc: "Alpino, con inviernos fríos y nevados y veranos agradables en el valle." },
-          { label: "Calidad de vida", score: 9.0, desc: "Ciudad segura, dinámica y con una calidad de vida excepcional para su tamaño." },
+          { label: "Clima", score: 7.5, desc: "En el valle, inviernos fríos con heladas y veranos calurosos (unos 15–28°C de media); la nieve está en las montañas cercanas." },
+          { label: "Calidad de vida", score: 9.0, desc: "Ciudad dinámica y con una calidad de vida excepcional para su tamaño." },
           { label: "Autenticidad local", score: 8.0, desc: "Combina tradición alpina con una identidad tecnológica muy moderna." },
           { label: "Estilo de vida", score: 9.5, desc: "Pocas ciudades universitarias del mundo ofrecen esquiar y estudiar tecnología de primer nivel en el mismo lugar." },
         ],
@@ -10930,8 +10930,8 @@ export const CITY_INSIGHTS = {
         summary: "Ciudad razonablemente segura, con el circuito estudiantil habitual tranquilo.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 7.5, desc: "Criminalidad moderada-baja para el estándar de una ciudad francesa de este tamaño." },
-          { label: "Seguridad nocturna", score: 7.5, desc: "El hyper-centre es seguro de noche, con ambiente animado hasta tarde." },
+          { label: "Seguridad general", score: 7.5, desc: "Gran ciudad: aplica las precauciones habituales, sobre todo de noche." },
+          { label: "Seguridad nocturna", score: 7.5, desc: "El hyper-centre tiene ambiente hasta tarde; conviene tomar las precauciones habituales." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad ordenada y dinámica, con buena sensación de seguridad general." },
         ],
       },
@@ -11414,37 +11414,37 @@ export const CITY_INSIGHTS = {
   },
   rennes: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Place_de_la_mairie_a_rennes_juillet_2011_-_panoramio.jpg/1920px-Place_de_la_mairie_a_rennes_juillet_2011_-_panoramio.jpg",
-    tagline: "Capital de Bretaña, donde una de cada cuatro personas es estudiante.",
-    atmosphere: "Rennes huele a galettes de trigo sarraceno recién hechas en el mercado de Sainte-Anne, y suena al bullicio constante de la Rue Saint-Michel —'la Rue de la Soif'— entre casas de entramado medieval reconstruidas tras el gran incendio de 1720.",
+    tagline: "Capital de Bretaña, con una enorme vida estudiantil.",
+    atmosphere: "Rennes huele a galettes de trigo sarraceno recién hechas en el mercado de Sainte-Anne, y suena al bullicio constante de la Rue Saint-Michel —'la Rue de la Soif'— entre casas de entramado que sobrevivieron al gran incendio de 1720.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 7.5,
-        summary: "Asequible para el oeste de Francia, con precios notablemente por debajo de Nantes.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 7.0,
+        summary: "La Universidad de Rennes calcula 550–950€/mes, según se viva en piso compartido o en alojamiento privado.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 7.0, desc: "Habitación desde 350–450€, por debajo de Nantes." },
+          { label: "Alojamiento", score: 7.0, desc: "Residencias del CROUS desde unos 250€; un estudio privado, 450–700€." },
           { label: "Comida y supermercados", score: 7.5, desc: "Mercados bretones y galettes a precio de estudiante mantienen el gasto bajo control." },
-          { label: "Transporte", score: 8.0, desc: "Abono STAR con buen descuento estudiantil para metro y bus." },
+          { label: "Transporte", score: 8.0, desc: "Abono STAR con tarifa reducida para jóvenes, para metro y bus." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "La Rue Saint-Michel ofrece precios muy competitivos para salir de bares." },
         ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.8,
-        summary: "Mercado accesible, con enorme oferta gracias a que uno de cada cuatro habitantes es estudiante.",
+        summary: "Mercado accesible, con mucha oferta pensada para estudiantes.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 7.0, desc: "Enorme oferta de colocation gracias a que una cuarta parte de la ciudad es estudiante." },
-          { label: "Precio", score: 7.0, desc: "350–450€ de media, entre los más bajos de las grandes ciudades francesas." },
+          { label: "Disponibilidad", score: 7.0, desc: "Mucha oferta de colocation gracias a la gran población estudiantil." },
+          { label: "Precio", score: 7.0, desc: "CROUS desde unos 250€ y estudio privado 450–700€; de los más asequibles entre las grandes ciudades francesas." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "El CROUS gestiona residencias con buena disponibilidad para el tamaño de la ciudad." },
           { label: "Residencias universitarias", score: 6.5, desc: "Buena oferta de residencias, especialmente en Villejean." },
         ],
       },
       {
         id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 9.0,
-        summary: "Una de cada cuatro personas es estudiante, con la Rue Saint-Michel como epicentro social absoluto.",
+        summary: "Una enorme población estudiantil, con la Rue Saint-Michel como epicentro social.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 9.0, desc: "ESN Rennes es uno de los capítulos más grandes y activos de Francia." },
+          { label: "Comunidad Erasmus", score: 9.0, desc: "ESN Rennes organiza actividades y viajes para estudiantes internacionales durante todo el curso." },
           { label: "Ambiente internacional", score: 8.0, desc: "Sciences Po Rennes tiene un programa internacional muy consolidado." },
           { label: "Fiesta y vida nocturna", score: 9.5, desc: "La Rue Saint-Michel, apodada 'la Rue de la Soif', concentra bares con ambiente constante." },
           { label: "Eventos y actividades", score: 9.0, desc: "Les Trans Musicales en diciembre es uno de los grandes festivales de música de Francia." },
@@ -11458,7 +11458,7 @@ export const CITY_INSIGHTS = {
           { label: "Nivel de inglés", score: 6.0, desc: "Menos extendido que en el norte de Europa; un francés básico ayuda mucho en el día a día." },
           { label: "Actitud local", score: 8.0, desc: "Los rennais tienen fama de ser cordiales y muy orgullosos de su identidad bretona." },
           { label: "Integración con locales", score: 7.5, desc: "El tamaño de la ciudad y la enorme población estudiantil facilitan mucho el contacto." },
-          { label: "Facilidad para hacer amigos", score: 8.5, desc: "Con una cuarta parte de la ciudad siendo estudiante, hacer amigos es prácticamente automático." },
+          { label: "Facilidad para hacer amigos", score: 8.5, desc: "Con tantos estudiantes, es fácil hacer amigos." },
         ],
       },
       {
@@ -11466,10 +11466,10 @@ export const CITY_INSIGHTS = {
         summary: "Metro automático eficiente y la costa bretona a menos de una hora.",
         color: "#F59E0B",
         subcategories: [
-          { label: "Transporte público", score: 8.0, desc: "El metro VAL, automático, cubre bien la ciudad con buena frecuencia." },
+          { label: "Transporte público", score: 8.0, desc: "Dos líneas de metro automático (a y b) y bus cubren bien la ciudad." },
           { label: "Ciudad caminable/ciclable", score: 7.5, desc: "Centro compacto y bastante ciclable, con carriles bici en expansión." },
           { label: "Conexiones internacionales", score: 6.5, desc: "Aeropuerto con oferta limitada; París, con más vuelos, a 1h25 en TGV." },
-          { label: "Escapadas de fin de semana", score: 9.0, desc: "Saint-Malo, el Mont Saint-Michel y toda la costa bretona, a menos de una hora." },
+          { label: "Escapadas de fin de semana", score: 9.0, desc: "Saint-Malo a menos de una hora en tren y el Mont Saint-Michel a algo más de una hora en bus." },
         ],
       },
       {
@@ -11477,11 +11477,11 @@ export const CITY_INSIGHTS = {
         summary: "Capital bretona con identidad propia muy marcada y la costa atlántica a un paso.",
         color: "#3F7A7D",
         subcategories: [
-          { label: "Naturaleza", score: 7.0, desc: "La costa bretona, con acantilados y playas espectaculares, a menos de una hora." },
-          { label: "Clima", score: 6.0, desc: "Oceánico, con lluvias frecuentes e inviernos suaves, típico de Bretaña." },
-          { label: "Calidad de vida", score: 8.5, desc: "Ciudad segura, dinámica y con un ambiente estudiantil muy activo." },
+          { label: "Naturaleza", score: 7.0, desc: "La costa bretona, con acantilados y playas espectaculares, a un viaje corto." },
+          { label: "Clima", score: 6.0, desc: "Oceánico, con lluvias frecuentes, inviernos suaves y veranos templados (unos 13–24°C de media)." },
+          { label: "Calidad de vida", score: 8.5, desc: "Ciudad dinámica y con un ambiente estudiantil muy activo." },
           { label: "Autenticidad local", score: 8.5, desc: "Identidad bretona muy marcada, con tradiciones propias distintas al resto de Francia." },
-          { label: "Estilo de vida", score: 8.5, desc: "Vivir en la capital de Bretaña, con una cuarta parte de la ciudad siendo estudiante, es un ambiente único." },
+          { label: "Estilo de vida", score: 8.5, desc: "Vivir en la capital de Bretaña, con tanta vida estudiantil, es un ambiente único." },
         ],
       },
       {
@@ -11489,19 +11489,19 @@ export const CITY_INSIGHTS = {
         summary: "Uno de los polos tecnológicos más importantes del oeste de Francia, con fuerte presencia digital.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Mercado laboral", score: 7.0, desc: "Uno de los polos tecnológicos más importantes de Francia fuera de París." },
+          { label: "Mercado laboral", score: 7.0, desc: "Polo tecnológico y digital importante del oeste de Francia." },
           { label: "Prácticas", score: 7.0, desc: "Université de Rennes y Sciences Po Rennes tienen conexiones con el sector tecnológico y público." },
-          { label: "Empresas relevantes", score: 7.0, desc: "Sede de Orange Labs y un ecosistema digital en expansión ('French Tech Rennes')." },
+          { label: "Empresas relevantes", score: 7.0, desc: "Centro de innovación de Orange en Cesson-Sévigné y un ecosistema digital en expansión (French Tech Rennes)." },
           { label: "Oportunidades para estudiantes", score: 7.0, desc: "El sector tecnológico digital ofrece prácticas variadas más allá del sector clásico." },
         ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
-        summary: "Una de las ciudades francesas más seguras y tranquilas para vivir.",
+        summary: "Ciudad tranquila en general para su tamaño.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 8.0, desc: "Criminalidad moderada-baja para el estándar de una gran ciudad francesa." },
-          { label: "Seguridad nocturna", score: 7.5, desc: "La Rue Saint-Michel y el centro son seguros de noche, con ambiente animado hasta tarde." },
+          { label: "Seguridad general", score: 8.0, desc: "Gran ciudad: aplica las precauciones habituales, sobre todo de noche." },
+          { label: "Seguridad nocturna", score: 7.5, desc: "La Rue Saint-Michel y el centro tienen ambiente hasta tarde; conviene tomar las precauciones habituales." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada y con mucha vida estudiantil en cualquier horario." },
         ],
       },

@@ -5,7 +5,7 @@ Claude Code hace cada tanda y Codex la revisa con `codex exec` en solo lectura (
 
 ## Dónde vamos
 
-**Siguiente tanda: 10** (Lille, Estrasburgo, Grenoble, Rennes, Venecia). Rosenheim (tanda 8) espera los datos locales de Miguel: ver «Pendiente de Miguel» al final. (actualizar al cerrar cada tanda).
+**Siguiente tanda: 11** (Pisa, Siena, Bari, Génova, Perugia). Rosenheim (tanda 8) espera los datos locales de Miguel: ver «Pendiente de Miguel» al final. (actualizar al cerrar cada tanda).
 
 ## Qué se revisa en cada ciudad
 
@@ -51,7 +51,7 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 | 7 | La Haya (`la-haya`), Maastricht (`maastricht`), Hamburgo (`hamburgo`), Colonia (`colonia`), Heidelberg (`heidelberg`) | ✅ 11-11-2026 |
 | 8 | Friburgo (`friburgo`), Leipzig (`leipzig`), Dresde (`dresde`), Tubinga (`tubinga`), Rosenheim (`rosenheim`) | ✅ 11-11-2026 (Rosenheim: falta lo local) |
 | 9 | Toulouse (`toulouse`), Burdeos (`burdeos`), Nantes (`nantes`), Montpellier (`montpellier`), Marsella (`marsella`) | ✅ 13-11-2026 |
-| 10 | Lille (`lille`), Estrasburgo (`estrasburgo`), Grenoble (`grenoble`), Rennes (`rennes`), Venecia (`venecia`) | Pendiente |
+| 10 | Lille (`lille`), Estrasburgo (`estrasburgo`), Grenoble (`grenoble`), Rennes (`rennes`), Venecia (`venecia`) | ✅ 13-11-2026 |
 | 11 | Pisa (`pisa`), Siena (`siena`), Bari (`bari`), Génova (`genova`), Perugia (`perugia`) | Pendiente |
 | 12 | Trieste (`trieste`), Parma (`parma`), Bérgamo (`bergamo`), Ferrara (`ferrara`), Urbino (`urbino`) | Pendiente |
 | 13 | Lecce (`lecce`), Catania (`catania`), Palermo (`palermo`), Cagliari (`cagliari`), Verona (`verona`) | Pendiente |
@@ -165,6 +165,15 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 - Clima con normales 1991–2020 de Météo-France: añadidos los 5 (Toulouse-Blagnac, Bordeaux-Mérignac, Nantes-Bouguenais, Montpellier-Aéroport, Marignane para Marsella).
 - 3 enlaces Erasmus arreglados (ISAE-SUPAERO, Nantes Université, Paul-Valéry). El de Audencia rechaza peticiones automáticas (403): **comprobar en el navegador**.
 - Codex: auditoría con fuentes + 2 rondas; en la ronda 1 corrigió el redondeo del verano de Toulouse (16–27 °C) y las heladas de Nantes; en la ronda 2 detectó un «calas casi vírgenes» que quedaba en Marsella (aplicado todo).
+
+### Tanda 10 — 13-11-2026 (Lille, Estrasburgo, Grenoble, Rennes, Venecia)
+- Fotos: las 5 corresponden a su ciudad y cumplen el mínimo. Las de Rennes (plaza gris con señales) y Grenoble (teleférico en día gris) son flojas: **decisión de Miguel** si se cambian.
+- Coste: Lille 650–1.300 € (Universidad de Lille: piso compartido 650–1.100 €, estudio 800–1.300 €), Estrasburgo 600–1.100 € (EM Strasbourg: alojamiento 300–600 € + 300–500 € de comida y gastos), Rennes 550–950 € (Universidad de Rennes), Venecia 850–1.200 € (IUAV: habitación 300–600 € más gastos y el resto de su presupuesto; Ca' Foscari e IUAV recomiendan unos 900 €). Grenoble 700–1.100 € es **estimación editorial pendiente de fuente** (la Université Grenoble Alpes solo publica partidas sueltas). Notas de coste ajustadas (Lille 7,2→6,0; Venecia 4,0→5,5).
+- Corregido lo falso: Lille con Londres «a menos de una hora» (1 h 20), Estrasburgo con el alemán como idioma oficial, TAG (ahora M réso), Lyon «a menos de una hora» de Grenoble, clima «alpino» de Grenoble (continental con influencia de montaña), casas de entramado de Rennes «reconstruidas tras el incendio de 1720» (son las que sobrevivieron), Mont Saint-Michel «a menos de una hora», metro «VAL» de Rennes (dos líneas automáticas), en Venecia «Mestre ahorra la mitad del alquiler», Trieste y los Dolomitas «a menos de dos horas en tren», abono de vaporetto (25 €/mes o 230 €/año para menores de 26) y la acqua alta sin mencionar el MOSE.
+- Fuera récords y cifras sin fuente: «la mejor conectada de toda esta guía», «uno de cada cuatro habitantes es estudiante» (Rennes), «la ciudad más fotografiada del mundo», «el mercado más difícil de Italia», «una de las más seguras de Italia/Francia», capítulos de ESN «de los más activos», precios de habitaciones sin fuente.
+- Clima con normales 1991–2020: Lille-Lesquin, Strasbourg-Entzheim y Rennes-Saint-Jacques (Météo-France); Grenoble con Grenoble-Le Versoud (en el valle junto a la ciudad, pero su serie de temperatura es 1999–2020; la alternativa, Saint-Geoirs, está a 40 km en una meseta); Venecia con Venezia-Tessera (OMM), con la máxima de marzo estimada a partir de la media mensual porque falta en la serie.
+- 5 enlaces Erasmus arreglados (Universidad de Lille, Sciences Po Lille, Universidad de Estrasburgo, UGA, Grenoble INP). El de la Universidad de Rennes rechaza peticiones automáticas (403): **comprobar en el navegador**.
+- Codex: la auditoría se cortó por el límite de uso de Codex (13-11-2026, 01:15); Claude la completó con fuentes oficiales. Revisión de Codex: pendiente de completar.
 
 ## Pendiente de Miguel (Rosenheim, vive allí)
 

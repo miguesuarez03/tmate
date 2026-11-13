@@ -323,7 +323,7 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Vysoké učení technické v Brně (VUT)": "https://www.vut.cz/en/students/going-abroad/contact",
 
   // ── Estrasburgo ──────────────────────────────────────────────────────────
-  "Université de Strasbourg": "https://en.unistra.fr/exchange-student/contacts",
+  "Université de Strasbourg": "https://international-welcome.unistra.fr/apply-to-the-university-of-strasbourg/courses-of-the-university-of-strasbourg-1/translate-to-english-la-mobilite-erasmus/",
   "Sciences Po Strasbourg": "https://www.sciencespo-strasbourg.fr/en/international/come-and-study-at-sciences-po-strasbourg/",
 
   // ── Montpellier ──────────────────────────────────────────────────────────
@@ -334,8 +334,8 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Aix-Marseille Université": "https://www.univ-amu.fr/en/international-students/international-students-exchange",
 
   // ── Lille ────────────────────────────────────────────────────────────────
-  "Université de Lille": "https://international.univ-lille.fr/en/come-to-the-university-of-lille/students/as-part-of-an-international-programme/exchange-programme-erasmus-isep/",
-  "Sciences Po Lille": "https://www.sciencespo-lille.com/prospective-international-admissions/international-exchange-students/general-information",
+  "Université de Lille": "https://international.univ-lille.fr/en/come-to-the-university-of-lille/i-am-a-student/as-part-of-an-exchange-programme",
+  "Sciences Po Lille": "https://sciencespo-lille.eu/international/mobilite-etudiante-entrante/",
   "EDHEC Business School": "https://www.edhec.edu/en/student-experience/international-experience/studying-abroad",
 
   // ── Dresde ───────────────────────────────────────────────────────────────
@@ -433,8 +433,8 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Maastricht University": "https://www.maastrichtuniversity.nl/education/exchange",
 
   // ── Grenoble ─────────────────────────────────────────────────────────────
-  "Université Grenoble Alpes": "https://www.univ-grenoble-alpes.fr/education/programs/exchange-programs/come-on-exchange/come-on-exchange-784754.kjsp",
-  "Grenoble INP": "https://www.grenoble-inp.fr/en/academics/international-relations-office",
+  "Université Grenoble Alpes": "https://international.univ-grenoble-alpes.fr/come-to-uga/exchange-programs/come-on-exchange/come-on-exchange-784754.kjsp",
+  "Grenoble INP": "https://www.grenoble-inp.fr/en/academics/you-are-an-exchange-or-double-degree-student",
 
   // ── Verona ───────────────────────────────────────────────────────────────
   "Università di Verona": "https://www.univr.it/en/our-services/incoming-students-and-staff/exchange-students",
