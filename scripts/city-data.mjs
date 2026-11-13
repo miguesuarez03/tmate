@@ -25,7 +25,13 @@ import { CITIES } from "../src/data/cities.js";
 import { CITY_INSIGHTS, DEFAULT_INSIGHTS } from "../src/data/insights.js";
 import { CITY_POPULATION } from "../src/data/cityPopulation.js";
 import { SCORE_CATEGORIES } from "../src/data/scoreCategories.js";
-import { computeOverallScore, citySizeFromPopulation, natureLevel, pickSubscores } from "../src/lib/cityMetrics.js";
+import { citySizeFromPopulation, natureLevel, pickSubscores } from "../src/lib/cityMetrics.js";
+import { computeCitySubscores, computeScore, getBecaGap, parseCostMidpoint } from "../src/lib/scoring.js";
+import { CITY_UNIVERSITIES, THE_EDITION } from "../src/data/scoring/universities.js";
+import { CITY_ESN_SECTIONS } from "../src/data/scoring/esn.js";
+import { COUNTRY_HOMICIDE_RATES } from "../src/data/scoring/homicides.js";
+import { COUNTRY_LANGUAGE, CITY_LANGUAGE_PENDING } from "../src/data/scoring/languages.js";
+import * as BECA_DATA from "../src/data/becaGroups.js";
 
 const HEADER = "// Generado por scripts/city-data.mjs a partir de src/data/ — no editar a mano.\n";
 
@@ -62,13 +68,30 @@ export function buildCityData() {
     const entry = {};
     for (const f of INDEX_FIELDS) if (city[f] !== undefined) entry[f] = city[f];
     entry.scores = Object.fromEntries(insights.scores.map((s) => [s.id, s.score]));
-    entry.overall = computeOverallScore(insights.scores);
+    // Nota MAbroad: 8 subnotas con fuente y pesos fijos (src/lib/scoring.js).
+    const costMid = parseCostMidpoint(city.costDetail);
+    const { subs, detail } = computeCitySubscores({
+      city,
+      scores: insights.scores,
+      costMid,
+      costSourceLabel: city.costSource ? `Fuente: ${city.costSource}` : "Estimación MAbroad",
+      universities: CITY_UNIVERSITIES[city.slug],
+      theEdition: THE_EDITION,
+      esnSections: CITY_ESN_SECTIONS[city.slug],
+      homicides: COUNTRY_HOMICIDE_RATES[city.country],
+      language: COUNTRY_LANGUAGE[city.country],
+      languagePending: CITY_LANGUAGE_PENDING[city.slug],
+    });
+    const { overall, pending } = computeScore(subs);
+    entry.overall = overall;
+    entry.nota = { subs, pending };
+    entry.beca = getBecaGap(city, costMid, BECA_DATA);
     // Subnotas para rankings/comparador (Clima, Nivel de inglés): sin dato, no van.
     entry.subscores = pickSubscores(insights.scores);
     entry.size = citySizeFromPopulation(CITY_POPULATION[city.slug]?.population);
     entry.nature = natureLevel(city);
     index.push(entry);
-    details[city.slug] = { city, insights };
+    details[city.slug] = { city, insights, scoring: { detail } };
   }
   return { index, details };
 }

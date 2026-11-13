@@ -3,6 +3,7 @@ import styles from "./InsightDashboard.module.css";
 import { getCityWhatsappGroup } from "../../data/cityWhatsappGroups";
 import { getCategoryIcon } from "../../lib/categoryIcons";
 import { getScoreLevel } from "../../lib/cities";
+import ScoreBreakdown from "../ScoreBreakdown";
 
 const scoreColor = (s) => getScoreLevel(s).color;
 const scoreLabel = (s) => getScoreLevel(s).label;
@@ -25,7 +26,7 @@ function AnimatedBar({ score, color, delay = 0 }) {
 }
 
 // ── Main ──────────────────────────────────────────────────────────────────────
-export default function InsightDashboard({ scores = [], overallScore, citySlug, cityName }) {
+export default function InsightDashboard({ scores = [], overallScore, citySlug, cityName, scoreDetail = null }) {
   const [active, setActive] = useState(scores[0]?.id ?? null);
   const current = scores.find(s => s.id === active) ?? scores[0];
   const color = current ? scoreColor(current.score) : "#3F7A7D";
@@ -40,12 +41,14 @@ export default function InsightDashboard({ scores = [], overallScore, citySlug, 
         <div>
           <p className={styles.eyebrow}>City Scores</p>
           <h2 className={styles.title}>Análisis completo</h2>
-          <p className={styles.sub}>Valoración de MAbroad de 0 a 10 en cada categoría, con su desglose</p>
+          <p className={styles.sub}>Valoración de MAbroad de 0 a 10 en cada categoría, con su desglose. La nota global no es su media: sale de 8 subnotas con fuente (toca la nota para verlas).</p>
         </div>
-        <div className={styles.overallBadge}>
-          <span className={styles.overallNum} style={{ color: scoreColor(overallScore) }}>{overallScore}</span>
-          <span className={styles.overallLabel}>nota global</span>
-        </div>
+        <ScoreBreakdown slug={citySlug} detail={scoreDetail} align="end" cityName={cityName}>
+          <span className={styles.overallBadge}>
+            <span className={styles.overallNum} style={{ color: scoreColor(overallScore) }}>{overallScore ?? "—"}</span>
+            <span className={styles.overallLabel}>nota global · ver desglose</span>
+          </span>
+        </ScoreBreakdown>
       </div>
 
       <div className={styles.dashGrid}>

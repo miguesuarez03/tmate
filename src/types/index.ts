@@ -164,8 +164,12 @@ export interface CityIndexEntry extends Pick<City,
   'erasmusFrom' | 'erasmusStatus'> {
   /** Nota 0–10 de cada categoría (id de SCORE_CATEGORIES → nota). */
   scores: Record<string, number>;
-  /** Media de las 8 notas (computeOverallScore). */
-  overall: number;
+  /** Nota MAbroad (src/lib/scoring.js): media ponderada de las 8 subnotas; null si falta más del 30 % del peso. */
+  overall: number | null;
+  /** Subnotas de la nota (id de SUBSCORES → 0–10, null = pendiente) y las que faltan. */
+  nota: { subs: Record<SubscoreId, number | null>; pending: SubscoreId[] };
+  /** Lo que falta al mes tras la beca (getBecaGap): dato aparte, no cuenta en la nota. */
+  beca: BecaGap | null;
   /** Subnotas 0–10 para rankings (INDEX_SUBSCORES); falta la clave si la ciudad no tiene ese dato. */
   subscores: { clima?: number; ingles?: number };
   /** 0 pequeña, 1 mediana, 2 grande; null sin dato de población. */
@@ -178,6 +182,21 @@ export interface CityIndexEntry extends Pick<City,
 export interface CityDetail {
   city: City;
   insights: CityInsights;
+  /** Una línea por subnota con el dato concreto y su fuente (desglose de la nota en la ficha). */
+  scoring: { detail: Record<SubscoreId, string> };
+}
+
+/** Subnotas de la nota MAbroad (SUBSCORES en src/lib/scoring.js). */
+export type SubscoreId =
+  | 'coste' | 'vida' | 'seguridad' | 'academico'
+  | 'alojamiento' | 'calidad' | 'idioma' | 'conectividad';
+
+export interface BecaGap {
+  beca: number;            // €/mes de referencia (mínimo SEPIE, SEMP o 0)
+  gap: number;             // €/mes que faltan para el coste medio (≥ 0)
+  kind: 'erasmus' | 'semp' | 'none';
+  group?: 1 | 2 | 3;
+  estimated?: boolean;     // grupo estimado (Reino Unido hasta la convocatoria 2027)
 }
 
 // ─── Filtros y búsqueda ───────────────────────────────────────────────────────
@@ -206,6 +225,7 @@ export type RankingSource =
   | { kind: 'cost' }
   | { kind: 'score'; id: string }
   | { kind: 'sub'; id: 'clima' | 'ingles' }
+  | { kind: 'nota'; id: SubscoreId }
   | { kind: 'overall' };
 
 export interface RankingCriterion {

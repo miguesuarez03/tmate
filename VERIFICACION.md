@@ -216,6 +216,33 @@ La tanda 1 no apuntó de dónde salía el coste de estas cuatro ciudades. Solo s
 - Nota visible sobre «Asequible»: en la ficha, bajo «Estimación MAbroad», una línea explica que la etiqueta solo aparece con coste de fuente oficial y que se revisará al verificar ese coste; y en «Cómo calculamos estos datos» (ficha y comparador), un punto sobre «Fuente: …», «Estimación MAbroad» y «Asequible».
 - Codex (revisión de las 14:30): Florencia, el abono de estudiante es hasta los 26 años (FAQ de Autolinee Toscane, «You are considered a student up to age 26»; añadido en la ficha). En «Cómo calculamos estos datos», «las demás ciudades la irán recuperando» daba a entender que verificar el coste basta: ahora dice que hace falta fuente oficial **y** mínimo ≤ 500 €/mes. El resto de la 13b, sin observaciones.
 
+## Datos de la nota MAbroad (rama `nuevo-score`)
+
+Criterio completo en `docs/scoring.md`. Esta sección recoge de dónde sale cada dato, qué queda pendiente y las decisiones tomadas.
+
+### 13-11-2026 — primera carga de datos
+- **THE World University Rankings 2027**: tabla completa en JSON de timeshighereducation.com (`npm run scoring:data`). QS 2027 no se puede descargar: la tabla va detrás de un formulario y la web bloquea la descarga automática. Decisión de Claude: THE como única fuente académica.
+  - Retiradas de THE, que usan la última edición en la que salen: Utrecht University (2023, 66), Sorbonne University (2026, =76), Aix-Marseille (2025, 401–500), University of Strasbourg (2023, 601–800) y University of Bergamo (2025, 1001–1200).
+  - Nunca han estado en THE y cuentan como «no clasificada»: Universidad de Buenos Aires, Universität Leipzig, UdelaR (Montevideo), UNSAAC (Cusco), UMSA (La Paz), USAC (Guatemala), UCA (San Salvador) y TH Rosenheim. Buenos Aires saca 4,5 por la UCA (2001+). Es una limitación conocida: la UBA está bien situada en QS.
+- **ESN**: listado público `accounts.esn.org/api/v2/sections`, solo secciones `active` y del mismo país. Comprobado a mano:
+  - Leipzig, Grenoble, Tubinga, Mánchester y Liverpool no tienen sección activa. Las de Bristol están «expelled».
+  - «ESN Córdoba» es la de España (se filtra por país).
+  - Kaunas cuenta también la sección de la Universidad de Vilna, que tiene campus en Kaunas.
+- **UNODC**: homicidios por 100.000 hab. vía la API del Banco Mundial (indicador VC.IHR.PSRC.P5). Media de los 3 años más recientes con dato.
+  - Reino Unido llega solo hasta 2021 (años 2019–2021).
+  - Bélgica tiene solo 2021.
+  - Perú usa 2019–2021.
+  - El Salvador usa 2020–2022. Su tasa ha bajado mucho (7,9 en 2022), pero la media de tres años la deja en 15,6.
+- **Eurobarómetro 540**: Volumen A (xlsx) de data.europa.eu, hoja D48_alllang, fila «English», fracciones pasadas a %. Se copiaron los 27 países y el español nunca supera al inglés en ninguno.
+- **SEMP (Suiza)**: 440 CHF/mes para universidades de origen españolas (tabla 2025/26 de la Universidad de Berna). Son unos 475 € con el cambio del BCE del 13-11-2026 (0,9266 CHF/€). La Universidad de Friburgo enlaza un PDF de 2026/27 que da 404.
+- **Pendientes** (la nota de estas ciudades es provisional):
+  - Idioma (11 ciudades): Oslo, Reikiavik, Ginebra, Lausana, Zúrich, Basilea y Berna; Estambul; São Paulo, Río de Janeiro y Florianópolis. El Eurobarómetro no cubre esos países, y la encuesta AES de Eurostat mide «lengua extranjera más conocida» (no siempre el inglés) con otra escala, así que no se mezcla.
+  - Idioma (2 ciudades): Montreal y Quebec. Falta el dato de Statistics Canada sobre conocimiento del inglés por área metropolitana; su web bloquea la descarga automática y hay que copiarlo a mano.
+  - Vida estudiantil (6 ciudades): Rosenheim, Leipzig, Cusco, La Paz, Ciudad de Guatemala y San Salvador, porque ninguna universidad de la ciudad publica datos en THE.
+- **Efecto de lo pendiente**: repartir el peso equivale a suponer la media de la ciudad. Estambul sale 1.ª entre los destinos Erasmus+ sin la subnota de idioma: según Eurostat AES 2022, solo un 31 % de los adultos turcos que conocen su lengua extranjera principal la dominan con nivel bueno o competente. **Decisión pendiente de Miguel** (ver resumen de la tarea).
+- **Seguridad**: la nota usa el dato del país; el ranking «Más seguras» y la categoría de la ficha siguen con la valoración por ciudad. Si el ranking usara el dato del país, saldrían 20 ciudades italianas empatadas.
+- Revisión de Codex: pendiente (sin cuota hasta el 17-11-2026). Hay que hacerla antes de pasar la rama a `main`.
+
 ## Pendiente de Miguel (Rosenheim, vive allí)
 
 Datos de Rosenheim que no se pueden comprobar con fuentes oficiales. Siguen como estaban hasta que Miguel los confirme o corrija (lo verificable ya se aplicó en la tanda 8):

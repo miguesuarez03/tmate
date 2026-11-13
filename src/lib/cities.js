@@ -16,6 +16,7 @@ import { CITY_EXPERIENCES, FOUNDER_EXPERIENCE, EXPERIENCE_TOPICS } from '../data
 import { RANKING_CRITERIA, RANKING_TOP } from '../data/rankings';
 import { MAP_COUNTRIES } from '../data/mapCountries';
 import { CITY_SIZE_LIMITS } from './cityMetrics';
+import { SUBSCORES } from './scoring';
 import { DEFAULT_OG_IMAGE, getCityOgImage } from './seo';
 
 /** @typedef {import('../types').City} City */
@@ -169,18 +170,59 @@ export function getCitySize(city) {
 }
 
 /**
- * Score global de una ciudad: la media, con el mismo peso, de las 8 notas de
- * categoría que se ven en su ficha (CITY_INSIGHTS), precalculada en el índice
- * con computeOverallScore (lib/cityMetrics.js). Es lo que explica la nota
- * «Cómo calculamos estos datos» (MethodologyNote): si cambias el cálculo,
- * actualiza también ese texto. userRatings queda preparado para combinar
- * valoraciones reales de usuarios (50 %) cuando existan.
+ * Nota MAbroad de una ciudad: media ponderada, con pesos fijos, de sus 8
+ * subnotas con fuente (src/lib/scoring.js, criterio en docs/scoring.md),
+ * precalculada en el índice. null si le falta más del 30 % del peso (ninguna
+ * ciudad está así hoy). Si cambias el cálculo, actualiza MethodologyNote.
+ * userRatings queda preparado para combinar valoraciones reales de usuarios
+ * (50 %) cuando existan.
+ * @returns {number | null}
  */
 export function getOverallScore(slug, userRatings = null) {
-  const base = BY_SLUG.get(slug)?.overall ?? 7.0;
-  if (!userRatings || userRatings.length === 0) return base;
+  const base = BY_SLUG.get(slug)?.overall ?? null;
+  if (base == null || !userRatings || userRatings.length === 0) return base;
   const userAvg = parseFloat((userRatings.reduce((a, b) => a + b, 0) / userRatings.length).toFixed(1));
   return parseFloat(((base + userAvg) / 2).toFixed(1));
+}
+
+/**
+ * Desglose de la nota MAbroad: una fila por subnota (en el orden de
+ * SUBSCORES) con su nota (null = pendiente) y peso, más la nota final y si es
+ * provisional (le falta alguna subnota). Lo pintan ScoreBreakdown y el
+ * comparador.
+ * @returns {{ overall: number | null, provisional: boolean, pending: string[],
+ *   rows: Array<{ id: string, label: string, weight: number, kind: string, source: string, score: number | null }> } | null}
+ */
+export function getScoreBreakdown(slug) {
+  const entry = BY_SLUG.get(slug);
+  if (!entry?.nota) return null;
+  const { subs, pending } = entry.nota;
+  return {
+    overall: entry.overall ?? null,
+    provisional: pending.length > 0,
+    pending,
+    rows: SUBSCORES.map((s) => ({ ...s, score: typeof subs[s.id] === "number" ? subs[s.id] : null })),
+  };
+}
+
+/**
+ * Lo que falta cada mes tras la beca, con el coste medio de la ficha: dato
+ * aparte, NO cuenta en la nota. Erasmus+: mínimo del SEPIE del grupo del país;
+ * Suiza: SEMP; América: 0 € (no hay beca común). Ver getBecaGap en lib/scoring.js.
+ * @returns {{ beca: number, gap: number, kind: "erasmus" | "semp" | "none", group?: number, estimated?: boolean } | null}
+ */
+export function getBecaGapForCity(slug) {
+  return BY_SLUG.get(slug)?.beca ?? null;
+}
+
+/** Texto corto de la beca de referencia usada en getBecaGapForCity. */
+export function getBecaGapNote(gap) {
+  if (!gap) return "";
+  if (gap.kind === "erasmus") {
+    return `con el mínimo de la beca Erasmus+ (${gap.beca} €/mes, grupo ${gap.group}${gap.estimated ? ", estimado" : ""})`;
+  }
+  if (gap.kind === "semp") return `con la beca suiza SEMP (unos ${gap.beca} €/mes)`;
+  return "sin beca común: depende de tu universidad";
 }
 
 const SCORE_CATEGORY_IDS = SCORE_CATEGORIES.map((c) => c.id);
@@ -370,6 +412,8 @@ export function getCriterionValue(city, criterionId) {
       return typeof entry.scores?.[source.id] === 'number' ? entry.scores[source.id] : null;
     case 'sub':
       return typeof entry.subscores?.[source.id] === 'number' ? entry.subscores[source.id] : null;
+    case 'nota':
+      return typeof entry.nota?.subs?.[source.id] === 'number' ? entry.nota.subs[source.id] : null;
     case 'overall':
       return entry.overall ?? null;
     default:
@@ -943,7 +987,7 @@ export const COMPARE_MIN_CATEGORY_GAP = 0.5;
  *              COMPARE_MIN_CATEGORY_GAP, de mayor a menor ventaja.
  */
 export function buildCompareVerdict(cities) {
-  const overall = cities.map((c) => getOverallScore(c.slug));
+  const overall = cities.map((c) => getOverallScore(c.slug) ?? 0);
   const maps = cities.map((c) => getScoreMap(c.slug));
 
   const mids = cities.map((c) => getCostMidpoint(c.costDetail));

@@ -10,6 +10,7 @@ import {
   IconClima,
   IconIdiomas,
   IconRanking,
+  IconUniversidad,
 } from "../components/icons";
 
 /**
@@ -31,6 +32,22 @@ export const CATEGORY_ICONS = {
 
 export function getCategoryIcon(id) {
   return CATEGORY_ICONS[id] || IconBeca;
+}
+
+/** Icono de cada subnota de la nota MAbroad (SUBSCORES en lib/scoring.js). */
+const SUBSCORE_ICONS = {
+  coste: IconBeca,
+  vida: IconFiesta,
+  seguridad: IconSeguridad,
+  academico: IconUniversidad,
+  alojamiento: IconCasa,
+  calidad: IconClima,
+  idioma: IconIdiomas,
+  conectividad: IconMovilidad,
+};
+
+export function getSubscoreIcon(id) {
+  return SUBSCORE_ICONS[id] || IconRanking;
 }
 
 /** Icono de cada criterio de ranking (campo `icon` de src/data/rankings.js). */

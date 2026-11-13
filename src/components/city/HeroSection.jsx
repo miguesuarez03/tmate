@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./HeroSection.module.css";
 import { getCityWhatsappGroup } from "../../data/cityWhatsappGroups";
-import { isErasmusEligible, getErasmusTransition, getScoreLevel, isAffordable, getCostSourceLabel, hasOfficialCost } from "../../lib/cities";
+import { isErasmusEligible, getErasmusTransition, getScoreLevel, isAffordable, getCostSourceLabel, hasOfficialCost, getBecaGapForCity, getBecaGapNote } from "../../lib/cities";
 import { IconUniversidad, IconIdiomas, IconFiesta, IconBeca, IconSol, IconBici, IconSeguridad, IconComida, IconArte, IconLaptop, IconPlaya, IconFuego, IconComparar } from "../icons";
 import ScoreRing from "../ScoreRing";
+import ScoreBreakdown from "../ScoreBreakdown";
 import { heroImage } from "../../lib/images";
 import PhotoCredit from "../PhotoCredit";
 import Flag from "../Flag";
@@ -110,13 +111,15 @@ function FloatingActionBubbles({ city, whatsappGroup }) {
   );
 }
 
-export default function HeroSection({ city, overallScore, insights }) {
+export default function HeroSection({ city, overallScore, insights, scoreDetail = null }) {
   const moodTags = getMoodTags(city);
   const color = getScoreLevel(overallScore).color;
   const whatsappGroup = getCityWhatsappGroup(city.slug);
   const erasmusEligible = isErasmusEligible(city);
   // Reino Unido: Erasmus+ desde 2027-28 (acuerdo cerrado). Suiza: previsto, pendiente.
   const transition = getErasmusTransition(city);
+  // Lo que falta al mes tras la beca (dato aparte, no cuenta en la nota).
+  const becaGap = getBecaGapForCity(city.slug);
 
   return (
     <>
@@ -254,7 +257,10 @@ export default function HeroSection({ city, overallScore, insights }) {
             <span className={styles.heroCardFlag}><Flag emoji={city.emoji} /></span>
           </div>
 
-          <ScoreRing score={overallScore} />
+          <ScoreBreakdown slug={city.slug} detail={scoreDetail} align="end" cityName={city.name} className={styles.heroScoreBtn}>
+            <ScoreRing score={overallScore} />
+          </ScoreBreakdown>
+          <p className={styles.heroScoreHint}>Toca la nota para ver de dónde sale</p>
 
           <div className={styles.heroStats}>
             <div className={styles.heroStat}>
@@ -263,6 +269,12 @@ export default function HeroSection({ city, overallScore, insights }) {
                 <p className={styles.heroStatVal}>{city.costDetail}</p>
                 <p className={styles.heroStatKey}>presupuesto/mes</p>
                 <p className={styles.heroStatSource}>{getCostSourceLabel(city)}</p>
+                {becaGap && (
+                  <p className={styles.heroStatGap}>
+                    {becaGap.gap > 0 ? <>Te faltan ~{becaGap.gap.toLocaleString("es-ES")} €/mes tras la beca</> : <>La beca cubre el coste medio</>}
+                    <span> ({getBecaGapNote(becaGap)})</span>
+                  </p>
+                )}
                 {!hasOfficialCost(city) && (
                   <p className={styles.heroStatNote}>
                     La etiqueta «Asequible» solo aparece con coste de fuente oficial; la revisaremos cuando verifiquemos este coste.

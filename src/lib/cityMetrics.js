@@ -2,24 +2,14 @@
 // Cálculos puros sobre los datos completos de una ciudad (sin importar datos).
 //
 // Los usa scripts/city-data.mjs en el build para precalcular el índice ligero
-// (src/data/generated/cityIndex.js): así la nota global, el tamaño y el nivel
-// de naturaleza salen siempre de la misma fórmula sin que el navegador tenga
+// (src/data/generated/cityIndex.js): así el tamaño, el nivel de naturaleza y
+// las subnotas de los rankings salen siempre de la misma fórmula sin que el navegador tenga
 // que descargar insights.js (1,2 MB) ni cities.js completos. lib/cities.js
 // expone el resultado; si cambias una fórmula, se regenera sola en el build.
 // ─────────────────────────────────────────────────────────────────────────────
 
-/**
- * Score global: la media, con el mismo peso, de las 8 notas de categoría que
- * se ven en la ficha. Es lo que explica «Cómo calculamos estos datos»
- * (MethodologyNote): si cambias el cálculo, actualiza también ese texto.
- * @param {{ score: number }[]} scores
- */
-export function computeOverallScore(scores = []) {
-  const values = scores.map((sc) => sc.score).filter((v) => typeof v === "number");
-  return values.length
-    ? parseFloat((values.reduce((acc, v) => acc + v, 0) / values.length).toFixed(1))
-    : 7.0;
-}
+// La nota global (nota MAbroad) ya no sale de aquí: la calcula src/lib/scoring.js
+// con 8 subnotas con fuente y pesos fijos (ver docs/scoring.md).
 
 /**
  * Subnotas del desglose que viajan en el índice ligero (`subscores`), para los
