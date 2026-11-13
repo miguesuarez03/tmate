@@ -78,9 +78,20 @@ export function getWebsiteJsonLd() {
 }
 
 /**
+ * Quita el formato inline ([texto](url) y **negrita**, el que pinta
+ * GuideText) y deja solo el texto que se lee en pantalla.
+ */
+export function plainInline(text = "") {
+  return String(text)
+    .replace(/\[([^\]]+)\]\([^)\s]+\)/g, "$1")
+    .replace(/\*\*([^*]+)\*\*/g, "$1");
+}
+
+/**
  * FAQPage (https://schema.org/FAQPage) a partir de las mismas preguntas que
  * se ven en la página (src/data/faqs.js): el texto del JSON-LD y el visible
- * son siempre idénticos. `path` es la ruta canónica de la página.
+ * son siempre idénticos (en el JSON-LD, sin el formato de los enlaces, que
+ * en pantalla son <a>). `path` es la ruta canónica de la página.
  */
 export function getFaqJsonLd(faqs, path) {
   return {
@@ -91,7 +102,7 @@ export function getFaqJsonLd(faqs, path) {
     mainEntity: faqs.map(({ q, a }) => ({
       "@type": "Question",
       name: q,
-      acceptedAnswer: { "@type": "Answer", text: a },
+      acceptedAnswer: { "@type": "Answer", text: plainInline(a) },
     })),
   };
 }

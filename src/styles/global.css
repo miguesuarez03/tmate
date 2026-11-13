@@ -2705,6 +2705,9 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
   animation: faqFadeIn 0.2s ease;
 }
 
+.faq-item__answer a { color: var(--color-teal); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.faq-item__answer a:hover { color: var(--color-primary); }
+
 @keyframes faqFadeIn {
   from { opacity: 0; transform: translateY(-6px); }
   to   { opacity: 1; transform: translateY(0); }

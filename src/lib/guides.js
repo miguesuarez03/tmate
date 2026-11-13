@@ -5,7 +5,7 @@
 // Solo lo importan las páginas de guías (lazy) y el prerender: así el texto de
 // las guías va en su propio chunk y no en el bundle inicial.
 import { GUIDES } from "../data/guides";
-import { getGuidesIndexJsonLd } from "./seo";
+import { getGuidesIndexJsonLd, plainInline as plain } from "./seo";
 
 /** @typedef {import('../types').Guide} Guide */
 
@@ -25,10 +25,6 @@ export function getGuidePath(guide) {
   return `${GUIDES_PATH}/${guide.slug}`;
 }
 
-/** Quita el formato inline ([texto](url) y **negrita**) para contar palabras. */
-function plain(text = "") {
-  return String(text).replace(/\[([^\]]+)\]\([^)\s]+\)/g, "$1").replace(/\*\*([^*]+)\*\*/g, "$1");
-}
 
 function blockTexts(block) {
   switch (block.type) {

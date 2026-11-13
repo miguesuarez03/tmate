@@ -12,6 +12,7 @@ import { IconCityMatch, IconComparar, IconBeca, IconMedalla, IconEdificio, IconF
 import SearchBar from "../components/SearchBar";
 import CityCard from "../components/CityCard";
 import Flag from "../components/Flag";
+import GuideText from "../components/guides/GuideText";
 import { useCityFilter } from "../hooks/useCityFilter";
 import { useSEO } from "../hooks/useSEO";
 import { useIsoLayoutEffect } from "../hooks/useIsoLayoutEffect";
@@ -461,8 +462,9 @@ function FAQSection() {
           </p>
         </div>
         <div className="faq-list">
-          {/* Mismo texto que el JSON-LD FAQPage (src/data/faqs.js). Las
-              respuestas cerradas siguen en el HTML, con hidden. */}
+          {/* Mismo texto que el JSON-LD FAQPage (src/data/faqs.js); los
+              [enlaces](/ruta) se pintan con GuideText. Las respuestas
+              cerradas siguen en el HTML, con hidden. */}
           {HOME_FAQS.map((item, i) => {
             const open = openIdx === i;
             const answerId = `${baseId}-faq-${i}`;
@@ -480,7 +482,7 @@ function FAQSection() {
                     <span className="faq-item__icon" aria-hidden="true">{open ? "−" : "+"}</span>
                   </button>
                 </h3>
-                <div id={answerId} className="faq-item__answer" hidden={!open}>{item.a}</div>
+                <div id={answerId} className="faq-item__answer" hidden={!open}><GuideText text={item.a} /></div>
               </div>
             );
           })}

@@ -487,8 +487,9 @@ export function Footer() {
         </ul>
       </nav>
       <p className="footer__independence">
-        MAbroad es un proyecto independiente, sin relación con la Comisión Europea, el SEPIE ni las universidades.
-        Los importes y datos son orientativos: el dato oficial es el de cada universidad y su convocatoria.
+        MAbroad es gratis y es un proyecto independiente, sin relación con la Comisión Europea, el SEPIE ni las universidades.
+        Los importes de beca siguen la convocatoria Erasmus+ del SEPIE y la Guía del Programa de la Comisión Europea, y los
+        revisamos con cada convocatoria anual; el resto de cifras son orientativas y el dato oficial es el de cada universidad.
       </p>
     </footer>
   );
