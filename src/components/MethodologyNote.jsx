@@ -46,6 +46,12 @@ export default function MethodologyNote({ compact = false }) {
               ficha.
             </li>
             <li>
+              <strong>Coste mensual:</strong> si lo publica una fuente oficial (normalmente la universidad), la ficha
+              indica «Fuente: …»; si no, es una «Estimación MAbroad». La etiqueta «Asequible» solo aparece cuando el
+              coste viene de una fuente oficial; las demás ciudades la irán recuperando a medida que verifiquemos su
+              coste.
+            </li>
+            <li>
               Los precios de las fichas son aproximados y pueden quedarse desfasados. El tamaño de ciudad de City Match
               sale de la población oficial del municipio que publica el instituto de estadística de cada país.
             </li>

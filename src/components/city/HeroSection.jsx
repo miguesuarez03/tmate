@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./HeroSection.module.css";
 import { getCityWhatsappGroup } from "../../data/cityWhatsappGroups";
-import { isErasmusEligible, getErasmusTransition, getScoreLevel, isAffordable, getCostSourceLabel } from "../../lib/cities";
+import { isErasmusEligible, getErasmusTransition, getScoreLevel, isAffordable, getCostSourceLabel, hasOfficialCost } from "../../lib/cities";
 import { IconUniversidad, IconIdiomas, IconFiesta, IconBeca, IconSol, IconBici, IconSeguridad, IconComida, IconArte, IconLaptop, IconPlaya, IconFuego, IconComparar } from "../icons";
 import ScoreRing from "../ScoreRing";
 import { heroImage } from "../../lib/images";
@@ -263,6 +263,11 @@ export default function HeroSection({ city, overallScore, insights }) {
                 <p className={styles.heroStatVal}>{city.costDetail}</p>
                 <p className={styles.heroStatKey}>presupuesto/mes</p>
                 <p className={styles.heroStatSource}>{getCostSourceLabel(city)}</p>
+                {!hasOfficialCost(city) && (
+                  <p className={styles.heroStatNote}>
+                    La etiqueta «Asequible» solo aparece con coste de fuente oficial; la revisaremos cuando verifiquemos este coste.
+                  </p>
+                )}
               </div>
             </div>
             <div className={styles.heroStatDiv} />
