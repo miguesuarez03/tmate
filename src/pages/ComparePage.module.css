@@ -277,6 +277,9 @@
   text-align: left;
   font-family: var(--font-body);
   transition: transform var(--hover-duration) var(--ease-hover), border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  /* Celda de grid: sin esto, un nombre largo (nowrap) ensancha la columna
+     1fr por encima del ancho de la pantalla en móvil. */
+  min-width: 0;
 }
 .miniCard:hover:not(:disabled) {
   border-color: var(--color-amber);
@@ -1088,35 +1091,55 @@
 }
 
 /* ─── ORDEN RÁPIDO + PROGRAMA (selector) ─────────────────────────────────────
-   Chips de orden (?orden=) y filtro de programa (?programa=). Mismo lenguaje
-   que .rankings-tab de la home: pastilla con borde, activa en azul noche. */
+   Desplegable de orden (?orden=) y filtro de programa (?programa=) en una
+   misma fila que hace wrap: nunca desborda el panel. En móvil (≤768px) cada
+   grupo ocupa el ancho entero. */
 .filterPanel {
-  display: flex; flex-direction: column; gap: 12px;
   background: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-sm);
   padding: 16px 18px;
   margin-bottom: 28px;
+  min-width: 0;
 }
-.filterRow { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.filterRow { display: flex; align-items: center; gap: 12px 28px; flex-wrap: wrap; min-width: 0; }
+.filterGroup { display: flex; align-items: center; gap: 12px; min-width: 0; max-width: 100%; flex-wrap: wrap; }
 .filterLabel {
   font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
-  color: var(--color-muted); min-width: 92px;
+  color: var(--color-muted); white-space: nowrap;
 }
-.filterChips { display: flex; flex-wrap: wrap; gap: 8px; flex: 1; min-width: 0; }
-.filterChip {
-  display: inline-flex; align-items: center; gap: 6px;
-  min-height: 40px; padding: 7px 14px;
+
+/* Desplegable con el icono del criterio activo a la izquierda y la flecha
+   dibujada (appearance: none, como .select de ShareExperienceModal). */
+.selectWrap {
+  position: relative; display: inline-flex; align-items: center;
+  min-width: 0; max-width: 100%;
+  color: var(--color-slate-light);
+}
+.selectWrapActive { color: var(--color-teal); }
+.selectIcon {
+  position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  display: inline-flex; pointer-events: none;
+}
+.filterSelect {
+  appearance: none; -webkit-appearance: none; cursor: pointer;
+  width: 220px; max-width: 100%; min-height: 40px;
+  padding: 7px 38px 7px 42px;
   border-radius: var(--radius-full); border: 1.5px solid var(--color-border);
-  background: transparent; color: var(--color-slate-light);
-  font-family: var(--font-body); font-size: 13px; font-weight: 600; white-space: nowrap;
-  transition: border-color 0.15s, color 0.15s, background 0.15s; --motion-safe-duration: 0.15s;
+  background-color: var(--color-white); color: var(--color-slate);
+  background-image: linear-gradient(45deg, transparent 50%, var(--color-slate) 50%),
+                    linear-gradient(135deg, var(--color-slate) 50%, transparent 50%);
+  background-position: calc(100% - 20px) 52%, calc(100% - 15px) 52%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  font-family: var(--font-body); font-size: 13px; font-weight: 600;
+  text-overflow: ellipsis;
+  transition: border-color 0.15s; --motion-safe-duration: 0.15s;
 }
-.filterChip:hover { border-color: var(--color-teal); color: var(--color-teal); }
-.filterChipActive,
-.filterChipActive:hover { background: #0F1E2D; border-color: #3F7A7D; color: #fff; font-weight: 700; }
-.filterChip:focus-visible,
+.filterSelect:hover { border-color: var(--color-teal); }
+.selectWrapActive .filterSelect { border-color: var(--color-teal); font-weight: 700; }
+.filterSelect:focus-visible,
 .segment:focus-visible,
 .filterReset:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 2px; }
 
@@ -1169,16 +1192,13 @@
 
 @media (max-width: 768px) {
   .filterPanel { padding: 14px; margin-bottom: 22px; }
-  .filterRow { flex-direction: column; align-items: stretch; gap: 8px; }
-  .filterLabel { min-width: 0; }
-  /* Chips en una sola fila con scroll lateral: no empujan la lista hacia abajo. */
-  .filterChips {
-    flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
-    margin: 0 -14px; padding: 2px 14px;
-    scroll-padding-inline: 14px;
-  }
-  .filterChips::-webkit-scrollbar { display: none; }
-  .filterChip, .segment { min-height: 44px; }
+  .filterRow { flex-direction: column; align-items: stretch; gap: 14px; }
+  .filterGroup { flex-direction: column; align-items: stretch; gap: 8px; }
+  /* Desplegable a ancho completo; 16px evita el zoom automático de iOS al
+     enfocarlo. */
+  .selectWrap { display: flex; width: 100%; }
+  .filterSelect { width: 100%; min-height: 44px; font-size: 16px; }
+  .segment { min-height: 44px; }
   .segmented { display: flex; }
   .segment { flex: 1 1 auto; }
   .filterEnd { margin-left: 0; }

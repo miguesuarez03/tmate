@@ -644,6 +644,7 @@ export default function ComparePage() {
     }, { replace: true });
   };
   const setSort = (id) => setUrlParam("orden", id === sortCriterion?.id ? null : id);
+  const SortIcon = getCriterionIcon(sortCriterion);
   const setProgram = (value) => setUrlParam("programa", value === "todos" ? null : value);
   const clearFilters = () => {
     setSearch("");
@@ -1050,39 +1051,44 @@ export default function ComparePage() {
             quedan en la URL (?orden=…&programa=…) para compartir el enlace. */}
         <section className={styles.filterPanel} aria-label="Ordenar y filtrar destinos">
           <div className={styles.filterRow}>
-            <span className={styles.filterLabel} id="compare-sort-label">Ordenar por</span>
-            <div className={styles.filterChips} role="group" aria-labelledby="compare-sort-label">
-              {SORT_CRITERIA.map((c) => {
-                const Icon = getCriterionIcon(c);
-                const active = sortCriterion?.id === c.id;
-                return (
-                  <button
-                    key={c.id}
-                    type="button"
-                    aria-pressed={active}
-                    className={`${styles.filterChip}${active ? ` ${styles.filterChipActive}` : ""}`}
-                    onClick={() => setSort(c.id)}
-                  >
-                    <Icon size={18} /> {c.chip}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-          <div className={styles.filterRow}>
-            <span className={styles.filterLabel} id="compare-program-label">Programa</span>
-            <div className={styles.segmented} role="group" aria-labelledby="compare-program-label">
-              {PROGRAM_FILTERS.map((p) => (
-                <button
-                  key={p}
-                  type="button"
-                  aria-pressed={program === p}
-                  className={`${styles.segment}${program === p ? ` ${styles.segmentActive}` : ""}`}
-                  onClick={() => setProgram(p)}
+            {/* Orden: desplegable nativo (antes, 8 chips en fila que en
+                móvil/tablet obligaban a hacer scroll lateral). Compacto en
+                escritorio, a ancho completo en móvil. «Por región» = sin
+                ?orden (setSort("") lo quita). */}
+            <div className={styles.filterGroup}>
+              <label className={styles.filterLabel} htmlFor="compare-sort">Ordenar por</label>
+              <span className={`${styles.selectWrap}${sortCriterion ? ` ${styles.selectWrapActive}` : ""}`}>
+                <span className={styles.selectIcon} aria-hidden="true">
+                  <SortIcon size={18} />
+                </span>
+                <select
+                  id="compare-sort"
+                  className={styles.filterSelect}
+                  value={sortCriterion?.id ?? ""}
+                  onChange={(e) => setSort(e.target.value)}
                 >
-                  {PROGRAM_LABELS[p]}
-                </button>
-              ))}
+                  <option value="">Por región</option>
+                  {SORT_CRITERIA.map((c) => (
+                    <option key={c.id} value={c.id}>{c.chip}</option>
+                  ))}
+                </select>
+              </span>
+            </div>
+            <div className={styles.filterGroup}>
+              <span className={styles.filterLabel} id="compare-program-label">Programa</span>
+              <div className={styles.segmented} role="group" aria-labelledby="compare-program-label">
+                {PROGRAM_FILTERS.map((p) => (
+                  <button
+                    key={p}
+                    type="button"
+                    aria-pressed={program === p}
+                    className={`${styles.segment}${program === p ? ` ${styles.segmentActive}` : ""}`}
+                    onClick={() => setProgram(p)}
+                  >
+                    {PROGRAM_LABELS[p]}
+                  </button>
+                ))}
+              </div>
             </div>
             <span className={styles.filterEnd}>
               {hasFilters && (
