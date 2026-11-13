@@ -6379,17 +6379,17 @@ export const CITY_INSIGHTS = {
   },
   nantes: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Ch%C3%A2teau_des_ducs_de_Bretagne_%28Nantes%29_11.jpg/1920px-Ch%C3%A2teau_des_ducs_de_Bretagne_%28Nantes%29_11.jpg",
-    tagline: "Elegida repetidamente la ciudad más habitable de Francia, con un elefante mecánico gigante paseando por el puerto.",
-    atmosphere: "Nantes huele a sal del Loira mezclada con crepes recién hechas en el Bouffay, y suena a vapor y engranajes de Les Machines de l'Île, donde un elefante de veinte toneladas pasea entre los estudiantes.",
+    tagline: "Ciudad creativa y estudiantil, con un elefante mecánico gigante paseando por la Île de Nantes.",
+    atmosphere: "Nantes huele a sal del Loira mezclada con crepes recién hechas en el Bouffay, y suena a vapor y engranajes de Les Machines de l'Île, donde un elefante mecánico de 48 toneladas pasea entre los estudiantes.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 6.8,
-        summary: "Más asequible que París o Lyon, con un nivel de vida muy alto para el precio que se paga.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 6.0,
+        summary: "Audencia calcula 800–1.100€/mes para estudiantes internacionales; más asequible que París.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 6.5, desc: "Habitación desde 400–500€, más barata que en la mayoría de grandes ciudades francesas." },
+          { label: "Alojamiento", score: 6.5, desc: "Centrale Nantes calcula 250–650€/mes según el tipo de alojamiento (residencia, colocation o estudio)." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercados como el Marché de Talensac ofrecen producto fresco a buen precio." },
-          { label: "Transporte", score: 7.5, desc: "Abono TAN joven con descuento estudiante notable, cubre tranvía, bus y busway." },
+          { label: "Transporte", score: 7.5, desc: "Naolib: abono ilimitado para menores de 26 años por 255€/año (o diez pagos de 25,50€); tranvía, bus y busway." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Salir de bares y restaurantes es más barato que en Lyon o París, manteniendo buena oferta cultural." },
         ],
       },
@@ -6399,14 +6399,14 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 6.5, desc: "Buena oferta de pisos compartidos gracias a la gran población universitaria de la ciudad." },
-          { label: "Precio", score: 6.5, desc: "400–500€ de media, entre los más asequibles de las grandes ciudades francesas." },
+          { label: "Precio", score: 6.5, desc: "De 250 a 650€/mes según el tipo de alojamiento, según Centrale Nantes." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "El CROUS gestiona residencias con demanda alta; conviene solicitar cuanto antes." },
           { label: "Residencias universitarias", score: 6.0, desc: "Plazas CROUS limitadas para exchange students; muchos optan por colocation privada." },
         ],
       },
       {
         id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 8.3,
-        summary: "Ciudad creativa y con enorme población estudiantil, elegida sistemáticamente como una de las mejores para vivir en Francia.",
+        summary: "Ciudad creativa y con una enorme población estudiantil.",
         color: "#8B5CF6",
         subcategories: [
           { label: "Comunidad Erasmus", score: 8.0, desc: "ESN Nantes organiza salidas a la costa atlántica y eventos culturales durante todo el año." },
@@ -6431,7 +6431,7 @@ export const CITY_INSIGHTS = {
         summary: "Buena red de tranvía y cercanía a la costa atlántica, aunque las conexiones internacionales directas son más limitadas que en Lyon.",
         color: "#F59E0B",
         subcategories: [
-          { label: "Transporte público", score: 8.0, desc: "TAN es una de las redes de tranvía más extensas y eficientes de Francia fuera de París." },
+          { label: "Transporte público", score: 8.0, desc: "Naolib cubre la ciudad con tranvía, busway y bus; Nantes fue la primera ciudad francesa en recuperar el tranvía, en 1985." },
           { label: "Ciudad caminable/ciclable", score: 8.0, desc: "Centro compacto y muy ciclable, con carriles bici en expansión constante." },
           { label: "Conexiones internacionales", score: 6.0, desc: "Aeropuerto de Nantes Atlantique con vuelos europeos limitados; París a dos horas en TGV." },
           { label: "Escapadas de fin de semana", score: 8.0, desc: "La Baule, Pornic y la costa atlántica bretona a menos de una hora." },
@@ -6443,8 +6443,8 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.0, desc: "El Loira cruza la ciudad y la costa atlántica está a menos de una hora." },
-          { label: "Clima", score: 7.0, desc: "Oceánico templado, con inviernos suaves y veranos agradables sin calores extremos." },
-          { label: "Calidad de vida", score: 9.0, desc: "Elegida repetidamente como una de las ciudades más habitables de Francia." },
+          { label: "Clima", score: 7.0, desc: "Oceánico templado: inviernos suaves y veranos agradables (unos 14–25°C de media), con olas de calor puntuales." },
+          { label: "Calidad de vida", score: 9.0, desc: "Ciudad verde, creativa y de tamaño manejable." },
           { label: "Autenticidad local", score: 8.5, desc: "Ciudad con identidad artística y creativa propia, lejos del circuito turístico masivo." },
           { label: "Estilo de vida", score: 9.0, desc: "El equilibrio entre creatividad, tamaño manejable y cercanía al mar hace de Nantes un destino muy vivible." },
         ],
@@ -6462,12 +6462,12 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
-        summary: "Una de las ciudades francesas más seguras y tranquilas para vivir, coherente con su reputación de gran calidad de vida.",
+        summary: "Ciudad tranquila en general para su tamaño.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 8.0, desc: "Criminalidad moderada-baja para el estándar de una gran ciudad francesa." },
-          { label: "Seguridad nocturna", score: 7.5, desc: "El Bouffay y la Île de Nantes son seguros de noche, con presencia policial habitual en zonas de ocio." },
-          { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada y con mucha vida cultural, coherente con su fama de ser muy habitable." },
+          { label: "Seguridad general", score: 8.0, desc: "Gran ciudad: aplica las precauciones habituales, sobre todo de noche." },
+          { label: "Seguridad nocturna", score: 7.5, desc: "El Bouffay y la Île de Nantes tienen ambiente de noche; conviene tomar las precauciones habituales." },
+          { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada y con mucha vida cultural." },
         ],
       },
     ],
@@ -7143,11 +7143,11 @@ export const CITY_INSIGHTS = {
     atmosphere: "Toulouse huele a croissant recién hecho y suena al zumbido lejano de un Airbus despegando, mezclado con el bullicio de estudiantes llenando las terrazas de la Place Saint-Pierre al atardecer.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 6.8,
-        summary: "Más asequible que París o Burdeos, con un ambiente estudiantil que compensa cualquier gasto extra.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 6.5,
+        summary: "INSA Toulouse calcula 800–900€/mes para estudiantes internacionales; más asequible que París.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 6.3, desc: "Habitación desde 420–520€, razonable para el tamaño y la actividad económica de la ciudad." },
+          { label: "Alojamiento", score: 6.3, desc: "Residencia del CROUS o colocation privada, más cara; razonable para el tamaño de la ciudad." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercados como Victor Hugo ofrecen producto fresco a buen precio." },
           { label: "Transporte", score: 7.5, desc: "Abono Tisséo joven con buen descuento estudiantil para metro, tranvía y bus." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Salir de bares y restaurantes es más barato que en París o la costa atlántica francesa." },
@@ -7159,7 +7159,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 6.5, desc: "Amplia oferta de colocation gracias a su gran población estudiantil." },
-          { label: "Precio", score: 6.0, desc: "420–520€ de media, entre los más asequibles de las grandes ciudades francesas." },
+          { label: "Precio", score: 6.0, desc: "Por debajo de París; las residencias del CROUS son lo más económico." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "El CROUS gestiona residencias con demanda alta; conviene solicitar cuanto antes." },
           { label: "Residencias universitarias", score: 5.5, desc: "Plazas CROUS limitadas; muchos exchange students optan por colocation privada." },
         ],
@@ -7169,7 +7169,7 @@ export const CITY_INSIGHTS = {
         summary: "Una de las poblaciones universitarias más grandes de Francia da un ambiente estudiantil constante.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 8.5, desc: "ESN Toulouse es uno de los capítulos más activos de Francia, con eventos casi diarios." },
+          { label: "Comunidad Erasmus", score: 8.5, desc: "ESN Toulouse organiza actividades para estudiantes internacionales durante todo el curso." },
           { label: "Ambiente internacional", score: 8.0, desc: "ISAE-SUPAERO e INSA Toulouse atraen a estudiantes internacionales de ingeniería de todo el mundo." },
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "Saint-Cyprien y el centro concentran una vida nocturna intensa entre semana." },
           { label: "Eventos y actividades", score: 8.5, desc: "Rio Loco, festival de músicas del mundo en junio, es uno de los grandes eventos del año." },
@@ -7203,7 +7203,7 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "El Garona cruza la ciudad, con los Pirineos a menos de dos horas para escapadas de montaña." },
-          { label: "Clima", score: 8.0, desc: "Mediterráneo continental, con veranos calurosos e inviernos suaves." },
+          { label: "Clima", score: 8.0, desc: "Oceánico con influencia mediterránea: veranos calurosos (unos 16–27°C de media) e inviernos suaves." },
           { label: "Calidad de vida", score: 8.5, desc: "Ciudad dinámica, con buena calidad de vida y un ritmo más relajado que París." },
           { label: "Autenticidad local", score: 8.0, desc: "Identidad propia muy marcada, entre la tradición occitana y el peso de la industria aeroespacial." },
           { label: "Estilo de vida", score: 9.0, desc: "El ladrillo rosa, el ambiente estudiantil y el sol del sur de Francia crean un equilibrio muy atractivo." },
@@ -7225,8 +7225,8 @@ export const CITY_INSIGHTS = {
         summary: "Ciudad razonablemente segura para su tamaño, con el circuito estudiantil habitual tranquilo.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 7.5, desc: "Criminalidad moderada-baja para el estándar de una gran ciudad francesa." },
-          { label: "Seguridad nocturna", score: 7.5, desc: "Saint-Cyprien y el Capitole son seguros de noche, con ambiente animado hasta tarde." },
+          { label: "Seguridad general", score: 7.5, desc: "Gran ciudad: aplica las precauciones habituales, sobre todo de noche." },
+          { label: "Seguridad nocturna", score: 7.5, desc: "Saint-Cyprien y el Capitole tienen ambiente hasta tarde; conviene tomar las precauciones habituales." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad ordenada y con mucha vida universitaria, coherente con su tamaño y dinamismo." },
         ],
       },
@@ -7234,15 +7234,15 @@ export const CITY_INSIGHTS = {
   },
   burdeos: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Bordeaux_Place_de_la_Bourse_de_nuit.jpg/1920px-Bordeaux_Place_de_la_Bourse_de_nuit.jpg",
-    tagline: "Capital mundial del vino, elegida año tras año la mejor ciudad de Francia para estudiantes internacionales.",
+    tagline: "Capital mundial del vino, con un centro Patrimonio de la UNESCO y mucha vida estudiantil.",
     atmosphere: "Burdeos huele a vino recién servido en las terrazas de Saint-Pierre, y suena al reflejo del agua del Miroir de la Place de la Bourse rompiéndose bajo los pasos de estudiantes que vuelven de clase al atardecer.",
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.0,
-        summary: "Más cara que hace una década por su creciente popularidad, aunque razonable comparada con París.",
+        summary: "Según el desglose de la Universidad de Burdeos, unos 750–1.100€/mes; el mínimo exige plaza en residencia.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 5.3, desc: "Habitación desde 480–580€; el precio ha subido notablemente en los últimos años por la demanda." },
+          { label: "Alojamiento", score: 5.3, desc: "De unos 250€ en residencia universitaria a unos 600€ por un estudio privado, según la universidad." },
           { label: "Comida y supermercados", score: 6.5, desc: "Mercado de Capucins y supermercados estándar franceses mantienen el gasto en comida razonable." },
           { label: "Transporte", score: 7.0, desc: "Abono TBM joven con buen descuento estudiantil para tranvía y bus." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Salir de bares y catas de vino tiene precios moderados, algo más altos en el centro histórico." },
@@ -7254,20 +7254,20 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 5.0, desc: "La demanda ha crecido mucho en los últimos años, tensionando la oferta disponible." },
-          { label: "Precio", score: 5.5, desc: "480–580€ de media, en aumento constante por la popularidad de la ciudad." },
+          { label: "Precio", score: 5.5, desc: "Unos 250€ en residencia y unos 600€ por un estudio privado (guía de la Universidad de Burdeos)." },
           { label: "Facilidad de búsqueda", score: 5.0, desc: "Conviene empezar a buscar con varios meses de antelación, sobre todo cerca del campus de Pessac." },
           { label: "Residencias universitarias", score: 5.5, desc: "El CROUS ofrece plazas, aunque cada vez más solicitadas por el aumento de estudiantes internacionales." },
         ],
       },
       {
         id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 8.3,
-        summary: "Elegida repetidamente mejor ciudad Erasmus de Francia, con una vida estudiantil sorprendentemente animada para su elegancia.",
+        summary: "Una vida estudiantil sorprendentemente animada para una ciudad tan elegante.",
         color: "#8B5CF6",
         subcategories: [
           { label: "Comunidad Erasmus", score: 8.5, desc: "ESN Bordeaux organiza catas de vino, escapadas a Arcachon y eventos constantes." },
           { label: "Ambiente internacional", score: 8.0, desc: "Sciences Po Bordeaux y Kedge tienen una comunidad internacional muy consolidada." },
           { label: "Fiesta y vida nocturna", score: 8.0, desc: "Place de la Victoire es el epicentro indiscutible de la vida nocturna estudiantil." },
-          { label: "Eventos y actividades", score: 8.5, desc: "Bordeaux Fête le Vin cada dos años convierte los muelles en una fiesta enológica masiva." },
+          { label: "Eventos y actividades", score: 8.5, desc: "Bordeaux Fête le Vin convierte los muelles en una gran fiesta del vino (la próxima edición está anunciada para 2027)." },
         ],
       },
       {
@@ -7298,8 +7298,8 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.5, desc: "El Garona cruza la ciudad, y los viñedos y la costa atlántica están a un paso." },
-          { label: "Clima", score: 7.5, desc: "Oceánico templado, con inviernos suaves y veranos agradables sin calores extremos." },
-          { label: "Calidad de vida", score: 9.0, desc: "Elegida repetidamente una de las mejores ciudades de Francia para vivir." },
+          { label: "Clima", score: 7.5, desc: "Oceánico templado: inviernos suaves y veranos cálidos (unos 16–27°C de media), con posibles olas de calor." },
+          { label: "Calidad de vida", score: 9.0, desc: "Ciudad elegante, cuidada y muy agradable para vivir." },
           { label: "Autenticidad local", score: 8.0, desc: "Ciudad con identidad propia muy marcada por siglos de tradición vinícola." },
           { label: "Estilo de vida", score: 9.5, desc: "Pocas ciudades combinan tanta elegancia arquitectónica con un ambiente estudiantil tan vivo." },
         ],
@@ -7317,11 +7317,11 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
-        summary: "Una de las ciudades francesas más seguras y tranquilas para vivir, coherente con su reputación de gran calidad de vida.",
+        summary: "Ciudad tranquila en general para su tamaño.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 8.0, desc: "Criminalidad moderada-baja para el estándar de una gran ciudad francesa." },
-          { label: "Seguridad nocturna", score: 7.5, desc: "Place de la Victoire y el centro son seguros de noche, con presencia habitual de gente hasta tarde." },
+          { label: "Seguridad general", score: 8.0, desc: "Gran ciudad: aplica las precauciones habituales, sobre todo de noche." },
+          { label: "Seguridad nocturna", score: 7.5, desc: "Place de la Victoire y el centro tienen gente hasta tarde; conviene tomar las precauciones habituales." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada y elegante, coherente con su fama de ser muy habitable." },
         ],
       },
@@ -7994,38 +7994,38 @@ export const CITY_INSIGHTS = {
   },
   montpellier: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Montpellier_Place_de_la_Com%C3%A9die.jpg/1920px-Montpellier_Place_de_la_Com%C3%A9die.jpg",
-    tagline: "Una de cada cinco personas en esta ciudad es estudiante, con la playa a 10 minutos en tranvía.",
+    tagline: "Ciudad muy estudiantil y soleada, con la playa a un trayecto de tranvía y bus.",
     atmosphere: "Montpellier huele a lavanda y pan recién horneado en la Place de la Comédie, y suena al traqueteo colorido de los tranvías de diseño mezclado con conversaciones en terrazas bajo el sol casi constante.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 7.0,
-        summary: "Asequible para el sur de Francia, con un ambiente estudiantil que mantiene los precios razonables.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 6.5,
+        summary: "Institut Agro Montpellier calcula 800–1.000€/mes para estudiantes internacionales.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 6.5, desc: "Habitación desde 400–500€, razonable gracias a la enorme oferta de vivienda estudiantil." },
+          { label: "Alojamiento", score: 6.5, desc: "Residencia del CROUS o colocation privada, más cara; el alquiler es el mayor gasto." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercados como Les Halles Castellane ofrecen producto fresco mediterráneo a buen precio." },
-          { label: "Transporte", score: 7.5, desc: "Abono TaM joven con buen descuento estudiantil para tranvía y bus." },
+          { label: "Transporte", score: 7.5, desc: "Tranvía y bus TaM gratis para los residentes de la Métropole con el Pass Gratuité." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Salir de bares y terrazas es más barato que en la costa vecina de la Provenza." },
         ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.0,
-        summary: "Mercado accesible gracias a la enorme proporción de población estudiantil de la ciudad.",
+        summary: "Mercado accesible, aunque muy demandado por la gran población universitaria.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 6.5, desc: "Amplia oferta de colocation gracias a que uno de cada cinco habitantes es estudiante." },
-          { label: "Precio", score: 6.0, desc: "400–500€ de media, razonable para el sur de Francia." },
+          { label: "Disponibilidad", score: 6.5, desc: "Amplia oferta de colocation gracias a la gran población universitaria." },
+          { label: "Precio", score: 6.0, desc: "Razonable para el sur de Francia; las residencias del CROUS son lo más económico." },
           { label: "Facilidad de búsqueda", score: 5.5, desc: "El CROUS gestiona residencias con demanda alta; conviene solicitar cuanto antes." },
           { label: "Residencias universitarias", score: 5.5, desc: "Buena oferta de residencias CROUS, aunque muy solicitadas por el gran volumen de estudiantes." },
         ],
       },
       {
         id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 8.8,
-        summary: "Una de las ciudades más jóvenes de Francia da un ambiente estudiantil intenso todo el año.",
+        summary: "Su gran población universitaria da un ambiente estudiantil intenso todo el curso.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 9.0, desc: "ESN Montpellier organiza escapadas a la playa y eventos casi a diario." },
-          { label: "Ambiente internacional", score: 8.5, desc: "Uno de cada cinco habitantes es estudiante, con una proporción internacional muy alta." },
+          { label: "Comunidad Erasmus", score: 9.0, desc: "ESN Montpellier organiza escapadas a la playa y eventos regulares durante el curso." },
+          { label: "Ambiente internacional", score: 8.5, desc: "Gran población universitaria, con muchos estudiantes internacionales." },
           { label: "Fiesta y vida nocturna", score: 8.5, desc: "El Écusson y Beaux-Arts concentran una vida nocturna intensa y variada." },
           { label: "Eventos y actividades", score: 8.5, desc: "El Carnaval y la Comédie du Livre marcan el calendario cultural de la ciudad." },
         ],
@@ -8048,18 +8048,18 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Transporte público", score: 8.0, desc: "TaM tiene una de las redes de tranvía más extensas y coloridas de Francia." },
           { label: "Ciudad caminable/ciclable", score: 8.0, desc: "Centro compacto y muy ciclable, con carriles bici en constante expansión." },
-          { label: "Conexiones internacionales", score: 6.0, desc: "Aeropuerto de Montpellier con oferta limitada; Barcelona a menos de tres horas en tren." },
-          { label: "Escapadas de fin de semana", score: 8.5, desc: "Playas de Palavas y La Grande-Motte a 20 minutos; los Pirineos y Barcelona, cerca." },
+          { label: "Conexiones internacionales", score: 6.0, desc: "Aeropuerto de Montpellier con oferta limitada; Barcelona a unas tres horas y cuarto en tren." },
+          { label: "Escapadas de fin de semana", score: 8.5, desc: "Playas de Palavas y La Grande-Motte en tranvía y bus; la Camarga y Barcelona, a un viaje." },
         ],
       },
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.8,
-        summary: "Sol, playa y vida universitaria en un mismo paquete, con más de 300 días de sol al año.",
+        summary: "Sol, playa y vida universitaria en un mismo paquete.",
         color: "#3F7A7D",
         subcategories: [
-          { label: "Naturaleza", score: 8.5, desc: "Playas mediterráneas a 10-20 minutos en tranvía, además de la Camarga cercana." },
-          { label: "Clima", score: 9.5, desc: "Mediterráneo con más de 300 días de sol al año, de los mejores climas de esta guía." },
-          { label: "Calidad de vida", score: 8.5, desc: "Ciudad joven, segura y con un ritmo de vida muy agradable." },
+          { label: "Naturaleza", score: 8.5, desc: "Playas mediterráneas en tranvía y bus, además de la Camarga cercana." },
+          { label: "Clima", score: 9.5, desc: "Mediterráneo soleado: veranos calurosos (unos 18–29°C de media) e inviernos suaves." },
+          { label: "Calidad de vida", score: 8.5, desc: "Ciudad joven y con un ritmo de vida muy agradable." },
           { label: "Autenticidad local", score: 7.5, desc: "Ciudad moderna y en expansión, con menos peso histórico que otras del sur de Francia." },
           { label: "Estilo de vida", score: 9.0, desc: "La combinación de sol, playa y vida universitaria constante es difícil de igualar en Francia." },
         ],
@@ -8080,8 +8080,8 @@ export const CITY_INSIGHTS = {
         summary: "Ciudad razonablemente segura, con el circuito estudiantil habitual tranquilo.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 7.5, desc: "Criminalidad moderada-baja para el estándar de una gran ciudad francesa." },
-          { label: "Seguridad nocturna", score: 7.0, desc: "El Écusson es seguro de noche, con ambiente animado hasta tarde." },
+          { label: "Seguridad general", score: 7.5, desc: "Gran ciudad: aplica las precauciones habituales, sobre todo de noche." },
+          { label: "Seguridad nocturna", score: 7.0, desc: "El Écusson tiene ambiente hasta tarde; conviene tomar las precauciones habituales." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ciudad joven y ordenada, con buena sensación de seguridad general." },
         ],
       },
@@ -8089,15 +8089,15 @@ export const CITY_INSIGHTS = {
   },
   marsella: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Notre-Dame_de_la_Garde_aerial_view_2020.jpeg/1920px-Notre-Dame_de_la_Garde_aerial_view_2020.jpeg",
-    tagline: "La ciudad más multicultural de Francia, con calas casi vírgenes a las puertas.",
+    tagline: "Ciudad portuaria multicultural, con las Calanques a las puertas.",
     atmosphere: "Marsella huele a pastís y bullabesa en el Vieux-Port, y suena a gaviotas, acentos de todo el Mediterráneo y el eco de las Calanques rompiendo contra el mar más allá del bullicio del centro.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 7.0,
-        summary: "Más asequible que otras grandes ciudades francesas, con un carácter propio muy alejado de París.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 6.0,
+        summary: "Aix-Marseille Université calcula unos 850–1.150€/mes, según se viva en el CROUS o en un alquiler privado.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 6.5, desc: "Habitación desde 400–500€, razonable para una ciudad de más de 800.000 habitantes." },
+          { label: "Alojamiento", score: 6.5, desc: "Unos 280€ en residencia del CROUS o unos 600€ en alojamiento privado, según Aix-Marseille Université." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercados como el de Noailles ofrecen producto mediterráneo y del norte de África muy barato." },
           { label: "Transporte", score: 7.0, desc: "Abono RTM joven con descuento estudiantil para metro, tranvía y bus." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Salir de bares en el Vieux-Port es más caro que en el resto de la ciudad." },
@@ -8109,7 +8109,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 6.5, desc: "Buena oferta de pisos compartidos gracias al tamaño de la ciudad y su población universitaria." },
-          { label: "Precio", score: 6.5, desc: "400–500€ de media, por debajo de otras grandes ciudades francesas." },
+          { label: "Precio", score: 6.5, desc: "Unos 280€ en el CROUS y unos 600€ en privado (ejemplos de Aix-Marseille Université)." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "Aix-Marseille Université ofrece listados básicos de alojamiento para exchange students." },
           { label: "Residencias universitarias", score: 5.5, desc: "Plazas CROUS limitadas frente al enorme número de estudiantes de la ciudad." },
         ],
@@ -8120,9 +8120,9 @@ export const CITY_INSIGHTS = {
         color: "#8B5CF6",
         subcategories: [
           { label: "Comunidad Erasmus", score: 8.5, desc: "ESN Marseille organiza salidas a las Calanques y a la Provenza constantemente." },
-          { label: "Ambiente internacional", score: 8.5, desc: "La ciudad más multicultural de Francia, con una identidad mediterránea muy marcada." },
+          { label: "Ambiente internacional", score: 8.5, desc: "Ciudad portuaria multicultural, con una identidad mediterránea muy marcada." },
           { label: "Fiesta y vida nocturna", score: 8.0, desc: "Cours Julien y el Vieux-Port concentran una vida nocturna variada y animada." },
-          { label: "Eventos y actividades", score: 8.0, desc: "La Fiesta de las Calanques y numerosos festivales de verano marcan el calendario social." },
+          { label: "Eventos y actividades", score: 8.0, desc: "Festivales de verano y una vida cultural intensa marcan el calendario social." },
         ],
       },
       {
@@ -8149,10 +8149,10 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.8,
-        summary: "Mediterráneo auténtico, con calas casi vírgenes y una identidad muy propia dentro de Francia.",
+        summary: "Mediterráneo auténtico, con las Calanques a un paso y una identidad muy propia dentro de Francia.",
         color: "#3F7A7D",
         subcategories: [
-          { label: "Naturaleza", score: 9.5, desc: "Las Calanques, calas de acantilados casi vírgenes, a un bus del centro de la ciudad." },
+          { label: "Naturaleza", score: 9.5, desc: "Las Calanques, calas protegidas por un parque nacional (y muy visitadas), a un bus del centro." },
           { label: "Clima", score: 9.0, desc: "Mediterráneo con veranos calurosos y secos, de los climas más soleados de Francia." },
           { label: "Calidad de vida", score: 7.5, desc: "Ciudad intensa y con contrastes marcados entre barrios, aunque con mucha vida en la calle." },
           { label: "Autenticidad local", score: 9.0, desc: "Una de las ciudades francesas con identidad más propia y menos parisina." },
@@ -8161,7 +8161,7 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.5,
-        summary: "Segunda economía de Francia, con fuerte peso portuario, logístico y en expansión tecnológica.",
+        summary: "Economía portuaria con actividad logística, sanitaria y tecnológica en expansión.",
         color: "#8B5CF6",
         subcategories: [
           { label: "Mercado laboral", score: 6.5, desc: "Economía diversificada con peso en logística portuaria, salud y tecnología en expansión." },
@@ -8172,11 +8172,11 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 6.3,
-        summary: "Requiere algo más de atención que otras ciudades de esta guía, aunque la fama mediática exagera el problema.",
+        summary: "Requiere algo más de atención que otras ciudades de esta guía: infórmate de cada barrio.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 6.0, desc: "Criminalidad concentrada en barrios muy concretos, alejados del circuito estudiantil habitual." },
-          { label: "Seguridad nocturna", score: 6.0, desc: "El Vieux-Port y el centro son seguros de noche; conviene informarse sobre zonas a evitar." },
+          { label: "Seguridad general", score: 6.0, desc: "Gran ciudad con contrastes entre barrios: infórmate y aplica las precauciones habituales." },
+          { label: "Seguridad nocturna", score: 6.0, desc: "El Vieux-Port y el centro tienen ambiente de noche; infórmate sobre las zonas a evitar." },
           { label: "Ambiente de la ciudad", score: 7.0, desc: "Ciudad intensa y ruidosa, pero con mucha vida en la calle que aporta sensación de comunidad." },
         ],
       },

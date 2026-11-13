@@ -258,7 +258,7 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Hochschule Furtwangen (campus Friburgo)": "https://www.hs-furtwangen.de/en/study/international/exchange-students",
 
   // ── Nantes ───────────────────────────────────────────────────────────────
-  "Université de Nantes": "https://english.univ-nantes.fr/education/admissions/exchange-students",
+  "Nantes Université": "https://english.univ-nantes.fr/education/admissions/exchange-students",
   "École Centrale de Nantes": "https://www.ec-nantes.fr/english-version/study/exchange-year-semester",
   "Audencia Business School": "https://apply.exchangestudents.audencia.com/",
 
@@ -293,7 +293,7 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Université Toulouse Capitole": "https://www.ut-capitole.fr/home/incoming-students/youre-an-exchange-student",
   "Université Toulouse Jean Jaurès": "https://international.univ-tlse2.fr/accueil/formation/etudiant-echange-erasmus-convention-bilaterale",
   "INSA Toulouse": "https://www.insa-toulouse.fr/en/international-2-4/",
-  "ISAE-SUPAERO": "https://www.isae-supaero.fr/en/admissions-en/admission-process-for-international-students/",
+  "ISAE-SUPAERO": "https://www.isae-supaero.fr/formation/nos-semestres-programmes-courts/",
 
   // ── Burdeos ──────────────────────────────────────────────────────────────
   "Université de Bordeaux": "https://www.u-bordeaux.fr/en/international/come-to-bordeaux/international-students/exchange-programmes",
@@ -328,7 +328,7 @@ export const UNIVERSITY_ERASMUS_LINKS = {
 
   // ── Montpellier ──────────────────────────────────────────────────────────
   "Université de Montpellier": "https://www.umontpellier.fr/en/international/etudier-a-letranger/venir-etudier-a-luniversite-de-montpellier",
-  "Université Paul-Valéry Montpellier 3": "https://www.univ-montp3.fr/en/international/study-montpellier-bachelors-masters-doctorate/incoming-students-exchange-2",
+  "Université de Montpellier Paul-Valéry": "https://www.univ-montp3.fr/en/oaspace-0/application-programme-or-agreement/erasmus-and-mic",
 
   // ── Marsella ─────────────────────────────────────────────────────────────
   "Aix-Marseille Université": "https://www.univ-amu.fr/en/international-students/international-students-exchange",

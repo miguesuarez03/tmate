@@ -306,4 +306,39 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "6–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y colinas del valle del Neckar con colores de otoño.", tags: ["Inicio Erasmus","Colores de otoño","Muy animada"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-2–5°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío, con heladas frecuentes; la Altstadt se vuelve muy acogedora.", tags: ["Frío","Heladas","Ambiente acogedor"] },
   ],
+  // Toulouse: Toulouse-Blagnac.
+  toulouse: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "8–18°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada; las terrazas de la Place Saint-Pierre se llenan junto al Garona.", tags: ["Templada","Terrazas","Garona"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "16–27°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos calurosos; muchos estudiantes se escapan a los Pirineos o a la costa.", tags: ["Calor","Pirineos","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "10–19°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y otoño suave.", tags: ["Inicio Erasmus","Suave","Muy animada"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "3–10°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave, con algunas heladas; la ciudad rosa sigue llena de estudiantes.", tags: ["Suave","Heladas puntuales","Vida estudiantil"] },
+  ],
+  // Burdeos: Bordeaux-Mérignac.
+  burdeos: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "8–18°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave; los muelles del Garona y el Miroir d'eau se llenan de gente.", tags: ["Suave","Muelles","Terrazas"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "16–27°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos cálidos, con posibles olas de calor; escapadas a Arcachon y a la Dune du Pilat.", tags: ["Cálido","Playa","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "10–19°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y vendimia en los viñedos cercanos.", tags: ["Inicio Erasmus","Vendimia","Muy animada"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "4–11°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y húmedo, con lluvia frecuente.", tags: ["Suave","Lluvia","Ambiente acogedor"] },
+  ],
+  // Nantes: Nantes-Bouguenais.
+  nantes: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "7–16°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca y cambiante; las orillas del Loira recuperan vida.", tags: ["Fresca","Loira","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "14–25°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos agradables, con olas de calor puntuales; Le Voyage à Nantes llena la ciudad de arte.", tags: ["Agradable","Voyage à Nantes","Costa cerca"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "9–18°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y una ciudad llena de estudiantes.", tags: ["Inicio Erasmus","Lluvia frecuente","Muy animada"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "3–10°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y lluvioso, aunque con heladas algunas noches.", tags: ["Suave","Lluvia","Heladas"] },
+  ],
+  // Montpellier: Montpellier-Aéroport.
+  montpellier: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "10–19°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera soleada y templada; la Place de la Comédie vive en la calle.", tags: ["Soleada","Terrazas","Templada"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "18–29°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos calurosos y secos, con las playas de Palavas y La Grande-Motte a mano.", tags: ["Calor","Playa","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "12–21°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso con días todavía cálidos; ojo a los episodios de lluvia intensa.", tags: ["Inicio Erasmus","Cálido","Lluvias intensas"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "4–13°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y soleado, aunque con algún día de tramontana fría.", tags: ["Suave","Soleado","Viento"] },
+  ],
+  // Marsella: Marignane, aeropuerto Marseille-Provence (a unos 20 km del centro).
+  marsella: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "10–20°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera soleada, buena época para recorrer las Calanques a pie.", tags: ["Soleada","Calanques","Senderismo"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "19–30°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos calurosos y secos; en las Calanques hay restricciones por riesgo de incendio.", tags: ["Calor","Playa","Riesgo de incendio"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "12–21°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso con el mar todavía templado.", tags: ["Inicio Erasmus","Mar templado","Muy animada"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "4–12°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y luminoso, con días de mistral fuerte y frío.", tags: ["Suave","Mistral","Luminoso"] },
+  ],
 };

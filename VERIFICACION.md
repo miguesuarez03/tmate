@@ -5,7 +5,7 @@ Claude Code hace cada tanda y Codex la revisa con `codex exec` en solo lectura (
 
 ## Dónde vamos
 
-**Siguiente tanda: 9** (Toulouse, Burdeos, Nantes, Montpellier, Marsella). Rosenheim (tanda 8) espera los datos locales de Miguel: ver «Pendiente de Miguel» al final. (actualizar al cerrar cada tanda).
+**Siguiente tanda: 10** (Lille, Estrasburgo, Grenoble, Rennes, Venecia). Rosenheim (tanda 8) espera los datos locales de Miguel: ver «Pendiente de Miguel» al final. (actualizar al cerrar cada tanda).
 
 ## Qué se revisa en cada ciudad
 
@@ -50,7 +50,7 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 | 6 | Lovaina (`lovaina`), Gante (`gante`), Utrecht (`utrecht`), Groningen (`groningen`), Rotterdam (`rotterdam`) | ✅ 10-11-2026 |
 | 7 | La Haya (`la-haya`), Maastricht (`maastricht`), Hamburgo (`hamburgo`), Colonia (`colonia`), Heidelberg (`heidelberg`) | ✅ 11-11-2026 |
 | 8 | Friburgo (`friburgo`), Leipzig (`leipzig`), Dresde (`dresde`), Tubinga (`tubinga`), Rosenheim (`rosenheim`) | ✅ 11-11-2026 (Rosenheim: falta lo local) |
-| 9 | Toulouse (`toulouse`), Burdeos (`burdeos`), Nantes (`nantes`), Montpellier (`montpellier`), Marsella (`marsella`) | Pendiente |
+| 9 | Toulouse (`toulouse`), Burdeos (`burdeos`), Nantes (`nantes`), Montpellier (`montpellier`), Marsella (`marsella`) | ✅ 13-11-2026 |
 | 10 | Lille (`lille`), Estrasburgo (`estrasburgo`), Grenoble (`grenoble`), Rennes (`rennes`), Venecia (`venecia`) | Pendiente |
 | 11 | Pisa (`pisa`), Siena (`siena`), Bari (`bari`), Génova (`genova`), Perugia (`perugia`) | Pendiente |
 | 12 | Trieste (`trieste`), Parma (`parma`), Bérgamo (`bergamo`), Ferrara (`ferrara`), Urbino (`urbino`) | Pendiente |
@@ -156,6 +156,15 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 - 4 enlaces Erasmus arreglados (Friburgo, Leipzig, HTWK, TH Rosenheim). El de la Universität Leipzig no se pudo comprobar automáticamente (su web rechaza las peticiones automáticas): **comprobar en el navegador**.
 - Código: Maastricht y Heidelberg pasan a rango (1.200–1.250 € y 750–1.050 €); `isAffordable()` en `src/lib/cities.js`; el popup del mapa del mundo tenía su propia copia del coste de 150 ciudades, desfasada (Cracovia 350–550 € frente a 600–950 €), y ahora lee `costDetail`; `npm test` (Node, sin dependencias) comprueba el formato de rango, el orden por coste y «Asequible».
 - Codex: auditoría con fuentes + 2 rondas; en la ronda 1 rechazó usar el mínimo para el visado (992 €) como extremo del rango y avisó de que los 947 € de Tubinga son media alemana de 2021 (aplicado: Friburgo con su rango oficial, Dresde y Tubinga como estimación editorial); en la ronda 2 precisó la redacción de los alquileres de Tubinga (aplicado).
+
+### Tanda 9 — 13-11-2026 (Toulouse, Burdeos, Nantes, Montpellier, Marsella)
+- Fotos: las 5 corresponden a su ciudad y cumplen el mínimo. La de Burdeos (Place de la Bourse de noche, dominio público) es oscura y de poca calidad: **decisión de Miguel** si se cambia.
+- Coste según fuentes oficiales: Toulouse 800–900 € (INSA Toulouse), Burdeos 750–1.100 € (desglose de la guía de la Universidad de Burdeos; el mínimo exige residencia), Nantes 800–1.100 € (Audencia), Montpellier 800–1.000 € (Institut Agro Montpellier), Marsella 850–1.150 € (Aix-Marseille Université, CROUS o privado). Notas de coste ajustadas (Marsella 7,0→6,0; Nantes 6,8→6,0).
+- Corregido lo falso: tranvía «directo» a la playa de Palavas en 10 minutos (es tranvía 3 + bus), «abono TaM joven» (TaM es gratis para residentes con Pass Gratuité), «cata gratuita» en la Cité du Vin, Bordeaux Fête le Vin «cada dos años» (vuelve en 2027), elefante de Nantes de «20 toneladas» (48 t, 12 m; en mantenimiento hasta finales de febrero de 2027: **quitar esa nota después**), TAN (ahora Naolib), «Université de Nantes» (Nantes Université) y «Paul-Valéry Montpellier 3» (Université de Montpellier Paul-Valéry), «Fiesta de las Calanques», clima de Toulouse «mediterráneo continental» (oceánico con influencia mediterránea).
+- Fuera récords y cifras sin fuente: «elegida año tras año mejor destino Erasmus» (Burdeos), «la ciudad más habitable de Francia» (Nantes), «uno de cada cinco habitantes es estudiante» y «más de 300 días de sol» (Montpellier), «la más multicultural de Francia», «más de cien nacionalidades» y «segunda economía de Francia» (Marsella), «calas casi vírgenes», precios medios de habitaciones sin fuente y garantías de seguridad.
+- Clima con normales 1991–2020 de Météo-France: añadidos los 5 (Toulouse-Blagnac, Bordeaux-Mérignac, Nantes-Bouguenais, Montpellier-Aéroport, Marignane para Marsella).
+- 3 enlaces Erasmus arreglados (ISAE-SUPAERO, Nantes Université, Paul-Valéry). El de Audencia rechaza peticiones automáticas (403): **comprobar en el navegador**.
+- Codex: auditoría con fuentes + 2 rondas; en la ronda 1 corrigió el redondeo del verano de Toulouse (16–27 °C) y las heladas de Nantes; en la ronda 2 detectó un «calas casi vírgenes» que quedaba en Marsella (aplicado todo).
 
 ## Pendiente de Miguel (Rosenheim, vive allí)
 
