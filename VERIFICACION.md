@@ -5,7 +5,7 @@ Claude Code hace cada tanda y Codex la revisa con `codex exec` en solo lectura (
 
 ## Dónde vamos
 
-**Siguiente tanda: 11** (Pisa, Siena, Bari, Génova, Perugia). Rosenheim (tanda 8) espera los datos locales de Miguel: ver «Pendiente de Miguel» al final. (actualizar al cerrar cada tanda).
+**Siguiente tanda: 12** (Trieste, Parma, Bérgamo, Ferrara, Urbino). Rosenheim (tanda 8) espera los datos locales de Miguel: ver «Pendiente de Miguel» al final. (actualizar al cerrar cada tanda).
 
 ## Qué se revisa en cada ciudad
 
@@ -52,7 +52,7 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 | 8 | Friburgo (`friburgo`), Leipzig (`leipzig`), Dresde (`dresde`), Tubinga (`tubinga`), Rosenheim (`rosenheim`) | ✅ 11-11-2026 (Rosenheim: falta lo local) |
 | 9 | Toulouse (`toulouse`), Burdeos (`burdeos`), Nantes (`nantes`), Montpellier (`montpellier`), Marsella (`marsella`) | ✅ 13-11-2026 |
 | 10 | Lille (`lille`), Estrasburgo (`estrasburgo`), Grenoble (`grenoble`), Rennes (`rennes`), Venecia (`venecia`) | ✅ 13-11-2026 |
-| 11 | Pisa (`pisa`), Siena (`siena`), Bari (`bari`), Génova (`genova`), Perugia (`perugia`) | Pendiente |
+| 11 | Pisa (`pisa`), Siena (`siena`), Bari (`bari`), Génova (`genova`), Perugia (`perugia`) | ✅ 13-11-2026 |
 | 12 | Trieste (`trieste`), Parma (`parma`), Bérgamo (`bergamo`), Ferrara (`ferrara`), Urbino (`urbino`) | Pendiente |
 | 13 | Lecce (`lecce`), Catania (`catania`), Palermo (`palermo`), Cagliari (`cagliari`), Verona (`verona`) | Pendiente |
 | 14 | Braga (`braga`), Atenas (`atenas`), Salónica (`salonica`), Breslavia (`wroclaw`), Gdansk (`gdansk`) | Pendiente |
@@ -174,6 +174,15 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 - Clima con normales 1991–2020: Lille-Lesquin, Strasbourg-Entzheim y Rennes-Saint-Jacques (Météo-France); Grenoble con Grenoble-Le Versoud (en el valle junto a la ciudad, pero su serie de temperatura es 1999–2020; la alternativa, Saint-Geoirs, está a 40 km en una meseta); Venecia con Venezia-Tessera (OMM), con la máxima de marzo estimada a partir de la media mensual porque falta en la serie: la máxima de primavera (18 °C) queda **pendiente de fuente**.
 - 5 enlaces Erasmus arreglados (Universidad de Lille, Sciences Po Lille, Universidad de Estrasburgo, UGA, Grenoble INP). El de la Universidad de Rennes rechaza peticiones automáticas (403): **comprobar en el navegador**.
 - Codex: la auditoría se cortó por el límite de uso de Codex (13-11-2026, 01:15); Claude la completó con fuentes oficiales. En la revisión (04:20) Codex corrigió el abono de Ilévia (33,40 €/mes, 28,65 € anual solo residentes de la MEL), el abono ACTV (solo estudiantes menores de 26 con perfil de estudiante), el rango de Estrasburgo (faltaba el transporte), Venecia como estimación editorial, «sede» de STMicroelectronics en Grenoble (está en Ginebra; «presencia») y el clima de Venecia («Templado subcontinental, moderado por el Adriático», no mediterráneo).
+
+### Tanda 11 — 13-11-2026 (Pisa, Siena, Bari, Génova, Perugia)
+- Fotos: las 5 corresponden a su ciudad, cumplen el mínimo y se ven bien.
+- Coste: Pisa 800–1.100 € (Universidad de Pisa: 800–850 € con habitación en piso compartido, 1.000–1.100 € con piso entero), Siena 690–1.170 € (Universidad de Siena: alojamiento 250–800 €, comida 240–360 €, transporte/ocio/gastos 200–360 €; el máximo usa la habitación compartida de 300–450 € de la misma página, porque los 800 € incluyen piso entero), Bari 600–800 € (Politecnico di Bari), Perugia 700–800 € (Universidad de Perugia, FiSSUF). Génova 550–850 € es **estimación editorial pendiente de fuente**: la Universidad de Génova solo publica partidas (habitación individual 350–400 €, abono mensual de AMT 48 €). Notas de coste ajustadas (Pisa 7,8→5,5; Siena 7,3→6,5; Bari 8,0→7,5; Perugia 7,8→7,0) y alquileres sin fuente sustituidos por los de las universidades.
+- Corregido lo falso o exagerado: «el centro histórico medieval más grande de Europa» (Génova: «uno de los más extensos»), Bari Vecchia «diseñada para despistar a los invasores», «uno de los paseos marítimos más largos de Italia», Siena «sin edificios modernos visibles» y «medieval intacta», Palio con fechas y 10 de las 17 contradas, Florencia «a menos de una hora» de Siena (1 h 15–1 h 30), Università per Stranieri «dedicada íntegramente a estudiantes internacionales» (también admite italianos; está especializada en lengua y cultura italianas), Eurochocolate «en octubre» (en 2026 es en noviembre: «cada otoño»), Asís (el tren llega a la estación, no al centro), Roma-Fiumicino «a menos de dos horas» de Perugia (unas 3 h 30 en bus directo), ascensor de Castelletto «gratis» (funciona con billete o abono de AMT), «sede» de grandes empresas en Pisa, aeropuerto de Pisa «uno de los mayores hubs low-cost».
+- Fuera récords y comparativas sin fuente: «una de las ciudades más seguras de Italia» (Pisa, Siena, Perugia), «una de las mayores comunidades internacionales de Italia», «una de las más baratas de Italia, por debajo de Nápoles», «de los climas más soleados de esta guía», «la ciudad medieval mejor conservada de Italia», «uno de los puertos más grandes del Mediterráneo».
+- Clima con normales 1991–2020: Pisa-San Giusto y Bari-Palese (OMM), Siena (Consorzio LaMMA). **Génova y Perugia, pendientes de fuente**: a la serie OMM de Genova-Sestri le faltan las máximas de marzo y mayo y la mínima de mayo, y para Perugia no hay serie 1991–2020 accesible (el portal del ISPRA no responde y los datos abiertos de Umbría solo traen extremos de 1951–1967). No se añade bloque hasta tener los datos.
+- 3 enlaces Erasmus arreglados (Universidad de Bari, Politecnico di Bari, Università per Stranieri di Perugia). El de la Universidad de Siena rechaza peticiones automáticas (403): **comprobar en el navegador**.
+- Codex: auditoría completa; Claude la contrastó con las fuentes (rango de Siena con habitación compartida en vez de piso entero, Génova como estimación). En la revisión Codex corrigió el abono anual de AMT para menores de 26 (220 €, la guía de UniGe conserva la tarifa anterior), el acceso a Portofino (tren a Santa Margherita y bus), «habitación compartida» en Siena y los gastos de la habitación doble en Perugia.
 
 ## Pendiente de Miguel (Rosenheim, vive allí)
 

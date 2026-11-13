@@ -8849,15 +8849,15 @@ export const CITY_INSIGHTS = {
   },
   bari: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Bari_-_Lungomare_Imperatore_Augusto_%26_Mare.jpg/1920px-Bari_-_Lungomare_Imperatore_Augusto_%26_Mare.jpg",
-    tagline: "El sur de Italia sin filtros, con un casco antiguo diseñado para perder al invasor.",
+    tagline: "El sur de Italia sin filtros, con un casco antiguo laberíntico junto al Adriático.",
     atmosphere: "Bari huele a orecchiette recién hechas en la calle y a mar Adriático en el Lungomare, y suena a conversaciones a gritos entre balcones de Bari Vecchia, donde cada callejón parece llevar a ninguna parte y a la vez a todas.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 8.0,
-        summary: "Una de las ciudades más baratas de Italia, por debajo incluso de Nápoles.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 7.5,
+        summary: "El Politecnico di Bari calcula unos 600–800€ al mes con alojamiento, comida, transporte y ocio.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 7.5, desc: "Habitación desde 280–380€, de las más bajas entre las grandes ciudades universitarias italianas." },
+          { label: "Alojamiento", score: 7.5, desc: "Habitación en piso compartido; la Universidad de Bari remite a ESN Bari para buscarla." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercados de pescado y verdura fresca hacen que comer bien sea baratísimo." },
           { label: "Transporte", score: 7.5, desc: "El bus urbano de AMTAB cubre bien la ciudad a precio muy bajo." },
           { label: "Ocio y gastos diarios", score: 8.5, desc: "Salir de bares y restaurantes cuesta una fracción de lo que costaría en el norte de Italia." },
@@ -8869,7 +8869,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 7.0, desc: "Buena oferta gracias al tamaño de la población universitaria de la ciudad." },
-          { label: "Precio", score: 8.0, desc: "280–380€ de media, entre los más bajos del sur de Italia." },
+          { label: "Precio", score: 7.5, desc: "El alojamiento entra en los 600–800€/mes que estima el Politecnico di Bari para todos los gastos." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "La Università di Bari ofrece listados básicos; conviene visitar el piso antes de comprometerse." },
           { label: "Residencias universitarias", score: 6.5, desc: "Plazas limitadas frente al número de estudiantes de la universidad." },
         ],
@@ -8891,7 +8891,7 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 5.0, desc: "Menos hablado que en el norte de Italia; el italiano básico ayuda mucho en el día a día." },
-          { label: "Actitud local", score: 8.5, desc: "Los baresi tienen fama, merecida, de ser extremadamente hospitalarios." },
+          { label: "Actitud local", score: 8.5, desc: "Los baresi tienen fama de hospitalarios y abiertos con quien llega de fuera." },
           { label: "Integración con locales", score: 7.0, desc: "Fácil hacer amigos locales gracias al carácter extrovertido del sur de Italia." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "El tamaño de la comunidad Erasmus y el carácter local hacen la integración relativamente rápida." },
         ],
@@ -8904,7 +8904,7 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 5.5, desc: "AMTAB (bus) es funcional pero menos extenso que en ciudades del norte de Italia." },
           { label: "Ciudad caminable", score: 6.5, desc: "Bari Vecchia y el centro se recorren bien a pie, aunque el tráfico es intenso en el ensanche." },
           { label: "Conexiones internacionales", score: 6.0, desc: "Aeropuerto de Bari-Palese con buena oferta de vuelos europeos low-cost." },
-          { label: "Escapadas de fin de semana", score: 7.0, desc: "Polignano a Mare, Alberobello y Matera, todas a menos de una hora." },
+          { label: "Escapadas de fin de semana", score: 7.0, desc: "Polignano a Mare, Alberobello y Matera se visitan en el día en tren regional (consulta horarios)." },
         ],
       },
       {
@@ -8913,9 +8913,9 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "El Lungomare y las playas de Pane e Pomodoro a un paseo del centro." },
-          { label: "Clima", score: 9.0, desc: "Mediterráneo con veranos largos y calurosos, de los climas más soleados de esta guía." },
+          { label: "Clima", score: 9.0, desc: "Mediterráneo, con veranos largos y calurosos e inviernos suaves." },
           { label: "Calidad de vida", score: 7.5, desc: "Ciudad tranquila y auténtica, con un ritmo de vida muy pausado." },
-          { label: "Autenticidad local", score: 9.5, desc: "Probablemente una de las ciudades más auténticas y menos turísticas de toda Italia." },
+          { label: "Autenticidad local", score: 9.5, desc: "Mucha vida local en Bari Vecchia, con tradiciones que siguen en la calle." },
           { label: "Estilo de vida", score: 9.0, desc: "Vivir el sur de Italia real, sin filtros turísticos, con orecchiette y mar como constante diaria." },
         ],
       },
@@ -8932,10 +8932,10 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 6.8,
-        summary: "Requiere algo más de atención que otras ciudades de esta guía, sobre todo en Bari Vecchia de noche.",
+        summary: "Gran ciudad portuaria: aplica las precauciones habituales, sobre todo de noche en calles poco transitadas.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 6.5, desc: "Criminalidad menor (carteristas, hurtos) más frecuente que en el norte de Italia." },
+          { label: "Seguridad general", score: 6.5, desc: "Gran ciudad: aplica las precauciones habituales, sobre todo de noche." },
           { label: "Seguridad nocturna", score: 6.5, desc: "Conviene evitar callejones poco transitados de Bari Vecchia de madrugada." },
           { label: "Ambiente de la ciudad", score: 7.5, desc: "Ciudad con mucha vida en la calle, lo que aporta cierta sensación de seguridad social." },
         ],
@@ -9039,17 +9039,17 @@ export const CITY_INSIGHTS = {
   },
   genova: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Piazza_de_Ferrari%2C_Genoa.jpg/1920px-Piazza_de_Ferrari%2C_Genoa.jpg",
-    tagline: "La Superba: el centro histórico medieval más grande de Europa, junto al mar Ligur.",
+    tagline: "La Superba: uno de los centros históricos medievales más extensos de Europa, junto al mar Ligur.",
     atmosphere: "Génova huele a focaccia recién horneada y basílico fresco en los caruggi, y suena al eco de pasos en callejones tan estrechos que apenas entra la luz, hasta que de pronto se abren al puerto y al Mediterráneo.",
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.3,
-        summary: "Más asequible que Milán o Turín, con acceso directo al mar y a la Riviera ligur.",
+        summary: "Habitación individual de 350–400€/mes según la Universidad de Génova, con el mar y la Riviera ligur al lado.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 6.5, desc: "Habitación desde 380–480€, por debajo de Milán o Turín." },
+          { label: "Alojamiento", score: 6.5, desc: "Habitación individual: 350–400€/mes; doble, 250–350€ más unos 50€ de gastos (Universidad de Génova)." },
           { label: "Comida y supermercados", score: 7.5, desc: "Mercados de pescado y producto ligur fresco a buen precio." },
-          { label: "Transporte", score: 7.5, desc: "Abono AMT con descuento estudiantil para bus, metro y los ascensores públicos de la ciudad." },
+          { label: "Transporte", score: 7.5, desc: "Abono mensual de AMT 48€ (Universidad de Génova); el anual para menores de 26 cuesta 220€ (AMT)." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Salir de bares y restaurantes es más barato que en las grandes ciudades del norte de Italia." },
         ],
       },
@@ -9059,7 +9059,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 6.5, desc: "Buena oferta de pisos compartidos gracias al tamaño de la ciudad." },
-          { label: "Precio", score: 6.5, desc: "380–480€ de media, moderado para una ciudad del norte de Italia." },
+          { label: "Precio", score: 6.5, desc: "350–400€/mes por una habitación individual (Universidad de Génova)." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "La Università di Genova ofrece listados básicos de alojamiento para exchange students." },
           { label: "Residencias universitarias", score: 6.0, desc: "Oferta limitada de residencias frente al número de estudiantes de la ciudad." },
         ],
@@ -9094,19 +9094,19 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 6.5, desc: "AMT cubre bus y un metro corto; los ascensores y funiculares públicos ayudan con las cuestas." },
           { label: "Ciudad caminable", score: 7.0, desc: "Los caruggi se recorren mejor a pie, aunque la ciudad tiene mucho desnivel." },
           { label: "Conexiones internacionales", score: 7.0, desc: "Aeropuerto de Génova con buena oferta de vuelos europeos." },
-          { label: "Escapadas de fin de semana", score: 9.0, desc: "Cinque Terre, Portofino y toda la Riviera ligur, todas a menos de una hora en tren." },
+          { label: "Escapadas de fin de semana", score: 9.0, desc: "Cinque Terre y la Riviera ligur en tren regional; a Portofino, tren a Santa Margherita Ligure y bus." },
         ],
       },
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.3,
-        summary: "El centro histórico medieval más grande de Europa, con el mar Ligur siempre presente.",
+        summary: "Uno de los centros históricos medievales más extensos de Europa, con el mar Ligur siempre presente.",
         color: "#3F7A7D",
         subcategories: [
-          { label: "Naturaleza", score: 8.0, desc: "El mar Ligur y las Cinque Terre, entre los paisajes costeros más bonitos de Europa, a un paso." },
+          { label: "Naturaleza", score: 8.0, desc: "El mar Ligur y las Cinque Terre, Patrimonio de la Humanidad, a un trayecto en tren." },
           { label: "Clima", score: 8.5, desc: "Mediterráneo suavizado por el mar, con inviernos templados y veranos agradables." },
-          { label: "Calidad de vida", score: 8.0, desc: "Ciudad segura, auténtica y con un ritmo de vida marinero muy particular." },
+          { label: "Calidad de vida", score: 8.0, desc: "Ciudad auténtica y con un ritmo de vida marinero muy particular." },
           { label: "Autenticidad local", score: 8.5, desc: "Menos masificada turísticamente que Florencia o Venecia, con identidad marinera muy propia." },
-          { label: "Estilo de vida", score: 8.5, desc: "Perderte por el centro histórico medieval más grande de Europa es una experiencia diaria única." },
+          { label: "Estilo de vida", score: 8.5, desc: "Perderte a diario por uno de los centros históricos medievales más extensos de Europa." },
         ],
       },
       {
@@ -9116,36 +9116,36 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Mercado laboral", score: 6.0, desc: "Economía centrada en el puerto, la industria naval y los servicios portuarios." },
           { label: "Prácticas", score: 6.5, desc: "La Università di Genova tiene tradición en ingeniería naval y náutica." },
-          { label: "Empresas relevantes", score: 6.5, desc: "Puerto de Génova, uno de los más grandes del Mediterráneo, con fuerte tejido logístico." },
+          { label: "Empresas relevantes", score: 6.5, desc: "El puerto de Génova, uno de los principales de Italia, con un fuerte tejido logístico." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "El sector naval y logístico ofrece prácticas específicas ligadas a la universidad." },
         ],
       },
       {
         id: "seguridad", label: "Seguridad", icon: "🛡️", score: 7.5,
-        summary: "Ciudad razonablemente segura, con el circuito estudiantil habitual tranquilo.",
+        summary: "Gran ciudad portuaria: aplica las precauciones habituales, sobre todo de noche en los caruggi.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 7.5, desc: "Criminalidad moderada-baja para el estándar de una ciudad portuaria italiana." },
+          { label: "Seguridad general", score: 7.5, desc: "Gran ciudad: aplica las precauciones habituales, sobre todo de noche." },
           { label: "Seguridad nocturna", score: 7.0, desc: "Los caruggi conviene conocerlos bien de noche; el resto del centro es tranquilo." },
-          { label: "Ambiente de la ciudad", score: 7.5, desc: "Ciudad auténtica y con mucha vida marinera, con buena sensación de seguridad general." },
+          { label: "Ambiente de la ciudad", score: 7.5, desc: "Ciudad con mucha vida en la calle y en el puerto." },
         ],
       },
     ],
   },
   perugia: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Panorama_perugia_da_viale_indipendenza_2023.jpg/1920px-Panorama_perugia_da_viale_indipendenza_2023.jpg",
-    tagline: "En el corazón de la Umbría, con una de las mayores comunidades internacionales de toda Italia.",
-    atmosphere: "Perugia huele a chocolate en las calles durante el Eurochocolate de octubre, y suena a jazz flotando entre las colinas de la Umbría cada julio, con el centro medieval encaramado sobre un valle verde interminable.",
+    tagline: "En el corazón de la Umbría, con una larga tradición de acogida de estudiantes internacionales.",
+    atmosphere: "Perugia huele a chocolate en las calles durante el Eurochocolate de otoño, y suena a jazz flotando entre las colinas de la Umbría cada julio, con el centro medieval encaramado sobre un valle verde interminable.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 7.8,
-        summary: "Asequible para el centro de Italia, con precios muy por debajo de Florencia o Roma.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 7.0,
+        summary: "La Universidad de Perugia calcula 700–800€ al mes con alojamiento, comidas, transporte local y gastos de estudio.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 7.0, desc: "Habitación desde 320–420€, muy por debajo de Florencia o Roma." },
+          { label: "Alojamiento", score: 7.0, desc: "Habitación individual: 300–500€/mes; doble, 250–350€; en ambos casos, más gastos (Universidad de Perugia)." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercados de la Umbría, con producto local muy asequible, hacen que comer bien sea barato." },
-          { label: "Transporte", score: 7.5, desc: "Las escalinatas mecánicas y el minimetrò cubren bien la ciudad a precio bajo." },
-          { label: "Ocio y gastos diarios", score: 8.0, desc: "Salir de bares y restaurantes es notablemente más barato que en la Toscana vecina." },
+          { label: "Transporte", score: 7.5, desc: "Billete de bus y minimetrò de 70 minutos: 1,50€; las escaleras mecánicas son gratuitas." },
+          { label: "Ocio y gastos diarios", score: 8.0, desc: "Ambiente de bares estudiantil, con opciones económicas en el centro." },
         ],
       },
       {
@@ -9153,43 +9153,43 @@ export const CITY_INSIGHTS = {
         summary: "Mercado accesible, con buena oferta gracias a la Università per Stranieri y su enfoque internacional.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 7.0, desc: "Buena oferta de pisos compartidos gracias a la enorme población estudiantil internacional." },
-          { label: "Precio", score: 7.0, desc: "320–420€ de media, razonable para el centro de Italia." },
+          { label: "Disponibilidad", score: 7.0, desc: "Buena oferta de pisos compartidos gracias a la gran población estudiantil." },
+          { label: "Precio", score: 7.0, desc: "300–500€/mes más gastos por una habitación individual (Universidad de Perugia)." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "La Università per Stranieri tiene experiencia gestionando alojamiento para extranjeros." },
           { label: "Residencias universitarias", score: 6.5, desc: "Buena oferta de residencias, con experiencia específica en estudiantes internacionales." },
         ],
       },
       {
         id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 8.3,
-        summary: "Una de las comunidades internacionales más grandes de Italia gracias a la Università per Stranieri.",
+        summary: "Comunidad internacional muy presente gracias a la Università per Stranieri y a los programas de intercambio.",
         color: "#8B5CF6",
         subcategories: [
           { label: "Comunidad Erasmus", score: 8.5, desc: "ESN Perugia organiza excursiones a Asís y por toda la Umbría constantemente." },
-          { label: "Ambiente internacional", score: 9.0, desc: "La Università per Stranieri está dedicada íntegramente a estudiantes internacionales." },
+          { label: "Ambiente internacional", score: 9.0, desc: "La Università per Stranieri, especializada en lengua y cultura italianas, atrae a estudiantes de todo el mundo." },
           { label: "Fiesta y vida nocturna", score: 7.5, desc: "El centro storico concentra bares con ambiente estudiantil e internacional constante." },
-          { label: "Eventos y actividades", score: 8.5, desc: "Umbria Jazz en julio y Eurochocolate en octubre, dos de los grandes festivales de Italia." },
+          { label: "Eventos y actividades", score: 8.5, desc: "Umbria Jazz en julio y Eurochocolate en otoño, los dos grandes festivales de la ciudad." },
         ],
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.3,
-        summary: "Probablemente la ciudad italiana con mayor experiencia recibiendo e integrando a estudiantes internacionales.",
+        summary: "Ciudad con larga experiencia recibiendo e integrando a estudiantes internacionales.",
         color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 6.5, desc: "Bien hablado en el entorno universitario, gracias a la larga tradición internacional de la ciudad." },
           { label: "Actitud local", score: 8.5, desc: "Los perugini están acostumbrados desde hace décadas a recibir estudiantes de todo el mundo." },
           { label: "Integración con locales", score: 7.5, desc: "El tamaño mediano de la ciudad facilita coincidir de forma habitual con la misma gente." },
-          { label: "Facilidad para hacer amigos", score: 8.5, desc: "La enorme comunidad internacional hace que hacer amigos de decenas de nacionalidades sea inmediato." },
+          { label: "Facilidad para hacer amigos", score: 8.5, desc: "La comunidad internacional facilita hacer amigos de muchas nacionalidades." },
         ],
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 6.5,
-        summary: "Escalinatas mecánicas únicas para salvar la colina, con Asís y el corazón de la Umbría a un paso.",
+        summary: "Escaleras mecánicas y minimetrò para salvar la colina, con Asís y el corazón de la Umbría a un paso.",
         color: "#F59E0B",
         subcategories: [
           { label: "Transporte público", score: 6.5, desc: "Las scale mobili (escalinatas mecánicas) y el minimetrò facilitan subir a la colina." },
           { label: "Ciudad caminable", score: 7.5, desc: "El centro histórico, en lo alto de la colina, se recorre bien a pie una vez arriba." },
-          { label: "Conexiones internacionales", score: 5.5, desc: "Aeropuerto de Perugia con oferta limitada; Roma, con más vuelos, a menos de dos horas." },
-          { label: "Escapadas de fin de semana", score: 7.5, desc: "Asís a 30 minutos, y toda la Umbría y la Toscana cercana a un paso en coche." },
+          { label: "Conexiones internacionales", score: 5.5, desc: "Aeropuerto de Perugia con oferta limitada; el bus directo a Roma-Fiumicino tarda unas 3 h 30." },
+          { label: "Escapadas de fin de semana", score: 7.5, desc: "Asís en tren regional, y toda la Umbría y la Toscana cercana a un paso en coche." },
         ],
       },
       {
@@ -9198,10 +9198,10 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.5, desc: "Las colinas de la Umbría, verdes durante todo el año, rodean la ciudad por completo." },
-          { label: "Clima", score: 7.5, desc: "Continental templado, con veranos agradables e inviernos suaves para el centro de Italia." },
-          { label: "Calidad de vida", score: 8.5, desc: "Ciudad segura, tranquila y con un ritmo de vida muy agradable." },
+          { label: "Clima", score: 7.5, desc: "Veranos calurosos e inviernos frescos, con algunas heladas." },
+          { label: "Calidad de vida", score: 8.5, desc: "Ciudad tranquila y con un ritmo de vida muy agradable." },
           { label: "Autenticidad local", score: 8.0, desc: "Tradición medieval genuina, con menos masificación turística que la Toscana vecina." },
-          { label: "Estilo de vida", score: 9.0, desc: "La combinación de colinas verdes, historia medieval y comunidad internacional es única en Italia." },
+          { label: "Estilo de vida", score: 9.0, desc: "Colinas verdes, historia medieval y una comunidad internacional muy presente." },
         ],
       },
       {
@@ -9216,12 +9216,12 @@ export const CITY_INSIGHTS = {
         ],
       },
       {
-        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.5,
-        summary: "Una de las ciudades más seguras de Italia, con la tranquilidad típica de una ciudad universitaria mediana.",
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
+        summary: "Ciudad universitaria mediana y tranquila; aplica las precauciones habituales.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja, entre las tasas más reducidas de las ciudades universitarias italianas." },
-          { label: "Seguridad nocturna", score: 8.0, desc: "El centro storico es seguro incluso de madrugada." },
+          { label: "Seguridad general", score: 8.0, desc: "Ciudad tranquila en general; aplica las precauciones habituales." },
+          { label: "Seguridad nocturna", score: 8.0, desc: "El centro storico tiene vida de noche; de madrugada, mejor por calles concurridas." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, tranquila y con fuerte ambiente universitario internacional." },
         ],
       },
@@ -9803,25 +9803,25 @@ export const CITY_INSIGHTS = {
     atmosphere: "Pisa huele a café espresso de pie en cualquier bar del centro, y suena a bicicletas cruzando el Arno al atardecer, con la Torre Inclinada asomando entre tejados cada vez que dobla una esquina.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 7.8,
-        summary: "Una de las ciudades universitarias más baratas de la Toscana, muy por debajo de Florencia.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 5.5,
+        summary: "La Universidad de Pisa calcula 800–850€ al mes con habitación en piso compartido y 1.000–1.100€ con piso entero.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 7.0, desc: "Habitación desde 300–400€, muy por debajo de Florencia." },
+          { label: "Alojamiento", score: 5.5, desc: "Habitación en piso compartido: 400–450€/mes con gastos incluidos, según la Universidad de Pisa." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercados locales y supermercados estándar hacen que comer bien sea barato." },
           { label: "Transporte", score: 8.5, desc: "La ciudad es completamente llana; la bici hace casi innecesario el transporte público." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Salir de bares fuera de la zona turística de la torre tiene precios muy razonables." },
         ],
       },
       {
-        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.0,
-        summary: "Mercado accesible gracias a la enorme proporción de estudiantes en una ciudad de tamaño reducido.",
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.0,
+        summary: "Mucha demanda estudiantil en una ciudad pequeña: conviene empezar a buscar con tiempo.",
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 7.0, desc: "Buena oferta de pisos compartidos gracias a su gran población estudiantil." },
-          { label: "Precio", score: 7.5, desc: "300–400€ de media, de los más bajos entre las ciudades universitarias de la Toscana." },
+          { label: "Precio", score: 5.5, desc: "400–450€/mes por una habitación con gastos y 600–700€ por un piso entero (Universidad de Pisa)." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "La Università di Pisa ofrece listados básicos de alojamiento para exchange students." },
-          { label: "Residencias universitarias", score: 6.5, desc: "Buena oferta de residencias, especialmente ligadas a la Scuola Normale Superiore." },
+          { label: "Residencias universitarias", score: 6.5, desc: "Las residencias públicas las gestiona el DSU Toscana; la Scuola Normale tiene las suyas para sus alumnos." },
         ],
       },
       {
@@ -9832,7 +9832,7 @@ export const CITY_INSIGHTS = {
           { label: "Comunidad Erasmus", score: 8.0, desc: "ESN Pisa organiza excursiones a Cinque Terre y la costa toscana constantemente." },
           { label: "Ambiente internacional", score: 8.0, desc: "La Scuola Normale Superiore atrae a estudiantes de excelencia de toda Europa." },
           { label: "Fiesta y vida nocturna", score: 8.0, desc: "El centro storico concentra bares con ambiente estudiantil entre semana." },
-          { label: "Eventos y actividades", score: 8.5, desc: "El Gioco del Ponte, batalla medieval sobre el Arno, es un evento único en junio." },
+          { label: "Eventos y actividades", score: 8.5, desc: "El Gioco del Ponte, desafío de tradición medieval sobre el Ponte di Mezzo, el último sábado de junio." },
         ],
       },
       {
@@ -9848,12 +9848,12 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.5,
-        summary: "Ciudad completamente llana y muy ciclable, con un aeropuerto que es uno de los grandes hubs low-cost de Italia.",
+        summary: "Ciudad llana y muy ciclable, con el aeropuerto internacional a pocos minutos del centro.",
         color: "#F59E0B",
         subcategories: [
           { label: "Transporte público", score: 7.0, desc: "El bus urbano cubre bien la ciudad, aunque la bici es lo más habitual." },
           { label: "Ciudad caminable/ciclable", score: 9.0, desc: "Completamente llana, ideal para moverse en bici en cualquier época del año." },
-          { label: "Conexiones internacionales", score: 8.0, desc: "El aeropuerto de Pisa es uno de los mayores hubs low-cost de Italia." },
+          { label: "Conexiones internacionales", score: 8.0, desc: "Aeropuerto internacional con muchas rutas de bajo coste, a unos 5 minutos del centro con el Pisa Mover." },
           { label: "Escapadas de fin de semana", score: 7.5, desc: "Florencia a menos de una hora, y Cinque Terre y Lucca, ambas cerca." },
         ],
       },
@@ -9864,9 +9864,9 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "El Arno cruza la ciudad, y la costa toscana está a menos de 30 minutos." },
           { label: "Clima", score: 8.0, desc: "Mediterráneo con veranos cálidos e inviernos suaves, típico de la Toscana." },
-          { label: "Calidad de vida", score: 8.5, desc: "Ciudad pequeña, segura y con un ritmo de vida universitario muy agradable." },
+          { label: "Calidad de vida", score: 8.5, desc: "Ciudad pequeña, tranquila y con un ritmo de vida universitario muy agradable." },
           { label: "Autenticidad local", score: 8.0, desc: "Fuera de la Piazza dei Miracoli, la ciudad mantiene un ambiente local muy genuino." },
-          { label: "Estilo de vida", score: 9.0, desc: "Vivir donde enseñó Galileo, con la Torre Inclinada como paisaje diario, es único en el mundo." },
+          { label: "Estilo de vida", score: 9.0, desc: "Vivir donde enseñó Galileo, con la Torre Inclinada como paisaje diario." },
         ],
       },
       {
@@ -9876,17 +9876,17 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Mercado laboral", score: 5.0, desc: "Economía centrada en la universidad, la investigación y el turismo; mercado local limitado." },
           { label: "Prácticas", score: 7.0, desc: "La Scuola Normale Superiore y el CNR ofrecen prácticas de investigación muy competitivas." },
-          { label: "Empresas relevantes", score: 5.5, desc: "Sin grandes sedes corporativas; economía centrada en universidad y turismo." },
+          { label: "Empresas relevantes", score: 5.5, desc: "Pocas grandes empresas; la economía gira en torno a la universidad, la investigación y el turismo." },
           { label: "Oportunidades para estudiantes", score: 6.5, desc: "La reputación científica de Pisa atrae prácticas de investigación de alto nivel." },
         ],
       },
       {
-        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.5,
-        summary: "Una de las ciudades más seguras de Italia, con la tranquilidad típica de una ciudad universitaria pequeña.",
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
+        summary: "Ciudad universitaria pequeña y tranquila; aplica las precauciones habituales.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja, entre las más reducidas de las ciudades universitarias italianas." },
-          { label: "Seguridad nocturna", score: 8.0, desc: "El centro storico es seguro incluso de madrugada." },
+          { label: "Seguridad general", score: 8.0, desc: "Ciudad tranquila en general; aplica las precauciones habituales." },
+          { label: "Seguridad nocturna", score: 8.0, desc: "El centro storico tiene vida de noche; de madrugada, mejor por calles concurridas." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, tranquila y con fuerte ambiente universitario." },
         ],
       },
@@ -9894,15 +9894,15 @@ export const CITY_INSIGHTS = {
   },
   siena: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Siena_Cattedrale_nuova_Vista_su_la_Piazza_del_Campo_2.jpg/1920px-Siena_Cattedrale_nuova_Vista_su_la_Piazza_del_Campo_2.jpg",
-    tagline: "Medieval intacta, con el Palio como el evento que define la identidad de toda la ciudad.",
+    tagline: "Un centro medieval Patrimonio de la Humanidad, con el Palio como el evento que define a toda la ciudad.",
     atmosphere: "Siena huele a panforte y café en la Piazza del Campo, y suena a tambores y banderas de las contradas ensayando por callejones estrechos en los días previos al Palio, la carrera que paraliza la ciudad dos veces al año.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 7.3,
-        summary: "Asequible para la Toscana, aunque algo más cara que otras ciudades universitarias italianas por su atractivo turístico.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 6.5,
+        summary: "La Universidad de Siena calcula al mes 250–800€ de alojamiento, 240–360€ de comida y 200–360€ de transporte, ocio y gastos personales.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 6.5, desc: "Habitación desde 350–450€, moderada para el estándar toscano." },
+          { label: "Alojamiento", score: 6.5, desc: "Habitación compartida: 300–450€/mes, según la Universidad de Siena." },
           { label: "Comida y supermercados", score: 7.5, desc: "Mercados locales y supermercados estándar mantienen el gasto razonable." },
           { label: "Transporte", score: 7.5, desc: "El centro histórico se recorre entero a pie; el bus apenas se necesita." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Salir de bares en la Piazza del Campo es algo más caro por el turismo, aunque razonable." },
@@ -9914,9 +9914,9 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 6.5, desc: "Oferta moderada, algo limitada por la regulación urbanística del centro histórico." },
-          { label: "Precio", score: 6.5, desc: "350–450€ de media, razonable para el estándar toscano." },
+          { label: "Precio", score: 6.5, desc: "300–450€/mes por una habitación compartida (Universidad de Siena)." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "La Università di Siena ofrece listados de alojamiento para exchange students." },
-          { label: "Residencias universitarias", score: 6.5, desc: "Buena oferta de residencias, con precios asequibles." },
+          { label: "Residencias universitarias", score: 6.5, desc: "Residencias del DSU Toscana por unos 300€/mes, con pocas plazas para estudiantes de intercambio." },
         ],
       },
       {
@@ -9927,7 +9927,7 @@ export const CITY_INSIGHTS = {
           { label: "Comunidad Erasmus", score: 7.5, desc: "ESN Siena organiza excursiones por la Toscana y eventos ligados al Palio." },
           { label: "Ambiente internacional", score: 7.0, desc: "La Università per Stranieri atrae a una comunidad internacional consolidada." },
           { label: "Fiesta y vida nocturna", score: 7.0, desc: "La vida nocturna es más tranquila que en ciudades grandes, concentrada en el centro." },
-          { label: "Eventos y actividades", score: 9.0, desc: "El Palio di Siena, dos veces al año, es de los eventos más singulares de toda Europa." },
+          { label: "Eventos y actividades", score: 9.0, desc: "El Palio di Siena, el 2 de julio y el 16 de agosto, paraliza la ciudad entera." },
         ],
       },
       {
@@ -9948,20 +9948,20 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Transporte público", score: 5.5, desc: "El bus local cubre la periferia; el centro histórico se recorre a pie." },
           { label: "Ciudad caminable", score: 7.5, desc: "El centro histórico, aunque con cuestas, se recorre bien a pie." },
-          { label: "Conexiones internacionales", score: 5.0, desc: "Sin aeropuerto propio; Florencia y Pisa, con más vuelos, a menos de una hora y media." },
+          { label: "Conexiones internacionales", score: 5.0, desc: "Sin aeropuerto propio: los vuelos comerciales salen de Florencia o Pisa." },
           { label: "Escapadas de fin de semana", score: 7.5, desc: "Florencia, San Gimignano y toda la Toscana rural, todas a un paso." },
         ],
       },
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 9.0,
-        summary: "Probablemente la ciudad medieval mejor conservada de Italia, con las colinas toscanas a las puertas.",
+        summary: "Un centro medieval Patrimonio de la Humanidad, con las colinas toscanas a las puertas.",
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.5, desc: "Las colinas de la Toscana, con viñedos y bosques, rodean la ciudad por completo." },
-          { label: "Clima", score: 7.5, desc: "Continental templado, con veranos cálidos e inviernos suaves." },
-          { label: "Calidad de vida", score: 9.0, desc: "Ciudad extremadamente segura, tranquila y de una belleza constante." },
+          { label: "Clima", score: 7.5, desc: "Veranos calurosos e inviernos frescos, con algunas heladas." },
+          { label: "Calidad de vida", score: 9.0, desc: "Ciudad pequeña, tranquila y de una belleza constante." },
           { label: "Autenticidad local", score: 9.5, desc: "Tradición de contradas centenaria, viva y genuina, no un espectáculo para turistas." },
-          { label: "Estilo de vida", score: 9.5, desc: "Vivir en una ciudad medieval intacta, con el Palio como ritmo vital, es único en el mundo." },
+          { label: "Estilo de vida", score: 9.5, desc: "Vivir en un centro medieval Patrimonio de la Humanidad, con el Palio marcando el ritmo de la ciudad." },
         ],
       },
       {
@@ -9972,16 +9972,16 @@ export const CITY_INSIGHTS = {
           { label: "Mercado laboral", score: 4.5, desc: "Economía centrada en turismo, vino y universidad; mercado local reducido." },
           { label: "Prácticas", score: 5.5, desc: "La Università di Siena tiene tradición en medicina, banca (Monte dei Paschi) y humanidades." },
           { label: "Empresas relevantes", score: 5.0, desc: "Sede histórica del Monte dei Paschi di Siena, uno de los bancos más antiguos del mundo." },
-          { label: "Oportunidades para estudiantes", score: 5.5, desc: "El sector turístico y vinícola ofrece trabajos a tiempo parcial con facilidad en temporada alta." },
+          { label: "Oportunidades para estudiantes", score: 5.5, desc: "El turismo y el sector del vino ofrecen trabajos a tiempo parcial en temporada alta." },
         ],
       },
       {
-        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.8,
-        summary: "Una de las ciudades más seguras de Italia, con la tranquilidad típica de una ciudad medieval pequeña.",
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.5,
+        summary: "Ciudad pequeña y tranquila; aplica las precauciones habituales.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja, entre las más reducidas de las ciudades universitarias italianas." },
-          { label: "Seguridad nocturna", score: 8.5, desc: "El centro histórico es seguro incluso de madrugada." },
+          { label: "Seguridad general", score: 8.5, desc: "Ciudad tranquila en general; aplica las precauciones habituales." },
+          { label: "Seguridad nocturna", score: 8.5, desc: "El centro histórico es tranquilo de noche; de madrugada, mejor por calles concurridas." },
           { label: "Ambiente de la ciudad", score: 9.0, desc: "Ciudad ordenada, tranquila y con fuerte identidad de contrada y comunidad." },
         ],
       },

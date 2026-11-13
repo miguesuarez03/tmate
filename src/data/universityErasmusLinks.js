@@ -360,8 +360,8 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Universidade do Minho": "https://www.uminho.pt/EN/education/support-for-students/international-relations-services/Incoming",
 
   // ── Bari ─────────────────────────────────────────────────────────────────
-  "Università degli Studi di Bari Aldo Moro": "https://www.uniba.it/en/students/international-students/admission",
-  "Politecnico di Bari": "http://www.en.poliba.it/international-students/studyingpoliba-international-students",
+  "Università degli Studi di Bari Aldo Moro": "https://www.uniba.it/it/internazionale/incoming-mobility/students",
+  "Politecnico di Bari": "https://www.poliba.it/en/studyngpoliba-intern-students",
 
   // ── Padua ────────────────────────────────────────────────────────────────
   "Università degli Studi di Padova": "https://www.unipd.it/en/erasmus-studio-semp",
@@ -371,7 +371,7 @@ export const UNIVERSITY_ERASMUS_LINKS = {
 
   // ── Perugia ──────────────────────────────────────────────────────────────
   "Università degli Studi di Perugia": "https://www.unipg.it/en/international-students/incoming-exchange-students",
-  "Università per Stranieri di Perugia": "https://www.unistrapg.it/en/international/international-students/extra-erasmus-mobility-incoming-students",
+  "Università per Stranieri di Perugia": "https://www.unistrapg.it/en/international-mobility/incoming-mobility",
 
   // ── Mánchester ───────────────────────────────────────────────────────────
   "University of Manchester": "https://www.manchester.ac.uk/study/international/study-abroad-exchange/contact/",

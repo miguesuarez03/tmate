@@ -377,4 +377,25 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "10–19°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso; en otoño puede haber acqua alta en las zonas bajas.", tags: ["Inicio Erasmus","Acqua alta","Muy animada"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "1–8°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y húmedo, con niebla; al final del invierno, el Carnaval.", tags: ["Frío húmedo","Niebla","Carnaval"] },
   ],
+  // Pisa: Pisa-San Giusto (OMM, normales 1991–2020).
+  pisa: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "8–19°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada, buena para pedalear junto al Arno y escaparse a la costa.", tags: ["Templada","Bici","Costa cerca"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "17–29°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos calurosos; a finales de junio, el Gioco del Ponte sobre el Arno.", tags: ["Calor","Gioco del Ponte","Playa"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "11–21°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y temperaturas todavía suaves.", tags: ["Inicio Erasmus","Suave","Muy animada"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "3–12°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y lluvioso, con alguna helada de madrugada.", tags: ["Suave","Lluvia","Fresco"] },
+  ],
+  // Siena: estación de Siena (Consorzio LaMMA, normales 1991–2020).
+  siena: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "8–18°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada, perfecta para recorrer las colinas toscanas.", tags: ["Templada","Colinas","Senderismo"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "17–29°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos calurosos con los dos Palios: el 2 de julio y el 16 de agosto.", tags: ["Calor","Palio","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "11–20°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y vendimia en el Chianti.", tags: ["Inicio Erasmus","Vendimia","Muy animada"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "3–10°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno fresco, con algunas heladas y una ciudad muy tranquila.", tags: ["Fresco","Heladas","Tranquilo"] },
+  ],
+  // Bari: Bari-Palese (OMM, normales 1991–2020).
+  bari: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "9–19°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada; en mayo, la Festa di San Nicola llena la ciudad.", tags: ["Templada","San Nicola","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "19–30°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos largos y calurosos, con las playas a un paseo del centro.", tags: ["Calor","Playa","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "13–22°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y el mar todavía templado.", tags: ["Inicio Erasmus","Mar templado","Muy animada"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "5–13°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave junto al Adriático, con días de viento.", tags: ["Suave","Viento","Tranquilo"] },
+  ],
 };
