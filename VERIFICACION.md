@@ -258,6 +258,68 @@ Criterio completo en `docs/scoring.md`. Esta sección recoge de dónde sale cada
   - Propuesta: Excelente 8,0 o más (8 ciudades); Bueno, de 7,0 a 7,9 (97); Regular, de 6,0 a 6,9 (31); Difícil, por debajo de 6,0 (14, todas en América).
   - Hoy, con los umbrales actuales: 0 Excelente, 105 Bueno, 40 Regular y 5 Difícil.
 
+## Ciudades nuevas de la cola Loyola (rama `tandas-loyola`)
+
+Cola: `docs/destinos-pendientes-loyola.md` de la rama `mi-universidad`, por orden de plazas y sin las ciudades de España (las decide Miguel). Cada ficha nace con la nota nueva (`docs/scoring.md`).
+
+**Proceso:**
+1. Un agente `contenido-verificacion` investiga cada ciudad en solo lectura y devuelve cada dato con su URL.
+2. Claude escribe la ficha, solo con datos que tengan fuente.
+3. Otro agente `contenido-verificacion` revisa la tanda.
+4. Claude aplica las correcciones.
+
+La revisión de Codex queda pendiente hasta el 17-11-2026.
+
+### Tanda Loyola A — 13-11-2026: Caserta, Covilhã, Cosenza, Módena, Trento
+
+**Notas y datos de la nota:**
+
+| Ciudad | Nota | Nivel | Puesto entre 155 | Te faltan tras la beca | Particularidades |
+|---|---|---|---|---|---|
+| Caserta | 6,3 | Buena | 126.º | 300 €/mes | Sin ESN. Académico 4,5: la Vanvitelli dejó THE en 2027, se usa su tramo de 2026 (1001–1200) |
+| Covilhã | 7,2 | Muy buena | 72.º | 250 €/mes | |
+| Cosenza | 6,9 | Buena | 108.º | 250 €/mes | |
+| Módena | 7,2 | Muy buena | 76.º | 350 €/mes | |
+| Trento | 7,4 | Muy buena | 55.º | 375 €/mes | |
+
+Ninguna tiene nota provisional.
+
+**Fuentes:**
+- Población: ISTAT a 31-12-2024 (censo permanente); para Covilhã, INE (Censos 2021, 46.455 habitantes).
+- Clima, normales 1991–2020:
+  - Caserta: Grazzanise (OMM 16253, a 22 km).
+  - Covilhã: Fundão (IPMA 698, a 16 km).
+  - Módena: Osservatorio Geofisico de UNIMORE.
+  - Trento y Cosenza no tienen bloque de clima. En Trento solo hay medias de Meteotrentino, no mínimas y máximas. En Cosenza no hay normales oficiales legibles: el portal del ISPRA está caído.
+- Fotos de Wikimedia Commons, todas con un original de 2592×1944 o más. He revisado a mano Caserta, Covilhã, Cosenza y Módena. La de Trento solo la he comprobado por metadatos, porque Commons devolvió un 429 al bajar la miniatura.
+- Coste: las cinco fichas son «Estimación MAbroad», sin `costSource`. Es decisión de Claude, pendiente de que Miguel la revise:
+  - Caserta, Covilhã y Cosenza no tienen ninguna cifra oficial de coste mensual.
+  - Trento: la universidad da una sola cifra, 700 €/mes (ficha de 2025/26); el rango 650–800 es editorial.
+  - Módena: UNIMORE da 7.000–8.000 € al año sin decir si son 10 o 12 meses; el rango 600–800 es editorial.
+
+**Correcciones del agente de verificación, todas aplicadas:**
+- Caserta:
+  - Añadida la sede de Capua.
+  - Fuera las cifras de 1,40 € y 25 €, porque el cuadro de tarifas de AIR Campania solo está en imagen. En su lugar se explica que el 1-10-2026 subieron los billetes sencillos y no los abonos.
+  - Comedor: ahora pone «servicio de restauración de ADISURC».
+- Covilhã:
+  - Comida social a «unos 2,50 €» (las dos páginas de la UBI dan 2,45 y 2,50 €).
+  - Fuera las «16 líneas» de bus, que no tienen fuente.
+- Módena: el abono de 24 € es del curso 2025/26.
+- Trento:
+  - Enlace Erasmus cambiado a la página nueva de UniTrento.
+  - «Más de 1.300 plazas» de residencia (L'Adige, 3-9-2026).
+  - Bus Verona Airlink a 7 €.
+  - Fuera el menú de 4,90 €, que es la tarifa de 2023-24.
+  - Fuera el teleférico de Sardagna del abono.
+
+**Dudosos que siguen pendientes:**
+- Covilhã: el tren a Lisboa es de «unas 3 h 30», pero la línea de la Beira Baixa reabrió el 20-09-2026 con horario nuevo.
+- Módena: el enlace Erasmus de UNIMORE no respondió al agente.
+- Cosenza: las 2.500 plazas de residencia salen de prensa, no de la web de la UNICAL.
+- Las normales de clima no las pudo volver a leer el agente de verificación, porque los PDF no se dejan leer.
+- Revisión de Codex: pendiente (sin cuota hasta el 17-11-2026).
+
 ## Pendiente de Miguel (Rosenheim, vive allí)
 
 Datos de Rosenheim que no se pueden comprobar con fuentes oficiales. Siguen como estaban hasta que Miguel los confirme o corrija (lo verificable ya se aplicó en la tanda 8):

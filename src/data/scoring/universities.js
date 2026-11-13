@@ -2684,5 +2684,50 @@ export const CITY_UNIVERSITIES = {
    "students": 9437,
    "intlPct": 3
   }
+ ],
+ "caserta": [
+  {
+   "name": "University of Campania Luigi Vanvitelli",
+   "edition": 2026,
+   "rank": "1001–1200",
+   "students": 33016,
+   "intlPct": 2
+  }
+ ],
+ "covilha": [
+  {
+   "name": "University of Beira Interior",
+   "edition": 2027,
+   "rank": "701–800",
+   "students": 8542,
+   "intlPct": 20
+  }
+ ],
+ "cosenza": [
+  {
+   "name": "University of Calabria",
+   "edition": 2027,
+   "rank": "651–700",
+   "students": 10724,
+   "intlPct": 6
+  }
+ ],
+ "modena": [
+  {
+   "name": "University of Modena and Reggio Emilia",
+   "edition": 2027,
+   "rank": "551–600",
+   "students": 18223,
+   "intlPct": 5
+  }
+ ],
+ "trento": [
+  {
+   "name": "University of Trento",
+   "edition": 2027,
+   "rank": "351–375",
+   "students": 14284,
+   "intlPct": 10
+  }
  ]
 };

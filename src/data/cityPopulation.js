@@ -164,4 +164,9 @@ export const CITY_POPULATION = {
   "santiago-de-chile": { population: 6257516, year: 2017, source: "INE Chile", area: "Gran Santiago (censo 2017)" },
   "bogota": { population: 8034649, year: 2024, source: "DANE" },
   "medellin": { population: 2529403, year: 2018, source: "DANE" },
+  "caserta": { population: 72793, year: 2024, source: "ISTAT" },
+  "covilha": { population: 46455, year: 2021, source: "INE (Censos 2021)" },
+  "cosenza": { population: 63240, year: 2024, source: "ISTAT" },
+  "modena": { population: 184074, year: 2024, source: "ISTAT" },
+  "trento": { population: 118640, year: 2024, source: "ISTAT (censo permanente)" },
 };

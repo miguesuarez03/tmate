@@ -564,6 +564,13 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   // ── Guadalajara ──────────────────────────────────────────────────────────
   "Universidad de Guadalajara (UDG)": "https://ci.cgai.udg.mx/en/estudiantes/externos",
   "ITESO – Universidad Jesuita de Guadalajara": "https://intercambios.iteso.mx/en/proceso-de-intercambio",
+
+  // ── Tandas Loyola A ─────────────────────────────────────
+  "Università degli Studi della Campania Luigi Vanvitelli": "https://www.unicampania.it/index.php/international/international-students",
+  "Universidade da Beira Interior": "https://www.ubi.pt/Entidade/incoming_erasmus_studies",
+  "Università della Calabria": "https://www.unical.it/internazionale/intenational-students/incoming-students-erasmus-plus/",
+  "Università degli Studi di Modena e Reggio Emilia": "https://international.unimore.it/erasmusincoming.html",
+  "Università degli Studi di Trento": "https://www.unitn.it/en/international/coming-unitrento/exchange-student",
 };
 
 /**

@@ -211,6 +211,12 @@ const THE_NAMES = {
   "santiago-de-chile": ["Pontificia Universidad Católica de Chile", "University of Chile", "Diego Portales University", "Adolfo Ibáñez University", "University of Santiago, Chile (USACH)"],
   "bogota": ["University of the Andes, Colombia", "Del Rosario University", "National University of Colombia", "Pontificia Universidad Javeriana", "Externado University of Colombia"],
   "medellin": ["University of Antioquia", "University of Medellín", "EAFIT University", "Universidad Pontificia Bolivariana (UPB)"],
+  // Tandas Loyola
+  "caserta": ["University of Campania Luigi Vanvitelli"],
+  "covilha": ["University of Beira Interior"],
+  "cosenza": ["University of Calabria"],
+  "modena": ["University of Modena and Reggio Emilia"],
+  "trento": ["University of Trento"],
 };
 
 /** Nombres con que ESN escribe cada ciudad (además del nombre de la ficha). */
@@ -231,6 +237,7 @@ const ESN_CITY_NAMES = {
   "berna": ["bern"], "estambul": ["istanbul"], "gotemburgo": ["gothenburg", "goteborg"], "turin": ["torino"],
   "milan": ["milano"], "roma": ["rome"], "bolonia": ["bologna"], "cluj-napoca": ["cluj"], "katowice": ["gliwice"],
   "nicosia": ["lefkosia"], "la-valeta": ["msida", "valletta"],
+  "cosenza": ["rende", "arcavacata di rende", "arcavacata"],
 };
 
 const norm = (s) => (s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ł/g, "l").toLowerCase().trim();

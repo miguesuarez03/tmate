@@ -454,4 +454,25 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "18–24°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y todavía tiempo de playa.", tags: ["Inicio Erasmus","Playa","Muy animada"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "10–16°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave junto al mar, aunque es la época de más lluvia.", tags: ["Suave","Lluvia","Tranquilo"] },
   ],
+  // Caserta: Grazzanise (OMM 16253, a unos 22 km, normales 1991–2020 de la OMM).
+  caserta: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "8–20°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave, perfecta para el parque de la Reggia.", tags: ["Suave","Reggia","Aire libre"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "18–30°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano caluroso y seco.", tags: ["Calor","Costa","Nápoles"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "12–23°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Nápoles"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "4–14°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave, con algo de lluvia.", tags: ["Suave","Lluvia","Tranquilo"] },
+  ],
+  // Covilhã: Fundão (IPMA, estación 698, a unos 16 km, normales 1991–2020). La parte alta de Covilhã es algo más fría.
+  covilha: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "8–19°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca en la sierra.", tags: ["Fresca","Sierra","Senderismo"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "15–31°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano caluroso y seco en el valle.", tags: ["Calor","Seco","Serra da Estrela"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "10–21°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Excursiones"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "3–13°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas; nieve en la sierra.", tags: ["Frío","Heladas","Nieve en la Torre"] },
+  ],
+  // Módena: Osservatorio Geofisico de UNIMORE (normales 1991–2020, estación urbana).
+  modena: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "11–19°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera agradable para recorrer el centro en bici.", tags: ["Templada","Bici","Aire libre"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "21–30°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano caluroso y húmedo.", tags: ["Calor","Húmedo","Fiestas"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "12–18°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado: arranque de curso y Welcome Weeks de ESN.", tags: ["Inicio Erasmus","Templado","ESN"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "3–8°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y con niebla.", tags: ["Frío","Niebla","Tortellini"] },
+  ],
 };
