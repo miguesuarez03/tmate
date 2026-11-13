@@ -1088,7 +1088,7 @@ export const CITIES = [
       { name: "San Lorenzo / Centro storico", vibe: "Histórico & turístico", price: "€€€" },
       { name: "Campo di Marte", vibe: "Residencial & asequible", price: "€€" },
     ],
-    tips: ["PassePartout o Amici degli Uffizi: entrada prioritaria y sin colas a los grandes museos", "Estudiantes: abono anual «Urbano capoluogo» de estudiante de Autolinee Toscane, 278,70€ (no hay mensual de estudiante; el mensual ordinario cuesta 42,20€)", "Aperitivo en Oltrarno: la cena más barata de la ciudad", "Escapadas de día a Siena, Pisa o Cinque Terre en tren regional"],
+    tips: ["PassePartout o Amici degli Uffizi: entrada prioritaria y sin colas a los grandes museos", "Estudiantes: abono anual «Urbano capoluogo» de estudiante (hasta 26 años) de Autolinee Toscane, 278,70€ (no hay mensual de estudiante; el mensual ordinario cuesta 42,20€)", "Aperitivo en Oltrarno: la cena más barata de la ciudad", "Escapadas de día a Siena, Pisa o Cinque Terre en tren regional"],
     experiences: ["erasmus", "internship"],
   },
   {
@@ -1851,8 +1851,8 @@ export const CITIES = [
     language: "Italiano",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Cattedrale_di_Palermo_Ap_2024.jpg/1920px-Cattedrale_di_Palermo_Ap_2024.jpg",
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Cattedrale_di_Palermo_Ap_2024.jpg/1920px-Cattedrale_di_Palermo_Ap_2024.jpg",
-    description: "Palermo mezcla siglos de herencia árabe-normanda, Patrimonio de la Humanidad, con mercados callejeros que huelen a especias y pescado fresco, y la playa de Mondello a unos 30–40 minutos en bus del centro. Tiene una identidad siciliana muy marcada, con mercados, comida callejera y vida en la calle.",
-    highlights: ["Ruta árabe-normanda, Patrimonio de la Humanidad por la UNESCO", "Mercados callejeros de Ballarò y Vucciria, el alma de la ciudad", "Playa de Mondello, a unos 30–40 minutos en bus del centro", "Comida callejera siciliana: arancine, panelle y pane con la milza"],
+    description: "Palermo mezcla siglos de herencia árabe-normanda, Patrimonio de la Humanidad, con mercados callejeros que huelen a especias y pescado fresco, y la playa de Mondello, unida al centro por la línea 806 de AMAT. Tiene una identidad siciliana muy marcada, con mercados, comida callejera y vida en la calle.",
+    highlights: ["Ruta árabe-normanda, Patrimonio de la Humanidad por la UNESCO", "Mercados callejeros de Ballarò y Vucciria, el alma de la ciudad", "Playa de Mondello, en la línea 806 de bus de AMAT", "Comida callejera siciliana: arancine, panelle y pane con la milza"],
     universities: ["Università degli Studi di Palermo"],
     neighborhoods: [
       { name: "Kalsa", vibe: "Histórico & bohemio", price: "€€" },

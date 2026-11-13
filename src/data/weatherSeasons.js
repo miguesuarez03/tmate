@@ -447,4 +447,11 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "9–19°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y vendimia en los alrededores.", tags: ["Inicio Erasmus","Vendimia","Muy animada"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–8°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas y niebla en la llanura.", tags: ["Frío","Heladas","Niebla"] },
   ],
+  // Palermo: Osservatorio Astronomico di Palermo «G.S. Vaiana», Palazzo Reale (INAF, normales 1991–2020).
+  palermo: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "13–20°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada, buena para recorrer el centro histórico y los mercados.", tags: ["Templada","Mercados","Aire libre"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "22–29°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos calurosos: la ciudad se va a Mondello y en julio celebra el Festino de Santa Rosalía.", tags: ["Calor","Mondello","Santa Rosalía"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "18–24°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y todavía tiempo de playa.", tags: ["Inicio Erasmus","Playa","Muy animada"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "10–16°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave junto al mar, aunque es la época de más lluvia.", tags: ["Suave","Lluvia","Tranquilo"] },
+  ],
 };

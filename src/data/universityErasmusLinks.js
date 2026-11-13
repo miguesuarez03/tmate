@@ -427,7 +427,7 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Università di Catania": "https://www.unict.it/en/international/erasmus-study-students",
 
   // ── Cagliari ─────────────────────────────────────────────────────────────
-  "Università degli Studi di Cagliari": "https://en.unica.it/en/international/studying-unica/enrolling-abroad",
+  "Università degli Studi di Cagliari": "https://en.unica.it/en/international/studying-unica/erasmus-unica",
 
   // ── Maastricht ───────────────────────────────────────────────────────────
   "Maastricht University": "https://www.maastrichtuniversity.nl/education/exchange",

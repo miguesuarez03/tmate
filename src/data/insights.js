@@ -4705,7 +4705,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Alojamiento", score: 5.0, desc: "La universidad calcula 450–700€ al mes de alojamiento; Campo di Marte o Novoli suelen ser más baratos que el centro." },
           { label: "Comida y supermercados", score: 7.0, desc: "Mercado de San Lorenzo y Sant'Ambrogio para comprar barato; la trattoria de barrio sigue siendo asequible fuera de zonas turísticas." },
-          { label: "Transporte", score: 7.5, desc: "Bus y tranvía: Autolinee Toscane no vende abono mensual de estudiante; el anual «Urbano capoluogo» de estudiante cuesta 278,70€ (221,20€ con ISEE) y el mensual ordinario, 42,20€. El centro se recorre andando en 20 minutos." },
+          { label: "Transporte", score: 7.5, desc: "Bus y tranvía: Autolinee Toscane no vende abono mensual de estudiante; el anual «Urbano capoluogo» de estudiante (hasta 26 años) cuesta 278,70€ (221,20€ con ISEE) y el mensual ordinario, 42,20€. El centro se recorre andando en 20 minutos." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Aperitivo con bebida + buffet desde 8–10€, la opción de cena más popular entre estudiantes." },
         ],
       },
@@ -7415,7 +7415,7 @@ export const CITY_INSIGHTS = {
         summary: "Requiere más precaución que otras ciudades de esta guía, sobre todo con carteristas en el centro histórico y el transporte.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 6.0, desc: "Criminalidad menor (carteristas, hurtos) más frecuente que en el norte de Italia." },
+          { label: "Seguridad general", score: 6.0, desc: "Criminalidad menor (carteristas, hurtos): cuidado con el bolso y el móvil en mercados, buses y zonas concurridas." },
           { label: "Seguridad nocturna", score: 6.0, desc: "Conviene evitar calles poco transitadas de madrugada y prestar atención a pertenencias en el centro." },
           { label: "Ambiente de la ciudad", score: 7.0, desc: "Ciudad caótica y ruidosa, pero con mucha vida en la calle que aporta cierta sensación de seguridad social." },
         ],
@@ -10645,7 +10645,7 @@ export const CITY_INSIGHTS = {
         summary: "Requiere más precaución que otras ciudades de esta guía, sobre todo con carteristas en zonas turísticas y de transporte.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 6.0, desc: "Criminalidad menor (carteristas, hurtos) más frecuente que en el norte de Italia." },
+          { label: "Seguridad general", score: 6.0, desc: "Criminalidad menor (carteristas, hurtos): cuidado con el bolso y el móvil en mercados, buses y zonas concurridas." },
           { label: "Seguridad nocturna", score: 5.5, desc: "Conviene evitar calles poco transitadas de madrugada y prestar atención a pertenencias en el centro." },
           { label: "Ambiente de la ciudad", score: 7.0, desc: "Ciudad caótica y ruidosa, pero con mucha vida en la calle que aporta cierta sensación de seguridad social." },
         ],
@@ -10709,7 +10709,7 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 7.0, desc: "Buses de CTM y metro ligero de ARST; al Poetto se llega en bus." },
           { label: "Ciudad caminable", score: 6.5, desc: "Castello y Marina se recorren bien a pie, aunque con cuestas notables hacia el Castello." },
           { label: "Conexiones internacionales", score: 5.5, desc: "Aeropuerto de Cagliari-Elmas con buena oferta de vuelos a Italia continental." },
-          { label: "Escapadas de fin de semana", score: 4.5, desc: "Al ser una isla, moverse a otras ciudades de Cerdeña requiere coche; el resto de Italia, avión o ferry." },
+          { label: "Escapadas de fin de semana", score: 4.5, desc: "Tren regional a Oristano, Sassari y Olbia; para la costa y el interior conviene coche. El resto de Italia, avión o ferry." },
         ],
       },
       {

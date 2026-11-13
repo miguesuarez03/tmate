@@ -48,8 +48,8 @@ export default function MethodologyNote({ compact = false }) {
             <li>
               <strong>Coste mensual:</strong> si lo publica una fuente oficial (normalmente la universidad), la ficha
               indica «Fuente: …»; si no, es una «Estimación MAbroad». La etiqueta «Asequible» solo aparece cuando el
-              coste viene de una fuente oficial; las demás ciudades la irán recuperando a medida que verifiquemos su
-              coste.
+              coste viene de una fuente oficial y el mínimo no pasa de 500 €/mes; el resto de ciudades podrá llevarla
+              cuando verifiquemos su coste, si cumple ese límite.
             </li>
             <li>
               Los precios de las fichas son aproximados y pueden quedarse desfasados. El tamaño de ciudad de City Match
