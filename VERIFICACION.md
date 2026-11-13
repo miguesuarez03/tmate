@@ -5,7 +5,7 @@ Claude Code hace cada tanda y Codex la revisa con `codex exec` en solo lectura (
 
 ## Dónde vamos
 
-**Siguiente tanda: 12** (Trieste, Parma, Bérgamo, Ferrara, Urbino). Rosenheim (tanda 8) espera los datos locales de Miguel: ver «Pendiente de Miguel» al final. (actualizar al cerrar cada tanda).
+**Siguiente tanda: 13** (Lecce, Catania, Palermo, Cagliari, Verona). Rosenheim (tanda 8) espera los datos locales de Miguel: ver «Pendiente de Miguel» al final. (actualizar al cerrar cada tanda).
 
 ## Qué se revisa en cada ciudad
 
@@ -53,7 +53,7 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 | 9 | Toulouse (`toulouse`), Burdeos (`burdeos`), Nantes (`nantes`), Montpellier (`montpellier`), Marsella (`marsella`) | ✅ 13-11-2026 |
 | 10 | Lille (`lille`), Estrasburgo (`estrasburgo`), Grenoble (`grenoble`), Rennes (`rennes`), Venecia (`venecia`) | ✅ 13-11-2026 |
 | 11 | Pisa (`pisa`), Siena (`siena`), Bari (`bari`), Génova (`genova`), Perugia (`perugia`) | ✅ 13-11-2026 |
-| 12 | Trieste (`trieste`), Parma (`parma`), Bérgamo (`bergamo`), Ferrara (`ferrara`), Urbino (`urbino`) | Pendiente |
+| 12 | Trieste (`trieste`), Parma (`parma`), Bérgamo (`bergamo`), Ferrara (`ferrara`), Urbino (`urbino`) | ✅ 13-11-2026 |
 | 13 | Lecce (`lecce`), Catania (`catania`), Palermo (`palermo`), Cagliari (`cagliari`), Verona (`verona`) | Pendiente |
 | 14 | Braga (`braga`), Atenas (`atenas`), Salónica (`salonica`), Breslavia (`wroclaw`), Gdansk (`gdansk`) | Pendiente |
 | 15 | Poznan (`poznan`), Katowice (`katowice`), Brno (`brno`), Bratislava (`bratislava`), Pécs (`pecs`) | Pendiente |
@@ -183,6 +183,15 @@ Orden: primero los destinos Erasmus+ más demandados por estudiantes españoles 
 - Clima con normales 1991–2020: Pisa-San Giusto y Bari-Palese (OMM), Siena (Consorzio LaMMA). **Génova y Perugia, pendientes de fuente**: a la serie OMM de Genova-Sestri le faltan las máximas de marzo y mayo y la mínima de mayo, y para Perugia no hay serie 1991–2020 accesible (el portal del ISPRA no responde y los datos abiertos de Umbría solo traen extremos de 1951–1967). No se añade bloque hasta tener los datos.
 - 3 enlaces Erasmus arreglados (Universidad de Bari, Politecnico di Bari, Università per Stranieri di Perugia). El de la Universidad de Siena rechaza peticiones automáticas (403): **comprobar en el navegador**.
 - Codex: auditoría completa; Claude la contrastó con las fuentes (rango de Siena con habitación compartida en vez de piso entero, Génova como estimación). En la revisión Codex corrigió el abono anual de AMT para menores de 26 (220 €, la guía de UniGe conserva la tarifa anterior), el acceso a Portofino (tren a Santa Margherita y bus), «habitación compartida» en Siena y los gastos de la habitación doble en Perugia.
+
+### Tanda 12 — 13-11-2026 (Trieste, Parma, Bérgamo, Ferrara, Urbino)
+- Fotos: las 5 corresponden a su ciudad y cumplen el mínimo (la de Urbino tiene el cielo algo apagado, pero vale).
+- Coste: Trieste 585–785 € (ficha 2025/26 de la Universidad de Trieste: habitación individual 250–400 €, comida 250–300 €, transporte 39,20 €, internet 26 € y teléfono 20 €). **Parma 550–800 €, Bérgamo 550–800 €, Ferrara 500–750 € y Urbino 450–700 € siguen como estimación editorial pendiente de fuente**: sus universidades no publican un presupuesto mensual actual (Parma solo tiene una ficha de 2018 y Bérgamo una guía de 2020). Quitados los alquileres sin fuente y las comparativas («por debajo de Bolonia», «de lo más barato de esta guía»). Nota de coste de Trieste 7,8→7,5.
+- Corregido lo falso o exagerado: Bérgamo con la Città Alta entera «Patrimonio de la Humanidad» (lo son las murallas venecianas, 2017), Ferrara «Patrimonio en su totalidad» (lo es la ciudad del Renacimiento con el delta del Po), Urbino «con casi tantos estudiantes como vecinos» y «sin coches en el centro» (zona de tráfico limitado), Palacio Ducal «cuna del Renacimiento», Venecia y Milán «a menos de una hora» de Ferrara y Parma, Liubliana «a menos de una hora» de Trieste, la bora «cierra calles enteras», «Parmalat con sede en Parma» (está en Collecchio), clima «mediterráneo» de Trieste (templado, suavizado por el mar).
+- Fuera récords sin fuente: «la plaza junto al mar más grande de Europa», SISSA «de los centros más prestigiosos del mundo», aeropuerto de Bérgamo «uno de los mayores hubs low-cost», «la mejor mesa de Italia», «Buskers Festival, uno de los mayores de Europa», «una de las ciudades más seguras de Italia» (las cinco).
+- Clima con normales 1991–2020: Trieste (OMM 16110) y Bergamo-Orio al Serio (OMM 16076). **Parma, Ferrara y Urbino, pendientes de fuente**: no tienen serie OMM y no he encontrado tablas 1991–2020 accesibles de ARPAE ni del observatorio de Urbino.
+- Enlaces Erasmus: los de Trieste, SISSA, Parma, Ferrara y Urbino responden. El de la Universidad de Bérgamo rechaza peticiones automáticas (403): **comprobar en el navegador**.
+- Codex: la auditoría se cortó por el límite de uso de Codex (13-11-2026, hasta las 9:20); Claude la hizo con fuentes oficiales. Revisión de Codex: pendiente.
 
 ## Pendiente de Miguel (Rosenheim, vive allí)
 

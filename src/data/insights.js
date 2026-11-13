@@ -9993,25 +9993,25 @@ export const CITY_INSIGHTS = {
     atmosphere: "Trieste huele a café tostado en el Caffè San Marco, con más de un siglo de historia literaria entre sus mesas, y suena a la bora golpeando la Piazza Unità d'Italia mientras el Adriático se extiende hasta el horizonte.",
     scores: [
       {
-        id: "coste", label: "Coste de vida", icon: "💰", score: 7.8,
-        summary: "Asequible para el norte de Italia, con una identidad centroeuropea que no encarece los precios.",
+        id: "coste", label: "Coste de vida", icon: "💰", score: 7.5,
+        summary: "La Universidad de Trieste calcula al mes 250–400€ por una habitación individual, 250–300€ de comida y 39,20€ de transporte.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 7.0, desc: "Habitación desde 320–420€, por debajo de otras ciudades del norte de Italia." },
+          { label: "Alojamiento", score: 7.0, desc: "Habitación individual: 250–400€/mes; estudio, 350–550€ (Universidad de Trieste)." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercados locales y la influencia centroeuropea en la gastronomía mantienen precios razonables." },
-          { label: "Transporte", score: 7.5, desc: "El bus urbano de Trieste Trasporti cubre bien la ciudad a precio bajo." },
-          { label: "Ocio y gastos diarios", score: 8.0, desc: "Salir de café en tradición vienesa o de bares es más barato que en Venecia o Milán." },
+          { label: "Transporte", score: 7.5, desc: "El bus urbano de Trieste Trasporti cubre la ciudad; la universidad calcula 39,20€ al mes de transporte." },
+          { label: "Ocio y gastos diarios", score: 8.0, desc: "Los cafés históricos y los bares del centro tienen precios de ciudad mediana." },
         ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.0,
-        summary: "Mercado accesible, con buena oferta gracias a la arquitectura del Borgo Teresiano.",
+        summary: "La universidad dice que sus estudiantes no suelen tener problemas para encontrar alojamiento.",
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 7.0, desc: "Buena oferta de pisos compartidos en edificios de estilo centroeuropeo." },
-          { label: "Precio", score: 7.5, desc: "320–420€ de media, entre los más bajos del norte de Italia." },
+          { label: "Precio", score: 7.5, desc: "250–400€/mes por una habitación individual (Universidad de Trieste)." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "La Università di Trieste ofrece listados básicos de alojamiento para exchange students." },
-          { label: "Residencias universitarias", score: 6.5, desc: "Buena oferta de residencias, incluyendo las ligadas a la SISSA." },
+          { label: "Residencias universitarias", score: 6.5, desc: "Residencias públicas del ARDiS, el ente regional del derecho al estudio." },
         ],
       },
       {
@@ -10020,9 +10020,9 @@ export const CITY_INSIGHTS = {
         color: "#8B5CF6",
         subcategories: [
           { label: "Comunidad Erasmus", score: 7.0, desc: "ESN Trieste organiza excursiones a Eslovenia y Croacia constantemente." },
-          { label: "Ambiente internacional", score: 7.5, desc: "La SISSA atrae a una comunidad científica internacional de primer nivel." },
+          { label: "Ambiente internacional", score: 7.5, desc: "La SISSA y los centros de investigación atraen a una comunidad científica internacional." },
           { label: "Fiesta y vida nocturna", score: 6.5, desc: "La vida nocturna es más discreta que en otras ciudades italianas, con buenos cafés históricos." },
-          { label: "Eventos y actividades", score: 7.5, desc: "La Barcolana, la regata de vela más grande del mundo, llena la ciudad cada octubre." },
+          { label: "Eventos y actividades", score: 7.5, desc: "La Barcolana, regata con récord Guinness de participación (2018), llena el golfo cada octubre." },
         ],
       },
       {
@@ -10043,20 +10043,20 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Transporte público", score: 7.0, desc: "Trieste Trasporti cubre bien la ciudad con bus a precio bajo." },
           { label: "Ciudad caminable", score: 7.5, desc: "El centro se recorre bien a pie, con la Piazza Unità d'Italia como eje central." },
-          { label: "Conexiones internacionales", score: 5.5, desc: "Aeropuerto con oferta limitada; Venecia y Liubliana, ambos aeropuertos alternativos, a menos de dos horas." },
-          { label: "Escapadas de fin de semana", score: 8.0, desc: "Eslovenia a 20 minutos, Croacia a un paso, y Venecia a menos de dos horas." },
+          { label: "Conexiones internacionales", score: 5.5, desc: "Aeropuerto con oferta limitada; los de Venecia y Liubliana son las alternativas con más vuelos." },
+          { label: "Escapadas de fin de semana", score: 8.0, desc: "Eslovenia a 20 minutos, la Istria croata cerca y Venecia a unas dos horas en tren." },
         ],
       },
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.5,
-        summary: "Una identidad centroeuropea única en Italia, con el mar Adriático y los Balcanes a las puertas.",
+        summary: "Una identidad centroeuropea muy marcada, con el mar Adriático y los Balcanes a las puertas.",
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.0, desc: "El Adriático y el Carso triestino, con sus rutas de senderismo, a un paso del centro." },
-          { label: "Clima", score: 7.0, desc: "Mediterráneo marcado por la bora, un viento fortísimo característico de la ciudad." },
-          { label: "Calidad de vida", score: 8.5, desc: "Ciudad segura, tranquila y con una calidad de vida muy alta para su tamaño." },
-          { label: "Autenticidad local", score: 9.0, desc: "Identidad única en Italia, mezcla de tradición italiana, austrohúngara y eslava." },
-          { label: "Estilo de vida", score: 9.0, desc: "Vivir en la única ciudad italiana con alma centroeuropea, junto al mar, es una experiencia irrepetible." },
+          { label: "Clima", score: 7.0, desc: "Templado y suavizado por el Adriático, marcado por la bora, un viento muy fuerte del noreste." },
+          { label: "Calidad de vida", score: 8.5, desc: "Ciudad tranquila, junto al mar y con muy buena calidad de vida para su tamaño." },
+          { label: "Autenticidad local", score: 9.0, desc: "Identidad muy propia, mezcla de tradición italiana, austrohúngara y eslava." },
+          { label: "Estilo de vida", score: 9.0, desc: "Vivir en una ciudad italiana con alma centroeuropea, junto al mar." },
         ],
       },
       {
@@ -10065,18 +10065,18 @@ export const CITY_INSIGHTS = {
         color: "#8B5CF6",
         subcategories: [
           { label: "Mercado laboral", score: 6.0, desc: "Economía con peso en seguros (Generali), ciencia y logística portuaria." },
-          { label: "Prácticas", score: 7.0, desc: "La SISSA, referente mundial en física teórica, ofrece prácticas de investigación muy competitivas." },
+          { label: "Prácticas", score: 7.0, desc: "La SISSA y los centros de investigación de la ciudad ofrecen prácticas de investigación competitivas." },
           { label: "Empresas relevantes", score: 6.0, desc: "Sede histórica de Assicurazioni Generali, una de las mayores aseguradoras de Europa." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "El sector científico y de seguros ofrece prácticas específicas de buen nivel." },
         ],
       },
       {
-        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.3,
-        summary: "Una de las ciudades más seguras de Italia, con un ambiente tranquilo y ordenado.",
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
+        summary: "Ciudad tranquila y ordenada; aplica las precauciones habituales.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 8.5, desc: "Criminalidad muy baja, entre las más reducidas de las ciudades italianas." },
-          { label: "Seguridad nocturna", score: 8.0, desc: "El centro y la Piazza Unità d'Italia son seguros incluso de madrugada." },
+          { label: "Seguridad general", score: 8.0, desc: "Ciudad tranquila en general; aplica las precauciones habituales." },
+          { label: "Seguridad nocturna", score: 8.0, desc: "El centro tiene vida de noche; de madrugada, mejor por calles concurridas." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, tranquila y con fuerte identidad cultural." },
         ],
       },
@@ -10089,13 +10089,13 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.3,
-        summary: "Asequible para la Emilia-Romaña, con precios notablemente por debajo de Bolonia.",
+        summary: "Coste de una ciudad mediana del norte de Italia; el alojamiento es el gasto principal.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 6.5, desc: "Habitación desde 350–450€, por debajo de Bolonia o Milán." },
-          { label: "Comida y supermercados", score: 8.5, desc: "Con la mejor gastronomía de Italia a precio local, comer bien aquí es excepcionalmente barato." },
+          { label: "Alojamiento", score: 6.5, desc: "La habitación en piso compartido es la opción más habitual; compara anuncios antes de firmar." },
+          { label: "Comida y supermercados", score: 8.5, desc: "Mercados y producto local de primera; cocinar en casa mantiene el gasto bajo." },
           { label: "Transporte", score: 7.5, desc: "El bus urbano de TEP cubre bien la ciudad a precio razonable." },
-          { label: "Ocio y gastos diarios", score: 7.5, desc: "Salir de bares y restaurantes es más barato que en Bolonia, con calidad gastronómica superior." },
+          { label: "Ocio y gastos diarios", score: 7.5, desc: "Bares y trattorias con buena relación calidad-precio fuera de las zonas más turísticas." },
         ],
       },
       {
@@ -10104,7 +10104,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 6.5, desc: "Buena oferta de pisos compartidos gracias a su gran población estudiantil." },
-          { label: "Precio", score: 7.0, desc: "350–450€ de media, razonable para la región de la Emilia-Romaña." },
+          { label: "Precio", score: 7.0, desc: "Alquiler moderado para el norte de Italia; la universidad no publica cifras actualizadas." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "La Università di Parma ofrece listados básicos de alojamiento para exchange students." },
           { label: "Residencias universitarias", score: 6.0, desc: "Buena oferta de residencias, aunque conviene solicitar con antelación." },
         ],
@@ -10133,23 +10133,23 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.0,
-        summary: "Buena posición en la Emilia-Romaña, con Bolonia y Milán a menos de una hora.",
+        summary: "Buena posición en la Emilia-Romaña, con Bolonia a menos de una hora en tren.",
         color: "#F59E0B",
         subcategories: [
           { label: "Transporte público", score: 7.0, desc: "TEP cubre bien la ciudad con bus a precio razonable." },
           { label: "Ciudad caminable/ciclable", score: 8.0, desc: "Ciudad llana y compacta, ideal para moverse en bici." },
-          { label: "Conexiones internacionales", score: 5.5, desc: "Sin aeropuerto propio relevante; Bolonia y Milán, con más vuelos, a menos de una hora." },
-          { label: "Escapadas de fin de semana", score: 8.0, desc: "Bolonia, Milán y Módena, todas a menos de una hora en tren." },
+          { label: "Conexiones internacionales", score: 5.5, desc: "El aeropuerto de Parma tiene muy pocas rutas; se vuela sobre todo desde Bolonia o Milán." },
+          { label: "Escapadas de fin de semana", score: 8.0, desc: "Módena y Bolonia a menos de una hora en tren; Milán, a algo más de una hora." },
         ],
       },
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.3,
-        summary: "La mejor mesa de Italia en una ciudad elegante y a tamaño humano.",
+        summary: "Una de las grandes cocinas de Italia en una ciudad elegante y a tamaño humano.",
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 7.0, desc: "Los Apeninos y el Parque Ducale, en pleno centro, ofrecen naturaleza accesible." },
           { label: "Clima", score: 7.0, desc: "Continental templado, con veranos cálidos e inviernos fríos con niebla ocasional." },
-          { label: "Calidad de vida", score: 9.0, desc: "Ciudad segura, elegante y con una de las mejores gastronomías del mundo al alcance diario." },
+          { label: "Calidad de vida", score: 9.0, desc: "Ciudad tranquila, elegante y con una gastronomía excelente al alcance diario." },
           { label: "Autenticidad local", score: 8.5, desc: "Tradición gastronómica genuina, sin la masificación turística de otras ciudades italianas." },
           { label: "Estilo de vida", score: 9.0, desc: "Vivir en la Ciudad Creativa de la Gastronomía de la UNESCO es un privilegio culinario diario." },
         ],
@@ -10161,17 +10161,17 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Mercado laboral", score: 6.5, desc: "Fuerte presencia de la industria agroalimentaria, la llamada 'Food Valley' italiana." },
           { label: "Prácticas", score: 6.5, desc: "La Università di Parma tiene fuerte tradición en agroalimentación y veterinaria." },
-          { label: "Empresas relevantes", score: 7.0, desc: "Sede de Barilla y Parmalat, dos de los gigantes agroalimentarios de Italia." },
+          { label: "Empresas relevantes", score: 7.0, desc: "Barilla tiene su sede en Parma y Parmalat, en Collecchio, a las afueras." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "El sector agroalimentario ofrece prácticas específicas muy valoradas en la región." },
         ],
       },
       {
-        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.3,
-        summary: "Una de las ciudades más seguras de Italia, con un ambiente elegante y tranquilo.",
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
+        summary: "Ciudad tranquila y elegante; aplica las precauciones habituales.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 8.5, desc: "Criminalidad muy baja, entre las más reducidas de las ciudades universitarias italianas." },
-          { label: "Seguridad nocturna", score: 8.0, desc: "El centro y Oltretorrente son seguros incluso de madrugada." },
+          { label: "Seguridad general", score: 8.0, desc: "Ciudad tranquila en general; aplica las precauciones habituales." },
+          { label: "Seguridad nocturna", score: 8.0, desc: "El centro y Oltretorrente tienen vida de noche; de madrugada, mejor por calles concurridas." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, elegante y con fuerte identidad gastronómica." },
         ],
       },
@@ -10179,18 +10179,18 @@ export const CITY_INSIGHTS = {
   },
   bergamo: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/The_Upper_City_of_Bergamo._View_from_Via_al_Castello._Italy.jpg/1920px-The_Upper_City_of_Bergamo._View_from_Via_al_Castello._Italy.jpg",
-    tagline: "Un casco medieval en lo alto de una colina, con Milán a menos de una hora sin pagar sus precios.",
+    tagline: "Un casco medieval en lo alto de una colina, con Milán a menos de una hora en tren.",
     atmosphere: "Bérgamo huele a polenta y casoncelli en las trattorias de la Città Alta, y suena al traqueteo del funicular subiendo entre murallas venecianas mientras la Città Bassa moderna se extiende a los pies de la colina.",
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.3,
-        summary: "Notablemente más barata que Milán, a la que está muy bien conectada.",
+        summary: "Ciudad mediana a menos de una hora de Milán en tren; el alojamiento es el gasto principal.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 6.5, desc: "Habitación desde 350–450€, muy por debajo de Milán." },
+          { label: "Alojamiento", score: 6.5, desc: "La habitación en piso compartido, sobre todo en la Città Bassa, es la opción más habitual." },
           { label: "Comida y supermercados", score: 7.5, desc: "Mercados locales y gastronomía lombarda a precio asequible." },
           { label: "Transporte", score: 7.5, desc: "El funicular y el bus urbano de ATB cubren bien la ciudad a precio razonable." },
-          { label: "Ocio y gastos diarios", score: 7.5, desc: "Salir de bares en la Città Alta es más barato que en Milán, con mejor ambiente." },
+          { label: "Ocio y gastos diarios", score: 7.5, desc: "Bares y trattorias en la Città Alta y la Città Bassa, con opciones para estudiantes." },
         ],
       },
       {
@@ -10199,7 +10199,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 6.5, desc: "Buena oferta de pisos compartidos, especialmente en la Città Bassa." },
-          { label: "Precio", score: 7.0, desc: "350–450€ de media, razonable para la cercanía con Milán." },
+          { label: "Precio", score: 7.0, desc: "Alquiler moderado para Lombardía; la universidad no publica cifras actualizadas." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "La Università degli Studi di Bergamo ofrece listados básicos de alojamiento." },
           { label: "Residencias universitarias", score: 6.0, desc: "Oferta limitada de residencias frente al número de estudiantes de la ciudad." },
         ],
@@ -10228,25 +10228,25 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.5,
-        summary: "Aeropuerto propio con vuelos a toda Europa y Milán a menos de una hora en tren.",
+        summary: "Aeropuerto propio con muchas rutas europeas y Milán a menos de una hora en tren.",
         color: "#F59E0B",
         subcategories: [
           { label: "Transporte público", score: 7.0, desc: "ATB cubre bien la ciudad con bus y el funicular histórico a la Città Alta." },
           { label: "Ciudad caminable", score: 7.5, desc: "La Città Alta se recorre bien a pie, aunque con cuestas notables." },
-          { label: "Conexiones internacionales", score: 8.5, desc: "El aeropuerto de Bérgamo es uno de los mayores hubs low-cost de Italia." },
+          { label: "Conexiones internacionales", score: 8.5, desc: "Orio al Serio es uno de los aeropuertos con más pasajeros de Italia, con muchas rutas de bajo coste." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Milán a menos de una hora, y los lagos de Como e Iseo, ambos muy cerca." },
         ],
       },
       {
         id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.3,
-        summary: "Dos ciudades en una, con lagos alpinos a un paso y Milán sin pagar sus precios.",
+        summary: "Dos ciudades en una, con los lagos prealpinos a un paso y Milán a menos de una hora.",
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 8.0, desc: "Los lagos de Como e Iseo, y los Prealpes orobici, a menos de una hora." },
           { label: "Clima", score: 6.5, desc: "Continental, con inviernos fríos y veranos cálidos, típico del norte de Italia." },
-          { label: "Calidad de vida", score: 8.5, desc: "Ciudad segura, pintoresca y con excelente calidad de vida para su tamaño." },
+          { label: "Calidad de vida", score: 8.5, desc: "Ciudad tranquila, pintoresca y con muy buena calidad de vida para su tamaño." },
           { label: "Autenticidad local", score: 8.0, desc: "La Città Alta mantiene un ambiente medieval genuino, menos masificado que otras ciudades italianas." },
-          { label: "Estilo de vida", score: 8.5, desc: "Vivir entre dos ciudades superpuestas, con Milán y los lagos a un paso, es un equilibrio único." },
+          { label: "Estilo de vida", score: 8.5, desc: "Vivir entre dos ciudades superpuestas, con Milán y los lagos a un paso." },
         ],
       },
       {
@@ -10261,12 +10261,12 @@ export const CITY_INSIGHTS = {
         ],
       },
       {
-        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.3,
-        summary: "Una de las ciudades más seguras de Italia, con un ambiente tranquilo y ordenado.",
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
+        summary: "Ciudad tranquila y ordenada; aplica las precauciones habituales.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 8.5, desc: "Criminalidad muy baja, entre las más reducidas de las ciudades del norte de Italia." },
-          { label: "Seguridad nocturna", score: 8.0, desc: "La Città Alta y la Città Bassa son seguras incluso de madrugada." },
+          { label: "Seguridad general", score: 8.0, desc: "Ciudad tranquila en general; aplica las precauciones habituales." },
+          { label: "Seguridad nocturna", score: 8.0, desc: "La Città Alta y la Città Bassa tienen vida de noche; de madrugada, mejor por calles concurridas." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, pintoresca y con fuerte identidad local." },
         ],
       },
@@ -10274,29 +10274,29 @@ export const CITY_INSIGHTS = {
   },
   ferrara: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Castello_dall%27alto.jpg/1920px-Castello_dall%27alto.jpg",
-    tagline: "Patrimonio de la Humanidad entero, tan llana que se recorre completa en bicicleta.",
+    tagline: "Ciudad del Renacimiento Patrimonio de la Humanidad, tan llana que se recorre en bicicleta.",
     atmosphere: "Ferrara huele a cappellacci di zucca recién servidos junto al foso del Castello Estense, y suena al timbre constante de cientos de bicicletas cruzando calles renacentistas perfectamente rectas, diseñadas hace más de 500 años.",
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.8,
-        summary: "Una de las ciudades más baratas de la Emilia-Romaña, por debajo de Bolonia y Parma.",
+        summary: "Ciudad mediana y llana: sin abono de transporte, el gasto principal es el alojamiento.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 7.0, desc: "Habitación desde 300–400€, de las más bajas de la región." },
+          { label: "Alojamiento", score: 7.0, desc: "La habitación en piso compartido es la opción más habitual; la universidad no publica cifras de alquiler." },
           { label: "Comida y supermercados", score: 8.0, desc: "Mercados locales y gastronomía de la Emilia-Romaña a precio muy asequible." },
           { label: "Transporte", score: 8.5, desc: "La ciudad es completamente llana; la bici hace casi innecesario el transporte público." },
-          { label: "Ocio y gastos diarios", score: 7.5, desc: "Salir de bares es notablemente más barato que en Bolonia." },
+          { label: "Ocio y gastos diarios", score: 7.5, desc: "Bares del centro histórico con ambiente estudiantil y opciones económicas." },
         ],
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.3,
-        summary: "Mercado muy accesible, con precios entre los más bajos de las ciudades universitarias italianas.",
+        summary: "Mercado de una ciudad mediana universitaria: conviene buscar con tiempo antes del inicio de curso.",
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 7.0, desc: "Buena oferta de pisos compartidos gracias al tamaño manejable de la ciudad." },
-          { label: "Precio", score: 7.5, desc: "300–400€ de media, de los alquileres más bajos de la Emilia-Romaña." },
+          { label: "Precio", score: 7.5, desc: "Alquiler moderado; compara anuncios antes de firmar." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "La Università di Ferrara ofrece listados básicos de alojamiento para exchange students." },
-          { label: "Residencias universitarias", score: 7.0, desc: "Buena oferta de residencias a precios muy bajos." },
+          { label: "Residencias universitarias", score: 7.0, desc: "Residencias de ER.GO, el ente regional del derecho al estudio, con plazas limitadas." },
         ],
       },
       {
@@ -10307,7 +10307,7 @@ export const CITY_INSIGHTS = {
           { label: "Comunidad Erasmus", score: 7.5, desc: "ESN Ferrara organiza rutas en bici y excursiones a Bolonia y Venecia constantemente." },
           { label: "Ambiente internacional", score: 7.0, desc: "La Università di Ferrara tiene una comunidad internacional consolidada aunque moderada." },
           { label: "Fiesta y vida nocturna", score: 7.0, desc: "El centro storico concentra bares con ambiente estudiantil tranquilo." },
-          { label: "Eventos y actividades", score: 8.0, desc: "El Ferrara Buskers Festival, dedicado a músicos callejeros, es uno de los mayores de Europa." },
+          { label: "Eventos y actividades", score: 8.0, desc: "El Ferrara Buskers Festival llena el centro de músicos callejeros a finales de agosto." },
         ],
       },
       {
@@ -10323,13 +10323,13 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.0,
-        summary: "Ciudad completamente llana ideal para la bici, con Bolonia y Venecia a menos de una hora.",
+        summary: "Ciudad llana ideal para la bici, con Bolonia a unos 30 minutos en tren.",
         color: "#F59E0B",
         subcategories: [
           { label: "Transporte público", score: 6.0, desc: "El bus urbano existe, pero la bici es el medio de transporte por defecto." },
-          { label: "Ciudad caminable/ciclable", score: 9.5, desc: "Completamente llana y con excelente infraestructura ciclista, de las mejores de Italia." },
+          { label: "Ciudad caminable/ciclable", score: 9.5, desc: "Llana y con muchos carriles bici: la bici es el medio de transporte habitual." },
           { label: "Conexiones internacionales", score: 5.5, desc: "Sin aeropuerto propio; Bolonia, con más vuelos, a menos de una hora." },
-          { label: "Escapadas de fin de semana", score: 8.0, desc: "Bolonia y Venecia, ambas a menos de una hora en tren." },
+          { label: "Escapadas de fin de semana", score: 8.0, desc: "Bolonia a unos 30 minutos en tren y Venecia a algo más de una hora." },
         ],
       },
       {
@@ -10339,9 +10339,9 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Naturaleza", score: 6.5, desc: "El río Po y las Valli di Comacchio, humedales protegidos, a poca distancia." },
           { label: "Clima", score: 6.5, desc: "Continental, con inviernos fríos y neblinosos y veranos cálidos." },
-          { label: "Calidad de vida", score: 9.0, desc: "Ciudad extremadamente segura, tranquila y con un urbanismo renacentista único." },
+          { label: "Calidad de vida", score: 9.0, desc: "Ciudad tranquila y con un urbanismo renacentista muy bien conservado." },
           { label: "Autenticidad local", score: 8.5, desc: "Menos masificada turísticamente que otras ciudades del Véneto o la Toscana, con identidad propia." },
-          { label: "Estilo de vida", score: 9.0, desc: "Vivir en la primera 'ciudad ideal' renacentista de Europa, recorriéndola en bici, es único." },
+          { label: "Estilo de vida", score: 9.0, desc: "Vivir en una ciudad renacentista Patrimonio de la Humanidad, recorriéndola en bici." },
         ],
       },
       {
@@ -10351,17 +10351,17 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Mercado laboral", score: 5.0, desc: "Economía centrada en agricultura, universidad y servicios locales." },
           { label: "Prácticas", score: 5.5, desc: "La Università di Ferrara tiene buena reputación en medicina y ciencias naturales." },
-          { label: "Empresas relevantes", score: 5.5, desc: "Sin grandes sedes corporativas; economía regional ligada a la agricultura de la llanura padana." },
+          { label: "Empresas relevantes", score: 5.5, desc: "Pocas grandes empresas; economía regional ligada a la agricultura de la llanura padana." },
           { label: "Oportunidades para estudiantes", score: 6.0, desc: "Bolonia, a menos de una hora, multiplica las oportunidades de prácticas disponibles." },
         ],
       },
       {
-        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.5,
-        summary: "Una de las ciudades más seguras de Italia, con la tranquilidad típica de una ciudad universitaria pequeña.",
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
+        summary: "Ciudad universitaria tranquila; aplica las precauciones habituales.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 9.0, desc: "Criminalidad muy baja, entre las más reducidas de las ciudades universitarias italianas." },
-          { label: "Seguridad nocturna", score: 8.5, desc: "El centro histórico es seguro incluso de madrugada." },
+          { label: "Seguridad general", score: 8.0, desc: "Ciudad tranquila en general; aplica las precauciones habituales." },
+          { label: "Seguridad nocturna", score: 8.5, desc: "El centro tiene vida de noche; de madrugada, mejor por calles concurridas." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ciudad ordenada, tranquila y con fuerte identidad renacentista." },
         ],
       },
@@ -10370,17 +10370,17 @@ export const CITY_INSIGHTS = {
   urbino: {
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Urbino_dalla_Strada_Rossa.jpg/1920px-Urbino_dalla_Strada_Rossa.jpg",
     tagline: "Un pueblo renacentista entero convertido en campus universitario.",
-    atmosphere: "Urbino huele a piadina recién hecha en las callejuelas empinadas del centro, y suena al eco de pasos entre muros renacentistas del Palacio Ducal, en un pueblo tan pequeño que la universidad y la ciudad son, literalmente, la misma cosa.",
+    atmosphere: "Urbino huele a piadina recién hecha en las callejuelas empinadas del centro, y suena al eco de pasos entre muros renacentistas del Palacio Ducal, en una ciudad tan pequeña que la vida universitaria lo llena todo.",
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.3,
-        summary: "Una de las ciudades más baratas de esta guía, propia de un pueblo pequeño de las Marcas.",
+        summary: "Coste de una ciudad pequeña de las Marcas; el alojamiento es el gasto principal.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 7.5, desc: "Habitación desde 250–350€, de las más bajas de toda esta guía." },
+          { label: "Alojamiento", score: 7.5, desc: "La habitación en piso compartido es la opción más habitual; la universidad no publica cifras de alquiler." },
           { label: "Comida y supermercados", score: 8.5, desc: "Mercados locales y trattorias familiares a precios muy bajos." },
-          { label: "Transporte", score: 8.0, desc: "No hay coches en el centro histórico; todo se recorre a pie." },
-          { label: "Ocio y gastos diarios", score: 8.5, desc: "Salir de bares en un pueblo de este tamaño es de lo más barato de esta guía." },
+          { label: "Transporte", score: 8.0, desc: "El centro histórico es zona de tráfico limitado y se recorre a pie." },
+          { label: "Ocio y gastos diarios", score: 8.5, desc: "Bares de ambiente estudiantil en pocas calles, con precios de ciudad pequeña." },
         ],
       },
       {
@@ -10389,9 +10389,9 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 7.0, desc: "Oferta ajustada al tamaño reducido del pueblo, aunque suficiente para la demanda universitaria." },
-          { label: "Precio", score: 8.0, desc: "250–350€ de media, de los más bajos de toda esta guía." },
-          { label: "Facilidad de búsqueda", score: 7.0, desc: "La Università di Urbino Carlo Bo gestiona buena parte del alojamiento estudiantil." },
-          { label: "Residencias universitarias", score: 7.5, desc: "Buena oferta de residencias, con precios muy bajos para el estándar italiano." },
+          { label: "Precio", score: 8.0, desc: "Alquiler moderado; compara anuncios antes de firmar." },
+          { label: "Facilidad de búsqueda", score: 7.0, desc: "El ERDIS, ente regional del derecho al estudio, gestiona las residencias; el resto es piso privado." },
+          { label: "Residencias universitarias", score: 7.5, desc: "Residencias del ERDIS Marche, con plazas limitadas." },
         ],
       },
       {
@@ -10411,7 +10411,7 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Nivel de inglés", score: 5.5, desc: "Menos hablado que en ciudades más grandes; el italiano básico ayuda mucho." },
-          { label: "Actitud local", score: 7.5, desc: "Los urbinati están acostumbrados a que la mitad del pueblo sea estudiante." },
+          { label: "Actitud local", score: 7.5, desc: "Los urbinati están acostumbrados a convivir con miles de estudiantes." },
           { label: "Integración con locales", score: 7.0, desc: "El tamaño del pueblo hace inevitable, y fácil, coincidir con la misma gente constantemente." },
           { label: "Facilidad para hacer amigos", score: 7.5, desc: "Con tan pocos lugares de encuentro, hacer amigos es prácticamente automático." },
         ],
@@ -10424,7 +10424,7 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 4.5, desc: "Bus regional limitado; el pueblo en sí se recorre entero a pie." },
           { label: "Ciudad caminable", score: 7.0, desc: "El centro histórico, aunque con muchas cuestas, se recorre entero a pie en minutos." },
           { label: "Conexiones internacionales", score: 3.5, desc: "Sin tren ni aeropuerto propio; hay que coger bus hasta Pesaro o Rímini para conectar." },
-          { label: "Escapadas de fin de semana", score: 6.0, desc: "La costa adriática (Pesaro, Rímini) y San Marino, a menos de una hora en bus." },
+          { label: "Escapadas de fin de semana", score: 6.0, desc: "La costa adriática (Pesaro, Fano), a menos de una hora en bus; Rímini y San Marino, algo más lejos." },
         ],
       },
       {
@@ -10434,9 +10434,9 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Naturaleza", score: 7.5, desc: "Las colinas de las Marcas rodean el pueblo, con la costa adriática a un paso." },
           { label: "Clima", score: 7.0, desc: "Continental templado, con veranos agradables e inviernos fríos en la colina." },
-          { label: "Calidad de vida", score: 9.5, desc: "Pueblo extremadamente seguro, tranquilo y sin ningún tipo de caos urbano." },
-          { label: "Autenticidad local", score: 9.5, desc: "Un pueblo renacentista genuino, prácticamente sin cambios desde el siglo XV." },
-          { label: "Estilo de vida", score: 9.5, desc: "Vivir dentro de una ciudad-museo Patrimonio de la Humanidad, siendo estudiante, es una experiencia irrepetible." },
+          { label: "Calidad de vida", score: 9.5, desc: "Ciudad pequeña, tranquila y sin caos urbano." },
+          { label: "Autenticidad local", score: 9.5, desc: "Centro renacentista muy bien conservado y con vida propia." },
+          { label: "Estilo de vida", score: 9.5, desc: "Vivir como estudiante dentro de un centro histórico Patrimonio de la Humanidad." },
         ],
       },
       {
@@ -10451,12 +10451,12 @@ export const CITY_INSIGHTS = {
         ],
       },
       {
-        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 9.0,
-        summary: "Una de las ciudades más seguras de toda esta guía, propia de un pueblo pequeño italiano.",
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.5,
+        summary: "Ciudad pequeña y tranquila; aplica las precauciones habituales.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 9.5, desc: "Criminalidad prácticamente inexistente, típica de un pueblo pequeño." },
-          { label: "Seguridad nocturna", score: 9.0, desc: "Las calles del centro son completamente seguras a cualquier hora." },
+          { label: "Seguridad general", score: 8.5, desc: "Ciudad tranquila en general; aplica las precauciones habituales." },
+          { label: "Seguridad nocturna", score: 8.5, desc: "Las calles del centro son tranquilas de noche." },
           { label: "Ambiente de la ciudad", score: 9.5, desc: "Pueblo tranquilo, ordenado y con fuerte sentido de comunidad." },
         ],
       },

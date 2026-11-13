@@ -398,4 +398,18 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "13–22°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y el mar todavía templado.", tags: ["Inicio Erasmus","Mar templado","Muy animada"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "5–13°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave junto al Adriático, con días de viento.", tags: ["Suave","Viento","Tranquilo"] },
   ],
+  // Trieste: Trieste (OMM 16110, normales 1991–2020).
+  trieste: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "11–18°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada junto al mar; la bora todavía puede soplar con fuerza.", tags: ["Templada","Mar","Bora"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "20–28°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos cálidos; los triestinos se bañan en el paseo de Barcola.", tags: ["Calor","Baños en Barcola","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "13–19°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y, en octubre, la Barcolana.", tags: ["Inicio Erasmus","Barcolana","Muy animada"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "5–10°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave junto al Adriático, con días de bora muy fría.", tags: ["Suave","Bora","Viento"] },
+  ],
+  // Bérgamo: Bergamo-Orio al Serio (OMM 16076, normales 1991–2020).
+  bergamo: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "8–18°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada, buena para los lagos y los Prealpes.", tags: ["Templada","Lagos","Senderismo"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "18–29°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos calurosos en la llanura; los lagos y la montaña refrescan.", tags: ["Calor","Lagos","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "10–18°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y colores de otoño en los Prealpes.", tags: ["Inicio Erasmus","Colores de otoño","Muy animada"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–9°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas y niebla en la llanura.", tags: ["Frío","Heladas","Niebla"] },
+  ],
 };
