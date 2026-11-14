@@ -43,7 +43,8 @@ export default function MethodologyNote({ compact = false }) {
               jóvenes de 15 a 24 años que ni trabajan ni estudian en la región, según <strong>Eurostat</strong>, o en el
               país, según la <strong>OIT</strong>, y la valoración de MAbroad de empleo y prácticas); y vida estudiantil
               (secciones de <strong>Erasmus Student Network</strong> y estudiantes internacionales de sus universidades,
-              según THE, y el ambiente: fiesta y eventos).
+              según THE, y el ambiente: fiesta y eventos). Las cifras de THE corresponden a instituciones completas,
+              pueden incluir otros campus y conservan su año cuando se usa una edición histórica.
             </li>
             <li>
               <strong>Subnotas de valoración MAbroad:</strong> alojamiento, calidad de vida y clima, y conectividad salen
@@ -75,7 +76,8 @@ export default function MethodologyNote({ compact = false }) {
             </li>
             <li>
               <strong>Coste mensual:</strong> si lo publica una fuente oficial (normalmente la universidad), la ficha
-              indica «Fuente: …»; si no, es una «Estimación MAbroad». La etiqueta «Asequible» solo aparece cuando el
+              indica «Fuente: …»; si no, es una «Estimación MAbroad». Usamos el punto medio del rango o la cifra
+              aproximada publicada si la fuente solo da un importe. La etiqueta «Asequible» solo aparece cuando el
               coste viene de una fuente oficial y el mínimo no pasa de 500 €/mes; el resto de ciudades podrá llevarla
               cuando verifiquemos su coste, si cumple ese límite.
             </li>

@@ -1,6 +1,6 @@
 // Generado por scripts/scoring-data.mjs (npm run scoring:data) — no editar a mano.
 // Fuente: Erasmus Student Network, listado público de secciones (https://accounts.esn.org/api/v2/sections); solo secciones con estado «active».
-// Descargado el 2026-11-13.
+// Descargado el 2026-11-14.
 /** slug → nombres de las secciones ESN activas en la ciudad */
 export const CITY_ESN_SECTIONS = {
  "bolonia": [

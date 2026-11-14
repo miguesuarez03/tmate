@@ -1,6 +1,6 @@
 // Generado por scripts/scoring-data.mjs (npm run scoring:data) — no editar a mano.
 // Fuente: Tasa NEET (jóvenes de 15 a 24 años que ni trabajan ni estudian ni se forman, %). Eurostat edat_lfse_22 por región NUTS 2 (https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/edat_lfse_22?format=JSON&lang=EN&sex=T&age=Y15-24&sinceTimePeriod=2021) con la región de cada ciudad según los límites GISCO NUTS 2024 (https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_10M_2024_4326_LEVL_2.geojson); fuera de Eurostat, OIT por país (indicador SL.UEM.NEET.ZS del Banco Mundial: https://api.worldbank.org/v2/country/all/indicator/SL.UEM.NEET.ZS?format=json&per_page=20000&date=2015:2026).
-// Descargado el 2026-11-13.
+// Descargado el 2026-11-14.
 /** slug → { source: "eurostat" | "ilo", scope: "region" | "country", geo, name?, years: { año: % } } o null (sin dato) */
 export const CITY_NEET = {
  "bolonia": {

@@ -127,7 +127,7 @@ const THE_NAMES = {
   "gdansk": ["Gdańsk University of Technology", "Medical University of Gdańsk", "University of Gdańsk"],
   "nicosia": ["University of Cyprus", "University of Nicosia", "European University Cyprus"],
   "la-valeta": ["University of Malta"],
-  "zurich": ["ETH Zurich", "ZHAW Zurich University of Applied Sciences"],
+  "zurich": ["ETH Zurich", "University of Zurich", "ZHAW Zurich University of Applied Sciences"],
   "brno": ["Masaryk University", "Brno University of Technology", "Mendel University in Brno"],
   "estrasburgo": ["University of Strasbourg", "National Institute of Applied Sciences, Strasbourg (INSA Strasbourg)"],
   "montpellier": ["Montpellier University", "Paul-Valéry University, Montpellier 3"],
@@ -183,12 +183,12 @@ const THE_NAMES = {
   "san-francisco": ["University of California, Berkeley"],
   "lima": ["Universidad Peruana Cayetano Heredia", "Pontifical Catholic University of Peru", "Universidad Nacional Mayor de San Marcos", "Universidad Peruana de Ciencias Aplicadas (UPC)", "Universidad del Pacífico"],
   "ciudad-de-panama": ["Universidad de Panamá"],
-  "san-jose-costa-rica": ["University of Costa Rica", "National University of Costa Rica"],
+  "san-jose-costa-rica": ["University of Costa Rica"],
   "montevideo": ["Catholic University of Uruguay", "ORT Uruguay University"],
   "quito": ["Universidad San Francisco de Quito", "University of Las Américas (UDLA)", "Escuela Politécnica Nacional"],
   "miami": ["University of Miami", "Florida International University"],
   "toronto": ["University of Toronto", "York University", "Toronto Metropolitan University"],
-  "vancouver": ["University of British Columbia", "Simon Fraser University", "University of Northern British Columbia (UNBC)"],
+  "vancouver": ["University of British Columbia", "Simon Fraser University"],
   "montreal": ["McGill University", "Université de Montréal", "Concordia University"],
   "ciudad-de-mexico": ["National Autonomous University of Mexico"],
   "guadalajara": ["University of Guadalajara"],
@@ -221,7 +221,8 @@ const THE_NAMES = {
   // Instituto Politécnico de Bragança (hoy Universidade Politécnica): última edición en la que sale, 2024.
   "braganza": ["Instituto Politécnico de Bragança"],
   "newcastle": ["Newcastle University", "Northumbria University"],
-  "geel": [],
+  // La ficha incluye el campus de KU Leuven en Geel; THE publica datos de toda la institución.
+  "geel": ["KU Leuven"],
   "kleve": [],
 };
 

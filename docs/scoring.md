@@ -35,7 +35,7 @@ La lista actual de pendientes está en la sección «Datos de la nota MAbroad» 
 
 ### Coste de vida (20 %)
 
-- **Dato:** punto medio del rango `mín–máx€/mes` de `costDetail` en [`cities.js`](../src/data/cities.js). Si la ficha tiene `costSource`, la fuente es oficial (normalmente la universidad); si no, es una estimación MAbroad, y el desglose lo dice.
+- **Dato:** punto medio del rango `mín–máx€/mes` de `costDetail` en [`cities.js`](../src/data/cities.js), o la cifra publicada cuando la fuente oficial solo da un importe aproximado (`~700 €/mes` en Trento). Si la ficha tiene `costSource`, la fuente es oficial (normalmente la universidad); si no, es una estimación MAbroad, y el desglose lo dice.
 - **A 0–10:** escala fija en euros, igual para todos los destinos. Con 400 €/mes o menos, un 10. Cada 200 € más restan 1 punto. Con 2.400 €/mes o más, un 0. La fórmula es `10 × (2.400 − coste) / 2.000`, limitada a 0–10 (`costToScore`).
 - La beca **no** entra en esta subnota.
 
@@ -67,6 +67,8 @@ Es la media de dos mitades, cada una de 0 a 10.
   | Menos de 250 | 0 |
 
   Cuenta a quienes estudian el grado o máster allí, no solo a los de intercambio. Sirve como medida del tamaño de la comunidad internacional.
+
+  THE publica cifras de la institución completa, incluidos otros campus: es un indicador aproximado, no un censo municipal. Se suman solo universidades con ambas cifras disponibles; si ninguna las publica, queda pendiente. Un porcentaje publicado de 0 % sí es dato. Las ediciones históricas conservan también sus cifras históricas de estudiantes.
 
 **Ambiente (valoración MAbroad), de 0 a 10.** Media de las subnotas de la ficha que empiezan por «Fiesta» o «Eventos». Si una ficha no las tiene, se usa su categoría «Vida social y ambiente».
 
@@ -105,6 +107,7 @@ Es la media de dos mitades, cada una de 0 a 10.
   - Aix-Marseille: THE 2025, 401–500.
   - University of Strasbourg: THE 2023, 601–800.
   - University of Bergamo: THE 2025, 1001–1200.
+  - University of Zurich: THE 2024, puesto 80 (retirada confirmada por la propia UZH).
 - **A 0–10:** por tramos, según el número con el que empieza el tramo de THE:
 
   | Puesto en THE | Nota |
@@ -120,6 +123,7 @@ Es la media de dos mitades, cada una de 0 a 10.
 
   «Ninguna clasificada» incluye a las que solo salen como «Reporter» y a las que no participan.
 - **Limitación:** la mejor universidad de la ciudad no tiene por qué ser la tuya. Por eso el peso es solo del 10 %.
+  - Geel incluye KU Leuven porque tiene campus en la ciudad y figura en su ficha. El puesto y el alumnado de THE son de toda KU Leuven, no del campus de Geel; se aplica la misma regla institucional que al resto de destinos.
   - La Universidad de Buenos Aires y la Universität Leipzig nunca han participado en THE: Buenos Aires saca 4,5 por la UCA y Leipzig, 4.
   - Si se añade QS, la regla sería «el mejor de los dos rankings».
 

@@ -16495,7 +16495,7 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 6.5, desc: "Autobuses urbanos, cuatro ascensores y un funicular." },
           { label: "Ciudad caminable", score: 5.0, desc: "Ciudad de cuestas, entre unos 450 y 800 m de altitud." },
           { label: "Conexiones internacionales", score: 4.0, desc: "Los aeropuertos de Lisboa y Oporto están a unos 250 km." },
-          { label: "Escapadas de fin de semana", score: 7.0, desc: "Serra da Estrela al lado; Lisboa en tren directo de unas 3 h 30." },
+          { label: "Escapadas de fin de semana", score: 7.0, desc: "Serra da Estrela al lado; consulta los horarios de CP para viajar en tren a Lisboa." },
         ],
       },
       {
@@ -16554,7 +16554,7 @@ export const CITY_INSIGHTS = {
         summary: "Campus residencial grande, poco habitual en Italia.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 7.5, desc: "Unas 2.500 plazas de residencia en el campus." },
+          { label: "Disponibilidad", score: 7.5, desc: "Residencias del Centro Residenziale; consulta las plazas y requisitos de la convocatoria vigente." },
           { label: "Precio", score: 8.0, desc: "Alquileres bajos en Cosenza y Rende." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "La oficina de alojamiento de la UNICAL gestiona las residencias." },
           { label: "Residencias universitarias", score: 8.0, desc: "El Centro Residenziale reparte sus plazas en varios barrios del campus." },
@@ -16730,7 +16730,7 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.0,
-        summary: "Coste medio del norte de Italia. La universidad da unos 700 € al mes como cifra aproximada; el rango es una estimación de MAbroad.",
+        summary: "UniTrento estima unos 700 € al mes en su ficha de intercambio 2025/26; es una cifra aproximada de la universidad.",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "Alquileres del norte; las residencias no suelen estar al alcance de los Erasmus europeos." },
@@ -16747,7 +16747,7 @@ export const CITY_INSIGHTS = {
           { label: "Disponibilidad", score: 6.0, desc: "Mercado privado con demanda alta." },
           { label: "Precio", score: 6.0, desc: "Alquileres del norte de Italia." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "Opera Universitaria tiene su propio portal de alquiler, TRent." },
-          { label: "Residencias universitarias", score: 4.5, desc: "Más de 1.300 plazas por concurso; los estudiantes de intercambio europeos casi nunca entran." },
+          { label: "Residencias universitarias", score: 4.5, desc: "UniTrento prioriza a estudiantes de titulación no europeos y, si quedan plazas, a intercambios no europeos con requisitos migratorios. Para Erasmus europeos recomienda buscar alojamiento privado." },
         ],
       },
       {
@@ -16945,10 +16945,10 @@ export const CITY_INSIGHTS = {
         summary: "Ciudad pequeña con mucha comunidad internacional.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 6.5, desc: "No hay sección de ESN; la asociación AEE-IPB acoge a los Erasmus." },
-          { label: "Ambiente internacional", score: 8.0, desc: "Cerca de un tercio de estudiantes internacionales." },
+          { label: "Comunidad Erasmus", score: 6.5, desc: "No hay sección de ESN; la oficina de relaciones internacionales orienta a los estudiantes de movilidad." },
+          { label: "Ambiente internacional", score: 8.0, desc: "Un 34 % de estudiantes internacionales en los datos institucionales de THE 2024." },
           { label: "Fiesta y vida nocturna", score: 5.5, desc: "Vida nocturna de ciudad pequeña." },
-          { label: "Eventos y actividades", score: 6.5, desc: "Actividades de la asociación de estudiantes extranjeros." },
+          { label: "Eventos y actividades", score: 6.5, desc: "Consulta las actividades de acogida con la oficina de relaciones internacionales." },
         ],
       },
       {
@@ -17205,7 +17205,7 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.0,
-        summary: "La Hochschule Rhein-Waal da 900–1.200 € al mes como media para Alemania (Deutsches Studierendenwerk), no como cifra de Kleve.",
+        summary: "Estimación MAbroad de 900–1.200 € al mes, orientada por la media alemana que cita la Hochschule Rhein-Waal; no es un presupuesto oficial de Kleve.",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Residencias del Studierendenwerk Düsseldorf; alquileres privados muy variables, según la universidad." },
@@ -17241,7 +17241,7 @@ export const CITY_INSIGHTS = {
         summary: "Universidad en inglés y muy internacional.",
         color: "#3F7A7D",
         subcategories: [
-          { label: "Nivel de inglés", score: 8.5, desc: "Tres de cada cuatro grados se imparten en inglés." },
+          { label: "Nivel de inglés", score: 8.5, desc: "Alrededor del 75 % de los programas de grado y máster de la universidad se imparten en inglés." },
           { label: "Actitud local", score: 7.0, desc: "Ciudad acostumbrada a estudiantes extranjeros." },
           { label: "Integración con locales", score: 6.0, desc: "La vida estudiantil gira en torno al campus." },
           { label: "Facilidad para hacer amigos", score: 8.0, desc: "Comunidad internacional grande." },

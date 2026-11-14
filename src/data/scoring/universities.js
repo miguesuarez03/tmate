@@ -1,6 +1,6 @@
 // Generado por scripts/scoring-data.mjs (npm run scoring:data) — no editar a mano.
 // Fuente: Times Higher Education World University Rankings 2027 (https://www.timeshighereducation.com/json/ranking_tables/world_university_rankings/2027); ediciones 2026, 2025, 2024, 2023 para las universidades que ya no salen en la actual.
-// Descargado el 2026-11-13.
+// Descargado el 2026-11-14.
 export const THE_EDITION = 2027;
 /** slug → [{ name, edition, rank, students, intlPct }] (rank tal como lo publica THE: «=111», «301–325», «Reporter»…) */
 export const CITY_UNIVERSITIES = {
@@ -1366,6 +1366,13 @@ export const CITY_UNIVERSITIES = {
    "intlPct": 44
   },
   {
+   "name": "University of Zurich",
+   "edition": 2024,
+   "rank": "80",
+   "students": 25608,
+   "intlPct": 24
+  },
+  {
    "name": "ZHAW Zurich University of Applied Sciences",
    "edition": 2027,
    "rank": "801–1000",
@@ -2254,13 +2261,6 @@ export const CITY_UNIVERSITIES = {
    "rank": "1801–2000",
    "students": 31076,
    "intlPct": 2
-  },
-  {
-   "name": "National University of Costa Rica",
-   "edition": 2027,
-   "rank": "2001+",
-   "students": 19341,
-   "intlPct": 3
   }
  ],
  "montevideo": [
@@ -2355,13 +2355,6 @@ export const CITY_UNIVERSITIES = {
    "rank": "351–375",
    "students": 26669,
    "intlPct": 29
-  },
-  {
-   "name": "University of Northern British Columbia (UNBC)",
-   "edition": 2027,
-   "rank": "1201–1400",
-   "students": 3126,
-   "intlPct": 19
   }
  ],
  "montreal": [
@@ -2764,6 +2757,14 @@ export const CITY_UNIVERSITIES = {
    "intlPct": 30
   }
  ],
- "geel": [],
+ "geel": [
+  {
+   "name": "KU Leuven",
+   "edition": 2027,
+   "rank": "=45",
+   "students": 50364,
+   "intlPct": 22
+  }
+ ],
  "kleve": []
 };
