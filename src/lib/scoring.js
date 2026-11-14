@@ -290,8 +290,9 @@ export function computeCitySubscores(p) {
   // Vida estudiantil: comunidad (dato) + ambiente (valoración)
   const fiesta = subcatAvg(scores, "vida_social", (l) => /^(Fiesta|Eventos)/.test(l));
   const ambiente = fiesta.value ?? fiesta.cat?.score ?? null;
-  const intl = universities.length
-    ? universities.reduce((acc, u) => acc + (isNum(u.students) && isNum(u.intlPct) ? (u.students * u.intlPct) / 100 : 0), 0)
+  const withIntlData = universities.filter((u) => isNum(u.students) && isNum(u.intlPct));
+  const intl = withIntlData.length
+    ? withIntlData.reduce((acc, u) => acc + (u.students * u.intlPct) / 100, 0)
     : null;
   const intlPts = intl == null ? null : intlStudentPoints(intl);
   const esn = esnPoints(esnSections.length);
@@ -307,7 +308,7 @@ export function computeCitySubscores(p) {
   }
 
   // Seguridad: mitad país (UNODC), mitad ciudad (valoración MAbroad)
-  const years = Object.keys(homicides).sort();
+  const years = Object.keys(homicides).filter((y) => isNum(homicides[y])).sort().slice(-3);
   const rate = years.length ? avg(years.map((y) => homicides[y])) : null;
   const segPais = homicideToScore(rate);
   const segCiudad = catScore("seguridad");
@@ -316,7 +317,7 @@ export function computeCitySubscores(p) {
     : `País ${fmt1(segPais)}/10 (${fmt1(rate)} homicidios por 100.000 habitantes en ${getStateCountry(city.country)}, media ${years[0]}–${years.at(-1)}, UNODC) y ciudad ${fmt1(segCiudad)}/10 (valoración MAbroad de día, de noche y del ambiente).`;
 
   // Salidas profesionales: mitad NEET de la región o el país, mitad valoración de empleo
-  const neetYears = neet ? Object.keys(neet.years).sort() : [];
+  const neetYears = neet ? Object.keys(neet.years).filter((y) => isNum(neet.years[y])).sort().slice(-3) : [];
   const neetRate = neetYears.length ? avg(neetYears.map((y) => neet.years[y])) : null;
   const salNeet = neetToScore(neetRate);
   const salCiudad = catScore("empleo");
@@ -349,7 +350,8 @@ export function computeCitySubscores(p) {
   // Calidad de vida y clima (valoración)
   const clima = subcatAvg(scores, "estilo_vida", (l) => l === "Clima").value;
   const calidad = subcatAvg(scores, "estilo_vida", (l) => l === "Calidad de vida").value;
-  const cal = avg([clima, calidad]) ?? scores.find((s) => s.id === "estilo_vida")?.score ?? null;
+  const cal = isNum(clima) && isNum(calidad)
+    ? avg([clima, calidad]) : scores.find((s) => s.id === "estilo_vida")?.score ?? null;
   subs.calidad = isNum(cal) ? round1(cal) : null;
   detail.calidad = isNum(clima) && isNum(calidad)
     ? `Clima ${fmt1(clima)} y calidad de vida ${fmt1(calidad)} (valoración MAbroad).`

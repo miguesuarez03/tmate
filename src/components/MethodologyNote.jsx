@@ -43,7 +43,8 @@ export default function MethodologyNote({ compact = false }) {
               jóvenes de 15 a 24 años que ni trabajan ni estudian en la región, según <strong>Eurostat</strong>, o en el
               país, según la <strong>OIT</strong>, y la valoración de MAbroad de empleo y prácticas); y vida estudiantil
               (secciones de <strong>Erasmus Student Network</strong> y estudiantes internacionales de sus universidades,
-              según THE, y el ambiente: fiesta y eventos).
+              según THE, y el ambiente: fiesta y eventos). Las cifras de THE corresponden a instituciones completas,
+              pueden incluir otros campus y conservan su año cuando se usa una edición histórica.
             </li>
             <li>
               <strong>Subnotas de valoración MAbroad:</strong> alojamiento, calidad de vida y clima, y conectividad salen

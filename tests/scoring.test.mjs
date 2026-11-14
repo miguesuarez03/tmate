@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import {
   SCORING_WEIGHTS, SUBSCORES, SUBSCORE_IDS, MIN_COVERAGE, costToScore, homicideToScore, theRankToScore,
   parseTheRank, computeScore, parseCostMidpoint, weightsFromMatch, esnPoints, intlStudentPoints,
-  englishShareToScore, THE_UNRANKED_SCORE, neetToScore, EXTRA_SCORES,
+  englishShareToScore, THE_UNRANKED_SCORE, neetToScore, EXTRA_SCORES, computeCitySubscores,
 } from "../src/lib/scoring.js";
 import {
   getAllCities, getCostMidpoint, getOverallScore, getScoreBreakdown, getBecaGapForCity, getCriterionValue,
@@ -19,6 +19,29 @@ import { COUNTRY_LANGUAGE, CITY_LANGUAGE_PENDING } from "../src/data/scoring/lan
 import { SEPIE_MIN_MONTHLY, SEMP_MONTHLY } from "../src/data/becaGroups.js";
 
 const INDEX = getAllCities();
+
+test("THE sin cifras no equivale a cero internacionales; un cero publicado sí es dato", () => {
+  const p = { city: {}, scores: [{ id: "vida_social", score: 8 }], costSourceLabel: "" };
+  assert.equal(computeCitySubscores({ ...p, universities: [{ students: null, intlPct: null }] }).subs.vida, null);
+  assert.equal(computeCitySubscores({ ...p, universities: [{ students: 1000, intlPct: 0 }] }).subs.vida, 4);
+  assert.equal(computeCitySubscores({ ...p, universities: [{ students: null, intlPct: null }, { students: 1000, intlPct: 25 }] }).subs.vida, 4.5);
+});
+
+test("calidad usa la categoría completa si falta clima o calidad de vida", () => {
+  const p = { city: {}, costSourceLabel: "", scores: [{ id: "estilo_vida", score: 6, subcategories: [{ label: "Clima", score: 9 }] }] };
+  assert.equal(computeCitySubscores(p).subs.calidad, 6);
+  p.scores[0].subcategories.push({ label: "Calidad de vida", score: 7 });
+  assert.equal(computeCitySubscores(p).subs.calidad, 8);
+});
+
+test("seguridad y NEET solo promedian los tres últimos años con dato", () => {
+  const p = { city: {}, costSourceLabel: "", scores: [{ id: "seguridad", score: 8 }, { id: "empleo", score: 8 }],
+    homicides: { 2020: 40, 2021: 0.5, 2022: 0.5, 2023: 0.5, 2024: null },
+    neet: { source: "ilo", scope: "country", years: { 2020: 24, 2021: 4, 2022: 4, 2023: 4, 2024: null } } };
+  const { subs } = computeCitySubscores(p);
+  assert.equal(subs.seguridad, 9);
+  assert.equal(subs.salidas, 9);
+});
 
 test("los pesos suman 100 y cada subnota tiene peso, etiqueta y fuente", () => {
   assert.equal(Object.values(SCORING_WEIGHTS).reduce((a, b) => a + b, 0), 100);

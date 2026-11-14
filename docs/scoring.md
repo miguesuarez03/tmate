@@ -68,6 +68,8 @@ Es la media de dos mitades, cada una de 0 a 10.
 
   Cuenta a quienes estudian el grado o máster allí, no solo a los de intercambio. Sirve como medida del tamaño de la comunidad internacional.
 
+  THE publica cifras de la institución completa, incluidos otros campus: es un indicador aproximado, no un censo municipal. Se suman solo universidades con ambas cifras disponibles; si ninguna las publica, queda pendiente. Un porcentaje publicado de 0 % sí es dato. Las ediciones históricas conservan también sus cifras históricas de estudiantes.
+
 **Ambiente (valoración MAbroad), de 0 a 10.** Media de las subnotas de la ficha que empiezan por «Fiesta» o «Eventos». Si una ficha no las tiene, se usa su categoría «Vida social y ambiente».
 
 **Pendiente:** si ninguna universidad de la ciudad publica datos en THE, no sabemos cuántos estudiantes internacionales tiene, y la subnota queda pendiente.
@@ -105,6 +107,7 @@ Es la media de dos mitades, cada una de 0 a 10.
   - Aix-Marseille: THE 2025, 401–500.
   - University of Strasbourg: THE 2023, 601–800.
   - University of Bergamo: THE 2025, 1001–1200.
+  - University of Zurich: THE 2024, puesto 80 (retirada confirmada por la propia UZH).
 - **A 0–10:** por tramos, según el número con el que empieza el tramo de THE:
 
   | Puesto en THE | Nota |
