@@ -306,6 +306,8 @@ Claude Code, con dos agentes `contenido-verificacion` (uno por tanda, solo lectu
 
 **Notas finales (160 ciudades, 152 con puesto):** Trento 7,4 (54.º), Pavía 7,3 (60.º), Covilhã 7,2 (74.º), Módena 7,2 (78.º), Newcastle 6,9 (107.º), Cosenza 6,9 (110.º), Braganza 6,7 (115.º), Caserta 6,3 (129.º); Geel 7,6 y Kleve 6,6, provisionales y sin puesto. Ninguna nota cambia por las correcciones de texto (no afectan a las subnotas).
 
+**Revisión de Codex (15-11-2026, solo lectura, commit `c3f82ae`):** sin cambios obligatorios. Código del campus satélite, test y documentación coherentes; no encuentra otro campus pequeño sin marcar. No pudo abrir el CSV de NOAA de Antwerpen-Deurne (lo leyó el agente de verificación), la tabla escaneada de la UBI (2,80 €, leída por Claude en el PDF oficial) ni la ficha 2026/27 de Trento (403, sigue pendiente).
+
 ### 14-11-2026 — revisión de Codex y cierre solicitado por Miguel
 
 Esta revisión sustituye las decisiones pendientes de coste de las tandas A/B. Trabajo realizado directamente por Codex, sin Claude Code ni otros agentes. Por petición de cierre de Miguel, los puntos no cotejados de nuevo se detallan abajo y no se dan por verificados.
