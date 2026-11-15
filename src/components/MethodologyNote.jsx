@@ -44,7 +44,8 @@ export default function MethodologyNote({ compact = false }) {
               país, según la <strong>OIT</strong>, y la valoración de MAbroad de empleo y prácticas); y vida estudiantil
               (secciones de <strong>Erasmus Student Network</strong> y estudiantes internacionales de sus universidades,
               según THE, y el ambiente: fiesta y eventos). Las cifras de THE corresponden a instituciones completas,
-              pueden incluir otros campus y conservan su año cuando se usa una edición histórica.
+              pueden incluir otros campus y conservan su año cuando se usa una edición histórica. Si una universidad solo
+              tiene un campus pequeño en la ciudad, cuenta para el nivel académico pero no para la comunidad internacional.
             </li>
             <li>
               <strong>Subnotas de valoración MAbroad:</strong> alojamiento, calidad de vida y clima, y conectividad salen

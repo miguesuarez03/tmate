@@ -1,8 +1,8 @@
 // Generado por scripts/scoring-data.mjs (npm run scoring:data) — no editar a mano.
 // Fuente: Times Higher Education World University Rankings 2027 (https://www.timeshighereducation.com/json/ranking_tables/world_university_rankings/2027); ediciones 2026, 2025, 2024, 2023 para las universidades que ya no salen en la actual.
-// Descargado el 2026-11-14.
+// Descargado el 2026-11-15.
 export const THE_EDITION = 2027;
-/** slug → [{ name, edition, rank, students, intlPct }] (rank tal como lo publica THE: «=111», «301–325», «Reporter»…) */
+/** slug → [{ name, edition, rank, students, intlPct, satellite? }] (satellite: solo un campus pequeño en la ciudad, no cuenta para la comunidad; rank tal como lo publica THE: «=111», «301–325», «Reporter»…) */
 export const CITY_UNIVERSITIES = {
  "bolonia": [
   {
@@ -2763,7 +2763,8 @@ export const CITY_UNIVERSITIES = {
    "edition": 2027,
    "rank": "=45",
    "students": 50364,
-   "intlPct": 22
+   "intlPct": 22,
+   "satellite": true
   }
  ],
  "kleve": []

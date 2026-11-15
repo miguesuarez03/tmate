@@ -27,6 +27,19 @@ test("THE sin cifras no equivale a cero internacionales; un cero publicado sí e
   assert.equal(computeCitySubscores({ ...p, universities: [{ students: null, intlPct: null }, { students: 1000, intlPct: 25 }] }).subs.vida, 4.5);
 });
 
+test("campus satélite: cuenta para el académico, no para la comunidad", () => {
+  const p = { city: {}, scores: [{ id: "vida_social", score: 8 }], costSourceLabel: "" };
+  const sat = { name: "KU Leuven", rank: "=45", edition: 2027, students: 50364, intlPct: 22, satellite: true };
+  const solo = computeCitySubscores({ ...p, universities: [sat], theEdition: 2027 });
+  assert.equal(solo.subs.vida, null);
+  assert.equal(solo.subs.academico, 10);
+  assert.match(solo.detail.vida, /campus pequeño/);
+  // Con otra universidad con datos, solo cuentan los internacionales de esa (1.000 × 25 % = 250 → 1 punto).
+  const mixta = computeCitySubscores({ ...p, universities: [sat, { name: "X", rank: "Reporter", edition: 2027, students: 1000, intlPct: 25 }], theEdition: 2027 });
+  assert.equal(mixta.subs.vida, 4.5);
+  assert.equal(CITY_UNIVERSITIES.geel[0].satellite, true);
+});
+
 test("calidad usa la categoría completa si falta clima o calidad de vida", () => {
   const p = { city: {}, costSourceLabel: "", scores: [{ id: "estilo_vida", score: 6, subcategories: [{ label: "Clima", score: 9 }] }] };
   assert.equal(computeCitySubscores(p).subs.calidad, 6);

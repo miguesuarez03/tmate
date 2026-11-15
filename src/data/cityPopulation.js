@@ -170,7 +170,7 @@ export const CITY_POPULATION = {
   "modena": { population: 184074, year: 2024, source: "ISTAT" },
   "trento": { population: 118640, year: 2024, source: "ISTAT (censo permanente)" },
   "pavia": { population: 71811, year: 2026, source: "ISTAT (provisional)" },
-  "braganza": { population: 38309, year: 2025, source: "INE (vía PORDATA)" },
+  "braganza": { population: 38309, year: 2025, source: "INE, estimación a 31-12 (vía PORDATA)" },
   "newcastle": { population: 320838, year: 2025, source: "ONS", area: "Newcastle upon Tyne (autoridad local)" },
   "geel": { population: 42650, year: 2026, source: "Statbel" },
   "kleve": { population: 53028, year: 2024, source: "IT.NRW" },

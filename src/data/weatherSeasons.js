@@ -472,7 +472,7 @@ export const CITY_SEASONS = {
   modena: [
     { id: "spring", label: "Primavera", months: "Mar–May", temp: "11–19°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera agradable para recorrer el centro en bici.", tags: ["Templada","Bici","Aire libre"] },
     { id: "summer", label: "Verano", months: "Jun–Ago", temp: "21–30°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano caluroso y húmedo.", tags: ["Calor","Húmedo","Fiestas"] },
-    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "12–18°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado: arranque de curso y Welcome Weeks de ESN.", tags: ["Inicio Erasmus","Templado","ESN"], highlight: true },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "12–18°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado: arranque de curso y Welcome Week de ESN.", tags: ["Inicio Erasmus","Templado","ESN"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "3–8°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y con niebla.", tags: ["Frío","Niebla","Tortellini"] },
   ],
   // Pavía: Milano Linate (OMM 16080, a unos 31 km, normales 1991–2020 de la OMM).
@@ -485,7 +485,7 @@ export const CITY_SEASONS = {
   // Braganza: Bragança (IPMA, estación 575, normales 1991–2020).
   braganza: [
     { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–18°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca en la sierra.", tags: ["Fresca","Montesinho","Senderismo"] },
-    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–28°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano caluroso y seco.", tags: ["Calor","Seco","Montesinho"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–29°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano caluroso y seco.", tags: ["Calor","Seco","Montesinho"] },
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "8–19°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Castañas"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "1–10°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con muchas heladas.", tags: ["Frío","Heladas","Tranquilo"] },
   ],
@@ -496,11 +496,11 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "8–13°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco: arranque de curso y freshers.", tags: ["Inicio Erasmus","Fresco","Freshers"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "3–8°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y gris, con pocas horas de luz.", tags: ["Frío","Gris","Pubs"] },
   ],
-  // Geel: Uccle (KMI/IRM, Bruselas, normales 1991–2020; no hay serie publicada en texto para Geel).
+  // Geel: Antwerpen-Deurne (OMM 06450, a unos 37 km; normales OMM 1991–2020 publicadas por NOAA/NCEI). Es la estación con mínimas y máximas más cercana; Uccle (Bruselas) queda a 60 km.
   geel: [
     { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–15°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave en la Campine.", tags: ["Suave","Bici","Brezales"] },
     { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–23°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Bici","Festivales"] },
-    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "8–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco y lluvioso para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Lluvia"], highlight: true },
-    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "2–7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y húmedo.", tags: ["Frío","Húmedo","Tranquilo"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco y lluvioso para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Lluvia"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "1–7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y húmedo.", tags: ["Frío","Húmedo","Tranquilo"] },
   ],
 };

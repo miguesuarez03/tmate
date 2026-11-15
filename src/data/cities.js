@@ -4316,7 +4316,7 @@ export const CITIES = [
       { name: "Parte alta (centro histórico)", vibe: "Cerca del campus principal", price: "€" },
       { name: "Parte baja", vibe: "Supermercados y centro comercial", price: "€" },
     ],
-    tips: ["Consulta los horarios de CP para viajar a Lisboa por la línea de la Beira Baixa","Los aeropuertos más cercanos son Lisboa y Oporto, ambos a unos 250 km","La UBI no ofrece alojamiento a estudiantes de movilidad: según la propia universidad, un T1 en el centro cuesta 250–350 € al mes","Comedor universitario: la comida social cuesta unos 2,50 €"],
+    tips: ["Consulta los horarios de CP para viajar a Lisboa por la línea de la Beira Baixa","Los aeropuertos más cercanos son los de Oporto y Lisboa","La UBI no ofrece alojamiento a estudiantes de movilidad: según la propia universidad, un T1 en el centro cuesta 250–350 € al mes","Comedor universitario: la comida social cuesta 2,80 € (tarifa de los SAS de la UBI desde el 1-10-2026)"],
     experiences: ["erasmus"],
   },
   {
@@ -4363,8 +4363,8 @@ export const CITIES = [
     language: "Italiano",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Piazza_Grande_dalla_Torre_Ghirlandina.jpg/1920px-Piazza_Grande_dalla_Torre_Ghirlandina.jpg",
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Piazza_Grande_dalla_Torre_Ghirlandina.jpg/1920px-Piazza_Grande_dalla_Torre_Ghirlandina.jpg",
-    description: "Módena, en Emilia-Romaña, une su catedral románica, la Torre Ghirlandina y la Piazza Grande, Patrimonio Mundial de la UNESCO desde 1997, con el corazón del Motor Valley: Maserati fabrica aquí desde 1940 y Ferrari, con la fábrica en Maranello, tiene su domicilio social en la ciudad. Es la sede de la Università di Modena e Reggio Emilia (UNIMORE) y la tierra del Aceto Balsamico Tradizionale.",
-    highlights: ["Catedral, Torre Ghirlandina y Piazza Grande: Patrimonio Mundial de la UNESCO desde 1997","Maserati fabrica en Módena desde 1940; Ferrari está en Maranello, en la misma provincia","Aceto Balsamico Tradizionale di Modena DOP, envejecido un mínimo de 12 años","ESN Modena e Reggio Emilia, con Welcome Weeks cada septiembre"],
+    description: "Módena, en Emilia-Romaña, une su catedral románica, la Torre Ghirlandina y la Piazza Grande, Patrimonio Mundial de la UNESCO desde 1997, con el corazón del Motor Valley: Maserati fabrica aquí desde 1940 y Ferrari tiene su fábrica en Maranello, en la misma provincia. Es la sede de la Università di Modena e Reggio Emilia (UNIMORE) y la tierra del Aceto Balsamico Tradizionale.",
+    highlights: ["Catedral, Torre Ghirlandina y Piazza Grande: Patrimonio Mundial de la UNESCO desde 1997","Maserati fabrica en Módena desde 1940; Ferrari está en Maranello, en la misma provincia","Aceto Balsamico Tradizionale di Modena DOP, envejecido un mínimo de 12 años","ESN Modena e Reggio Emilia, con Welcome Week al inicio de cada semestre"],
     universities: ["Università degli Studi di Modena e Reggio Emilia"],
     neighborhoods: [
       { name: "Centro storico", vibe: "Histórico & universitario", price: "€€" },
@@ -4390,7 +4390,7 @@ export const CITIES = [
     language: "Italiano",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Trento_Piazza_del_Duomo_Fontana_del_Nettuno_%26_Cattedrale_2.jpg/1920px-Trento_Piazza_del_Duomo_Fontana_del_Nettuno_%26_Cattedrale_2.jpg",
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Trento_Piazza_del_Duomo_Fontana_del_Nettuno_%26_Cattedrale_2.jpg/1920px-Trento_Piazza_del_Duomo_Fontana_del_Nettuno_%26_Cattedrale_2.jpg",
-    description: "Trento, capital de su provincia autónoma, es la ciudad del Concilio de Trento (1545–1563) y la sede de la Università degli Studi di Trento. Está en el valle del Adigio, rodeada de montañas, con el MUSE, el museo de ciencias diseñado por Renzo Piano, y las Dolomitas, Patrimonio Mundial de la UNESCO, en la misma provincia. Los universitarios, Erasmus incluidos, tienen un abono de 70 € al año para todo el transporte público del Trentino.",
+    description: "Trento, capital de su provincia autónoma, es la ciudad del Concilio de Trento (1545–1563) y la sede de la Università degli Studi di Trento. Está en el valle del Adigio, rodeada de montañas, con el MUSE, el museo de ciencias diseñado por Renzo Piano, y las Dolomitas, Patrimonio Mundial de la UNESCO, en la misma provincia. Los estudiantes de UniTrento, Erasmus incluidos, tienen un abono de 70 € al año para todo el transporte público del Trentino.",
     highlights: ["Sede del Concilio de Trento (1545–1563)","MUSE, museo de ciencias diseñado por Renzo Piano Building Workshop","Las Dolomitas, Patrimonio Mundial de la UNESCO desde 2009, en la misma provincia","Abono universitario de 70 € al año para buses y trenes regionales de todo el Trentino"],
     universities: ["Università degli Studi di Trento","Conservatorio di Musica F. A. Bonporti"],
     neighborhoods: [
@@ -4398,7 +4398,7 @@ export const CITIES = [
       { name: "Povo y Mesiano", vibe: "Colina de ciencias e ingeniería", price: "€€" },
       { name: "San Bartolameo (Sanbàpolis)", vibe: "Residencia y deporte de Opera Universitaria", price: "€€" },
     ],
-    tips: ["Abono universitario de la Provincia: 70 € al año para buses y trenes regionales de todo el Trentino, también para Erasmus","Comedores de Opera Universitaria a precio de estudiante, en el centro y en la colina de Povo","Busca piso en TRent, el portal de alquiler de Opera Universitaria","Para volar: tren a Verona y bus Verona Airlink (7 €) hasta el aeropuerto"],
+    tips: ["Abono universitario de la Provincia: 70 € al año para buses y trenes regionales de todo el Trentino para estudiantes de UniTrento, también Erasmus","Comedores de Opera Universitaria a precio de estudiante, en el centro y en la colina de Povo","Busca piso en TRent, el portal de alquiler de Opera Universitaria","Para volar: tren a Verona y bus Verona Airlink (7 €) hasta el aeropuerto"],
     experiences: ["erasmus"],
   },
   {
@@ -4426,7 +4426,7 @@ export const CITIES = [
       { name: "Centro storico", vibe: "Polo Centrale y colegios", price: "€€€" },
       { name: "Cravino", vibe: "Polo de Ciencias, Medicina e Ingeniería", price: "€€" },
     ],
-    tips: ["UNIPASS 2026/27: abono anual de bus urbano a 27 € para estudiantes, también Erasmus, hasta agotar los 11.000 abonos","Pide plaza en un colegio de EDiSU: una cama sin beca cuesta unos 170–340 € al mes, según la universidad","Aeropuertos: Linate a unos 50 km, Orio al Serio a 70 km y Malpensa a 90 km","ESN STEP Pavia acoge a los estudiantes Erasmus desde 1992"],
+    tips: ["UNIPASS 2026/27: abono anual de bus urbano a 27 € para estudiantes, también Erasmus, hasta agotar los 11.000 abonos","Pide plaza en un colegio de EDiSU: la tarifa depende de la renta familiar y hay plazas reservadas para estudiantes de universidades con convenio; consulta la convocatoria","Aeropuertos: Linate a unos 50 km, Orio al Serio a 70 km y Malpensa a 90 km","ESN STEP Pavia acoge a los estudiantes Erasmus desde 1992"],
     experiences: ["erasmus"],
   },
   {
@@ -4452,7 +4452,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Campus de Santa Apolónia", vibe: "Residencias y escuelas, cerca del centro", price: "€" },
     ],
-    tips: ["No hay tren: se llega en autobús (Rede Expressos, RodoNorte o FlixBus) desde Oporto, el aeropuerto internacional más cercano","Desde España hay autobús Zamora–Braganza solo algunos días a la semana: consulta los horarios antes de viajar","Contacta con la oficina de relaciones internacionales para la acogida Erasmus (no hay sección de ESN)","Invierno frío: unos 53 días de helada al año (IPMA)"],
+    tips: ["No hay tren: se llega en autobús (Rede Expressos, RodoNorte o FlixBus) desde Oporto, el aeropuerto internacional más cercano","Desde España hay autobús Zamora–Braganza: consulta horarios y operadores antes de viajar","Contacta con la oficina de relaciones internacionales para la acogida Erasmus (no hay sección de ESN)","Invierno frío: unos 53 días de helada al año (IPMA)"],
     experiences: ["erasmus"],
   },
   {

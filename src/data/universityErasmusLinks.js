@@ -577,6 +577,11 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Northumbria University": "https://www.northumbria.ac.uk/international/incoming-students/i-am-an-erasmus-student/",
   "Thomas More": "https://www.thomasmore.be/en/exchange-programmes",
   "Hochschule Rhein-Waal": "https://www.hochschule-rhein-waal.de/en/study/during-your-studies/semester-abroad/a-semester-with-us",
+  "Newcastle University": "https://www.ncl.ac.uk/mobility/study-abroad-in-newcastle/join-us-on-an-exchange-programme/",
+  // Página general de entrantes de KU Leuven: el campus de Geel se elige en su selector.
+  "KU Leuven Campus Geel": "https://www.kuleuven.be/english/education/student/register/exchange",
+  // Universidade Politécnica de Bragança: ipb.pt redirige a unipb.pt y no se ha localizado su página
+  // de entrantes (15-11-2026); sin enlace hasta confirmarla.
 };
 
 /**

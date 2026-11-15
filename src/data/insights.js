@@ -16399,7 +16399,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Transporte público", score: 6.5, desc: "Buses urbanos de AIR Campania." },
           { label: "Ciudad caminable", score: 7.0, desc: "El centro y la Reggia se recorren a pie desde la estación." },
-          { label: "Conexiones internacionales", score: 7.0, desc: "Aeropuerto de Nápoles-Capodichino a unos 22 km." },
+          { label: "Conexiones internacionales", score: 7.0, desc: "Aeropuerto de Nápoles-Capodichino, el más cercano." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Nápoles, Roma, la costa de Campania y San Leucio, muy a mano." },
         ],
       },
@@ -16445,11 +16445,11 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 8.5,
-        summary: "Una de las opciones más baratas: comedor a unos 2,50 € y alquileres bajos. Sin cifra total oficial: el rango es una estimación de MAbroad.",
+        summary: "Una de las opciones más baratas: comedor a 2,80 € y alquileres bajos. Sin cifra total oficial: el rango es una estimación de MAbroad.",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 8.5, desc: "Según la UBI, un T1 en el centro cuesta 250–350 € al mes." },
-          { label: "Comida y supermercados", score: 9.0, desc: "Comedor universitario: comida social a unos 2,50 €." },
+          { label: "Comida y supermercados", score: 9.0, desc: "Comedor universitario: comida social a 2,80 € (tarifa desde el 1-10-2026)." },
           { label: "Transporte", score: 7.5, desc: "Autobuses urbanos, cuatro ascensores y un funicular." },
           { label: "Ocio y gastos diarios", score: 8.5, desc: "Precios de ciudad de interior portuguesa." },
         ],
@@ -16494,7 +16494,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Transporte público", score: 6.5, desc: "Autobuses urbanos, cuatro ascensores y un funicular." },
           { label: "Ciudad caminable", score: 5.0, desc: "Ciudad de cuestas, entre unos 450 y 800 m de altitud." },
-          { label: "Conexiones internacionales", score: 4.0, desc: "Los aeropuertos de Lisboa y Oporto están a unos 250 km." },
+          { label: "Conexiones internacionales", score: 4.0, desc: "Los aeropuertos más cercanos son los de Oporto y Lisboa." },
           { label: "Escapadas de fin de semana", score: 7.0, desc: "Serra da Estrela al lado; consulta los horarios de CP para viajar en tren a Lisboa." },
         ],
       },
@@ -16660,7 +16660,7 @@ export const CITY_INSIGHTS = {
         summary: "Ciudad universitaria animada, con Bolonia muy cerca.",
         color: "#8B5CF6",
         subcategories: [
-          { label: "Comunidad Erasmus", score: 8.0, desc: "ESN Modena e Reggio Emilia, con Welcome Weeks cada septiembre." },
+          { label: "Comunidad Erasmus", score: 8.0, desc: "ESN Modena e Reggio Emilia, con Welcome Week al inicio de cada semestre." },
           { label: "Ambiente internacional", score: 7.0, desc: "Comunidad internacional mediana." },
           { label: "Fiesta y vida nocturna", score: 7.0, desc: "Aperitivos y bares del centro; más fiesta en Bolonia." },
           { label: "Eventos y actividades", score: 8.0, desc: "Vida cultural y gastronómica muy activa." },
@@ -16842,7 +16842,7 @@ export const CITY_INSIGHTS = {
           { label: "Disponibilidad", score: 6.5, desc: "Mercado pequeño; conviene buscar con tiempo." },
           { label: "Precio", score: 7.0, desc: "Más barato que Milán." },
           { label: "Facilidad de búsqueda", score: 7.0, desc: "La universidad publica guías y rangos de precios." },
-          { label: "Residencias universitarias", score: 8.0, desc: "Colegios de EDiSU y colegios de mérito históricos; una cama sin beca, unos 170–340 € al mes." },
+          { label: "Residencias universitarias", score: 8.0, desc: "Colegios de EDiSU (tarifa según la renta, con plazas para estudiantes de universidades con convenio) y colegios de mérito históricos." },
         ],
       },
       {
@@ -16937,7 +16937,7 @@ export const CITY_INSIGHTS = {
           { label: "Disponibilidad", score: 7.0, desc: "Mercado pensado para estudiantes." },
           { label: "Precio", score: 8.5, desc: "Alquileres bajos." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "Para Erasmus, la universidad ha remitido a una empresa privada de alojamiento." },
-          { label: "Residencias universitarias", score: 6.0, desc: "Tres residencias en Braganza, sobre todo para estudiantes becados." },
+          { label: "Residencias universitarias", score: 6.0, desc: "Residencias de los Servicios de Acción Social, con prioridad para estudiantes becados." },
         ],
       },
       {

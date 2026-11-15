@@ -268,6 +268,44 @@ Criterio completo en `docs/scoring.md`. Esta sección recoge de dónde sale cada
 
 ## Ciudades nuevas de la cola Loyola (rama `tandas-loyola`)
 
+### 15-11-2026 — campus satélite y cierre de la revisión pendiente
+
+Claude Code, con dos agentes `contenido-verificacion` (uno por tanda, solo lectura) y lectura directa de los PDF oficiales. La sesión anterior sobre el campus satélite no dejó cambios sin commit: se ha hecho desde cero.
+
+**Campus satélite (criterio de Miguel).** Una universidad que solo tiene en la ciudad un campus pequeño cuenta para el nivel académico, pero sus estudiantes internacionales (cifra de THE de toda la institución) no cuentan para la comunidad de la vida estudiantil. Se marca `{ name, satellite: true }` en `THE_NAMES`; `scoring.js` lo excluye de la suma y el desglose lo explica. Documentado en `docs/scoring.md` y en la metodología visible; test nuevo en `tests/scoring.test.mjs`.
+- **Geel** (KU Leuven Campus Geel: una sola facultad, Ingeniería Técnica, [web del campus](https://www.kuleuven.be/english/campuses/geel-campus/about); KU Leuven no publica cifra de alumnos por campus): vida estudiantil pendiente → **nota provisional 7,6, fuera de los rankings** (académico 10 por KU Leuven =45). Thomas More no está en THE. Cierra la «decisión editorial abierta» de la revisión de Codex del 14-11.
+- Revisadas el resto de asignaciones de `THE_NAMES`. No se marcan, por tener en la ciudad un campus grande: Leiden en La Haya (Campus The Hague, unas 7.000 personas, ~20 % de la universidad), PUCMM en Santo Domingo (sede en Santiago de los Caballeros, pero campus completo en la capital), ATU en Galway (su mayor campus) y ZHAW en Zúrich (sede en Winterthur, dos departamentos en Zúrich; no cambiaría la nota). **Casos límite para Miguel:** si se aplica también a La Haya y Santo Domingo, ambas quedan provisionales. Las universidades de ciudad vecina listadas en la ficha (Lund–Malmö, Harvard–Boston, Berkeley–San Francisco, Northwestern–Chicago, Politécnica de Silesia–Katowice) siguen la regla general.
+- `npm run scoring:data` regenerado: solo cambia la marca de Geel (ESN, UNODC y NEET idénticos salvo la fecha, revertida).
+
+**Clima, normales 1991–2020:**
+- Caserta (Grazzanise), Covilhã ([IPMA Fundão](https://www.ipma.pt/bin/file.data/climate-normal/cn_91-20_FUNDAO.pdf)), Módena ([Annuario UNIMORE 2021, tabla 10](https://www.ossgeo.unimore.it/wp-content/uploads/2023/09/2021AnnuarioOsservatorio_compressed.pdf)), Pavía ([NOAA, Linate 16080](https://www.ncei.noaa.gov/data/oceans/archive/arc0216/0253808/1.1/data/0-data/Region-6-WMO-Normals-9120/Italy/CSV/MilanoLinate_16080.csv)) y Newcastle ([Met Office, Tynemouth](https://www.metoffice.gov.uk/research/climate/maps-and-data/location-specific-long-term-averages/gcybg0mzy)): coinciden. Caserta solo se ha cotejado con la réplica de la tabla OMM (el servidor de NOAA dio 503).
+- **Braganza**: leída la [ficha IPMA 575](https://www.ipma.pt/bin/file.data/climate-normal/cn_91-20_BRAGANCA.pdf). Verano 13–28 → **13–29 °C** (máximas JJA 28,5); el resto coincide; 53,4 días de helada confirmados.
+- **Geel**: con Uccle el verano daba 22,47 °C (no 22,5). Cambiado a la estación oficial más cercana, **Antwerpen-Deurne** (OMM 06450, ~37 km, [NOAA](https://www.ncei.noaa.gov/data/oceans/archive/arc0216/0253808/1.1/data/0-data/Region-6-WMO-Normals-9120/Belgium/CSV/ANTWERPENDEURNE_06450.csv)): invierno 2–7 → **1–7**, otoño 8–15 → **7–15**; primavera y verano iguales.
+- Trento, Cosenza y Kleve siguen sin bloque: no hay normal oficial con mínimas y máximas (Meteotrentino y DWD solo dan medias; las de la ficha cuadran: Trento 3,2/22,7 °C, Kleve 3,4/17,6 °C).
+
+**Población:**
+- Kleve: **53.028 a 31-12-2024**, confirmado en el [perfil municipal de IT.NRW](https://statistik.nrw/sites/default/files/municipalprofiles/l05154036.pdf) (Stand 15-01-2026).
+- Trento: 118.640, [Ayuntamiento (censo permanente 2024)](https://www.comune.trento.it/ocmultibinary/download/42763/1594394/7/8955adad29a9753f065ba9af2c32cba0.pdf/file/cens_perm_popolazione%2B2024.pdf). Braganza: estimación INE a 31-12-2025 vía [PORDATA](https://www.pordata.pt/en/municipalities/summary+table/braganca-828102).
+- **Sin fuente primaria leída** (demo.istat.it es dinámica): Caserta, Módena y Cosenza (coinciden con datos ISTAT reproducidos por terceros salvo Cosenza, no confirmada), Pavía (provisional 1-1-2026) y Covilhã (Censos 2021; la ficha municipal del INE no abrió). Se mantienen.
+
+**Enlaces de entrantes:** Vanvitelli, UBI, UNICAL, Pavía, Northumbria, Thomas More y HSRW cargan y son oficiales. Añadidos **Newcastle University** y **KU Leuven Campus Geel**. UNIMORE (ECONNRESET) y UniTrento (403 a bots) no se pudieron abrir, pero las guías oficiales enlazan esas rutas: se mantienen. **Braganza:** `ipb.pt` redirige ahora a `unipb.pt` y no se ha localizado la página de entrantes: sin enlace.
+
+**Correcciones aplicadas:**
+- Caserta: fuera los «22 km» al aeropuerto de Capodichino (sin fuente; por carretera son más).
+- Covilhã: aeropuertos «Lisboa y Oporto, ambos a unos 250 km» → «Oporto y Lisboa» (Oporto está bastante más cerca). Comida social «unos 2,50 €» → **2,80 €**, [tabla de los SAS de la UBI en vigor desde el 1-10-2026](https://www.ubi.pt/Entidade/SASUBI_Alimentacao_precarios).
+- Módena: Ferrari no tiene su domicilio social en Módena (la matriz tiene sede estatutaria en Ámsterdam y principal en Maranello, [SEC](https://www.sec.gov/Archives/edgar/data/1648416/000110465925017329/tm2428908-1_f3.htm)) → «tiene su fábrica en Maranello, en la misma provincia». «Welcome Weeks cada septiembre» → «Welcome Week al inicio de cada semestre» ([ESN MoRe](https://more.esn.it/)).
+- Trento: el abono de 70 € es de los estudiantes de UniTrento (Erasmus incluidos), no de todos los universitarios ([Provincia](https://www.provincia.tn.it/en/Services/University-student-transport-passes)).
+- Pavía: fuera «una cama sin beca, unos 170–340 €» (la página ya no carga y EDiSU fija la tarifa según la renta, [convocatoria](https://www.edisu.pv.it/servizi/bando-collegi/)); ahora remite a la convocatoria.
+- Braganza: el bus Zamora–Braganza ya no dice «solo algunos días»; «tres residencias» → «residencias de los Servicios de Acción Social, con prioridad para becados».
+- Confirmado y sin cambios: Kleve «atrae más trabajadores de los que salen» (saldo de commuters +4.636 a 30-6-2024, perfil IT.NRW); Newcastle (residencias, Mayor's Fares hasta marzo de 2027, Tyne Bridge 1928, Metro al aeropuerto, LNER); Geel (kot 315 €, UNESCO 2023, JRC 1960); Cosenza; Caserta (Frecciarossa, sedes, delitos −4,8 %).
+
+**Pendiente:**
+- Trento: ya existe la [ficha de intercambio 2026/27](https://www.unitn.it/sites/default/files/2026-03/Trento_Factsheet_26_27.pdf), pero devuelve 403: comprobar si mantiene «unos 700 €/mes» y actualizar `costSource`.
+- Braganza: URL de entrantes en unipb.pt (la web se carga con JavaScript); revisar el nombre en mayo de 2027.
+- Fechas de caducidad: Mayor's Fares (marzo de 2027), cuota de HSRW (2026/27).
+
+**Notas finales (160 ciudades, 152 con puesto):** Trento 7,4 (54.º), Pavía 7,3 (60.º), Covilhã 7,2 (74.º), Módena 7,2 (78.º), Newcastle 6,9 (107.º), Cosenza 6,9 (110.º), Braganza 6,7 (115.º), Caserta 6,3 (129.º); Geel 7,6 y Kleve 6,6, provisionales y sin puesto. Ninguna nota cambia por las correcciones de texto (no afectan a las subnotas).
+
 ### 14-11-2026 — revisión de Codex y cierre solicitado por Miguel
 
 Esta revisión sustituye las decisiones pendientes de coste de las tandas A/B. Trabajo realizado directamente por Codex, sin Claude Code ni otros agentes. Por petición de cierre de Miguel, los puntos no cotejados de nuevo se detallan abajo y no se dan por verificados.
