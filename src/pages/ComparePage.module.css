@@ -1210,3 +1210,50 @@
   /* Con puesto + dato, la mini necesita el ancho entero. */
   .rankedSection .miniGrid { grid-template-columns: 1fr; }
 }
+
+/* ─── DE DÓNDE SALE LA NOTA (NotaBreakdownTable, escritorio) ─────────────────
+   Una fila por subnota de la nota MAbroad (lib/scoring.js); la mejor de cada
+   fila lleva el color de su ciudad y la etiqueta «La mejor». En móvil lo
+   cubre la tabla compacta. */
+.ntSection {}
+.ntWrap { overflow-x: auto; }
+.ntTable {
+  width: 100%; border-collapse: separate; border-spacing: 0;
+  background: var(--color-white);
+  border: 1px solid var(--color-border); border-radius: var(--radius-lg);
+  font-size: 14px; color: var(--color-dark);
+}
+.ntTable th, .ntTable td {
+  padding: 12px 14px; text-align: left; vertical-align: top;
+  border-bottom: 1px solid var(--color-border);
+}
+.ntTable tr:last-child th, .ntTable tr:last-child td { border-bottom: 0; }
+.ntTable thead th {
+  font-family: var(--font-display); font-weight: 800; font-size: 15px;
+}
+.ntTable tbody th { width: 30%; font-weight: 600; }
+.ntLabel { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; }
+.ntLabel :global(svg) { flex: none; color: var(--color-teal); }
+.ntWeight { display: block; margin-top: 2px; font-size: 12px; font-weight: 500; color: var(--color-slate); }
+.ntScore { font-family: var(--font-display); font-weight: 800; font-size: 16px; font-variant-numeric: tabular-nums; }
+.ntSub { display: block; margin-top: 2px; font-size: 12px; color: var(--color-slate); }
+.ntBar {
+  display: block; height: 5px; margin-top: 6px; max-width: 160px;
+  border-radius: 3px; background: var(--color-border); overflow: hidden;
+}
+.ntBar > span { display: block; height: 100%; border-radius: 3px; }
+.ntBest { background: color-mix(in srgb, var(--accent) 9%, transparent); }
+.ntBest { box-shadow: inset 3px 0 0 var(--accent); }
+.ntBestTag {
+  display: inline-block; margin-top: 6px; padding: 1px 8px; border-radius: var(--radius-full);
+  border: 1px solid var(--accent); color: var(--color-dark); font-size: 11px; font-weight: 700;
+}
+.ntTotal th, .ntTotal td { background: var(--color-surface); }
+.ntTotal.ntTotal .ntBest { background: color-mix(in srgb, var(--accent) 14%, var(--color-surface)); }
+
+@media (max-width: 720px) {
+  .ntSection { display: none; }
+}
+
+/* Nota de la tarjeta de cada ciudad: botón que abre el desglose. */
+.overallBtnInner { display: inline-flex; align-items: baseline; gap: 8px; }

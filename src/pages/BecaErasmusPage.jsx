@@ -11,6 +11,7 @@ import { BECA_JSON_LD } from "../lib/seo";
 import { BECA_FAQS } from "../data/faqs";
 import { CITY_COORDS, haversineDistanceKm, distanceToRange, geocodeCity } from "../lib/cityCoords";
 import { getAllCities, parseMinCost, parseMaxCost, isErasmusEligible, getErasmusTransition, getStateCountry } from "../lib/cities";
+import { GROUP1, GROUP2, GROUP3, ESTIMATED_GROUPS, SEPIE_NAMES, SEPIE_MIN_MONTHLY } from "../data/becaGroups";
 
 // Índice ligero de ciudades (ver lib/cities.js).
 const ALL_CITIES = getAllCities();
@@ -44,31 +45,10 @@ const ORIGIN_CITIES = [
 
 /* ─── DATA ──────────────────────────────────────────────────────────────── */
 
-// Grupos de países y tarifas base según la Guía del Programa Erasmus+ (SEPIE / Comisión Europea)
-// Última verificación contra fuentes oficiales: agosto 2026 (vigente para curso 2026-2027)
-const GROUP1 = [
-  "Alemania", "Austria", "Bélgica", "Dinamarca", "Finlandia",
-  "Francia", "Irlanda", "Islandia", "Italia", "Liechtenstein",
-  "Luxemburgo", "Noruega", "Países Bajos", "Suecia",
-];
-const GROUP2 = [
-  "Chipre", "Chequia", "Eslovaquia", "Eslovenia", "España",
-  "Estonia", "Grecia", "Letonia", "Malta", "Portugal",
-];
-const GROUP3 = [
-  "Bulgaria", "Croacia", "Hungría", "Lituania", "Macedonia del Norte",
-  "Polonia", "Rumanía", "Serbia", "Turquía",
-];
-
-// Países que entran en Erasmus+ en el curso 2027-28 (erasmusStatus «confirmed»
-// en cities.js): su grupo aún no lo fija ninguna convocatoria. Reino Unido sale
-// en el grupo 1 de la tabla de 2026 del SEPIE como país no asociado, así que se
-// usa ese grupo como ESTIMACIÓN hasta que se publique la convocatoria 2027.
-const ESTIMATED_GROUPS = { "Reino Unido": 1 };
+// Grupos de países, importes base (mínimos del SEPIE) y nombres de sus tablas:
+// src/data/becaGroups.js (fuente única; también la usa «Te faltan ~X €/mes
+// tras la beca» de la ficha y el comparador).
 const ESTIMATE_NOTE = "estimación, pendiente de la convocatoria 2027";
-
-// Nombre del país en la tabla del SEPIE cuando cities.js usa otro.
-const SEPIE_NAMES = { "República Checa": "Chequia" };
 
 /**
  * El país con el que se busca en las tablas del SEPIE:
@@ -201,7 +181,7 @@ function Calculator() {
     : null;
   const group = officialGroup ?? estimatedGroup;
   const groupIsEstimate = estimatedGroup !== null;
-  const baseRate = group === 1 ? 350 : group === 2 ? 300 : group === 3 ? 250 : null;
+  const baseRate = group ? SEPIE_MIN_MONTHLY[group] : null;
   const complemento = menosOport ? 250 : 0;
   const monthly = baseRate !== null ? baseRate + complemento : null;
   const erasmusTotal = monthly !== null ? monthly * months : null;

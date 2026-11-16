@@ -15,17 +15,19 @@ import { getScoreLevel } from "../lib/cities";
  */
 const RING_FILL = {
   Excelente: "#15803D",
-  Bueno: "#3F7A7D",
-  Regular: "#B45309",
-  Difícil: "#B91C1C",
+  "Muy buena": "#3F7A7D",
+  Buena: "#B45309",
+  Mejorable: "#B91C1C",
 };
 
 export default function ScoreRing({ score, size = 96, showLabel = true, animate = true, className = "" }) {
   const [animated, setAnimated] = useState(!animate);
   const r = 44;
   const circ = 2 * Math.PI * r;
-  const level = getScoreLevel(score);
-  const fill = RING_FILL[level.label] || level.color;
+  // Sin nota (le falta más del 30 % del peso, ver lib/scoring.js): «—».
+  const hasScore = typeof score === "number";
+  const level = getScoreLevel(hasScore ? score : 0);
+  const fill = hasScore ? RING_FILL[level.label] || level.color : "#56708C";
 
   useEffect(() => {
     if (!animate) return;
@@ -50,15 +52,15 @@ export default function ScoreRing({ score, size = 96, showLabel = true, animate 
           strokeWidth={strokeWidth}
           strokeLinecap="round"
           strokeDasharray={circ}
-          strokeDashoffset={animated ? circ * (1 - Math.min(score, 10) / 10) : circ}
+          strokeDashoffset={animated && hasScore ? circ * (1 - Math.min(score, 10) / 10) : circ}
           transform="rotate(-90 50 50)"
           style={{ transition: "stroke-dashoffset 1.2s cubic-bezier(0.16,1,0.3,1)" }}
         />
       </svg>
       <div className="score-ring__center">
-        <span className="score-ring__num" style={{ fontSize: scoreFontSize }}>{score}</span>
+        <span className="score-ring__num" style={{ fontSize: scoreFontSize }}>{hasScore ? score : "—"}</span>
         <span className="score-ring__den" style={{ fontSize: denFontSize }}>/10</span>
-        {showLabel && (
+        {showLabel && hasScore && (
           <span className="score-ring__label" style={{ fontSize: labelFontSize }}>{level.label}</span>
         )}
       </div>

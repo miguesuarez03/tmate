@@ -42,7 +42,7 @@ export default function CityDetailPage() {
       <NavbarCity cityName={city.name} overall={overallScore} />
 
       {/* 1. Hero */}
-      <HeroSection city={city} overallScore={overallScore} insights={insights} />
+      <HeroSection city={city} overallScore={overallScore} insights={insights} scoreDetail={detail?.scoring?.detail} />
 
       {/* 2. Bento highlights — with photos */}
       <BentoHighlights highlights={city.highlights} cityName={city.name} cityImg={city.heroImg || city.img} />
@@ -50,7 +50,7 @@ export default function CityDetailPage() {
       <div className="cdp-divider" />
 
       {/* 3. Insight dashboard */}
-      <InsightDashboard scores={insights?.scores ?? []} overallScore={overallScore} citySlug={slug} cityName={city.name} />
+      <InsightDashboard scores={insights?.scores ?? []} overallScore={overallScore} citySlug={slug} cityName={city.name} scoreDetail={detail?.scoring?.detail} />
 
       <div className="trust-note-wrap">
         <MethodologyNote compact />

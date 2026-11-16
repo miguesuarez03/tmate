@@ -16,6 +16,7 @@ import { CITY_EXPERIENCES, FOUNDER_EXPERIENCE, EXPERIENCE_TOPICS } from '../data
 import { RANKING_CRITERIA, RANKING_TOP } from '../data/rankings';
 import { MAP_COUNTRIES } from '../data/mapCountries';
 import { CITY_SIZE_LIMITS } from './cityMetrics';
+import { SUBSCORES, EXTRA_SCORES } from './scoring';
 import { DEFAULT_OG_IMAGE, getCityOgImage } from './seo';
 
 /** @typedef {import('../types').City} City */
@@ -169,18 +170,62 @@ export function getCitySize(city) {
 }
 
 /**
- * Score global de una ciudad: la media, con el mismo peso, de las 8 notas de
- * categoría que se ven en su ficha (CITY_INSIGHTS), precalculada en el índice
- * con computeOverallScore (lib/cityMetrics.js). Es lo que explica la nota
- * «Cómo calculamos estos datos» (MethodologyNote): si cambias el cálculo,
- * actualiza también ese texto. userRatings queda preparado para combinar
- * valoraciones reales de usuarios (50 %) cuando existan.
+ * Nota MAbroad de una ciudad: media ponderada, con pesos fijos, de sus 8
+ * subnotas con fuente (src/lib/scoring.js, criterio en docs/scoring.md),
+ * precalculada en el índice. null si le falta más del 30 % del peso (ninguna
+ * ciudad está así hoy). Si cambias el cálculo, actualiza MethodologyNote.
+ * userRatings queda preparado para combinar valoraciones reales de usuarios
+ * (50 %) cuando existan.
+ * @returns {number | null}
  */
 export function getOverallScore(slug, userRatings = null) {
-  const base = BY_SLUG.get(slug)?.overall ?? 7.0;
-  if (!userRatings || userRatings.length === 0) return base;
+  const base = BY_SLUG.get(slug)?.overall ?? null;
+  if (base == null || !userRatings || userRatings.length === 0) return base;
   const userAvg = parseFloat((userRatings.reduce((a, b) => a + b, 0) / userRatings.length).toFixed(1));
   return parseFloat(((base + userAvg) / 2).toFixed(1));
+}
+
+/**
+ * Desglose de la nota MAbroad: una fila por subnota (en el orden de
+ * SUBSCORES) con su nota (null = pendiente) y peso, más la nota final y si es
+ * provisional (le falta alguna subnota), y los datos aparte que NO cuentan
+ * (extras: idioma). Lo pintan ScoreBreakdown y el comparador.
+ * @returns {{ overall: number | null, provisional: boolean, pending: string[],
+ *   rows: Array<{ id: string, label: string, weight: number, kind: string, source: string, score: number | null }>,
+ *   extras: Array<{ id: string, label: string, kind: string, source: string, score: number | null }> } | null}
+ */
+export function getScoreBreakdown(slug) {
+  const entry = BY_SLUG.get(slug);
+  if (!entry?.nota) return null;
+  const { subs, pending, extras = {} } = entry.nota;
+  const num = (v) => (typeof v === "number" ? v : null);
+  return {
+    overall: entry.overall ?? null,
+    provisional: pending.length > 0,
+    pending,
+    rows: SUBSCORES.map((s) => ({ ...s, score: num(subs[s.id]) })),
+    extras: EXTRA_SCORES.map((s) => ({ ...s, score: num(extras[s.id]) })),
+  };
+}
+
+/**
+ * Lo que falta cada mes tras la beca, con el coste medio de la ficha: dato
+ * aparte, NO cuenta en la nota. Erasmus+: mínimo del SEPIE del grupo del país;
+ * Suiza: SEMP; América: 0 € (no hay beca común). Ver getBecaGap en lib/scoring.js.
+ * @returns {{ beca: number, gap: number, kind: "erasmus" | "semp" | "none", group?: number, estimated?: boolean } | null}
+ */
+export function getBecaGapForCity(slug) {
+  return BY_SLUG.get(slug)?.beca ?? null;
+}
+
+/** Texto corto de la beca de referencia usada en getBecaGapForCity. */
+export function getBecaGapNote(gap) {
+  if (!gap) return "";
+  if (gap.kind === "erasmus") {
+    return `con el mínimo de la beca Erasmus+ (${gap.beca} €/mes, grupo ${gap.group}${gap.estimated ? ", estimado" : ""})`;
+  }
+  if (gap.kind === "semp") return `con la beca suiza SEMP (unos ${gap.beca} €/mes)`;
+  return "sin beca común: depende de tu universidad";
 }
 
 const SCORE_CATEGORY_IDS = SCORE_CATEGORIES.map((c) => c.id);
@@ -267,7 +312,7 @@ export function sortCities(cities, key = 'name') {
       return sorted.sort((a, b) => b.erasmus - a.erasmus);
 
     case 'overall':
-      return sorted.sort((a, b) => getOverallScore(b.slug) - getOverallScore(a.slug));
+      return sorted.sort((a, b) => (getOverallScore(b.slug) ?? 0) - (getOverallScore(a.slug) ?? 0));
 
     // Ordena por el mínimo del rango "600–900€/mes". parseMinCost entiende los
     // miles: "1.200–1.800€" es 1200, no 120.
@@ -370,8 +415,12 @@ export function getCriterionValue(city, criterionId) {
       return typeof entry.scores?.[source.id] === 'number' ? entry.scores[source.id] : null;
     case 'sub':
       return typeof entry.subscores?.[source.id] === 'number' ? entry.subscores[source.id] : null;
+    case 'nota':
+      return typeof entry.nota?.subs?.[source.id] === 'number' ? entry.nota.subs[source.id] : null;
     case 'overall':
-      return entry.overall ?? null;
+      // Las notas provisionales (les falta alguna subnota) no entran en los
+      // rankings: van al final, sin puesto, hasta que tengan todos sus datos.
+      return entry.nota?.pending?.length ? null : entry.overall ?? null;
     default:
       return null;
   }
@@ -382,14 +431,19 @@ export function getCriterionValue(city, criterionId) {
  * euros tal cual está en la ficha («600–900€/mes»); en el resto, la nota.
  */
 export function formatCriterionValue(city, criterionId, value = getCriterionValue(city, criterionId)) {
-  if (CRITERIA_BY_ID.get(criterionId)?.source.kind === 'cost') return city.costDetail;
-  return value == null ? 'Sin dato' : `${value.toFixed(1)}/10`;
+  const kind = CRITERIA_BY_ID.get(criterionId)?.source.kind;
+  if (kind === 'cost') return city.costDetail;
+  if (value == null) {
+    return kind === 'overall' && BY_SLUG.get(city?.slug)?.nota?.pending?.length ? 'Nota provisional' : 'Sin dato';
+  }
+  return `${value.toFixed(1)}/10`;
 }
 
 /**
  * Ordena ciudades por un criterio, de mejor a peor. Las que no tienen el dato
  * van al final (rank null), por nombre. Empates: en coste, el mínimo más bajo
- * y luego la nota global; en el resto, la nota global; y por último el nombre.
+ * y luego la nota global sin redondear; en el resto, la nota global sin
+ * redondear (overallExact); el nombre solo si también empatan ahí.
  * Determinista (mismo orden en el prerender y en el cliente).
  * @param {string} criterionId
  * @param {{ cities?: CityIndexEntry[] }} [options]
@@ -401,7 +455,11 @@ export function rankCities(criterionId, { cities = CITIES } = {}) {
     city,
     value: getCriterionValue(city, criterionId),
     // En coste se ordena por el euro exacto (el 0–10 redondeado empataría más).
-    key: isCost ? -getCostMidpoint(city.costDetail) : getCriterionValue(city, criterionId),
+    // En la nota global se ordena por la nota sin redondear (overallExact).
+    key: isCost ? -getCostMidpoint(city.costDetail)
+      : CRITERIA_BY_ID.get(criterionId)?.source.kind === 'overall' && getCriterionValue(city, criterionId) != null
+        ? BY_SLUG.get(city.slug)?.overallExact ?? getCriterionValue(city, criterionId)
+        : getCriterionValue(city, criterionId),
   }));
   rows.sort((a, b) => {
     if ((a.value == null) !== (b.value == null)) return a.value == null ? 1 : -1;
@@ -411,8 +469,9 @@ export function rankCities(criterionId, { cities = CITIES } = {}) {
       const byMin = parseMinCost(a.city.costDetail) - parseMinCost(b.city.costDetail);
       if (byMin) return byMin;
     }
-    const byOverall = (b.city.overall ?? 0) - (a.city.overall ?? 0);
-    if (byOverall && criterionId !== 'nota') return byOverall;
+    const exact = (c) => BY_SLUG.get(c.slug)?.overallExact ?? c.overall ?? 0;
+    const byOverall = exact(b.city) - exact(a.city);
+    if (byOverall) return byOverall;
     return a.city.name.localeCompare(b.city.name, 'es');
   });
   let rank = 0;
@@ -799,10 +858,12 @@ export function isAffordable(city) {
 
 /** Formatea un score de 0-10 con color semántico. */
 export function getScoreLevel(score) {
-  if (score >= 8.5) return { label: 'Excelente', color: '#22C55E' };
-  if (score >= 7)   return { label: 'Bueno',     color: '#3F7A7D' };
-  if (score >= 5.5) return { label: 'Regular',   color: '#F59E0B' };
-  return               { label: 'Difícil',   color: '#EF4444' };
+  // Umbrales sobre la nota tal como se enseña (un decimal): 7,95 cuenta como 8,0.
+  const shown = Math.round(score * 10) / 10;
+  if (shown >= 8) return { label: 'Excelente',  color: '#22C55E' };
+  if (shown >= 7) return { label: 'Muy buena',  color: '#3F7A7D' };
+  if (shown >= 6) return { label: 'Buena',      color: '#F59E0B' };
+  return            { label: 'Mejorable',  color: '#EF4444' };
 }
 
 /** Total de ciudades. */
@@ -943,7 +1004,7 @@ export const COMPARE_MIN_CATEGORY_GAP = 0.5;
  *              COMPARE_MIN_CATEGORY_GAP, de mayor a menor ventaja.
  */
 export function buildCompareVerdict(cities) {
-  const overall = cities.map((c) => getOverallScore(c.slug));
+  const overall = cities.map((c) => getOverallScore(c.slug) ?? 0);
   const maps = cities.map((c) => getScoreMap(c.slug));
 
   const mids = cities.map((c) => getCostMidpoint(c.costDetail));

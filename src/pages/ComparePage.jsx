@@ -4,13 +4,16 @@ import { Link, useSearchParams } from "react-router-dom";
 import {
   getAllCities, getScoreMap, getOverallScore, parseMinCost, getProgramLabel, getCompareLeader, buildCompareVerdict, COMPARE_MIN_CATEGORY_GAP,
   getRankingCriteria, getCriterion, rankCities, filterByProgram, formatCriterionValue, getRankingPath, PROGRAM_FILTERS,
+  getScoreBreakdown, getBecaGapForCity, getBecaGapNote,
 } from "../lib/cities";
+import { SUBSCORES } from "../lib/scoring";
+import ScoreBreakdown from "../components/ScoreBreakdown";
 import { getComparePhrase } from "../data/comparePhrases";
 import { Navbar, Footer } from "../components/Layout";
 import JourneySteps from "../components/JourneySteps";
 import ShareButton from "../components/ShareButton";
 import { IconRanking, IconCorona, IconBeca, IconUniversidad, IconClima, IconIdiomas, IconCheck, IconAlerta, IconComparar, IconLupa } from "../components/icons";
-import { getCategoryIcon, getCriterionIcon } from "../lib/categoryIcons";
+import { getCategoryIcon, getCriterionIcon, getSubscoreIcon } from "../lib/categoryIcons";
 import MethodologyNote from "../components/MethodologyNote";
 import ScoreRing from "../components/ScoreRing";
 import { useSEO } from "../hooks/useSEO";
@@ -70,6 +73,114 @@ const COL_GRADIENTS = [
   "linear-gradient(135deg,#F59E0B,#EF4444)",
   "linear-gradient(135deg,#FFC95E,#B45309)",
 ];
+
+// Nota con un decimal, o «—» si la ciudad no tiene (ver lib/scoring.js).
+const fmtScore = (s) => (typeof s === "number" ? s.toFixed(1) : "—");
+
+/**
+ * Índices de las ciudades con el mejor valor de una fila (todas si empatan
+ * arriba), o [] si todas tienen el mismo valor o falta dato para comparar.
+ */
+function bestIndices(values, higherIsBetter = true) {
+  const nums = values.filter((v) => typeof v === "number");
+  if (nums.length < 2) return [];
+  const best = higherIsBetter ? Math.max(...nums) : Math.min(...nums);
+  const idx = values.map((v, i) => (v === best ? i : -1)).filter((i) => i !== -1);
+  return idx.length === values.length ? [] : idx;
+}
+
+/** «Te faltan ~X €/mes tras la beca» (dato aparte, no cuenta en la nota). */
+const gapText = (g) => (!g ? "—" : g.gap > 0 ? `~${g.gap.toLocaleString("es-ES")} €/mes` : "0 €: la beca lo cubre");
+
+/* ─── Desglose de la nota (escritorio) ──────────────────────────────────
+   Una fila por subnota de la nota MAbroad (lib/scoring.js), una columna por
+   ciudad. En cada fila se resalta la mejor (todas si empatan arriba). */
+function NotaBreakdownTable({ cities }) {
+  const breakdowns = cities.map((c) => getScoreBreakdown(c.slug));
+  const gaps = cities.map((c) => getBecaGapForCity(c.slug));
+  const overall = breakdowns.map((b) => b?.overall ?? null);
+  const bestOverall = bestIndices(overall);
+  const bestGap = bestIndices(gaps.map((g) => g?.gap ?? null), false);
+
+  const cell = (i, best, children) => (
+    <td key={cities[i].slug} className={best ? styles.ntBest : undefined} style={{ "--accent": COL_COLORS[i] }}>
+      {children}
+      {best && <span className={styles.ntBestTag}>La mejor</span>}
+    </td>
+  );
+
+  return (
+    <div className={styles.ntWrap}>
+      <table className={styles.ntTable}>
+        <caption className="sr-only">Desglose de la nota MAbroad de {cities.map((c) => c.name).join(", ")}, por subnota</caption>
+        <thead>
+          <tr>
+            <th scope="col"><span className="sr-only">Subnota</span></th>
+            {cities.map((c, i) => (
+              <th key={c.slug} scope="col" style={{ color: COL_COLORS[i] }}><Flag emoji={c.emoji} /> {c.name}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {SUBSCORES.map((s) => {
+            const Icon = getSubscoreIcon(s.id);
+            const values = breakdowns.map((b) => b?.rows.find((r) => r.id === s.id)?.score ?? null);
+            const best = bestIndices(values);
+            return (
+              <tr key={s.id}>
+                <th scope="row">
+                  <span className={styles.ntLabel}><Icon size={18} /> {s.label}</span>
+                  <span className={styles.ntWeight}>{s.weight} % de la nota{s.kind === "valoracion" ? " · valoración MAbroad" : ""}</span>
+                </th>
+                {values.map((v, i) => cell(i, best.includes(i), (
+                  <>
+                    <span className={styles.ntScore}>{v == null ? "Pendiente" : v.toFixed(1)}</span>
+                    <span className={styles.ntBar} aria-hidden="true">
+                      {v != null && <span style={{ width: `${v * 10}%`, background: COL_COLORS[i], opacity: best.includes(i) ? 1 : 0.45 }} />}
+                    </span>
+                  </>
+                )))}
+              </tr>
+            );
+          })}
+          <tr className={styles.ntTotal}>
+            <th scope="row"><span className={styles.ntLabel}>Nota MAbroad</span></th>
+            {overall.map((v, i) => cell(i, bestOverall.includes(i), (
+              <span className={styles.ntScore}>{fmtScore(v)}{breakdowns[i]?.provisional ? " (provisional)" : ""}</span>
+            )))}
+          </tr>
+          {breakdowns[0]?.extras.map((x) => {
+            const Icon = getSubscoreIcon(x.id);
+            return (
+              <tr key={x.id}>
+                <th scope="row">
+                  <span className={styles.ntLabel}><Icon size={18} /> {x.label}</span>
+                  <span className={styles.ntWeight}>Dato aparte: no cuenta en la nota</span>
+                </th>
+                {breakdowns.map((b, i) => {
+                  const v = b?.extras.find((e) => e.id === x.id)?.score ?? null;
+                  return <td key={cities[i].slug}><span className={styles.ntScore}>{v == null ? "Sin dato" : v.toFixed(1)}</span></td>;
+                })}
+              </tr>
+            );
+          })}
+          <tr>
+            <th scope="row">
+              <span className={styles.ntLabel}><IconBeca size={18} /> Te faltan tras la beca</span>
+              <span className={styles.ntWeight}>Dato aparte: no cuenta en la nota</span>
+            </th>
+            {gaps.map((g, i) => cell(i, bestGap.includes(i), (
+              <>
+                <span className={styles.ntScore}>{gapText(g)}</span>
+                <span className={styles.ntSub}>{getBecaGapNote(g)}</span>
+              </>
+            )))}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+}
 
 // ─── Radar comparativo ──────────────────────────────────────────────────
 const RADAR_SHORT = {
@@ -370,6 +481,8 @@ function VersusGrid({ scoreIds, selectedCities, scoreMaps }) {
 function MobileCompareTable({ cities, scoreMaps, overallScores, winnerIdx, tiedIdx, onRemove }) {
   const cols = cities.length;
   const minCost = Math.min(...cities.map((c) => parseMinCost(c.costDetail)));
+  const bestGapIdx = bestIndices(cities.map((c) => getBecaGapForCity(c.slug)?.gap ?? null), false);
+  const breakdowns = cities.map((c) => getScoreBreakdown(c.slug));
 
   const basics = [
     {
@@ -377,7 +490,7 @@ function MobileCompareTable({ cities, scoreMaps, overallScores, winnerIdx, tiedI
       cell: (c, i) => (
         <span className={styles.mtScore} style={{ color: winnerIdx === i ? COL_COLORS[i] : undefined }}>
           {winnerIdx === i && <IconCorona size={14} />}
-          {overallScores[i].toFixed(1)}
+          {fmtScore(overallScores[i])}
           {tiedIdx.includes(i) && <span className={styles.mtNote}>empate</span>}
         </span>
       ),
@@ -388,6 +501,12 @@ function MobileCompareTable({ cities, scoreMaps, overallScores, winnerIdx, tiedI
         <span className={parseMinCost(c.costDetail) === minCost ? styles.mtBest : undefined}>
           {c.costDetail.replace("/mes", "")}
         </span>
+      ),
+    },
+    {
+      id: "beca", label: "Te faltan tras la beca (no cuenta en la nota)",
+      cell: (c, i) => (
+        <span className={bestGapIdx.includes(i) ? styles.mtBest : undefined}>{gapText(getBecaGapForCity(c.slug))}</span>
       ),
     },
     { id: "clima", label: "Clima", cell: (c) => c.weather },
@@ -413,7 +532,9 @@ function MobileCompareTable({ cities, scoreMaps, overallScores, winnerIdx, tiedI
             {cities.map((c, i) => (
               <th key={c.slug} scope="col" className={styles.mtHead} style={{ "--accent": COL_COLORS[i] }}>
                 <span className={styles.mtHeadName}><Flag emoji={c.emoji} /> {c.name}</span>
-                <span className={styles.mtHeadScore} style={{ background: COL_GRADIENTS[i] }}>{overallScores[i].toFixed(1)}</span>
+                <ScoreBreakdown slug={c.slug} cityName={c.name}>
+                  <span className={styles.mtHeadScore} style={{ background: COL_GRADIENTS[i] }}>{fmtScore(overallScores[i])}</span>
+                </ScoreBreakdown>
                 <button type="button" className={styles.mtRemove} onClick={() => onRemove(c.slug)} aria-label={`Quitar ${c.name} de la comparativa`}>✕</button>
               </th>
             ))}
@@ -421,6 +542,28 @@ function MobileCompareTable({ cities, scoreMaps, overallScores, winnerIdx, tiedI
         </thead>
 
         {basics.map((b) => row(b.id, b.label, cities.map((c, i) => <td key={c.slug}>{b.cell(c, i)}</td>)))}
+
+        {/* Subnotas de la nota MAbroad (lib/scoring.js): la mejor de cada fila, resaltada. */}
+        {SUBSCORES.map((s) => {
+          const values = breakdowns.map((b) => b?.rows.find((r) => r.id === s.id)?.score ?? null);
+          const best = bestIndices(values);
+          const Icon = getSubscoreIcon(s.id);
+          return row(`nota-${s.id}`, `Nota · ${s.label} (${s.weight} %)`, cities.map((c, i) => {
+            const isBest = best.includes(i);
+            const v = values[i];
+            return (
+              <td key={c.slug}>
+                <span className={styles.mtScore} style={{ color: isBest ? COL_COLORS[i] : undefined }}>
+                  {v == null ? <span className={styles.mtNote}>Pendiente</span> : v.toFixed(1)}
+                  {isBest && <span className="sr-only"> (la mejor)</span>}
+                </span>
+                <span className={styles.mtBar} aria-hidden="true">
+                  {v != null && <span style={{ width: `${v * 10}%`, background: COL_COLORS[i], opacity: isBest ? 1 : 0.45 }} />}
+                </span>
+              </td>
+            );
+          }), <Icon size={16} />);
+        })}
 
         {SCORE_IDS.map((id) => {
           const meta = scoreMaps.map((m) => m[id]).find(Boolean);
@@ -841,8 +984,12 @@ export default function ComparePage() {
                     {/* Score badge */}
                     <div className={styles.overallBadge} style={{ background: COL_GRADIENTS[i] }}>
                       {isTop && <span className={styles.crownIcon}><IconCorona size={20} /></span>}
-                      <span className={styles.overallNumber}>{overallScores[i].toFixed(1)}</span>
-                      <span className={styles.overallLabel}>/ 10</span>
+                      <ScoreBreakdown slug={city.slug} cityName={city.name} align="start">
+                        <span className={styles.overallBtnInner}>
+                          <span className={styles.overallNumber}>{fmtScore(overallScores[i])}</span>
+                          <span className={styles.overallLabel}>/ 10 · ver desglose</span>
+                        </span>
+                      </ScoreBreakdown>
                     </div>
 
                     {/* Quick stats */}
@@ -859,6 +1006,12 @@ export default function ComparePage() {
                   </div>
                 );
               })}
+            </div>
+
+            {/* Desglose de la nota: una fila por subnota, la mejor resaltada */}
+            <div className={styles.ntSection}>
+              <h3 className={styles.sectionTitle}>De dónde sale la nota</h3>
+              <NotaBreakdownTable cities={selectedCities} />
             </div>
 
             {/* Resumen rápido — puntos fuertes y a tener en cuenta */}

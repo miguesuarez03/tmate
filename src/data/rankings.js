@@ -9,7 +9,9 @@
 //   · source.kind "score"   → la nota 0–10 de una de las 8 categorías (insights.js)
 //   · source.kind "sub"     → una subnota del desglose (Clima, Nivel de inglés),
 //                              que scripts/city-data.mjs copia al índice ligero
-//   · source.kind "overall" → la nota global (media de las 8 categorías)
+//   · source.kind "nota"    → una de las 8 subnotas de la nota MAbroad
+//                              (src/lib/scoring.js: vida, seguridad…)
+//   · source.kind "overall" → la nota MAbroad (pesos fijos, docs/scoring.md)
 // Todo se normaliza a 0–10 (más alto = mejor para un estudiante). Son la
 // valoración editorial de MAbroad: nunca presentarlos como datos oficiales.
 //
@@ -45,12 +47,12 @@ export const RANKING_CRITERIA = [
     chip: "Más vida social",
     label: "Vida social",
     icon: "vida_social",
-    source: { kind: "score", id: "vida_social" },
+    source: { kind: "nota", id: "vida" },
     title: `Las ciudades Erasmus con más vida social en ${RANKING_YEAR}`,
     seoTitle: `Ciudades Erasmus con más vida social en ${RANKING_YEAR} | MAbroad`,
-    description: `Top ${RANKING_TOP} de ciudades Erasmus+ con más ambiente: comunidad Erasmus, ambiente internacional, fiesta y eventos. Ranking con la nota de vida social de MAbroad.`,
+    description: `Top ${RANKING_TOP} de ciudades Erasmus+ con más vida estudiantil: secciones de ESN, estudiantes internacionales, fiesta y eventos. Ranking de MAbroad.`,
     intro: "Comunidad Erasmus grande, planes cada semana y noches largas: las ciudades con beca Erasmus+ donde más fácil es tener vida social desde el primer día.",
-    method: "Ordenamos por la nota de «Vida social y ambiente» de cada ficha (0–10), que resume la comunidad Erasmus e internacional, la fiesta y vida nocturna y los eventos y actividades. Si dos ciudades empatan, va primero la de mejor nota global.",
+    method: "Ordenamos por la subnota «Vida estudiantil» de la nota MAbroad (0–10): la mitad es la comunidad (cuántas secciones de Erasmus Student Network hay en la ciudad y cuántos estudiantes internacionales tienen sus universidades según Times Higher Education) y la otra mitad, el ambiente (fiesta, vida nocturna y eventos, valoración de MAbroad). Si dos ciudades empatan, va primero la de mejor nota global.",
   },
   {
     id: "clima",
@@ -76,7 +78,7 @@ export const RANKING_CRITERIA = [
     seoTitle: `Las ciudades Erasmus más seguras en ${RANKING_YEAR} | MAbroad`,
     description: `Top ${RANKING_TOP} de ciudades Erasmus+ más seguras para estudiantes: seguridad de día, de noche y ambiente de la ciudad, según la nota de seguridad de MAbroad.`,
     intro: "Volver a casa andando de noche sin pensarlo dos veces también cuenta. Estas son las ciudades con beca Erasmus+ que mejor nota de seguridad tienen.",
-    method: "Ordenamos por la nota de «Seguridad» de cada ficha (0–10): seguridad general, seguridad nocturna y ambiente de la ciudad. Es una valoración editorial de MAbroad, no una estadística oficial de criminalidad. Si dos ciudades empatan, va primero la de mejor nota global.",
+    method: "Ordenamos por la nota de «Seguridad» de cada ficha (0–10): seguridad general, seguridad nocturna y ambiente de la ciudad. Es una valoración editorial de MAbroad de cada ciudad, no una estadística oficial de criminalidad. La subnota de seguridad de la nota global usa otro dato, la tasa de homicidios del país (UNODC), que no distingue entre ciudades del mismo país. Si dos ciudades empatan, va primero la de mejor nota global.",
   },
   {
     id: "ingles",
@@ -126,9 +128,9 @@ export const RANKING_CRITERIA = [
     source: { kind: "overall" },
     title: `Las mejores ciudades Erasmus en ${RANKING_YEAR}`,
     seoTitle: `Las mejores ciudades Erasmus en ${RANKING_YEAR}: ranking | MAbroad`,
-    description: `Top ${RANKING_TOP} de ciudades Erasmus+ con mejor nota global de MAbroad: coste, alojamiento, vida social, integración, movilidad, estilo de vida, empleo y seguridad.`,
-    intro: "Las ciudades con beca Erasmus+ que mejor salen cuando se mira todo a la vez: coste, alojamiento, ambiente, idioma, transporte, calidad de vida, salidas y seguridad.",
-    method: "Ordenamos por la nota global de MAbroad: la media, con el mismo peso, de las 8 categorías de cada ficha (coste de vida, alojamiento, vida social, integración internacional, movilidad, estilo de vida, empleo y seguridad). Si dos ciudades empatan, va primero la de nombre anterior en orden alfabético.",
+    description: `Top ${RANKING_TOP} de ciudades Erasmus+ con mejor nota MAbroad: coste, vida estudiantil, seguridad, salidas, universidades, alojamiento, clima y conexiones.`,
+    intro: "Las ciudades con beca Erasmus+ que mejor salen cuando se mira todo a la vez: coste, vida estudiantil, seguridad, salidas profesionales, universidades, alojamiento, calidad de vida y conexiones para viajar.",
+    method: "Ordenamos por la nota MAbroad: la media ponderada, con pesos fijos, de 8 subnotas (coste de vida 20 %, vida estudiantil 20 %, seguridad 15 %, salidas profesionales 10 %, nivel académico 10 %, alojamiento 10 %, calidad de vida y clima 10 % y conectividad 5 %). Cada subnota sale de un dato con fuente (coste mensual, secciones de ESN y estudiantes internacionales, tasa de homicidios de UNODC, jóvenes que ni trabajan ni estudian según Eurostat y la OIT, ranking de Times Higher Education), de una valoración de MAbroad con criterio publicado o de los dos a medias. El idioma no cuenta. Las ciudades con nota provisional (les falta un dato) no entran en el ranking hasta tenerlo. Si dos ciudades empatan, va primero la de nombre anterior en orden alfabético.",
   },
 ];
 
