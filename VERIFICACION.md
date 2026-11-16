@@ -468,7 +468,7 @@ Petición de Miguel: los rangos por estación son medias y esconden los días ex
 - Bérgamo: invierno 0–9 → 0–8 °C (misma estación OMM 16076: máximas DJF 8,4).
 - Bolonia: verano 21–31 → 20–31 °C (ARPAE, mínimas JJA 20,47).
 - **Florencia**: los rangos anteriores no salían de ninguna estación oficial; ahora Firenze Peretola (OMM 16170, la que usa el ISPRA): 8–20 / 18–31 / 11–21 / 2–12 °C.
-- Oporto: la primavera de la ficha (10–19) difiere 1 °C de Pedras Rubras (10–18); la tanda 2 usó otra serie del IPMA. Se mantiene; los meses extremos citan Pedras Rubras.
+- Oporto: unificado con Porto/Pedras Rubras (IPMA 545) por decisión de Miguel (16-11-2026): primavera 10–19 → 10–18 °C; el resto ya coincidía.
 
 **Revisión de Codex (16-11-2026, solo lectura, commit `e1b09cd`), aplicada:**
 - Desglose de la nota: al abrirse, el foco pasa al panel (va en un portal al final de la página); salir con Tab lo cierra y devuelve el foco a la nota.
