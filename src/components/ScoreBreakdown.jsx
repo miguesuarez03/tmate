@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { getScoreBreakdown, getScoreLevel } from "../lib/cities";
+import { getScoreBreakdown, getScoreLevel, formatScore } from "../lib/cities";
 import { getSubscoreIcon } from "../lib/categoryIcons";
 import styles from "./ScoreBreakdown.module.css";
 
-const fmt = (n) => n.toLocaleString("es-ES", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+const fmt = formatScore;
 const PANEL_W = 380;
 const GAP = 10;
 const EDGE = 16;
@@ -31,7 +31,7 @@ const useIsoLayoutEffect = typeof window === "undefined" ? useEffect : useLayout
  * del navegador al pintar, así que la primera renderización coincide con el
  * HTML prerenderizado.
  */
-export default function ScoreBreakdown({ slug, detail = null, align = "center", className = "", children, cityName = "" }) {
+export default function ScoreBreakdown({ slug, detail = null, align = "center", className = "", children, cityName = "", showHint = false }) {
   const data = getScoreBreakdown(slug);
   const [open, setOpen] = useState(false);
   const [pos, setPos] = useState(null); // null = hoja fija (móvil)
@@ -39,6 +39,35 @@ export default function ScoreBreakdown({ slug, detail = null, align = "center", 
   const panelRef = useRef(null);
   const triggerRef = useRef(null);
   const panelId = useId();
+  const [dragY, setDragY] = useState(0);
+  const dragRef = useRef(null);
+  const close = useCallback(() => {
+    setOpen(false);
+    setDragY(0);
+    dragRef.current = null;
+    triggerRef.current?.focus({ preventScroll: true });
+  }, []);
+
+  // Solo el asa y la cabecera capturan el gesto; el contenido conserva su scroll.
+  const onDragStart = (e) => {
+    if (!window.matchMedia(SHEET_QUERY).matches || !e.isPrimary || e.button !== 0 || e.target.closest("button")) return;
+    dragRef.current = { id: e.pointerId, y: e.clientY, time: e.timeStamp };
+    e.currentTarget.setPointerCapture(e.pointerId);
+  };
+  const onDragMove = (e) => {
+    if (dragRef.current?.id === e.pointerId) setDragY(Math.max(0, e.clientY - dragRef.current.y));
+  };
+  const onDragEnd = (e) => {
+    const drag = dragRef.current;
+    if (!drag || drag.id !== e.pointerId) return;
+    const distance = Math.max(0, e.clientY - drag.y);
+    const speed = distance / Math.max(1, e.timeStamp - drag.time);
+    dragRef.current = null;
+    setDragY(0);
+    if (e.type === "pointerup" && (distance > 80 || (distance > 24 && speed > 0.5))) close();
+  };
+  const dragHandlers = { onPointerDown: onDragStart, onPointerMove: onDragMove, onPointerUp: onDragEnd, onPointerCancel: onDragEnd,
+    onLostPointerCapture: () => { dragRef.current = null; setDragY(0); } };
 
   const place = useCallback(() => {
     const el = rootRef.current;
@@ -74,12 +103,11 @@ export default function ScoreBreakdown({ slug, detail = null, align = "center", 
     if (!open) return undefined;
     const onKey = (e) => {
       if (e.key !== "Escape") return;
-      setOpen(false);
-      triggerRef.current?.focus();
+      close();
     };
     const onDown = (e) => {
       if (rootRef.current?.contains(e.target) || panelRef.current?.contains(e.target)) return;
-      setOpen(false);
+      close();
     };
     document.addEventListener("keydown", onKey);
     document.addEventListener("pointerdown", onDown);
@@ -87,7 +115,7 @@ export default function ScoreBreakdown({ slug, detail = null, align = "center", 
       document.removeEventListener("keydown", onKey);
       document.removeEventListener("pointerdown", onDown);
     };
-  }, [open]);
+  }, [open, close]);
 
   // Al abrir, el foco pasa al panel (que va al final de body, en un portal):
   // así Tab llega a la ✕ sin recorrer toda la página.
@@ -95,15 +123,21 @@ export default function ScoreBreakdown({ slug, detail = null, align = "center", 
     if (open) panelRef.current?.focus({ preventScroll: true });
   }, [open]);
 
+  useEffect(() => {
+    if (!open) return undefined;
+    document.body.classList.add("score-breakdown-open");
+    return () => document.body.classList.remove("score-breakdown-open");
+  }, [open]);
+
   if (!data) return children;
 
-  const close = () => { setOpen(false); triggerRef.current?.focus(); };
-  // Salir del panel con Tab (adelante desde la ✕ o atrás desde el panel) lo
-  // cierra y devuelve el foco a la nota, en su sitio de la página.
+
+  // El contenido también recibe foco para recorrerlo con las flechas.
+  // Al salir con Tab devolvemos el foco a la nota.
   const onPanelKeyDown = (e) => {
     if (e.key !== "Tab") return;
-    const leavingForward = !e.shiftKey && e.target.closest?.(`.${styles.close}`);
-    const leavingBack = e.shiftKey && e.target === panelRef.current;
+    const leavingForward = !e.shiftKey && e.target.classList.contains(styles.content);
+    const leavingBack = e.shiftKey && (e.target === panelRef.current || e.target.closest?.(`.${styles.close}`));
     if (leavingForward || leavingBack) { e.preventDefault(); close(); }
   };
   const pendingLabels = data.rows.filter((r) => r.score == null).map((r) => r.label.toLowerCase());
@@ -113,18 +147,22 @@ export default function ScoreBreakdown({ slug, detail = null, align = "center", 
       ref={panelRef}
       id={panelId}
       className={`${styles.panel} ${pos ? "" : styles.sheet}`}
-      style={pos ? { left: pos.left, width: pos.width, top: pos.top, bottom: pos.bottom, maxHeight: pos.maxHeight } : undefined}
+      style={pos ? { left: pos.left, width: pos.width, top: pos.top, bottom: pos.bottom, maxHeight: pos.maxHeight } : { transform: `translateY(${dragY}px)`, transition: dragRef.current ? "none" : undefined }}
       role="group"
       tabIndex={-1}
       onKeyDown={onPanelKeyDown}
       aria-label={`Desglose de la nota${cityName ? ` de ${cityName}` : ""}`}
     >
+      <div className={styles.dragHeader} {...dragHandlers}>
+      <span className={styles.handle} aria-hidden="true" />
       <div className={styles.head}>
         <p className={styles.title}>Cómo sale la nota{cityName ? ` de ${cityName}` : ""}</p>
         <button type="button" className={styles.close} onClick={close} aria-label="Cerrar el desglose">
           <span aria-hidden="true">✕</span>
         </button>
       </div>
+      </div>
+      <div className={styles.content} tabIndex={0} role="region" aria-label="Subnotas y fuentes">
       <p className={styles.lead}>Media ponderada de 8 subnotas de 0 a 10, siempre con los mismos pesos.</p>
       <ul className={styles.rows}>
         {data.rows.map((r) => {
@@ -174,6 +212,7 @@ export default function ScoreBreakdown({ slug, detail = null, align = "center", 
         </>
       )}
       <p className={styles.foot}>Criterio y fuentes de cada subnota en «Cómo calculamos estos datos».</p>
+      </div>
     </div>
   );
 
@@ -189,6 +228,7 @@ export default function ScoreBreakdown({ slug, detail = null, align = "center", 
         onClick={() => setOpen((o) => !o)}
       >
         {children}
+        {showHint && <span className={styles.hint}>Ver desglose <span aria-hidden="true">›</span></span>}
         {data.provisional && <span className={styles.provisionalDot} aria-hidden="true" />}
       </button>
       {open && createPortal(panel, document.body)}

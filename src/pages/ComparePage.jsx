@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import Flag from "../components/Flag";
 import { Link, useSearchParams } from "react-router-dom";
 import {
+  formatScore,
   getAllCities, getScoreMap, getOverallScore, parseMinCost, getProgramLabel, getCompareLeader, buildCompareVerdict, COMPARE_MIN_CATEGORY_GAP,
   getRankingCriteria, getCriterion, rankCities, filterByProgram, formatCriterionValue, getRankingPath, PROGRAM_FILTERS,
   getScoreBreakdown, getBecaGapForCity, getBecaGapNote,
@@ -75,7 +76,7 @@ const COL_GRADIENTS = [
 ];
 
 // Nota con un decimal, o «—» si la ciudad no tiene (ver lib/scoring.js).
-const fmtScore = (s) => (typeof s === "number" ? s.toFixed(1) : "—");
+const fmtScore = formatScore;
 
 /**
  * Índices de las ciudades con el mejor valor de una fila (todas si empatan
@@ -290,7 +291,7 @@ function joinWithY(parts) {
 function Verdict({ cities }) {
   const v = useMemo(() => buildCompareVerdict(cities), [cities]);
   const name = (i) => <strong style={{ color: COL_COLORS[i] }}>{cities[i].name}</strong>;
-  const score = (i) => v.overall[i].toFixed(1);
+  const score = (i) => formatScore(v.overall[i]);
   const all = cities.map((_, i) => i);
 
   let headline;
@@ -984,10 +985,10 @@ export default function ComparePage() {
                     {/* Score badge */}
                     <div className={styles.overallBadge} style={{ background: COL_GRADIENTS[i] }}>
                       {isTop && <span className={styles.crownIcon}><IconCorona size={20} /></span>}
-                      <ScoreBreakdown slug={city.slug} cityName={city.name} align="start">
+                      <ScoreBreakdown showHint slug={city.slug} cityName={city.name} align="start">
                         <span className={styles.overallBtnInner}>
                           <span className={styles.overallNumber}>{fmtScore(overallScores[i])}</span>
-                          <span className={styles.overallLabel}>/ 10 · ver desglose</span>
+                          <span className={styles.overallLabel}>/ 10</span>
                         </span>
                       </ScoreBreakdown>
                     </div>

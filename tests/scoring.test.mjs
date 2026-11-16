@@ -8,7 +8,7 @@ import {
 } from "../src/lib/scoring.js";
 import {
   getAllCities, getCostMidpoint, getOverallScore, getScoreBreakdown, getBecaGapForCity, getCriterionValue,
-  formatCriterionValue, getErasmusRanking, getScoreLevel, rankCities,
+  formatCriterionValue, getErasmusRanking, getScoreLevel, rankCities, formatScore,
 } from "../src/lib/cities.js";
 import { CITY_NEET } from "../src/data/scoring/neet.js";
 import { CITIES } from "../src/data/cities.js";
@@ -19,6 +19,25 @@ import { COUNTRY_LANGUAGE, CITY_LANGUAGE_PENDING } from "../src/data/scoring/lan
 import { SEPIE_MIN_MONTHLY, SEMP_MONTHLY } from "../src/data/becaGroups.js";
 
 const INDEX = getAllCities();
+
+test("nota visible: decimal español, redondeo y ausencia de dato", () => {
+  assert.equal(formatScore(8), "8,0");
+  assert.equal(formatScore(7.95), "8,0");
+  assert.equal(formatScore(0), "0,0");
+  assert.equal(formatScore(10), "10,0");
+  for (const value of [null, undefined, NaN, Infinity]) assert.equal(formatScore(value), "—");
+});
+
+test("las cuatro pastillas de nivel cumplen AA con texto blanco", () => {
+  for (const score of [5, 6, 7, 8]) {
+    const rgb = getScoreLevel(score).background.slice(1).match(/../g).map(hex => {
+      const channel = parseInt(hex, 16) / 255;
+      return channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
+    });
+    const luminance = rgb[0] * 0.2126 + rgb[1] * 0.7152 + rgb[2] * 0.0722;
+    assert.ok(1.05 / (luminance + 0.05) >= 4.5, getScoreLevel(score).label);
+  }
+});
 
 test("THE sin cifras no equivale a cero internacionales; un cero publicado sí es dato", () => {
   const p = { city: {}, scores: [{ id: "vida_social", score: 8 }], costSourceLabel: "" };

@@ -1,3 +1,4 @@
+import { formatScore } from "../lib/cities";
 import { useId, useState, useEffect, useRef } from "react";
 import { useLocation, Link } from "react-router-dom";
 import {
@@ -427,17 +428,17 @@ export function NavbarCity({ cityName, overall }) {
 
   return (
     <>
-      <nav className={`navbar ${overlay ? "navbar--overlay" : "navbar--scrolled"}`} style={{ position: "fixed", zIndex: 1000 }}>
+      <nav className={`navbar navbar--city ${overlay ? "navbar--overlay" : "navbar--scrolled"}`} style={{ position: "fixed", zIndex: 1000 }}>
         <Logo dark={!overlay} light={overlay} iconSize={HEADER_LOGO_ICON_SIZE} />
         <nav className="navbar__city-breadcrumb" aria-label="Migas de pan">
           <Link to="/" className="navbar__crumb-link">Inicio</Link>
           <span aria-hidden="true">›</span>
           <span className="navbar__crumb-current" aria-current="page">{cityName}</span>
         </nav>
-        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          {overall && (
-            <div style={{ display: "flex", alignItems: "center", gap: 8, background: "var(--gradient-brand)", borderRadius: "var(--radius-full)", padding: "6px 18px" }}>
-              <span style={{ fontFamily: "var(--font-display)", fontSize: 22, fontWeight: 900, color: "#fff", lineHeight: 1 }}>{overall}</span>
+        <div style={{ display: "flex", alignItems: "center", gap: "var(--city-nav-gap, 14px)" }}>
+          {overall != null && (
+            <div style={{ display: "flex", alignItems: "center", gap: 8, background: "var(--gradient-brand)", borderRadius: "var(--radius-full)", padding: "6px var(--city-score-px, 18px)", whiteSpace: "nowrap" }}>
+              <span style={{ fontFamily: "var(--font-display)", fontSize: 22, fontWeight: 900, color: "#fff", lineHeight: 1 }}>{formatScore(overall)}</span>
               <span style={{ fontSize: 12, color: "rgba(255,255,255,0.75)", fontWeight: 500 }}>/ 10</span>
             </div>
           )}

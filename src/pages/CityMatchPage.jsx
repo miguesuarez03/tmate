@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo, useRef, useId } from "react";
 import Flag from "../components/Flag";
 import { Link, useSearchParams } from "react-router-dom";
 import { CITY_MATCH_QUESTION_IDS, CITY_MATCH_QUESTION_COUNT } from "../data/cityMatch";
-import { getAllCities, getScoreMap, getOverallScore, isErasmusEligible, getCitySize, parseMinCost } from "../lib/cities";
+import { formatScore, getAllCities, getScoreMap, getOverallScore, isErasmusEligible, getCitySize, parseMinCost } from "../lib/cities";
 import { useSEO } from "../hooks/useSEO";
 import { Navbar, Footer } from "../components/Layout";
 import JourneySteps from "../components/JourneySteps";
@@ -326,7 +326,7 @@ const SIZE_VALUE = { pequena: 0, mediana: 1, grande: 2 };
 const SIZE_NAME = ["pequeña", "mediana", "grande"];
 const CLIMATE_VALUE = { calido: 0, templado: 1, frio: 2 };
 const CLIMATE_NAME = ["cálido", "templado", "frío"];
-const fmtScore = (n) => n.toFixed(1);
+const fmtScore = formatScore;
 
 function partyRangeText([min, max]) {
   if (min === 0) return `hasta ${fmtScore(max)}`;

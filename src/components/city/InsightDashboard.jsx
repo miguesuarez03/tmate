@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "./InsightDashboard.module.css";
 import { getCityWhatsappGroup } from "../../data/cityWhatsappGroups";
 import { getCategoryIcon } from "../../lib/categoryIcons";
-import { getScoreLevel } from "../../lib/cities";
+import { formatScore, getScoreLevel } from "../../lib/cities";
 import ScoreBreakdown from "../ScoreBreakdown";
 
 const scoreColor = (s) => getScoreLevel(s).color;
@@ -43,10 +43,10 @@ export default function InsightDashboard({ scores = [], overallScore, citySlug, 
           <h2 className={styles.title}>Análisis completo</h2>
           <p className={styles.sub}>Valoración de MAbroad de 0 a 10 en cada categoría, con su desglose. La nota global no es su media: sale de 8 subnotas con fuente (pulsa la nota para verlas).</p>
         </div>
-        <ScoreBreakdown slug={citySlug} detail={scoreDetail} align="end" cityName={cityName}>
+        <ScoreBreakdown showHint slug={citySlug} detail={scoreDetail} align="end" cityName={cityName}>
           <span className={styles.overallBadge}>
-            <span className={styles.overallNum} style={{ color: scoreColor(overallScore) }}>{overallScore ?? "—"}</span>
-            <span className={styles.overallLabel}>nota global · ver desglose</span>
+            <span className={styles.overallNum} style={{ color: scoreColor(overallScore) }}>{formatScore(overallScore)}</span>
+            <span className={styles.overallLabel}>nota global</span>
           </span>
         </ScoreBreakdown>
       </div>

@@ -507,6 +507,15 @@ Petición de Miguel: los rangos por estación son medias y esconden los días ex
 - Atenas: Codex solo veía enteros en la web de EMY. Comprobado por Claude en la [API oficial que alimenta esa página](https://api.emy.gr/api/microstep/climateData/72) (`1991-2020` → `temp`): enero 6,9 / 13,5 °C y agosto 23,7 / 33,4 °C.
 - **Vilna, pendiente de segunda comprobación:** Codex no reprodujo el cálculo con el XLS diario de LHMT (formato .xls binario). Lo calculó el agente de verificación, cuyo método reproduce la normal oficial de la temperatura media.
 
+## Ajustes móviles de la nota y el desglose (16/11/2026)
+
+- Autorización de Miguel para editar con Codex, sin commit, push, servidor ni navegación. Se conserva el archivo local preexistente `.claude/settings.local.json` sin tocarlo.
+- `ScoreRing`: nivel fuera del círculo, en pastilla con fondo compartido en `getScoreLevel` y contraste AA comprobado para los cuatro niveles. Se mantienen sin etiqueta los anillos compactos que ya usaban `showLabel={false}` (tarjetas, selector del comparador y City Match).
+- `ScoreBreakdown`: chip «Ver desglose ›» dentro del único botón accesible en hero, análisis y tarjetas del comparador. Pulsación a 0,96; brillo CSS de entrada único en el anillo, sin animación con movimiento reducido. Panel móvil a 60vh/60dvh, asa y cabecera fuera del scroll, cierre por arrastre superior a 80 px o gesto rápido descendente, cancelación del gesto, Esc, exterior y cruz. El contenido admite foco para desplazamiento por teclado.
+- `formatScore` centraliza el decimal español de la nota en anillo, navbar, mapa, análisis, comparador y rankings. RankingPage y CityCard reciben el cambio mediante sus utilidades/componentes compartidos. No se añaden lecturas del entorno durante render o inicialización del estado.
+- Burbujas de 44 px en móvil, ocultas mediante una clase de body gestionada en efecto mientras el desglose está abierto. Espacio al final de la ficha para apartar el texto de las acciones. Navbar compacta para conservar la nota y los controles en 320/375 px.
+- Validación: `npm test`, 63 pruebas correctas, incluidas formato y contraste; sintaxis JS/JSX/CSS comprobada con esbuild. `npm run build` desde PowerShell no pudo cargar `vite.config.js`: esbuild devuelve «Cannot read directory ../..: Access is denied». No se ha comprobado visualmente ni probado el gesto en iPhone, conforme a la instrucción de no navegar ni levantar servidor.
+
 ## Pendiente de Miguel (Rosenheim, vive allí)
 
 Datos de Rosenheim que no se pueden comprobar con fuentes oficiales. Siguen como estaban hasta que Miguel los confirme o corrija (lo verificable ya se aplicó en la tanda 8):

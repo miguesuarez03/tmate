@@ -436,7 +436,7 @@ export function formatCriterionValue(city, criterionId, value = getCriterionValu
   if (value == null) {
     return kind === 'overall' && BY_SLUG.get(city?.slug)?.nota?.pending?.length ? 'Nota provisional' : 'Sin dato';
   }
-  return `${value.toFixed(1)}/10`;
+  return `${formatScore(value)}/10`;
 }
 
 /**
@@ -798,7 +798,7 @@ export function getCityMeta(city, overallScore) {
   const type = eligible ? 'Erasmus' : 'Intercambio';
   return {
     title: buildCityTitle(city, type),
-    description: `Todo sobre ${eligible ? 'el Erasmus' : 'estudiar'} en ${city.name}: coste de vida ${city.costDetail}, scores por categoría, barrios, universidades y consejos. Puntuación MAbroad: ${overallScore}/10.`,
+    description: `Todo sobre ${eligible ? 'el Erasmus' : 'estudiar'} en ${city.name}: coste de vida ${city.costDetail}, scores por categoría, barrios, universidades y consejos. Puntuación MAbroad: ${formatScore(overallScore)}/10.`,
     keywords: eligible
       ? `Erasmus ${city.name}, ${city.nameEn} Erasmus, estudiar en ${city.country}, ${city.tag}`
       : `Estudiar en ${city.name}, ${city.nameEn} intercambio, estudiar en ${city.country}, ${city.tag}`,
@@ -856,14 +856,22 @@ export function isAffordable(city) {
   return min > 0 && min <= AFFORDABLE_MAX_COST;
 }
 
-/** Formatea un score de 0-10 con color semántico. */
+/** Un decimal español, idéntico en servidor y cliente. */
+export function formatScore(score) {
+  return typeof score === "number" && Number.isFinite(score)
+    ? score.toLocaleString("es-ES", { minimumFractionDigits: 1, maximumFractionDigits: 1 })
+    : "—";
+}
+
+/** Color y nivel de una nota de 0 a 10. */
 export function getScoreLevel(score) {
   // Umbrales sobre la nota tal como se enseña (un decimal): 7,95 cuenta como 8,0.
   const shown = Math.round(score * 10) / 10;
-  if (shown >= 8) return { label: 'Excelente',  color: '#22C55E' };
-  if (shown >= 7) return { label: 'Muy buena',  color: '#3F7A7D' };
-  if (shown >= 6) return { label: 'Buena',      color: '#F59E0B' };
-  return            { label: 'Mejorable',  color: '#EF4444' };
+  // Fondos de las pastillas: contraste AA con texto blanco, también en ámbar.
+  if (shown >= 8) return { label: 'Excelente', color: '#22C55E', background: '#15803D' };
+  if (shown >= 7) return { label: 'Muy buena', color: '#3F7A7D', background: '#3F7A7D' };
+  if (shown >= 6) return { label: 'Buena', color: '#F59E0B', background: '#B45309' };
+  return { label: 'Mejorable', color: '#EF4444', background: '#B91C1C' };
 }
 
 /** Total de ciudades. */

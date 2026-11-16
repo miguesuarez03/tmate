@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useMemo, useId, lazy, Suspense } from "react";
 import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import {
+  formatScore,
   getAllCities, findBestCityMatch, getCitiesGroupedByRegion,
   getRankingCriteria, getCriterion, getErasmusRanking, formatCriterionValue, getRankingPath, RANKING_TOP,
 } from "../lib/cities";
@@ -544,7 +545,7 @@ function RankingsSection() {
               <div className="rankings-row__bar">
                 <div className="rankings-row__bar-fill" style={{ width: `${Math.max(4, (r.value ?? 0) * 10)}%` }} />
               </div>
-              <span className="rankings-row__score">{isCost ? formatCriterionValue(r.city, active, r.value) : r.value.toFixed(1)}</span>
+              <span className="rankings-row__score">{isCost ? formatCriterionValue(r.city, active, r.value) : formatScore(r.value)}</span>
             </Link>
           ))}
         </div>

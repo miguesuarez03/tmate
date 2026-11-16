@@ -8,7 +8,7 @@ import {
 } from "react-simple-maps";
 import { Link } from "react-router-dom";
 import styles from "./WorldMap.module.css";
-import { getAllCities, getOverallScore, getScoreMap, getScoreLevel, getStateCountry, getMapCountries } from "../lib/cities";
+import { formatScore, getAllCities, getOverallScore, getScoreMap, getScoreLevel, getStateCountry, getMapCountries } from "../lib/cities";
 import { CITY_COORDS } from "../lib/cityCoords";
 import { MAP_ALL_VIEW } from "../data/mapCountries";
 import { IconFiesta, IconEdificio, IconBeca, IconGlobo } from "./icons";
@@ -81,7 +81,7 @@ function CityPopup({ city, onClose }) {
         <img {...responsiveImage(city.img, { slots: POPUP_PHOTO_SLOTS, fallback: 500 })} alt={`${city.name}, ${city.country}`} width={500} height={280} loading="lazy" decoding="async" />
         <div className={styles.popupImgOverlay} />
         <div className={styles.popupScore} style={{ color: scoreColor(city.score) }}>
-          {city.score}<span>/10</span>
+          {formatScore(city.score)}<span>/10</span>
         </div>
         <span className={styles.popupFlag}><Flag emoji={city.flag} /></span>
         <PhotoCredit src={city.img} corner="bottom-right" style={{ "--credit-inset": "8px" }} />
@@ -97,9 +97,9 @@ function CityPopup({ city, onClose }) {
         <div className={styles.popupTags}>
           {city.cost && <span className={styles.popupTag} style={{ display: "inline-flex", alignItems: "center", gap: 4 }}><IconBeca size={16} /> {city.cost}</span>}
           <span className={styles.popupTagScore} style={{
-            color: scoreColor(city.score),
-            borderColor: scoreColor(city.score) + "55",
-            background: scoreColor(city.score) + "15",
+            color: "#fff",
+            borderColor: "transparent",
+            background: getScoreLevel(city.score).background,
           }}>
             {scoreLabel(city.score)}
           </span>
@@ -328,7 +328,7 @@ export default function WorldMap() {
                 <span className={styles.tooltipCountry}>{tooltip.city.country}</span>
               </div>
               <span className={styles.tooltipScore} style={{ color: scoreColor(tooltip.city.score) }}>
-                {tooltip.city.score}/10
+                {formatScore(tooltip.city.score)}/10
               </span>
             </div>
             <div className={styles.tooltipVibes}>

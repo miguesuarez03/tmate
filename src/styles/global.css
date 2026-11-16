@@ -970,10 +970,17 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
 /* ─── SCORE RING (compartido: ficha, listado, comparador, City Match) ────── */
 /* El font-size real lo fija ScoreRing.jsx en línea, proporcional al tamaño
    del anillo — los valores de aquí son solo fallback/estructura.
-   El círculo es un relleno sólido de color (ver RING_FILL en ScoreRing.jsx)
+   El círculo es un relleno sólido de color (ver getScoreLevel en lib/cities.js)
    con el texto siempre en blanco: contraste garantizado en cualquier fondo
    (foto, tarjeta clara u oscura) sin depender de discos/sombras intermedios. */
-.score-ring { position: relative; margin: 0 auto; flex-shrink: 0; }
+.score-ring { display: inline-flex; flex-direction: column; align-items: center; gap: 6px; max-width: 100%; margin: 0 auto; flex-shrink: 0; }
+.score-ring__disc { display: block; position: relative; width: var(--ring-size); height: var(--ring-size); max-width: 100%; }
+/* Nivel 1: brillo de entrada único, eliminado con movimiento reducido. */
+.score-ring__disc--intro { animation: score-ring-intro 1.4s ease-out 1; }
+@keyframes score-ring-intro { 50% { filter: brightness(1.18); } }
+@media (prefers-reduced-motion: reduce) {
+  .score-ring__disc--intro { animation: none; }
+}
 .score-ring__svg { width: 100%; height: 100%; display: block; }
 .score-ring__center {
   position: absolute; inset: 0;
@@ -990,9 +997,15 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
   white-space: nowrap; margin-top: 1px;
 }
 .score-ring__label {
-  color: rgba(255,255,255,0.92);
-  font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
-  margin-top: 2px; font-family: var(--font-body); white-space: nowrap;
+  display: block; color: #fff; padding: 4px 9px; border-radius: 999px;
+  font: 700 12px/1.3 var(--font-body); text-align: center;
+  max-width: 100%; overflow-wrap: anywhere;
+}
+
+/* La nota con decimal y los dos controles caben también a 320 px. */
+@media (max-width: 560px) {
+  .navbar--city { --city-nav-gap: 6px; --city-score-px: 10px; padding-inline: 12px; }
+  .navbar--city .navbar__logo-text { display: none; }
 }
 
 /* ─── PROGRESS BAR ───────────────────────────────────────────────────────── */

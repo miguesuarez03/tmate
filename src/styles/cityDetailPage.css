@@ -21,3 +21,8 @@
 .cdp-tips-wrapper {
   padding: 0;
 }
+
+/* Espacio final para poder apartar el texto de las acciones flotantes. */
+@media (max-width: 560px) {
+  .cdp-root { padding-bottom: calc(240px + env(safe-area-inset-bottom, 0px)); }
+}
