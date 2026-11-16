@@ -564,6 +564,24 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   // ── Guadalajara ──────────────────────────────────────────────────────────
   "Universidad de Guadalajara (UDG)": "https://ci.cgai.udg.mx/en/estudiantes/externos",
   "ITESO – Universidad Jesuita de Guadalajara": "https://intercambios.iteso.mx/en/proceso-de-intercambio",
+
+  // ── Tandas Loyola A ─────────────────────────────────────
+  "Università degli Studi della Campania Luigi Vanvitelli": "https://www.unicampania.it/index.php/international/international-students",
+  "Universidade da Beira Interior": "https://www.ubi.pt/Entidade/incoming_erasmus_studies",
+  "Università della Calabria": "https://www.unical.it/internazionale/intenational-students/incoming-students-erasmus-plus/",
+  "Università degli Studi di Modena e Reggio Emilia": "https://international.unimore.it/erasmusincoming.html",
+  "Università degli Studi di Trento": "https://www.unitn.it/en/international/coming-unitrento/exchange-student",
+
+  // ── Tandas Loyola B ─────────────────────────────────────
+  "Università degli Studi di Pavia": "https://en.unipv.it/en/exchange-students",
+  "Northumbria University": "https://www.northumbria.ac.uk/international/incoming-students/i-am-an-erasmus-student/",
+  "Thomas More": "https://www.thomasmore.be/en/exchange-programmes",
+  "Hochschule Rhein-Waal": "https://www.hochschule-rhein-waal.de/en/study/during-your-studies/semester-abroad/a-semester-with-us",
+  "Newcastle University": "https://www.ncl.ac.uk/mobility/study-abroad-in-newcastle/join-us-on-an-exchange-programme/",
+  // Página general de entrantes de KU Leuven: el campus de Geel se elige en su selector.
+  "KU Leuven Campus Geel": "https://www.kuleuven.be/english/education/student/register/exchange",
+  // Universidade Politécnica de Bragança: ipb.pt redirige a unipb.pt y no se ha localizado su página
+  // de entrantes (15-11-2026); sin enlace hasta confirmarla.
 };
 
 /**

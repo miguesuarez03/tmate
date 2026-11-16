@@ -258,9 +258,9 @@ export default function HeroSection({ city, overallScore, insights, scoreDetail 
           </div>
 
           <ScoreBreakdown slug={city.slug} detail={scoreDetail} align="end" cityName={city.name} className={styles.heroScoreBtn}>
-            <ScoreRing score={overallScore} />
+            <ScoreRing score={overallScore} size={112} />
           </ScoreBreakdown>
-          <p className={styles.heroScoreHint}>Toca la nota para ver de dónde sale</p>
+          <p className={styles.heroScoreHint}>Pulsa la nota para ver de dónde sale</p>
 
           <div className={styles.heroStats}>
             <div className={styles.heroStat}>

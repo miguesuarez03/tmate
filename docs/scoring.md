@@ -35,7 +35,7 @@ La lista actual de pendientes está en la sección «Datos de la nota MAbroad» 
 
 ### Coste de vida (20 %)
 
-- **Dato:** punto medio del rango `mín–máx€/mes` de `costDetail` en [`cities.js`](../src/data/cities.js). Si la ficha tiene `costSource`, la fuente es oficial (normalmente la universidad); si no, es una estimación MAbroad, y el desglose lo dice.
+- **Dato:** punto medio del rango `mín–máx€/mes` de `costDetail` en [`cities.js`](../src/data/cities.js), o la cifra publicada cuando la fuente oficial solo da un importe aproximado (`~700 €/mes` en Trento). Si la ficha tiene `costSource`, la fuente es oficial (normalmente la universidad); si no, es una estimación MAbroad, y el desglose lo dice.
 - **A 0–10:** escala fija en euros, igual para todos los destinos. Con 400 €/mes o menos, un 10. Cada 200 € más restan 1 punto. Con 2.400 €/mes o más, un 0. La fórmula es `10 × (2.400 − coste) / 2.000`, limitada a 0–10 (`costToScore`).
 - La beca **no** entra en esta subnota.
 
@@ -70,9 +70,13 @@ Es la media de dos mitades, cada una de 0 a 10.
 
   THE publica cifras de la institución completa, incluidos otros campus: es un indicador aproximado, no un censo municipal. Se suman solo universidades con ambas cifras disponibles; si ninguna las publica, queda pendiente. Un porcentaje publicado de 0 % sí es dato. Las ediciones históricas conservan también sus cifras históricas de estudiantes.
 
+  **Campus satélite.** Si una universidad solo tiene en la ciudad un campus pequeño (su sede y la mayoría de su alumnado están en otra ciudad), sus estudiantes internacionales **no** se suman: la cifra de THE sería la de toda la institución y no diría nada de la comunidad local. Esa universidad sí cuenta para el nivel académico (la titulación y el profesorado son los suyos). Se marca con `{ name, satellite: true }` en `THE_NAMES` y el desglose añade «(campus en la ciudad)». Si en la ciudad no queda otra universidad con cifras, la vida estudiantil queda **pendiente** y la nota es provisional. Hoy solo es el caso de **Geel** (KU Leuven Campus Geel; la otra universidad, Thomas More, no está en THE).
+
+  No se marcan como satélite, porque en la ciudad hay un campus grande: Leiden University en La Haya (Campus The Hague, unos 7.000 estudiantes, cerca de una quinta parte de la universidad), PUCMM en Santo Domingo (sede principal en Santiago de los Caballeros, pero con campus completo en la capital), Atlantic Technological University en Galway (su mayor campus) y ZHAW en Zúrich (sede en Winterthur, pero con dos departamentos en Zúrich; tampoco cambiaría la nota, porque ETH y UZH ya dan 5 puntos). Son casos límite: si se quisiera aplicar la regla también a ellos, La Haya y Santo Domingo quedarían provisionales. Las universidades de una ciudad cercana que lista la ficha (Lund en Malmö, Harvard en Boston, Berkeley en San Francisco, Northwestern en Chicago, la Politécnica de Silesia en Katowice) siguen la regla general: su campus principal está a un trayecto corto y su comunidad internacional es accesible.
+
 **Ambiente (valoración MAbroad), de 0 a 10.** Media de las subnotas de la ficha que empiezan por «Fiesta» o «Eventos». Si una ficha no las tiene, se usa su categoría «Vida social y ambiente».
 
-**Pendiente:** si ninguna universidad de la ciudad publica datos en THE, no sabemos cuántos estudiantes internacionales tiene, y la subnota queda pendiente.
+**Pendiente:** si ninguna universidad de la ciudad publica datos en THE (o la única que los publica es un campus satélite), no sabemos cuántos estudiantes internacionales tiene, y la subnota queda pendiente.
 
 ### Seguridad (15 %): mitad país, mitad ciudad
 
@@ -123,6 +127,7 @@ Es la media de dos mitades, cada una de 0 a 10.
 
   «Ninguna clasificada» incluye a las que solo salen como «Reporter» y a las que no participan.
 - **Limitación:** la mejor universidad de la ciudad no tiene por qué ser la tuya. Por eso el peso es solo del 10 %.
+  - Geel incluye KU Leuven porque tiene campus en la ciudad y figura en su ficha. El puesto es el de toda KU Leuven. Como es un campus satélite, cuenta aquí pero no en la comunidad de la vida estudiantil (ver «Campus satélite»).
   - La Universidad de Buenos Aires y la Universität Leipzig nunca han participado en THE: Buenos Aires saca 4,5 por la UCA y Leipzig, 4.
   - Si se añade QS, la regla sería «el mejor de los dos rankings».
 

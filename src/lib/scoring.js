@@ -92,6 +92,8 @@ export const COST_SCALE = Object.freeze({ best: 400, worst: 2400 });
  * tests/scoring.test.mjs), pero sin depender del índice generado.
  */
 export function parseCostMidpoint(costDetail) {
+  const single = /^~?\s*([\d.]+)\s*€\/mes$/.exec(costDetail || "");
+  if (single) return Number(single[1].replace(/\./g, ""));
   const m = /([\d.]+)\s*[–-]\s*([\d.]+)/.exec(costDetail || "");
   if (!m) return null;
   const n = (s) => Number(s.replace(/\./g, ""));
@@ -290,7 +292,9 @@ export function computeCitySubscores(p) {
   // Vida estudiantil: comunidad (dato) + ambiente (valoración)
   const fiesta = subcatAvg(scores, "vida_social", (l) => /^(Fiesta|Eventos)/.test(l));
   const ambiente = fiesta.value ?? fiesta.cat?.score ?? null;
-  const withIntlData = universities.filter((u) => isNum(u.students) && isNum(u.intlPct));
+  // Un campus satélite (satellite: true) no cuenta: THE da los internacionales de toda la institución.
+  const withIntlData = universities.filter((u) => !u.satellite && isNum(u.students) && isNum(u.intlPct));
+  const satellites = universities.filter((u) => u.satellite).map((u) => u.name);
   const intl = withIntlData.length
     ? withIntlData.reduce((acc, u) => acc + (u.students * u.intlPct) / 100, 0)
     : null;
@@ -298,7 +302,9 @@ export function computeCitySubscores(p) {
   const esn = esnPoints(esnSections.length);
   if (intlPts == null || ambiente == null) {
     subs.vida = null;
-    detail.vida = "Pendiente: ninguna universidad de la ciudad publica sus datos en THE, así que no sabemos cuántos estudiantes internacionales tiene.";
+    detail.vida = intlPts == null && satellites.length
+      ? `Pendiente: ${satellites.join(" y ")} solo tiene aquí un campus pequeño y THE publica los estudiantes internacionales de toda la institución, así que no sabemos cuántos hay en la ciudad.`
+      : "Pendiente: ninguna universidad de la ciudad publica sus datos en THE, así que no sabemos cuántos estudiantes internacionales tiene.";
   } else {
     const comunidad = esn + intlPts;
     subs.vida = round1((comunidad + ambiente) / 2);
@@ -339,7 +345,7 @@ export function computeCitySubscores(p) {
   const best = ranked[0];
   subs.academico = best ? theRankToScore(best.n) : THE_UNRANKED_SCORE;
   detail.academico = best
-    ? `${best.name}: puesto ${best.rank.replace(/^=/, "")} en THE ${best.edition}${best.edition !== theEdition ? ` (última edición en la que participa)` : ""}.`
+    ? `${best.name}${best.satellite ? " (campus en la ciudad)" : ""}: puesto ${best.rank.replace(/^=/, "")} en THE ${best.edition}${best.edition !== theEdition ? ` (última edición en la que participa)` : ""}.`
     : `Ninguna universidad de la ciudad está clasificada en THE ${theEdition}.`;
 
   // Alojamiento (valoración)

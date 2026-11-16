@@ -41,7 +41,7 @@ export default function InsightDashboard({ scores = [], overallScore, citySlug, 
         <div>
           <p className={styles.eyebrow}>City Scores</p>
           <h2 className={styles.title}>Análisis completo</h2>
-          <p className={styles.sub}>Valoración de MAbroad de 0 a 10 en cada categoría, con su desglose. La nota global no es su media: sale de 8 subnotas con fuente (toca la nota para verlas).</p>
+          <p className={styles.sub}>Valoración de MAbroad de 0 a 10 en cada categoría, con su desglose. La nota global no es su media: sale de 8 subnotas con fuente (pulsa la nota para verlas).</p>
         </div>
         <ScoreBreakdown slug={citySlug} detail={scoreDetail} align="end" cityName={cityName}>
           <span className={styles.overallBadge}>
@@ -64,6 +64,8 @@ export default function InsightDashboard({ scores = [], overallScore, citySlug, 
                 key={s.id}
                 className={`${styles.metricPill} ${isActive ? styles.metricPillActive : ""}`}
                 onClick={() => setActive(s.id)}
+                aria-label={`${s.label}: ${s.score} sobre 10`}
+                aria-pressed={isActive}
                 style={isActive ? { "--pill-color": c } : {}}
               >
                 <span className={styles.metricEmoji}><CatIcon size={28} /></span>

@@ -23,15 +23,21 @@ test("parseMinCost/parseMaxCost entienden los miles con punto", () => {
   assert.equal(parseMaxCost("950–1.350€/mes"), 1350);
   assert.equal(parseMinCost("2.200–3.600€/mes"), 2200);
   assert.equal(parseMinCost(""), 0);
+  assert.equal(parseMinCost("~700 €/mes"), 700);
+  assert.equal(parseMaxCost("~700 €/mes"), 700);
+  assert.equal(isAffordable({ costDetail: "~700 €/mes", costSource: "UniTrento" }), false);
 });
 
-test("todas las fichas tienen el coste como rango «mín–máx€/mes»", () => {
+test("el coste es un rango o una cifra aproximada respaldada por fuente oficial", () => {
   const RANGE = /^\d{1,3}(?:\.\d{3})?–\d{1,3}(?:\.\d{3})?€\/mes$/;
+  const SINGLE = /^~\d{1,3}(?:\.\d{3})? €\/mes$/;
   for (const c of CITIES) {
-    assert.match(c.costDetail, RANGE, `${c.slug}: «${c.costDetail}»`);
+    const single = SINGLE.test(c.costDetail);
+    assert.ok(RANGE.test(c.costDetail) || single, `${c.slug}: «${c.costDetail}»`);
+    if (single) assert.ok(hasOfficialCost(c), `${c.slug}: cifra única sin fuente`);
     const min = parseMinCost(c.costDetail);
     const max = parseMaxCost(c.costDetail);
-    assert.ok(min >= 100 && min < max, `${c.slug}: mínimo ${min}, máximo ${max}`);
+    assert.ok(min >= 100 && (single ? min === max : min < max), `${c.slug}: mínimo ${min}, máximo ${max}`);
   }
 });
 
@@ -47,6 +53,15 @@ test("ordenar por coste usa el mínimo real del rango", () => {
     { slug: "c", costDetail: "950–1.350€/mes" },
   ];
   assert.deepEqual(sortCities(mini, "cost_asc").map((c) => c.slug), ["b", "c", "a"]);
+});
+
+test("decisiones Loyola: Trento conserva su cifra oficial; Kleve y Módena son estimaciones", () => {
+  const trento = CITIES.find(c => c.slug === "trento");
+  assert.equal(trento.costDetail, "~700 €/mes");
+  assert.equal(hasOfficialCost(trento), true);
+  for (const slug of ["kleve", "modena"]) {
+    assert.equal(getCostSourceLabel(CITIES.find(c => c.slug === slug)), "Estimación MAbroad");
+  }
 });
 
 test("«Asequible» solo con un mínimo de hasta 500 €/mes", () => {

@@ -460,5 +460,29 @@ export const CITY_ESN_SECTIONS = {
  "cordoba-argentina": [],
  "santiago-de-chile": [],
  "bogota": [],
- "medellin": []
+ "medellin": [],
+ "caserta": [],
+ "covilha": [
+  "ESN Covilhã"
+ ],
+ "cosenza": [
+  "ESN Cosenza"
+ ],
+ "modena": [
+  "ESN Modena e Reggio Emilia"
+ ],
+ "trento": [
+  "ESN Trento"
+ ],
+ "pavia": [
+  "ESN STEP Pavia"
+ ],
+ "braganza": [],
+ "newcastle": [
+  "ESN Newcastle"
+ ],
+ "geel": [
+  "ESN Geel"
+ ],
+ "kleve": []
 };

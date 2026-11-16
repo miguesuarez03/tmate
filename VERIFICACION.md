@@ -266,6 +266,247 @@ Criterio completo en `docs/scoring.md`. Esta sección recoge de dónde sale cada
   - Propuesta: Excelente 8,0 o más (8 ciudades); Bueno, de 7,0 a 7,9 (97); Regular, de 6,0 a 6,9 (31); Difícil, por debajo de 6,0 (14, todas en América).
   - Hoy, con los umbrales actuales: 0 Excelente, 105 Bueno, 40 Regular y 5 Difícil.
 
+## Ciudades nuevas de la cola Loyola (rama `tandas-loyola`)
+
+### 15-11-2026 — campus satélite y cierre de la revisión pendiente
+
+Claude Code, con dos agentes `contenido-verificacion` (uno por tanda, solo lectura) y lectura directa de los PDF oficiales. La sesión anterior sobre el campus satélite no dejó cambios sin commit: se ha hecho desde cero.
+
+**Campus satélite (criterio de Miguel).** Una universidad que solo tiene en la ciudad un campus pequeño cuenta para el nivel académico, pero sus estudiantes internacionales (cifra de THE de toda la institución) no cuentan para la comunidad de la vida estudiantil. Se marca `{ name, satellite: true }` en `THE_NAMES`; `scoring.js` lo excluye de la suma y el desglose lo explica. Documentado en `docs/scoring.md` y en la metodología visible; test nuevo en `tests/scoring.test.mjs`.
+- **Geel** (KU Leuven Campus Geel: una sola facultad, Ingeniería Técnica, [web del campus](https://www.kuleuven.be/english/campuses/geel-campus/about); KU Leuven no publica cifra de alumnos por campus): vida estudiantil pendiente → **nota provisional 7,6, fuera de los rankings** (académico 10 por KU Leuven =45). Thomas More no está en THE. Cierra la «decisión editorial abierta» de la revisión de Codex del 14-11.
+- Revisadas el resto de asignaciones de `THE_NAMES`. No se marcan, por tener en la ciudad un campus grande: Leiden en La Haya (Campus The Hague, unas 7.000 personas, ~20 % de la universidad), PUCMM en Santo Domingo (sede en Santiago de los Caballeros, pero campus completo en la capital), ATU en Galway (su mayor campus) y ZHAW en Zúrich (sede en Winterthur, dos departamentos en Zúrich; no cambiaría la nota). **Casos límite para Miguel:** si se aplica también a La Haya y Santo Domingo, ambas quedan provisionales. Las universidades de ciudad vecina listadas en la ficha (Lund–Malmö, Harvard–Boston, Berkeley–San Francisco, Northwestern–Chicago, Politécnica de Silesia–Katowice) siguen la regla general.
+- `npm run scoring:data` regenerado: solo cambia la marca de Geel (ESN, UNODC y NEET idénticos salvo la fecha, revertida).
+
+**Clima, normales 1991–2020:**
+- Caserta (Grazzanise), Covilhã ([IPMA Fundão](https://www.ipma.pt/bin/file.data/climate-normal/cn_91-20_FUNDAO.pdf)), Módena ([Annuario UNIMORE 2021, tabla 10](https://www.ossgeo.unimore.it/wp-content/uploads/2023/09/2021AnnuarioOsservatorio_compressed.pdf)), Pavía ([NOAA, Linate 16080](https://www.ncei.noaa.gov/data/oceans/archive/arc0216/0253808/1.1/data/0-data/Region-6-WMO-Normals-9120/Italy/CSV/MilanoLinate_16080.csv)) y Newcastle ([Met Office, Tynemouth](https://www.metoffice.gov.uk/research/climate/maps-and-data/location-specific-long-term-averages/gcybg0mzy)): coinciden. Caserta solo se ha cotejado con la réplica de la tabla OMM (el servidor de NOAA dio 503).
+- **Braganza**: leída la [ficha IPMA 575](https://www.ipma.pt/bin/file.data/climate-normal/cn_91-20_BRAGANCA.pdf). Verano 13–28 → **13–29 °C** (máximas JJA 28,5); el resto coincide; 53,4 días de helada confirmados.
+- **Geel**: con Uccle el verano daba 22,47 °C (no 22,5). Cambiado a la estación oficial más cercana, **Antwerpen-Deurne** (OMM 06450, ~37 km, [NOAA](https://www.ncei.noaa.gov/data/oceans/archive/arc0216/0253808/1.1/data/0-data/Region-6-WMO-Normals-9120/Belgium/CSV/ANTWERPENDEURNE_06450.csv)): invierno 2–7 → **1–7**, otoño 8–15 → **7–15**; primavera y verano iguales.
+- Trento, Cosenza y Kleve siguen sin bloque: no hay normal oficial con mínimas y máximas (Meteotrentino y DWD solo dan medias; las de la ficha cuadran: Trento 3,2/22,7 °C, Kleve 3,4/17,6 °C).
+
+**Población:**
+- Kleve: **53.028 a 31-12-2024**, confirmado en el [perfil municipal de IT.NRW](https://statistik.nrw/sites/default/files/municipalprofiles/l05154036.pdf) (Stand 15-01-2026).
+- Trento: 118.640, [Ayuntamiento (censo permanente 2024)](https://www.comune.trento.it/ocmultibinary/download/42763/1594394/7/8955adad29a9753f065ba9af2c32cba0.pdf/file/cens_perm_popolazione%2B2024.pdf). Braganza: estimación INE a 31-12-2025 vía [PORDATA](https://www.pordata.pt/en/municipalities/summary+table/braganca-828102).
+- **Sin fuente primaria leída** (demo.istat.it es dinámica): Caserta, Módena y Cosenza (coinciden con datos ISTAT reproducidos por terceros salvo Cosenza, no confirmada), Pavía (provisional 1-1-2026) y Covilhã (Censos 2021; la ficha municipal del INE no abrió). Se mantienen.
+
+**Enlaces de entrantes:** Vanvitelli, UBI, UNICAL, Pavía, Northumbria, Thomas More y HSRW cargan y son oficiales. Añadidos **Newcastle University** y **KU Leuven Campus Geel**. UNIMORE (ECONNRESET) y UniTrento (403 a bots) no se pudieron abrir, pero las guías oficiales enlazan esas rutas: se mantienen. **Braganza:** `ipb.pt` redirige ahora a `unipb.pt` y no se ha localizado la página de entrantes: sin enlace.
+
+**Correcciones aplicadas:**
+- Caserta: fuera los «22 km» al aeropuerto de Capodichino (sin fuente; por carretera son más).
+- Covilhã: aeropuertos «Lisboa y Oporto, ambos a unos 250 km» → «Oporto y Lisboa» (Oporto está bastante más cerca). Comida social «unos 2,50 €» → **2,80 €**, [tabla de los SAS de la UBI en vigor desde el 1-10-2026](https://www.ubi.pt/Entidade/SASUBI_Alimentacao_precarios).
+- Módena: Ferrari no tiene su domicilio social en Módena (la matriz tiene sede estatutaria en Ámsterdam y principal en Maranello, [SEC](https://www.sec.gov/Archives/edgar/data/1648416/000110465925017329/tm2428908-1_f3.htm)) → «tiene su fábrica en Maranello, en la misma provincia». «Welcome Weeks cada septiembre» → «Welcome Week al inicio de cada semestre» ([ESN MoRe](https://more.esn.it/)).
+- Trento: el abono de 70 € es de los estudiantes de UniTrento (Erasmus incluidos), no de todos los universitarios ([Provincia](https://www.provincia.tn.it/en/Services/University-student-transport-passes)).
+- Pavía: fuera «una cama sin beca, unos 170–340 €» (la página ya no carga y EDiSU fija la tarifa según la renta, [convocatoria](https://www.edisu.pv.it/servizi/bando-collegi/)); ahora remite a la convocatoria.
+- Braganza: el bus Zamora–Braganza ya no dice «solo algunos días»; «tres residencias» → «residencias de los Servicios de Acción Social, con prioridad para becados».
+- Confirmado y sin cambios: Kleve «atrae más trabajadores de los que salen» (saldo de commuters +4.636 a 30-6-2024, perfil IT.NRW); Newcastle (residencias, Mayor's Fares hasta marzo de 2027, Tyne Bridge 1928, Metro al aeropuerto, LNER); Geel (kot 315 €, UNESCO 2023, JRC 1960); Cosenza; Caserta (Frecciarossa, sedes, delitos −4,8 %).
+
+**Pendiente:**
+- Trento: ya existe la [ficha de intercambio 2026/27](https://www.unitn.it/sites/default/files/2026-03/Trento_Factsheet_26_27.pdf), pero devuelve 403: comprobar si mantiene «unos 700 €/mes» y actualizar `costSource`.
+- Braganza: URL de entrantes en unipb.pt (la web se carga con JavaScript); revisar el nombre en mayo de 2027.
+- Fechas de caducidad: Mayor's Fares (marzo de 2027), cuota de HSRW (2026/27).
+
+**Notas finales (160 ciudades, 152 con puesto):** Trento 7,4 (54.º), Pavía 7,3 (60.º), Covilhã 7,2 (74.º), Módena 7,2 (78.º), Newcastle 6,9 (107.º), Cosenza 6,9 (110.º), Braganza 6,7 (115.º), Caserta 6,3 (129.º); Geel 7,6 y Kleve 6,6, provisionales y sin puesto. Ninguna nota cambia por las correcciones de texto (no afectan a las subnotas).
+
+**Revisión de Codex (15-11-2026, solo lectura, commit `c3f82ae`):** sin cambios obligatorios. Código del campus satélite, test y documentación coherentes; no encuentra otro campus pequeño sin marcar. No pudo abrir el CSV de NOAA de Antwerpen-Deurne (lo leyó el agente de verificación), la tabla escaneada de la UBI (2,80 €, leída por Claude en el PDF oficial) ni la ficha 2026/27 de Trento (403, sigue pendiente).
+
+### 14-11-2026 — revisión de Codex y cierre solicitado por Miguel
+
+Esta revisión sustituye las decisiones pendientes de coste de las tandas A/B. Trabajo realizado directamente por Codex, sin Claude Code ni otros agentes. Por petición de cierre de Miguel, los puntos no cotejados de nuevo se detallan abajo y no se dan por verificados.
+
+- **Trento:** `650–800€/mes` editorial → `~700 €/mes`, fuente UniTrento, [ficha 2025/26](https://www.unitn.it/sites/default/files/2025-01/Trento_Factsheet_25_26.pdf). Parser, documentación, metodología visible y test admiten una cifra oficial aproximada; mínimo, máximo y valor de cálculo son 700 €. La nota de coste es 8,5 y la diferencia tras beca 350 €. Se elimina la cifra de 1.300 plazas sin fuente primaria y se explican las prioridades de alojamiento de la misma ficha.
+- **Kleve:** eliminado `costSource`; 900–1.200 € queda como **Estimación MAbroad**. Billete/cuota semestral intactos por decisión de Miguel. Corregido «75 % de los grados» a programas de grado **y máster**, según el [perfil oficial de HSRW](https://www.hochschule-rhein-waal.de/en/about-us/profile/about-the-university); quitado el 50 % internacional sin fecha actual. La cifra de población 53.028 aparece en la [agencia municipal](https://wtm-kleve.de/strukturdaten/), pero falta confirmar directamente el año de referencia en IT.NRW.
+- **Módena:** mantiene la estimación de coste. Abono SETA de 24 € confirmado también en la [página vigente de UNIMORE](https://www.unimore.it/it/servizi/trasporti/trasporto-urbano), que recoge el curso 2026/27; actualizado el curso de la ficha.
+- **Pavía:** coste 600–1.000 € confirmado con presupuesto completo en [Universidad de Pavía](https://en.unipv.it/en/university/campus/town-pavia). Confirmados 27 € y límite de 11.000 abonos de [UNIPASS 2026/27](https://www.unipv.news/notizie/unipass-27eu-grazie-al-contributo-di-oltre-1-milione-e-centomila-euro-delluniversita-di).
+- **Covilhã:** [UBI confirma](https://www.ubi.pt/entidade/world_living_covilha) los 250–350 € del T1; [movilidad entrante](https://www.ubi.pt/entidade/incoming_interinstitutional_mobility) confirma que no proporciona alojamiento a movilidad. Mantiene coste estimado. Retirada la duración de 3 h 30 a Lisboa, pendiente del horario nuevo de CP.
+- **Cosenza:** mantiene coste estimado. Retirada la cifra repetida de 2.500 plazas: localizada en prensa y documentación antigua, sin confirmar disponibilidad actual en una fuente primaria; se remite a la convocatoria del Centro Residenziale.
+- **Braganza:** mantiene coste estimado. El 34 % internacional se identifica ahora como dato institucional de THE **2024**, no como cifra actual. No confirmada actividad vigente de AEE-IPB: sustituida por el contacto de la oficina internacional, respaldado por la [información institucional](https://portal3.ipb.pt/index.php/en/guiaects/general-information-for-students). **Revisar el nombre oficial de la universidad en mayo de 2027**, decisión de Miguel; no se ha creado recordatorio externo.
+- **Newcastle:** población **320.838 en 2025** confirmada en [Nomis/ONS](https://www.nomisweb.co.uk/reports/lmp/lad/1778385143/report.aspx). Metro 35,70 £/4 semanas, zona Inner Newcastle, confirmado por la [autoridad de transporte](https://travelnortheast.uk/explore-the-north-east/be-inspired/newcastle-university-guide/). Coste sigue estimado.
+- **Geel:** [De Lijn](https://www.delijn.be/en/content/buzzy-pazz/jongere/) confirma 40 €/mes y 165 €/año para 18–24 años. Corregida omisión de **KU Leuven**, cuyo [campus de Geel](https://www.kuleuven.be/english/campuses/geel-campus/contact) figura en la ficha: THE 2027 =45, 50.364 estudiantes, 22 % internacionales (institución completa). Según el criterio actual entra tanto en académico como en comunidad y Geel deja de ser provisional. **Decisión editorial abierta:** si Miguel quiere datos exclusivamente del campus para comunidad, habrá que cambiar esa regla de forma consistente para todas las universidades multicampus, no solo Geel. No se presentan las cifras institucionales como un censo de Geel. Coste sigue estimado.
+- **Caserta:** coste sigue estimado. THE 2026 1001–1200, 33.016 estudiantes y 2 % internacionales, ausencia de ESN y región NEET Campania comprobados en las fuentes del generador; no se ha confirmado que la ausencia en 2027 sea una retirada voluntaria (la tabla solo demuestra ausencia).
+- **Fotos de las diez ciudades:** cotejados tamaño, autor, licencia y descripción contra la API de Commons; vistas las diez miniaturas descargadas, incluida Trento. Todas corresponden al destino y superan 1920×1080; no hay cambios de URL ni metadatos. Trento está a contraluz y Pavía tiene cielo gris: cambiar esas fotos sería una decisión estética, no una corrección necesaria. Script reproducible: `scripts/verificacion/revisar-fotos-loyola.mjs`; evidencias temporales dentro de `.verificacion-loyola.local/` (ignorado por Git).
+- **Puntuación:** incorporadas las correcciones de `nuevo-score` (`f27f4a5`), incluida la gestión de datos ausentes. Regeneración completa de THE/ESN/UNODC/NEET terminada para las 160 ciudades y 48 países, ninguna sin NEET; salvo las asignaciones corregidas, los valores descargados coinciden con los guardados.
+- **Pendiente de una revisión posterior, no de una decisión de producto:** cotejo completo de las siete series estacionales con las tablas originales (Caserta, Covilhã, Módena, Pavía, Braganza, Newcastle y Geel), población original de las otras ciudades, todos los enlaces incoming y resto de afirmaciones históricas/culturales y de transporte. Se conservan los datos de las tandas anteriores; esta revisión no certifica todavía cada afirmación de las diez fichas.
+- **Validación de cierre:** `npm.cmd test`, **56/56**; `npm.cmd run build` desde PowerShell, **184/184** páginas prerenderizadas; `git diff --check` sin errores. Sin push, sin abrir la web del proyecto y sin tocar `main` ni `mi-universidad`.
+
+Cola: `docs/destinos-pendientes-loyola.md` de la rama `mi-universidad`, por orden de plazas y sin las ciudades de España (las decide Miguel). Cada ficha nace con la nota nueva (`docs/scoring.md`).
+
+**Proceso:**
+1. Un agente `contenido-verificacion` investiga cada ciudad en solo lectura y devuelve cada dato con su URL.
+2. Claude escribe la ficha, solo con datos que tengan fuente.
+3. Otro agente `contenido-verificacion` revisa la tanda.
+4. Claude aplica las correcciones.
+
+La revisión de Codex queda pendiente hasta el 17-11-2026.
+
+### Tanda Loyola A — 13-11-2026: Caserta, Covilhã, Cosenza, Módena, Trento
+
+**Notas y datos de la nota:**
+
+| Ciudad | Nota | Nivel | Puesto entre 155 | Te faltan tras la beca | Particularidades |
+|---|---|---|---|---|---|
+| Caserta | 6,3 | Buena | 126.º | 300 €/mes | Sin ESN. Académico 4,5: la Vanvitelli dejó THE en 2027, se usa su tramo de 2026 (1001–1200) |
+| Covilhã | 7,2 | Muy buena | 72.º | 250 €/mes | |
+| Cosenza | 6,9 | Buena | 108.º | 250 €/mes | |
+| Módena | 7,2 | Muy buena | 76.º | 350 €/mes | |
+| Trento | 7,4 | Muy buena | 55.º | 375 €/mes | |
+
+Ninguna tiene nota provisional.
+
+**Fuentes:**
+- Población: ISTAT a 31-12-2024 (censo permanente); para Covilhã, INE (Censos 2021, 46.455 habitantes).
+- Clima, normales 1991–2020:
+  - Caserta: Grazzanise (OMM 16253, a 22 km).
+  - Covilhã: Fundão (IPMA 698, a 16 km).
+  - Módena: Osservatorio Geofisico de UNIMORE.
+  - Trento y Cosenza no tienen bloque de clima. En Trento solo hay medias de Meteotrentino, no mínimas y máximas. En Cosenza no hay normales oficiales legibles: el portal del ISPRA está caído.
+- Fotos de Wikimedia Commons, todas con un original de 2592×1944 o más. He revisado a mano Caserta, Covilhã, Cosenza y Módena. La de Trento solo la he comprobado por metadatos, porque Commons devolvió un 429 al bajar la miniatura.
+- Coste: las cinco fichas son «Estimación MAbroad», sin `costSource`. Es decisión de Claude, pendiente de que Miguel la revise:
+  - Caserta, Covilhã y Cosenza no tienen ninguna cifra oficial de coste mensual.
+  - Trento: la universidad da una sola cifra, 700 €/mes (ficha de 2025/26); el rango 650–800 es editorial.
+  - Módena: UNIMORE da 7.000–8.000 € al año sin decir si son 10 o 12 meses; el rango 600–800 es editorial.
+
+**Correcciones del agente de verificación, todas aplicadas:**
+- Caserta:
+  - Añadida la sede de Capua.
+  - Fuera las cifras de 1,40 € y 25 €, porque el cuadro de tarifas de AIR Campania solo está en imagen. En su lugar se explica que el 1-10-2026 subieron los billetes sencillos y no los abonos.
+  - Comedor: ahora pone «servicio de restauración de ADISURC».
+- Covilhã:
+  - Comida social a «unos 2,50 €» (las dos páginas de la UBI dan 2,45 y 2,50 €).
+  - Fuera las «16 líneas» de bus, que no tienen fuente.
+- Módena: el abono de 24 € es del curso 2025/26.
+- Trento:
+  - Enlace Erasmus cambiado a la página nueva de UniTrento.
+  - «Más de 1.300 plazas» de residencia (L'Adige, 3-9-2026).
+  - Bus Verona Airlink a 7 €.
+  - Fuera el menú de 4,90 €, que es la tarifa de 2023-24.
+  - Fuera el teleférico de Sardagna del abono.
+
+**Dudosos que siguen pendientes:**
+- Covilhã: el tren a Lisboa es de «unas 3 h 30», pero la línea de la Beira Baixa reabrió el 20-09-2026 con horario nuevo.
+- Módena: el enlace Erasmus de UNIMORE no respondió al agente.
+- Cosenza: las 2.500 plazas de residencia salen de prensa, no de la web de la UNICAL.
+- Las normales de clima no las pudo volver a leer el agente de verificación, porque los PDF no se dejan leer.
+- Revisión de Codex: pendiente (sin cuota hasta el 17-11-2026).
+
+### Tanda Loyola B — 13-11-2026: Pavía, Braganza, Newcastle, Geel, Kleve
+
+**Notas y datos de la nota:**
+
+| Ciudad | Nota | Nivel | Puesto | Te faltan tras la beca | Particularidades |
+|---|---|---|---|---|---|
+| Pavía | 7,3 | Muy buena | 60.º | 450 €/mes | |
+| Braganza | 6,7 | Buena | 115.º | 250 €/mes | Sin ESN. Académico 4,5: THE 2024, 1201–1500 |
+| Newcastle | 6,9 | Buena | 107.º | 950 €/mes | Reino Unido, Erasmus+ desde 2027-28 |
+| Geel | 6,9 | Buena | sin puesto | 650 €/mes | Provisional |
+| Kleve | 6,6 | Buena | sin puesto | 700 €/mes | Provisional, sin ESN |
+
+Geel y Kleve tienen nota provisional, así que no entran en los rankings. Les falta la vida estudiantil: ni Thomas More ni la Hochschule Rhein-Waal publican datos en THE.
+
+He cambiado `tests/rankings.test.mjs` para que admita hasta un 5 % de destinos Erasmus+ con subnota pendiente, en vez de 3 fijos.
+
+**Coste:**
+- Pavía: `costSource` de la Universidad de Pavía. Es un total con desglose, pero la página no tiene fecha.
+- Kleve: `costSource` de la Hochschule Rhein-Waal. Ojo: los 900–1.200 € son la media de toda Alemania según el Deutsches Studierendenwerk, no una cifra de Kleve. **Decisión de Miguel: ¿vale como fuente oficial?**
+- Geel: estimación MAbroad. Thomas More da 850–1.150 € sin transporte, así que no cumple el criterio.
+- Braganza y Newcastle: estimación MAbroad.
+  - Braganza: no hay ninguna cifra total oficial.
+  - Newcastle: el total de Northumbria (1.203 £) viene de un tercero y no cuadra con su propio desglose.
+
+**Fuentes:**
+- Población:
+  - Pavía: ISTAT provisional a 1-1-2026.
+  - Braganza: INE vía PORDATA, 2025.
+  - Newcastle: ONS, mitad de 2025.
+  - Geel: Statbel a 1-1-2026. Lo comprobé yo en el Excel oficial `Bevolking_per_gemeente.xlsx` (42.650).
+  - Kleve: IT.NRW, 2024.
+- Clima, normales 1991–2020:
+  - Pavía: Milano Linate (OMM 16080).
+  - Braganza: IPMA, estación 575.
+  - Newcastle: Tynemouth, Met Office (estación en la costa).
+  - Geel: Uccle, KMI. La ficha de Geel del KMI solo trae gráficos.
+  - Kleve: sin bloque de clima; el DWD solo publica medias.
+- Fotos: las cinco miniaturas revisadas a ojo.
+- Braganza: el IPB es la Universidade Politécnica de Bragança desde agosto de 2026, y el Gobierno ha anunciado otro cambio de nombre. Hay que volver a revisarlo en 6–12 meses.
+
+**Correcciones del agente de verificación (aplicadas):**
+- Braganza:
+  - Verano a 13–28 °C.
+  - Fuera las «355 plazas», los «211 km» y el «corcho».
+  - El tip de Zamora pasa a hablar del autobús Zamora–Braganza, que sale algunos días a la semana.
+- Newcastle:
+  - Millennium Bridge: «puente inclinable», no «basculante».
+  - Abono de Metro «zona Inner Newcastle».
+  - Mayor's Fares completas: 1 £ hasta los 21 años y 2,50 £ desde los 22.
+- Geel: quitado el `costSource`.
+- Kleve:
+  - El ticket semestral solo está confirmado para matriculados; el tip dice que el estudiante de intercambio lo consulte con la universidad.
+  - Fuera los precios de residencia, la lista de pueblos y el «50 % internacionales» (solo aparece en una página de empleo).
+  - Aeropuerto de Weeze: tren RE10 hasta la estación y luego lanzadera.
+- No aplicada: el agente proponía 22 °C para el verano de Geel. La media de máximas es 22,5 °C y redondeando sale 23 °C, así que lo dejo en 23.
+
+**Sin confirmar:**
+- Población de Newcastle (320.838) y de Kleve (53.028).
+- Que la AEE-IPB siga activa.
+- Revisión de Codex: pendiente (sin cuota hasta el 17-11-2026).
+
+## Clima: mes más frío y mes más cálido (16-11-2026, rama `tandas-loyola`)
+
+### Revisión de fuentes y licencias (16-11-2026, petición de Miguel)
+
+Inventario de las 78 ciudades: [fuentes y licencias del clima](docs/fuentes-clima.md). Esta revisión actualiza las atribuciones y pendientes descritos más abajo, que se conservan como historial.
+
+- **Migraciones a OMM/NOAA: ninguna.** Se han consultado los índices completos de las versiones [1.1](https://www.ncei.noaa.gov/data/oceans/archive/arc0216/0253808/1.1/data/0-data/Region-6-WMO-Normals-9120/) y [6.6](https://www.ncei.noaa.gov/data/oceans/archive/arc0216/0253808/6.6/data/0-data/Region-6-WMO-Normals-9120/). Portugal, Grecia y Lituania no figuran: Lisboa, Oporto, Coímbra, Covilhã, Braganza, Atenas y Vilna conservan sus fuentes y valores.
+- En los índices de Reino Unido de ambas versiones no figuran Edinburgh, Gogarbank, Royal Botanic Garden, Newcastle ni Tynemouth: Edimburgo y Newcastle conservan Met Office. No se sustituyen por ciudades lejanas como Leuchars o Boulmer.
+- En Italia no figuran Parma, Ferrara, Siena, Palermo ni Módena (tampoco Palermo/Punta Raisi): conservan ARPAE, LaMMA, INAF-OAPa y UNIMORE. Bolonia sí figura, pero **faltan mayo, junio y julio tanto en TN como en TX**. Se conserva Bologna idrografico (ARPAE 14101), sin rellenar huecos ni mezclar estaciones. CSV examinados: [BolognaBorgoPanigale_16140, v1.1](https://www.ncei.noaa.gov/data/oceans/archive/arc0216/0253808/1.1/data/0-data/Region-6-WMO-Normals-9120/Italy/CSV/BolognaBorgoPanigale_16140.csv) y [Bologna_16140, v6.6](https://www.ncei.noaa.gov/data/oceans/archive/arc0216/0253808/6.6/data/0-data/Region-6-WMO-Normals-9120/Italy/CSV/Bologna_16140.csv). Se examinan los parámetros 3 y 4, no las filas NoY ni los récords 22/23.
+- **Viena: OMM/NOAA → GeoSphere Austria, Wien Hohe Warte (105 / OMM 11035).** Fuente: [publicación oficial](https://klimaportal.geosphere.at/klimamittelwerte_1991_2020.html) y [XLSX 1991–2020](https://klimaportal.geosphere.at/klimamittel/klimanormalperiode_19912020.xlsx), hoja `Temperatur`, columna FJ, `mtmin` FJ145:FJ156 y `mtmax` FJ214:FJ225. TN enero–diciembre: −1,3; −0,5; 2,6; 6,7; 10,7; 14,7; 15,9; 15,6; 12; 7,3; 3,7; −0,4 °C. TX: 3,5; 6,5; 10,7; 17,2; 20,7; 25,1; 26,4; 26,1; 21,1; 14,3; 8,8; 4 °C.
+- **Antes → después (Viena):** primavera 7–16 → 7–16 °C; verano 15–26 → 15–26 °C; otoño 8–15 → 8–15 °C; invierno −1–5 → −1–5 °C. Enero (`month: 0`) −1,3 → −1,3 °C; julio (`month: 6`) 26,4 → 26,4 °C. Promedio simple de los tres meses y `Math.round`, sin ponderar por días. Cambia la fuente, no las cifras: **la normal oficial confirma 26,4, no 27,1 °C**. GeoSphere explica que sus normales usan datos controlados y parcialmente homogeneizados, distintos de las observaciones del Data Hub. Se mantienen `low: -9.32`, `high: 33.96` y `daysBy: "GeoSphere Austria"` por corresponder a la misma estación y meses; son cálculos con observaciones diarias, no extremos de la normal homogeneizada.
+- Los textos de Viena en `insights.js`, `cities.js` y los resúmenes de `weatherSeasons.js` siguen siendo coherentes (verano 26 °C de máxima media, invierno −1/5 °C). No hay cambios numéricos en las otras 15 ciudades que obliguen a modificar sus textos.
+- Licencias contrastadas en las webs oficiales: Met Office OGL v3.0; ARPAE CC BY 4.0 en sus condiciones vigentes (la copia de `aggiornati.arpae.it` aún muestra NC y no se usa); LaMMA CC BY-ND 4.0, con restricciones sobre obras derivadas. INAF-OAPa y UNIMORE: sin licencia clara localizada para estas normales. EMY y el XLS histórico de LHMT: uso comercial sin confirmar; no se extrapola la licencia de la API de LHMT al XLS. IPMA mantiene la restricción a fines no lucrativos. Detalles y enlaces en el inventario.
+
+- **Validación final:** `npm test`: 61 pruebas aprobadas, 0 fallos. Incluye el cotejo de Viena con los 24 valores mensuales de la publicación oficial y la cobertura exacta de las 78 ciudades en el inventario. `git diff --check` sin errores. Sin servidor, revisión visual, commit ni push. El `pretest` informó de 0 archivos generados actualizados.
+
+### Historial de la incorporación de los meses extremos
+
+Petición de Miguel: los rangos por estación son medias y esconden los días extremos. `CITY_CLIMATE_EXTREMES` en `weatherSeasons.js` guarda, para las **78 ciudades con bloque de clima**, el mes más frío (media de las mínimas diarias) y el más cálido (media de las máximas), con su fuente; la ficha lo enseña bajo las cuatro estaciones con la nota «Rangos medios: habrá días más fríos y más calurosos». Test nuevo: `tests/climate.test.mjs` (formato de los rangos y coherencia mes ↔ estación).
+
+**Fuentes (normales 1991–2020):**
+- 61 ciudades: normales OMM publicadas por [NOAA/NCEI](https://www.ncei.noaa.gov/data/oceans/archive/arc0216/0253808/1.1/data/0-data/Region-6-WMO-Normals-9120/) (CSV por estación; Venecia y Florencia, en la [versión 6.6](https://www.ncei.noaa.gov/data/oceans/archive/arc0216/0253808/6.6/data/0-data/Region-6-WMO-Normals-9120/Italy/CSV/)). Script de descarga y comparación con los rangos de cada ficha: se ejecutó desde el scratchpad; las estaciones están en el campo `source` de cada ciudad. En las ciudades ya verificadas, los rangos recalculados coinciden con la ficha (diferencias de 1 °C en La Haya, Bruselas, Maastricht y Heidelberg, cuya ficha usa la serie del servicio nacional: se mantiene).
+- IPMA (fichas `cn_91-20_*.pdf`): Lisboa/Instituto Geofísico, Porto/Pedras Rubras, Coimbra/Bencanta, Fundão (Covilhã) y Bragança.
+- Met Office: Edinburgh Royal Botanic Garden y Tynemouth (Newcastle).
+- ARPAE ([tablas climáticas](https://www.arpae.it/it/temi-ambientali/clima/dati-e-indicatori/tabelle-climatiche)): Bologna idrografico (14101), Parma urbana (6031) y Malborghetto di Boara (Ferrara). UNIMORE (Módena), LaMMA ([calendario 1991–2020](https://www.toscana-notizie.it/documents/toscana-notizie/CALENDARIO%20LAMMA_low.pdf), Siena; su TX de noviembre trae una errata, 4,2 por 14,2, que no afecta a los meses extremos) e [INAF](https://meteo.oapa.inaf.it/normali-climatiche.php) (Palermo).
+- Météo-France, [Grenoble-Le Versoud](https://donneespubliques.meteofrance.fr/FichesClim/FICHECLIM_38538002.pdf): temperaturas **1999–2020** (la ficha lo indica).
+- Atenas: [EMY](https://www.emy.gr/en/climatic-data), Elliniko (estación en la costa).
+- **Rosenheim y Vilna: medias calculadas**, porque DWD y LHMT solo publican la normal de la temperatura media. Rosenheim, con los [datos mensuales del DWD](https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/monthly/kl/historical/monatswerte_KL_04261_18810101_20240331_hist.zip) (360/360 meses; comprobado por Claude). Vilna, con los [datos diarios 1991–2020 de LHMT](https://www.meteo.lt/app/uploads/2023/11/TEMP_KRITUL_1991_2020_kasdieniai.xls) (el método reproduce la normal oficial de la media). La ficha lo dice en la fuente.
+
+**«Días de hasta…» (media de la temperatura más baja/alta de cada mes):** ninguna normal oficial la publica (solo dan récords absolutos, que no son medias), así que se calcula con datos diarios oficiales (16-11-2026, petición de Miguel).
+- **Método:** para cada año de 1991 a 2020, la mínima diaria más baja del mes más frío (el de `cold.month`) y la máxima diaria más alta del más cálido; se promedian los años con al menos 25 días válidos en ese mes, y solo si hay al menos 25 años. **Excepción: Grenoble**, cuya serie de temperatura de Le Versoud empieza en 1999 (21 eneros y 22 julios); se acepta porque todo su clima ya se presenta como 1999–2020. Con el DWD se usan sus valores mensuales `MX_TN`/`MX_TX`, que son exactamente eso. Control: con los mismos datos, la media de las mínimas y máximas del mes reproduce la normal de la OMM al décimo en todas las ciudades (salvo lo indicado abajo).
+- **ECA&D no se usa:** su [política de datos](https://www.ecad.eu/documents/ECAD_datapolicy.pdf) (punto 1b) limita los datos a investigación y educación no comerciales. Decisión de Miguel: solo datos de servicios nacionales con licencia abierta, que permiten uso comercial citando la fuente. La ficha cita el servicio en `daysBy`, dice que es un cálculo de MAbroad y enlaza la licencia (CC BY 4.0 o Licence Ouverte 2.0).
+- **31 ciudades, fuente y estación (la misma de los meses extremos):**
+  - DWD, [datos mensuales KL](https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/monthly/kl/historical/) (CC BY 4.0): Múnich (3379, München-Stadt), Berlín (433, Tempelhof), Hamburgo (1975), Colonia (2667, Köln/Bonn), Heidelberg (5906, Mannheim), Friburgo (1443; 29 julios), Leipzig (2928, Holzhausen; 28 julios), Dresde (1048), Tubinga (4931, Stuttgart-Echterdingen) y Rosenheim (4261).
+  - KNMI, [daggegevens](https://www.knmi.nl/nederland-nu/klimatologie/daggegevens) (datos abiertos): Ámsterdam (240), Utrecht (260, De Bilt), Groningen (280, Eelde), Rotterdam (344) y Maastricht (380).
+  - Météo-France, [données climatologiques de base quotidiennes](https://www.data.gouv.fr/fr/datasets/donnees-climatologiques-de-base-quotidiennes/) (Licence Ouverte): Toulouse (31069001), Burdeos (33281001), Nantes (44020001), Montpellier (34154001), Marsella (13054001, Marignane), Lille (59343001), Estrasburgo (67124001), Rennes (35281001), Lyon (69029001, Bron), París (75114001, Montsouris) y Grenoble (38538002, Le Versoud, **1999–2020**: 21 eneros y 22 julios, como el resto de su clima).
+  - GeoSphere Austria, [klima-v2-1d](https://dataset.api.hub.geosphere.at/v1/station/historical/klima-v2-1d) (CC BY 4.0): Viena (105, Hohe Warte). Ojo: con estos datos el mes de julio da 27,1 °C de máxima media, 0,7 °C más que la copia de NOAA de la normal OMM (26,4) que usa la ficha; la mínima de enero sí coincide. Pendiente de aclarar cuál es la buena.
+  - SMHI, [metobs](https://opendata-download-metobs.smhi.se/) (CC BY 4.0): Estocolmo (98210, Observatoriekullen).
+  - FMI, [WFS de datos abiertos](https://opendata.fmi.fi/) (CC BY 4.0): Helsinki (fmisid 100971, Kaisaniemi).
+  - MeteoSwiss, [ogd-smn](https://data.geo.admin.ch/ch.meteoschweiz.ogd-smn/gve/) (datos abiertos): Ginebra (GVE, Cointrin; enero 0,2 °C más templado que la normal OMM).
+  - LHMT: Vilna (cálculo del agente de verificación, ver arriba).
+- **Revisión de Codex (16-11-2026):** cifras sin objeciones. Aplicado: licencia enlazada y «cálculo de MAbroad» en la ficha; excepción de Grenoble documentada. **Para Miguel:** las [condiciones del IPMA](https://www.ipma.pt/pt/siteinfo/index.html?page=index.xml) permiten reutilizar sus datos gratis *sin fines lucrativos*; si MAbroad tiene ingresos, las normales del IPMA (Lisboa, Oporto, Coímbra, Covilhã y Braganza) necesitarían autorización o otra fuente. Lo mismo convendría revisar para el resto de fuentes de normales (OMM/NOAA es dominio público; Met Office, ARPAE, LaMMA, INAF, UNIMORE, EMY y LHMT, sin revisar).
+- **Pendientes (47), sin datos diarios abiertos localizados o sin serie completa:** Bolonia, Milán, Roma, Cracovia, Varsovia, Budapest, Praga, La Haya (Voorschoten solo tiene 6 años de serie diaria), Lisboa, Oporto, Londres, Bruselas, Oslo, Reikiavik, Dublín (el servidor de Met Éireann no respondió), Edimburgo, Atenas, Zagreb, Liubliana, Tallin, Riga, Bratislava, Bucarest, Sofía, Florencia, Gante, Coímbra, Lovaina, Venecia, Pisa, Siena, Bari, Trieste, Bérgamo, Parma, Ferrara, Lecce, Cagliari, Verona, Palermo, Caserta, Covilhã, Módena, Pavía, Braganza, Newcastle y Geel. Budapest: HungaroMet publica datos diarios abiertos de Pestszentlőrinc (44527), pero solo desde 2002 (19 años, no llega a 25). Vías abiertas por probar: IMGW (Polonia), ČHMÚ (Chequia), HungaroMet, Met Office MIDAS-Open (Reino Unido, requiere cuenta de CEDA), MET Norway Frost (requiere identificador), Met Éireann, ARPAE Dexter (Emilia-Romaña) y KMI/IRM (Bélgica).
+
+**Rangos por estación corregidos** (la ficha no cuadraba con ninguna normal oficial; casi todas eran de tandas sin verificar):
+- Londres (St James's Park), Oslo (Blindern), Reikiavik, Zagreb (Maksimir), Liubliana (Bežigrad), Tallin (Harku), Riga, Bratislava (aeropuerto), Bucarest (Băneasa), Sofía, Ginebra (Cointrin), Edimburgo, Atenas y Vilna: rangos nuevos de la estación anotada en `weatherSeasons.js`. Oslo (invierno −7/−1 → −4/1 °C) y Bucarest (verano 20–33 → 15–30 °C) eran los más desviados. Textos de clima de Londres («18–25 °C» → 14–23) y Oslo («16-22 °C» → 12–21) corregidos.
+- Bérgamo: invierno 0–9 → 0–8 °C (misma estación OMM 16076: máximas DJF 8,4).
+- Bolonia: verano 21–31 → 20–31 °C (ARPAE, mínimas JJA 20,47).
+- **Florencia**: los rangos anteriores no salían de ninguna estación oficial; ahora Firenze Peretola (OMM 16170, la que usa el ISPRA): 8–20 / 18–31 / 11–21 / 2–12 °C.
+- Oporto: unificado con Porto/Pedras Rubras (IPMA 545) por decisión de Miguel (16-11-2026): primavera 10–19 → 10–18 °C; el resto ya coincidía.
+
+**Revisión de Codex (16-11-2026, solo lectura, commit `e1b09cd`), aplicada:**
+- Desglose de la nota: al abrirse, el foco pasa al panel (va en un portal al final de la página); salir con Tab lo cierra y devuelve el foco a la nota.
+- Anillo de la nota de la ficha: «/10» y el nivel a 12 px o más (el anillo pasa de 96 a 112 px para que «Excelente» quepa).
+- Comparador: «Cambiar selección» y el desplegable de orden, de 40 a 44 px de alto.
+- Valores OMM guardados con los dos decimales de la fuente (Bérgamo 29,65, no 29,6); no cambia ninguna cifra mostrada.
+- Atenas: Codex solo veía enteros en la web de EMY. Comprobado por Claude en la [API oficial que alimenta esa página](https://api.emy.gr/api/microstep/climateData/72) (`1991-2020` → `temp`): enero 6,9 / 13,5 °C y agosto 23,7 / 33,4 °C.
+- **Vilna, pendiente de segunda comprobación:** Codex no reprodujo el cálculo con el XLS diario de LHMT (formato .xls binario). Lo calculó el agente de verificación, cuyo método reproduce la normal oficial de la temperatura media.
+
 ## Pendiente de Miguel (Rosenheim, vive allí)
 
 Datos de Rosenheim que no se pueden comprobar con fuentes oficiales. Siguen como estaban hasta que Miguel los confirme o corrija (lo verificable ya se aplicó en la tanda 8):

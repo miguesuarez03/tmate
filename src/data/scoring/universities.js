@@ -1,8 +1,8 @@
 // Generado por scripts/scoring-data.mjs (npm run scoring:data) — no editar a mano.
 // Fuente: Times Higher Education World University Rankings 2027 (https://www.timeshighereducation.com/json/ranking_tables/world_university_rankings/2027); ediciones 2026, 2025, 2024, 2023 para las universidades que ya no salen en la actual.
-// Descargado el 2026-11-14.
+// Descargado el 2026-11-15.
 export const THE_EDITION = 2027;
-/** slug → [{ name, edition, rank, students, intlPct }] (rank tal como lo publica THE: «=111», «301–325», «Reporter»…) */
+/** slug → [{ name, edition, rank, students, intlPct, satellite? }] (satellite: solo un campus pequeño en la ciudad, no cuenta para la comunidad; rank tal como lo publica THE: «=111», «301–325», «Reporter»…) */
 export const CITY_UNIVERSITIES = {
  "bolonia": [
   {
@@ -2677,5 +2677,95 @@ export const CITY_UNIVERSITIES = {
    "students": 9437,
    "intlPct": 3
   }
- ]
+ ],
+ "caserta": [
+  {
+   "name": "University of Campania Luigi Vanvitelli",
+   "edition": 2026,
+   "rank": "1001–1200",
+   "students": 33016,
+   "intlPct": 2
+  }
+ ],
+ "covilha": [
+  {
+   "name": "University of Beira Interior",
+   "edition": 2027,
+   "rank": "701–800",
+   "students": 8542,
+   "intlPct": 20
+  }
+ ],
+ "cosenza": [
+  {
+   "name": "University of Calabria",
+   "edition": 2027,
+   "rank": "651–700",
+   "students": 10724,
+   "intlPct": 6
+  }
+ ],
+ "modena": [
+  {
+   "name": "University of Modena and Reggio Emilia",
+   "edition": 2027,
+   "rank": "551–600",
+   "students": 18223,
+   "intlPct": 5
+  }
+ ],
+ "trento": [
+  {
+   "name": "University of Trento",
+   "edition": 2027,
+   "rank": "351–375",
+   "students": 14284,
+   "intlPct": 10
+  }
+ ],
+ "pavia": [
+  {
+   "name": "University of Pavia",
+   "edition": 2027,
+   "rank": "401–450",
+   "students": 17939,
+   "intlPct": 12
+  }
+ ],
+ "braganza": [
+  {
+   "name": "Instituto Politécnico de Bragança",
+   "edition": 2024,
+   "rank": "1201–1500",
+   "students": 9626,
+   "intlPct": 34
+  }
+ ],
+ "newcastle": [
+  {
+   "name": "Newcastle University",
+   "edition": 2027,
+   "rank": "=154",
+   "students": 26470,
+   "intlPct": 29
+  },
+  {
+   "name": "Northumbria University",
+   "edition": 2027,
+   "rank": "451–500",
+   "students": 25215,
+   "intlPct": 30
+  }
+ ],
+ "geel": [
+  {
+   "name": "KU Leuven",
+   "edition": 2027,
+   "rank": "=45",
+   "students": 50364,
+   "intlPct": 22,
+   "satellite": true
+  }
+ ],
+ "kleve": []
 };

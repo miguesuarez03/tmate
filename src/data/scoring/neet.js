@@ -1602,5 +1602,114 @@ export const CITY_NEET = {
    "2024": 23.2,
    "2025": 22
   }
+ },
+ "caserta": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "ITF3",
+  "name": "Campania",
+  "years": {
+   "2023": 21.8,
+   "2024": 19.4,
+   "2025": 16
+  }
+ },
+ "covilha": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "PT19",
+  "name": "Centro (PT)",
+  "years": {
+   "2023": 7.3,
+   "2024": 7.1,
+   "2025": 6
+  }
+ },
+ "cosenza": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "ITF6",
+  "name": "Calabria",
+  "years": {
+   "2023": 18.8,
+   "2024": 19.3,
+   "2025": 12
+  }
+ },
+ "modena": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "ITH5",
+  "name": "Emilia-Romagna",
+  "years": {
+   "2023": 9,
+   "2024": 7.4,
+   "2025": 6.5
+  }
+ },
+ "trento": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "ITH2",
+  "name": "Provincia Autonoma di Trento",
+  "years": {
+   "2023": 8.8,
+   "2024": 6.9,
+   "2025": 5.8
+  }
+ },
+ "pavia": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "ITC4",
+  "name": "Lombardia",
+  "years": {
+   "2023": 9.1,
+   "2024": 8.9,
+   "2025": 6.3
+  }
+ },
+ "braganza": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "PT11",
+  "name": "Norte",
+  "years": {
+   "2023": 7.4,
+   "2024": 7.4,
+   "2025": 6.4
+  }
+ },
+ "newcastle": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "GBR",
+  "years": {
+   "2023": 12.8,
+   "2024": 14.3,
+   "2025": 14.4
+  }
+ },
+ "geel": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "BE21",
+  "name": "Prov. Antwerpen",
+  "years": {
+   "2023": 6.7,
+   "2024": 6.6,
+   "2025": 5.6
+  }
+ },
+ "kleve": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "DEA1",
+  "name": "Düsseldorf",
+  "years": {
+   "2023": 8.3,
+   "2024": 8.4,
+   "2025": 9.5
+  }
  }
 };

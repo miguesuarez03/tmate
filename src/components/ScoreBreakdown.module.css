@@ -18,6 +18,9 @@
   font: inherit;
   cursor: pointer;
   border-radius: 999px;
+  /* Área táctil mínima de 44 px aunque la nota sea más pequeña (comparador en móvil). */
+  min-width: 44px;
+  min-height: 44px;
 }
 .trigger:focus-visible {
   outline: 3px solid var(--color-primary);
@@ -55,6 +58,8 @@
   line-height: 1.4;
   cursor: auto;
 }
+/* Recibe el foco al abrirse (para el teclado); sin anillo propio. */
+.panel:focus { outline: none; }
 /* Móvil (≤560px): hoja fija abajo, para que nunca se salga de la pantalla. */
 .sheet {
   left: 16px;
@@ -62,6 +67,10 @@
   bottom: 16px;
   width: auto;
   max-height: 75vh;
+  max-height: 75dvh;
+  /* iPhone con barra de inicio: que la última línea no quede debajo. */
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  font-size: 15px;
 }
 
 .head {
@@ -76,17 +85,32 @@
   font-size: 15px;
   color: var(--color-dark);
 }
+/* Área táctil de 44 px; el círculo visible es de 32 px. */
 .close {
   flex: none;
-  width: 28px;
-  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: -10px -10px 0 0;
+  padding: 0;
   border: 0;
-  border-radius: 50%;
-  background: var(--color-surface);
+  background: none;
   color: var(--color-slate);
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
 }
+.close > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-surface);
+}
+.close:hover > span { color: var(--color-dark); }
 .close:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
 
 .lead {
@@ -114,7 +138,7 @@
   align-items: center;
 }
 .rowIcon { grid-area: icon; display: inline-flex; color: var(--color-teal); align-self: start; padding-top: 1px; }
-.rowLabel { grid-area: label; font-weight: 600; color: var(--color-dark); }
+.rowLabel { grid-area: label; min-width: 0; font-weight: 600; color: var(--color-dark); overflow-wrap: anywhere; }
 .rowWeight { font-weight: 400; color: var(--color-slate); }
 .rowKind {
   display: inline-block;
@@ -123,7 +147,7 @@
   border-radius: 999px;
   background: var(--color-surface);
   color: var(--color-slate);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   vertical-align: 1px;
 }
@@ -137,7 +161,7 @@
   overflow: hidden;
 }
 .bar > span { display: block; height: 100%; border-radius: inherit; }
-.rowDetail { grid-area: detail; color: var(--color-slate); font-size: 12px; }
+.rowDetail { grid-area: detail; min-width: 0; color: var(--color-slate); font-size: 13px; overflow-wrap: anywhere; }
 
 .note {
   margin: 12px 0 0;
@@ -145,12 +169,12 @@
   border-radius: 10px;
   background: var(--color-surface);
   color: var(--color-dark-mid);
-  font-size: 12.5px;
+  font-size: 13px;
 }
 .foot {
   margin: 10px 0 0;
   color: var(--color-slate);
-  font-size: 12px;
+  font-size: 13px;
 }
 
 /* «No cuenta en la nota»: datos aparte (idioma). */

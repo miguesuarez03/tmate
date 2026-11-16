@@ -20,6 +20,10 @@
 // universidades de la ficha (cities.js) y de otras con sede en la misma ciudad.
 // Si una universidad de la lista no sale en la edición actual (se ha retirado
 // del ranking), se usa la edición más reciente en la que sí sale (2023–2026).
+// Una entrada puede ser { name, satellite: true }: la universidad solo tiene en
+// la ciudad un campus satélite pequeño. Cuenta para el nivel académico, pero sus
+// estudiantes internacionales (cifra de toda la institución) no cuentan para la
+// comunidad de la vida estudiantil (docs/scoring.md).
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { writeFileSync, mkdirSync } from "node:fs";
@@ -56,7 +60,8 @@ export const COUNTRY_ISO = {
   "Bolivia": ["BO", "BOL"],
 };
 
-/** Universidades de cada ciudad, con su nombre exacto en la tabla de THE. */
+/** Universidades de cada ciudad, con su nombre exacto en la tabla de THE
+ *  (o { name, satellite: true } si en la ciudad solo hay un campus satélite pequeño). */
 const THE_NAMES = {
   "bolonia": ["University of Bologna"],
   "milan": ["Politecnico di Milano", "University of Milan", "University of Milan-Bicocca"],
@@ -211,6 +216,20 @@ const THE_NAMES = {
   "santiago-de-chile": ["Pontificia Universidad Católica de Chile", "University of Chile", "Diego Portales University", "Adolfo Ibáñez University", "University of Santiago, Chile (USACH)"],
   "bogota": ["University of the Andes, Colombia", "Del Rosario University", "National University of Colombia", "Pontificia Universidad Javeriana", "Externado University of Colombia"],
   "medellin": ["University of Antioquia", "University of Medellín", "EAFIT University", "Universidad Pontificia Bolivariana (UPB)"],
+  // Tandas Loyola
+  "caserta": ["University of Campania Luigi Vanvitelli"],
+  "covilha": ["University of Beira Interior"],
+  "cosenza": ["University of Calabria"],
+  "modena": ["University of Modena and Reggio Emilia"],
+  "trento": ["University of Trento"],
+  "pavia": ["University of Pavia"],
+  // Instituto Politécnico de Bragança (hoy Universidade Politécnica): última edición en la que sale, 2024.
+  "braganza": ["Instituto Politécnico de Bragança"],
+  "newcastle": ["Newcastle University", "Northumbria University"],
+  // Campus satélite: KU Leuven Campus Geel. Cuenta para el académico, no para la comunidad:
+  // THE publica los internacionales de toda KU Leuven.
+  "geel": [{ name: "KU Leuven", satellite: true }],
+  "kleve": [],
 };
 
 /** Nombres con que ESN escribe cada ciudad (además del nombre de la ficha). */
@@ -231,6 +250,7 @@ const ESN_CITY_NAMES = {
   "berna": ["bern"], "estambul": ["istanbul"], "gotemburgo": ["gothenburg", "goteborg"], "turin": ["torino"],
   "milan": ["milano"], "roma": ["rome"], "bolonia": ["bologna"], "cluj-napoca": ["cluj"], "katowice": ["gliwice"],
   "nicosia": ["lefkosia"], "la-valeta": ["msida", "valletta"],
+  "cosenza": ["rende", "arcavacata di rende", "arcavacata"],
 };
 
 const norm = (s) => (s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ł/g, "l").toLowerCase().trim();
@@ -260,7 +280,8 @@ async function buildUniversities() {
   for (const city of CITIES) {
     const names = THE_NAMES[city.slug];
     if (!names) throw new Error(`scoring-data: falta ${city.slug} en THE_NAMES`);
-    out[city.slug] = names.map((name) => {
+    out[city.slug] = names.map((entry) => {
+      const { name, satellite = false } = typeof entry === "string" ? { name: entry } : entry;
       for (const y of [THE_EDITION, ...THE_FALLBACK_EDITIONS]) {
         // THE mete a veces espacios duros (U+00A0) en los nombres.
         const row = editions[y].find((x) => x.name.replace(/\s+/g, " ") === name);
@@ -271,6 +292,7 @@ async function buildUniversities() {
           rank: row.rank,
           students: parseInt(String(row.stats_number_students).replace(/[^\d]/g, ""), 10) || null,
           intlPct: pct(row.stats_pc_intl_students),
+          ...(satellite ? { satellite: true } : {}),
         };
       }
       missing.push(`${city.slug}: ${name}`);
@@ -411,7 +433,7 @@ async function main() {
   writeFileSync(join(OUT, "universities.js"),
     HEADER(`Times Higher Education World University Rankings ${THE_EDITION} (${THE_URL(THE_EDITION)}); ediciones ${THE_FALLBACK_EDITIONS.join(", ")} para las universidades que ya no salen en la actual.`) +
     `export const THE_EDITION = ${THE_EDITION};\n` +
-    `/** slug → [{ name, edition, rank, students, intlPct }] (rank tal como lo publica THE: «=111», «301–325», «Reporter»…) */\n` +
+    `/** slug → [{ name, edition, rank, students, intlPct, satellite? }] (satellite: solo un campus pequeño en la ciudad, no cuenta para la comunidad; rank tal como lo publica THE: «=111», «301–325», «Reporter»…) */\n` +
     js("CITY_UNIVERSITIES", universities));
 
   const esn = await buildEsn();

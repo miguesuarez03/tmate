@@ -71,6 +71,7 @@
   font-family: var(--font-body); font-size: 0.95rem;
   color: var(--card-text, #0F1E2D); margin: 0; line-height: 1.65;
   flex: 1; opacity: 0.85;
+  overflow-wrap: break-word; /* «Deutschlandsemesterticket» (Kleve) a 320–375 px */
 }
 
 /* Accent glow in bottom right */

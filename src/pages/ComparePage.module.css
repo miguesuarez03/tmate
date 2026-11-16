@@ -1036,7 +1036,7 @@
 .mtHead:last-child { border-top-right-radius: var(--radius-lg); }
 .mtHead + .mtHead { border-left: 1px solid var(--color-border); }
 .mtHeadName {
-  display: block; padding: 0 18px 0 2px;
+  display: block; padding: 0 30px 0 2px;
   font-family: var(--font-display); font-weight: 800; font-size: 14px; line-height: 1.2;
   color: var(--accent); text-align: left;
   overflow-wrap: anywhere;
@@ -1046,16 +1046,16 @@
   font-family: var(--font-display); font-weight: 900; font-size: 15px; color: #fff;
 }
 .mtRemove {
-  position: absolute; top: 2px; right: 0;
-  width: 32px; height: 32px; border: 0; background: none; cursor: pointer;
-  font-size: 13px; color: var(--color-muted);
+  position: absolute; top: 0; right: 0;
+  width: 44px; height: 44px; border: 0; background: none; cursor: pointer;
+  font-size: 14px; color: var(--color-muted);
 }
 .mtRemove:focus-visible { outline: 2px solid var(--color-primary); outline-offset: -4px; border-radius: 8px; }
 
 /* Etiqueta de cada fila, a todo el ancho y encima de los valores. */
 .mtRowLabel {
   padding: 10px 10px 2px; text-align: left;
-  font-size: 11.5px; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase;
+  font-size: 12px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;
   color: var(--color-slate-light);
 }
 .mtRowLabel :global(svg) { vertical-align: -3px; margin-right: 6px; }
@@ -1065,7 +1065,7 @@
   display: inline-flex; align-items: center; justify-content: center; gap: 4px; flex-wrap: wrap;
   font-family: var(--font-display); font-weight: 800; font-size: 16px;
 }
-.mtNote { font-family: var(--font-body); font-size: 11px; font-weight: 600; color: var(--color-slate-light); }
+.mtNote { font-family: var(--font-body); font-size: 12px; font-weight: 600; color: var(--color-slate-light); }
 .mtBest { font-weight: 800; color: var(--color-emerald); }
 .mtBar {
   display: block; height: 4px; margin: 5px auto 0; max-width: 72px;
@@ -1082,7 +1082,7 @@
 
 /* Hero de la comparativa: «Cambiar selección» y «Compartir» en una fila. */
 .compareHeroActions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 20px; }
-.compareHeroActions .backBtn { margin-bottom: 0; min-height: 40px; }
+.compareHeroActions .backBtn { margin-bottom: 0; min-height: 44px; }
 .shareBtn { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; color: #fff; font-weight: 700; }
 .compareHeroActions :global(.share-fallback) { color: rgba(255,255,255,0.85); }
 @media (max-width: 400px) {
@@ -1124,7 +1124,7 @@
 }
 .filterSelect {
   appearance: none; -webkit-appearance: none; cursor: pointer;
-  width: 220px; max-width: 100%; min-height: 40px;
+  width: 220px; max-width: 100%; min-height: 44px;
   padding: 7px 38px 7px 42px;
   border-radius: var(--radius-full); border: 1.5px solid var(--color-border);
   background-color: var(--color-white); color: var(--color-slate);
