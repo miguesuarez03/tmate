@@ -58,6 +58,8 @@
   line-height: 1.4;
   cursor: auto;
 }
+/* Recibe el foco al abrirse (para el teclado); sin anillo propio. */
+.panel:focus { outline: none; }
 /* Móvil (≤560px): hoja fija abajo, para que nunca se salga de la pantalla. */
 .sheet {
   left: 16px;

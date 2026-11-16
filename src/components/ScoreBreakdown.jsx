@@ -89,9 +89,23 @@ export default function ScoreBreakdown({ slug, detail = null, align = "center", 
     };
   }, [open]);
 
+  // Al abrir, el foco pasa al panel (que va al final de body, en un portal):
+  // así Tab llega a la ✕ sin recorrer toda la página.
+  useEffect(() => {
+    if (open) panelRef.current?.focus({ preventScroll: true });
+  }, [open]);
+
   if (!data) return children;
 
   const close = () => { setOpen(false); triggerRef.current?.focus(); };
+  // Salir del panel con Tab (adelante desde la ✕ o atrás desde el panel) lo
+  // cierra y devuelve el foco a la nota, en su sitio de la página.
+  const onPanelKeyDown = (e) => {
+    if (e.key !== "Tab") return;
+    const leavingForward = !e.shiftKey && e.target.closest?.(`.${styles.close}`);
+    const leavingBack = e.shiftKey && e.target === panelRef.current;
+    if (leavingForward || leavingBack) { e.preventDefault(); close(); }
+  };
   const pendingLabels = data.rows.filter((r) => r.score == null).map((r) => r.label.toLowerCase());
 
   const panel = (
@@ -101,6 +115,8 @@ export default function ScoreBreakdown({ slug, detail = null, align = "center", 
       className={`${styles.panel} ${pos ? "" : styles.sheet}`}
       style={pos ? { left: pos.left, width: pos.width, top: pos.top, bottom: pos.bottom, maxHeight: pos.maxHeight } : undefined}
       role="group"
+      tabIndex={-1}
+      onKeyDown={onPanelKeyDown}
       aria-label={`Desglose de la nota${cityName ? ` de ${cityName}` : ""}`}
     >
       <div className={styles.head}>

@@ -470,6 +470,14 @@ Petición de Miguel: los rangos por estación son medias y esconden los días ex
 - **Florencia**: los rangos anteriores no salían de ninguna estación oficial; ahora Firenze Peretola (OMM 16170, la que usa el ISPRA): 8–20 / 18–31 / 11–21 / 2–12 °C.
 - Oporto: la primavera de la ficha (10–19) difiere 1 °C de Pedras Rubras (10–18); la tanda 2 usó otra serie del IPMA. Se mantiene; los meses extremos citan Pedras Rubras.
 
+**Revisión de Codex (16-11-2026, solo lectura, commit `e1b09cd`), aplicada:**
+- Desglose de la nota: al abrirse, el foco pasa al panel (va en un portal al final de la página); salir con Tab lo cierra y devuelve el foco a la nota.
+- Anillo de la nota de la ficha: «/10» y el nivel a 12 px o más (el anillo pasa de 96 a 112 px para que «Excelente» quepa).
+- Comparador: «Cambiar selección» y el desplegable de orden, de 40 a 44 px de alto.
+- Valores OMM guardados con los dos decimales de la fuente (Bérgamo 29,65, no 29,6); no cambia ninguna cifra mostrada.
+- Atenas: Codex solo veía enteros en la web de EMY. Comprobado por Claude en la [API oficial que alimenta esa página](https://api.emy.gr/api/microstep/climateData/72) (`1991-2020` → `temp`): enero 6,9 / 13,5 °C y agosto 23,7 / 33,4 °C.
+- **Vilna, pendiente de segunda comprobación:** Codex no reprodujo el cálculo con el XLS diario de LHMT (formato .xls binario). Lo calculó el agente de verificación, cuyo método reproduce la normal oficial de la temperatura media.
+
 ## Pendiente de Miguel (Rosenheim, vive allí)
 
 Datos de Rosenheim que no se pueden comprobar con fuentes oficiales. Siguen como estaban hasta que Miguel los confirme o corrija (lo verificable ya se aplicó en la tanda 8):

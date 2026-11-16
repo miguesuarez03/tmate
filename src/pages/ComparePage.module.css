@@ -1082,7 +1082,7 @@
 
 /* Hero de la comparativa: «Cambiar selección» y «Compartir» en una fila. */
 .compareHeroActions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 20px; }
-.compareHeroActions .backBtn { margin-bottom: 0; min-height: 40px; }
+.compareHeroActions .backBtn { margin-bottom: 0; min-height: 44px; }
 .shareBtn { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; color: #fff; font-weight: 700; }
 .compareHeroActions :global(.share-fallback) { color: rgba(255,255,255,0.85); }
 @media (max-width: 400px) {
@@ -1124,7 +1124,7 @@
 }
 .filterSelect {
   appearance: none; -webkit-appearance: none; cursor: pointer;
-  width: 220px; max-width: 100%; min-height: 40px;
+  width: 220px; max-width: 100%; min-height: 44px;
   padding: 7px 38px 7px 42px;
   border-radius: var(--radius-full); border: 1.5px solid var(--color-border);
   background-color: var(--color-white); color: var(--color-slate);

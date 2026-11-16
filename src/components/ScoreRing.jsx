@@ -36,9 +36,10 @@ export default function ScoreRing({ score, size = 96, showLabel = true, animate 
   }, [animate]);
 
   const scoreFontSize = Math.max(11, Math.round(size * 0.3));
-  const denFontSize = Math.max(7, Math.round(size * 0.1));
-  // El nivel («Muy buena»…) nunca por debajo de 10 px: a 96 px salía a 8 px, ilegible en móvil.
-  const labelFontSize = Math.max(10, Math.round(size * 0.105));
+  // En anillos grandes (con nivel), «/10» y el nivel nunca por debajo de 12 px.
+  const big = size >= 80;
+  const denFontSize = big ? Math.max(12, Math.round(size * 0.115)) : Math.max(7, Math.round(size * 0.1));
+  const labelFontSize = big ? Math.max(12, Math.round(size * 0.115)) : Math.max(7, Math.round(size * 0.082));
   const strokeWidth = Math.max(2, Math.round(size * 0.045));
 
   return (
