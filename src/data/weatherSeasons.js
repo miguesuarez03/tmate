@@ -4,9 +4,10 @@
 // 1991–2020 del servicio meteorológico nacional / OMM). Ciudades ya cotejadas: ver VERIFICACION.md.
 
 export const CITY_SEASONS = {
+  // Bolonia: Bologna idrografico (ARPAE, estación 14101, normales 1991–2020).
   bolonia: [
     { id: "spring", label: "Primavera", months: "Mar–May", temp: "11–20°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Época perfecta. Ciudad en flor, terrazas abiertas y clima ideal para explorar.", tags: ["Ideal para llegar", "Terrazas", "Lluvias puntuales"] },
-    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "21–31°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Calor intenso y húmedo. La ciudad se vacía de universitarios, llega el turismo.", tags: ["Calor extremo", "Festivales", "Ciudad tranquila"] },
+    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "20–31°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Calor intenso y húmedo. La ciudad se vacía de universitarios, llega el turismo.", tags: ["Calor extremo", "Festivales", "Ciudad tranquila"] },
     { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "12–19°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor temporada. Los Erasmus llegan y la ciudad vuelve a la vida con colores épicos.", tags: ["Mejor época", "Inicio Erasmus", "Colores únicos"], highlight: true },
     { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "3–9°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío y niebla. Los pórticos son refugio. La vida universitaria lo compensa todo.", tags: ["Niebla frecuente", "Muy social", "Ambiente acogedor"] },
   ],
@@ -88,11 +89,12 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "10–16°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Arranque de curso muy intenso. Museos, gastronomía y vida universitaria al máximo.", tags: ["Inicio Erasmus", "Cultura", "Gastronomía"] },
     { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "3–8°C",   emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío pero con las luces de Navidad París es otro mundo. Museos perfectos para el invierno.", tags: ["Navidad mágica", "Museos", "Frío moderado"] },
   ],
+  // Londres: London St James's Park (OMM 03770), normales 1991–2020 de la OMM publicadas por NOAA/NCEI (16-11-2026).
   londres: [
-    { id: "spring", label: "Primavera", months: "Mar–May", temp: "9–17°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "La ciudad florece literalmente. Hyde Park lleno y el ambiente es increíblemente optimista.", tags: ["Hyde Park", "Mercados", "Energía única"] },
-    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "17–25°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "El verano londinense es mágico cuando aparece el sol. Festivales, parques y rooftops.", tags: ["Festivales", "Rooftops", "Sol inesperado"], highlight: true },
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "7–15°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "La ciudad florece literalmente. Hyde Park lleno y el ambiente es increíblemente optimista.", tags: ["Hyde Park", "Mercados", "Energía única"] },
+    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "14–23°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "El verano londinense es mágico cuando aparece el sol. Festivales, parques y rooftops.", tags: ["Festivales", "Rooftops", "Sol inesperado"], highlight: true },
     { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "9–16°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Gran época de inicio. La ciudad está en su máximo esplendor cultural con teatros y eventos.", tags: ["Inicio Erasmus", "Teatro", "Cultura top"] },
-    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "3–9°C",   emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Lluvioso y gris pero con las luces navideñas Oxford Street es espectacular.", tags: ["Navidad Oxford St", "Lluvia", "Raramente nieva"] },
+    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "4–9°C",   emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Lluvioso y gris pero con las luces navideñas Oxford Street es espectacular.", tags: ["Navidad Oxford St", "Lluvia", "Raramente nieva"] },
   ],
   amsterdam: [
     { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–14°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Los canales y los tulipanes en flor. La mejor postal de Amsterdam. Keukenhof cerca.", tags: ["Tulipanes", "Canales", "Keukenhof"], highlight: true },
@@ -106,6 +108,7 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "8–15°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La temporada de la ópera y los conciertos. Arranque Erasmus con agenda cultural brutal.", tags: ["Ópera", "Inicio Erasmus", "Cultura clásica"] },
     { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-1–5°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Los mercados navideños de Viena son de los más bonitos de Europa. Frío pero mágico.", tags: ["Mercados navideños", "Frío seco", "Ambiente mágico"] },
   ],
+  // Rosenheim: DWD Rosenheim (4261), 1991–2020.
   rosenheim: [
     { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–15°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Los Alpes bávaros se llenan de color. Excursiones de senderismo y rutas en bici entre lagos.", tags: ["Senderismo", "Lagos", "Alpes"] },
     { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "13–24°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano alpino ideal. Lagos cristalinos, actividades outdoor sin fin y, a finales de agosto, el Herbstfest de Rosenheim.", tags: ["Lagos alpinos", "Outdoor", "Herbstfest"], highlight: true },
@@ -130,16 +133,18 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "5–10°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Ruska (el otoño finlandés) tiñe los bosques de rojo antes de que lleguen la oscuridad y el frío.", tags: ["Ruska", "Inicio Erasmus", "Días acortándose"] },
     { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-5–0°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Apenas 6 horas de luz y nieve frecuente, aunque varía de un invierno a otro. La sauna deja de ser un lujo y se convierte en necesidad semanal.", tags: ["Días muy cortos", "Nieve frecuente", "Sauna semanal"] },
   ],
+  // Oslo: Oslo-Blindern (OMM 01492), normales 1991–2020 de la OMM publicadas por NOAA/NCEI (16-11-2026).
   oslo: [
-    { id: "spring", label: "Primavera", months: "Mar–May", temp: "1–14°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "El deshielo llega a Nordmarka y la ciudad recupera la vida al aire libre casi de golpe.", tags: ["Deshielo", "Luz creciente", "Bosques reabren"] },
-    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "16–22°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Días larguísimos, baño en el fiordo y senderismo constante en Nordmarka. La mejor época para descubrir la naturaleza a las puertas de la ciudad.", tags: ["Días larguísimos", "Baño en el fiordo", "Mejor época"], highlight: true },
-    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "2–12°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Los bosques que rodean la ciudad se tiñen de colores intensos antes de la llegada del frío.", tags: ["Inicio Erasmus", "Bosques de colores", "Días acortándose"] },
-    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-7–-1°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Nieve frecuente y esquí de fondo dentro de los límites de la ciudad — Oslo se convierte en una estación de invierno urbana.", tags: ["Esquí urbano", "Nieve segura", "Días muy cortos"] },
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "2–11°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "El deshielo llega a Nordmarka y la ciudad recupera la vida al aire libre casi de golpe.", tags: ["Deshielo", "Luz creciente", "Bosques reabren"] },
+    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "12–21°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Días larguísimos, baño en el fiordo y senderismo constante en Nordmarka. La mejor época para descubrir la naturaleza a las puertas de la ciudad.", tags: ["Días larguísimos", "Baño en el fiordo", "Mejor época"], highlight: true },
+    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "4–10°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Los bosques que rodean la ciudad se tiñen de colores intensos antes de la llegada del frío.", tags: ["Inicio Erasmus", "Bosques de colores", "Días acortándose"] },
+    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-4–1°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Nieve frecuente y esquí de fondo dentro de los límites de la ciudad — Oslo se convierte en una estación de invierno urbana.", tags: ["Esquí urbano", "Nieve segura", "Días muy cortos"] },
   ],
+  // Reikiavik: Reykjavík (OMM 04030), normales 1991–2020 de la OMM publicadas por NOAA/NCEI (16-11-2026).
   reikiavik: [
-    { id: "spring", label: "Primavera", months: "Mar–May", temp: "1–8°C",   emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "El hielo se retira y empiezan las primeras excursiones al Círculo Dorado con menos turistas que en verano.", tags: ["Menos turismo", "Luz creciente", "Círculo Dorado"] },
-    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "10–14°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Sol de medianoche real — casi 24 horas de luz. La mejor época para explorar tierras altas y carreteras que en invierno están cerradas.", tags: ["Sol de medianoche", "Tierras altas abiertas", "Mejor época"], highlight: true },
-    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "3–9°C",   emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Empiezan a verse las primeras auroras boreales con la vuelta de la oscuridad. Inicio de curso con la ciudad ya menos turística.", tags: ["Primeras auroras", "Inicio Erasmus", "Días acortándose"] },
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "1–7°C",   emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "El hielo se retira y empiezan las primeras excursiones al Círculo Dorado con menos turistas que en verano.", tags: ["Menos turismo", "Luz creciente", "Círculo Dorado"] },
+    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "8–14°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Sol de medianoche real — casi 24 horas de luz. La mejor época para explorar tierras altas y carreteras que en invierno están cerradas.", tags: ["Sol de medianoche", "Tierras altas abiertas", "Mejor época"], highlight: true },
+    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "3–8°C",   emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Empiezan a verse las primeras auroras boreales con la vuelta de la oscuridad. Inicio de curso con la ciudad ya menos turística.", tags: ["Primeras auroras", "Inicio Erasmus", "Días acortándose"] },
     { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-2–3°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Apenas 4-5 horas de luz, pero temporada alta de auroras boreales y piscinas geotermales humeantes bajo la nieve.", tags: ["Auroras boreales", "Días extremos", "Piscinas termales"] },
   ],
   dublin: [
@@ -148,77 +153,89 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "7–14°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Inicio de curso con los pubs llenándose de estudiantes internacionales. Lluvia frecuente, como en cualquier época del año.", tags: ["Inicio Erasmus", "Lluvia frecuente", "Ambiente social"] },
     { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "2–8°C",   emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Suave para ser invierno (rara vez nieva) pero gris y lluvioso, con la vida social trasladándose por completo a los pubs.", tags: ["Invierno suave", "Lluvia constante", "Vida de pub"] },
   ],
+  // Edimburgo: Edinburgh Royal Botanic Garden (Met Office, normales 1991–2020).
   edimburgo: [
-    { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–12°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "La ciudad de piedra gris se llena de verde. Clima fresco pero agradable para explorar el casco antiguo a pie.", tags: ["Clima fresco", "Casco antiguo", "Agradable"] },
-    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "12–19°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Días larguísimos y el Fringe Festival convierte la ciudad entera en un escenario durante todo agosto.", tags: ["Fringe Festival", "Días largos", "Mejor época"], highlight: true },
-    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "6–13°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Inicio de curso con la ciudad recuperando su ritmo académico tras el bullicio festivalero del verano.", tags: ["Inicio Erasmus", "Ritmo académico", "Lluvia frecuente"] },
-    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "1–7°C",   emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío, gris y con días muy cortos, pero el mercado navideño de Princes Street Gardens compensa el ánimo.", tags: ["Mercado navideño", "Días cortos", "Frío húmedo"] },
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–12°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "La ciudad de piedra gris se llena de verde. Clima fresco pero agradable para explorar el casco antiguo a pie.", tags: ["Clima fresco", "Casco antiguo", "Agradable"] },
+    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "11–19°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Días larguísimos y el Fringe Festival convierte la ciudad entera en un escenario durante todo agosto.", tags: ["Fringe Festival", "Días largos", "Mejor época"], highlight: true },
+    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "7–13°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Inicio de curso con la ciudad recuperando su ritmo académico tras el bullicio festivalero del verano.", tags: ["Inicio Erasmus", "Ritmo académico", "Lluvia frecuente"] },
+    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "2–8°C",   emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío, gris y con días muy cortos, pero el mercado navideño de Princes Street Gardens compensa el ánimo.", tags: ["Mercado navideño", "Días cortos", "Frío húmedo"] },
   ],
+  // Atenas: Elliniko (Servicio Meteorológico Nacional de Grecia, EMY, normales 1991–2020; estación en la costa).
   atenas: [
-    { id: "spring", label: "Primavera", months: "Mar–May", temp: "12–22°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Época perfecta para explorar la Acrópolis y el centro histórico sin el calor sofocante del verano.", tags: ["Clima ideal", "Menos turismo", "Terrazas al aire libre"], highlight: true },
-    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "25–34°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Calor intenso pero las playas del Egeo están a un tranvía. La ciudad se vacía en agosto y el turismo se dispara.", tags: ["Calor extremo", "Playas cerca", "Ciudad de turistas"] },
-    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "14–25°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Excelente para el inicio de curso: temperaturas suaves, menos turistas y el mar todavía templado.", tags: ["Inicio Erasmus", "Mar templado", "Muy agradable"] },
-    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "6–13°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Suave para ser invierno, con lluvia ocasional pero sin nieve. De los inviernos más templados de esta guía.", tags: ["Invierno suave", "Lluvia ocasional", "Sin nieve"] },
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "12–21°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Época perfecta para explorar la Acrópolis y el centro histórico sin el calor sofocante del verano.", tags: ["Clima ideal", "Menos turismo", "Terrazas al aire libre"], highlight: true },
+    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "23–32°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Calor intenso pero las playas del Egeo están a un tranvía. La ciudad se vacía en agosto y el turismo se dispara.", tags: ["Calor extremo", "Playas cerca", "Ciudad de turistas"] },
+    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "16–24°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Excelente para el inicio de curso: temperaturas suaves, menos turistas y el mar todavía templado.", tags: ["Inicio Erasmus", "Mar templado", "Muy agradable"] },
+    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "8–14°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Suave para ser invierno, con lluvia ocasional pero sin nieve. De los inviernos más templados de esta guía.", tags: ["Invierno suave", "Lluvia ocasional", "Sin nieve"] },
   ],
+  // Zagreb: Zagreb-Maksimir (OMM 14240), normales 1991–2020 de la OMM publicadas por NOAA/NCEI (16-11-2026).
   zagreb: [
-    { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–17°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "La Ciudad Alta florece y las terrazas de café reabren en cuanto sale el sol. Época ideal para explorar a pie.", tags: ["Terrazas reabren", "Ciudad Alta", "Muy agradable"] },
-    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "18–28°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Calor seco y agradable. Muchos zagrebienses (y estudiantes) escapan a la costa adriática en pleno agosto.", tags: ["Escapadas a la costa", "Calor seco", "Ciudad más tranquila"] },
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "7–18°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "La Ciudad Alta florece y las terrazas de café reabren en cuanto sale el sol. Época ideal para explorar a pie.", tags: ["Terrazas reabren", "Ciudad Alta", "Muy agradable"] },
+    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "16–27°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Calor seco y agradable. Muchos zagrebienses (y estudiantes) escapan a la costa adriática en pleno agosto.", tags: ["Escapadas a la costa", "Calor seco", "Ciudad más tranquila"] },
     { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "8–17°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Inicio de curso con clima suave y la vida de café en su máximo esplendor antes del frío.", tags: ["Inicio Erasmus", "Café en terraza", "Colores otoñales"], highlight: true },
-    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-1–5°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío centroeuropeo con mercado navideño galardonado como uno de los mejores de Europa varios años seguidos.", tags: ["Mercado navideño", "Frío seco", "Ambiente festivo"] },
+    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-1–6°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío centroeuropeo con mercado navideño galardonado como uno de los mejores de Europa varios años seguidos.", tags: ["Mercado navideño", "Frío seco", "Ambiente festivo"] },
   ],
+  // Liubliana: Ljubljana-Bežigrad (OMM 14015), normales 1991–2020 de la OMM publicadas por NOAA/NCEI (16-11-2026).
   liubliana: [
-    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–17°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "La ciudad más verde de Europa Central florece literalmente. Terrazas junto al río Ljubljanica en pleno esplendor.", tags: ["Ciudad verde", "Terrazas junto al río", "Muy agradable"], highlight: true },
-    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "17–27°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Calor agradable y excursiones constantes al lago Bled y los Alpes Julianos, a menos de una hora.", tags: ["Lago Bled", "Alpes Julianos", "Escapadas cercanas"] },
-    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "6–16°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Inicio de curso con los parques de la ciudad tiñéndose de colores otoñales espectaculares.", tags: ["Inicio Erasmus", "Colores otoñales", "Ciudad tranquila"] },
-    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-2–4°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío centroeuropeo con nieve ocasional; el castillo iluminado sobre la ciudad crea un ambiente muy navideño.", tags: ["Castillo iluminado", "Frío seco", "Nieve ocasional"] },
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–17°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "La ciudad más verde de Europa Central florece literalmente. Terrazas junto al río Ljubljanica en pleno esplendor.", tags: ["Ciudad verde", "Terrazas junto al río", "Muy agradable"], highlight: true },
+    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "15–27°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Calor agradable y excursiones constantes al lago Bled y los Alpes Julianos, a menos de una hora.", tags: ["Lago Bled", "Alpes Julianos", "Escapadas cercanas"] },
+    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "8–16°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Inicio de curso con los parques de la ciudad tiñéndose de colores otoñales espectaculares.", tags: ["Inicio Erasmus", "Colores otoñales", "Ciudad tranquila"] },
+    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-1–5°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío centroeuropeo con nieve ocasional; el castillo iluminado sobre la ciudad crea un ambiente muy navideño.", tags: ["Castillo iluminado", "Frío seco", "Nieve ocasional"] },
   ],
+  // Tallin: Tallinn-Harku (OMM 26038), normales 1991–2020 de la OMM publicadas por NOAA/NCEI (16-11-2026).
   tallin: [
-    { id: "spring", label: "Primavera", months: "Mar–May", temp: "1–13°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Deshielo báltico y el casco medieval recuperando vida tras el invierno.", tags: ["Deshielo báltico", "Luz creciente", "Casco medieval"] },
-    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "15–21°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Días larguísimos junto al Báltico y el casco antiguo en su mejor momento del año.", tags: ["Días largos", "Báltico", "Mejor época"], highlight: true },
-    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "3–11°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Inicio de curso con colores otoñales antes de que llegue el frío báltico.", tags: ["Inicio Erasmus", "Colores otoñales", "Días acortándose"] },
-    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-6–-1°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío báltico intenso con nieve casi siempre; el mercado navideño de la plaza medieval es de los más bonitos de Europa.", tags: ["Mercado navideño", "Nieve segura", "Frío báltico"] },
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "1–9°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Deshielo báltico y el casco medieval recuperando vida tras el invierno.", tags: ["Deshielo báltico", "Luz creciente", "Casco medieval"] },
+    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "12–21°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Días larguísimos junto al Báltico y el casco antiguo en su mejor momento del año.", tags: ["Días largos", "Báltico", "Mejor época"], highlight: true },
+    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "4–10°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Inicio de curso con colores otoñales antes de que llegue el frío báltico.", tags: ["Inicio Erasmus", "Colores otoñales", "Días acortándose"] },
+    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-5–0°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío báltico intenso con nieve casi siempre; el mercado navideño de la plaza medieval es de los más bonitos de Europa.", tags: ["Mercado navideño", "Nieve segura", "Frío báltico"] },
   ],
+  // Vilna: Vilnius (LHMT). La normal oficial 1991–2020 solo da la media: mínimas y máximas calculadas con sus datos diarios 1991–2020.
   vilna: [
-    { id: "spring", label: "Primavera", months: "Mar–May", temp: "2–15°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Deshielo y el casco barroco recobrando vida tras el invierno. Užupis se llena de terrazas.", tags: ["Deshielo", "Terrazas en Užupis", "Luz creciente"] },
-    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "16–23°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Días largos y agradables, perfectos para explorar el casco barroco y hacer excursiones a Trakai.", tags: ["Días largos", "Trakai cerca", "Mejor época"], highlight: true },
-    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "4–13°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Inicio de curso con colores otoñales espectaculares en los parques de la ciudad.", tags: ["Inicio Erasmus", "Colores otoñales", "Días acortándose"] },
-    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-6–-1°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío báltico con nieve frecuente; el casco antiguo iluminado por Navidad es de un encanto especial.", tags: ["Nieve frecuente", "Navidad especial", "Frío báltico"] },
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "2–12°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Deshielo y el casco barroco recobrando vida tras el invierno. Užupis se llena de terrazas.", tags: ["Deshielo", "Terrazas en Užupis", "Luz creciente"] },
+    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "12–23°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Días largos y agradables, perfectos para explorar el casco barroco y hacer excursiones a Trakai.", tags: ["Días largos", "Trakai cerca", "Mejor época"], highlight: true },
+    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "4–11°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Inicio de curso con colores otoñales espectaculares en los parques de la ciudad.", tags: ["Inicio Erasmus", "Colores otoñales", "Días acortándose"] },
+    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-5–-1°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío báltico con nieve frecuente; el casco antiguo iluminado por Navidad es de un encanto especial.", tags: ["Nieve frecuente", "Navidad especial", "Frío báltico"] },
   ],
+  // Riga: Riga LU (OMM 26422), normales 1991–2020 de la OMM publicadas por NOAA/NCEI (16-11-2026).
   riga: [
-    { id: "spring", label: "Primavera", months: "Mar–May", temp: "1–14°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Deshielo báltico con las fachadas Art Nouveau de Alberta iela recuperando protagonismo bajo el sol.", tags: ["Deshielo báltico", "Art Nouveau", "Luz creciente"] },
-    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "16–22°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Días largos y la playa de Jurmala a 30 minutos en tren — la mejor época para descubrir la costa báltica.", tags: ["Jurmala cerca", "Días largos", "Mejor época"], highlight: true },
-    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "3–12°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Inicio de curso con colores otoñales espectaculares en los parques que rodean el casco antiguo.", tags: ["Inicio Erasmus", "Colores otoñales", "Días acortándose"] },
-    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-6–-1°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío báltico intenso con nieve casi siempre; el Mercado Central y sus luces navideñas compensan el frío.", tags: ["Mercado Central", "Nieve segura", "Frío báltico"] },
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "3–12°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Deshielo báltico con las fachadas Art Nouveau de Alberta iela recuperando protagonismo bajo el sol.", tags: ["Deshielo báltico", "Art Nouveau", "Luz creciente"] },
+    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "14–23°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Días largos y la playa de Jurmala a 30 minutos en tren — la mejor época para descubrir la costa báltica.", tags: ["Jurmala cerca", "Días largos", "Mejor época"], highlight: true },
+    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "5–11°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Inicio de curso con colores otoñales espectaculares en los parques que rodean el casco antiguo.", tags: ["Inicio Erasmus", "Colores otoñales", "Días acortándose"] },
+    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-4–1°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío báltico intenso con nieve casi siempre; el Mercado Central y sus luces navideñas compensan el frío.", tags: ["Mercado Central", "Nieve segura", "Frío báltico"] },
   ],
+  // Bratislava: Bratislava, aeropuerto (OMM 11816), normales 1991–2020 de la OMM publicadas por NOAA/NCEI (16-11-2026).
   bratislava: [
     { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–17°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "El Danubio y el casco antiguo recobran vida. Época ideal para explorar la ciudad y sus alrededores a pie.", tags: ["Clima agradable", "Danubio en flor", "Terrazas"] },
-    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "17–28°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Calor agradable y escapadas constantes a Viena o Budapest, ambas a menos de 3 horas.", tags: ["Escapadas cercanas", "Calor seco", "Mejor época"], highlight: true },
-    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "8–17°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Inicio de curso con el casco antiguo tiñéndose de colores otoñales junto al Danubio.", tags: ["Inicio Erasmus", "Colores otoñales", "Danubio"] },
+    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "15–27°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Calor agradable y escapadas constantes a Viena o Budapest, ambas a menos de 3 horas.", tags: ["Escapadas cercanas", "Calor seco", "Mejor época"], highlight: true },
+    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "7–16°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Inicio de curso con el casco antiguo tiñéndose de colores otoñales junto al Danubio.", tags: ["Inicio Erasmus", "Colores otoñales", "Danubio"] },
     { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-2–4°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío centroeuropeo con mercado navideño en la plaza principal, uno de los más entrañables de la región.", tags: ["Mercado navideño", "Frío seco", "Ambiente festivo"] },
   ],
+  // Bucarest: București-Băneasa (OMM 15420), normales 1991–2020 de la OMM publicadas por NOAA/NCEI (16-11-2026).
   bucarest: [
-    { id: "spring", label: "Primavera", months: "Mar–May", temp: "8–20°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "El parque Herăstrău y las terrazas del centro recobran vida con un clima muy agradable.", tags: ["Clima ideal", "Parques en flor", "Terrazas"], highlight: true },
-    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "20–33°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Calor intenso, típico de un clima continental extremo. La vida nocturna se traslada a terrazas y rooftops.", tags: ["Calor intenso", "Vida nocturna", "Rooftops"] },
-    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "9–19°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Inicio de curso con temperaturas suaves y los parques de la ciudad en pleno esplendor de color.", tags: ["Inicio Erasmus", "Colores otoñales", "Muy agradable"] },
-    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-5–2°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío continental con nieve frecuente; los mercados navideños compensan las bajas temperaturas.", tags: ["Nieve frecuente", "Mercados navideños", "Frío intenso"] },
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–18°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "El parque Herăstrău y las terrazas del centro recobran vida con un clima muy agradable.", tags: ["Clima ideal", "Parques en flor", "Terrazas"], highlight: true },
+    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "15–30°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Calor intenso, típico de un clima continental extremo. La vida nocturna se traslada a terrazas y rooftops.", tags: ["Calor intenso", "Vida nocturna", "Rooftops"] },
+    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "6–18°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Inicio de curso con temperaturas suaves y los parques de la ciudad en pleno esplendor de color.", tags: ["Inicio Erasmus", "Colores otoñales", "Muy agradable"] },
+    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-4–5°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío continental con nieve frecuente; los mercados navideños compensan las bajas temperaturas.", tags: ["Nieve frecuente", "Mercados navideños", "Frío intenso"] },
   ],
+  // Sofia: Sofia (OMM 15614), normales 1991–2020 de la OMM publicadas por NOAA/NCEI (16-11-2026).
   sofia: [
     { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–17°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "El monte Vitosha reverdece y la ciudad recobra vida con clima muy agradable.", tags: ["Vitosha en flor", "Clima ideal", "Terrazas"] },
-    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "17–29°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Calor seco y senderismo constante en Vitosha, con la montaña como refugio del calor de la ciudad.", tags: ["Senderismo", "Calor seco", "Montaña cerca"], highlight: true },
-    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "6–16°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Inicio de curso con colores otoñales espectaculares en las laderas de Vitosha.", tags: ["Inicio Erasmus", "Colores otoñales", "Vitosha en colores"] },
-    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-4–3°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Nieve habitual en Vitosha — de las pocas capitales del mundo donde se puede esquiar a 30 minutos del centro.", tags: ["Esquí urbano", "Nieve segura", "Vitosha nevado"] },
+    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "15–27°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Calor seco y senderismo constante en Vitosha, con la montaña como refugio del calor de la ciudad.", tags: ["Senderismo", "Calor seco", "Montaña cerca"], highlight: true },
+    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "6–17°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Inicio de curso con colores otoñales espectaculares en las laderas de Vitosha.", tags: ["Inicio Erasmus", "Colores otoñales", "Vitosha en colores"] },
+    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-3–5°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Nieve habitual en Vitosha — de las pocas capitales del mundo donde se puede esquiar a 30 minutos del centro.", tags: ["Esquí urbano", "Nieve segura", "Vitosha nevado"] },
   ],
+  // Ginebra: Genève-Cointrin (OMM 06700), normales 1991–2020 de la OMM publicadas por NOAA/NCEI (16-11-2026).
   ginebra: [
-    { id: "spring", label: "Primavera", months: "Mar–May", temp: "3–15°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "El lago Lemán despierta y las terrazas junto al Jet d'Eau reabren con los primeros días templados.", tags: ["Lago en flor", "Terrazas junto al lago", "Clima variable"] },
-    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "15–25°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "La mejor época: baños en el lago, Fêtes de Genève en agosto y los Alpes nevados de fondo todavía en junio.", tags: ["Baño en el lago", "Fêtes de Genève", "Mejor época"], highlight: true },
-    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "5–16°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Inicio de curso con clima suave; las viñas del cantón se tiñen de colores antes de la vendimia.", tags: ["Inicio Erasmus", "Viñedos otoñales", "Clima suave"] },
-    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-1–5°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío húmedo con niebla ocasional sobre el lago (la 'bise'), pero ski en los Alpes a menos de una hora.", tags: ["Ski cerca", "Niebla sobre el lago", "Frío húmedo"] },
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–16°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "El lago Lemán despierta y las terrazas junto al Jet d'Eau reabren con los primeros días templados.", tags: ["Lago en flor", "Terrazas junto al lago", "Clima variable"] },
+    { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "14–26°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "La mejor época: baños en el lago, Fêtes de Genève en agosto y los Alpes nevados de fondo todavía en junio.", tags: ["Baño en el lago", "Fêtes de Genève", "Mejor época"], highlight: true },
+    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "7–15°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Inicio de curso con clima suave; las viñas del cantón se tiñen de colores antes de la vendimia.", tags: ["Inicio Erasmus", "Viñedos otoñales", "Clima suave"] },
+    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "-1–6°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío húmedo con niebla ocasional sobre el lago (la 'bise'), pero ski en los Alpes a menos de una hora.", tags: ["Ski cerca", "Niebla sobre el lago", "Frío húmedo"] },
   ],
+  // Florencia: Firenze Peretola (OMM 16170, normales 1991–2020 publicadas por NOAA/NCEI; la que usa el ISPRA).
   florencia: [
-    { id: "spring", label: "Primavera", months: "Mar–May", temp: "9–20°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Época perfecta para pasear el centro histórico sin las aglomeraciones ni el calor del verano.", tags: ["Clima ideal", "Menos turismo", "Muy agradable"], highlight: true },
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "8–20°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Época perfecta para pasear el centro histórico sin las aglomeraciones ni el calor del verano.", tags: ["Clima ideal", "Menos turismo", "Muy agradable"], highlight: true },
     { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "18–31°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Calor sofocante en el valle del Arno y turismo al máximo. Muchos florentinos escapan a la costa.", tags: ["Calor extremo", "Turismo masivo", "Escapadas a la costa"] },
-    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "11–22°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Vendimia en la Toscana, menos turistas y arranque de curso con clima todavía cálido.", tags: ["Inicio Erasmus", "Vendimia toscana", "Menos turismo"] },
-    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "3–12°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío húmedo pero suave, raramente nieva. Mercados navideños y museos sin colas.", tags: ["Invierno suave", "Museos sin colas", "Lluvia ocasional"] },
+    { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "11–21°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Vendimia en la Toscana, menos turistas y arranque de curso con clima todavía cálido.", tags: ["Inicio Erasmus", "Vendimia toscana", "Menos turismo"] },
+    { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "2–12°C",  emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío húmedo pero suave, raramente nieva. Mercados navideños y museos sin colas.", tags: ["Invierno suave", "Museos sin colas", "Lluvia ocasional"] },
   ],
   hamburgo: [
     { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–14°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "El Alster y los parques reviven; clima todavía fresco pero con más horas de luz cada semana.", tags: ["Alster en flor", "Días más largos", "Aún fresco"] },
@@ -410,7 +427,7 @@ export const CITY_SEASONS = {
     { id: "spring", label: "Primavera", months: "Mar–May", temp: "8–18°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada, buena para los lagos y los Prealpes.", tags: ["Templada","Lagos","Senderismo"] },
     { id: "summer", label: "Verano", months: "Jun–Ago", temp: "18–29°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Veranos calurosos en la llanura; los lagos y la montaña refrescan.", tags: ["Calor","Lagos","Días largos"] },
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "10–18°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "La mejor época para llegar: arranque de curso y colores de otoño en los Prealpes.", tags: ["Inicio Erasmus","Colores de otoño","Muy animada"], highlight: true },
-    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–9°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas y niebla en la llanura.", tags: ["Frío","Heladas","Niebla"] },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–8°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas y niebla en la llanura.", tags: ["Frío","Heladas","Niebla"] },
   ],
   // Parma: Parma urbana (ARPAE, estación 6031, normales 1991–2020).
   parma: [
@@ -503,4 +520,91 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco y lluvioso para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Lluvia"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "1–7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y húmedo.", tags: ["Frío","Húmedo","Tranquilo"] },
   ],
+};
+
+// Mes más frío y mes más cálido de cada ciudad (normales 1991–2020 de la misma fuente oficial que
+// los rangos por estación, o de la estación OMM indicada en `source`). month: 0 = enero.
+// cold.min: media de las mínimas diarias del mes más frío; hot.max: media de las máximas del más
+// cálido. low/high (opcionales): media de la temperatura más baja/alta de ese mes, solo si la fuente
+// la publica (los récords absolutos de 30 años no sirven). period: si no es 1991–2020. Sin dato oficial, la ciudad no aparece
+// aquí y queda pendiente en VERIFICACION.md.
+export const CITY_CLIMATE_EXTREMES = {
+  bolonia: { cold: { month: 0, min: 2.1 }, hot: { month: 6, max: 31.5 }, source: "ARPAE, Bologna idrografico (14101)" },
+  milan: { cold: { month: 0, min: -0.4 }, hot: { month: 6, max: 30.7 }, source: "OMM, Milano Linate (16080)" },
+  roma: { cold: { month: 1, min: 3.4 }, hot: { month: 7, max: 31.6 }, source: "OMM, Roma Ciampino (16239)" },
+  cracovia: { cold: { month: 0, min: -4.7 }, hot: { month: 6, max: 25.3 }, source: "OMM, Kraków-Balice (12566)" },
+  varsovia: { cold: { month: 0, min: -4 }, hot: { month: 6, max: 25.2 }, source: "OMM, Varsovia-Okęcie (12375)" },
+  budapest: { cold: { month: 0, min: -2.5 }, hot: { month: 6, max: 28.1 }, source: "OMM, Budapest-Pestszentlőrinc (12843)" },
+  praga: { cold: { month: 0, min: -3.5 }, hot: { month: 6, max: 24.5 }, source: "OMM, Praga-Ruzyně (11518)" },
+  "la-haya": { cold: { month: 1, min: 1.2 }, hot: { month: 7, max: 21.8 }, source: "OMM, Voorschoten (06215)" },
+  rotterdam: { cold: { month: 1, min: 1.1 }, hot: { month: 6, max: 22.7 }, source: "OMM, Rotterdam The Hague Airport (06344)" },
+  munich: { cold: { month: 0, min: -1.8 }, hot: { month: 6, max: 24.9 }, source: "OMM, München-Stadt (10865)" },
+  berlin: { cold: { month: 0, min: -1.4 }, hot: { month: 6, max: 25.2 }, source: "OMM, Berlin-Tempelhof (10384)" },
+  lisboa: { cold: { month: 0, min: 8.6 }, hot: { month: 7, max: 28.8 }, source: "IPMA, Lisboa/Instituto Geofísico (535)" },
+  oporto: { cold: { month: 0, min: 6.4 }, hot: { month: 7, max: 24.8 }, source: "IPMA, Porto/Pedras Rubras (545)" },
+  paris: { cold: { month: 0, min: 3.2 }, hot: { month: 6, max: 25.7 }, source: "OMM, Paris-Montsouris (07156)" },
+  londres: { cold: { month: 0, min: 3.5 }, hot: { month: 6, max: 23.6 }, source: "OMM, London St James's Park (03770)" },
+  amsterdam: { cold: { month: 1, min: 1 }, hot: { month: 6, max: 22.5 }, source: "OMM, Amsterdam-Schiphol (06240)" },
+  viena: { cold: { month: 0, min: -1.3 }, hot: { month: 6, max: 26.4 }, source: "OMM, Wien Hohe Warte (11035)" },
+  rosenheim: { cold: { month: 0, min: -3.4, low: -12.2 }, hot: { month: 6, max: 24.9, high: 32.3 }, source: "DWD, Rosenheim (4261): medias calculadas con sus datos mensuales oficiales" },
+  bruselas: { cold: { month: 0, min: 1.4 }, hot: { month: 6, max: 23.2 }, source: "OMM, Uccle (06447)" },
+  estocolmo: { cold: { month: 1, min: -3.2 }, hot: { month: 6, max: 23.6 }, source: "OMM, Stockholm-Observatoriekullen (02485)" },
+  helsinki: { cold: { month: 1, min: -6.3 }, hot: { month: 6, max: 21.9 }, source: "OMM, Helsinki-Kaisaniemi (02978)" },
+  oslo: { cold: { month: 0, min: -4.7 }, hot: { month: 6, max: 22.7 }, source: "OMM, Oslo-Blindern (01492)" },
+  reikiavik: { cold: { month: 1, min: -1.9 }, hot: { month: 6, max: 14.9 }, source: "OMM, Reykjavík (04030)" },
+  dublin: { cold: { month: 1, min: 2.2 }, hot: { month: 6, max: 19.5 }, source: "OMM, Dublin Airport (03969)" },
+  edimburgo: { cold: { month: 11, min: 1.6 }, hot: { month: 6, max: 19.3 }, source: "Met Office, Edinburgh Royal Botanic Garden" },
+  atenas: { cold: { month: 0, min: 6.9 }, hot: { month: 7, max: 33.4 }, source: "Servicio Meteorológico Nacional de Grecia (EMY), Elliniko" },
+  zagreb: { cold: { month: 0, min: -2 }, hot: { month: 6, max: 28.1 }, source: "OMM, Zagreb-Maksimir (14240)" },
+  liubliana: { cold: { month: 0, min: -1.7 }, hot: { month: 6, max: 27.9 }, source: "OMM, Ljubljana-Bežigrad (14015)" },
+  tallin: { cold: { month: 1, min: -6.2 }, hot: { month: 6, max: 22.2 }, source: "OMM, Tallinn-Harku (26038)" },
+  vilna: { cold: { month: 0, min: -6, low: -19.4 }, hot: { month: 6, max: 23.9, high: 30.8 }, source: "LHMT, Vilnius: medias calculadas con sus datos diarios oficiales" },
+  riga: { cold: { month: 1, min: -4.6 }, hot: { month: 6, max: 23.8 }, source: "OMM, Riga LU (26422)" },
+  bratislava: { cold: { month: 0, min: -2.8 }, hot: { month: 6, max: 28 }, source: "OMM, Bratislava-Letisko (aeropuerto) (11816)" },
+  bucarest: { cold: { month: 0, min: -5 }, hot: { month: 7, max: 30.6 }, source: "OMM, București-Băneasa (15420)" },
+  sofia: { cold: { month: 0, min: -3.9 }, hot: { month: 7, max: 28.3 }, source: "OMM, Sofia (15614)" },
+  ginebra: { cold: { month: 0, min: -1.1 }, hot: { month: 6, max: 26.7 }, source: "OMM, Genève-Cointrin (06700)" },
+  florencia: { cold: { month: 0, min: 2.1 }, hot: { month: 7, max: 32.4 }, source: "OMM, Firenze Peretola (16170)" },
+  hamburgo: { cold: { month: 0, min: -0.5 }, hot: { month: 6, max: 23.2 }, source: "OMM, Hamburg-Fuhlsbüttel (10147)" },
+  gante: { cold: { month: 1, min: 1.3 }, hot: { month: 6, max: 23.6 }, source: "OMM, Semmerzake (a unos 15 km) (06428)" },
+  lyon: { cold: { month: 0, min: 1.1 }, hot: { month: 6, max: 28.2 }, source: "OMM, Lyon-Bron (07480)" },
+  coimbra: { cold: { month: 0, min: 5.2 }, hot: { month: 7, max: 29.1 }, source: "IPMA, Coimbra/Bencanta (707)" },
+  lovaina: { cold: { month: 1, min: 1 }, hot: { month: 6, max: 23.7 }, source: "OMM, Brussels Airport (a unos 15 km) (06451)" },
+  utrecht: { cold: { month: 1, min: 0.7 }, hot: { month: 6, max: 23.1 }, source: "OMM, De Bilt (06260)" },
+  groningen: { cold: { month: 1, min: -0.1 }, hot: { month: 6, max: 22.7 }, source: "OMM, Groningen-Eelde (06280)" },
+  maastricht: { cold: { month: 0, min: 0.5 }, hot: { month: 6, max: 23.8 }, source: "OMM, Maastricht Aachen Airport (06380)" },
+  colonia: { cold: { month: 0, min: 0 }, hot: { month: 6, max: 24.9 }, source: "OMM, Köln/Bonn (10513)" },
+  heidelberg: { cold: { month: 0, min: -0.7 }, hot: { month: 6, max: 26.7 }, source: "OMM, Mannheim (10729)" },
+  friburgo: { cold: { month: 0, min: -0.2 }, hot: { month: 6, max: 26.5 }, source: "OMM, Freiburg (10803)" },
+  leipzig: { cold: { month: 0, min: -1.4 }, hot: { month: 6, max: 25.3 }, source: "OMM, Leipzig-Holzhausen (10471)" },
+  dresde: { cold: { month: 0, min: -2 }, hot: { month: 6, max: 24.5 }, source: "OMM, Dresden-Klotzsche (10488)" },
+  tubinga: { cold: { month: 0, min: -2.1 }, hot: { month: 6, max: 24.7 }, source: "OMM, Stuttgart-Echterdingen (10738)" },
+  toulouse: { cold: { month: 0, min: 2.9 }, hot: { month: 7, max: 28.5 }, source: "OMM, Toulouse-Blagnac (07630)" },
+  burdeos: { cold: { month: 1, min: 3.6 }, hot: { month: 7, max: 27.6 }, source: "OMM, Bordeaux-Mérignac (07510)" },
+  nantes: { cold: { month: 1, min: 3 }, hot: { month: 7, max: 25.4 }, source: "OMM, Nantes-Bouguenais (07222)" },
+  montpellier: { cold: { month: 0, min: 3.3 }, hot: { month: 6, max: 29.5 }, source: "OMM, Montpellier-Aéroport (07643)" },
+  marsella: { cold: { month: 0, min: 3.6 }, hot: { month: 6, max: 30.7 }, source: "OMM, Marignane (07650)" },
+  lille: { cold: { month: 0, min: 1.7 }, hot: { month: 6, max: 23.7 }, source: "OMM, Lille-Lesquin (07015)" },
+  estrasburgo: { cold: { month: 0, min: -0.2 }, hot: { month: 6, max: 26.4 }, source: "OMM, Strasbourg-Entzheim (07190)" },
+  grenoble: { cold: { month: 0, min: -1.3 }, hot: { month: 6, max: 28.6 }, source: "Météo-France, Grenoble-Le Versoud", period: "1999–2020" },
+  rennes: { cold: { month: 1, min: 2.9 }, hot: { month: 6, max: 24.8 }, source: "OMM, Rennes-Saint-Jacques (07130)" },
+  venecia: { cold: { month: 0, min: 0.2 }, hot: { month: 6, max: 29 }, source: "OMM, Venezia-Tessera (16105)" },
+  pisa: { cold: { month: 0, min: 2.8 }, hot: { month: 7, max: 30.3 }, source: "OMM, Pisa San Giusto (16158)" },
+  siena: { cold: { month: 1, min: 3 }, hot: { month: 7, max: 30.7 }, source: "Consorzio LaMMA, Siena" },
+  bari: { cold: { month: 0, min: 4.1 }, hot: { month: 6, max: 30.6 }, source: "OMM, Bari-Palese (16270)" },
+  trieste: { cold: { month: 0, min: 4.2 }, hot: { month: 6, max: 29.1 }, source: "OMM, Trieste (16110)" },
+  bergamo: { cold: { month: 0, min: -0.2 }, hot: { month: 6, max: 29.6 }, source: "OMM, Bergamo-Orio al Serio (16076)" },
+  parma: { cold: { month: 0, min: -0.4 }, hot: { month: 6, max: 31.6 }, source: "ARPAE, Parma urbana (6031)" },
+  ferrara: { cold: { month: 0, min: -0.3 }, hot: { month: 7, max: 31.1 }, source: "ARPAE, Malborghetto di Boara (3)" },
+  lecce: { cold: { month: 0, min: 3.7 }, hot: { month: 7, max: 32.7 }, source: "OMM, Lecce (16332)" },
+  cagliari: { cold: { month: 1, min: 5.1 }, hot: { month: 7, max: 32.1 }, source: "OMM, Cagliari-Elmas (16560)" },
+  verona: { cold: { month: 0, min: -0.5 }, hot: { month: 6, max: 30.4 }, source: "OMM, Verona-Villafranca (16090)" },
+  palermo: { cold: { month: 1, min: 9.1 }, hot: { month: 7, max: 30.6 }, source: "INAF, Osservatorio Astronomico di Palermo (Palazzo Reale)" },
+  caserta: { cold: { month: 1, min: 3.2 }, hot: { month: 7, max: 31.5 }, source: "OMM, Grazzanise (16253)" },
+  covilha: { cold: { month: 0, min: 2.7 }, hot: { month: 6, max: 31.9 }, source: "IPMA, Fundão (698), a unos 16 km y más bajo que Covilhã" },
+  modena: { cold: { month: 0, min: 2 }, hot: { month: 6, max: 30.5 }, source: "Osservatorio Geofisico UNIMORE" },
+  pavia: { cold: { month: 0, min: -0.4 }, hot: { month: 6, max: 30.7 }, source: "OMM, Milano Linate (16080)" },
+  braganza: { cold: { month: 0, min: 0.4 }, hot: { month: 6, max: 29.8 }, source: "IPMA, Bragança (575)" },
+  newcastle: { cold: { month: 0, min: 2.5 }, hot: { month: 6, max: 18.4 }, source: "Met Office, Tynemouth" },
+  geel: { cold: { month: 1, min: 1 }, hot: { month: 6, max: 23.6 }, source: "OMM, Antwerpen-Deurne (06450)" },
 };

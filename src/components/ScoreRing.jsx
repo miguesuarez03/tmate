@@ -37,7 +37,8 @@ export default function ScoreRing({ score, size = 96, showLabel = true, animate 
 
   const scoreFontSize = Math.max(11, Math.round(size * 0.3));
   const denFontSize = Math.max(7, Math.round(size * 0.1));
-  const labelFontSize = Math.max(7, Math.round(size * 0.082));
+  // El nivel («Muy buena»…) nunca por debajo de 10 px: a 96 px salía a 8 px, ilegible en móvil.
+  const labelFontSize = Math.max(10, Math.round(size * 0.105));
   const strokeWidth = Math.max(2, Math.round(size * 0.045));
 
   return (

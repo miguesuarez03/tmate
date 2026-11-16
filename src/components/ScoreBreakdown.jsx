@@ -16,9 +16,10 @@ const useIsoLayoutEffect = typeof window === "undefined" ? useEffect : useLayout
 
 /**
  * Desglose de la nota MAbroad: envuelve la nota (children) en un botón que,
- * al pasar el ratón, enfocarlo y pulsar o tocarlo, abre las barras de las 8
- * subnotas con su peso (src/lib/scoring.js). Se usa en la ficha y en el
- * comparador.
+ * al pulsarlo (clic, toque o Intro/Espacio), abre las barras de las 8 subnotas
+ * con su peso (src/lib/scoring.js). Pasar el ratón no lo abre. Se cierra al
+ * pulsar fuera, con Esc (el foco vuelve a la nota) o con la ✕. Se usa en la
+ * ficha y en el comparador.
  *
  * `detail` (opcional, solo en la ficha): una línea por subnota con el dato
  * concreto y su fuente (scoring.detail de la ficha completa).
@@ -34,10 +35,9 @@ export default function ScoreBreakdown({ slug, detail = null, align = "center", 
   const data = getScoreBreakdown(slug);
   const [open, setOpen] = useState(false);
   const [pos, setPos] = useState(null); // null = hoja fija (móvil)
-  const hoverOpened = useRef(false);
-  const closeTimer = useRef(null);
   const rootRef = useRef(null);
   const panelRef = useRef(null);
+  const triggerRef = useRef(null);
   const panelId = useId();
 
   const place = useCallback(() => {
@@ -72,7 +72,11 @@ export default function ScoreBreakdown({ slug, detail = null, align = "center", 
 
   useEffect(() => {
     if (!open) return undefined;
-    const onKey = (e) => { if (e.key === "Escape") setOpen(false); };
+    const onKey = (e) => {
+      if (e.key !== "Escape") return;
+      setOpen(false);
+      triggerRef.current?.focus();
+    };
     const onDown = (e) => {
       if (rootRef.current?.contains(e.target) || panelRef.current?.contains(e.target)) return;
       setOpen(false);
@@ -85,23 +89,9 @@ export default function ScoreBreakdown({ slug, detail = null, align = "center", 
     };
   }, [open]);
 
-  useEffect(() => () => clearTimeout(closeTimer.current), []);
-
   if (!data) return children;
 
-  const canHover = () => window.matchMedia?.("(hover: hover) and (pointer: fine)").matches;
-  // Al pasar el ratón de la nota al panel (que está en otro sitio del DOM)
-  // hay un instante fuera de los dos: se cierra con un pequeño margen.
-  const hoverIn = () => {
-    clearTimeout(closeTimer.current);
-    if (canHover() && !open) { hoverOpened.current = true; setOpen(true); }
-  };
-  const hoverOut = () => {
-    if (!hoverOpened.current) return;
-    clearTimeout(closeTimer.current);
-    closeTimer.current = setTimeout(() => { hoverOpened.current = false; setOpen(false); }, 160);
-  };
-
+  const close = () => { setOpen(false); triggerRef.current?.focus(); };
   const pendingLabels = data.rows.filter((r) => r.score == null).map((r) => r.label.toLowerCase());
 
   const panel = (
@@ -112,12 +102,12 @@ export default function ScoreBreakdown({ slug, detail = null, align = "center", 
       style={pos ? { left: pos.left, width: pos.width, top: pos.top, bottom: pos.bottom, maxHeight: pos.maxHeight } : undefined}
       role="group"
       aria-label={`Desglose de la nota${cityName ? ` de ${cityName}` : ""}`}
-      onMouseEnter={() => clearTimeout(closeTimer.current)}
-      onMouseLeave={hoverOut}
     >
       <div className={styles.head}>
         <p className={styles.title}>Cómo sale la nota{cityName ? ` de ${cityName}` : ""}</p>
-        <button type="button" className={styles.close} onClick={() => setOpen(false)} aria-label="Cerrar el desglose">✕</button>
+        <button type="button" className={styles.close} onClick={close} aria-label="Cerrar el desglose">
+          <span aria-hidden="true">✕</span>
+        </button>
       </div>
       <p className={styles.lead}>Media ponderada de 8 subnotas de 0 a 10, siempre con los mismos pesos.</p>
       <ul className={styles.rows}>
@@ -172,19 +162,15 @@ export default function ScoreBreakdown({ slug, detail = null, align = "center", 
   );
 
   return (
-    <span ref={rootRef} className={`${styles.root} ${className}`} onMouseEnter={hoverIn} onMouseLeave={hoverOut}>
+    <span ref={rootRef} className={`${styles.root} ${className}`}>
       <button
+        ref={triggerRef}
         type="button"
         className={styles.trigger}
         aria-expanded={open}
         aria-controls={open ? panelId : undefined}
         aria-label={`Nota ${data.overall != null ? fmt(data.overall) : "pendiente"} sobre 10${cityName ? ` de ${cityName}` : ""}${data.provisional ? " (provisional)" : ""}. Ver desglose`}
-        onClick={() => {
-          clearTimeout(closeTimer.current);
-          // Abierto al pasar el ratón: el clic lo deja fijo en vez de cerrarlo.
-          if (hoverOpened.current) { hoverOpened.current = false; return; }
-          setOpen((o) => !o);
-        }}
+        onClick={() => setOpen((o) => !o)}
       >
         {children}
         {data.provisional && <span className={styles.provisionalDot} aria-hidden="true" />}

@@ -448,6 +448,28 @@ He cambiado `tests/rankings.test.mjs` para que admita hasta un 5 % de destinos E
 - Que la AEE-IPB siga activa.
 - Revisión de Codex: pendiente (sin cuota hasta el 17-11-2026).
 
+## Clima: mes más frío y mes más cálido (16-11-2026, rama `tandas-loyola`)
+
+Petición de Miguel: los rangos por estación son medias y esconden los días extremos. `CITY_CLIMATE_EXTREMES` en `weatherSeasons.js` guarda, para las **78 ciudades con bloque de clima**, el mes más frío (media de las mínimas diarias) y el más cálido (media de las máximas), con su fuente; la ficha lo enseña bajo las cuatro estaciones con la nota «Rangos medios: habrá días más fríos y más calurosos». Test nuevo: `tests/climate.test.mjs` (formato de los rangos y coherencia mes ↔ estación).
+
+**Fuentes (normales 1991–2020):**
+- 61 ciudades: normales OMM publicadas por [NOAA/NCEI](https://www.ncei.noaa.gov/data/oceans/archive/arc0216/0253808/1.1/data/0-data/Region-6-WMO-Normals-9120/) (CSV por estación; Venecia y Florencia, en la [versión 6.6](https://www.ncei.noaa.gov/data/oceans/archive/arc0216/0253808/6.6/data/0-data/Region-6-WMO-Normals-9120/Italy/CSV/)). Script de descarga y comparación con los rangos de cada ficha: se ejecutó desde el scratchpad; las estaciones están en el campo `source` de cada ciudad. En las ciudades ya verificadas, los rangos recalculados coinciden con la ficha (diferencias de 1 °C en La Haya, Bruselas, Maastricht y Heidelberg, cuya ficha usa la serie del servicio nacional: se mantiene).
+- IPMA (fichas `cn_91-20_*.pdf`): Lisboa/Instituto Geofísico, Porto/Pedras Rubras, Coimbra/Bencanta, Fundão (Covilhã) y Bragança.
+- Met Office: Edinburgh Royal Botanic Garden y Tynemouth (Newcastle).
+- ARPAE ([tablas climáticas](https://www.arpae.it/it/temi-ambientali/clima/dati-e-indicatori/tabelle-climatiche)): Bologna idrografico (14101), Parma urbana (6031) y Malborghetto di Boara (Ferrara). UNIMORE (Módena), LaMMA ([calendario 1991–2020](https://www.toscana-notizie.it/documents/toscana-notizie/CALENDARIO%20LAMMA_low.pdf), Siena; su TX de noviembre trae una errata, 4,2 por 14,2, que no afecta a los meses extremos) e [INAF](https://meteo.oapa.inaf.it/normali-climatiche.php) (Palermo).
+- Météo-France, [Grenoble-Le Versoud](https://donneespubliques.meteofrance.fr/FichesClim/FICHECLIM_38538002.pdf): temperaturas **1999–2020** (la ficha lo indica).
+- Atenas: [EMY](https://www.emy.gr/en/climatic-data), Elliniko (estación en la costa).
+- **Rosenheim y Vilna: medias calculadas**, porque DWD y LHMT solo publican la normal de la temperatura media. Rosenheim, con los [datos mensuales del DWD](https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/monthly/kl/historical/monatswerte_KL_04261_18810101_20240331_hist.zip) (360/360 meses; comprobado por Claude). Vilna, con los [datos diarios 1991–2020 de LHMT](https://www.meteo.lt/app/uploads/2023/11/TEMP_KRITUL_1991_2020_kasdieniai.xls) (el método reproduce la normal oficial de la media). La ficha lo dice en la fuente.
+
+**«Días de hasta…» (media de la temperatura más baja/alta de cada mes):** ninguna fuente oficial la publica (OMM, IPMA, Met Office, Météo-France, ARPAE, EMY e INAF solo dan récords absolutos, que no son medias). Solo sale en **Rosenheim** (enero, días de hasta −12 °C; julio, hasta 32 °C) y **Vilna** (−19 °C / 31 °C), calculada con los mismos datos oficiales. Pendiente en el resto mientras no haya fuente.
+
+**Rangos por estación corregidos** (la ficha no cuadraba con ninguna normal oficial; casi todas eran de tandas sin verificar):
+- Londres (St James's Park), Oslo (Blindern), Reikiavik, Zagreb (Maksimir), Liubliana (Bežigrad), Tallin (Harku), Riga, Bratislava (aeropuerto), Bucarest (Băneasa), Sofía, Ginebra (Cointrin), Edimburgo, Atenas y Vilna: rangos nuevos de la estación anotada en `weatherSeasons.js`. Oslo (invierno −7/−1 → −4/1 °C) y Bucarest (verano 20–33 → 15–30 °C) eran los más desviados. Textos de clima de Londres («18–25 °C» → 14–23) y Oslo («16-22 °C» → 12–21) corregidos.
+- Bérgamo: invierno 0–9 → 0–8 °C (misma estación OMM 16076: máximas DJF 8,4).
+- Bolonia: verano 21–31 → 20–31 °C (ARPAE, mínimas JJA 20,47).
+- **Florencia**: los rangos anteriores no salían de ninguna estación oficial; ahora Firenze Peretola (OMM 16170, la que usa el ISPRA): 8–20 / 18–31 / 11–21 / 2–12 °C.
+- Oporto: la primavera de la ficha (10–19) difiere 1 °C de Pedras Rubras (10–18); la tanda 2 usó otra serie del IPMA. Se mantiene; los meses extremos citan Pedras Rubras.
+
 ## Pendiente de Miguel (Rosenheim, vive allí)
 
 Datos de Rosenheim que no se pueden comprobar con fuentes oficiales. Siguen como estaban hasta que Miguel los confirme o corrija (lo verificable ya se aplicó en la tanda 8):

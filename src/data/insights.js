@@ -851,7 +851,7 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 9.0, desc: "Hyde Park, Regent's Park, Hampstead Heath. El 47% de Londres es espacio verde. Increíble para una megalópolis." },
-          { label: "Clima", score: 5.2, desc: "El famoso clima londinense es real. Lluvia frecuente, cielos grises y sol que se celebra como victoria. Verano: 18–25°C, con días soleados épicos. Los parques se llenan de vida. El verano londinense es genuinamente bonito. Invierno: Gris, húmedo y con días muy cortos. No hace tanto frío pero la falta de sol tiene impacto anímico real." },
+          { label: "Clima", score: 5.2, desc: "El famoso clima londinense es real. Lluvia frecuente, cielos grises y sol que se celebra como victoria. Verano: 14–23 °C de media, con días soleados épicos. Los parques se llenan de vida. El verano londinense es genuinamente bonito. Invierno: Gris, húmedo y con días muy cortos. No hace tanto frío pero la falta de sol tiene impacto anímico real." },
           { label: "Calidad de vida", score: 8.5, desc: "Cara y caótica, pero con una oferta cultural, gastronómica y de oportunidades que no existe en ningún otro sitio." },
           { label: "Autenticidad local", score: 9.5, desc: "La ciudad más diversa gastronómicamente de Europa. Cada cocina del mundo representada al más alto nivel." },
           { label: "Estilo de vida", score: 7.5, desc: "El coste y el ritmo intenso tienen su precio. Pero la experiencia de vivir en Londres es transformadora e irrepetible." },
@@ -3010,7 +3010,7 @@ export const CITY_INSIGHTS = {
         color: "#3F7A7D",
         subcategories: [
           { label: "Naturaleza", score: 10.0, desc: "Fiordo de Oslo para bañarte en verano y bosque de Nordmarka con 2.600 km de pistas de esquí de fondo en invierno." },
-          { label: "Clima", score: 6.0, desc: "Veranos suaves y luminosos (16-22°C) frente a inviernos fríos y oscuros con nieve casi siempre." },
+          { label: "Clima", score: 6.0, desc: "Veranos suaves y luminosos (12–21 °C de media) frente a inviernos fríos y oscuros con nieve casi siempre." },
           { label: "Calidad de vida", score: 9.5, desc: "Noruega lidera consistentemente los rankings de renta per cápita y desarrollo humano más altos del mundo." },
           { label: "Autenticidad local", score: 8.5, desc: "El friluftsliv (vida al aire libre) no es un concepto de marketing — es la forma en que los noruegos viven su tiempo libre." },
           { label: "Estilo de vida", score: 8.5, desc: "Ritmo pausado, mucho deporte al aire libre y una relación con la naturaleza que impregna toda la cultura." },

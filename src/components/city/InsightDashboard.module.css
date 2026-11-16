@@ -39,7 +39,7 @@
 }
 
 .overallLabel {
-  font-family: var(--font-body); font-size: 0.72rem;
+  font-family: var(--font-body); font-size: 0.75rem;
   color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.08em;
 }
 
