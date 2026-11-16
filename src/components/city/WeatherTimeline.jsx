@@ -74,7 +74,10 @@ export default function WeatherTimeline({ cityName, citySlug }) {
               </div>
             </div>
           </div>
-          <p className={styles.extremesSource}>Normales climatológicas {extremes.period ?? "1991–2020"} · {extremes.source}</p>
+          <p className={styles.extremesSource}>
+            Normales climatológicas {extremes.period ?? "1991–2020"} · {extremes.source}
+            {extremes.daysBy && <> · «Días de hasta»: media de la temperatura más baja (o más alta) de ese mes en cada año, con datos de {extremes.daysBy}</>}
+          </p>
         </div>
       )}
     </section>
