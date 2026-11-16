@@ -34,7 +34,7 @@ test("Viena coincide con la normal publicada de GeoSphere, no con la serie diari
 
 test("el inventario de licencias incluye exactamente las ciudades con clima", () => {
   const doc = readFileSync(new URL("../docs/fuentes-clima.md", import.meta.url), "utf8");
-  const filas = doc.split("\n").filter((linea) => !linea.startsWith("| Ciudad ") && /^\| [^|]+ \([a-z-]+\) \|/.test(linea));
+  const filas = doc.split(/\r?\n/).filter((linea) => !linea.startsWith("| Ciudad ") && /^\| [^|]+ \([a-z-]+\) \|/.test(linea));
   const slugs = filas.map((linea) => /^\| [^|]+ \(([a-z-]+)\) \|/.exec(linea)[1]);
   assert.deepEqual(slugs.sort(), Object.keys(CITY_SEASONS).sort());
   for (const fila of filas) {
