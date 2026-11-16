@@ -103,6 +103,8 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño",     months: "Sep–Nov", temp: "8–15°C",  emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Gran época Erasmus. La ciudad vuelve a su ritmo local con menos turistas y más vida real.", tags: ["Inicio Erasmus", "Menos turistas", "Lluvia frecuente"] },
     { id: "winter", label: "Invierno",  months: "Dic–Feb", temp: "1–7°C",   emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Frío y húmedo; los años en que se hielan los canales son mágicos. Luces de invierno y ambiente muy acogedor.", tags: ["Frío húmedo", "Luces invierno", "Muy acogedor"] },
   ],
+  // Viena: Wien Hohe Warte (GeoSphere Austria, estación 105 / OMM 11035), normal oficial 1991–2020.
+  // Klimanormalperiode, hoja Temperatur: mtmin FJ145:FJ156 y mtmax FJ214:FJ225; ver docs/fuentes-clima.md.
   viena: [
     { id: "spring", label: "Primavera", months: "Mar–May", temp: "7–16°C",  emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Viena despierta con conciertos al aire libre y el Prater en flor. Ambiente cultural único.", tags: ["Conciertos", "Prater", "Cultura"] },
     { id: "summer", label: "Verano",    months: "Jun–Ago", temp: "15–26°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Caluroso y lleno de festivales. El Danubio se convierte en zona de baño y playa urbana.", tags: ["Playa Danubio", "Festivales", "Calor agradable"], highlight: true },
@@ -546,7 +548,7 @@ export const CITY_CLIMATE_EXTREMES = {
   paris: { cold: { month: 0, min: 3.2, low: -3.79 }, hot: { month: 6, max: 25.7, high: 34.33 }, source: "OMM, Paris-Montsouris (07156)", daysBy: "Météo-France" },
   londres: { cold: { month: 0, min: 3.5 }, hot: { month: 6, max: 23.6 }, source: "OMM, London St James's Park (03770)" },
   amsterdam: { cold: { month: 1, min: 1, low: -5.64 }, hot: { month: 6, max: 22.5, high: 30.32 }, source: "OMM, Amsterdam-Schiphol (06240)", daysBy: "KNMI" },
-  viena: { cold: { month: 0, min: -1.3, low: -9.32 }, hot: { month: 6, max: 26.4, high: 33.96 }, source: "OMM, Wien Hohe Warte (11035)", daysBy: "GeoSphere Austria" },
+  viena: { cold: { month: 0, min: -1.3, low: -9.32 }, hot: { month: 6, max: 26.4, high: 33.96 }, source: "GeoSphere Austria, Wien Hohe Warte (105 / OMM 11035)", daysBy: "GeoSphere Austria" },
   rosenheim: { cold: { month: 0, min: -3.4, low: -12.2 }, hot: { month: 6, max: 24.9, high: 32.3 }, source: "DWD, Rosenheim (4261): medias calculadas con sus datos mensuales oficiales", daysBy: "DWD" },
   bruselas: { cold: { month: 0, min: 1.4 }, hot: { month: 6, max: 23.2 }, source: "OMM, Uccle (06447)" },
   estocolmo: { cold: { month: 1, min: -3.2, low: -10.94 }, hot: { month: 6, max: 23.6, high: 29.65 }, source: "OMM, Stockholm-Observatoriekullen (02485)", daysBy: "SMHI" },

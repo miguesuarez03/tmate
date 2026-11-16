@@ -2,6 +2,7 @@
 // Ejecutar con `npm test`.
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import { CITY_SEASONS, CITY_CLIMATE_EXTREMES } from "../src/data/weatherSeasons.js";
 
 const range = (t) => {
@@ -9,6 +10,38 @@ const range = (t) => {
   assert.ok(m, `rango mal escrito: «${t}»`);
   return [Number(m[1]), Number(m[2])];
 };
+
+test("Viena coincide con la normal publicada de GeoSphere, no con la serie diaria sin homogeneizar", () => {
+  // Fuente independiente: klimanormalperiode_19912020.xlsx, Temperatur,
+  // Wien_Hohe_Warte (FJ6), mtmin FJ145:FJ156 y mtmax FJ214:FJ225.
+  const tn = [-1.3, -0.5, 2.6, 6.7, 10.7, 14.7, 15.9, 15.6, 12, 7.3, 3.7, -0.4];
+  const tx = [3.5, 6.5, 10.7, 17.2, 20.7, 25.1, 26.4, 26.1, 21.1, 14.3, 8.8, 4];
+  const meses = { spring: [2, 3, 4], summer: [5, 6, 7], autumn: [8, 9, 10], winter: [11, 0, 1] };
+  for (const s of CITY_SEASONS.viena) {
+    const media = (serie) => Math.round(meses[s.id].reduce((suma, mes) => suma + serie[mes], 0) / 3);
+    assert.deepEqual(range(s.temp), [media(tn), media(tx)], s.id);
+  }
+  const e = CITY_CLIMATE_EXTREMES.viena;
+  assert.equal(e.cold.min, Math.min(...tn));
+  assert.equal(e.cold.month, tn.indexOf(Math.min(...tn)));
+  assert.equal(e.hot.max, Math.max(...tx));
+  assert.equal(e.hot.month, tx.indexOf(Math.max(...tx)));
+  assert.match(e.source, /GeoSphere Austria, Wien Hohe Warte/);
+  assert.equal(e.daysBy, "GeoSphere Austria");
+  assert.equal(e.cold.low, -9.32);
+  assert.equal(e.hot.high, 33.96);
+});
+
+test("el inventario de licencias incluye exactamente las ciudades con clima", () => {
+  const doc = readFileSync(new URL("../docs/fuentes-clima.md", import.meta.url), "utf8");
+  const filas = doc.split("\n").filter((linea) => !linea.startsWith("| Ciudad ") && /^\| [^|]+ \([a-z-]+\) \|/.test(linea));
+  const slugs = filas.map((linea) => /^\| [^|]+ \(([a-z-]+)\) \|/.exec(linea)[1]);
+  assert.deepEqual(slugs.sort(), Object.keys(CITY_SEASONS).sort());
+  for (const fila of filas) {
+    assert.match(fila, /\| (Sí|\*\*No\*\*|Sin confirmar) \|$/);
+    assert.match(fila, /https:\/\//);
+  }
+});
 
 test("cada estación tiene un rango «mín–máx°C» con la mínima por debajo de la máxima", () => {
   for (const [slug, seasons] of Object.entries(CITY_SEASONS)) {
