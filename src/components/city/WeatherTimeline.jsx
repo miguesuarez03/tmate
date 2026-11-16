@@ -1,6 +1,17 @@
 import styles from "./WeatherTimeline.module.css";
 import { CITY_SEASONS, CITY_CLIMATE_EXTREMES } from "../../data/weatherSeasons";
 
+// Licencia de los datos diarios con que MAbroad calcula «días de hasta…» (daysBy).
+const DAYS_LICENSE = {
+  DWD: ["CC BY 4.0", "https://creativecommons.org/licenses/by/4.0/"],
+  KNMI: ["CC BY 4.0", "https://creativecommons.org/licenses/by/4.0/"],
+  "Météo-France": ["Licence Ouverte 2.0", "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"],
+  "GeoSphere Austria": ["CC BY 4.0", "https://creativecommons.org/licenses/by/4.0/"],
+  SMHI: ["CC BY 4.0", "https://creativecommons.org/licenses/by/4.0/"],
+  FMI: ["CC BY 4.0", "https://creativecommons.org/licenses/by/4.0/"],
+  MeteoSwiss: ["CC BY 4.0", "https://creativecommons.org/licenses/by/4.0/"],
+};
+
 const MONTHS = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
 // Grados enteros, como los rangos por estación. Los ,5 se redondean alejándose
 // de cero (-2,5 → -3, no -2) y nunca sale «-0».
@@ -76,7 +87,15 @@ export default function WeatherTimeline({ cityName, citySlug }) {
           </div>
           <p className={styles.extremesSource}>
             Normales climatológicas {extremes.period ?? "1991–2020"} · {extremes.source}
-            {extremes.daysBy && <> · «Días de hasta»: media de la temperatura más baja (o más alta) de ese mes en cada año, con datos de {extremes.daysBy}</>}
+            {extremes.daysBy && (
+              <>
+                {" · «Días de hasta»: cálculo de MAbroad (media de la temperatura más baja o más alta de ese mes en cada año) con datos de "}
+                {extremes.daysBy}
+                {DAYS_LICENSE[extremes.daysBy] && (
+                  <> (<a href={DAYS_LICENSE[extremes.daysBy][1]} target="_blank" rel="noopener noreferrer">{DAYS_LICENSE[extremes.daysBy][0]}</a>)</>
+                )}
+              </>
+            )}
           </p>
         </div>
       )}
