@@ -811,7 +811,8 @@ export default function ComparePage() {
     const pool = ALL_CITIES.filter((c) => uni.isIncluded(c.slug));
     const rank = (c) => (TRENDING_SLUGS.includes(c.slug) ? 1000 - TRENDING_SLUGS.indexOf(c.slug) : c.erasmus ?? 0);
     const sorted = [...pool].sort((a, b) => rank(b) - rank(a) || a.name.localeCompare(b.name, "es"));
-    const n = sorted.length >= 8 ? 8 : sorted.length >= 4 ? 4 : sorted.length;
+    // Con menos de 4 no hay fila completa: no se enseñan (siguen en la lista).
+    const n = sorted.length >= 8 ? 8 : sorted.length >= 4 ? 4 : 0;
     return sorted.slice(0, n);
   }, [uni]);
   const filtered = useMemo(() => {
@@ -1276,7 +1277,7 @@ export default function ComparePage() {
             elegidas (marcadas en su sitio): antes esta sección se cambiaba por
             otra de «Seleccionadas» y todo lo de debajo se movía. Con un filtro
             activo se ocultan: lo que manda es la lista filtrada. */}
-        {!hasFilters && (
+        {!hasFilters && featured.length > 0 && (
           <section className={styles.selectedSection}>
             <h2 className={styles.groupTitle}>Destinos con más tirón ahora mismo</h2>
             <div className={styles.featuredGrid}>

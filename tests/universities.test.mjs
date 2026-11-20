@@ -254,3 +254,21 @@ test("transporte en Alemania: Deutschland-Ticket con fuente oficial y semesterti
   assert.match(getOfficialTransport(getCityBySlug("dresde")).desc, /Deutschlandsemesterticket/);
   assert.equal(getOfficialTransport(getCityBySlug("roma")), null);
 });
+
+test("limpieza del portal: las URL quedan intactas y la puntuación final fuera del enlace", async () => {
+  const { cleanPortalText, linkifyParts } = await import("../src/lib/universities.js");
+  assert.equal(cleanPortalText("https://ca.example.org/info"), "https://ca.example.org/info");
+  assert.deepEqual(linkifyParts("Ver https://x.org/a. Y más"), [{ text: "Ver " }, { url: "https://x.org/a" }, { text: "." }, { text: " Y más" }]);
+  assert.deepEqual(linkifyParts("(https://x.org/a)"), [{ text: "(" }, { url: "https://x.org/a" }, { text: ")" }]);
+});
+
+test("ayuda de la Junta: grupos propios de la orden, no los del SEPIE", async () => {
+  const { REGIONAL_AIDS } = await import("../src/data/becaGroups.js");
+  const junta = REGIONAL_AIDS.find((a) => a.id === "junta-andalucia");
+  const groupOf = (c) => Object.keys(junta.groups).find((g) => junta.groups[g].includes(c));
+  assert.equal(groupOf("Alemania"), "2");
+  assert.equal(groupOf("Dinamarca"), "1");
+  assert.equal(groupOf("Polonia"), "3");
+  assert.equal(junta.base[groupOf("Italia")], 203);
+  assert.match(junta.url, /^https:\/\/www\.juntadeandalucia\.es\/boja\/2025\/103\//);
+});

@@ -443,13 +443,16 @@ function Calculator() {
               {/* Modo «Mi universidad»: ayudas de la comunidad de tu universidad.
                   Si no te corresponden (p. ej. solo públicas), en gris y tachadas. */}
               {regionalAids.map((a) => {
-                const amount = group ? `${a.base[group]} €/mes` : `${Math.min(...Object.values(a.base))}–${Math.max(...Object.values(a.base))} €/mes`;
+                // Grupo de la orden autonómica (no el del SEPIE) según el país de destino.
+                const destCountry = country ? getStateCountry(country) : "";
+                const aidGroup = Object.keys(a.groups).find((g) => a.groups[g].includes(destCountry)) ?? null;
+                const amount = aidGroup ? `${a.base[aidGroup]} €/mes` : `${Math.min(...Object.values(a.base))}–${Math.max(...Object.values(a.base))} €/mes`;
                 return (
                   <div key={a.id} className={`beca-regional${a.applies ? "" : " beca-regional--off"}`}>
                     <p className="beca-regional__name">{a.name}</p>
                     <p className="beca-regional__amount">
                       {a.applies ? amount : <s>{amount}</s>}
-                      <span> · ayuda base{group ? `, grupo ${group}` : ""}, curso {a.course}</span>
+                      <span> · ayuda base{aidGroup ? `, grupo ${aidGroup} de la Junta` : ""}, hasta {a.maxMonths} meses, curso {a.course}</span>
                     </p>
                     {!a.applies && <p className="beca-regional__why">No aplica a {uni.entry.shortName}: {a.notApplicable}.</p>}
                     <a className="beca-regional__src" href={a.url} target="_blank" rel="noopener noreferrer">Fuente: {a.source} ↗</a>

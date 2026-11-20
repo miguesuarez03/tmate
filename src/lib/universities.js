@@ -212,16 +212,21 @@ const PORTAL_FIXES = [
 ];
 
 /** Texto del portal ordenado: sin «||» sueltos, espacios dobles ni erratas conocidas. */
+const URL_RE = /https?:\/\/[^\s]+/g;
+
 export function cleanPortalText(text) {
-  let t = String(text ?? "").replace(/\s+/g, " ").trim();
-  if (!t || /^(not applicable|n\/a|-|refer to (the )?link below\.?)$/i.test(t)) return null;
+  const raw = String(text ?? "").replace(/\s+/g, " ").trim();
+  if (!raw || /^(not applicable|n\/a|-|refer to (the )?link below\.?)$/i.test(raw)) return null;
+  // Las URL no se tocan: se apartan, se limpia el texto y se vuelven a poner.
+  const urls = [];
+  let t = raw.replace(URL_RE, (u) => `\u0000${urls.push(u) - 1}\u0000`);
   for (const [re, to] of PORTAL_FIXES) t = t.replace(re, to);
   t = t.replace(/\s*\|\|\s*/g, ". ").replace(/\.\s*\./g, ".").replace(/\s+([.,;:])/g, "$1").replace(/\s{2,}/g, " ").trim();
   // «Inglés B2 or Alemán B1» → «o» entre dos requisitos de idioma.
   t = t.replace(/([A-C][12])\s+or\s+(?=[A-ZÁÉÍÓÚ])/g, "$1 o ");
   // Mayúscula al empezar cada frase.
   t = t.replace(/(^|[.!?]\s+)([a-záéíóúñ])/g, (m, p, c) => p + c.toUpperCase());
-  return t;
+  return t.replace(/\u0000(\d+)\u0000/g, (m, i) => urls[Number(i)]);
 }
 
 // Un trozo es de alojamiento si empieza por la etiqueta («Accomodation: …»,
@@ -253,9 +258,20 @@ export function splitPortalCosts(rel) {
 export function linkifyParts(text) {
   const out = [];
   let last = 0;
-  for (const m of String(text ?? "").matchAll(/https?:\/\/[^\s)]+/g)) {
+  for (const m of String(text ?? "").matchAll(URL_RE)) {
     if (m.index > last) out.push({ text: text.slice(last, m.index) });
-    out.push({ url: m[0].replace(/[.,;]+$/, "") });
+    // La puntuación final (y un «)» sin su «(») no es parte del enlace: se
+    // queda como texto.
+    let url = m[0];
+    let tail = "";
+    for (;;) {
+      const strip = /[.,;:!?]$/.test(url) || (url.endsWith(")") && !url.includes("("));
+      if (!strip) break;
+      tail = url.slice(-1) + tail;
+      url = url.slice(0, -1);
+    }
+    out.push({ url });
+    if (tail) out.push({ text: tail });
     last = m.index + m[0].length;
   }
   if (last < String(text ?? "").length) out.push({ text: text.slice(last) });

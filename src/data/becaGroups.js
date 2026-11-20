@@ -59,7 +59,9 @@ export const SEMP_MONTHLY = {
  * 2025), curso 2025/2026, solo para el estudiantado de las Universidades
  * Públicas de Andalucía. Aportación base (todo el alumnado Erasmus+) y
  * especial (becarios de carácter general del Ministerio, refugiados…), en
- * €/mes por grupo de países. Última orden publicada para universidades.
+ * €/mes por grupo de países, hasta 9 meses. Última orden publicada para
+ * universidades. OJO: sus grupos de países NO son los del SEPIE (p. ej.
+ * Alemania, Francia o Italia están en su grupo 2).
  */
 export const REGIONAL_AIDS = [
   {
@@ -71,7 +73,15 @@ export const REGIONAL_AIDS = [
     course: "2025/2026",
     base: { 1: 263, 2: 203, 3: 105 },
     special: { 1: 210, 2: 152, 3: 79 },
+    maxMonths: 9,
+    // Clasificación propia de la orden (apartado Tercero), con los nombres de
+    // país de src/data/cities.js.
+    groups: {
+      1: ["Dinamarca", "Finlandia", "Irlanda", "Islandia", "Liechtenstein", "Luxemburgo", "Noruega", "Suecia", "Reino Unido"],
+      2: ["Alemania", "Austria", "Bélgica", "Chipre", "Eslovaquia", "Eslovenia", "Estonia", "Francia", "Grecia", "Italia", "Letonia", "Malta", "Países Bajos", "Portugal", "República Checa"],
+      3: ["Bulgaria", "Croacia", "Hungría", "Lituania", "Polonia", "Macedonia del Norte", "Rumanía", "Serbia", "Turquía"],
+    },
     source: "Orden de 26 de mayo de 2025 (BOJA núm. 103, 2/6/2025)",
-    url: "https://internacional.uca.es/wp-content/uploads/2025/07/FINANCIACION-JUNTA-ANDALUCIA_BOJA_junio2025_PUBLICAR.pdf",
+    url: "https://www.juntadeandalucia.es/boja/2025/103/51",
   },
 ];

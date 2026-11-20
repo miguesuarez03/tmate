@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IconUniversidad } from "../icons";
 import { useUniversity } from "../../hooks/useUniversity";
 import { getUniversityEntry } from "../../data/universities/registry";
@@ -26,6 +26,26 @@ import styles from "./University.module.css";
  *   onExpandedChange?: (expanded: boolean) => void,
  * }} props
  */
+/** Invitación desplegada: botón «Cerrar» visible y cierre con un clic fuera. */
+function ExpandedInvite({ className, onClose, children }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    const onDown = (e) => {
+      if (!ref.current?.contains(e.target)) onClose();
+    };
+    document.addEventListener("pointerdown", onDown);
+    return () => document.removeEventListener("pointerdown", onDown);
+  }, [onClose]);
+  return (
+    <div className={className} ref={ref}>
+      <button type="button" className={styles.inviteCloseExpanded} onClick={onClose} aria-label="Cerrar el buscador de universidad">
+        <span aria-hidden="true">✕</span>
+      </button>
+      {children}
+    </div>
+  );
+}
+
 export default function UniversityInvite({ variant = "light", cityAgreements = null, className = "", onExpandedChange = null }) {
   const uni = useUniversity();
   const [expanded, setExpandedState] = useState(false);
@@ -52,9 +72,9 @@ export default function UniversityInvite({ variant = "light", cityAgreements = n
   // elegir; así no desaparece a mitad).
   if (expanded) {
     return (
-      <div className={`${cls} ${styles.inviteExpanded}`}>
+      <ExpandedInvite className={`${cls} ${styles.inviteExpanded}`} onClose={collapse}>
         <UniversityPicker autoFocus uniId={topEntry?.id ?? null} onDone={collapse} />
-      </div>
+      </ExpandedInvite>
     );
   }
   if (uni.uniId || uni.inviteDismissed) return null;
