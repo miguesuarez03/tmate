@@ -186,7 +186,7 @@ export function getPendingCardInfo(group) {
 // con dos puntos y la opinión entre comillas).
 // Con «Sobre alojamiento, …» delante, el tema se queda en la opinión.
 const STUDENT_INTRO =
-  /(?:\bsobre\s+(?<topic>[^.,:;¨"“”\n]{1,30}?),?\s+)?(?:\b(?:un|una|el|la|los|las)\s+)?\b(?:alumn[oa]s?|estudiantes?)\b(?:[^.,:;¨"“”\n]{0,80}?(?<!\bse\s)\b(?:dice|dicen|comenta|comentan|recomienda|recomiendan|opina|opinan|cuenta|cuentan|afirma|afirman|menciona|mencionan)\b\s*[:.]?|[^.,:;¨"“”\n]{0,80}?:(?=\s*[¨"“«]))\s*/giu;
+  /(?:\b(?:(?:y|también)\s+)?sobres?\s+(?<topic>[^.,:;¨"“”\n]{1,60}?)[,:]?\s+)?(?:\b(?:un|una|el|la|los|las|múltiples|varios|varias|algunos|algunas)\s+)?\b(?:alumn[oa]s?|estudiantes?)\b(?:[^.,:;¨"“”\n]{0,80}?(?<!\bse\s)\b(?:dice|dicen|comenta|comentan|recomienda|recomiendan|opina|opinan|cuenta|cuentan|afirma|afirman|menciona|mencionan)\b\s*[:.]?|[^.,:;¨"“”\n]{0,80}?:(?=\s*[¨"“«]))\s*/giu;
 const OPEN_QUOTES = new Set(["¨", '"', "“", "«"]);
 // El portal mezcla comillas (abre con ¨ y cierra con "): vale cualquiera.
 const CLOSE_QUOTES = ["¨", '"', "”", "»"];
@@ -241,6 +241,8 @@ export function splitNotes(text) {
       // vengan justo detrás («"…" y también "…"») también son de alumnos.
       let q = start;
       for (;;) {
+        // «¨"…"¨»: varias comillas de apertura seguidas cuentan como una.
+        while (OPEN_QUOTES.has(src[q + 1])) q += 1;
         const close = closingQuote(src, q + 1);
         pushStudent(src.slice(q + 1, close < 0 ? src.length : close));
         pos = close < 0 ? src.length : close + 1;

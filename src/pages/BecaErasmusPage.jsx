@@ -1,4 +1,4 @@
-import { useState, useId, useMemo, useEffect } from "react";
+import { useState, useId, useMemo, useEffect, useRef } from "react";
 import Flag from "../components/Flag";
 import SearchableInput from "../components/SearchableInput";
 import { Link } from "react-router-dom";
@@ -137,6 +137,7 @@ function Calculator() {
   const [calcStatus, setCalcStatus] = useState("idle");
   const [calcError, setCalcError] = useState("");
   const [calcKm, setCalcKm] = useState(null);
+  const calcRequest = useRef(0); // invalida respuestas de geocodificación obsoletas
 
   // Modo «Mi universidad»: el origen es la ciudad del campus elegido (se
   // guarda; sin elegir, no se marca ninguno) y el destino, entre tus convenios
@@ -156,6 +157,7 @@ function Calculator() {
   // tuyo, se quita (y el resultado de la distancia con él).
   useEffect(() => {
     if (destinationSlug && !uni.isIncluded(destinationSlug)) {
+      calcRequest.current += 1;
       setDestinationSlug("");
       setCalcStatus("idle");
       setCalcKm(null);
@@ -173,6 +175,7 @@ function Calculator() {
   const suggestedRange = sepieCountry && COUNTRY_DISTANCE[sepieCountry] ? COUNTRY_DISTANCE[sepieCountry] : distanceRange;
 
   const handleDestinationChange = (slug) => {
+    calcRequest.current += 1;
     setDestinationSlug(slug);
     setCalcStatus("idle");
     setCalcKm(null);
@@ -185,18 +188,23 @@ function Calculator() {
 
   const handleCalcDistance = async () => {
     if (!originCity.trim() || !destinationSlug) return;
+    // Si mientras se geocodifica cambia el origen, el destino o tu
+    // universidad, esta respuesta ya no vale y se descarta.
+    const request = ++calcRequest.current;
     setCalcStatus("loading");
     setCalcError("");
     try {
       const destCoords = CITY_COORDS[destinationSlug];
       if (!destCoords) throw new Error("No tenemos coordenadas de esa ciudad de destino todavía.");
       const { coords: originCoords } = await geocodeCity(originCity);
+      if (request !== calcRequest.current) return;
       const km = haversineDistanceKm(originCoords, destCoords);
       const range = distanceToRange(km);
       setCalcKm(Math.round(km));
       setDistanceRange(range);
       setCalcStatus("done");
     } catch (err) {
+      if (request !== calcRequest.current) return;
       setCalcError(err.message || "Algo ha fallado calculando la distancia. Inténtalo de nuevo.");
       setCalcStatus("error");
     }
@@ -281,6 +289,7 @@ function Calculator() {
               aria-pressed={uni.campusId === c.id}
               onClick={() => {
                 uni.setCampus(c.id);
+                calcRequest.current += 1;
                 setOriginCity(c.origin);
                 setCalcStatus("idle");
               }}
@@ -303,8 +312,8 @@ function Calculator() {
               <div className="beca-distance-calc__row">
                 <SearchableInput
                   value={originCity}
-                  onChange={(v) => { setOriginCity(v); setCalcStatus("idle"); }}
-                  onSelect={(opt) => { setOriginCity(opt.label); setCalcStatus("idle"); }}
+                  onChange={(v) => { calcRequest.current += 1; setOriginCity(v); setCalcStatus("idle"); }}
+                  onSelect={(opt) => { calcRequest.current += 1; setOriginCity(opt.label); setCalcStatus("idle"); }}
                   options={ORIGIN_CITIES}
                   placeholder="Ciudad de origen (ej. Sevilla)"
                 />

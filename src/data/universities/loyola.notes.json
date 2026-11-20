@@ -1,16 +1,99 @@
 {
-  "_comment": "Observaciones del portal que splitNotes() no puede separar solo (párrafos de alumnos en primera persona sin «alumno dice:»). Partes copiadas tal cual del campo notes de loyola.json; kind: university = lo dice la universidad, student = antiguo alumno. Ver getRelationNotes() en src/lib/universities.js.",
   "203": [
-    { "kind": "university", "text": "Algunas asignaturas en alemán" },
-    { "kind": "student", "text": "La lista de asignaturas impartidas en inglés en Wurzburg es limitada, y no coincide con las que aún nos queda por cursar estando en cuarto curso del doble grado.\nEn el caso de ser alumno de tercero, las opciones son más amplias, y sí sería recomendable, sobre todo en el caso de alumnos del doble grado que podrían cursar alguna de las de segundo que entran en el itinerario de tercero.\nLa convalidación es relativamente similar ya que en general son de 6 ECTS." },
-    { "kind": "student", "text": "Alemania es muy distinto a España, debes ir con la mente MUY abierta" },
-    { "kind": "student", "text": "Aunque haya ido a Alemania he podido conocer culturas diferentes ya sea viajando o a través de otros estudiantes internacionales como: China, Corea del sur, Japon, Filipinas, Taiwan, Pakistan, Afganistan, Turquia, Egipto, Uzbekistan, India, etc). Mejora de nivel de idioma" }
+    {
+      "kind": "university",
+      "text": "Algunas asignaturas en alemán"
+    },
+    {
+      "kind": "student",
+      "text": "La lista de asignaturas impartidas en inglés en Wurzburg es limitada, y no coincide con las que aún nos queda por cursar estando en cuarto curso del doble grado.\nEn el caso de ser alumno de tercero, las opciones son más amplias, y sí sería recomendable, sobre todo en el caso de alumnos del doble grado que podrían cursar alguna de las de segundo que entran en el itinerario de tercero.\nLa convalidación es relativamente similar ya que en general son de 6 ECTS."
+    },
+    {
+      "kind": "student",
+      "text": "Alemania es muy distinto a España, debes ir con la mente MUY abierta"
+    },
+    {
+      "kind": "student",
+      "text": "Aunque haya ido a Alemania he podido conocer culturas diferentes ya sea viajando o a través de otros estudiantes internacionales como: China, Corea del sur, Japon, Filipinas, Taiwan, Pakistan, Afganistan, Turquia, Egipto, Uzbekistan, India, etc). Mejora de nivel de idioma"
+    }
   ],
   "208": [
-    { "kind": "university", "text": "Algunas asignaturas en alemán" },
-    { "kind": "student", "text": "Las mejores redidencias son Am Hubland, Friedenstraße 2 , Landsteinerstraße, Peter-Schneider-Straße... individual y si quieres compartir Am Galgenberg no está mal." },
-    { "kind": "student", "text": "La lista de asignaturas impartidas en inglés en Wurzburg es limitada, y no coincide con las que aún nos queda por cursar estando en cuarto curso del doble grado.\nEn el caso de ser alumno de tercero, las opciones son más amplias, y sí sería recomendable, sobre todo en el caso de alumnos del doble grado que podrían cursar alguna de las de segundo que entran en el itinerario de tercero.\nLa convalidación es relativamente similar ya que en general son de 6 ECTS." },
-    { "kind": "student", "text": "Alemania es muy distinto a España, debes ir con la mente MUY abierta" },
-    { "kind": "student", "text": "Aunque haya ido a Alemania he podido conocer culturas diferentes ya sea viajando o a través de otros estudiantes internacionales como: China, Corea del sur, Japon, Filipinas, Taiwan, Pakistan, Afganistan, Turquia, Egipto, Uzbekistan, India, etc). Mejora de nivel de idioma" }
-  ]
+    {
+      "kind": "university",
+      "text": "Algunas asignaturas en alemán"
+    },
+    {
+      "kind": "student",
+      "text": "Las mejores redidencias son Am Hubland, Friedenstraße 2 , Landsteinerstraße, Peter-Schneider-Straße... individual y si quieres compartir Am Galgenberg no está mal."
+    },
+    {
+      "kind": "student",
+      "text": "La lista de asignaturas impartidas en inglés en Wurzburg es limitada, y no coincide con las que aún nos queda por cursar estando en cuarto curso del doble grado.\nEn el caso de ser alumno de tercero, las opciones son más amplias, y sí sería recomendable, sobre todo en el caso de alumnos del doble grado que podrían cursar alguna de las de segundo que entran en el itinerario de tercero.\nLa convalidación es relativamente similar ya que en general son de 6 ECTS."
+    },
+    {
+      "kind": "student",
+      "text": "Alemania es muy distinto a España, debes ir con la mente MUY abierta"
+    },
+    {
+      "kind": "student",
+      "text": "Aunque haya ido a Alemania he podido conocer culturas diferentes ya sea viajando o a través de otros estudiantes internacionales como: China, Corea del sur, Japon, Filipinas, Taiwan, Pakistan, Afganistan, Turquia, Egipto, Uzbekistan, India, etc). Mejora de nivel de idioma"
+    }
+  ],
+  "587": [
+    {
+      "kind": "university",
+      "text": "No se recomienda para grados dobles."
+    },
+    {
+      "kind": "student",
+      "text": "En mi destino la oferta de cursos en inglés de grados era bastante reducida, así que casi la totalidad de mis cursos eran de nivel master (yo allí era master student). El sistema de enseñanza en NHH tiende a ser mucho más práctico, y en profundidad y comprensión de las materias."
+    },
+    {
+      "kind": "student",
+      "text": "Sobre los alojamientos: En Bergen todas las residencias está controladas por una empresa llamada sammen que se encarga de gestionar todo el proceso. La NHH te manda toda la información para que puedas aplicar en su portal online y prácticamente tu alojamiento está garantizado."
+    },
+    {
+      "kind": "student",
+      "text": "Recoge las llaves del gimnasio (u otro punto de recogida) antes de ir al alojamiento; o intenta contactar a alguien que te pueda abrir las puertas de entrada. En la cocina hay utensilios necesarios."
+    },
+    {
+      "kind": "student",
+      "text": "En general: Noruega es un lugar muy caro, eso lo debes tener en cuenta."
+    },
+    {
+      "kind": "student",
+      "text": "Desventajas: Noruega es un lugar muy caro, eso lo debes tener en cuenta."
+    },
+    {
+      "kind": "student",
+      "text": "Hace mal tiempo"
+    }
+  ],
+  "593": [
+    {
+      "kind": "university",
+      "text": "Este destino se recomienda para alumnos de 4º curso de economía por reconocimientos.\nNo se recomienda para grados dobles."
+    },
+    {
+      "kind": "student",
+      "text": "En mi destino la oferta de cursos en inglés de grados era bastante reducida, así que casi la totalidad de mis cursos eran de nivel master (yo allí era master student). El sistema de enseñanza en NHH tiende a ser mucho más práctico, y en profundidad y comprensión de las materias."
+    },
+    {
+      "kind": "student",
+      "text": "Sobre los alojamientos: En Bergen todas las residencias está controladas por una empresa llamada sammen que se encarga de gestionar todo el proceso. La NHH te manda toda la información para que puedas aplicar en su portal online y prácticamente tu alojamiento está garantizado."
+    },
+    {
+      "kind": "student",
+      "text": "Recoge las llaves del gimnasio (u otro punto de recogida) antes de ir al alojamiento; o intenta contactar a alguien que te pueda abrir las puertas de entrada. En la cocina hay utensilios necesarios."
+    },
+    {
+      "kind": "student",
+      "text": "Desventajas: Noruega es un lugar muy caro, eso lo debes tener en cuenta."
+    },
+    {
+      "kind": "student",
+      "text": "Hace mal tiempo"
+    }
+  ],
+  "_comment": "Observaciones del portal que splitNotes() no puede separar solo (párrafos de alumnos en primera persona sin «alumno dice:»). Partes copiadas tal cual del campo notes de loyola.json; kind: university = lo dice la universidad, student = antiguo alumno. Ver getRelationNotes() en src/lib/universities.js."
 }

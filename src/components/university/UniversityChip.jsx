@@ -92,9 +92,9 @@ export default function UniversityChip({ isDark = false }) {
               setOpen(false);
               uni.clear();
               // El chip desaparece: el foco pasa a la invitación de la página (si
-              // la hay) o al botón del menú de la cabecera.
+              // la hay) o al primer control de la cabecera (el logo, siempre visible).
               requestAnimationFrame(() =>
-                (document.querySelector("[data-uni-invite-el] button") ?? document.querySelector(".navbar__hamburger"))?.focus()
+                (document.querySelector("[data-uni-invite-el] button") ?? document.querySelector(".navbar a[href], .navbar button"))?.focus()
               );
             }}
           >

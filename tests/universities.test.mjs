@@ -194,3 +194,19 @@ test("las observaciones separadas a mano son de convenios que existen y copian s
     }
   }
 });
+
+test("splitNotes: temas largos, «Sobres», «También sobre…» y comillas dobles (casos reales)", async () => {
+  const { getRelationNotes } = await import("../src/lib/universities.js");
+  const data = readJson("loyola.json");
+  const overrides = readJson("loyola.notes.json");
+  const notes = (id) => getRelationNotes(data.relations.find((r) => r.relationId === id), overrides);
+  const noLooseTopic = (id) => {
+    for (const p of notes(id)) {
+      assert.ok(!(p.kind === "university" && /(^|\s)(también\s+|y\s+)?sobres?\s/i.test(p.text)), `${id}: tema suelto como texto de la universidad: «${p.text.slice(0, 60)}»`);
+      assert.ok(!(p.kind === "student" && /^Sobre[^:]*$/.test(p.text)), `${id}: tema suelto como opinión: «${p.text}»`);
+    }
+  };
+  for (const id of ["1171", "1620", "1190", "1069", "1415", "2036", "2044", "2048", "813", "1310", "794", "798", "587", "593"]) noLooseTopic(id);
+  assert.ok(notes("1171").some((p) => p.kind === "student" && p.text.startsWith("Sobre alojamiento: te lo da la universidad")));
+  assert.ok(notes("2036").some((p) => p.text === "Sobre actividades complementarias en la Universidad: cursos de idiomas gratuitos, a excepción del polaco"));
+});
