@@ -68,36 +68,34 @@ export function getDegreeShortName(name, id = null) {
 
 const fold = (s) => String(s ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
 
+/** ¿Cada palabra de `query` está en alguno de los textos? (sin tildes ni mayúsculas) */
+function matchesWords(query, ...texts) {
+  const words = fold(query).split(/\s+/).filter(Boolean);
+  if (!words.length) return true;
+  const hay = fold(texts.join(" "));
+  return words.every((w) => hay.includes(w));
+}
+
 /**
- * Opciones del buscador «Tu uni y grado»: cada universidad («todos los
- * grados») y cada uno de sus grados, filtradas por lo escrito (nombre, sigla
- * o id: «loyola», «ADE», «ingenieria»…). Sin texto, todas, universidades
- * primero. Con `uniId`, solo las de esa universidad.
- * @returns {{ key: string, uniId: string, degreeId: string | null, label: string, sub: string }[]}
+ * Paso 1 del buscador «Tu uni y grado»: universidades que coinciden con lo
+ * escrito (nombre, nombre corto o id). Sin texto, todas, por nombre.
+ * @returns {import("../data/universities/registry.js").UniversityEntry[]}
  */
-export function searchUniversityOptions(query, { uniId = null, registry = UNIVERSITY_REGISTRY } = {}) {
-  const q = fold(query);
-  const words = q.split(/\s+/).filter(Boolean);
-  const matches = (...texts) => {
-    const hay = fold(texts.join(" "));
-    return words.every((w) => hay.includes(w));
-  };
-  const unis = registry.filter((u) => !uniId || u.id === uniId);
-  const out = [];
-  for (const u of unis) {
-    if (!words.length || matches(u.name, u.shortName, u.id)) {
-      out.push({ key: u.id, uniId: u.id, degreeId: null, label: u.name, sub: "Todos los grados" });
-    }
-  }
-  for (const u of unis) {
-    for (const d of u.degrees ?? []) {
-      const short = getDegreeShortName(d.name, d.id);
-      if (!words.length || matches(d.name, d.id, short, u.name, u.shortName)) {
-        out.push({ key: `${u.id}:${d.id}`, uniId: u.id, degreeId: d.id, label: d.name, sub: u.name });
-      }
-    }
-  }
-  return out;
+export function searchUniversities(query, registry = UNIVERSITY_REGISTRY) {
+  return registry
+    .filter((u) => matchesWords(query, u.name, u.shortName, u.id))
+    .sort((a, b) => a.name.localeCompare(b.name, "es"));
+}
+
+/**
+ * Paso 2: grados de una universidad que coinciden con lo escrito (nombre,
+ * sigla o id: «ADE», «ingenieria»…), en el orden de la universidad.
+ * @returns {{ id: string, name: string, short: string }[]}
+ */
+export function searchDegrees(entry, query) {
+  return (entry?.degrees ?? [])
+    .map((d) => ({ id: d.id, name: d.name, short: getDegreeShortName(d.name, d.id) }))
+    .filter((d) => matchesWords(query, d.name, d.id, d.short));
 }
 
 const groupKey = (rel) => `${rel.countryCode}|${rel.city}`;

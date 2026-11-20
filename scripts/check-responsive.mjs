@@ -6,8 +6,10 @@
 //   · scroll horizontal y elementos que se salen de la pantalla;
 //   · elementos que se solapan en la cabecera (logo, enlaces, chip, botones)
 //     y en el buscador de la home (campo, «Tu uni y grado», «Explorar»);
-//   · desplegables cortados o tapados («Tu uni y grado», menú del chip, la
-//     invitación desplegada).
+//   · desplegables cortados o tapados («Tu uni y grado» y su hoja de móvil,
+//     sugerencias del buscador, menú del chip, la
+//     invitación desplegada), con elementFromPoint en su centro y esquinas;
+//   · en móvil, campos de texto con letra de menos de 16 px (iOS hace zoom).
 // En home, una ficha con convenios, comparador, City Match, beca, proceso y
 // Learning Agreement; a 360, 390, 768, 1024, 1280, 1536 y 1920 px; sin
 // universidad y con una elegida. Solo imprime los fallos (y una línea final).
@@ -134,8 +136,25 @@ function layoutChecks() {
   return problems;
 }
 
+// En móvil, ningún campo de texto con la letra por debajo de 16 px (iOS amplía
+// la página al enfocarlo).
+function smallInputs() {
+  const out = [];
+  for (const el of document.querySelectorAll("input, select, textarea")) {
+    if (["checkbox", "radio", "range", "button", "submit", "hidden"].includes(el.type)) continue;
+    const s = getComputedStyle(el);
+    if (s.display === "none" || s.visibility === "hidden" || el.closest("[inert]")) continue;
+    const size = parseFloat(s.fontSize);
+    if (size < 16) {
+      const name = el.getAttribute("aria-label") || el.getAttribute("placeholder") || el.name || el.className;
+      out.push(`campo con letra de ${size}px (mínimo 16 en móvil): ${el.tagName.toLowerCase()} «${String(name).slice(0, 40)}»`);
+    }
+  }
+  return out;
+}
+
 // Un desplegable abierto: dentro de la pantalla y por encima de todo.
-function dropdownCheck({ selector, label }) {
+function dropdownCheck({ selector, label, ignoreHeader = false }) {
   const el = document.querySelector(selector);
   if (!el) return [`${label}: no se ha abierto`];
   const r = el.getBoundingClientRect();
@@ -148,13 +167,17 @@ function dropdownCheck({ selector, label }) {
   // Debajo de la cabecera fija (si no es parte de ella).
   const header = document.querySelector(".navbar");
   const hb = header && !header.contains(el) ? header.getBoundingClientRect().bottom : 0;
-  if (hb && r.top < hb - 1) problems.push(`${label} queda debajo de la cabecera (empieza en ${Math.round(r.top)}px, la cabecera acaba en ${Math.round(hb)}px)`);
+  if (!ignoreHeader && hb && r.top < hb - 1) problems.push(`${label} queda debajo de la cabecera (empieza en ${Math.round(r.top)}px, la cabecera acaba en ${Math.round(hb)}px)`);
   // Lo que se ve en varios puntos del desplegable tiene que ser el desplegable.
+  // Centro y las cuatro esquinas (6 px hacia dentro).
+  const bottom = Math.min(r.bottom, vh);
+  const right = Math.min(r.right, vw);
   const points = [
-    [r.left + r.width / 2, r.top + 12],
-    [r.left + r.width / 2, Math.min(r.bottom, vh) - 12],
-    [r.left + 12, r.top + r.height / 2],
-    [Math.min(r.right, vw) - 12, r.top + r.height / 2],
+    [r.left + r.width / 2, r.top + (bottom - r.top) / 2],
+    [r.left + 6, r.top + 6],
+    [right - 6, r.top + 6],
+    [r.left + 6, bottom - 6],
+    [right - 6, bottom - 6],
   ];
   for (const [x, y] of points) {
     if (x < 0 || y < 0 || x > vw || y > vh) continue;
@@ -209,24 +232,44 @@ async function main() {
           if (state.saved) await page.waitForSelector(".uni-chip__btn", { timeout: 5000 }).catch(() => found.push("no aparece el chip de la universidad"));
           await page.waitForTimeout(400);
           found.push(...(await page.evaluate(layoutChecks)));
+          if (width < 768) found.push(...(await page.evaluate(smallInputs)));
           checks++;
 
           // Desplegables.
           if (p.path === "/") {
-            await page.click(".search-bar__uni-btn");
-            await page.waitForTimeout(300);
-            found.push(...(await page.evaluate(dropdownCheck, { selector: ".search-bar__uni-panel", label: "el desplegable «Tu uni y grado»" })));
-            found.push(...(await page.evaluate(layoutChecks)).filter((x) => x.startsWith("scroll horizontal")));
-            // Con el panel abierto, la pantalla se hace más baja (teclado del
-            // móvil, ventana redimensionada): tiene que seguir entero a la vista.
-            await page.setViewportSize({ width, height: Math.round(height * 0.6) });
+            // Sugerencias del buscador de destinos: por encima de todo.
+            await page.click(".search-bar__input");
+            await page.keyboard.type("r");
             await page.waitForTimeout(250);
-            found.push(...(await page.evaluate(dropdownCheck, { selector: ".search-bar__uni-panel", label: "el desplegable «Tu uni y grado» con la pantalla más baja" })));
-            await page.setViewportSize({ width, height });
+            found.push(...(await page.evaluate(dropdownCheck, { selector: ".search-bar__dropdown", label: "las sugerencias del buscador" })));
             await page.keyboard.press("Escape");
-            await page.waitForTimeout(150);
-            if (await page.$(".search-bar__uni-panel")) found.push("Escape no cierra el desplegable «Tu uni y grado»");
-            checks += 2;
+            await page.waitForTimeout(200);
+            checks++;
+
+            await page.click(".search-bar__uni-btn");
+            await page.waitForTimeout(350);
+            if (width < 768) {
+              // Móvil: hoja a pantalla completa, sin mover la página.
+              found.push(...(await page.evaluate(dropdownCheck, { selector: "[aria-labelledby='uni-sheet-title']", label: "la hoja «Tu universidad y tu grado»", ignoreHeader: true })));
+              found.push(...(await page.evaluate(smallInputs)));
+              await page.keyboard.press("Escape");
+              await page.waitForTimeout(150);
+              if (await page.$("[aria-labelledby='uni-sheet-title']")) found.push("Escape no cierra la hoja «Tu universidad y tu grado»");
+              checks++;
+            } else {
+              found.push(...(await page.evaluate(dropdownCheck, { selector: ".search-bar__uni-panel", label: "el desplegable «Tu uni y grado»" })));
+              found.push(...(await page.evaluate(layoutChecks)).filter((x) => x.startsWith("scroll horizontal")));
+              // Con el panel abierto, la pantalla se hace más baja (ventana
+              // redimensionada): tiene que seguir entero a la vista.
+              await page.setViewportSize({ width, height: Math.round(height * 0.6) });
+              await page.waitForTimeout(250);
+              found.push(...(await page.evaluate(dropdownCheck, { selector: ".search-bar__uni-panel", label: "el desplegable «Tu uni y grado» con la pantalla más baja" })));
+              await page.setViewportSize({ width, height });
+              await page.keyboard.press("Escape");
+              await page.waitForTimeout(150);
+              if (await page.$(".search-bar__uni-panel")) found.push("Escape no cierra el desplegable «Tu uni y grado»");
+              checks += 2;
+            }
           }
           if (state.saved) {
             await page.click(".uni-chip__btn");
@@ -241,9 +284,15 @@ async function main() {
             if (invite && (await invite.isVisible())) {
               await invite.scrollIntoViewIfNeeded();
               await invite.click();
-              await page.waitForTimeout(250);
-              found.push(...(await page.evaluate(dropdownCheck, { selector: "[class*='inviteExpanded']", label: "la invitación desplegada" })));
-              found.push(...(await page.evaluate(layoutChecks)).filter((x) => x.startsWith("scroll horizontal")));
+              await page.waitForTimeout(350);
+              if (width < 768) {
+                // Móvil: la invitación abre la hoja a pantalla completa.
+                found.push(...(await page.evaluate(dropdownCheck, { selector: "[aria-labelledby='uni-sheet-title']", label: "la hoja de la invitación", ignoreHeader: true })));
+                await page.keyboard.press("Escape");
+              } else {
+                found.push(...(await page.evaluate(dropdownCheck, { selector: "[class*='inviteExpanded']", label: "la invitación desplegada" })));
+                found.push(...(await page.evaluate(layoutChecks)).filter((x) => x.startsWith("scroll horizontal")));
+              }
               checks++;
             }
           }

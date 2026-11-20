@@ -210,18 +210,24 @@ test("splitNotes: temas largos, «Sobres», «También sobre…» y comillas dob
   assert.ok(notes("2036").some((p) => p.text === "Sobre actividades complementarias en la Universidad: cursos de idiomas gratuitos, a excepción del polaco"));
 });
 
-test("buscador «Tu uni y grado»: encuentra universidades y grados por nombre o sigla", async () => {
-  const { searchUniversityOptions, getDegreeShortName } = await import("../src/lib/universities.js");
+test("buscador «Tu uni y grado» en dos pasos: universidad y luego grado (nombre o sigla)", async () => {
+  const { searchUniversities, searchDegrees, getDegreeShortName } = await import("../src/lib/universities.js");
   const reg = [{ id: "uni-a", name: "Universidad A del Sur", shortName: "Uni A", degrees: [
     { id: "ade", name: "Administración y Dirección de Empresas (ADE)" },
     { id: "giti", name: "Ingeniería en Tecnologías Industriales" },
     { id: "datos", name: "Datos y Analítica de Negocio" },
   ] }];
-  assert.deepEqual(searchUniversityOptions("ade", { registry: reg }).map((o) => o.degreeId), ["ade"]);
-  assert.deepEqual(searchUniversityOptions("GITI", { registry: reg }).map((o) => o.degreeId), ["giti"]);
-  assert.deepEqual(searchUniversityOptions("ingenieria", { registry: reg }).map((o) => o.degreeId), ["giti"]);
-  assert.equal(searchUniversityOptions("sur", { registry: reg })[0].degreeId, null); // la universidad, «todos los grados»
-  assert.equal(searchUniversityOptions("", { registry: reg }).length, 4);
+  // Paso 1: universidades.
+  const reg2 = [...reg, { id: "uni-b", name: "Universidad B del Norte", shortName: "Uni B", degrees: [] }];
+  assert.deepEqual(searchUniversities("sur", reg2).map((u) => u.id), ["uni-a"]);
+  assert.deepEqual(searchUniversities("uni b", reg2).map((u) => u.id), ["uni-b"]);
+  assert.equal(searchUniversities("", reg2).length, 2);
+  // Paso 2: grados de la elegida.
+  assert.deepEqual(searchDegrees(reg[0], "ade").map((d) => d.id), ["ade"]);
+  assert.deepEqual(searchDegrees(reg[0], "GITI").map((d) => d.id), ["giti"]);
+  assert.deepEqual(searchDegrees(reg[0], "ingenieria").map((d) => d.id), ["giti"]);
+  assert.equal(searchDegrees(reg[0], "").length, 3);
+  assert.deepEqual(searchDegrees(reg2[1], "ade"), []);
   assert.equal(getDegreeShortName("Ingeniería en Tecnologías Industriales", "giti"), "GITI");
   assert.equal(getDegreeShortName("Datos y Analítica de Negocio", "datos"), "Datos y Analítica de Negocio");
 });

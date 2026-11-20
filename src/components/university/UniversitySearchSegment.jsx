@@ -3,87 +3,68 @@ import { createPortal } from "react-dom";
 import { useLocation } from "react-router-dom";
 import { IconUniversidad } from "../icons";
 import { useUniversity } from "../../hooks/useUniversity";
+import { useFloatingBelow } from "../../hooks/useFloatingBelow";
 import { getDegreeShortName } from "../../lib/universities";
 import UniversityPicker from "./UniversityPicker";
+import UniversitySheet, { isMobileViewport } from "./UniversitySheet";
 
 /**
  * Segmento «Tu uni y grado» dentro del buscador de destinos de la home
  * (SearchBar). Sin nada elegido es un botón; con universidad elegida, un chip
- * «Loyola · GITI» con ✕ para quitarla. Abre UniversityPicker en un
- * desplegable bajo la barra. El enlace del menú (/#mi-universidad) lo abre.
- * Estilos en global.css («search-bar__uni»), junto a los del buscador.
+ * «Loyola · GITI» con ✕ para quitarla. El enlace del menú (/#mi-universidad)
+ * lo abre. Estilos en global.css («search-bar__uni»).
+ *  · Escritorio: UniversityPicker en un desplegable bajo la barra, en un
+ *    portal (el hero lo recortaría) y con posición fija (useFloatingBelow).
+ *  · Móvil (<768 px): hoja a pantalla completa desde abajo (UniversitySheet);
+ *    la página no salta ni se mueve.
  * El primer render es siempre el botón (igual que el HTML prerenderizado).
  */
 export default function UniversitySearchSegment() {
   const uni = useUniversity();
   const { hash, key: locationKey } = useLocation();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(null); // null | "panel" | "sheet"
   const rootRef = useRef(null);
   const buttonRef = useRef(null);
+  const panelRef = useRef(null);
+  const anchorRef = useRef(null);
+  useEffect(() => {
+    anchorRef.current = rootRef.current?.closest(".search-bar") ?? rootRef.current;
+  }, []);
+
+  const openIt = () => {
+    if (isMobileViewport()) {
+      setOpen("sheet");
+      return;
+    }
+    // Escritorio: si debajo del buscador no caben ~320 px, la página sube
+    // (bajo la cabecera fija) para que el desplegable se vea entero.
+    const r = anchorRef.current?.getBoundingClientRect();
+    if (r && window.innerHeight - r.bottom < 320) window.scrollBy({ top: r.top - 76, behavior: "instant" });
+    setOpen("panel");
+  };
 
   // Enlace del menú lateral: abre el buscador en cada clic.
   useEffect(() => {
     if (hash !== "#mi-universidad") return;
-    setOpen(true);
-    requestAnimationFrame(() => rootRef.current?.scrollIntoView({ behavior: "smooth", block: "center" }));
+    if (!isMobileViewport()) rootRef.current?.scrollIntoView({ behavior: "instant", block: "center" });
+    openIt();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hash, locationKey]);
 
   useEffect(() => {
-    if (!open) return undefined;
+    if (open !== "panel") return undefined;
     const onDown = (e) => {
-      if (!rootRef.current?.contains(e.target) && !panelRef.current?.contains(e.target)) setOpen(false);
+      if (!rootRef.current?.contains(e.target) && !panelRef.current?.contains(e.target)) setOpen(null);
     };
     document.addEventListener("pointerdown", onDown);
     return () => document.removeEventListener("pointerdown", onDown);
   }, [open]);
 
-  // El desplegable va en un portal (fuera del hero, que recorta lo que se sale
-  // y queda tapado por la sección siguiente), con posición fija bajo el
-  // buscador y la altura que quepa en la pantalla.
-  const panelRef = useRef(null);
-  const [pos, setPos] = useState(null);
-  useEffect(() => {
-    if (!open) return undefined;
-    // Lo que se ve de verdad: con el teclado del móvil abierto o con zoom, el
-    // visualViewport es más pequeño que la ventana.
-    const visible = () => {
-      const vv = window.visualViewport;
-      return { top: vv?.offsetTop ?? 0, height: vv?.height ?? window.innerHeight };
-    };
-    const HEADER = 64 + 8; // cabecera fija + aire: el panel nunca la invade
-    const place = () => {
-      const bar = rootRef.current?.closest(".search-bar") ?? rootRef.current;
-      if (!bar) return;
-      const r = bar.getBoundingClientRect();
-      const view = visible();
-      const minTop = view.top + HEADER;
-      const maxBottom = view.top + view.height - 12;
-      const top = Math.min(Math.max(r.bottom + 8, minTop), maxBottom - 160);
-      setPos({ top, left: r.left, width: r.width, maxHeight: Math.max(160, maxBottom - top) });
-    };
-    // Si debajo del buscador no caben ~320 px, se sube la página (bajo la
-    // cabecera fija) para que el desplegable se vea entero.
-    const bar = rootRef.current?.closest(".search-bar") ?? rootRef.current;
-    const r = bar?.getBoundingClientRect();
-    const view = visible();
-    if (r && view.top + view.height - r.bottom < 320) window.scrollBy({ top: r.top - HEADER - 4, behavior: "instant" });
-    place();
-    const vv = window.visualViewport;
-    window.addEventListener("scroll", place, { passive: true });
-    window.addEventListener("resize", place);
-    vv?.addEventListener("resize", place);
-    vv?.addEventListener("scroll", place);
-    return () => {
-      window.removeEventListener("scroll", place);
-      window.removeEventListener("resize", place);
-      vv?.removeEventListener("resize", place);
-      vv?.removeEventListener("scroll", place);
-    };
-  }, [open]);
+  const pos = useFloatingBelow(anchorRef, open === "panel");
 
   const close = () => {
-    setOpen(false);
-    requestAnimationFrame(() => buttonRef.current?.focus());
+    setOpen(null);
+    requestAnimationFrame(() => buttonRef.current?.focus({ preventScroll: true }));
   };
 
   const chosen = Boolean(uni.uniId);
@@ -97,10 +78,10 @@ export default function UniversitySearchSegment() {
           type="button"
           ref={buttonRef}
           className="search-bar__uni-btn"
-          aria-expanded={open}
-          aria-haspopup="listbox"
+          aria-expanded={Boolean(open)}
+          aria-haspopup="dialog"
           title={chosen ? `${uni.entry.name}${uni.degreeName ? ` · ${uni.degreeName}` : ""}` : "Elige tu universidad y tu grado y ve solo tus destinos"}
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => (open ? setOpen(null) : openIt())}
         >
           <IconUniversidad size={17} />
           <span className="search-bar__uni-label">{label}</span>
@@ -111,17 +92,18 @@ export default function UniversitySearchSegment() {
           </button>
         )}
       </div>
-      {open && pos && createPortal(
+      {open === "panel" && pos && createPortal(
         <div
           ref={panelRef}
           className="search-bar__uni-panel"
-          style={{ top: pos.top, left: pos.left, width: pos.width, maxHeight: pos.maxHeight, "--picker-max": `${Math.max(140, pos.maxHeight - 130)}px` }}
+          style={{ top: pos.top, left: pos.left, width: pos.width, maxHeight: pos.maxHeight, "--picker-max": `${Math.max(140, pos.maxHeight - 150)}px` }}
         >
           <p className="search-bar__uni-hint">Elige tu universidad y tu grado y ve solo tus destinos</p>
-          <UniversityPicker autoFocus onDone={close} />
+          <UniversityPicker autoFocus uniId={uni.uniId} onDone={close} />
         </div>,
         document.body
       )}
+      {open === "sheet" && <UniversitySheet uniId={uni.uniId} onClose={close} />}
     </div>
   );
 }

@@ -731,10 +731,12 @@ a { text-decoration: none; color: inherit; }
   transition: opacity var(--transition-fast), transform var(--transition-fast);
 }
 .search-bar__btn:hover { opacity: 0.9; transform: translateY(-1px); }
+/* Sugerencias: en un portal en <body> con top/left/width/maxHeight fijos bajo
+   la barra (useFloatingBelow), por encima de todo. */
 .search-bar__dropdown {
-  position: absolute; top: calc(100% + 8px); left: 0; right: 0;
+  position: fixed; z-index: 1200; overflow-y: auto; box-sizing: border-box;
   background: var(--color-white); border-radius: 14px;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.16); overflow: hidden; z-index: 100;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.16);
 }
 .search-bar__item {
   padding: 12px 20px; font-size: 14px; color: var(--color-dark);
@@ -3072,4 +3074,13 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
   vertical-align: -0.08em;
   border-radius: 0.14em;
   box-shadow: 0 0 0 0.5px rgba(15,30,45,0.22);
+}
+
+/* ─── CAMPOS A 16 PX EN MÓVIL ─────────────────────────────────────────────
+   iOS amplía la página al enfocar un campo con letra de menos de 16 px. Sin
+   bloquear el zoom (nada de maximum-scale): todos los campos a 16 px o más. */
+@media (max-width: 767px) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="button"]):not([type="submit"]),
+  select,
+  textarea { font-size: max(16px, 1em) !important; }
 }

@@ -83,7 +83,7 @@ export default function UniversityChip({ isDark = false }) {
         <div className="uni-chip__menu" id={menuId} role="group" aria-label="Mi universidad">
           <p className="uni-chip__title">{uni.entry.name}</p>
           <p className="uni-chip__current">{uni.degreeName ?? "Todos los grados"}</p>
-          <UniversityPicker placeholder="Cambia de grado o de universidad" onDone={() => buttonRef.current?.focus()} />
+          <UniversityPicker uniId={uni.uniId} onDone={() => buttonRef.current?.focus()} />
           {uni.loadError && (
             <button type="button" className="uni-chip__action" onClick={uni.retry}>Reintentar la carga</button>
           )}

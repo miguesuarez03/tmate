@@ -4,6 +4,7 @@ import { useUniversity } from "../../hooks/useUniversity";
 import { getUniversityEntry } from "../../data/universities/registry";
 import { getInviteText } from "../../lib/universities";
 import UniversityPicker from "./UniversityPicker";
+import UniversitySheet, { isMobileViewport } from "./UniversitySheet";
 import styles from "./University.module.css";
 
 /**
@@ -61,6 +62,7 @@ function ExpandedInvite({ className, onClose, children }) {
 export default function UniversityInvite({ variant = "light", cityAgreements = null, className = "", onExpandedChange = null }) {
   const uni = useUniversity();
   const [expanded, setExpandedState] = useState(false);
+  const [sheetOpen, setSheetOpen] = useState(false);
   const mainRef = useRef(null);
   const setExpanded = (v) => {
     setExpandedState(v);
@@ -89,12 +91,28 @@ export default function UniversityInvite({ variant = "light", cityAgreements = n
       </ExpandedInvite>
     );
   }
-  if (uni.uniId || uni.inviteDismissed) return null;
+  // Móvil: hoja a pantalla completa (la página no salta); se sigue viendo la
+  // invitación debajo hasta que se elige.
+  const sheet = sheetOpen && (
+    <UniversitySheet
+      uniId={topEntry?.id ?? null}
+      onClose={() => {
+        setSheetOpen(false);
+        onExpandedChange?.(false);
+      }}
+    />
+  );
+  if ((uni.uniId || uni.inviteDismissed) && !sheetOpen) return null;
 
   const text = getInviteText({ cityUniversity: topEntry ? { shortName: topEntry.shortName, count: top.count } : null });
   return (
     <div className={`${cls} uni-invite`} data-uni-invite-el="">
-      <button type="button" ref={mainRef} className={styles.inviteMain} onClick={() => setExpanded(true)} aria-expanded="false">
+      <button type="button" ref={mainRef} className={styles.inviteMain} onClick={() => {
+        if (isMobileViewport()) {
+          setSheetOpen(true);
+          onExpandedChange?.(true);
+        } else setExpanded(true);
+      }} aria-expanded={sheetOpen}>
         <span className={styles.inviteIcon} aria-hidden="true"><IconUniversidad size={18} /></span>
         <span className={styles.inviteText}>
           {text.title && <><strong>{text.title}</strong>{" "}</>}
@@ -104,6 +122,7 @@ export default function UniversityInvite({ variant = "light", cityAgreements = n
       <button type="button" className={styles.inviteClose} onClick={uni.dismissInvite} aria-label="Cerrar la invitación «Mi universidad»">
         <span aria-hidden="true">✕</span>
       </button>
+      {sheet}
     </div>
   );
 }
