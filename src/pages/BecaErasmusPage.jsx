@@ -156,7 +156,8 @@ function Calculator() {
     : [];
   // Campus guardado de otra visita: rellena el origen si aún está vacío.
   useEffect(() => {
-    if (uni.campus && !originCity) setOriginCity(uni.campus.origin);
+    // Funcional: si el origen se acaba de recuperar de la sesión, manda ese.
+    if (uni.campus) setOriginCity((prev) => prev || uni.campus.origin);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [uni.campus]);
   // Si al cambiar de universidad o de grado el destino elegido deja de ser

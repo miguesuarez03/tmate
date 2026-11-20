@@ -229,7 +229,7 @@ export default function PrivacidadPage() {
           </li>
           <li>
             <strong>Hasta que cierras la pestaña</strong> (sessionStorage), para que tu selección se mantenga
-            mientras usas la web: los destinos del comparador y su orden, el filtro del listado de destinos, el
+            mientras usas la web: los destinos del comparador, su orden y el programa elegido, el filtro del listado de destinos, el
             país y el filtro del mapa, tu resultado de City Match, la ciudad de origen y el destino de la
             calculadora de la beca y las últimas fichas que has visto (claves que empiezan por{" "}
             <code>mabroad:sesion:</code>); la posición de scroll para volver atrás; y, si cierras la invitación

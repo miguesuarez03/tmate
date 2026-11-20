@@ -67,8 +67,15 @@ export default function UniversitySearchSegment() {
       return undefined;
     }
     window.scrollTo({ top: window.scrollY + r.top - 76, behavior: "smooth" });
-    const t = setTimeout(() => setSettled(true), 350);
-    return () => clearTimeout(t);
+    // Se bloquea cuando la subida termina (scrollend); si el navegador no lo
+    // avisa, como mucho a los 600 ms.
+    const done = () => setSettled(true);
+    window.addEventListener("scrollend", done, { once: true });
+    const t = setTimeout(done, 600);
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener("scrollend", done);
+    };
   }, [open, mobile]);
   useScrollLock(open && mobile && settled);
   // Mientras está abierto, fuera los botones flotantes (taparían la lista).
@@ -115,7 +122,7 @@ export default function UniversitySearchSegment() {
         )}
       </div>
       {open && pos && createPortal(
-        <div ref={panelRef} className="search-bar__dropdown search-bar__uni-panel" style={{ top: pos.top, left: pos.left, width: pos.width }}>
+        <div ref={panelRef} className="search-bar__dropdown search-bar__uni-panel" style={{ top: pos.top, left: pos.left, width: pos.width, maxHeight: pos.maxHeight }}>
           <UniversityPicker
             autoFocus
             uniId={uni.uniId}

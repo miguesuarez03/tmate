@@ -41,28 +41,41 @@ export function writeSession(name, value) {
  */
 export function useSessionUrlParams(name, keys) {
   const [params, setParams] = useSearchParams();
-  const restored = useRef(false);
+  // null: aún no se ha mirado; "waiting": se están recuperando (no se guarda
+  // nada hasta que la URL los refleje, para no pisar lo guardado); "ready".
+  const phase = useRef(null);
+  const pending = useRef("");
   const storeName = `url:${name}`;
+  const snapshotOf = (get) => keys.map((k) => `${k}=${get(k) ?? ""}`).join("&");
+  const snapshot = snapshotOf((k) => params.get(k));
 
   // Al entrar: si la URL no trae ninguno, los de la última vez.
   useEffect(() => {
     const saved = readSession(storeName);
     const hasAny = keys.some((k) => params.has(k));
     if (!hasAny && saved && Object.keys(saved).length) {
+      const value = Object.fromEntries(Object.entries(saved).filter(([k, v]) => keys.includes(k) && v));
+      pending.current = snapshotOf((k) => value[k]);
+      phase.current = "waiting";
       setParams((prev) => {
         const next = new URLSearchParams(prev);
-        for (const [k, v] of Object.entries(saved)) if (keys.includes(k) && v) next.set(k, v);
+        for (const [k, v] of Object.entries(value)) next.set(k, v);
         return next;
       }, { replace: true });
+    } else {
+      phase.current = "ready";
     }
-    restored.current = true;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Cada cambio (también quitarlos) se guarda.
-  const snapshot = keys.map((k) => `${k}=${params.get(k) ?? ""}`).join("&");
   useEffect(() => {
-    if (!restored.current) return;
+    if (phase.current === "waiting") {
+      if (snapshot !== pending.current) return; // aún no ha llegado lo recuperado
+      phase.current = "ready";
+      return; // es lo que ya estaba guardado
+    }
+    if (phase.current !== "ready") return;
     const value = {};
     for (const k of keys) if (params.get(k)) value[k] = params.get(k);
     writeSession(storeName, value);

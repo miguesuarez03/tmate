@@ -735,7 +735,7 @@ a { text-decoration: none; color: inherit; }
    en coordenadas del documento justo bajo la barra (useFloatingBelow): por
    encima de todo y pegadas a la barra al deslizar. Pocas (3/5): sin scroll. */
 .search-bar__dropdown {
-  position: absolute; z-index: 1200; box-sizing: border-box; overflow: hidden;
+  position: absolute; z-index: 1200; box-sizing: border-box; overflow-y: auto; overscroll-behavior: contain;
   background: var(--color-white); border-radius: 14px;
   box-shadow: 0 16px 48px rgba(0,0,0,0.16); text-align: left;
 }
@@ -774,7 +774,7 @@ a { text-decoration: none; color: inherit; }
 .search-bar__uni-clear:hover, .search-bar__uni-clear:focus-visible { opacity: 1; background: rgba(245,150,58,0.15); }
 /* El de «Tu uni y grado» es el mismo desplegable (search-bar__dropdown),
    con el campo de búsqueda arriba. */
-.search-bar__uni-panel { padding: 10px; overflow: visible; }
+.search-bar__uni-panel { padding: 10px; }
 @media (max-width: 600px) {
   .search-bar__inner { flex-wrap: wrap; row-gap: 6px; }
   .search-bar__uni { order: 3; flex-basis: 100%; margin: 0; padding: 6px 0 0; border-left: 0; border-top: 1px solid var(--color-border); justify-content: center; }

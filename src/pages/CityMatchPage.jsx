@@ -702,18 +702,20 @@ export default function CityMatchPage() {
   // pantalla de resultados — permite compartir/guardar el enlace. También
   // cuando llegan después de montar (recuperadas de la sesión).
   const rParam = searchParams.get("r");
-  const appliedR = useRef(null);
+  const impParam = searchParams.get("imp");
   useEffect(() => {
-    if (!rParam || appliedR.current === rParam) return;
-    appliedR.current = rParam;
-    if (step >= QUESTIONS.length) return; // ya en resultados: es nuestro propio cambio
+    if (!rParam) return;
+    // Si la URL ya es la de lo que se está viendo (nuestras propias
+    // escrituras al cambiar una respuesta o un imprescindible), nada que hacer.
+    const own = resultParams(answers, must);
+    if (step >= QUESTIONS.length && own.r === rParam && (own.imp ?? null) === impParam) return;
     const restored = decodeAnswers(rParam);
     if (!restored) return;
     setAnswers(restored);
-    setMust(decodeMust(searchParams.get("imp")));
+    setMust(decodeMust(impParam));
     setStep(QUESTIONS.length);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [rParam]);
+  }, [rParam, impParam]);
 
   const showResults = step >= QUESTIONS.length;
 

@@ -93,7 +93,7 @@ export default function SearchBar({ light = false, withUniversity = false }) {
       </div>
 
       {showList && pos && createPortal(
-        <div className="search-bar__dropdown" style={{ top: pos.top, left: pos.left, width: pos.width }}>
+        <div className="search-bar__dropdown" style={{ top: pos.top, left: pos.left, width: pos.width, maxHeight: pos.maxHeight }}>
           <SuggestionList
             id={listId}
             label="Ciudades sugeridas"

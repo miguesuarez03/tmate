@@ -100,11 +100,13 @@ export function matchScore(query, name, aliases = []) {
   const alts = aliases.filter(Boolean).map(fold);
   if (full === q || alts.includes(q)) return 0;
   if (full.startsWith(q) || alts.some((a) => a.startsWith(q))) return 1;
-  const words = full.split(/[^a-z0-9]+/).filter(Boolean);
+  const words = full.split(/[^a-z0-9]+/).filter((w) => w && !STOP.has(w));
   const qWords = q.split(" ").filter((w) => w && !STOP.has(w));
   if (qWords.length && qWords.every((w) => words.some((x) => x.startsWith(w)) || alts.some((a) => a.startsWith(w)))) return 2;
   if (full.includes(q) || alts.some((a) => a.includes(q))) return 3;
   // Erratas: cada palabra escrita se parece al principio de alguna palabra.
+  // Con menos de 3 letras no: «z» no puede parecerse a nada.
+  if (q.replace(/s/g, "").length < 3) return null;
   let total = 0;
   for (const w of qWords) {
     const max = w.length <= 4 ? 1 : w.length <= 8 ? 2 : 3;

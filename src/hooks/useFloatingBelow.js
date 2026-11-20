@@ -30,19 +30,31 @@ export function useFloatingBelow(anchorRef, open, { gap = 8 } = {}) {
       const r = el.getBoundingClientRect();
       // Relativo al <body>: vale igual con el scroll bloqueado (body fijo).
       const b = document.body.getBoundingClientRect();
-      setPos({ top: r.bottom - b.top + gap, left: r.left - b.left, width: r.width });
+      // Altura que cabe a la vista bajo la barra (visualViewport: con el
+      // teclado del móvil abierto es menos): el panel se limita a ella y, si
+      // no cabe todo, se desliza por dentro.
+      const vv = window.visualViewport;
+      const visibleBottom = (vv?.offsetTop ?? 0) + (vv?.height ?? window.innerHeight);
+      const maxHeight = Math.max(120, visibleBottom - (r.bottom + gap) - 8);
+      setPos({ top: r.bottom - b.top + gap, left: r.left - b.left, width: r.width, maxHeight });
     };
     place();
     // Otra vez en el siguiente fotograma: si en móvil se acaba de bloquear el
     // scroll (body fijo), las coordenadas del body cambian.
     const raf = requestAnimationFrame(place);
     const vv = window.visualViewport;
+    // Al deslizar, la posición no cambia (va en el documento), pero sí lo que
+    // cabe a la vista: se recalcula la altura.
+    vv?.addEventListener("scroll", place);
+    window.addEventListener("scroll", place, { passive: true });
     window.addEventListener("resize", place);
     vv?.addEventListener("resize", place);
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", place);
       vv?.removeEventListener("resize", place);
+      vv?.removeEventListener("scroll", place);
+      window.removeEventListener("scroll", place);
     };
   }, [anchorRef, open, gap]);
 

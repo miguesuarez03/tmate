@@ -319,3 +319,12 @@ test("enlace del chip: universidad, grado y destinos del comparador", async () =
   assert.equal(getUniversityShareUrl("https://x.com", "loyola", "giti", ["roma", "berlin"]), "https://x.com/comparar?uni=loyola&grado=giti&cities=roma,berlin");
   assert.equal(getUniversityShareUrl("https://x.com", "loyola", null), "https://x.com/?uni=loyola");
 });
+
+test("sugerencias: con una o dos letras no hay coincidencias aproximadas", async () => {
+  const { matchScore, searchDegrees } = await import("../src/lib/universities.js");
+  assert.equal(matchScore("z", "Ciencias de la Actividad Física y del Deporte"), null);
+  assert.equal(matchScore("zx", "Psicología"), null);
+  const loyola = UNIVERSITY_REGISTRY.find((u) => u.id === "loyola");
+  assert.deepEqual(searchDegrees(loyola, "zq"), []);
+  assert.equal(searchDegrees(loyola, "ps")[0].id, "psicologia");
+});
