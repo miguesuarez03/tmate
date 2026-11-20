@@ -81,14 +81,19 @@ export function UniversityProvider({ children }) {
 
   // Ya aplicados (y guardados), ?uni= y ?grado= salen de la URL: si no, al
   // recargar volverían a imponerse sobre lo que se haya cambiado o quitado.
+  // Se lee la URL real (window.location), no `location`: los efectos de las
+  // páginas corren antes que este y pueden haber navegado ya (p. ej.
+  // /?uni=loyola&buscar=Berlin abre la ficha); con `location` se pisaría esa
+  // navegación volviendo a la URL anterior.
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
+    const { pathname, search: rawSearch, hash } = window.location;
+    const params = new URLSearchParams(rawSearch);
     if (!params.has("uni") && !params.has("grado")) return;
     params.delete("uni");
     params.delete("grado");
     const search = params.toString();
-    navigate({ pathname: location.pathname, search: search ? `?${search}` : "", hash: location.hash }, { replace: true });
-  }, [location.search, location.pathname, location.hash, navigate]);
+    navigate({ pathname, search: search ? `?${search}` : "", hash }, { replace: true });
+  }, [location.key, navigate]);
 
   // Datos de la universidad: solo se descargan al elegirla.
   useEffect(() => {

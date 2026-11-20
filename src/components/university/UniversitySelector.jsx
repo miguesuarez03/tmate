@@ -15,7 +15,7 @@ import styles from "./University.module.css";
  */
 export default function UniversitySelector({ id }) {
   const uni = useUniversity();
-  const { hash } = useLocation();
+  const { hash, key: locationKey } = useLocation();
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const rootRef = useRef(null);
@@ -33,11 +33,17 @@ export default function UniversitySelector({ id }) {
     (target === "select" ? selectRef : triggerRef).current?.focus();
   }, [expanded]);
 
+  // Enlace del menú (/#mi-universidad): abre, baja hasta el selector y le da
+  // el foco. Depende de `locationKey` para responder a cada clic, aunque el
+  // hash ya fuera ese (p. ej. tras cerrarlo con «Cerrar»).
   useEffect(() => {
     if (!id || hash !== `#${id}`) return;
     setOpen(true);
-    requestAnimationFrame(() => rootRef.current?.scrollIntoView({ behavior: "smooth", block: "center" }));
-  }, [id, hash]);
+    requestAnimationFrame(() => {
+      rootRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      selectRef.current?.focus({ preventScroll: true });
+    });
+  }, [id, hash, locationKey]);
 
   useEffect(() => {
     if (!copied) return undefined;
