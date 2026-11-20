@@ -19,6 +19,7 @@ npm run build             # runs the three steps above in order (this is the rea
 npm run preview           # vite preview — serve dist/ locally after a build
 npm run scoring:data      # downloads THE / ESN / UNODC / NEET (Eurostat+GISCO+ILO) and rewrites src/data/scoring/*.js (committed) — see docs/scoring.md
 npm test                  # node --test "tests/**/*.test.mjs" — no dependencies; tests/resolve-hook.mjs lets Node load src/ like Vite does
+npm run check:responsive  # after a build: Playwright (installed Chrome, no browser download) over dist/ served in-process — 7 pages × 360–1920 px × with/without university; prints only failures (horizontal scroll, off-screen, header/search overlaps, cut dropdowns). `-- --capturas` saves screenshots of failures to tmp/responsive/
 ```
 
 **Run the build from PowerShell, not Git Bash.** From Git Bash the path reaches Vite as `c:/...` (lowercase drive letter) and `vite build` fails with `[vite:html-inline-proxy] Could not load .../index.html?html-proxy&inline-css...`. From PowerShell (`C:\Users\...`) it works. `npm test` works from either.

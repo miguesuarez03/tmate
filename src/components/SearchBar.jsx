@@ -4,6 +4,7 @@ import { searchCities, findBestCityMatch } from "../lib/cities";
 import { IconLupa, IconPin } from "./icons";
 import Flag from "./Flag";
 import UniversitySearchSegment from "./university/UniversitySearchSegment";
+import { useUniversity } from "../hooks/useUniversity";
 
 export default function SearchBar({ light = false, withUniversity = false }) {
   const [query, setQuery] = useState("");
@@ -12,9 +13,13 @@ export default function SearchBar({ light = false, withUniversity = false }) {
   const inputRef = useRef(null);
   const navigate = useNavigate();
 
+  // Modo «Mi universidad»: con universidad elegida, solo tus destinos.
+  const uni = useUniversity();
+  const include = uni.filtering ? uni.isIncluded : null;
+
   useEffect(() => {
-    setSuggestions(query.length > 0 ? searchCities(query, 6) : []);
-  }, [query]);
+    setSuggestions(query.length > 0 ? searchCities(query, 6, include) : []);
+  }, [query, include]);
 
   const handleSelect = (slug) => {
     navigate(`/city/${slug}`);
@@ -24,7 +29,7 @@ export default function SearchBar({ light = false, withUniversity = false }) {
   // Coincidencia exacta si existe; si no, la más parecida (tolera errores
   // tipográficos y tildes, ej. "rama" encuentra "Roma").
   const handleSearch = () => {
-    const city = findBestCityMatch(query);
+    const city = findBestCityMatch(query, include);
     if (city) navigate(`/city/${city.slug}`);
   };
 

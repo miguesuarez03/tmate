@@ -226,6 +226,9 @@
 }
 .inviteCloseExpanded:hover, .inviteCloseExpanded:focus-visible { color: var(--color-dark); }
 .inviteExpanded .pickerField { margin-right: 40px; }
+/* Desplegada en la página: la lista no pasa de media pantalla, para que todo
+   quepa a la vista al centrarla. */
+.inviteExpanded .pickerList { max-height: min(280px, 38vh, 38dvh); }
 .inviteExpanded .selector { margin: 0; }
 .inviteDark.inviteExpanded .selectorOpen { background: rgba(15,30,45,0.72); border-color: rgba(255,255,255,0.2); }
 .inviteDark.inviteExpanded .selectorTitle,
@@ -245,7 +248,7 @@
 }
 .pickerInput::placeholder { color: var(--color-muted); }
 .pickerList {
-  list-style: none; margin: 0; padding: 4px; max-height: 280px; overflow-y: auto;
+  list-style: none; margin: 0; padding: 4px; max-height: var(--picker-max, 280px); overflow-y: auto;
   border-radius: 12px; border: 1px solid var(--color-border); background: var(--color-white);
 }
 .pickerOption {

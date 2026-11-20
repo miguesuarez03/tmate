@@ -272,3 +272,16 @@ test("ayuda de la Junta: grupos propios de la orden, no los del SEPIE", async ()
   assert.equal(junta.base[groupOf("Italia")], 203);
   assert.match(junta.url, /^https:\/\/www\.juntadeandalucia\.es\/boja\/2025\/103\//);
 });
+
+test("buscador de destinos: con universidad, solo sugiere tus destinos", async () => {
+  const { searchCities, findBestCityMatch } = await import("../src/lib/cities.js");
+  const mine = new Set(["riga", "berlin"]);
+  const include = (slug) => mine.has(slug);
+  assert.deepEqual(searchCities("riga", 6, include).map((c) => c.slug), ["riga"]);
+  assert.ok(searchCities("roma", 6, include).every((c) => mine.has(c.slug)), "sugiere ciudades que no son tuyas");
+  assert.equal(findBestCityMatch("amsterdam", include), null);
+  const best = findBestCityMatch("roma", include); // tolera erratas, pero solo entre los tuyos
+  assert.ok(!best || mine.has(best.slug));
+  // Sin universidad, como siempre.
+  assert.ok(searchCities("riga", 6).length > 1);
+});

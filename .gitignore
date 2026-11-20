@@ -25,3 +25,6 @@ yarn-error.log*
 
 # datos generados en el build (scripts/city-data.mjs)
 src/data/generated/
+
+# capturas de npm run check:responsive -- --capturas
+tmp/

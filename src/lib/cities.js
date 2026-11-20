@@ -945,14 +945,16 @@ function levenshtein(a, b) {
  * @param {number} limit
  * @returns {City[]}
  */
-export function searchCities(query, limit = 6) {
+export function searchCities(query, limit = 6, include = null) {
   const q = normalizeForSearch(query);
   if (!q) return [];
+  // `include(slug)`: modo «Mi universidad», solo tus destinos.
 
   const threshold = q.length <= 3 ? 1 : q.length <= 6 ? 2 : 3;
   const scored = [];
 
   for (const city of CITIES) {
+    if (include && !include(city.slug)) continue;
     const name = normalizeForSearch(city.name);
     let score;
     if (name === q) score = 0;
@@ -972,8 +974,8 @@ export function searchCities(query, limit = 6) {
 
 /** Coincidencia única "más probable" para navegación directa (Enter / botón
  *  buscar) — exacta si existe, si no la mejor coincidencia fuzzy. */
-export function findBestCityMatch(query) {
-  return searchCities(query, 1)[0] ?? null;
+export function findBestCityMatch(query, include = null) {
+  return searchCities(query, 1, include)[0] ?? null;
 }
 
 // ─── COMPARADOR ─────────────────────────────────────────────────────────────

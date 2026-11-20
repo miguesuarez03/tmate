@@ -410,13 +410,20 @@ a { text-decoration: none; color: inherit; }
 /* Solo icono (con punto) donde el texto no cabe: móvil, y con los enlaces
    horizontales del navbar a la vista (1024–1599 px), para no tapar «Guías
    Erasmus». Las fichas (navbar--city) no tienen esos enlaces. */
+/* Solo icono: el birrete ocupa ~64 % del círculo (28 de 44 px). */
+.uni-chip__btn svg { width: 18px; height: 18px; flex-shrink: 0; }
 @media (max-width: 640px) {
   .uni-chip__btn { width: 44px; padding: 0; justify-content: center; }
+  /* El chip no está en el borde (a su derecha van tema y menú): el menú se
+     fija bajo la cabecera, a todo el ancho. */
+  .uni-chip__menu { position: fixed; top: 68px; left: 12px; right: 12px; width: auto; }
+  .uni-chip__btn svg { width: 28px; height: 28px; }
   .uni-chip__label, .uni-chip__caret { display: none; }
   .uni-chip__dot { display: block; }
 }
 @media (min-width: 1024px) and (max-width: 1599px) {
   .navbar:not(.navbar--city) .uni-chip__btn { width: 44px; padding: 0; justify-content: center; }
+  .navbar:not(.navbar--city) .uni-chip__btn svg { width: 28px; height: 28px; }
   .navbar:not(.navbar--city) .uni-chip__label,
   .navbar:not(.navbar--city) .uni-chip__caret { display: none; }
   .navbar:not(.navbar--city) .uni-chip__dot { display: block; }
@@ -758,8 +765,10 @@ a { text-decoration: none; color: inherit; }
   background: none; color: inherit; cursor: pointer; font-size: 12px; opacity: 0.75;
 }
 .search-bar__uni-clear:hover, .search-bar__uni-clear:focus-visible { opacity: 1; background: rgba(245,150,58,0.15); }
+/* En un portal en <body> (fuera del hero), con top/left/width/maxHeight
+   calculados bajo el buscador: nunca queda cortado ni tapado. */
 .search-bar__uni-panel {
-  position: absolute; top: calc(100% + 8px); left: 0; right: 0; z-index: 110;
+  position: fixed; z-index: 1200; overflow-y: auto; box-sizing: border-box;
   padding: 12px; border-radius: 14px; background: var(--color-white);
   box-shadow: 0 16px 48px rgba(0,0,0,0.16); text-align: left;
 }

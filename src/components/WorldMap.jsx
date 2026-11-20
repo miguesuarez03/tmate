@@ -249,6 +249,9 @@ export default function WorldMap() {
 
             {/* Etiquetas de país */}
             {MAP_COUNTRY_LIST.map(c => {
+              // Modo «Mi universidad»: sin bandera ni nombre en los países
+              // donde no tienes destinos con tu grado.
+              if (uni.filtering && !CITIES.some(city => city.country === c.name && uni.isIncluded(city.slug))) return null;
               const base = 1 / zoom;
               const fontSize = Math.max(4, Math.min(10, base * 10));
               const emojiSize = Math.max(7, Math.min(18, base * 16));

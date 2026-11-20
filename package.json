@@ -14,7 +14,8 @@
     "build": "npm run build:client && npm run build:ssr && npm run prerender",
     "preview": "vite preview",
     "pretest": "node --import ./tests/resolve-hook.mjs scripts/city-data.mjs",
-    "test": "node --import ./tests/resolve-hook.mjs --test \"tests/**/*.test.mjs\""
+    "test": "node --import ./tests/resolve-hook.mjs --test \"tests/**/*.test.mjs\"",
+    "check:responsive": "node scripts/check-responsive.mjs"
   },
   "dependencies": {
     "@fontsource-variable/bricolage-grotesque": "^5.3.0",
@@ -31,6 +32,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^4.2.1",
     "country-flag-icons": "^1.6.20",
+    "playwright-core": "^1.65.1",
     "typescript": "^6.0.3",
     "vite": "^5.1.0",
     "world-atlas": "^2.0.2"

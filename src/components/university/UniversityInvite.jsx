@@ -29,6 +29,10 @@ import styles from "./University.module.css";
 /** Invitación desplegada: botón «Cerrar» visible y cierre con un clic fuera. */
 function ExpandedInvite({ className, onClose, children }) {
   const ref = useRef(null);
+  // Al abrirse, que se vea entero (la lista de grados queda debajo).
+  useEffect(() => {
+    ref.current?.scrollIntoView({ block: "center", behavior: "instant" });
+  }, []);
   useEffect(() => {
     const onDown = (e) => {
       if (!ref.current?.contains(e.target)) onClose();

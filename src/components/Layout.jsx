@@ -128,18 +128,18 @@ const MENU_ITEMS = [
     to: "/comparar",
   },
   {
-    Icon: IconProceso,
-    label: "¿Cómo funciona el Erasmus?",
-    desc: "Todo el proceso explicado sin rodeos, paso a paso",
-    action: "steps",
-    to: "/proceso",
-  },
-  {
     Icon: IconBeca,
     label: "Beca Erasmus+",
     desc: "Cuánto cobras, complementos y calculadora de ayudas",
     action: "beca",
     to: "/beca-erasmus",
+  },
+  {
+    Icon: IconProceso,
+    label: "¿Cómo funciona el Erasmus?",
+    desc: "Todo el proceso explicado sin rodeos, paso a paso",
+    action: "steps",
+    to: "/proceso",
   },
   {
     Icon: IconLearningAgreement,
@@ -182,8 +182,8 @@ export const NAV_LINKS = [
   { label: "Destinos", path: "/" },
   { label: "City Match", path: "/city-match" },
   { label: "Comparar", path: "/comparar" },
-  { label: "Proceso", path: "/proceso" },
   { label: "Beca", path: "/beca-erasmus" },
+  { label: "Proceso", path: "/proceso" },
   { label: "Learning Agreement", path: "/learning-agreement" },
   { label: "Guías Erasmus", path: "/guias" },
 ];
