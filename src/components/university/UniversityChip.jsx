@@ -91,6 +91,11 @@ export default function UniversityChip({ isDark = false }) {
             onClick={() => {
               setOpen(false);
               uni.clear();
+              // El chip desaparece: el foco pasa a la invitación de la página (si
+              // la hay) o al botón del menú de la cabecera.
+              requestAnimationFrame(() =>
+                (document.querySelector("[data-uni-invite-el] button") ?? document.querySelector(".navbar__hamburger"))?.focus()
+              );
             }}
           >
             Quitar mi universidad

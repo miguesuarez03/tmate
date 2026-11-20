@@ -152,6 +152,16 @@ function Calculator() {
     if (uni.campus && !originCity) setOriginCity(uni.campus.origin);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [uni.campus]);
+  // Si al cambiar de universidad o de grado el destino elegido deja de ser
+  // tuyo, se quita (y el resultado de la distancia con él).
+  useEffect(() => {
+    if (destinationSlug && !uni.isIncluded(destinationSlug)) {
+      setDestinationSlug("");
+      setCalcStatus("idle");
+      setCalcKm(null);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [uni]);
 
   // País se deduce de la ciudad de destino seleccionada
   const destCity = ALL_CITIES.find(c => c.slug === destinationSlug);

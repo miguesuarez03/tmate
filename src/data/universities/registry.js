@@ -59,7 +59,8 @@ export const UNIVERSITY_REGISTRY = [
     file: "loyola.json",
     studyAgreementTypes: ["Erasmus-SMS", "Bilateral studies", "SICUE"],
     // https://www.uloyola.es/servicios/infraestructuras/nuestros-campus
-    // (Granada solo acoge Teología: no se ofrece como origen por ahora).
+    // La página lista también Granada; no se ofrece como origen hasta que
+    // Loyola confirme qué grados se cursan allí (ver PROPUESTAS.md).
     campuses: [
       { id: "sevilla", name: "Sevilla (Dos Hermanas)", origin: "Sevilla" },
       { id: "cordoba", name: "Córdoba", origin: "Córdoba" },
@@ -69,7 +70,7 @@ export const UNIVERSITY_REGISTRY = [
       facts: [
         { text: "Las solicitudes se presentan en el portal de movilidad de Loyola (MoveOn).", source: LOYOLA_INTERCAMBIO },
         { text: "Hay una convocatoria ordinaria en otoño y una extraordinaria en febrero; en la extraordinaria no se ofrecen todos los destinos.", source: LOYOLA_INTERCAMBIO },
-        { text: "En general se pide un nivel B1 acreditado con certificado oficial, salvo en destinos de habla hispana.", source: LOYOLA_INTERCAMBIO },
+        { text: "Para destinos de países no hispanohablantes se pide como mínimo un B1 acreditado con certificado oficial; cada destino puede exigir un nivel más alto.", source: LOYOLA_INTERCAMBIO },
         { text: "Tras la asignación aceptas el destino en MoveOn y un tutor académico te ayuda a preparar el Learning Agreement.", source: LOYOLA_OUTGOING },
       ],
       links: [
@@ -78,7 +79,10 @@ export const UNIVERSITY_REGISTRY = [
         { label: "Oficina Internacional", url: LOYOLA_OFICINA, desc: "Contacto y cita previa" },
       ],
     },
-    load: () => Promise.all([import("./loyola.json"), import("./loyola.cities.json")]).then(([d, m]) => [d.default, m.default]),
+    // <id>.notes.json: observaciones separadas a mano (ver getRelationNotes()).
+    load: () =>
+      Promise.all([import("./loyola.json"), import("./loyola.cities.json"), import("./loyola.notes.json")])
+        .then(([d, m, n]) => [{ ...d.default, notesOverrides: n.default }, m.default]),
   },
 ];
 

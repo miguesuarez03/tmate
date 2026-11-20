@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { IconUniversidad } from "../icons";
 import { useUniversity } from "../../hooks/useUniversity";
 import { getUniversityEntry } from "../../data/universities/registry";
@@ -24,9 +24,20 @@ import styles from "./University.module.css";
  *   className?: string,
  * }} props
  */
-export default function UniversityInvite({ variant = "light", cityAgreements = null, className = "" }) {
+export default function UniversityInvite({ variant = "light", cityAgreements = null, className = "", onExpandedChange = null }) {
   const uni = useUniversity();
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpandedState] = useState(false);
+  const mainRef = useRef(null);
+  const setExpanded = (v) => {
+    setExpandedState(v);
+    onExpandedChange?.(v);
+  };
+  // Al plegar, el selector (con el foco) desaparece: el foco vuelve a la
+  // invitación o, si ya hay universidad elegida, al chip de la cabecera.
+  const collapse = () => {
+    setExpanded(false);
+    requestAnimationFrame(() => (mainRef.current ?? document.querySelector(".uni-chip__btn"))?.focus());
+  };
 
   // En la ficha, la universidad con más convenios en la ciudad.
   const top = cityAgreements ? [...cityAgreements].sort((a, b) => b.count - a.count)[0] : null;
@@ -40,7 +51,7 @@ export default function UniversityInvite({ variant = "light", cityAgreements = n
   if (expanded) {
     return (
       <div className={`${cls} ${styles.inviteExpanded}`}>
-        <UniversitySelector autoOpen preselect={topEntry?.id ?? null} onClose={() => setExpanded(false)} />
+        <UniversitySelector autoOpen preselect={topEntry?.id ?? null} onClose={collapse} />
       </div>
     );
   }
@@ -49,7 +60,7 @@ export default function UniversityInvite({ variant = "light", cityAgreements = n
   const text = getInviteText({ cityUniversity: topEntry ? { shortName: topEntry.shortName, count: top.count } : null });
   return (
     <div className={`${cls} uni-invite`} data-uni-invite-el="">
-      <button type="button" className={styles.inviteMain} onClick={() => setExpanded(true)} aria-expanded="false">
+      <button type="button" ref={mainRef} className={styles.inviteMain} onClick={() => setExpanded(true)} aria-expanded="false">
         <span className={styles.inviteIcon} aria-hidden="true"><IconUniversidad size={18} /></span>
         <span className={styles.inviteText}>
           <strong>{text.title}</strong> <span className={styles.inviteCta}>{text.cta} →</span>

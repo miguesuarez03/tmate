@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useUniversity } from "../../hooks/useUniversity";
 import { formatAgreementCount } from "../../lib/universities";
 import UniversityInvite from "./UniversityInvite";
@@ -9,12 +10,17 @@ import styles from "./University.module.css";
  *    tu grado →», solo si la ciudad tiene convenios de alguna universidad.
  *  · Con universidad: enlace a «Tus convenios desde…» (más abajo) con cuántos
  *    hay para tu grado, o una línea discreta si no hay ninguno.
+ * Mientras se elige desde la invitación (universidad ya preseleccionada, falta
+ * el grado), la invitación sigue montada con su selector abierto.
  * @param {{ slug: string, cityAgreements?: { id: string, count: number }[] | null }} props
  */
 export default function CityUniversityNote({ slug, cityAgreements = null }) {
   const uni = useUniversity();
-  if (!uni.uniId) {
-    return cityAgreements?.length ? <UniversityInvite variant="dark" cityAgreements={cityAgreements} /> : null;
+  const [choosing, setChoosing] = useState(false);
+  if (!uni.uniId || choosing) {
+    return cityAgreements?.length
+      ? <UniversityInvite variant="dark" cityAgreements={cityAgreements} onExpandedChange={setChoosing} />
+      : null;
   }
   if (!uni.active) return null;
   const name = uni.entry.shortName;

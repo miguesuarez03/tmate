@@ -152,3 +152,45 @@ test("ningún componente, página ni hook nombra a una universidad concreta (tod
     }
   }
 });
+
+test("splitNotes: casos reales de Loyola (varias citas seguidas, temas, comillas mezcladas)", async () => {
+  const { getRelationNotes } = await import("../src/lib/universities.js");
+  const data = readJson("loyola.json");
+  const notes = (id) => getRelationNotes(data.relations.find((r) => r.relationId === id), readJson("loyola.notes.json"));
+  const kinds = (id) => notes(id).map((p) => p.kind);
+  // Praga: «"…" y también "…"» son dos opiniones; el límite de créditos es de la universidad.
+  assert.deepEqual(kinds("78"), ["university", "student", "student", "university"]);
+  // Roskilde: «Sobre alojamiento, estudiantes dicen:» no deja un «Sobre alojamiento» suelto.
+  assert.ok(notes("1322").every((p) => p.kind === "student"));
+  assert.ok(notes("1322").some((p) => p.text.startsWith("Sobre alojamiento: ")));
+  // Seúl: abre con ¨ y cierra con ": no se come el resto.
+  const seul = notes("1096");
+  assert.equal(seul[0].kind, "university");
+  assert.ok(seul.slice(1).every((p) => p.kind === "student"));
+  assert.ok(seul.some((p) => p.text.startsWith("Sobre lo académico: ")));
+  // Würzburg: párrafo de alumno en primera persona, separado a mano (loyola.notes.json).
+  for (const id of ["203", "208"]) {
+    const parts = notes(id);
+    assert.deepEqual(parts[0], { kind: "university", text: "Algunas asignaturas en alemán" });
+    assert.ok(parts.some((p) => p.kind === "student" && p.text.includes("nos queda por cursar")), id);
+  }
+});
+
+test("las observaciones separadas a mano son de convenios que existen y copian su texto", () => {
+  for (const entry of UNIVERSITY_REGISTRY) {
+    let overrides;
+    try {
+      overrides = readJson(`${entry.id}.notes.json`);
+    } catch {
+      continue;
+    }
+    const data = readJson(entry.file);
+    const squash = (s) => String(s).replace(/[\s¨"“”«»]+/g, " ").toLowerCase().trim();
+    for (const [id, parts] of Object.entries(overrides)) {
+      if (id.startsWith("_")) continue;
+      const rel = data.relations.find((r) => r.relationId === id);
+      assert.ok(rel, `${entry.id}.notes.json: no existe el convenio ${id}`);
+      for (const p of parts) assert.ok(squash(rel.notes).includes(squash(p.text)), `${id}: «${p.text.slice(0, 40)}…» no está en sus observaciones`);
+    }
+  }
+});

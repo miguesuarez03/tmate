@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useUniversity } from "../../hooks/useUniversity";
-import { getAgreementLabel, formatExtractedAt, formatAgreementCount, splitNotes, studentQuoteLabel } from "../../lib/universities";
+import { getAgreementLabel, formatExtractedAt, formatAgreementCount, getRelationNotes, studentQuoteLabel } from "../../lib/universities";
 import styles from "./University.module.css";
 
 const norm = (s) => String(s ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
@@ -9,8 +9,8 @@ const norm = (s) => String(s ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").toL
  * Observaciones del portal de un convenio, separadas: lo que dice la
  * universidad y las opiniones de antiguos alumnos (marcadas como tales).
  */
-export function RelationNotes({ notes, shortName }) {
-  const parts = splitNotes(notes);
+export function RelationNotes({ rel, overrides = null, shortName }) {
+  const parts = getRelationNotes(rel, overrides);
   if (!parts.length) return null;
   const hasQuotes = parts.some((p) => p.kind === "student");
   return (
@@ -33,7 +33,7 @@ export function RelationNotes({ notes, shortName }) {
   );
 }
 
-function PlaceCard({ rel, cityName, shortName }) {
+function PlaceCard({ rel, cityName, shortName, overrides }) {
   const otherCity = norm(rel.city) !== norm(cityName) ? rel.city : null;
   return (
     <li className={styles.placeCard}>
@@ -51,7 +51,7 @@ function PlaceCard({ rel, cityName, shortName }) {
         {rel.rentPrice && (<><dt>Alquiler</dt><dd>{rel.rentPrice}</dd></>)}
         {rel.major && (<><dt>Mención</dt><dd>{rel.major}</dd></>)}
       </dl>
-      {rel.notes && <RelationNotes notes={rel.notes} shortName={shortName} />}
+      {rel.notes && <RelationNotes rel={rel} overrides={overrides} shortName={shortName} />}
     </li>
   );
 }
@@ -101,7 +101,7 @@ export default function UniversityPlaces({ slug, cityName }) {
           </p>
         ) : (
           <ul className={styles.placesList}>
-            {list.map((rel) => <PlaceCard key={rel.relationId} rel={rel} cityName={cityName} shortName={name} />)}
+            {list.map((rel) => <PlaceCard key={rel.relationId} rel={rel} cityName={cityName} shortName={name} overrides={uni.data.notesOverrides} />)}
           </ul>
         ))}
 
@@ -113,7 +113,7 @@ export default function UniversityPlaces({ slug, cityName }) {
             </summary>
             <p className={styles.pendingSub}>No son intercambios de estudios de un cuatrimestre o un curso.</p>
             <ul className={styles.placesList}>
-              {others.map((rel) => <PlaceCard key={rel.relationId} rel={rel} cityName={cityName} shortName={name} />)}
+              {others.map((rel) => <PlaceCard key={rel.relationId} rel={rel} cityName={cityName} shortName={name} overrides={uni.data.notesOverrides} />)}
             </ul>
           </details>
         )}

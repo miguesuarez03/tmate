@@ -184,10 +184,21 @@ export function getPendingCardInfo(group) {
 // universidad).
 // También «Alumno que hizo movilidad en esa institución: "…"» (sin verbo, pero
 // con dos puntos y la opinión entre comillas).
+// Con «Sobre alojamiento, …» delante, el tema se queda en la opinión.
 const STUDENT_INTRO =
-  /(?:\b(?:un|una|el|la|los|las)\s+)?\b(?:alumn[oa]s?|estudiantes?)\b(?:[^.,:;¨"“”\n]{0,80}?(?<!\bse\s)\b(?:dice|dicen|comenta|comentan|recomienda|recomiendan|opina|opinan|cuenta|cuentan|afirma|afirman)\b\s*[:.]?|[^.,:;¨"“”\n]{0,80}?:(?=\s*[¨"“«]))\s*/giu;
+  /(?:\bsobre\s+(?<topic>[^.,:;¨"“”\n]{1,30}?),?\s+)?(?:\b(?:un|una|el|la|los|las)\s+)?\b(?:alumn[oa]s?|estudiantes?)\b(?:[^.,:;¨"“”\n]{0,80}?(?<!\bse\s)\b(?:dice|dicen|comenta|comentan|recomienda|recomiendan|opina|opinan|cuenta|cuentan|afirma|afirman|menciona|mencionan)\b\s*[:.]?|[^.,:;¨"“”\n]{0,80}?:(?=\s*[¨"“«]))\s*/giu;
 const OPEN_QUOTES = new Set(["¨", '"', "“", "«"]);
-const CLOSE_QUOTES = { "¨": ["¨"], '"': ['"', "”"], "“": ["”", '"'], "«": ["»"] };
+// El portal mezcla comillas (abre con ¨ y cierra con "): vale cualquiera.
+const CLOSE_QUOTES = ["¨", '"', "”", "»"];
+// Tras una cita, otra cita seguida es de los mismos alumnos:
+// «"…" y también "…"», «¨…¨. ¨…¨», «"…" "…"».
+const NEXT_QUOTE = /^\s*[.,;]?\s*(?:y\s+(?:también\s+)?)?(?=[¨"“«])/u;
+
+/** Posición de la comilla que cierra una cita que empieza en `start` (o -1). */
+function closingQuote(src, start) {
+  const found = CLOSE_QUOTES.map((c) => src.indexOf(c, start)).filter((i) => i >= 0);
+  return found.length ? Math.min(...found) : -1;
+}
 
 /** Quita correos, teléfonos y URLs de una opinión (datos de contacto personales). */
 export function scrubPersonalData(text) {
@@ -200,6 +211,9 @@ const clean = (s) => String(s).replace(/[ \t]+/g, " ").replace(/\s*\n\s*/g, "\n"
 
 /**
  * Parte unas observaciones en trozos de la universidad y opiniones de alumnos.
+ * Los casos que la regla no puede separar (p. ej. un párrafo de un alumno en
+ * primera persona sin «alumno dice:») van a mano en `overrides`
+ * (<id>.notes.json: { relationId: [{ kind, text }] }), ver getRelationNotes().
  * @param {string | null | undefined} text
  * @returns {{ kind: "university" | "student", text: string }[]}
  */
@@ -215,28 +229,49 @@ export function splitNotes(text) {
   let m;
   while ((m = STUDENT_INTRO.exec(src))) {
     push("university", src.slice(pos, m.index));
-    let start = m.index + m[0].length;
-    let end;
-    const open = src[start];
-    if (OPEN_QUOTES.has(open)) {
-      // Opinión entre comillas: hasta la comilla de cierre.
-      start += 1;
-      const closers = CLOSE_QUOTES[open];
-      const idx = Math.min(...closers.map((c) => src.indexOf(c, start)).filter((i) => i >= 0));
-      end = Number.isFinite(idx) ? idx : src.length;
-      pos = Number.isFinite(idx) ? idx + 1 : src.length;
+    const start = m.index + m[0].length;
+    // «Sobre alojamiento, estudiante dice: …» → «Sobre alojamiento: …».
+    let topic = m.groups?.topic ? `Sobre ${m.groups.topic.trim()}: ` : "";
+    const pushStudent = (s) => {
+      push("student", topic + s);
+      topic = "";
+    };
+    if (OPEN_QUOTES.has(src[start])) {
+      // Opinión entre comillas: hasta la comilla de cierre, y las citas que
+      // vengan justo detrás («"…" y también "…"») también son de alumnos.
+      let q = start;
+      for (;;) {
+        const close = closingQuote(src, q + 1);
+        pushStudent(src.slice(q + 1, close < 0 ? src.length : close));
+        pos = close < 0 ? src.length : close + 1;
+        const next = NEXT_QUOTE.exec(src.slice(pos));
+        if (close < 0 || !next) break;
+        q = pos + next[0].length;
+      }
     } else {
       // Sin comillas: hasta la siguiente opinión o el final.
       STUDENT_INTRO.lastIndex = start;
       const next = STUDENT_INTRO.exec(src);
-      end = next ? next.index : src.length;
+      const end = next ? next.index : src.length;
+      pushStudent(src.slice(start, end));
       pos = end;
     }
-    push("student", src.slice(start, end));
     STUDENT_INTRO.lastIndex = pos;
   }
   push("university", src.slice(pos));
   return parts;
+}
+
+/**
+ * Observaciones de un convenio ya separadas: las de `overrides` (a mano) si
+ * las hay, si no las de splitNotes().
+ * @param {{ relationId: string, notes?: string | null }} rel
+ * @param {Record<string, { kind: "university" | "student", text: string }[]> | null} [overrides]
+ */
+export function getRelationNotes(rel, overrides = null) {
+  const manual = overrides?.[rel.relationId];
+  if (manual) return manual.map((p) => ({ kind: p.kind, text: p.kind === "student" ? scrubPersonalData(p.text) : p.text }));
+  return splitNotes(rel.notes);
 }
 
 /** Etiqueta de las opiniones de alumnos. */

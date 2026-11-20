@@ -1,0 +1,16 @@
+{
+  "_comment": "Observaciones del portal que splitNotes() no puede separar solo (párrafos de alumnos en primera persona sin «alumno dice:»). Partes copiadas tal cual del campo notes de loyola.json; kind: university = lo dice la universidad, student = antiguo alumno. Ver getRelationNotes() en src/lib/universities.js.",
+  "203": [
+    { "kind": "university", "text": "Algunas asignaturas en alemán" },
+    { "kind": "student", "text": "La lista de asignaturas impartidas en inglés en Wurzburg es limitada, y no coincide con las que aún nos queda por cursar estando en cuarto curso del doble grado.\nEn el caso de ser alumno de tercero, las opciones son más amplias, y sí sería recomendable, sobre todo en el caso de alumnos del doble grado que podrían cursar alguna de las de segundo que entran en el itinerario de tercero.\nLa convalidación es relativamente similar ya que en general son de 6 ECTS." },
+    { "kind": "student", "text": "Alemania es muy distinto a España, debes ir con la mente MUY abierta" },
+    { "kind": "student", "text": "Aunque haya ido a Alemania he podido conocer culturas diferentes ya sea viajando o a través de otros estudiantes internacionales como: China, Corea del sur, Japon, Filipinas, Taiwan, Pakistan, Afganistan, Turquia, Egipto, Uzbekistan, India, etc). Mejora de nivel de idioma" }
+  ],
+  "208": [
+    { "kind": "university", "text": "Algunas asignaturas en alemán" },
+    { "kind": "student", "text": "Las mejores redidencias son Am Hubland, Friedenstraße 2 , Landsteinerstraße, Peter-Schneider-Straße... individual y si quieres compartir Am Galgenberg no está mal." },
+    { "kind": "student", "text": "La lista de asignaturas impartidas en inglés en Wurzburg es limitada, y no coincide con las que aún nos queda por cursar estando en cuarto curso del doble grado.\nEn el caso de ser alumno de tercero, las opciones son más amplias, y sí sería recomendable, sobre todo en el caso de alumnos del doble grado que podrían cursar alguna de las de segundo que entran en el itinerario de tercero.\nLa convalidación es relativamente similar ya que en general son de 6 ECTS." },
+    { "kind": "student", "text": "Alemania es muy distinto a España, debes ir con la mente MUY abierta" },
+    { "kind": "student", "text": "Aunque haya ido a Alemania he podido conocer culturas diferentes ya sea viajando o a través de otros estudiantes internacionales como: China, Corea del sur, Japon, Filipinas, Taiwan, Pakistan, Afganistan, Turquia, Egipto, Uzbekistan, India, etc). Mejora de nivel de idioma" }
+  ]
+}
