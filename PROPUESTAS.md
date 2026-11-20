@@ -163,3 +163,30 @@ países, como Suecia, Grecia o Irlanda).
    filtro imprescindible de clima más fiable.
 9. **Puntuar «Naturaleza» con datos.** Sigue siendo la única señal heurística (cuenta palabras en
    los textos); por eso no se ofrece como imprescindible.
+
+## Mi universidad (Loyola)
+
+### Páginas por grado (después de completar los destinos)
+
+Decisión de Miguel (20/11/2026): por ahora, una sola página `/universidades/loyola` con selector de
+grado y anclas (`/universidades/loyola#ade`). Cuando los destinos de Loyola tengan ficha casi todos,
+valorar `/universidades/loyola/<grado>` solo para los grados con contenido propio suficiente (con los
+datos del 13/11/2026, los 17 con al menos 15 ciudades con ficha: ADE, Economía, Derecho, RRII,
+Psicología, Comunicación, Periodismo, Publicidad, Primaria, Infantil, GITI, IOI, IEM, Informática,
+Software, Matemáticas y Farmacia). Nada de páginas casi iguales.
+
+### Datos que necesito de Loyola (para pedírselos a Relaciones Internacionales)
+
+1. **Número de plazas de cada convenio.** Hasta tenerlo, la web dice «convenios», nunca «plazas».
+2. **Duración de cada convenio** (cuatrimestre o curso completo) y en qué cuatrimestre se puede ir.
+   Hoy solo aparece en texto libre en algunas observaciones.
+3. **Qué grado se imparte en qué campus** (Sevilla/Dos Hermanas, Córdoba). Hasta tenerlo, la
+   calculadora de la beca pide el campus al usuario.
+4. **Calendario oficial de la convocatoria 2027-28** (solicitud, adjudicación, renuncias), con enlace
+   a las bases.
+5. **Ayudas propias de Loyola para movilidad**, si las hay, con su normativa. (Las ayudas
+   complementarias de la Junta de Andalucía son solo para universidades públicas: BOJA 167/2026.)
+6. **Contacto de la Oficina Internacional que quieren que publiquemos** (correo, teléfono, horario,
+   sede).
+7. **Requisitos generales** (nota media, créditos, nivel de idioma y certificados aceptados) en un
+   documento oficial que podamos citar.

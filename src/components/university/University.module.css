@@ -149,7 +149,111 @@
 }
 .portalLink { font: 700 14px var(--font-body); color: var(--color-teal); }
 
+.primaryBtn { border-color: var(--color-primary); background: var(--color-primary); color: #fff; }
+.primaryBtn:hover, .primaryBtn:focus-visible { border-color: var(--color-primary); color: #fff; filter: brightness(1.05); }
+
+/* ── Observaciones: notas del portal y opiniones de alumnos ── */
+.notesSource { font-weight: 700; color: var(--color-slate); }
+.quote {
+  margin: 10px 0 0; padding: 8px 12px; border-left: 3px solid var(--color-primary);
+  background: var(--surface-tint-primary); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.quote blockquote { margin: 0; font-style: italic; white-space: pre-line; overflow-wrap: anywhere; }
+.quote blockquote::before { content: "«"; }
+.quote blockquote::after { content: "»"; }
+.quote figcaption { margin-top: 4px; font: 600 12px var(--font-body); color: var(--color-slate); }
+
+/* ── Otros programas (MAGIS…): plegado y discreto, al final ── */
+.otherPrograms { margin-top: 28px; font: 400 14px/1.5 var(--font-body); color: var(--color-slate); }
+.otherPrograms > summary {
+  cursor: pointer; width: fit-content; padding: 6px 12px; border-radius: var(--radius-full);
+  border: 1px solid var(--color-border); font: 600 13px var(--font-body); color: var(--color-slate);
+}
+.otherPrograms[open] > summary { margin-bottom: 10px; }
+.otherName { margin: 12px 0 8px; font: 700 13px var(--font-body); color: var(--color-dark); }
+
+/* ── Invitación «¿Eres de…?» ── */
+.invite {
+  display: flex; align-items: center; gap: 4px; width: fit-content; max-width: 100%;
+  border-radius: var(--radius-full); text-align: left;
+}
+.inviteMain {
+  display: inline-flex; align-items: center; gap: 10px; min-width: 0; min-height: 44px;
+  padding: 6px 4px 6px 14px; border: 0; background: none; color: inherit; cursor: pointer; text-align: left;
+  font: 500 14px/1.35 var(--font-body);
+}
+.inviteIcon {
+  display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: color-mix(in srgb, var(--color-primary) 22%, transparent); color: var(--color-primary);
+}
+.inviteText { min-width: 0; }
+.inviteText strong { font-weight: 700; }
+.inviteCta { color: var(--color-primary); font-weight: 700; white-space: nowrap; }
+.inviteMain:hover .inviteCta, .inviteMain:focus-visible .inviteCta { text-decoration: underline; text-underline-offset: 3px; }
+.inviteClose {
+  flex-shrink: 0; width: 44px; height: 44px; border: 0; border-radius: 50%;
+  background: none; color: inherit; opacity: 0.6; cursor: pointer; font-size: 13px;
+}
+.inviteClose:hover, .inviteClose:focus-visible { opacity: 1; }
+/* Sobre foto o fondo oscuro (heroes): cristal, como los chips del navbar. */
+.inviteDark {
+  color: #fff; background: rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(245,150,58,0.55); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.inviteDark .inviteCta { color: #FDBA74; }
+/* Sobre el fondo de la página. */
+.inviteLight {
+  color: var(--color-dark); background: var(--surface-tint-primary);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 40%, transparent);
+}
+/* Desplegada: deja sitio al selector. */
+.inviteExpanded { display: block; width: 100%; padding: 0; border-radius: var(--radius-md); }
+.inviteExpanded .selector { margin: 0; }
+.inviteDark.inviteExpanded .selectorOpen { background: rgba(15,30,45,0.72); border-color: rgba(255,255,255,0.2); }
+.inviteDark.inviteExpanded .selectorTitle,
+.inviteDark.inviteExpanded .fieldLabel { color: #fff; }
+.inviteDark.inviteExpanded .loadError { color: #fff; }
+
+/* ── Ficha (tarjeta de la nota): tus convenios aquí ── */
+.cityNote {
+  display: flex; align-items: center; gap: 8px; width: 100%;
+  padding: 10px 12px; border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16);
+  color: #fff; font: 600 13px/1.35 var(--font-body); text-decoration: none;
+}
+.cityNote:hover, .cityNote:focus-visible { border-color: var(--color-primary); }
+.cityNoteMuted { color: rgba(255,255,255,0.75); font-weight: 500; }
+
+/* ── Bloque oficial «En <universidad>» (Proceso, Learning Agreement) ── */
+.official { padding: clamp(28px, 5vw, 48px) var(--section-px); background: var(--color-surface); }
+.officialInner { max-width: 1100px; margin: 0 auto; }
+.officialTitle { margin-top: 4px; font: 700 clamp(22px, 3vw, 30px) var(--font-display); color: var(--color-dark); }
+.officialFacts {
+  margin: 16px 0 0; padding-left: 20px; display: grid; gap: 8px;
+  font: 400 15px/1.55 var(--font-body); color: var(--color-dark-mid);
+}
+.officialSource { font: 600 13px var(--font-body); color: var(--color-teal); white-space: nowrap; }
+.officialLinks {
+  list-style: none; margin: 20px 0 0; display: grid; gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+}
+.officialLink {
+  display: flex; flex-direction: column; gap: 4px; height: 100%; padding: 14px 16px;
+  border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-white);
+  text-decoration: none; transition: border-color var(--transition-fast);
+}
+.officialLink:hover, .officialLink:focus-visible { border-color: var(--color-teal); }
+.officialLinkLabel { font: 700 15px var(--font-body); color: var(--color-teal); }
+.officialLinkDesc { font: 400 13px/1.45 var(--font-body); color: var(--color-slate); }
+
+/* ── Beca: campus ── */
+.campus { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 0 0 14px; }
+.campusLabel { font: 700 13px var(--font-body); color: var(--color-dark); }
+
 @media (max-width: 600px) {
+  .inviteMain { font-size: 13px; padding-left: 10px; }
+  .inviteCta { white-space: normal; }
   .triggerHint { display: none; }
   .selectorActions { width: 100%; }
   .selectorActions .ghostBtn { flex: 1; }

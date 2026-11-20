@@ -14,6 +14,7 @@ import {
 } from "./icons";
 import { useUniversity } from "../hooks/useUniversity";
 import { formatExtractedAt } from "../lib/universities";
+import UniversityChip from "./university/UniversityChip";
 import ThemeToggle, { ThemeToggleRow } from "./ThemeToggle";
 import { CITY_MATCH_QUESTION_COUNT } from "../data/cityMatch";
 
@@ -159,7 +160,7 @@ const MENU_ITEMS = [
     // mi-universidad): el hash lo despliega y baja hasta él.
     Icon: IconUniversidad,
     label: "Mi universidad",
-    desc: "Ve solo los destinos con plazas de tu universidad y tu grado",
+    desc: "Ve solo los destinos con convenio de tu universidad y tu grado",
     action: "universidad",
     to: "/#mi-universidad",
   },
@@ -420,6 +421,7 @@ export function Navbar({ transparent = false }) {
         <Logo dark={!overlay} light={overlay} onClick={handleLogoClick} iconSize={HEADER_LOGO_ICON_SIZE} />
         <HorizontalNav />
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginLeft: "auto" }}>
+          <UniversityChip isDark={overlay} />
           <ThemeToggle isDark={overlay} />
           <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={overlay} buttonRef={menuButtonRef} mobileOnly />
         </div>
@@ -454,6 +456,7 @@ export function NavbarCity({ cityName, overall }) {
               <span style={{ fontSize: 12, color: "rgba(255,255,255,0.75)", fontWeight: 500 }}>/ 10</span>
             </div>
           )}
+          <UniversityChip isDark={overlay} />
           <ThemeToggle isDark={overlay} />
           <HamburgerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} isDark={overlay} buttonRef={menuButtonRef} />
         </div>
@@ -480,7 +483,7 @@ export function Footer() {
   const uni = useUniversity();
   return (
     <footer className="footer">
-      {/* Modo «Mi universidad»: de dónde salen las plazas (sin modo, nada). */}
+      {/* Modo «Mi universidad»: de dónde salen los convenios (sin modo, nada). */}
       {uni.active && (
         <p className="footer__uni-note">
           Datos del portal de movilidad de {uni.entry.shortName} ({formatExtractedAt(uni.data.university.extractedAt)}).

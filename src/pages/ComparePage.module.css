@@ -1257,3 +1257,6 @@
 
 /* Nota de la tarjeta de cada ciudad: botón que abre el desglose. */
 .overallBtnInner { display: inline-flex; align-items: baseline; gap: 8px; }
+
+/* Invitación «Mi universidad» (UniversityInvite), sobre el aviso del filtro. */
+.uniInvite { margin: 0 auto 16px; }

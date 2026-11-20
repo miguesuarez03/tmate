@@ -705,3 +705,6 @@
   .wizardCardFooter { flex-direction: column-reverse; }
   .wizardBackBtn, .wizardNextBtn { width: 100%; text-align: center; }
 }
+
+/* Invitación «Mi universidad» (UniversityInvite), bajo los datos del hero. */
+.uniInvite { margin-top: 28px; }

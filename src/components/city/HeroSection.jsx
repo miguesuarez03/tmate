@@ -9,6 +9,7 @@ import ScoreBreakdown from "../ScoreBreakdown";
 import { heroImage } from "../../lib/images";
 import PhotoCredit from "../PhotoCredit";
 import Flag from "../Flag";
+import CityUniversityNote from "../university/CityUniversityNote";
 
 // ─── MOOD TAGS CONFIG ─────────────────────────────────────────────────────────
 const MOOD_ICONS = {
@@ -111,7 +112,7 @@ function FloatingActionBubbles({ city, whatsappGroup }) {
   );
 }
 
-export default function HeroSection({ city, overallScore, insights, scoreDetail = null }) {
+export default function HeroSection({ city, overallScore, insights, scoreDetail = null, universityAgreements = null }) {
   const moodTags = getMoodTags(city);
   const color = getScoreLevel(overallScore).color;
   const whatsappGroup = getCityWhatsappGroup(city.slug);
@@ -298,6 +299,9 @@ export default function HeroSection({ city, overallScore, insights, scoreDetail 
           >
             Estás en la guía ↑
           </button>
+
+          {/* Modo «Mi universidad»: invitación si hay convenios aquí, o tus convenios. */}
+          <CityUniversityNote slug={city.slug} cityAgreements={universityAgreements} />
         </div>
       </div>
 

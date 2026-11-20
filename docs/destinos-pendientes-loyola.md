@@ -2,9 +2,9 @@
 
 Generado por `scripts/match-university-cities.mjs` a partir de `src/data/universities/loyola.json` (portal de movilidad, extraído el 2026-11-13). No editar a mano: vuelve a lanzar `npm run universities:match`.
 
-Es la cola de trabajo para añadir fichas: 110 ciudades con 159 plazas (de 502) fuera de España que todavía no casan con ninguna ciudad de MAbroad (mismo país y nombre/alias, o universidad a ≤ 15 km). Ordenadas por número de plazas. Las coordenadas son las de la primera universidad de cada ciudad en el portal (algunas son aproximadas).
+Es la cola de trabajo para añadir fichas: 110 ciudades con 159 convenios (de 502) fuera de España que todavía no casan con ninguna ciudad de MAbroad (mismo país y nombre/alias, o universidad a ≤ 15 km). Ordenadas por número de convenios. Las coordenadas son las de la primera universidad de cada ciudad en el portal (algunas son aproximadas).
 
-| # | Ciudad | País | Plazas | Coordenadas (lat, lng) | Universidades |
+| # | Ciudad | País | Convenios | Coordenadas (lat, lng) | Universidades |
 |---|---|---|---|---|---|
 | 1 | Luneburgo | Alemania | 3 | 53.2299, 10.4011 | Leuphana Universität Lüneburg (3) |
 | 2 | Odense | Dinamarca | 3 | 55.3680, 10.4280 | Syddansk Universitet (3) |
@@ -119,9 +119,9 @@ Es la cola de trabajo para añadir fichas: 110 ciudades con 159 plazas (de 502) 
 
 ## Destinos en España (SICUE): fuera por ahora
 
-MAbroad todavía no tiene fichas de ciudades españolas. En «Mi universidad» salen agrupados como «Destinos en España (SICUE): próximamente», sin ficha: 9 ciudades con 47 plazas.
+MAbroad todavía no tiene fichas de ciudades españolas. En «Mi universidad» salen agrupados como «Destinos en España (SICUE): próximamente», sin ficha: 9 ciudades con 47 convenios.
 
-| Ciudad | Plazas | Universidades |
+| Ciudad | Convenios | Universidades |
 |---|---|---|
 | Bilbao | 13 | Escuela Universitaria Begoñako Andra Mari BAM - Deusto (2); Universidad de Deusto (11) |
 | Salamanca | 11 | Universidad de Salamanca (9); Universidad Pontificia de Salamanca (2) |

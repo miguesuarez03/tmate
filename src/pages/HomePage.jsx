@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import {
   formatScore,
   getAllCities, findBestCityMatch, getCitiesGroupedByRegion,
-  getRankingCriteria, getCriterion, getErasmusRanking, formatCriterionValue, getRankingPath, RANKING_TOP,
+  getRankingCriteria, getCriterion, getErasmusRanking, getErasmusCityCount, formatCriterionValue, getRankingPath, RANKING_TOP,
 } from "../lib/cities";
 import { getCriterionIcon } from "../lib/categoryIcons";
 import { HOME_FAQS } from "../data/faqs";
@@ -23,6 +23,7 @@ import HomeExperiences from "../components/experiences/HomeExperiences";
 import UniversitySelector from "../components/university/UniversitySelector";
 import UniversityBanner from "../components/university/UniversityBanner";
 import PendingDestinations from "../components/university/PendingDestinations";
+import UniversityInvite from "../components/university/UniversityInvite";
 import { useUniversity } from "../hooks/useUniversity";
 
 // Índice ligero de ciudades (ver lib/cities.js).
@@ -509,7 +510,12 @@ function RankingsSection() {
   const [active, setActive] = useState(RANKING_DEFAULT);
   const criterion = getCriterion(active);
   const isCost = criterion.source.kind === "cost";
-  const ranked = useMemo(() => getErasmusRanking(active, 5), [active]);
+  // Modo «Mi universidad»: el top 5 sale solo de tus destinos.
+  const uni = useUniversity();
+  const ranked = useMemo(
+    () => getErasmusRanking(active, 5, uni.filtering ? uni.isIncluded : null),
+    [active, uni]
+  );
 
   return (
     <section className="rankings-section">
@@ -520,6 +526,7 @@ function RankingsSection() {
           <p className="rankings-subtitle">
             Destinos con beca Erasmus+, con los mismos datos que ves en cada ficha de ciudad y en el comparador.
           </p>
+          <UniversityBanner count={uni.filtering ? getErasmusCityCount(uni.isIncluded) : 0} lead="Ranking entre" />
         </div>
 
         <div className="rankings-tabs">
@@ -602,7 +609,7 @@ export default function HomePage() {
   const vibeFiltered = activeVibe
     ? hookCities.filter(c => activeVibe.tags.includes(c.tag))
     : hookCities;
-  // Modo «Mi universidad»: solo destinos con plazas para el grado elegido.
+  // Modo «Mi universidad»: solo destinos con convenio para el grado elegido.
   // Apagado (sin universidad) no quita nada.
   const uni = useUniversity();
   const filtered = uni.filtering ? vibeFiltered.filter(c => uni.isIncluded(c.slug)) : vibeFiltered;
@@ -670,6 +677,10 @@ export default function HomePage() {
           <div className="fade-up-4" style={{ width: "100%", display: "flex", justifyContent: "center", position: "relative", zIndex: 10 }}>
             <SearchBar />
           </div>
+
+          {/* Modo «Mi universidad»: invitación junto al buscador (la única de
+              la home; el listado de destinos tiene su selector). */}
+          <UniversityInvite variant="dark" className="hero__uni-invite fade-up-5" />
 
           <div className="hero__trending fade-up-5">
             <span className="hero__trending-label">Trending:</span>

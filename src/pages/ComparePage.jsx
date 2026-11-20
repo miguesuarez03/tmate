@@ -22,7 +22,7 @@ import { useCityDetails } from "../hooks/useCityDetail";
 import styles from "./ComparePage.module.css";
 import { responsiveImage } from "../lib/images";
 import PhotoCredit from "../components/PhotoCredit";
-import UniversitySelector from "../components/university/UniversitySelector";
+import UniversityInvite from "../components/university/UniversityInvite";
 import UniversityBanner from "../components/university/UniversityBanner";
 import { useUniversity } from "../hooks/useUniversity";
 
@@ -803,7 +803,7 @@ export default function ComparePage() {
     }, { replace: true });
   };
 
-  // Modo «Mi universidad»: solo destinos con plazas (apagado, no quita nada).
+  // Modo «Mi universidad»: solo destinos con convenio (apagado, no quita nada).
   const uni = useUniversity();
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim();
@@ -1205,7 +1205,8 @@ export default function ComparePage() {
 
         {/* Guía de estado: siempre ocupa su línea (cambia el texto, no el
             alto), para que la lista no salte al elegir. */}
-        <UniversitySelector />
+        {/* Modo «Mi universidad»: invitación (sin universidad) o aviso del filtro. */}
+        <UniversityInvite className={styles.uniInvite} />
         <UniversityBanner count={filtered.length} />
         <p className={styles.hint} aria-live="polite">{SELECTION_HINTS[Math.min(selected.length, 3)]}</p>
 

@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// scripts/match-university-cities.mjs — casa las plazas de una universidad
+// scripts/match-university-cities.mjs — casa los convenios de una universidad
 // (src/data/universities/<id>.json) con las ciudades que ya tienen ficha en
 // MAbroad.
 //
@@ -14,7 +14,7 @@
 // Escribe:
 //   · src/data/universities/<id>.cities.json  { relationId: citySlug | null }
 //   · docs/destinos-pendientes-<id>.md         ciudades SIN ficha, ordenadas
-//                                              por número de plazas (la cola
+//                                              por número de convenios (la cola
 //                                              de trabajo para añadir fichas)
 //
 // Uso: npm run universities:match            (todas las del registro)
@@ -115,9 +115,9 @@ function pendingMarkdown(data, mapping) {
     "",
     `Generado por \`scripts/match-university-cities.mjs\` a partir de \`src/data/universities/${data.university.id}.json\` (portal de movilidad, extraído el ${data.university.extractedAt}). No editar a mano: vuelve a lanzar \`npm run universities:match\`.`,
     "",
-    `Es la cola de trabajo para añadir fichas: ${rows.length} ciudades con ${total} plazas (de ${data.relations.length}) fuera de España que todavía no casan con ninguna ciudad de MAbroad (mismo país y nombre/alias, o universidad a ≤ ${MAX_KM} km). Ordenadas por número de plazas. Las coordenadas son las de la primera universidad de cada ciudad en el portal (algunas son aproximadas).`,
+    `Es la cola de trabajo para añadir fichas: ${rows.length} ciudades con ${total} convenios (de ${data.relations.length}) fuera de España que todavía no casan con ninguna ciudad de MAbroad (mismo país y nombre/alias, o universidad a ≤ ${MAX_KM} km). Ordenadas por número de convenios. Las coordenadas son las de la primera universidad de cada ciudad en el portal (algunas son aproximadas).`,
     "",
-    "| # | Ciudad | País | Plazas | Coordenadas (lat, lng) | Universidades |",
+    "| # | Ciudad | País | Convenios | Coordenadas (lat, lng) | Universidades |",
     "|---|---|---|---|---|---|",
     ...rows.map((r, i) => {
       const unis = [...r.universities.entries()].map(([u, n]) => (n > 1 ? `${u} (${n})` : u)).join("; ");
@@ -130,9 +130,9 @@ function pendingMarkdown(data, mapping) {
     lines.push(
       "## Destinos en España (SICUE): fuera por ahora",
       "",
-      `MAbroad todavía no tiene fichas de ciudades españolas. En «Mi universidad» salen agrupados como «Destinos en España (SICUE): próximamente», sin ficha: ${domestic.length} ciudades con ${domesticTotal} plazas.`,
+      `MAbroad todavía no tiene fichas de ciudades españolas. En «Mi universidad» salen agrupados como «Destinos en España (SICUE): próximamente», sin ficha: ${domestic.length} ciudades con ${domesticTotal} convenios.`,
       "",
-      "| Ciudad | Plazas | Universidades |",
+      "| Ciudad | Convenios | Universidades |",
       "|---|---|---|",
       ...domestic.map((r) => {
         const unis = [...r.universities.entries()].map(([u, n]) => (n > 1 ? `${u} (${n})` : u)).join("; ");
@@ -156,8 +156,8 @@ function run(id) {
   writeFileSync(join(ROOT, "docs", `destinos-pendientes-${id}.md`), md);
   const matched = Object.values(mapping).filter(Boolean);
   console.log(
-    `${id}: ${matched.length}/${data.relations.length} plazas casan con ${new Set(matched).size} ciudades de MAbroad; ` +
-      `quedan ${relations} plazas en ${cities} ciudades sin ficha y ${domesticRelations} en ${domesticCities} ciudades de España (SICUE) ` +
+    `${id}: ${matched.length}/${data.relations.length} convenios casan con ${new Set(matched).size} ciudades de MAbroad; ` +
+      `quedan ${relations} convenios en ${cities} ciudades sin ficha y ${domesticRelations} en ${domesticCities} ciudades de España (SICUE) ` +
       `(docs/destinos-pendientes-${id}.md).`
   );
 }

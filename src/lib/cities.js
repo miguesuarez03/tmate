@@ -497,15 +497,17 @@ export function filterByProgram(cities, program = 'todos') {
  * con beca Erasmus+, los títulos dicen «ciudades Erasmus».
  * @returns {RankedEntry[]}
  */
-export function getErasmusRanking(criterionId, limit = RANKING_TOP) {
-  return rankCities(criterionId, { cities: CITIES.filter(isErasmusEligible) })
+export function getErasmusRanking(criterionId, limit = RANKING_TOP, include = null) {
+  // `include(slug)`: filtro extra (modo «Mi universidad»: solo tus destinos).
+  const cities = CITIES.filter((c) => isErasmusEligible(c) && (!include || include(c.slug)));
+  return rankCities(criterionId, { cities })
     .filter((r) => r.rank != null)
     .slice(0, limit);
 }
 
 /** Número de destinos con beca Erasmus+ (lo que abarca cada ranking). */
-export function getErasmusCityCount() {
-  return CITIES.filter(isErasmusEligible).length;
+export function getErasmusCityCount(include = null) {
+  return CITIES.filter((c) => isErasmusEligible(c) && (!include || include(c.slug))).length;
 }
 
 /** Metadatos SEO de /ranking/<slug> (mismos en cliente y prerender). */

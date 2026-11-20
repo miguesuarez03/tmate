@@ -1,14 +1,66 @@
 import { useState } from "react";
 import { useUniversity } from "../../hooks/useUniversity";
-import { getAgreementLabel, formatExtractedAt } from "../../lib/universities";
+import { getAgreementLabel, formatExtractedAt, formatAgreementCount, splitNotes, studentQuoteLabel } from "../../lib/universities";
 import styles from "./University.module.css";
 
 const norm = (s) => String(s ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
 
 /**
- * Ficha de ciudad: «Tus plazas desde Loyola». Las plazas de la universidad
- * elegida en esta ciudad, filtradas por el grado (con «Ver todas las
- * titulaciones»). Sin modo universidad, o sin plazas aquí, no se pinta nada.
+ * Observaciones del portal de un convenio, separadas: lo que dice la
+ * universidad y las opiniones de antiguos alumnos (marcadas como tales).
+ */
+export function RelationNotes({ notes, shortName }) {
+  const parts = splitNotes(notes);
+  if (!parts.length) return null;
+  const hasQuotes = parts.some((p) => p.kind === "student");
+  return (
+    <details className={styles.notes}>
+      <summary>{hasQuotes ? "Observaciones y opiniones de alumnos" : "Observaciones"}</summary>
+      {parts.map((p, i) =>
+        p.kind === "student" ? (
+          <figure key={i} className={styles.quote}>
+            <blockquote>{p.text}</blockquote>
+            <figcaption>{studentQuoteLabel(shortName)}</figcaption>
+          </figure>
+        ) : (
+          <p key={i}>
+            <span className={styles.notesSource}>Portal de {shortName}: </span>
+            {p.text}
+          </p>
+        )
+      )}
+    </details>
+  );
+}
+
+function PlaceCard({ rel, cityName, shortName }) {
+  const otherCity = norm(rel.city) !== norm(cityName) ? rel.city : null;
+  return (
+    <li className={styles.placeCard}>
+      <div className={styles.placeHead}>
+        <p className={styles.placeUni}>
+          {rel.university}
+          {otherCity && <span className={styles.placeCity}> · {otherCity}</span>}
+        </p>
+        <span className={styles.agreementTag}>{getAgreementLabel(rel.agreementType)}</span>
+      </div>
+      {rel.degreesUnspecified && <p className={styles.rriTag}>Consulta en tu oficina de RRII</p>}
+      <dl className={styles.placeFacts}>
+        {rel.languageRequirement && (<><dt>Idioma requerido</dt><dd>{rel.languageRequirement}</dd></>)}
+        {rel.monthlyCost && (<><dt>Coste de vida</dt><dd>{rel.monthlyCost}</dd></>)}
+        {rel.rentPrice && (<><dt>Alquiler</dt><dd>{rel.rentPrice}</dd></>)}
+        {rel.major && (<><dt>Mención</dt><dd>{rel.major}</dd></>)}
+      </dl>
+      {rel.notes && <RelationNotes notes={rel.notes} shortName={shortName} />}
+    </li>
+  );
+}
+
+/**
+ * Ficha de ciudad: «Tus convenios desde Loyola». Los convenios de estudios de
+ * la universidad elegida en esta ciudad, filtrados por el grado (con «Ver
+ * todas las titulaciones»), y al final, plegados, los de otros programas
+ * (MAGIS…). Sin modo universidad, o sin convenios aquí, no se pinta nada.
  * No enlaza a los factsheets: el portal los sirve desde una sesión.
  */
 export default function UniversityPlaces({ slug, cityName }) {
@@ -16,7 +68,8 @@ export default function UniversityPlaces({ slug, cityName }) {
   const [allDegrees, setAllDegrees] = useState(false);
   if (!uni.active) return null;
   const all = uni.allPlacesFor(slug);
-  if (!all.length) return null;
+  const others = uni.otherPlacesFor(slug);
+  if (!all.length && !others.length) return null;
 
   const byDegree = uni.placesFor(slug);
   const list = uni.degreeId && !allDegrees ? byDegree : all;
@@ -24,56 +77,45 @@ export default function UniversityPlaces({ slug, cityName }) {
   const source = uni.data.university.source;
 
   return (
-    <section className={styles.places} aria-labelledby="tus-plazas-title">
+    <section id="tus-convenios" className={styles.places} aria-labelledby="tus-convenios-title">
       <div className={styles.placesInner}>
         <p className={styles.placesEyebrow}>Mi universidad</p>
-        <h2 id="tus-plazas-title" className={styles.placesTitle}>Tus plazas desde {name}</h2>
+        <h2 id="tus-convenios-title" className={styles.placesTitle}>Tus convenios desde {name}</h2>
         <p className={styles.placesSub}>
-          {uni.degreeName && !allDegrees
-            ? `${byDegree.length} plaza${byDegree.length === 1 ? "" : "s"} para ${uni.degreeName} (de ${all.length} en ${cityName}).`
-            : `${all.length} plaza${all.length === 1 ? "" : "s"} de ${name} en ${cityName}, de todas las titulaciones.`}
+          {all.length === 0
+            ? `${name} no tiene convenios de estudios en ${cityName}.`
+            : uni.degreeName && !allDegrees
+              ? `${formatAgreementCount(byDegree.length)} para ${uni.degreeName} (de ${all.length} en ${cityName}).`
+              : `${formatAgreementCount(all.length)} de ${name} en ${cityName}, de todas las titulaciones.`}
         </p>
-        {uni.degreeId && (
+        {uni.degreeId && all.length > 0 && (
           <label className={styles.toggle}>
             <input type="checkbox" checked={allDegrees} onChange={(e) => setAllDegrees(e.target.checked)} />
             Ver todas las titulaciones
           </label>
         )}
 
-        {list.length === 0 ? (
+        {all.length > 0 && (list.length === 0 ? (
           <p className={styles.placesEmpty}>
-            No hay plazas para {uni.degreeName} en {cityName}. Marca «Ver todas las titulaciones» para ver las demás.
+            No hay convenios para {uni.degreeName} en {cityName}. Marca «Ver todas las titulaciones» para ver los demás.
           </p>
         ) : (
           <ul className={styles.placesList}>
-            {list.map((rel) => {
-              const otherCity = norm(rel.city) !== norm(cityName) ? rel.city : null;
-              return (
-                <li key={rel.relationId} className={styles.placeCard}>
-                  <div className={styles.placeHead}>
-                    <p className={styles.placeUni}>
-                      {rel.university}
-                      {otherCity && <span className={styles.placeCity}> · {otherCity}</span>}
-                    </p>
-                    <span className={styles.agreementTag}>{getAgreementLabel(rel.agreementType)}</span>
-                  </div>
-                  {rel.degreesUnspecified && <p className={styles.rriTag}>Consulta en tu oficina de RRII</p>}
-                  <dl className={styles.placeFacts}>
-                    {rel.languageRequirement && (<><dt>Idioma requerido</dt><dd>{rel.languageRequirement}</dd></>)}
-                    {rel.monthlyCost && (<><dt>Coste de vida</dt><dd>{rel.monthlyCost}</dd></>)}
-                    {rel.rentPrice && (<><dt>Alquiler</dt><dd>{rel.rentPrice}</dd></>)}
-                    {rel.major && (<><dt>Mención</dt><dd>{rel.major}</dd></>)}
-                  </dl>
-                  {rel.notes && (
-                    <details className={styles.notes}>
-                      <summary>Observaciones</summary>
-                      <p>{rel.notes}</p>
-                    </details>
-                  )}
-                </li>
-              );
-            })}
+            {list.map((rel) => <PlaceCard key={rel.relationId} rel={rel} cityName={cityName} shortName={name} />)}
           </ul>
+        ))}
+
+        {/* Programas que no son de estudios (MAGIS…): aparte y plegados. */}
+        {others.length > 0 && (
+          <details className={styles.otherPrograms}>
+            <summary>
+              Otros programas: {[...new Set(others.map((r) => getAgreementLabel(r.agreementType)))].join(", ")} ({others.length})
+            </summary>
+            <p className={styles.pendingSub}>No son intercambios de estudios de un cuatrimestre o un curso.</p>
+            <ul className={styles.placesList}>
+              {others.map((rel) => <PlaceCard key={rel.relationId} rel={rel} cityName={cityName} shortName={name} />)}
+            </ul>
+          </details>
         )}
 
         <p className={styles.placesFoot}>
@@ -81,8 +123,8 @@ export default function UniversityPlaces({ slug, cityName }) {
             Ver en el portal de {name} ↗
           </a>
           <span>
-            Datos del portal de movilidad de {name} ({formatExtractedAt(uni.data.university.extractedAt)}). Confirma siempre
-            con la Oficina de Relaciones Internacionales.
+            Fuente: {uni.entry.name}, portal de movilidad ({formatExtractedAt(uni.data.university.extractedAt)}). Confirma
+            siempre con la Oficina de Relaciones Internacionales.
           </span>
         </p>
       </div>

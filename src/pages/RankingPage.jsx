@@ -14,6 +14,9 @@ import { RANKINGS_INDEX_META, RANKING_YEAR } from "../data/rankings";
 import { responsiveImage } from "../lib/images";
 import NotFoundPage from "./NotFoundPage";
 import styles from "./RankingPage.module.css";
+import { useUniversity } from "../hooks/useUniversity";
+import UniversityInvite from "../components/university/UniversityInvite";
+import UniversityBanner from "../components/university/UniversityBanner";
 
 /* ─────────────────────────────────────────────────────────────────────────
    /ranking            → índice con todos los rankings y su top 3.
@@ -42,8 +45,15 @@ function Position({ rank }) {
 }
 
 function RankingDetail({ criterion }) {
-  const entries = useMemo(() => getErasmusRanking(criterion.id), [criterion]);
-  const jsonLd = useMemo(() => getRankingJsonLd(criterion, entries), [criterion, entries]);
+  // Modo «Mi universidad»: el top sale solo de tus destinos. Los datos
+  // estructurados (SEO) siguen siendo los del ranking completo.
+  const uni = useUniversity();
+  const allEntries = useMemo(() => getErasmusRanking(criterion.id), [criterion]);
+  const entries = useMemo(
+    () => (uni.filtering ? getErasmusRanking(criterion.id, undefined, uni.isIncluded) : allEntries),
+    [criterion, uni, allEntries]
+  );
+  const jsonLd = useMemo(() => getRankingJsonLd(criterion, allEntries), [criterion, allEntries]);
   useSEO({ ...getRankingMeta(criterion), jsonLd });
 
   const Icon = getCriterionIcon(criterion);
@@ -65,10 +75,12 @@ function RankingDetail({ criterion }) {
             {criterion.title}
           </h1>
           <p className={styles.sub}>{criterion.intro}</p>
+          <UniversityInvite className={styles.uniInvite} />
         </div>
       </header>
 
       <main className={styles.main}>
+        <UniversityBanner count={uni.filtering ? getErasmusCityCount(uni.isIncluded) : 0} lead="Ranking entre" />
         <h2 className={styles.listTitle}>Top {entries.length}: {criterion.label.toLowerCase()}</h2>
         <ol className={styles.list}>
           {entries.map((e) => (
@@ -162,6 +174,9 @@ function RankingDetail({ criterion }) {
 
 function RankingsIndex() {
   useSEO({ ...RANKINGS_INDEX_META, jsonLd: INDEX_JSON_LD });
+  // Modo «Mi universidad»: los podios salen solo de tus destinos.
+  const uni = useUniversity();
+  const include = uni.filtering ? uni.isIncluded : null;
 
   return (
     <div className={styles.page}>
@@ -178,14 +193,16 @@ function RankingsIndex() {
             Las {ERASMUS_COUNT} ciudades con beca Erasmus+ de MAbroad ordenadas por lo que más pesa al elegir: dinero,
             ambiente, clima, seguridad, idioma, piso y salidas. El top {RANKING_TOP} de cada uno, con cómo se calcula.
           </p>
+          <UniversityInvite className={styles.uniInvite} />
         </div>
       </header>
 
       <main className={styles.main}>
+        <UniversityBanner count={include ? getErasmusCityCount(include) : 0} lead="Rankings entre" />
         <ul className={styles.indexGrid}>
           {CRITERIA.map((c) => {
             const Icon = getCriterionIcon(c);
-            const podium = getErasmusRanking(c.id, 3);
+            const podium = getErasmusRanking(c.id, 3, include);
             return (
               <li key={c.id}>
                 <Link to={getRankingPath(c)} className={styles.indexCard}>

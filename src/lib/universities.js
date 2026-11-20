@@ -1,10 +1,15 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// Lógica del modo «Mi universidad»: qué plazas de una universidad valen para
-// un grado, a qué ciudad de MAbroad pertenece cada una y cómo se resumen en
-// tarjetas y fichas. Los datos (plazas + mapeo a ciudades) viven en
+// Lógica del modo «Mi universidad»: qué convenios de una universidad valen
+// para un grado, a qué ciudad de MAbroad pertenece cada uno y cómo se resumen
+// en tarjetas y fichas. Los datos (convenios + mapeo a ciudades) viven en
 // src/data/universities/ y se cargan bajo demanda (ver registry.js); el estado
-// (universidad y grado elegidos) en src/hooks/useUniversity.jsx.
+// (universidad, grado y campus elegidos) en src/hooks/useUniversity.jsx.
+//
+// Se habla de «convenios», no de «plazas»: el portal da cada acuerdo con una
+// universidad de destino, pero no cuántas plazas tiene cada uno.
 // ─────────────────────────────────────────────────────────────────────────────
+
+import { UNIVERSITY_REGISTRY } from "../data/universities/registry.js";
 
 /** Etiqueta corta de cada tipo de convenio (las tarjetas no caben más). */
 const SHORT_AGREEMENT = {
@@ -14,13 +19,24 @@ const SHORT_AGREEMENT = {
   "MAGIS exchange": "MAGIS",
 };
 
-/** @param {string} type  agreementType de una relación */
+/** @param {string} type  agreementType de un convenio */
 export function getAgreementLabel(type) {
   return SHORT_AGREEMENT[type] ?? type;
 }
 
 /**
- * ¿La plaza vale para ese grado? Sin grado elegido, todas. Las que no dicen
+ * ¿Es un convenio de estudios (cuatrimestre o curso)? Lo decide el registro
+ * de cada universidad (`studyAgreementTypes`); sin lista, todos lo son.
+ * @param {any} rel
+ * @param {{ studyAgreementTypes?: string[] } | null | undefined} entry
+ */
+export function isStudyRelation(rel, entry) {
+  const types = entry?.studyAgreementTypes;
+  return !types || types.includes(rel.agreementType);
+}
+
+/**
+ * ¿El convenio vale para ese grado? Sin grado elegido, todos. Los que no dicen
  * para qué titulaciones son (degreesUnspecified) se enseñan siempre, con la
  * etiqueta «Consulta en tu oficina de RRII».
  */
@@ -35,57 +51,100 @@ export function getDegreeName(data, degreeId) {
 }
 
 /**
- * Plazas de la universidad que valen para el grado, repartidas entre ciudades
- * con ficha (`bySlug`) y ciudades que aún no la tienen (`pending`, agrupadas
- * por país + ciudad y ordenadas por número de plazas).
+ * Nombre corto del grado para el chip de la cabecera: la sigla entre
+ * paréntesis si la hay («… (ADE)» → «ADE»), si no el nombre entero (el chip
+ * lo recorta con puntos suspensivos).
+ */
+export function getDegreeShortName(name) {
+  if (!name) return null;
+  const m = String(name).match(/\(([^)]{2,12})\)\s*$/);
+  return m ? m[1] : String(name);
+}
+
+const groupKey = (rel) => `${rel.countryCode}|${rel.city}`;
+
+function groupByCity(relations) {
+  const byKey = new Map();
+  for (const rel of relations) {
+    const key = groupKey(rel);
+    if (!byKey.has(key)) byKey.set(key, { key, city: rel.city, country: rel.country, relations: [] });
+    byKey.get(key).relations.push(rel);
+  }
+  return [...byKey.values()].sort(
+    (a, b) => b.relations.length - a.relations.length || a.city.localeCompare(b.city, "es")
+  );
+}
+
+/**
+ * Convenios de la universidad que valen para el grado:
+ *   · bySlug    convenios de estudios en ciudades con ficha
+ *   · pending   de estudios, fuera de España, en ciudades sin ficha
+ *   · domestic  de estudios en España (SICUE): «próximamente», sin ficha
+ *   · other     de programas que no son de estudios (MAGIS…), agrupados por
+ *               tipo; no cuentan en contadores, mapa, comparador ni City Match
  * @param {any} data      <id>.json
  * @param {Record<string, string | null>} mapping  relationId → slug
  * @param {string | null} degreeId
+ * @param {{ studyAgreementTypes?: string[] } | null} [entry]  registro de la universidad
  */
-export function buildUniversityView(data, mapping, degreeId) {
+export function buildUniversityView(data, mapping, degreeId, entry = null) {
   const bySlug = new Map();
-  const pendingByKey = new Map();
+  const unmatched = [];
+  const otherByType = new Map();
   for (const rel of data?.relations ?? []) {
     if (!relationMatchesDegree(rel, degreeId)) continue;
+    if (!isStudyRelation(rel, entry)) {
+      if (!otherByType.has(rel.agreementType)) otherByType.set(rel.agreementType, []);
+      otherByType.get(rel.agreementType).push(rel);
+      continue;
+    }
     const slug = mapping?.[rel.relationId] ?? null;
     if (slug) {
       if (!bySlug.has(slug)) bySlug.set(slug, []);
       bySlug.get(slug).push(rel);
     } else {
-      const key = `${rel.countryCode}|${rel.city}`;
-      if (!pendingByKey.has(key)) pendingByKey.set(key, { key, city: rel.city, country: rel.country, relations: [] });
-      pendingByKey.get(key).relations.push(rel);
+      unmatched.push(rel);
     }
   }
-  const groups = [...pendingByKey.values()].sort(
-    (a, b) => b.relations.length - a.relations.length || a.city.localeCompare(b.city, "es")
-  );
+  const groups = groupByCity(unmatched);
   // España (sobre todo SICUE) queda fuera de MAbroad por ahora: no son
   // «fichas en preparación», sino un bloque aparte «próximamente».
   const pending = groups.filter((g) => !isDomesticGroup(g));
   const domestic = groups.filter(isDomesticGroup);
-  return { bySlug, slugs: new Set(bySlug.keys()), pending, domestic };
+  const other = [...otherByType.entries()].map(([type, relations]) => ({
+    type,
+    label: getAgreementLabel(type),
+    name: data?.agreementTypes?.[type] ?? getAgreementLabel(type),
+    relations,
+    groups: groupByCity(relations),
+  }));
+  return { bySlug, slugs: new Set(bySlug.keys()), pending, domestic, other };
 }
 
 /** País de los destinos nacionales (SICUE): MAbroad todavía no tiene fichas en España. */
 export const DOMESTIC_COUNTRY_CODE = "ES";
 
-/** ¿El grupo de plazas es de una ciudad española? */
+/** ¿El grupo de convenios es de una ciudad española? */
 export function isDomesticGroup(group) {
   return group.relations.some((r) => r.countryCode === DOMESTIC_COUNTRY_CODE);
 }
 
-/** Resumen para el distintivo de una tarjeta: nº de plazas y tipos de convenio. */
+/** Resumen para el distintivo de una tarjeta: nº de convenios y tipos. */
 export function summarizeRelations(relations = []) {
   const types = [...new Set(relations.map((r) => getAgreementLabel(r.agreementType)))];
   return { count: relations.length, types };
 }
 
-/** Texto del distintivo: «3 plazas · Erasmus+ · Bilateral». */
+/** «1 convenio» / «4 convenios». */
+export function formatAgreementCount(n) {
+  return `${n} convenio${n === 1 ? "" : "s"}`;
+}
+
+/** Texto del distintivo: «3 convenios · Erasmus+ · Bilateral». */
 export function formatPlacesBadge(relations = []) {
   const { count, types } = summarizeRelations(relations);
   if (!count) return "";
-  return [`${count} plaza${count === 1 ? "" : "s"}`, ...types].join(" · ");
+  return [formatAgreementCount(count), ...types].join(" · ");
 }
 
 /** Recorta un texto largo del portal a una línea legible. */
@@ -110,6 +169,104 @@ export function getPendingCardInfo(group) {
     cost: cost ? clipText(cost, 80) : null,
     ...summarizeRelations(rels),
   };
+}
+
+// ─── Observaciones: notas de la universidad y opiniones de alumnos ──────────
+// El portal mezcla en un mismo campo observaciones de la universidad
+// («Algunas asignaturas en alemán») y opiniones de antiguos alumnos
+// («Un alumno dice: ¨…¨»). Se separan para que se vea qué es cada cosa: las
+// opiniones se publican (con permiso de la universidad), siempre como de
+// alumnos y nunca como de la universidad, y sin nombres ni datos de contacto.
+
+// «Un alumno que hizo Erasmus aquí comenta:», «Estudiantes de otros años
+// recomiendan:», «Sobre el alojamiento, estudiante dice:»… Sin comas ni puntos
+// entre el sujeto y el verbo, y nunca «se recomienda» (impersonal: es de la
+// universidad).
+// También «Alumno que hizo movilidad en esa institución: "…"» (sin verbo, pero
+// con dos puntos y la opinión entre comillas).
+const STUDENT_INTRO =
+  /(?:\b(?:un|una|el|la|los|las)\s+)?\b(?:alumn[oa]s?|estudiantes?)\b(?:[^.,:;¨"“”\n]{0,80}?(?<!\bse\s)\b(?:dice|dicen|comenta|comentan|recomienda|recomiendan|opina|opinan|cuenta|cuentan|afirma|afirman)\b\s*[:.]?|[^.,:;¨"“”\n]{0,80}?:(?=\s*[¨"“«]))\s*/giu;
+const OPEN_QUOTES = new Set(["¨", '"', "“", "«"]);
+const CLOSE_QUOTES = { "¨": ["¨"], '"': ['"', "”"], "“": ["”", '"'], "«": ["»"] };
+
+/** Quita correos, teléfonos y URLs de una opinión (datos de contacto personales). */
+export function scrubPersonalData(text) {
+  return String(text)
+    .replace(/[\w.+-]+@[\w-]+(?:\.[\w-]+)+/g, "[dato personal eliminado]")
+    .replace(/(?:\+\d{1,3}[\s-]?)?(?:\d[\s-]?){8,}\d/g, "[dato personal eliminado]");
+}
+
+const clean = (s) => String(s).replace(/[ \t]+/g, " ").replace(/\s*\n\s*/g, "\n").trim();
+
+/**
+ * Parte unas observaciones en trozos de la universidad y opiniones de alumnos.
+ * @param {string | null | undefined} text
+ * @returns {{ kind: "university" | "student", text: string }[]}
+ */
+export function splitNotes(text) {
+  const src = String(text ?? "");
+  const parts = [];
+  const push = (kind, t) => {
+    const c = clean(kind === "student" ? scrubPersonalData(t) : t).replace(/^[\s.,;:]+|[\s,;:]+$/g, "");
+    if (c) parts.push({ kind, text: c });
+  };
+  let pos = 0;
+  STUDENT_INTRO.lastIndex = 0;
+  let m;
+  while ((m = STUDENT_INTRO.exec(src))) {
+    push("university", src.slice(pos, m.index));
+    let start = m.index + m[0].length;
+    let end;
+    const open = src[start];
+    if (OPEN_QUOTES.has(open)) {
+      // Opinión entre comillas: hasta la comilla de cierre.
+      start += 1;
+      const closers = CLOSE_QUOTES[open];
+      const idx = Math.min(...closers.map((c) => src.indexOf(c, start)).filter((i) => i >= 0));
+      end = Number.isFinite(idx) ? idx : src.length;
+      pos = Number.isFinite(idx) ? idx + 1 : src.length;
+    } else {
+      // Sin comillas: hasta la siguiente opinión o el final.
+      STUDENT_INTRO.lastIndex = start;
+      const next = STUDENT_INTRO.exec(src);
+      end = next ? next.index : src.length;
+      pos = end;
+    }
+    push("student", src.slice(start, end));
+    STUDENT_INTRO.lastIndex = pos;
+  }
+  push("university", src.slice(pos));
+  return parts;
+}
+
+/** Etiqueta de las opiniones de alumnos. */
+export function studentQuoteLabel(shortName) {
+  return `Antiguo alumno de ${shortName} en este destino`;
+}
+
+// ─── Invitación y campus ─────────────────────────────────────────────────────
+
+/**
+ * Texto de la invitación a elegir universidad. Con una sola universidad en
+ * el registro, la nombra; con varias, es genérico.
+ * @param {{ count?: number, cityUniversity?: { shortName: string, count: number } | null }} [opts]
+ */
+export function getInviteText({ cityUniversity = null } = {}, registry = UNIVERSITY_REGISTRY) {
+  if (cityUniversity) {
+    return {
+      title: `${cityUniversity.shortName} tiene ${formatAgreementCount(cityUniversity.count)} aquí.`,
+      cta: "Elige tu grado",
+    };
+  }
+  if (registry.length === 1) {
+    return { title: `¿Eres de ${registry[0].shortName}?`, cta: "Elige tu grado y ve solo tus destinos" };
+  }
+  return { title: "¿Tu universidad está en MAbroad?", cta: "Elígela y ve solo tus destinos" };
+}
+
+/** Campus de una universidad por id (o null). */
+export function getCampus(entry, campusId) {
+  return entry?.campuses?.find((c) => c.id === campusId) ?? null;
 }
 
 /** Enlace para compartir el modo universidad: /?uni=loyola&grado=giti */

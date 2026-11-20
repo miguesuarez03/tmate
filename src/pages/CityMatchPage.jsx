@@ -17,6 +17,7 @@ import PhotoCredit from "../components/PhotoCredit";
 import styles from "./CityMatchPage.module.css";
 import { responsiveImage } from "../lib/images";
 import UniversityBanner from "../components/university/UniversityBanner";
+import UniversityInvite from "../components/university/UniversityInvite";
 import { useUniversity } from "../hooks/useUniversity";
 
 const ALL_CITIES = getAllCities();
@@ -684,7 +685,7 @@ export default function CityMatchPage() {
   const firstRender = useRef(true);
   const titleId = useId();
   const hintId = useId();
-  // Modo «Mi universidad»: solo destinos con plazas (apagado, no quita nada).
+  // Modo «Mi universidad»: solo destinos con convenio (apagado, no quita nada).
   const uni = useUniversity();
 
   useSEO({
@@ -896,12 +897,12 @@ export default function CityMatchPage() {
                 {top.length > 0
                   ? "Estas son tus ciudades ideales"
                   : matches.length === 0 && uni.filtering
-                    ? `${uni.entry.shortName} no tiene plazas en este tipo de destino`
+                    ? `${uni.entry.shortName} no tiene convenios en este tipo de destino`
                     : "Ninguna ciudad cumple todo lo imprescindible"}
               </h1>
               <p className={styles.resultsSubtitle}>{subtitle}</p>
               {/* Destinos entre los que se ha buscado (tipo de destino elegido +
-                  plazas de la universidad), no los que se enseñan (máx. 5). */}
+                  convenios de la universidad), no los que se enseñan (máx. 5). */}
               <UniversityBanner count={matches.length} lead="Buscando entre" />
               <div className={styles.resultsActions}>
                 <button className={styles.secondaryBtn} onClick={restart}>↺ Volver a hacer el test</button>
@@ -1015,6 +1016,9 @@ export default function CityMatchPage() {
                 <li><strong>~2</strong><span>minutos</span></li>
                 <li><strong>{uni.filtering ? ALL_CITIES.filter((c) => uni.isIncluded(c.slug)).length : ALL_CITIES.length}</strong><span>destinos</span></li>
               </ul>
+              {/* Modo «Mi universidad»: invitación o aviso del filtro. */}
+              <UniversityInvite className={styles.uniInvite} />
+              <UniversityBanner count={ALL_CITIES.filter((c) => uni.isIncluded(c.slug)).length} />
               <button type="button" className={`${styles.continueBtn} ${styles.introStart}`} onClick={() => setStarted(true)}>
                 Empezar →
               </button>

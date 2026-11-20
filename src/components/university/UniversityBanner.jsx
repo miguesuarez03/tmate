@@ -4,7 +4,7 @@ import styles from "./University.module.css";
 /**
  * «Mostrando X destinos para [grado] en Loyola · Ver todos los destinos».
  * Solo con el modo universidad activo; «Ver todos» pausa el filtro sin
- * quitar la universidad (las tarjetas siguen con su distintivo de plazas).
+ * quitar la universidad (las tarjetas siguen con su distintivo de convenios).
  * @param {{ count: number, lead?: string }} props  destinos que se están
  *   enseñando (o, con `lead="Buscando entre"`, entre los que se busca)
  */
@@ -12,7 +12,7 @@ export default function UniversityBanner({ count, lead = "Mostrando" }) {
   const uni = useUniversity();
   if (!uni.active) return null;
   const name = uni.entry.shortName;
-  const who = uni.degreeName ? `para ${uni.degreeName} en ${name}` : `con plazas de ${name}`;
+  const who = uni.degreeName ? `para ${uni.degreeName} en ${name}` : `con convenio de ${name}`;
   return (
     <div className={styles.banner} role="status">
       {uni.showAll ? (

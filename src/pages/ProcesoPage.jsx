@@ -4,6 +4,8 @@ import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import JourneySteps from "../components/JourneySteps";
 import { IconLupa, IconClipboard, IconSobre, IconCheck, IconEdificio, IconMaleta, IconFiesta, IconCasa, IconBombilla, IconLearningAgreement, IconDocumento, IconComparar, IconBeca } from "../components/icons";
 import { useSEO } from "../hooks/useSEO";
+import UniversityInvite from "../components/university/UniversityInvite";
+import UniversityOfficialInfo from "../components/university/UniversityOfficialInfo";
 
 /* ─── DATA ──────────────────────────────────────────────────────────────── */
 
@@ -541,8 +543,14 @@ export default function ProcesoPage() {
               <span className="proceso-hero__stat-label">En Erasmus+ (2024)</span>
             </div>
           </div>
+
+          {/* Modo «Mi universidad»: invitación (sin universidad elegida). */}
+          <UniversityInvite variant="dark" className="proceso-hero__uni-invite" />
         </div>
       </section>
+
+      {/* Modo «Mi universidad»: lo que publica tu universidad (con fuente). */}
+      <UniversityOfficialInfo context="Lo que publica tu universidad sobre las convocatorias y los pasos tras la asignación." />
 
       {/* Ancla de los pasos: aquí vuelve la vista al cambiar de paso (queda
           por debajo del navbar fijo gracias a su scroll-margin-top). */}

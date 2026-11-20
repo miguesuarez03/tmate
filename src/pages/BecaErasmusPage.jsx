@@ -1,4 +1,4 @@
-import { useState, useId } from "react";
+import { useState, useId, useMemo, useEffect } from "react";
 import Flag from "../components/Flag";
 import SearchableInput from "../components/SearchableInput";
 import { Link } from "react-router-dom";
@@ -12,6 +12,10 @@ import { BECA_FAQS } from "../data/faqs";
 import { CITY_COORDS, haversineDistanceKm, distanceToRange, geocodeCity } from "../lib/cityCoords";
 import { getAllCities, parseMinCost, parseMaxCost, isErasmusEligible, getErasmusTransition, getStateCountry } from "../lib/cities";
 import { GROUP1, GROUP2, GROUP3, ESTIMATED_GROUPS, SEPIE_NAMES, SEPIE_MIN_MONTHLY } from "../data/becaGroups";
+import { useUniversity } from "../hooks/useUniversity";
+import UniversityInvite from "../components/university/UniversityInvite";
+import UniversityBanner from "../components/university/UniversityBanner";
+import uniStyles from "../components/university/University.module.css";
 
 // Índice ligero de ciudades (ver lib/cities.js).
 const ALL_CITIES = getAllCities();
@@ -134,6 +138,21 @@ function Calculator() {
   const [calcError, setCalcError] = useState("");
   const [calcKm, setCalcKm] = useState(null);
 
+  // Modo «Mi universidad»: el origen es la ciudad del campus elegido (se
+  // guarda; sin elegir, no se marca ninguno) y el destino, entre tus convenios
+  // («Ver todos los destinos» en el aviso quita el filtro).
+  const uni = useUniversity();
+  const destinationOptions = useMemo(
+    () => ALL_CITIES.filter((c) => isErasmusEligible(c) && uni.isIncluded(c.slug))
+      .map((c) => ({ value: c.slug, label: c.name, sublabel: c.country, emoji: c.emoji })),
+    [uni]
+  );
+  // Campus guardado de otra visita: rellena el origen si aún está vacío.
+  useEffect(() => {
+    if (uni.campus && !originCity) setOriginCity(uni.campus.origin);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [uni.campus]);
+
   // País se deduce de la ciudad de destino seleccionada
   const destCity = ALL_CITIES.find(c => c.slug === destinationSlug);
   const country = destCity?.country || "";
@@ -239,6 +258,30 @@ function Calculator() {
       </h2>
       <p className="beca-calc__subtitle">Estimación orientativa — las cuantías exactas las confirma tu universidad</p>
 
+      {/* Modo «Mi universidad»: invitación, o campus (origen) + tus destinos. */}
+      <UniversityInvite className="beca-calc__uni-invite" />
+      {uni.entry?.campuses?.length > 0 && (
+        <div className={uniStyles.campus} role="group" aria-labelledby="beca-campus-label">
+          <span id="beca-campus-label" className={uniStyles.campusLabel}>Tu campus de {uni.entry.shortName}:</span>
+          {uni.entry.campuses.map((c) => (
+            <button
+              key={c.id}
+              type="button"
+              className={`filter-pill${uni.campusId === c.id ? " filter-pill--active" : ""}`}
+              aria-pressed={uni.campusId === c.id}
+              onClick={() => {
+                uni.setCampus(c.id);
+                setOriginCity(c.origin);
+                setCalcStatus("idle");
+              }}
+            >
+              {c.name}
+            </button>
+          ))}
+        </div>
+      )}
+      <UniversityBanner count={destinationOptions.length} />
+
       <div className="beca-calc__grid">
         {/* Left: inputs */}
         <div className="beca-calc__inputs">
@@ -259,7 +302,7 @@ function Calculator() {
                   value={destCity?.name || ""}
                   onChange={() => {}}
                   onSelect={(opt) => handleDestinationChange(opt.value)}
-                  options={ALL_CITIES.filter(isErasmusEligible).map(c => ({ value: c.slug, label: c.name, sublabel: c.country, emoji: c.emoji }))}
+                  options={destinationOptions}
                   placeholder="Ciudad de destino…"
                 />
               </div>

@@ -220,14 +220,17 @@ export default function PrivacidadPage() {
             enviar la solicitud).
           </li>
           <li>
-            <strong>Mi universidad</strong> (localStorage, clave <code>mabroad:universidad</code>): la universidad
-            y el grado que eliges en «Mi universidad», para seguir enseñándote solo los destinos con plazas de tu
-            universidad cuando vuelvas. Solo se guarda si eliges una universidad, y se borra al pulsar «Quitar».
-            Si abres un enlace compartido con <code>?uni=…&amp;grado=…</code>, esa elección se guarda igual y el enlace se limpia de la barra de direcciones.
+            <strong>Mi universidad</strong> (localStorage, clave <code>mabroad:universidad</code>): la universidad,
+            el grado y el campus que eliges en «Mi universidad», para seguir enseñándote solo los destinos con
+            convenio de tu universidad y calcular la beca desde tu campus cuando vuelvas. Solo se guarda si eliges
+            una universidad, y se borra al pulsar «Quitar». Si abres un enlace compartido con{" "}
+            <code>?uni=…&amp;grado=…</code>, esa elección se guarda igual y el enlace se limpia de la barra de
+            direcciones.
           </li>
           <li>
-            <strong>Hasta que cierras la pestaña</strong> (sessionStorage): las ciudades que estás comparando
-            y la posición de scroll para volver atrás.
+            <strong>Hasta que cierras la pestaña</strong> (sessionStorage): las ciudades que estás comparando,
+            la posición de scroll para volver atrás y, si cierras la invitación «¿Eres de…?» de Mi universidad,
+            que no vuelva a salir (clave <code>mabroad:invitacion-universidad</code>).
           </li>
         </ul>
         <p>Puedes borrarlo todo cuando quieras limpiando los datos del sitio en tu navegador.</p>

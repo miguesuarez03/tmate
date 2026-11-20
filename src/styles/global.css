@@ -357,6 +357,60 @@ a { text-decoration: none; color: inherit; }
    barra («Cuéntanos tu experiencia»). Solo se oculta en iPad horizontal
    (bloque 1024–1199px más abajo), como antes de la tanda 2. */
 
+/* ─── UNIVERSITY CHIP / INVITACIÓN ──────────────────────────────────────────
+   Modo «Mi universidad» (hooks/useUniversity.jsx). La invitación plegada
+   (data-uni-invite-el) se oculta antes de pintar si index.html marcó
+   <html data-uni-invite="off"> (universidad ya elegida o invitación cerrada).
+   El chip va en la cabecera, junto al botón de tema, con el estilo de los
+   enlaces del navbar (contorno naranja). En móvil, solo el icono. */
+:root[data-uni-invite="off"] [data-uni-invite-el] { display: none !important; }
+
+.uni-chip { position: relative; flex-shrink: 0; }
+.uni-chip__btn {
+  display: inline-flex; align-items: center; gap: 6px; position: relative;
+  min-height: 44px; max-width: 220px; padding: 0 12px;
+  border-radius: var(--radius-full); border: 1.5px solid var(--color-primary);
+  background: var(--color-white); color: var(--color-primary);
+  font: 700 13px var(--font-body); cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+.uni-chip__btn:hover, .uni-chip__btn[aria-expanded="true"] { background: var(--color-primary); color: #fff; }
+.uni-chip--dark .uni-chip__btn { background: rgba(255,255,255,0.12); color: #fff; border-color: rgba(245,150,58,0.8); }
+.uni-chip--dark .uni-chip__btn:hover, .uni-chip--dark .uni-chip__btn[aria-expanded="true"] { background: var(--color-primary); }
+.uni-chip__label { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.uni-chip__caret { font-size: 10px; opacity: 0.8; }
+.uni-chip__dot {
+  position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--color-primary); box-shadow: 0 0 0 2px var(--color-white); display: none;
+}
+.uni-chip__menu {
+  position: absolute; top: calc(100% + 8px); right: 0; z-index: 1100;
+  width: min(300px, calc(100vw - 24px)); padding: 14px;
+  display: flex; flex-direction: column; gap: 10px;
+  border-radius: var(--radius-md); border: 1px solid var(--color-border);
+  background: var(--color-white); box-shadow: var(--shadow-lg, 0 12px 32px rgba(0,0,0,0.18));
+  color: var(--color-dark); text-align: left;
+}
+.uni-chip__title { margin: 0; font: 700 14px var(--font-display); color: var(--color-dark); }
+.uni-chip__field { display: flex; flex-direction: column; gap: 4px; font: 700 11px var(--font-body); letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-slate); }
+.uni-chip__field select {
+  width: 100%; min-height: 40px; padding: 8px 10px; border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border); background: var(--color-white); color: var(--color-dark);
+  font: 500 14px var(--font-body); text-transform: none; letter-spacing: 0;
+}
+.uni-chip__action {
+  min-height: 40px; padding: 8px 12px; border-radius: var(--radius-sm); text-align: left;
+  border: 1px solid var(--color-border); background: var(--color-white); color: var(--color-teal);
+  font: 600 14px var(--font-body); cursor: pointer;
+}
+.uni-chip__action:hover, .uni-chip__action:focus-visible { border-color: var(--color-teal); }
+.uni-chip__action--muted { color: var(--color-slate); }
+@media (max-width: 640px) {
+  .uni-chip__btn { width: 44px; padding: 0; justify-content: center; }
+  .uni-chip__label, .uni-chip__caret { display: none; }
+  .uni-chip__dot { display: block; }
+}
+
 /* ─── THEME TOGGLE ───────────────────────────────────────────────────────── */
 .theme-toggle {
   display: flex; align-items: center; justify-content: center;
@@ -540,6 +594,8 @@ a { text-decoration: none; color: inherit; }
   color: rgba(255,255,255,0.92); max-width: 500px; line-height: 1.6; margin-bottom: 44px;
   text-shadow: 0 1px 2px rgba(15,30,45,0.6), 0 2px 16px rgba(15,30,45,0.7);
 }
+/* Invitación «Mi universidad», justo bajo el buscador (UniversityInvite). */
+.hero__uni-invite { margin: 18px auto 0; position: relative; z-index: 5; }
 .hero__trending { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 7px; justify-content: center; align-items: center; }
 .hero__trending-label { font-size: 12px; color: rgba(255,255,255,0.85); text-shadow: 0 1px 6px rgba(15,30,45,0.6); }
 .hero__trending-pill {
@@ -1600,6 +1656,8 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
   font-size: clamp(15px, 2vw, 18px); color: rgba(255,255,255,0.75);
   line-height: 1.6; max-width: 520px; margin-bottom: 40px;
 }
+/* Invitación «Mi universidad» (UniversityInvite), bajo los datos del hero. */
+.proceso-hero__uni-invite { margin-top: 28px; }
 .proceso-hero__stats {
   display: flex; gap: 32px; flex-wrap: wrap;
 }
@@ -2220,6 +2278,8 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
   margin-bottom: 6px;
 }
 .beca-calc__subtitle { font-size: 14px; color: var(--color-muted); margin-bottom: 32px; }
+/* Invitación «Mi universidad» (UniversityInvite) sobre el formulario. */
+.beca-calc__uni-invite { margin: -16px 0 20px; }
 .beca-calc__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
 @media (max-width: 768px) { .beca-calc__grid { grid-template-columns: 1fr; } }
 

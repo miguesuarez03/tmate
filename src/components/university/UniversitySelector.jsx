@@ -12,11 +12,27 @@ import styles from "./University.module.css";
  * «Copiar enlace» (/?uni=…&grado=…) y «Quitar». El primer render es siempre
  * el plegado, igual que el HTML prerenderizado.
  * Con `id`, el enlace del menú (/#mi-universidad) lo abre y baja hasta él.
+ *
+ * Desde la invitación (UniversityInvite) llega `autoOpen`: abierto desde el
+ * principio, con el foco en el desplegable y, si solo hay una universidad (o
+ * la invitación es de la ficha: `preselect`), ya elegida para ir al grado.
+ * `onClose` pliega la invitación al pulsar «Listo», «Cerrar» o «Quitar».
+ * @param {{ id?: string, autoOpen?: boolean, preselect?: string | null, onClose?: () => void }} props
  */
-export default function UniversitySelector({ id }) {
+export default function UniversitySelector({ id, autoOpen = false, preselect = null, onClose = null }) {
   const uni = useUniversity();
   const { hash, key: locationKey } = useLocation();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(autoOpen);
+
+  // Abierto por la invitación: universidad preseleccionada y foco dentro.
+  useEffect(() => {
+    if (!autoOpen) return;
+    const only = UNIVERSITY_REGISTRY.length === 1 ? UNIVERSITY_REGISTRY[0].id : null;
+    const pick = preselect ?? only;
+    if (pick && !uni.uniId) uni.setUniversity(pick);
+    requestAnimationFrame(() => selectRef.current?.focus());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const [copied, setCopied] = useState(false);
   const rootRef = useRef(null);
   const triggerRef = useRef(null);
@@ -76,7 +92,7 @@ export default function UniversitySelector({ id }) {
         >
           <IconUniversidad size={18} />
           <span>Mi universidad</span>
-          <span className={styles.triggerHint}>· ve solo los destinos con plazas de tu universidad</span>
+          <span className={styles.triggerHint}>· ve solo los destinos con convenio de tu universidad</span>
         </button>
       </div>
     );
@@ -128,12 +144,17 @@ export default function UniversitySelector({ id }) {
       </label>
       {uni.loadError && (
         <p className={styles.loadError} role="alert">
-          No hemos podido cargar las plazas de {uni.entry.shortName}: por ahora ves todos los destinos.{" "}
+          No hemos podido cargar los convenios de {uni.entry.shortName}: por ahora ves todos los destinos.{" "}
           <button type="button" className={styles.linkBtn} onClick={uni.retry}>Reintentar</button>
         </p>
       )}
       <div className={styles.selectorActions}>
-        {uni.uniId && (
+        {onClose && uni.uniId && (
+          <button type="button" className={`${styles.ghostBtn} ${styles.primaryBtn}`} onClick={onClose}>
+            Listo
+          </button>
+        )}
+        {uni.uniId && !onClose && (
           <button type="button" className={styles.ghostBtn} onClick={copyLink}>
             {copied ? "¡Enlace copiado!" : "Copiar enlace"}
           </button>
@@ -145,6 +166,7 @@ export default function UniversitySelector({ id }) {
             focusAfterToggle.current = "trigger";
             uni.clear();
             setOpen(false);
+            onClose?.();
           }}
         >
           {uni.uniId ? "Quitar" : "Cerrar"}

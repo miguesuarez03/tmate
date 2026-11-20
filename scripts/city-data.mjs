@@ -33,6 +33,8 @@ import { COUNTRY_HOMICIDE_RATES } from "../src/data/scoring/homicides.js";
 import { CITY_NEET } from "../src/data/scoring/neet.js";
 import { COUNTRY_LANGUAGE, CITY_LANGUAGE_PENDING } from "../src/data/scoring/languages.js";
 import * as BECA_DATA from "../src/data/becaGroups.js";
+import { UNIVERSITY_REGISTRY } from "../src/data/universities/registry.js";
+import { isStudyRelation } from "../src/lib/universities.js";
 
 const HEADER = "// Generado por scripts/city-data.mjs a partir de src/data/ — no editar a mano.\n";
 
@@ -42,6 +44,28 @@ const INDEX_FIELDS = [
   "phrase", "costDetail", "vibe", "erasmus", "weather", "language", "img", "experiences",
   "erasmusFrom", "erasmusStatus",
 ];
+
+/**
+ * Convenios de estudios de cada universidad del registro, por ciudad:
+ * { slug: [{ id, count }] }. Va en la ficha de cada ciudad (no en el índice)
+ * para la invitación «<Universidad> tiene N convenios aquí».
+ */
+function universityAgreementsBySlug() {
+  const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+  const out = {};
+  for (const entry of UNIVERSITY_REGISTRY) {
+    const dir = join(root, "src", "data", "universities");
+    const data = JSON.parse(readFileSync(join(dir, entry.file), "utf-8"));
+    const mapping = JSON.parse(readFileSync(join(dir, `${entry.id}.cities.json`), "utf-8"));
+    const counts = {};
+    for (const rel of data.relations) {
+      const slug = mapping[rel.relationId];
+      if (slug && isStudyRelation(rel, entry)) counts[slug] = (counts[slug] ?? 0) + 1;
+    }
+    for (const [slug, count] of Object.entries(counts)) (out[slug] ??= []).push({ id: entry.id, count });
+  }
+  return out;
+}
 
 function insightsFor(city) {
   return CITY_INSIGHTS[city.slug] ?? DEFAULT_INSIGHTS(city);
@@ -63,6 +87,7 @@ function checkScores(city, scores) {
 export function buildCityData() {
   const index = [];
   const details = {};
+  const agreements = universityAgreementsBySlug();
   for (const city of CITIES) {
     const insights = insightsFor(city);
     checkScores(city, insights.scores);
@@ -96,6 +121,7 @@ export function buildCityData() {
     entry.nature = natureLevel(city);
     index.push(entry);
     details[city.slug] = { city, insights, scoring: { detail } };
+    if (agreements[city.slug]) details[city.slug].universityAgreements = agreements[city.slug];
   }
   return { index, details };
 }

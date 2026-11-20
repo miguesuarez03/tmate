@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useUniversity } from "../../hooks/useUniversity";
-import { getPendingCardInfo, formatPlacesBadge } from "../../lib/universities";
+import { getPendingCardInfo, formatPlacesBadge, formatAgreementCount } from "../../lib/universities";
 import styles from "./University.module.css";
 
 const INITIAL = 8;
@@ -9,7 +9,8 @@ const INITIAL = 8;
  * Destinos de la universidad que todavía no tienen ficha en MAbroad: tarjeta
  * sencilla con ciudad, país, universidades, idioma y coste, y la etiqueta
  * «Ficha en preparación». No enlazan a ninguna página: aún no existe.
- * Los de España (SICUE) van aparte, en un bloque «próximamente» sin tarjetas.
+ * Los de España (SICUE) van aparte, en un bloque «próximamente» sin tarjetas,
+ * y los de programas que no son de estudios (MAGIS…), plegados al final.
  */
 export default function PendingDestinations() {
   const uni = useUniversity();
@@ -18,13 +19,45 @@ export default function PendingDestinations() {
     <>
       <AbroadPending groups={uni.view.pending} />
       <DomesticPending groups={uni.view.domestic} />
+      <OtherPrograms other={uni.view.other} />
     </>
   );
 }
 
 /**
+ * «Otros programas: MAGIS»: plegado y discreto. No son intercambios de
+ * estudios de un cuatrimestre o un curso, así que no cuentan en ningún
+ * contador ni filtro; solo se listan por ciudad.
+ */
+function OtherPrograms({ other }) {
+  if (!other.length) return null;
+  const total = other.reduce((n, o) => n + o.relations.length, 0);
+  return (
+    <details className={styles.otherPrograms}>
+      <summary>
+        Otros programas: {other.map((o) => o.label).join(", ")} ({formatAgreementCount(total)})
+      </summary>
+      <p className={styles.pendingSub}>No son intercambios de estudios de un cuatrimestre o un curso.</p>
+      {other.map((o) => (
+        <div key={o.type}>
+          <p className={styles.otherName}>{o.name}</p>
+          <ul className={styles.domesticList}>
+            {o.groups.map((g) => (
+              <li key={g.key} className={styles.domesticItem}>
+                <span className={styles.domesticCity}>{g.city}</span>
+                <span className={styles.domesticPlaces}>{g.country} · {formatAgreementCount(g.relations.length)}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </details>
+  );
+}
+
+/**
  * «Destinos en España (SICUE): próximamente». MAbroad aún no tiene fichas en
- * España: solo la ciudad y el número de plazas, sin enlace ni datos del portal.
+ * España: solo la ciudad y el número de convenios, sin enlace ni datos del portal.
  */
 function DomesticPending({ groups }) {
   if (!groups.length) return null;

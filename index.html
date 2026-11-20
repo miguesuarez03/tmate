@@ -54,6 +54,13 @@
             : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
           document.documentElement.setAttribute("data-theme", theme);
         } catch (e) {}
+        // Invitación «Mi universidad»: oculta antes de pintar si ya hay una
+        // universidad elegida o se cerró en esta sesión (ver hooks/useUniversity.jsx).
+        try {
+          var uni = JSON.parse(localStorage.getItem("mabroad:universidad") || "null");
+          var off = (uni && uni.uni) || sessionStorage.getItem("mabroad:invitacion-universidad") === "1";
+          if (off) document.documentElement.setAttribute("data-uni-invite", "off");
+        } catch (e) {}
       })();
     </script>
   </head>

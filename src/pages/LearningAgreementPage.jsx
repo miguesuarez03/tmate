@@ -9,6 +9,8 @@ import { useCityDetails } from "../hooks/useCityDetail";
 import { getAllCities, isErasmusEligible } from "../lib/cities";
 import SearchableInput from "../components/SearchableInput";
 import styles from "./LearningAgreementPage.module.css";
+import UniversityInvite from "../components/university/UniversityInvite";
+import UniversityOfficialInfo from "../components/university/UniversityOfficialInfo";
 
 // Índice ligero de ciudades (ver lib/cities.js).
 const ALL_CITIES = getAllCities();
@@ -608,7 +610,7 @@ function LAWizard() {
                 <input
                   className={styles.wizardInput}
                   type="text"
-                  placeholder="ej. Universidad Loyola Andalucía"
+                  placeholder="ej. Universidad de Sevilla"
                   value={data.universidadOrigen}
                   onChange={e => update("universidadOrigen", e.target.value)}
                   {...fieldProps("universidadOrigen")}
@@ -869,8 +871,14 @@ export default function LearningAgreementPage() {
               <span className={styles.heroStatLabel}>Plazo de cambios, según tu uni</span>
             </div>
           </div>
+
+          {/* Modo «Mi universidad»: invitación (sin universidad elegida). */}
+          <UniversityInvite variant="dark" className={styles.uniInvite} />
         </div>
       </section>
+
+      {/* Modo «Mi universidad»: lo que publica tu universidad (con fuente). */}
+      <UniversityOfficialInfo context="Lo que publica tu universidad sobre la solicitud y el Learning Agreement." />
 
       {/* ── QUÉ ES: DIAGRAMA ── */}
       <section className={styles.section}>

@@ -43,9 +43,9 @@ export default function CityDetailPage() {
       <NavbarCity cityName={city.name} overall={overallScore} />
 
       {/* 1. Hero */}
-      <HeroSection city={city} overallScore={overallScore} insights={insights} scoreDetail={detail?.scoring?.detail} />
+      <HeroSection city={city} overallScore={overallScore} insights={insights} scoreDetail={detail?.scoring?.detail} universityAgreements={detail?.universityAgreements ?? null} />
 
-      {/* Modo «Mi universidad»: tus plazas en esta ciudad (sin modo, nada) */}
+      {/* Modo «Mi universidad»: tus convenios en esta ciudad (sin modo, nada) */}
       <UniversityPlaces slug={slug} cityName={city.name} />
 
       {/* 2. Bento highlights — with photos */}

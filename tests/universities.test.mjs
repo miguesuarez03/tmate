@@ -58,8 +58,97 @@ test("relationMatchesDegree y textos del distintivo", () => {
   assert.equal(relationMatchesDegree(rel, "giti"), false);
   assert.equal(relationMatchesDegree({ degreeIds: [], degreesUnspecified: true }, "giti"), true);
   assert.equal(getAgreementLabel("Bilateral studies"), "Bilateral");
-  assert.equal(formatPlacesBadge([rel]), "1 plaza · Erasmus+");
-  assert.equal(formatPlacesBadge([rel, { ...rel, agreementType: "SICUE" }]), "2 plazas · Erasmus+ · SICUE");
+  assert.equal(formatPlacesBadge([rel]), "1 convenio · Erasmus+");
+  assert.equal(formatPlacesBadge([rel, { ...rel, agreementType: "SICUE" }]), "2 convenios · Erasmus+ · SICUE");
   assert.equal(formatPlacesBadge([]), "");
   assert.equal(getUniversityShareUrl("https://x.com", "loyola", "giti"), "https://x.com/?uni=loyola&grado=giti");
+});
+
+// ─── Parte A: programas, observaciones, invitación ──────────────────────────
+import { readdirSync } from "node:fs";
+import {
+  isStudyRelation,
+  splitNotes,
+  scrubPersonalData,
+  getInviteText,
+  getDegreeShortName,
+  formatAgreementCount,
+} from "../src/lib/universities.js";
+
+for (const entry of UNIVERSITY_REGISTRY) {
+  test(`${entry.id}: los programas que no son de estudios van aparte y no cuentan`, () => {
+    const data = readJson(entry.file);
+    const mapping = readJson(`${entry.id}.cities.json`);
+    const view = buildUniversityView(data, mapping, null, entry);
+    const counted = [...view.bySlug.values()].flat()
+      .concat(view.pending.flatMap((g) => g.relations), view.domestic.flatMap((g) => g.relations));
+    for (const rel of counted) assert.ok(isStudyRelation(rel, entry), `${rel.relationId} (${rel.agreementType}) cuenta y no es de estudios`);
+    const other = view.other.flatMap((o) => o.relations);
+    for (const rel of other) assert.ok(!isStudyRelation(rel, entry), rel.relationId);
+    assert.equal(counted.length + other.length, data.relations.length);
+    // Una ciudad que solo tiene convenios de otros programas no entra en el filtro.
+    for (const slug of view.slugs) assert.ok(view.bySlug.get(slug).every((r) => isStudyRelation(r, entry)), slug);
+  });
+
+  test(`${entry.id}: las opiniones de alumnos se separan y no llevan datos de contacto`, () => {
+    const data = readJson(entry.file);
+    for (const rel of data.relations) {
+      for (const part of splitNotes(rel.notes)) {
+        if (part.kind !== "student") continue;
+        assert.doesNotMatch(part.text, /[\w.+-]+@[\w-]+\.[\w.-]+/, `${rel.relationId}: correo en una opinión`);
+        assert.doesNotMatch(part.text, /(?:\d[\s-]?){9,}/, `${rel.relationId}: teléfono en una opinión`);
+      }
+    }
+  });
+}
+
+test("splitNotes: notas de la universidad frente a opiniones de alumnos", () => {
+  assert.deepEqual(splitNotes("Para GMA asignaturas de ingeniería\nUn alumno que hizo Erasmus en este destino comenta: \"La residencia es obligatoria\""), [
+    { kind: "university", text: "Para GMA asignaturas de ingeniería" },
+    { kind: "student", text: "La residencia es obligatoria" },
+  ]);
+  assert.deepEqual(splitNotes("Algunas asignaturas en alemán. Alumno dice: ¨Ve con la mente abierta¨ Se recomienda el segundo semestre."), [
+    { kind: "university", text: "Algunas asignaturas en alemán." },
+    { kind: "student", text: "Ve con la mente abierta" },
+    { kind: "university", text: "Se recomienda el segundo semestre." },
+  ]);
+  // «se recomienda» (impersonal) es de la universidad, no de un alumno.
+  assert.deepEqual(splitNotes("Para estudiantes de educación se recomienda solo el grado simple."), [
+    { kind: "university", text: "Para estudiantes de educación se recomienda solo el grado simple." },
+  ]);
+  assert.deepEqual(splitNotes(null), []);
+  assert.equal(scrubPersonalData("Escríbeme a ana.perez@uni.es o al 600 123 456"), "Escríbeme a [dato personal eliminado] o al [dato personal eliminado]");
+});
+
+test("invitación y chip: textos genéricos, sin universidad escrita a mano", () => {
+  assert.deepEqual(getInviteText({}, [{ shortName: "Uni A" }]), { title: "¿Eres de Uni A?", cta: "Elige tu grado y ve solo tus destinos" });
+  assert.equal(getInviteText({}, [{ shortName: "A" }, { shortName: "B" }]).title, "¿Tu universidad está en MAbroad?");
+  assert.equal(getInviteText({ cityUniversity: { shortName: "Uni A", count: 1 } }).title, "Uni A tiene 1 convenio aquí.");
+  assert.equal(getDegreeShortName("Administración y Dirección de Empresas (ADE)"), "ADE");
+  assert.equal(getDegreeShortName("Psicología"), "Psicología");
+  assert.equal(formatAgreementCount(4), "4 convenios");
+});
+
+test("ningún componente, página ni hook nombra a una universidad concreta (todo sale del registro)", () => {
+  const names = UNIVERSITY_REGISTRY.flatMap((u) => [u.id, u.shortName, u.name]);
+  const dirs = ["../src/components", "../src/pages", "../src/hooks"];
+  const files = [];
+  const walk = (url) => {
+    for (const ent of readdirSync(url, { withFileTypes: true })) {
+      const child = new URL(`${ent.name}${ent.isDirectory() ? "/" : ""}`, url);
+      if (ent.isDirectory()) walk(child);
+      else if (/\.(jsx?|tsx?)$/.test(ent.name)) files.push(child);
+    }
+  };
+  for (const d of dirs) walk(new URL(`${d}/`, import.meta.url));
+  for (const file of files) {
+    // Sin comentarios: en ellos sí se puede poner Loyola como ejemplo.
+    const code = readFileSync(file, "utf8")
+      .replace(/\{\/\*[\s\S]*?\*\/\}/g, "")
+      .replace(/\/\*[\s\S]*?\*\//g, "")
+      .replace(/(^|[^:"'`])\/\/.*$/gm, "$1");
+    for (const n of names) {
+      assert.ok(!new RegExp(`\\b${n}\\b`, "i").test(code), `${file.pathname.split("/src/")[1]} nombra «${n}»`);
+    }
+  }
 });

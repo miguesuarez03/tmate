@@ -502,3 +502,6 @@
   .importanceToggle { display: flex; }
   .importanceBtn { flex: 1 1 auto; min-height: 44px; }
 }
+
+/* Invitación «Mi universidad» (UniversityInvite), bajo los datos de la portada. */
+.uniInvite { margin: 4px auto 18px; }
