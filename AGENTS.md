@@ -8,7 +8,7 @@ MAbroad (repo `tmate`): web en español para elegir ciudad de Erasmus. React + V
 
 ## Reparto de papeles
 - **Claude Code hace las tareas**: planifica, decide (producto, diseño, arquitectura, textos), edita el código y los datos, y da el visto bueno final.
-- **Codex revisa**: Claude lo llama con `codex exec` en **modo solo lectura** (`-s read-only`) al terminar cada tarea, antes del push. Codex no edita archivos en esas llamadas: informa y Claude corrige.
+- **Codex revisa**: Claude lo llama con `codex exec` en **modo solo lectura** (`-s read-only`) al terminar cada tarea, antes del push. Codex no edita archivos: informa y Claude corrige. **Solo edita si Miguel lo autoriza explícitamente** para esa tarea concreta (la autorización no vale para las siguientes).
 
 ## Flujo de cada tarea
 1. Claude hace la tarea.
@@ -24,7 +24,7 @@ MAbroad (repo `tmate`): web en español para elegir ciudad de Erasmus. React + V
 - No repite trabajo: parte del diff y del resumen que le pasa Claude.
 
 ## Reglas para los dos
-1. **Nunca editar a la vez los mismos archivos.** Claude edita y Codex revisa.
+1. **Nunca editar a la vez los mismos archivos.** Claude edita y Codex revisa (Codex solo edita con autorización explícita de Miguel).
 2. **Git es el punto de encuentro**: commits pequeños, con mensaje en español que diga qué y por qué. Antes de empezar, `git status` para no pisar cambios sin commitear.
 3. **Revisión antes del push**: todo cambio no trivial pasa por la revisión de Codex antes de hacer push (los cambios pequeños, como un texto o un estilo, no la necesitan).
 4. **Despliegue**: el push a `main` (que despliega en Vercel) lo hace Claude tras la revisión y el build, sin preguntar. `vercel --prod` solo si Miguel lo pide.
