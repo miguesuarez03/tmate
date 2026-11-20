@@ -29,9 +29,17 @@ import styles from "./University.module.css";
 /** Invitación desplegada: botón «Cerrar» visible y cierre con un clic fuera. */
 function ExpandedInvite({ className, onClose, children }) {
   const ref = useRef(null);
-  // Al abrirse, que se vea entero (la lista de grados queda debajo).
+  // Al abrirse, que se vea entero (la lista de grados queda debajo), y si
+  // luego cambia de tamaño (al escribir, al cargar los grados), que siga a la
+  // vista: «nearest» solo mueve la página si algo se ha quedado fuera.
   useEffect(() => {
-    ref.current?.scrollIntoView({ block: "center", behavior: "instant" });
+    const el = ref.current;
+    if (!el) return undefined;
+    el.scrollIntoView({ block: "center", behavior: "instant" });
+    if (typeof ResizeObserver === "undefined") return undefined;
+    const ro = new ResizeObserver(() => el.scrollIntoView({ block: "nearest", behavior: "instant" }));
+    ro.observe(el);
+    return () => ro.disconnect();
   }, []);
   useEffect(() => {
     const onDown = (e) => {

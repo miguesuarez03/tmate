@@ -20,8 +20,8 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { createServer } from "node:http";
-import { existsSync, mkdirSync, readFileSync, statSync } from "node:fs";
-import { dirname, extname, join, normalize } from "node:path";
+import { existsSync, mkdirSync, readFileSync, realpathSync, statSync } from "node:fs";
+import { dirname, extname, join, normalize, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright-core";
 
@@ -52,14 +52,21 @@ const TYPES = {
   ".woff2": "font/woff2", ".mp4": "video/mp4", ".webm": "video/webm", ".ico": "image/x-icon", ".txt": "text/plain",
 };
 function serve() {
+  const root = realpathSync(DIST);
+  const inside = (p) => p === root || p.startsWith(root + sep);
   const server = createServer((req, res) => {
-    const url = decodeURIComponent(new URL(req.url, "http://x").pathname);
-    const safe = normalize(url).replace(/^(\.\.[/\\])+/, "");
-    let file = join(DIST, safe);
-    if (existsSync(file) && statSync(file).isDirectory()) file = join(file, "index.html");
-    if (!existsSync(file)) file = join(DIST, "404.html");
-    res.writeHead(200, { "content-type": TYPES[extname(file)] ?? "application/octet-stream" });
-    res.end(readFileSync(file));
+    try {
+      const url = decodeURIComponent(new URL(req.url, "http://x").pathname);
+      let file = join(root, normalize(url));
+      if (existsSync(file) && statSync(file).isDirectory()) file = join(file, "index.html");
+      // Nunca fuera de dist/ (ni con «../» ni con enlaces simbólicos).
+      if (!existsSync(file) || !inside(realpathSync(file))) file = join(root, "404.html");
+      res.writeHead(200, { "content-type": TYPES[extname(file)] ?? "application/octet-stream" });
+      res.end(readFileSync(file));
+    } catch {
+      res.writeHead(400);
+      res.end();
+    }
   });
   return new Promise((resolve) => server.listen(0, "127.0.0.1", () => resolve(server)));
 }
@@ -137,6 +144,11 @@ function dropdownCheck({ selector, label }) {
   const problems = [];
   if (r.left < -1 || r.right > vw + 1) problems.push(`${label} se sale por los lados (de ${Math.round(r.left)} a ${Math.round(r.right)}px, pantalla ${vw}px)`);
   if (r.bottom > vh + 1) problems.push(`${label} queda cortado por abajo (llega a ${Math.round(r.bottom)}px, pantalla ${vh}px)`);
+  if (r.top < -1) problems.push(`${label} queda cortado por arriba (empieza en ${Math.round(r.top)}px)`);
+  // Debajo de la cabecera fija (si no es parte de ella).
+  const header = document.querySelector(".navbar");
+  const hb = header && !header.contains(el) ? header.getBoundingClientRect().bottom : 0;
+  if (hb && r.top < hb - 1) problems.push(`${label} queda debajo de la cabecera (empieza en ${Math.round(r.top)}px, la cabecera acaba en ${Math.round(hb)}px)`);
   // Lo que se ve en varios puntos del desplegable tiene que ser el desplegable.
   const points = [
     [r.left + r.width / 2, r.top + 12],
@@ -205,14 +217,24 @@ async function main() {
             await page.waitForTimeout(300);
             found.push(...(await page.evaluate(dropdownCheck, { selector: ".search-bar__uni-panel", label: "el desplegable «Tu uni y grado»" })));
             found.push(...(await page.evaluate(layoutChecks)).filter((x) => x.startsWith("scroll horizontal")));
+            // Con el panel abierto, la pantalla se hace más baja (teclado del
+            // móvil, ventana redimensionada): tiene que seguir entero a la vista.
+            await page.setViewportSize({ width, height: Math.round(height * 0.6) });
+            await page.waitForTimeout(250);
+            found.push(...(await page.evaluate(dropdownCheck, { selector: ".search-bar__uni-panel", label: "el desplegable «Tu uni y grado» con la pantalla más baja" })));
+            await page.setViewportSize({ width, height });
             await page.keyboard.press("Escape");
-            checks++;
+            await page.waitForTimeout(150);
+            if (await page.$(".search-bar__uni-panel")) found.push("Escape no cierra el desplegable «Tu uni y grado»");
+            checks += 2;
           }
           if (state.saved) {
             await page.click(".uni-chip__btn");
             await page.waitForTimeout(200);
             found.push(...(await page.evaluate(dropdownCheck, { selector: ".uni-chip__menu", label: "el menú del chip" })));
             await page.keyboard.press("Escape");
+            await page.waitForTimeout(100);
+            if (await page.$(".uni-chip__menu")) found.push("Escape no cierra el menú del chip");
             checks++;
           } else if (p.path !== "/") {
             const invite = await page.$("[data-uni-invite-el] button");

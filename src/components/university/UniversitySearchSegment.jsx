@@ -44,24 +44,40 @@ export default function UniversitySearchSegment() {
   const [pos, setPos] = useState(null);
   useEffect(() => {
     if (!open) return undefined;
+    // Lo que se ve de verdad: con el teclado del móvil abierto o con zoom, el
+    // visualViewport es más pequeño que la ventana.
+    const visible = () => {
+      const vv = window.visualViewport;
+      return { top: vv?.offsetTop ?? 0, height: vv?.height ?? window.innerHeight };
+    };
+    const HEADER = 64 + 8; // cabecera fija + aire: el panel nunca la invade
     const place = () => {
       const bar = rootRef.current?.closest(".search-bar") ?? rootRef.current;
       if (!bar) return;
       const r = bar.getBoundingClientRect();
-      const top = r.bottom + 8;
-      setPos({ top, left: r.left, width: r.width, maxHeight: Math.max(220, window.innerHeight - top - 12) });
+      const view = visible();
+      const minTop = view.top + HEADER;
+      const maxBottom = view.top + view.height - 12;
+      const top = Math.min(Math.max(r.bottom + 8, minTop), maxBottom - 160);
+      setPos({ top, left: r.left, width: r.width, maxHeight: Math.max(160, maxBottom - top) });
     };
     // Si debajo del buscador no caben ~320 px, se sube la página (bajo la
-    // cabecera fija, 64 px) para que el desplegable se vea entero.
+    // cabecera fija) para que el desplegable se vea entero.
     const bar = rootRef.current?.closest(".search-bar") ?? rootRef.current;
     const r = bar?.getBoundingClientRect();
-    if (r && window.innerHeight - r.bottom < 320) window.scrollBy({ top: r.top - 76, behavior: "instant" });
+    const view = visible();
+    if (r && view.top + view.height - r.bottom < 320) window.scrollBy({ top: r.top - HEADER - 4, behavior: "instant" });
     place();
+    const vv = window.visualViewport;
     window.addEventListener("scroll", place, { passive: true });
     window.addEventListener("resize", place);
+    vv?.addEventListener("resize", place);
+    vv?.addEventListener("scroll", place);
     return () => {
       window.removeEventListener("scroll", place);
       window.removeEventListener("resize", place);
+      vv?.removeEventListener("resize", place);
+      vv?.removeEventListener("scroll", place);
     };
   }, [open]);
 

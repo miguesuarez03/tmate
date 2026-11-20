@@ -416,7 +416,7 @@ a { text-decoration: none; color: inherit; }
   .uni-chip__btn { width: 44px; padding: 0; justify-content: center; }
   /* El chip no está en el borde (a su derecha van tema y menú): el menú se
      fija bajo la cabecera, a todo el ancho. */
-  .uni-chip__menu { position: fixed; top: 68px; left: 12px; right: 12px; width: auto; }
+  .uni-chip__menu { position: fixed; top: 68px; left: 12px; right: 12px; width: auto; max-height: calc(100vh - 80px); max-height: calc(100dvh - 80px); overflow-y: auto; }
   .uni-chip__btn svg { width: 28px; height: 28px; }
   .uni-chip__label, .uni-chip__caret { display: none; }
   .uni-chip__dot { display: block; }
