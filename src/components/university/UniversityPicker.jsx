@@ -1,4 +1,4 @@
-import { useEffect, useId, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { IconUniversidad } from "../icons";
 import { useUniversity } from "../../hooks/useUniversity";
 import { getUniversityEntry } from "../../data/universities/registry";
@@ -47,8 +47,10 @@ export default function UniversityPicker({ uniId = null, autoFocus = false, onDo
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const options = useMemo(() => buildOptions(query), [query, chosen]);
 
-  useEffect(() => {
-    if (autoFocus) inputRef.current?.focus();
+  // Foco al montar en un layout effect: se ejecuta dentro del mismo toque que
+  // abre el buscador, así iOS abre el teclado. Sin mover la página.
+  useLayoutEffect(() => {
+    if (autoFocus) inputRef.current?.focus({ preventScroll: true });
   }, [autoFocus]);
   useEffect(() => setActive(0), [query, chosen]);
   useEffect(() => {
@@ -59,7 +61,7 @@ export default function UniversityPicker({ uniId = null, autoFocus = false, onDo
     setChosen(u);
     setQuery("");
     // Mismo campo: el foco sigue (o vuelve) en él para escribir el grado.
-    requestAnimationFrame(() => inputRef.current?.focus());
+    inputRef.current?.focus({ preventScroll: true });
   }
   function finish(degreeId) {
     uni.setUniversity(chosen.id, degreeId);
@@ -69,7 +71,7 @@ export default function UniversityPicker({ uniId = null, autoFocus = false, onDo
   function changeUni() {
     setChosen(null);
     setQuery("");
-    requestAnimationFrame(() => inputRef.current?.focus());
+    inputRef.current?.focus({ preventScroll: true });
   }
 
   const onKeyDown = (e) => {

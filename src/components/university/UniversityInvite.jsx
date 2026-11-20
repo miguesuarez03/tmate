@@ -99,6 +99,8 @@ export default function UniversityInvite({ variant = "light", cityAgreements = n
       onClose={() => {
         setSheetOpen(false);
         onExpandedChange?.(false);
+        // El foco vuelve a la invitación o, si ya se eligió, al chip.
+        requestAnimationFrame(() => (mainRef.current ?? document.querySelector(".uni-chip__btn"))?.focus({ preventScroll: true }));
       }}
     />
   );

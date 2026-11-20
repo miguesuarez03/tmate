@@ -29,8 +29,12 @@ export function useFloatingBelow(anchorRef, open, { gap = 8, minHeight = 160 } =
       const viewTop = vv?.offsetTop ?? 0;
       const viewHeight = vv?.height ?? window.innerHeight;
       const maxBottom = viewTop + viewHeight - 12;
-      const top = Math.min(Math.max(r.bottom + gap, viewTop + HEADER), maxBottom - minHeight);
-      setPos({ top, left: r.left, width: r.width, maxHeight: Math.max(minHeight, maxBottom - top) });
+      const minTop = viewTop + HEADER;
+      // El mínimo nunca puede ser mayor que lo que cabe bajo la cabecera: con
+      // poca altura (teclado abierto) el panel se encoge, sin invadirla.
+      const min = Math.min(minHeight, Math.max(0, maxBottom - minTop));
+      const top = Math.max(Math.min(r.bottom + gap, maxBottom - min), minTop);
+      setPos({ top, left: r.left, width: r.width, maxHeight: Math.max(min, maxBottom - top) });
     };
     place();
     const vv = window.visualViewport;
