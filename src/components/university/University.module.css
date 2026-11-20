@@ -219,7 +219,7 @@
   border: 1px solid color-mix(in srgb, var(--color-primary) 40%, transparent);
 }
 /* Desplegada: deja sitio al selector. */
-.inviteExpanded { display: block; position: relative; width: 100%; padding: 0; border-radius: var(--radius-md); }
+.inviteExpanded { display: block; position: relative; width: 100%; padding: 0; border-radius: var(--radius-md); scroll-margin: 80px 0 96px; }
 .inviteCloseExpanded {
   position: absolute; top: 8px; right: 8px; z-index: 1; width: 36px; height: 36px; border: 0; border-radius: 50%;
   background: var(--color-surface); color: var(--color-slate); cursor: pointer; font-size: 12px;
@@ -259,7 +259,15 @@
 .pickerLabel { font: 600 14px/1.3 var(--font-body); color: var(--color-dark); }
 .pickerSub { font: 500 12px var(--font-body); color: var(--color-slate); }
 .pickerEmpty { padding: 10px 12px; font: 500 13px var(--font-body); color: var(--color-slate); }
-/* Paso 2: universidad elegida y «← Cambiar universidad». */
+/* Paso 2: «← Cambiar universidad» y «Todos los grados» (pastilla pequeña). */
+.pickerAll {
+  min-height: 32px; padding: 0 12px; border-radius: var(--radius-full); cursor: pointer;
+  border: 1px solid var(--color-border); background: var(--color-white); color: var(--color-dark-mid);
+  font: 600 12px var(--font-body);
+}
+.pickerAll:hover, .pickerAll:focus-visible { border-color: var(--color-teal); color: var(--color-teal); }
+.pickerAllOn { border-color: var(--color-primary); color: var(--color-primary); }
+.picker :global(.search-bar__list) { border-radius: 10px; border: 1px solid var(--color-border); overflow: hidden; background: var(--color-white); }
 .pickerStep { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; min-width: 0; }
 .pickerBack {
   min-height: 36px; padding: 0 10px; border: 0; border-radius: var(--radius-full);
@@ -268,21 +276,6 @@
 .pickerBack:hover, .pickerBack:focus-visible { background: var(--color-teal); color: #fff; }
 .pickerUni { min-width: 0; font: 700 14px var(--font-body); color: var(--color-dark); overflow-wrap: anywhere; }
 
-/* ── Hoja de móvil (UniversitySheet): pantalla completa desde abajo ── */
-.sheet {
-  position: fixed; inset: 0; z-index: 1300; display: flex; flex-direction: column;
-  padding: 16px 16px calc(16px + env(safe-area-inset-bottom)); box-sizing: border-box;
-  background: var(--color-white); animation: sheetUp 200ms var(--ease-smooth, ease-out) both;
-}
-@keyframes sheetUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
-.sheetHead { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
-.sheetTitle { margin: 0; font: 700 18px var(--font-display); color: var(--color-dark); }
-.sheetClose {
-  flex-shrink: 0; width: 44px; height: 44px; border: 0; border-radius: 50%;
-  background: var(--color-surface); color: var(--color-dark); font-size: 15px; cursor: pointer;
-}
-.sheet .picker { flex: 1; min-height: 0; }
-.sheet .pickerList { flex: 1; max-height: none; min-height: 0; }
 .inviteExpanded .picker { padding: 12px; border-radius: var(--radius-md); background: var(--color-white); box-shadow: var(--shadow-sm); }
 .inviteDark.inviteExpanded .picker { background: rgba(15,30,45,0.85); }
 .inviteDark.inviteExpanded .pickerList { background: var(--color-white); }

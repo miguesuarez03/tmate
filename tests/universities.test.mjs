@@ -220,12 +220,12 @@ test("buscador «Tu uni y grado» en dos pasos: universidad y luego grado (nombr
   // Paso 1: universidades.
   const reg2 = [...reg, { id: "uni-b", name: "Universidad B del Norte", shortName: "Uni B", degrees: [] }];
   assert.deepEqual(searchUniversities("sur", reg2).map((u) => u.id), ["uni-a"]);
-  assert.deepEqual(searchUniversities("uni b", reg2).map((u) => u.id), ["uni-b"]);
+  assert.equal(searchUniversities("uni b", reg2)[0].id, "uni-b");
   assert.equal(searchUniversities("", reg2).length, 2);
   // Paso 2: grados de la elegida.
-  assert.deepEqual(searchDegrees(reg[0], "ade").map((d) => d.id), ["ade"]);
-  assert.deepEqual(searchDegrees(reg[0], "GITI").map((d) => d.id), ["giti"]);
-  assert.deepEqual(searchDegrees(reg[0], "ingenieria").map((d) => d.id), ["giti"]);
+  assert.equal(searchDegrees(reg[0], "ade")[0].id, "ade");
+  assert.equal(searchDegrees(reg[0], "GITI")[0].id, "giti");
+  assert.equal(searchDegrees(reg[0], "ingenieria")[0].id, "giti");
   assert.equal(searchDegrees(reg[0], "").length, 3);
   assert.deepEqual(searchDegrees(reg2[1], "ade"), []);
   assert.equal(getDegreeShortName("Ingeniería en Tecnologías Industriales", "giti"), "GITI");
@@ -290,4 +290,32 @@ test("buscador de destinos: con universidad, solo sugiere tus destinos", async (
   assert.ok(!best || mine.has(best.slug));
   // Sin universidad, como siempre.
   assert.ok(searchCities("riga", 6).length > 1);
+});
+
+test("sugerencias: la primera es siempre la más parecida (empieza igual > contiene > se parece, siglas y erratas)", async () => {
+  const { searchDegrees, matchScore } = await import("../src/lib/universities.js");
+  const loyola = UNIVERSITY_REGISTRY.find((u) => u.id === "loyola");
+  const first = (q) => searchDegrees(loyola, q)[0]?.id;
+  assert.equal(first("ADE"), "ade");
+  assert.equal(first("ade"), "ade");
+  assert.equal(first("GITI"), "giti");
+  assert.equal(first("adminstracion"), "ade"); // errata
+  assert.equal(first("psico"), "psicologia");
+  assert.equal(first("derech"), "derecho");
+  assert.equal(first("comunicacion audio"), "cadv");
+  assert.ok(["giti", "ioi"].includes(first("ingenieria indus")));
+  // Sin texto: primero los grados con más destinos.
+  const empty = searchDegrees(loyola, "");
+  for (let i = 1; i < empty.length; i++) assert.ok(empty[i - 1].destinations >= empty[i].destinations);
+  // Orden de parecido.
+  assert.ok(matchScore("ade", "ADE") < matchScore("adm", "Administración"));
+  assert.ok(matchScore("admin", "Administración") < matchScore("ministra", "Administración"));
+  assert.ok(matchScore("ministra", "Administración") < matchScore("adminstracion", "Administración"));
+  assert.equal(matchScore("zzzz", "Administración"), null);
+});
+
+test("enlace del chip: universidad, grado y destinos del comparador", async () => {
+  const { getUniversityShareUrl } = await import("../src/lib/universities.js");
+  assert.equal(getUniversityShareUrl("https://x.com", "loyola", "giti", ["roma", "berlin"]), "https://x.com/comparar?uni=loyola&grado=giti&cities=roma,berlin");
+  assert.equal(getUniversityShareUrl("https://x.com", "loyola", null), "https://x.com/?uni=loyola");
 });

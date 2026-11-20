@@ -455,3 +455,7 @@ a.heroBigLink:hover {
   .floatingBubble { width: 44px; height: 44px; }
   .floatingBubble svg { width: 22px; height: 22px; }
 }
+
+/* Con el buscador «Tu uni y grado» abierto (UniversityInvite), fuera las
+   burbujas: taparían sus sugerencias. */
+:global(body.uni-picker-open) .floatingActions { visibility: hidden; pointer-events: none; }

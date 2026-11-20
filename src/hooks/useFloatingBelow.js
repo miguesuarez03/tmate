@@ -1,22 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Posición de un panel flotante (sugerencias del buscador, desplegable
-// «Tu uni y grado») que se pinta en un portal en <body>, fuera del hero (que
-// recorta lo que se sale y queda tapado por la sección siguiente).
+// Paneles flotantes bajo una barra (sugerencias del buscador de destinos,
+// desplegable «Tu uni y grado»), pintados en un portal en <body>, fuera del
+// hero (que recorta lo que se sale y queda tapado por la sección siguiente).
 //
-// Devuelve { top, left, width, maxHeight } en coordenadas de la ventana
-// (position: fixed) bajo el elemento `anchorRef`, recalculadas al hacer scroll,
-// al cambiar el tamaño y con el visualViewport (teclado del móvil, zoom). Nunca
-// invade la cabecera fija (64 px) ni se sale por abajo. Solo con `open`.
+// useFloatingBelow: { top, left, width } en coordenadas del <body>
+// (position: absolute). Así el panel se mueve con la página y queda siempre
+// pegado justo debajo de su barra al deslizar, sin ir a saltos detrás del
+// scroll. Se recalcula al abrir y al cambiar el tamaño (también el
+// visualViewport: teclado del móvil).
+//
+// useScrollLock: bloquea el scroll de la página mientras `active` (en móvil,
+// con un desplegable abierto), también en iOS: <body> fijo en su sitio y de
+// vuelta al cerrar. Lo único que se desliza es la lista, si hace falta.
 // ─────────────────────────────────────────────────────────────────────────────
 
-const HEADER = 64 + 8;
-
-export function useFloatingBelow(anchorRef, open, { gap = 8, minHeight = 160 } = {}) {
+export function useFloatingBelow(anchorRef, open, { gap = 8 } = {}) {
   const [pos, setPos] = useState(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!open) {
       setPos(null);
       return undefined;
@@ -25,30 +28,48 @@ export function useFloatingBelow(anchorRef, open, { gap = 8, minHeight = 160 } =
       const el = anchorRef.current;
       if (!el) return;
       const r = el.getBoundingClientRect();
-      const vv = window.visualViewport;
-      const viewTop = vv?.offsetTop ?? 0;
-      const viewHeight = vv?.height ?? window.innerHeight;
-      const maxBottom = viewTop + viewHeight - 12;
-      const minTop = viewTop + HEADER;
-      // El mínimo nunca puede ser mayor que lo que cabe bajo la cabecera: con
-      // poca altura (teclado abierto) el panel se encoge, sin invadirla.
-      const min = Math.min(minHeight, Math.max(0, maxBottom - minTop));
-      const top = Math.max(Math.min(r.bottom + gap, maxBottom - min), minTop);
-      setPos({ top, left: r.left, width: r.width, maxHeight: Math.max(min, maxBottom - top) });
+      // Relativo al <body>: vale igual con el scroll bloqueado (body fijo).
+      const b = document.body.getBoundingClientRect();
+      setPos({ top: r.bottom - b.top + gap, left: r.left - b.left, width: r.width });
     };
     place();
+    // Otra vez en el siguiente fotograma: si en móvil se acaba de bloquear el
+    // scroll (body fijo), las coordenadas del body cambian.
+    const raf = requestAnimationFrame(place);
     const vv = window.visualViewport;
-    window.addEventListener("scroll", place, { passive: true });
     window.addEventListener("resize", place);
     vv?.addEventListener("resize", place);
-    vv?.addEventListener("scroll", place);
     return () => {
-      window.removeEventListener("scroll", place);
+      cancelAnimationFrame(raf);
       window.removeEventListener("resize", place);
       vv?.removeEventListener("resize", place);
-      vv?.removeEventListener("scroll", place);
     };
-  }, [anchorRef, open, gap, minHeight]);
+  }, [anchorRef, open, gap]);
 
   return pos;
+}
+
+let locks = 0;
+let saved = null;
+
+export function useScrollLock(active) {
+  useEffect(() => {
+    if (!active) return undefined;
+    const { body } = document;
+    if (locks++ === 0) {
+      const y = window.scrollY;
+      saved = { y, position: body.style.position, top: body.style.top, width: body.style.width };
+      body.style.position = "fixed";
+      body.style.top = `-${y}px`;
+      body.style.width = "100%";
+    }
+    return () => {
+      if (--locks === 0 && saved) {
+        const { y, ...prev } = saved;
+        Object.assign(body.style, prev);
+        window.scrollTo({ top: y, left: 0, behavior: "instant" });
+        saved = null;
+      }
+    };
+  }, [active]);
 }

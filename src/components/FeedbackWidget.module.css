@@ -249,3 +249,6 @@
   .fab, .panel, .backdrop { animation: none; transition: none; }
   .spinner { animation-duration: 1.6s; }
 }
+
+/* Con el buscador «Tu uni y grado» abierto, el botón no tapa sus sugerencias. */
+:global(body.uni-picker-open) .fab { visibility: hidden; pointer-events: none; }

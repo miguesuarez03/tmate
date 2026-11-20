@@ -4,7 +4,7 @@ import { useUniversity } from "../../hooks/useUniversity";
 import { getUniversityEntry } from "../../data/universities/registry";
 import { getInviteText } from "../../lib/universities";
 import UniversityPicker from "./UniversityPicker";
-import UniversitySheet, { isMobileViewport } from "./UniversitySheet";
+import { useIsMobile, MAX_SUGGESTIONS } from "../../hooks/useIsMobile";
 import styles from "./University.module.css";
 
 /**
@@ -30,17 +30,21 @@ import styles from "./University.module.css";
 /** Invitación desplegada: botón «Cerrar» visible y cierre con un clic fuera. */
 function ExpandedInvite({ className, onClose, children }) {
   const ref = useRef(null);
-  // Al abrirse, que se vea entero (la lista de grados queda debajo), y si
-  // luego cambia de tamaño (al escribir, al cargar los grados), que siga a la
-  // vista: «nearest» solo mueve la página si algo se ha quedado fuera.
+  // Que se vea entero sin dar saltos: «nearest» solo mueve la página lo justo
+  // si algo se ha quedado fuera (también si luego cambia de tamaño).
   useEffect(() => {
     const el = ref.current;
     if (!el) return undefined;
-    el.scrollIntoView({ block: "center", behavior: "instant" });
+    el.scrollIntoView({ block: "nearest", behavior: "instant" });
     if (typeof ResizeObserver === "undefined") return undefined;
     const ro = new ResizeObserver(() => el.scrollIntoView({ block: "nearest", behavior: "instant" }));
     ro.observe(el);
     return () => ro.disconnect();
+  }, []);
+  // Mientras está abierta, fuera los botones flotantes (taparían la lista).
+  useEffect(() => {
+    document.body.classList.add("uni-picker-open");
+    return () => document.body.classList.remove("uni-picker-open");
   }, []);
   useEffect(() => {
     const onDown = (e) => {
@@ -62,7 +66,7 @@ function ExpandedInvite({ className, onClose, children }) {
 export default function UniversityInvite({ variant = "light", cityAgreements = null, className = "", onExpandedChange = null }) {
   const uni = useUniversity();
   const [expanded, setExpandedState] = useState(false);
-  const [sheetOpen, setSheetOpen] = useState(false);
+  const mobile = useIsMobile();
   const mainRef = useRef(null);
   const setExpanded = (v) => {
     setExpandedState(v);
@@ -72,7 +76,7 @@ export default function UniversityInvite({ variant = "light", cityAgreements = n
   // invitación o, si ya hay universidad elegida, al chip de la cabecera.
   const collapse = () => {
     setExpanded(false);
-    requestAnimationFrame(() => (mainRef.current ?? document.querySelector(".uni-chip__btn"))?.focus());
+    requestAnimationFrame(() => (mainRef.current ?? document.querySelector(".uni-chip__btn"))?.focus({ preventScroll: true }));
   };
 
   // En la ficha, la universidad con más convenios en la ciudad.
@@ -87,34 +91,16 @@ export default function UniversityInvite({ variant = "light", cityAgreements = n
   if (expanded) {
     return (
       <ExpandedInvite className={`${cls} ${styles.inviteExpanded}`} onClose={collapse}>
-        <UniversityPicker autoFocus uniId={topEntry?.id ?? null} onDone={collapse} />
+        <UniversityPicker autoFocus uniId={topEntry?.id ?? null} max={mobile ? MAX_SUGGESTIONS.mobile : MAX_SUGGESTIONS.desktop} onDone={collapse} />
       </ExpandedInvite>
     );
   }
-  // Móvil: hoja a pantalla completa (la página no salta); se sigue viendo la
-  // invitación debajo hasta que se elige.
-  const sheet = sheetOpen && (
-    <UniversitySheet
-      uniId={topEntry?.id ?? null}
-      onClose={() => {
-        setSheetOpen(false);
-        onExpandedChange?.(false);
-        // El foco vuelve a la invitación o, si ya se eligió, al chip.
-        requestAnimationFrame(() => (mainRef.current ?? document.querySelector(".uni-chip__btn"))?.focus({ preventScroll: true }));
-      }}
-    />
-  );
-  if ((uni.uniId || uni.inviteDismissed) && !sheetOpen) return null;
+  if (uni.uniId || uni.inviteDismissed) return null;
 
   const text = getInviteText({ cityUniversity: topEntry ? { shortName: topEntry.shortName, count: top.count } : null });
   return (
     <div className={`${cls} uni-invite`} data-uni-invite-el="">
-      <button type="button" ref={mainRef} className={styles.inviteMain} onClick={() => {
-        if (isMobileViewport()) {
-          setSheetOpen(true);
-          onExpandedChange?.(true);
-        } else setExpanded(true);
-      }} aria-expanded={sheetOpen}>
+      <button type="button" ref={mainRef} className={styles.inviteMain} onClick={() => setExpanded(true)} aria-expanded="false">
         <span className={styles.inviteIcon} aria-hidden="true"><IconUniversidad size={18} /></span>
         <span className={styles.inviteText}>
           {text.title && <><strong>{text.title}</strong>{" "}</>}
@@ -124,7 +110,6 @@ export default function UniversityInvite({ variant = "light", cityAgreements = n
       <button type="button" className={styles.inviteClose} onClick={uni.dismissInvite} aria-label="Cerrar la invitación «Mi universidad»">
         <span aria-hidden="true">✕</span>
       </button>
-      {sheet}
     </div>
   );
 }

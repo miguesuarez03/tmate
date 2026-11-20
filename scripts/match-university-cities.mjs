@@ -153,7 +153,18 @@ function run(id) {
   writeFileSync(join(ROOT, "src/data/universities", `${id}.cities.json`), `${JSON.stringify(mapping, null, 1)}\n`);
   // Lista ligera de grados (id + nombre) para el buscador «Tu uni y grado»:
   // va en el bundle inicial (registry.js), sin descargar los convenios.
-  const degrees = data.degrees.map((d) => ({ id: d.id, name: d.name }));
+  // `destinations`: ciudades con ficha y convenio de estudios para ese grado
+  // (los de titulación sin especificar cuentan para todos): ordena las
+  // sugerencias con el campo vacío.
+  const study = (rel) => !entry.studyAgreementTypes || entry.studyAgreementTypes.includes(rel.agreementType);
+  const degrees = data.degrees.map((d) => {
+    const slugs = new Set(
+      data.relations
+        .filter((rel) => study(rel) && mapping[rel.relationId] && (rel.degreesUnspecified || (rel.degreeIds ?? []).includes(d.id)))
+        .map((rel) => mapping[rel.relationId])
+    );
+    return { id: d.id, name: d.name, destinations: slugs.size };
+  });
   writeFileSync(
     join(ROOT, "src/data/universities", `${id}.degrees.js`),
     `// Generado por scripts/match-university-cities.mjs a partir de ${entry.file} — no editar a mano.\nexport default ${JSON.stringify(degrees, null, 1)};\n`

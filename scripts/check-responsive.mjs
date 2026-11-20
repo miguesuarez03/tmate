@@ -153,6 +153,31 @@ function smallInputs() {
   return out;
 }
 
+// No más sugerencias de las permitidas (3 en móvil, 5 en escritorio).
+function countCheck({ selector, max, label }) {
+  const n = document.querySelectorAll(selector).length;
+  return n > max ? [`${label}: ${n} sugerencias (máximo ${max} en este ancho)`] : [];
+}
+
+// Con el desplegable abierto, deslizar 300 px: tiene que seguir pegado justo
+// debajo de su barra (en móvil la página está bloqueada y no se mueve).
+async function scrollStick(page, barSelector, panelSelector, label) {
+  const gap = () => page.evaluate(({ bar, panel }) => {
+    const b = document.querySelector(bar)?.getBoundingClientRect();
+    const p = document.querySelector(panel)?.getBoundingClientRect();
+    return b && p ? Math.round(p.top - b.bottom) : null;
+  }, { bar: barSelector, panel: panelSelector });
+  const before = await gap();
+  await page.mouse.move(10, 300);
+  await page.mouse.wheel(0, 300);
+  await page.waitForTimeout(250);
+  const after = await gap();
+  if (before == null || after == null) return [`${label}: se cierra al deslizar`];
+  return Math.abs(after - before) > 2 || after < 0 || after > 16
+    ? [`${label} se despega de su barra al deslizar (de ${before} a ${after}px)`]
+    : [];
+}
+
 // Un desplegable abierto: dentro de la pantalla y por encima de todo.
 function dropdownCheck({ selector, label, ignoreHeader = false }) {
   const el = document.querySelector(selector);
@@ -236,45 +261,38 @@ async function main() {
           checks++;
 
           // Desplegables.
+          const maxSuggestions = width < 768 ? 3 : 5;
           if (p.path === "/") {
-            // Sugerencias del buscador de destinos: por encima de todo.
+            // Sugerencias del buscador de destinos: por encima de todo, como
+            // mucho 3/5 y pegadas a la barra al deslizar.
             await page.click(".search-bar__input");
             await page.keyboard.type("r");
             await page.waitForTimeout(250);
             found.push(...(await page.evaluate(dropdownCheck, { selector: ".search-bar__dropdown", label: "las sugerencias del buscador" })));
+            found.push(...(await page.evaluate(countCheck, { selector: ".search-bar__dropdown [role='option']", max: maxSuggestions, label: "las sugerencias del buscador" })));
+            found.push(...(await scrollStick(page, ".search-bar", ".search-bar__dropdown", "las sugerencias del buscador")));
             await page.keyboard.press("Escape");
             await page.waitForTimeout(200);
-            checks++;
+            checks += 3;
 
+            // «Tu uni y grado»: el mismo desplegable, en móvil y escritorio.
             await page.click(".search-bar__uni-btn");
-            await page.waitForTimeout(350);
-            if (width < 768) {
-              // Móvil: hoja a pantalla completa, sin mover la página.
-              found.push(...(await page.evaluate(dropdownCheck, { selector: "[aria-labelledby='uni-sheet-title']", label: "la hoja «Tu universidad y tu grado»", ignoreHeader: true })));
-              found.push(...(await page.evaluate(smallInputs)));
-              await page.keyboard.press("Escape");
-              await page.waitForTimeout(150);
-              if (await page.$("[aria-labelledby='uni-sheet-title']")) found.push("Escape no cierra la hoja «Tu universidad y tu grado»");
-              checks++;
-            } else {
-              found.push(...(await page.evaluate(dropdownCheck, { selector: ".search-bar__uni-panel", label: "el desplegable «Tu uni y grado»" })));
-              found.push(...(await page.evaluate(layoutChecks)).filter((x) => x.startsWith("scroll horizontal")));
-              // Con el panel abierto, la pantalla se hace más baja (ventana
-              // redimensionada): tiene que seguir entero a la vista.
-              await page.setViewportSize({ width, height: Math.round(height * 0.6) });
-              await page.waitForTimeout(250);
-              found.push(...(await page.evaluate(dropdownCheck, { selector: ".search-bar__uni-panel", label: "el desplegable «Tu uni y grado» con la pantalla más baja" })));
-              await page.setViewportSize({ width, height });
-              await page.keyboard.press("Escape");
-              await page.waitForTimeout(150);
-              if (await page.$(".search-bar__uni-panel")) found.push("Escape no cierra el desplegable «Tu uni y grado»");
-              checks += 2;
-            }
+            await page.waitForTimeout(700); // en móvil puede subir la página con suavidad
+            found.push(...(await page.evaluate(dropdownCheck, { selector: ".search-bar__uni-panel", label: "el desplegable «Tu uni y grado»" })));
+            found.push(...(await page.evaluate(countCheck, { selector: ".search-bar__uni-panel [role='option']", max: maxSuggestions, label: "el desplegable «Tu uni y grado»" })));
+            if (width < 768) found.push(...(await page.evaluate(smallInputs)));
+            found.push(...(await page.evaluate(layoutChecks)).filter((x) => x.startsWith("scroll horizontal")));
+            found.push(...(await scrollStick(page, ".search-bar", ".search-bar__uni-panel", "el desplegable «Tu uni y grado»")));
+            await page.keyboard.press("Escape");
+            await page.waitForTimeout(150);
+            if (await page.$(".search-bar__uni-panel")) found.push("Escape no cierra el desplegable «Tu uni y grado»");
+            checks += 3;
           }
           if (state.saved) {
             await page.click(".uni-chip__btn");
             await page.waitForTimeout(200);
             found.push(...(await page.evaluate(dropdownCheck, { selector: ".uni-chip__menu", label: "el menú del chip" })));
+            found.push(...(await page.evaluate(countCheck, { selector: ".uni-chip__menu [role='option']", max: 3, label: "el menú del chip" })));
             await page.keyboard.press("Escape");
             await page.waitForTimeout(100);
             if (await page.$(".uni-chip__menu")) found.push("Escape no cierra el menú del chip");
@@ -285,14 +303,9 @@ async function main() {
               await invite.scrollIntoViewIfNeeded();
               await invite.click();
               await page.waitForTimeout(350);
-              if (width < 768) {
-                // Móvil: la invitación abre la hoja a pantalla completa.
-                found.push(...(await page.evaluate(dropdownCheck, { selector: "[aria-labelledby='uni-sheet-title']", label: "la hoja de la invitación", ignoreHeader: true })));
-                await page.keyboard.press("Escape");
-              } else {
-                found.push(...(await page.evaluate(dropdownCheck, { selector: "[class*='inviteExpanded']", label: "la invitación desplegada" })));
-                found.push(...(await page.evaluate(layoutChecks)).filter((x) => x.startsWith("scroll horizontal")));
-              }
+              found.push(...(await page.evaluate(dropdownCheck, { selector: "[class*='inviteExpanded']", label: "la invitación desplegada" })));
+              found.push(...(await page.evaluate(countCheck, { selector: "[class*='inviteExpanded'] [role='option']", max: maxSuggestions, label: "la invitación desplegada" })));
+              found.push(...(await page.evaluate(layoutChecks)).filter((x) => x.startsWith("scroll horizontal")));
               checks++;
             }
           }

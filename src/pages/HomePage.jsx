@@ -23,6 +23,7 @@ import HomeExperiences from "../components/experiences/HomeExperiences";
 import UniversityBanner from "../components/university/UniversityBanner";
 import PendingDestinations from "../components/university/PendingDestinations";
 import { useUniversity } from "../hooks/useUniversity";
+import { useSessionUrlParams } from "../hooks/useSessionMemory";
 
 // Índice ligero de ciudades (ver lib/cities.js).
 const ALL_CITIES = getAllCities();
@@ -601,6 +602,8 @@ export default function HomePage() {
     hasActiveFilters,
     resetFilters,
   } = useCityFilter({ initialSort: 'erasmus' });
+  // El filtro del listado se mantiene durante la sesión.
+  useSessionUrlParams("home", ["region"]);
 
   // Filtro de vibe (se aplica encima del hook, que ya ignora región cuando es un vibe key)
   const activeVibe = VIBE_FILTERS.find(f => f.key === region);

@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useRef, useId } from "react";
 import Flag from "../components/Flag";
 import { Link, useSearchParams } from "react-router-dom";
+import { useSessionUrlParams } from "../hooks/useSessionMemory";
 import { CITY_MATCH_QUESTION_IDS, CITY_MATCH_QUESTION_COUNT } from "../data/cityMatch";
 import { formatScore, getAllCities, getScoreMap, getOverallScore, isErasmusEligible, getCitySize, parseMinCost } from "../lib/cities";
 import { useSEO } from "../hooks/useSEO";
@@ -693,18 +694,26 @@ export default function CityMatchPage() {
     description: `Responde ${CITY_MATCH_QUESTION_COUNT} preguntas sobre tu presupuesto, clima ideal, idioma y estilo de vida, y descubre en segundos qué ciudad Erasmus encaja mejor contigo.`,
   });
 
+  // Tu resultado se mantiene durante la sesión: si vuelves sin ?r=, se
+  // recupera el de la última vez (al repetir el test se olvida).
+  useSessionUrlParams("city-match", ["r", "imp"]);
+
   // Si la URL trae respuestas guardadas (?r=…), restaura directamente la
-  // pantalla de resultados — permite compartir/guardar el enlace.
+  // pantalla de resultados — permite compartir/guardar el enlace. También
+  // cuando llegan después de montar (recuperadas de la sesión).
+  const rParam = searchParams.get("r");
+  const appliedR = useRef(null);
   useEffect(() => {
-    const encoded = searchParams.get("r");
-    if (!encoded) return;
-    const restored = decodeAnswers(encoded);
+    if (!rParam || appliedR.current === rParam) return;
+    appliedR.current = rParam;
+    if (step >= QUESTIONS.length) return; // ya en resultados: es nuestro propio cambio
+    const restored = decodeAnswers(rParam);
     if (!restored) return;
     setAnswers(restored);
     setMust(decodeMust(searchParams.get("imp")));
     setStep(QUESTIONS.length);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [rParam]);
 
   const showResults = step >= QUESTIONS.length;
 

@@ -3,6 +3,7 @@ import { IconUniversidad } from "../icons";
 import { useUniversity } from "../../hooks/useUniversity";
 import { getDegreeShortName, getUniversityShareUrl } from "../../lib/universities";
 import UniversityPicker from "./UniversityPicker";
+import { readSessionCompareCities } from "../../hooks/useSessionMemory";
 
 /**
  * Chip fijo de la cabecera con la universidad elegida: «Loyola · GITI ▾». Abre
@@ -52,7 +53,7 @@ export default function UniversityChip({ isDark = false }) {
   const label = degree ? `${name} · ${degree}` : name;
 
   async function copyLink() {
-    const url = getUniversityShareUrl(window.location.origin, uni.uniId, uni.degreeId);
+    const url = getUniversityShareUrl(window.location.origin, uni.uniId, uni.degreeId, readSessionCompareCities());
     try {
       await navigator.clipboard.writeText(url);
       setCopied(true);
@@ -83,7 +84,8 @@ export default function UniversityChip({ isDark = false }) {
         <div className="uni-chip__menu" id={menuId} role="group" aria-label="Mi universidad">
           <p className="uni-chip__title">{uni.entry.name}</p>
           <p className="uni-chip__current">{uni.degreeName ?? "Todos los grados"}</p>
-          <UniversityPicker uniId={uni.uniId} onDone={() => buttonRef.current?.focus()} />
+          {/* Menú compacto: como mucho 3 sugerencias. */}
+          <UniversityPicker uniId={uni.uniId} max={3} onDone={() => buttonRef.current?.focus()} />
           {uni.loadError && (
             <button type="button" className="uni-chip__action" onClick={uni.retry}>Reintentar la carga</button>
           )}
@@ -93,7 +95,7 @@ export default function UniversityChip({ isDark = false }) {
             </button>
           )}
           <button type="button" className="uni-chip__action" onClick={copyLink}>
-            {copied ? "¡Enlace copiado!" : "Copiar enlace a mis destinos"}
+            {copied ? "¡Enlace copiado!" : "Copiar enlace (universidad, grado y comparador)"}
           </button>
           <button
             type="button"

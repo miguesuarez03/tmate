@@ -228,9 +228,15 @@ export default function PrivacidadPage() {
             direcciones.
           </li>
           <li>
-            <strong>Hasta que cierras la pestaña</strong> (sessionStorage): las ciudades que estás comparando,
-            la posición de scroll para volver atrás y, si cierras la invitación «¿Eres de…?» de Mi universidad,
-            que no vuelva a salir (clave <code>mabroad:invitacion-universidad</code>).
+            <strong>Hasta que cierras la pestaña</strong> (sessionStorage), para que tu selección se mantenga
+            mientras usas la web: los destinos del comparador y su orden, el filtro del listado de destinos, el
+            país y el filtro del mapa, tu resultado de City Match, la ciudad de origen y el destino de la
+            calculadora de la beca y las últimas fichas que has visto (claves que empiezan por{" "}
+            <code>mabroad:sesion:</code>); la posición de scroll para volver atrás; y, si cierras la invitación
+            «Elige tu universidad y tu grado», que no vuelva a salir (clave{" "}
+            <code>mabroad:invitacion-universidad</code>). Nada de esto sale de tu navegador, salvo que copies y
+            compartas tú el enlace de «Mi universidad», que lleva tu universidad, tu grado y los destinos del
+            comparador.
           </li>
         </ul>
         <p>Puedes borrarlo todo cuando quieras limpiando los datos del sitio en tu navegador.</p>

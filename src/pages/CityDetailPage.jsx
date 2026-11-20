@@ -15,6 +15,8 @@ import RelatedCities      from "../components/city/RelatedCities";
 import MethodologyNote    from "../components/MethodologyNote";
 import UniversityPlaces   from "../components/university/UniversityPlaces";
 import { useUniversity } from "../hooks/useUniversity";
+import { rememberViewedCity } from "../hooks/useSessionMemory";
+import { useEffect } from "react";
 import NotFoundPage       from "./NotFoundPage";
 import "../styles/cityDetailPage.css";
 
@@ -28,6 +30,10 @@ export default function CityDetailPage() {
   const overallScore  = getOverallScore(slug);
   // Modo «Mi universidad»: los parecidos, solo entre tus destinos.
   const uni = useUniversity();
+  // Últimos destinos vistos en la sesión (el comparador los ofrece).
+  useEffect(() => {
+    if (city) rememberViewedCity(slug);
+  }, [slug, city]);
   const relatedCities = city ? getRelatedCities(getCityBySlug(slug), 4, uni.filtering ? uni.isIncluded : null) : [];
 
   // Nota: el scroll (subir arriba al entrar / restaurar al volver atrás)

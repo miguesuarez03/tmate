@@ -13,6 +13,7 @@ import { CITY_COORDS, haversineDistanceKm, distanceToRange, geocodeCity } from "
 import { getAllCities, parseMinCost, parseMaxCost, isErasmusEligible, getErasmusTransition, getStateCountry, getOfficialTransport } from "../lib/cities";
 import { GROUP1, GROUP2, GROUP3, ESTIMATED_GROUPS, SEPIE_NAMES, SEPIE_MIN_MONTHLY, REGIONAL_AIDS } from "../data/becaGroups";
 import { useUniversity } from "../hooks/useUniversity";
+import { useSessionState } from "../hooks/useSessionMemory";
 import UniversityInvite from "../components/university/UniversityInvite";
 import UniversityBanner from "../components/university/UniversityBanner";
 import uniStyles from "../components/university/University.module.css";
@@ -132,8 +133,9 @@ function Calculator() {
   const [autAmount, setAutAmount] = useState(150);
 
   // Calculadora de distancia — ahora al principio
-  const [originCity, setOriginCity] = useState("");
-  const [destinationSlug, setDestinationSlug] = useState("");
+  // Origen y destino se mantienen durante la sesión (el campus, con tu universidad).
+  const [originCity, setOriginCity] = useSessionState("beca:origen", "");
+  const [destinationSlug, setDestinationSlug] = useSessionState("beca:destino", "");
   const [calcStatus, setCalcStatus] = useState("idle");
   const [calcError, setCalcError] = useState("");
   const [calcKm, setCalcKm] = useState(null);

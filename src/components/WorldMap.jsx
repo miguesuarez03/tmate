@@ -11,6 +11,7 @@ import styles from "./WorldMap.module.css";
 import { formatScore, getAllCities, getOverallScore, getScoreMap, getScoreLevel, getStateCountry, getMapCountries } from "../lib/cities";
 import { CITY_COORDS } from "../lib/cityCoords";
 import { useUniversity } from "../hooks/useUniversity";
+import { useSessionState } from "../hooks/useSessionMemory";
 import { MAP_ALL_VIEW } from "../data/mapCountries";
 import { IconFiesta, IconEdificio, IconBeca, IconGlobo } from "./icons";
 import { responsiveImage } from "../lib/images";
@@ -119,8 +120,9 @@ export default function WorldMap() {
   const [tooltip, setTooltip]     = useState(null);
   const [position, setPosition]   = useState({ coordinates: MAP_ALL_VIEW.center, zoom: MAP_ALL_VIEW.zoom });
   const zoom = position.zoom;
-  const [country, setCountry]     = useState("Todos");
-  const [vibeFilter, setVibeFilter] = useState(null); // null | "fiesta"|"cultura"|"economia"|"dinero"
+  // Filtros del mapa: se mantienen durante la sesión.
+  const [country, setCountry]     = useSessionState("mapa:pais", "Todos");
+  const [vibeFilter, setVibeFilter] = useSessionState("mapa:filtro", null); // null | "fiesta"|"cultura"|"economia"|"dinero"
   const containerRef              = useRef(null);
   const uni                       = useUniversity();
 

@@ -25,6 +25,7 @@ import PhotoCredit from "../components/PhotoCredit";
 import UniversityInvite from "../components/university/UniversityInvite";
 import UniversityBanner from "../components/university/UniversityBanner";
 import { useUniversity } from "../hooks/useUniversity";
+import { useSessionUrlParams, readViewedCities } from "../hooks/useSessionMemory";
 
 // Índice ligero de ciudades (ver lib/cities.js).
 const ALL_CITIES = getAllCities();
@@ -727,6 +728,12 @@ const REGION_ORDER = [
 /* ─── Main Component ────────────────────────────────────────────────────── */
 export default function ComparePage() {
   const [searchParams, setSearchParams] = useSearchParams();
+  // Tus destinos, orden y programa se mantienen durante la sesión.
+  useSessionUrlParams("comparar", ["cities", "orden", "programa"]);
+  // Últimas fichas vistas (para añadirlas de un toque). Tras montar: no hay
+  // sessionStorage en el HTML prerenderizado.
+  const [viewed, setViewed] = useState([]);
+  useEffect(() => setViewed(readViewedCities()), []);
 
   useSEO({
     title: "Comparador de ciudades Erasmus lado a lado | MAbroad",
@@ -807,6 +814,7 @@ export default function ComparePage() {
   const uni = useUniversity();
   // Destacados: los trending y después los más populares (índice `erasmus`),
   // entre tus destinos si hay universidad. Siempre filas completas: 8 o 4.
+  const viewedCities = viewed.map((s) => ALL_CITIES.find((c) => c.slug === s)).filter((c) => c && uni.isIncluded(c.slug)).slice(0, 6);
   const featured = useMemo(() => {
     const pool = ALL_CITIES.filter((c) => uni.isIncluded(c.slug));
     const rank = (c) => (TRENDING_SLUGS.includes(c.slug) ? 1000 - TRENDING_SLUGS.indexOf(c.slug) : c.erasmus ?? 0);
@@ -1277,6 +1285,30 @@ export default function ComparePage() {
             elegidas (marcadas en su sitio): antes esta sección se cambiaba por
             otra de «Seleccionadas» y todo lo de debajo se movía. Con un filtro
             activo se ocultan: lo que manda es la lista filtrada. */}
+        {/* Vistos hace poco en esta sesión: un toque para añadirlos. */}
+        {!hasFilters && viewedCities.length > 0 && (
+          <section className={styles.viewedSection} aria-labelledby="vistos-hace-poco">
+            <h2 id="vistos-hace-poco" className={styles.viewedTitle}>Vistos hace poco</h2>
+            <div className={styles.viewedList}>
+              {viewedCities.map((city) => {
+                const checked = selected.includes(city.slug);
+                return (
+                  <button
+                    key={city.slug}
+                    type="button"
+                    className={`${styles.viewedChip}${checked ? ` ${styles.viewedChipOn}` : ""}`}
+                    aria-pressed={checked}
+                    disabled={selected.length >= 3 && !checked}
+                    onClick={() => toggle(city.slug)}
+                  >
+                    <Flag emoji={city.emoji} /> {city.name}{checked ? " ✓" : ""}
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+        )}
+
         {!hasFilters && featured.length > 0 && (
           <section className={styles.selectedSection}>
             <h2 className={styles.groupTitle}>Destinos con más tirón ahora mismo</h2>

@@ -69,33 +69,81 @@ export function getDegreeShortName(name, id = null) {
 const fold = (s) => String(s ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
 
 /** ¿Cada palabra de `query` está en alguno de los textos? (sin tildes ni mayúsculas) */
-function matchesWords(query, ...texts) {
-  const words = fold(query).split(/\s+/).filter(Boolean);
-  if (!words.length) return true;
-  const hay = fold(texts.join(" "));
-  return words.every((w) => hay.includes(w));
+/** Distancia de edición (Levenshtein), para tolerar erratas. */
+function editDistance(a, b) {
+  const row = Array.from({ length: b.length + 1 }, (_, j) => j);
+  for (let i = 1; i <= a.length; i++) {
+    let prev = row[0];
+    row[0] = i;
+    for (let j = 1; j <= b.length; j++) {
+      const tmp = row[j];
+      row[j] = Math.min(row[j] + 1, row[j - 1] + 1, prev + (a[i - 1] === b[j - 1] ? 0 : 1));
+      prev = tmp;
+    }
+  }
+  return row[b.length];
+}
+
+const STOP = new Set(["de", "del", "la", "las", "los", "el", "en", "y", "e"]);
+
+/**
+ * Lo parecido que es lo escrito a un nombre (con sus siglas): cuanto más
+ * bajo, mejor; null si no se parece. Orden: igual o sigla exacta (0) >
+ * empieza igual (1) > cada palabra empieza una palabra del nombre (2) >
+ * contiene (3) > se parece con erratas (4 + distancia).
+ * «ingenieria indus», «ADE», «GITI» y «adminstracion» encuentran su grado.
+ */
+export function matchScore(query, name, aliases = []) {
+  const q = fold(query).replace(/\s+/g, " ");
+  if (!q) return 0;
+  const full = fold(name);
+  const alts = aliases.filter(Boolean).map(fold);
+  if (full === q || alts.includes(q)) return 0;
+  if (full.startsWith(q) || alts.some((a) => a.startsWith(q))) return 1;
+  const words = full.split(/[^a-z0-9]+/).filter(Boolean);
+  const qWords = q.split(" ").filter((w) => w && !STOP.has(w));
+  if (qWords.length && qWords.every((w) => words.some((x) => x.startsWith(w)) || alts.some((a) => a.startsWith(w)))) return 2;
+  if (full.includes(q) || alts.some((a) => a.includes(q))) return 3;
+  // Erratas: cada palabra escrita se parece al principio de alguna palabra.
+  let total = 0;
+  for (const w of qWords) {
+    const max = w.length <= 4 ? 1 : w.length <= 8 ? 2 : 3;
+    const best = Math.min(...words.map((x) => editDistance(w, x.slice(0, Math.max(w.length, Math.min(x.length, w.length + 1))))));
+    if (best > max) return null;
+    total += best;
+  }
+  return qWords.length ? 4 + total : null;
 }
 
 /**
- * Paso 1 del buscador «Tu uni y grado»: universidades que coinciden con lo
- * escrito (nombre, nombre corto o id). Sin texto, todas, por nombre.
+ * Paso 1 del buscador «Tu uni y grado»: universidades ordenadas por lo
+ * parecidas que son a lo escrito (nombre, nombre corto, id). Sin texto,
+ * todas, por nombre.
  * @returns {import("../data/universities/registry.js").UniversityEntry[]}
  */
 export function searchUniversities(query, registry = UNIVERSITY_REGISTRY) {
   return registry
-    .filter((u) => matchesWords(query, u.name, u.shortName, u.id))
-    .sort((a, b) => a.name.localeCompare(b.name, "es"));
+    .map((u) => ({ u, s: matchScore(query, u.name, [u.shortName, u.id]) }))
+    .filter((x) => x.s != null)
+    .sort((a, b) => a.s - b.s || a.u.name.localeCompare(b.u.name, "es"))
+    .map((x) => x.u);
 }
 
 /**
- * Paso 2: grados de una universidad que coinciden con lo escrito (nombre,
- * sigla o id: «ADE», «ingenieria»…), en el orden de la universidad.
- * @returns {{ id: string, name: string, short: string }[]}
+ * Paso 2: grados de una universidad ordenados por lo parecidos que son a lo
+ * escrito (nombre, sigla o id: «ADE», «GITI», «ingenieria indus»…). Sin texto
+ * (o a igual parecido), primero los que tienen más destinos.
+ * @returns {{ id: string, name: string, short: string, destinations: number }[]}
  */
 export function searchDegrees(entry, query) {
   return (entry?.degrees ?? [])
-    .map((d) => ({ id: d.id, name: d.name, short: getDegreeShortName(d.name, d.id) }))
-    .filter((d) => matchesWords(query, d.name, d.id, d.short));
+    .map((d) => {
+      const short = getDegreeShortName(d.name, d.id);
+      return { id: d.id, name: d.name, short, destinations: d.destinations ?? 0, s: matchScore(query, d.name, [short, d.id]) };
+    })
+    .filter((d) => d.s != null)
+    .sort((a, b) => a.s - b.s || b.destinations - a.destinations || a.name.localeCompare(b.name, "es"))
+    .map(({ s, ...d }) => d);
 }
 
 const groupKey = (rel) => `${rel.countryCode}|${rel.city}`;
@@ -432,10 +480,18 @@ export function getCampus(entry, campusId) {
   return entry?.campuses?.find((c) => c.id === campusId) ?? null;
 }
 
-/** Enlace para compartir el modo universidad: /?uni=loyola&grado=giti */
-export function getUniversityShareUrl(origin, uniId, degreeId) {
+/**
+ * Enlace para compartir tu selección: universidad, grado y, si los hay, los
+ * destinos del comparador (/comparar?uni=loyola&grado=giti&cities=a,b); sin
+ * destinos, la home (/?uni=loyola&grado=giti).
+ */
+export function getUniversityShareUrl(origin, uniId, degreeId, cities = []) {
   const params = new URLSearchParams({ uni: uniId });
   if (degreeId) params.set("grado", degreeId);
+  if (cities.length) {
+    params.set("cities", cities.join(","));
+    return `${origin}/comparar?${params.toString().replace(/%2C/g, ",")}`;
+  }
   return `${origin}/?${params.toString()}`;
 }
 
