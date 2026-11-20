@@ -5,9 +5,10 @@ import styles from "./University.module.css";
  * «Mostrando X destinos para [grado] en Loyola · Ver todos los destinos».
  * Solo con el modo universidad activo; «Ver todos» pausa el filtro sin
  * quitar la universidad (las tarjetas siguen con su distintivo de plazas).
- * @param {{ count: number }} props  destinos que se están enseñando
+ * @param {{ count: number, lead?: string }} props  destinos que se están
+ *   enseñando (o, con `lead="Buscando entre"`, entre los que se busca)
  */
-export default function UniversityBanner({ count }) {
+export default function UniversityBanner({ count, lead = "Mostrando" }) {
   const uni = useUniversity();
   if (!uni.active) return null;
   const name = uni.entry.shortName;
@@ -23,7 +24,7 @@ export default function UniversityBanner({ count }) {
         </span>
       ) : (
         <span>
-          Mostrando <strong>{count}</strong> destino{count === 1 ? "" : "s"} {who} ·{" "}
+          {lead} <strong>{count}</strong> destino{count === 1 ? "" : "s"} {who} ·{" "}
           <button type="button" className={styles.linkBtn} onClick={() => uni.setShowAll(true)}>
             Ver todos los destinos
           </button>

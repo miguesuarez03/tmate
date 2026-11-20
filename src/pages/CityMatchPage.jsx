@@ -893,10 +893,16 @@ export default function CityMatchPage() {
             <div className={styles.resultsHeroContent}>
               <span className={styles.badge} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><IconCityMatch size={18} /> Tu City Match</span>
               <h1 className={styles.resultsTitle} ref={resultsTitleRef} tabIndex={-1}>
-                {top.length > 0 ? "Estas son tus ciudades ideales" : "Ninguna ciudad cumple todo lo imprescindible"}
+                {top.length > 0
+                  ? "Estas son tus ciudades ideales"
+                  : matches.length === 0 && uni.filtering
+                    ? `${uni.entry.shortName} no tiene plazas en este tipo de destino`
+                    : "Ninguna ciudad cumple todo lo imprescindible"}
               </h1>
               <p className={styles.resultsSubtitle}>{subtitle}</p>
-              <UniversityBanner count={ALL_CITIES.filter((c) => uni.isIncluded(c.slug)).length} />
+              {/* Destinos entre los que se ha buscado (tipo de destino elegido +
+                  plazas de la universidad), no los que se enseñan (máx. 5). */}
+              <UniversityBanner count={matches.length} lead="Buscando entre" />
               <div className={styles.resultsActions}>
                 <button className={styles.secondaryBtn} onClick={restart}>↺ Volver a hacer el test</button>
                 {shown.length > 0 && (

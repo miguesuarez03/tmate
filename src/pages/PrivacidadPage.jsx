@@ -223,7 +223,7 @@ export default function PrivacidadPage() {
             <strong>Mi universidad</strong> (localStorage, clave <code>mabroad:universidad</code>): la universidad
             y el grado que eliges en «Mi universidad», para seguir enseñándote solo los destinos con plazas de tu
             universidad cuando vuelvas. Solo se guarda si eliges una universidad, y se borra al pulsar «Quitar».
-            Si abres un enlace compartido con <code>?uni=…&amp;grado=…</code>, esa elección se guarda igual.
+            Si abres un enlace compartido con <code>?uni=…&amp;grado=…</code>, esa elección se guarda igual y el enlace se limpia de la barra de direcciones.
           </li>
           <li>
             <strong>Hasta que cierras la pestaña</strong> (sessionStorage): las ciudades que estás comparando

@@ -19,7 +19,19 @@ export default function UniversitySelector({ id }) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const rootRef = useRef(null);
+  const triggerRef = useRef(null);
+  const selectRef = useRef(null);
+  // Foco al cambiar de plegado a abierto (y al revés): el control que tenía el
+  // foco desaparece, así que se pasa al desplegable de universidad o al botón.
+  const focusAfterToggle = useRef(null); // "select" | "trigger" | null
   const expanded = open || Boolean(uni.uniId);
+
+  useEffect(() => {
+    const target = focusAfterToggle.current;
+    if (!target) return;
+    focusAfterToggle.current = null;
+    (target === "select" ? selectRef : triggerRef).current?.focus();
+  }, [expanded]);
 
   useEffect(() => {
     if (!id || hash !== `#${id}`) return;
@@ -46,7 +58,16 @@ export default function UniversitySelector({ id }) {
   if (!expanded) {
     return (
       <div id={id} ref={rootRef} className={styles.selector}>
-        <button type="button" className={styles.trigger} onClick={() => setOpen(true)} aria-expanded="false">
+        <button
+          type="button"
+          ref={triggerRef}
+          className={styles.trigger}
+          onClick={() => {
+            focusAfterToggle.current = "select";
+            setOpen(true);
+          }}
+          aria-expanded="false"
+        >
           <IconUniversidad size={18} />
           <span>Mi universidad</span>
           <span className={styles.triggerHint}>· ve solo los destinos con plazas de tu universidad</span>
@@ -65,6 +86,7 @@ export default function UniversitySelector({ id }) {
         <span className={styles.fieldLabel}>Universidad</span>
         <select
           id={`${selectId}-universidad`}
+          ref={selectRef}
           className={styles.select}
           value={uni.uniId ?? ""}
           onChange={(e) => uni.setUniversity(e.target.value || null)}
@@ -85,13 +107,25 @@ export default function UniversitySelector({ id }) {
           onChange={(e) => uni.setDegree(e.target.value || null)}
         >
           <option value="">
-            {uni.data ? "Todos los grados" : uni.uniId ? "Cargando grados…" : "Elige antes tu universidad"}
+            {uni.data
+              ? "Todos los grados"
+              : uni.loadError
+                ? "No se han podido cargar los grados"
+                : uni.uniId
+                  ? "Cargando grados…"
+                  : "Elige antes tu universidad"}
           </option>
           {(uni.data?.degrees ?? []).map((d) => (
             <option key={d.id} value={d.id}>{d.name}</option>
           ))}
         </select>
       </label>
+      {uni.loadError && (
+        <p className={styles.loadError} role="alert">
+          No hemos podido cargar las plazas de {uni.entry.shortName}: por ahora ves todos los destinos.{" "}
+          <button type="button" className={styles.linkBtn} onClick={uni.retry}>Reintentar</button>
+        </p>
+      )}
       <div className={styles.selectorActions}>
         {uni.uniId && (
           <button type="button" className={styles.ghostBtn} onClick={copyLink}>
@@ -102,6 +136,7 @@ export default function UniversitySelector({ id }) {
           type="button"
           className={styles.ghostBtn}
           onClick={() => {
+            focusAfterToggle.current = "trigger";
             uni.clear();
             setOpen(false);
           }}
