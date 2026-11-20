@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { searchCities, findBestCityMatch } from "../lib/cities";
 import { IconLupa, IconPin } from "./icons";
 import Flag from "./Flag";
+import UniversitySearchSegment from "./university/UniversitySearchSegment";
 
-export default function SearchBar({ light = false }) {
+export default function SearchBar({ light = false, withUniversity = false }) {
   const [query, setQuery] = useState("");
   const [focused, setFocused] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
@@ -52,6 +53,8 @@ export default function SearchBar({ light = false }) {
           enterKeyHint="search"
           autoComplete="off"
         />
+        {/* Modo «Mi universidad», dentro de la barra (solo en la home). */}
+        {withUniversity && <UniversitySearchSegment />}
         <button className="search-bar__btn" onClick={handleSearch}>
           Explorar →
         </button>

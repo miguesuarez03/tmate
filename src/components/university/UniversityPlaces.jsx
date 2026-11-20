@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useUniversity } from "../../hooks/useUniversity";
-import { getAgreementLabel, formatExtractedAt, formatAgreementCount, getRelationNotes, studentQuoteLabel } from "../../lib/universities";
+import {
+  getAgreementLabel, formatExtractedAt, formatAgreementCount, getRelationNotes, studentQuoteLabel,
+  cleanPortalText, splitPortalCosts, linkifyParts, getDegreeShortName,
+} from "../../lib/universities";
 import styles from "./University.module.css";
 
 const norm = (s) => String(s ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
@@ -25,7 +28,7 @@ export function RelationNotes({ rel, overrides = null, shortName }) {
         ) : (
           <p key={i}>
             <span className={styles.notesSource}>Portal de {shortName}: </span>
-            {p.text}
+            <PortalText text={cleanPortalText(p.text) ?? p.text} />
           </p>
         )
       )}
@@ -33,8 +36,24 @@ export function RelationNotes({ rel, overrides = null, shortName }) {
   );
 }
 
+/** Texto del portal con sus URL como enlaces. */
+function PortalText({ text }) {
+  return linkifyParts(text).map((p, i) =>
+    p.url ? (
+      <a key={i} href={p.url} target="_blank" rel="noopener noreferrer" className={styles.portalInlineLink}>enlace de la universidad ↗</a>
+    ) : (
+      <span key={i}>{p.text}</span>
+    )
+  );
+}
+
 function PlaceCard({ rel, cityName, shortName, overrides }) {
   const otherCity = norm(rel.city) !== norm(cityName) ? rel.city : null;
+  // Textos del portal ordenados (sin «||» ni erratas) y coste de vida y
+  // alojamiento por separado; las cifras no cambian.
+  const { living, housing } = splitPortalCosts(rel);
+  const language = cleanPortalText(rel.languageRequirement);
+  const major = cleanPortalText(rel.major);
   return (
     <li className={styles.placeCard}>
       <div className={styles.placeHead}>
@@ -46,10 +65,10 @@ function PlaceCard({ rel, cityName, shortName, overrides }) {
       </div>
       {rel.degreesUnspecified && <p className={styles.rriTag}>Consulta en tu oficina de RRII</p>}
       <dl className={styles.placeFacts}>
-        {rel.languageRequirement && (<><dt>Idioma requerido</dt><dd>{rel.languageRequirement}</dd></>)}
-        {rel.monthlyCost && (<><dt>Coste de vida</dt><dd>{rel.monthlyCost}</dd></>)}
-        {rel.rentPrice && (<><dt>Alquiler</dt><dd>{rel.rentPrice}</dd></>)}
-        {rel.major && (<><dt>Mención</dt><dd>{rel.major}</dd></>)}
+        {language && (<><dt>Idioma requerido</dt><dd><PortalText text={language} /></dd></>)}
+        {living && (<><dt>Coste de vida al mes</dt><dd><PortalText text={living} /></dd></>)}
+        {housing && (<><dt>Alojamiento</dt><dd><PortalText text={housing} /></dd></>)}
+        {major && (<><dt>Mención</dt><dd><PortalText text={major} /></dd></>)}
       </dl>
       {rel.notes && <RelationNotes rel={rel} overrides={overrides} shortName={shortName} />}
     </li>
@@ -58,8 +77,8 @@ function PlaceCard({ rel, cityName, shortName, overrides }) {
 
 /**
  * Ficha de ciudad: «Tus convenios desde Loyola». Los convenios de estudios de
- * la universidad elegida en esta ciudad, filtrados por el grado (con «Ver
- * todas las titulaciones»), y al final, plegados, los de otros programas
+ * la universidad elegida en esta ciudad, filtrados por el grado (interruptor
+ * «Solo mi grado / Todos los grados»), y al final, plegados, los de otros programas
  * (MAGIS…). Sin modo universidad, o sin convenios aquí, no se pinta nada.
  * No enlaza a los factsheets: el portal los sirve desde una sesión.
  */
@@ -75,6 +94,7 @@ export default function UniversityPlaces({ slug, cityName }) {
   const list = uni.degreeId && !allDegrees ? byDegree : all;
   const name = uni.entry.shortName;
   const source = uni.data.university.source;
+  const degreeShort = getDegreeShortName(uni.degreeName, uni.degreeId);
 
   return (
     <section id="tus-convenios" className={styles.places} aria-labelledby="tus-convenios-title">
@@ -84,20 +104,26 @@ export default function UniversityPlaces({ slug, cityName }) {
         <p className={styles.placesSub}>
           {all.length === 0
             ? `${name} no tiene convenios de estudios en ${cityName}.`
-            : uni.degreeName && !allDegrees
-              ? `${formatAgreementCount(byDegree.length)} para ${uni.degreeName} (de ${all.length} en ${cityName}).`
-              : `${formatAgreementCount(all.length)} de ${name} en ${cityName}, de todas las titulaciones.`}
+            : uni.degreeName
+              ? byDegree.length
+                ? `Para tu grado (${degreeShort}) hay ${formatAgreementCount(byDegree.length)} en ${cityName}. En total, ${name} tiene ${formatAgreementCount(all.length)} aquí.`
+                : `Para tu grado (${degreeShort}) no hay convenios en ${cityName}. En total, ${name} tiene ${formatAgreementCount(all.length)} aquí, de otros grados.`
+              : `${name} tiene ${formatAgreementCount(all.length)} en ${cityName}, de todos sus grados.`}
         </p>
         {uni.degreeId && all.length > 0 && (
-          <label className={styles.toggle}>
-            <input type="checkbox" checked={allDegrees} onChange={(e) => setAllDegrees(e.target.checked)} />
-            Ver todas las titulaciones
-          </label>
+          <div className={styles.segmented} role="group" aria-label="Qué convenios ver">
+            <button type="button" aria-pressed={!allDegrees} className={!allDegrees ? styles.segmentedOn : ""} onClick={() => setAllDegrees(false)}>
+              Solo mi grado ({byDegree.length})
+            </button>
+            <button type="button" aria-pressed={allDegrees} className={allDegrees ? styles.segmentedOn : ""} onClick={() => setAllDegrees(true)}>
+              Todos los grados de {name} ({all.length})
+            </button>
+          </div>
         )}
 
         {all.length > 0 && (list.length === 0 ? (
           <p className={styles.placesEmpty}>
-            No hay convenios para {uni.degreeName} en {cityName}. Marca «Ver todas las titulaciones» para ver los demás.
+            No hay convenios para tu grado en {cityName}. Pulsa «Todos los grados de {name}» para ver los demás.
           </p>
         ) : (
           <ul className={styles.placesList}>

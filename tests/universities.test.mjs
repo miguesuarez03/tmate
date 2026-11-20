@@ -121,8 +121,7 @@ test("splitNotes: notas de la universidad frente a opiniones de alumnos", () => 
 });
 
 test("invitación y chip: textos genéricos, sin universidad escrita a mano", () => {
-  assert.deepEqual(getInviteText({}, [{ shortName: "Uni A" }]), { title: "¿Eres de Uni A?", cta: "Elige tu grado y ve solo tus destinos" });
-  assert.equal(getInviteText({}, [{ shortName: "A" }, { shortName: "B" }]).title, "¿Tu universidad está en MAbroad?");
+  assert.deepEqual(getInviteText(), { title: "", cta: "Elige tu universidad y tu grado y ve solo tus destinos" });
   assert.equal(getInviteText({ cityUniversity: { shortName: "Uni A", count: 1 } }).title, "Uni A tiene 1 convenio aquí.");
   assert.equal(getDegreeShortName("Administración y Dirección de Empresas (ADE)"), "ADE");
   assert.equal(getDegreeShortName("Psicología"), "Psicología");
@@ -209,4 +208,49 @@ test("splitNotes: temas largos, «Sobres», «También sobre…» y comillas dob
   for (const id of ["1171", "1620", "1190", "1069", "1415", "2036", "2044", "2048", "813", "1310", "794", "798", "587", "593"]) noLooseTopic(id);
   assert.ok(notes("1171").some((p) => p.kind === "student" && p.text.startsWith("Sobre alojamiento: te lo da la universidad")));
   assert.ok(notes("2036").some((p) => p.text === "Sobre actividades complementarias en la Universidad: cursos de idiomas gratuitos, a excepción del polaco"));
+});
+
+test("buscador «Tu uni y grado»: encuentra universidades y grados por nombre o sigla", async () => {
+  const { searchUniversityOptions, getDegreeShortName } = await import("../src/lib/universities.js");
+  const reg = [{ id: "uni-a", name: "Universidad A del Sur", shortName: "Uni A", degrees: [
+    { id: "ade", name: "Administración y Dirección de Empresas (ADE)" },
+    { id: "giti", name: "Ingeniería en Tecnologías Industriales" },
+    { id: "datos", name: "Datos y Analítica de Negocio" },
+  ] }];
+  assert.deepEqual(searchUniversityOptions("ade", { registry: reg }).map((o) => o.degreeId), ["ade"]);
+  assert.deepEqual(searchUniversityOptions("GITI", { registry: reg }).map((o) => o.degreeId), ["giti"]);
+  assert.deepEqual(searchUniversityOptions("ingenieria", { registry: reg }).map((o) => o.degreeId), ["giti"]);
+  assert.equal(searchUniversityOptions("sur", { registry: reg })[0].degreeId, null); // la universidad, «todos los grados»
+  assert.equal(searchUniversityOptions("", { registry: reg }).length, 4);
+  assert.equal(getDegreeShortName("Ingeniería en Tecnologías Industriales", "giti"), "GITI");
+  assert.equal(getDegreeShortName("Datos y Analítica de Negocio", "datos"), "Datos y Analítica de Negocio");
+});
+
+test("textos del portal: coste y alojamiento por separado, sin «||» y con las mismas cifras", async () => {
+  const { splitPortalCosts, cleanPortalText } = await import("../src/lib/universities.js");
+  assert.deepEqual(splitPortalCosts({ monthlyCost: "Aprox. 800€ || Accomodation: aprox. 350€" }), { living: "Aprox. 800 €", housing: "Aprox. 350 €" });
+  assert.deepEqual(splitPortalCosts({ monthlyCost: "Aprox. 850€ || For accomodation aprox. 250 - 400€", rentPrice: null }), { living: "Aprox. 850 €", housing: "Aprox. 250 - 400 €" });
+  // Un total que incluye la residencia sigue siendo coste de vida.
+  assert.equal(splitPortalCosts({ monthlyCost: "max 1.000€ al mes incluido el pago de la residencia" }).living, "Max 1.000 € al mes incluido el pago de la residencia");
+  assert.equal(cleanPortalText("not applicable"), null);
+  assert.equal(cleanPortalText("Inglés B2 or Alemán B1"), "Inglés B2 o Alemán B1");
+  assert.equal(cleanPortalText("Ingles B2"), "Inglés B2");
+  // Ninguna cifra cambia en todo el portal.
+  const data = readJson("loyola.json");
+  const nums = (s) => (String(s ?? "").match(/\d+(?:[.,]\d+)?/g) ?? []).sort().join(" ");
+  for (const rel of data.relations) {
+    const { living, housing } = splitPortalCosts(rel);
+    const out = nums(`${living ?? ""} ${housing ?? ""}`);
+    for (const n of out.split(" ").filter(Boolean)) assert.ok(nums(`${rel.monthlyCost} ${rel.rentPrice}`).split(" ").includes(n), `${rel.relationId}: cifra ${n} inventada`);
+    assert.ok(!/\|\|/.test(`${living} ${housing}`), `${rel.relationId}: «||» sin limpiar`);
+  }
+});
+
+test("transporte en Alemania: Deutschland-Ticket con fuente oficial y semesterticket como opción más barata", async () => {
+  const { getOfficialTransport, getCityBySlug } = await import("../src/lib/cities.js");
+  const ros = getOfficialTransport(getCityBySlug("rosenheim"));
+  assert.equal(ros.amount, 63);
+  assert.match(ros.source, /^https:\/\/regional\.bahn\.de\//);
+  assert.match(getOfficialTransport(getCityBySlug("dresde")).desc, /Deutschlandsemesterticket/);
+  assert.equal(getOfficialTransport(getCityBySlug("roma")), null);
 });

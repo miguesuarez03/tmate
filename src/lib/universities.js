@@ -55,10 +55,49 @@ export function getDegreeName(data, degreeId) {
  * paréntesis si la hay («… (ADE)» → «ADE»), si no el nombre entero (el chip
  * lo recorta con puntos suspensivos).
  */
-export function getDegreeShortName(name) {
+export function getDegreeShortName(name, id = null) {
   if (!name) return null;
   const m = String(name).match(/\(([^)]{2,12})\)\s*$/);
-  return m ? m[1] : String(name);
+  if (m) return m[1];
+  // Ids que ya son siglas (giti, rrii, cadv…): en mayúsculas. No lo son los
+  // que forman parte del nombre («datos», «musica» en «Musical»…).
+  const folded = String(name).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  if (id && /^[a-z]{2,6}$/.test(id) && !folded.includes(id)) return id.toUpperCase();
+  return String(name);
+}
+
+const fold = (s) => String(s ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
+
+/**
+ * Opciones del buscador «Tu uni y grado»: cada universidad («todos los
+ * grados») y cada uno de sus grados, filtradas por lo escrito (nombre, sigla
+ * o id: «loyola», «ADE», «ingenieria»…). Sin texto, todas, universidades
+ * primero. Con `uniId`, solo las de esa universidad.
+ * @returns {{ key: string, uniId: string, degreeId: string | null, label: string, sub: string }[]}
+ */
+export function searchUniversityOptions(query, { uniId = null, registry = UNIVERSITY_REGISTRY } = {}) {
+  const q = fold(query);
+  const words = q.split(/\s+/).filter(Boolean);
+  const matches = (...texts) => {
+    const hay = fold(texts.join(" "));
+    return words.every((w) => hay.includes(w));
+  };
+  const unis = registry.filter((u) => !uniId || u.id === uniId);
+  const out = [];
+  for (const u of unis) {
+    if (!words.length || matches(u.name, u.shortName, u.id)) {
+      out.push({ key: u.id, uniId: u.id, degreeId: null, label: u.name, sub: "Todos los grados" });
+    }
+  }
+  for (const u of unis) {
+    for (const d of u.degrees ?? []) {
+      const short = getDegreeShortName(d.name, d.id);
+      if (!words.length || matches(d.name, d.id, short, u.name, u.shortName)) {
+        out.push({ key: `${u.id}:${d.id}`, uniId: u.id, degreeId: d.id, label: d.name, sub: u.name });
+      }
+    }
+  }
+  return out;
 }
 
 const groupKey = (rel) => `${rel.countryCode}|${rel.city}`;
@@ -147,6 +186,82 @@ export function formatPlacesBadge(relations = []) {
   return [formatAgreementCount(count), ...types].join(" · ");
 }
 
+// ─── Textos del portal: limpieza sin tocar los datos ────────────────────────
+// El portal mezcla español e inglés, separa con «||» y trae alguna errata.
+// Aquí solo se ordena y se traduce la etiqueta; las cifras y lo que dicen
+// no cambian.
+
+/** Erratas y etiquetas del portal → forma limpia (mismo dato). */
+const PORTAL_FIXES = [
+  [/\bagaingst\b|\bagainsgt\b/gi, "against"],
+  [/\baccomodation\b/gi, "accommodation"],
+  [/^see factsheet\.?$/i, "Más detalles en el factsheet de la universidad"],
+  [/\bsee factsheet\b/gi, "más detalles en el factsheet de la universidad"],
+  [/\bper month\b/gi, "al mes"],
+  [/\bEuros?\b/gi, "€"],
+  [/\bIngles\b/g, "Inglés"],
+  [/\bAleman\b/g, "Alemán"],
+  [/\bitaliano\b/g, "italiano"],
+  [/\bredidencias\b/g, "residencias"],
+  [/\basigntauras\b/g, "asignaturas"],
+  [/\bEUR\b/g, "€"],
+  [/(\d)\s*€/g, "$1 €"],
+  [/\baprox\.?\s*/gi, "aprox. "],
+  [/\bca\.\s*/g, "aprox. "],
+  [/\s*--\s*/g, ". "],
+];
+
+/** Texto del portal ordenado: sin «||» sueltos, espacios dobles ni erratas conocidas. */
+export function cleanPortalText(text) {
+  let t = String(text ?? "").replace(/\s+/g, " ").trim();
+  if (!t || /^(not applicable|n\/a|-|refer to (the )?link below\.?)$/i.test(t)) return null;
+  for (const [re, to] of PORTAL_FIXES) t = t.replace(re, to);
+  t = t.replace(/\s*\|\|\s*/g, ". ").replace(/\.\s*\./g, ".").replace(/\s+([.,;:])/g, "$1").replace(/\s{2,}/g, " ").trim();
+  // «Inglés B2 or Alemán B1» → «o» entre dos requisitos de idioma.
+  t = t.replace(/([A-C][12])\s+or\s+(?=[A-ZÁÉÍÓÚ])/g, "$1 o ");
+  // Mayúscula al empezar cada frase.
+  t = t.replace(/(^|[.!?]\s+)([a-záéíóúñ])/g, (m, p, c) => p + c.toUpperCase());
+  return t;
+}
+
+// Un trozo es de alojamiento si empieza por la etiqueta («Accomodation: …»,
+// «For accomodation …», «Rent …») o dice «… en alojamiento». Un total que
+// «incluye la residencia» sigue siendo coste de vida.
+const HOUSING = /^(?:for\s+)?(?:alojamiento|accom+odation|housing|rent\b|alquiler)|\ben alojamiento\b/i;
+const HOUSING_LABEL = /^(?:for\s+|en\s+)?(?:alojamiento|accom+odation)\s*:?\s*/i;
+
+/**
+ * Coste de vida y alojamiento de un convenio, por separado. El portal los
+ * mezcla en `monthlyCost` («Aprox. 800€ || Accomodation: aprox. 350€») y a
+ * veces da el alquiler aparte (`rentPrice`).
+ * @returns {{ living: string | null, housing: string | null }}
+ */
+export function splitPortalCosts(rel) {
+  const parts = String(rel?.monthlyCost ?? "")
+    .split(/\s*\|\|\s*|(?<=€)\.\s+|(?<=\d)\.\s+(?=[A-ZÁÉÍÓÚ])/)
+    .map((p) => p.trim())
+    .filter(Boolean);
+  const living = parts.filter((p) => !HOUSING.test(p));
+  const fromCost = parts.filter((p) => HOUSING.test(p)).map((p) => cleanPortalText(p.replace(HOUSING_LABEL, "")));
+  // El alquiler que da el portal aparte, más lo que dice el coste sobre el
+  // alojamiento, sin repetir.
+  const housing = [...new Set([cleanPortalText(rel?.rentPrice), ...fromCost].filter(Boolean))].join(" · ") || null;
+  return { living: cleanPortalText(living.join(". ")), housing };
+}
+
+/** Partes de un texto con enlaces: [{ text } | { url }] (las URL del portal, como enlace). */
+export function linkifyParts(text) {
+  const out = [];
+  let last = 0;
+  for (const m of String(text ?? "").matchAll(/https?:\/\/[^\s)]+/g)) {
+    if (m.index > last) out.push({ text: text.slice(last, m.index) });
+    out.push({ url: m[0].replace(/[.,;]+$/, "") });
+    last = m.index + m[0].length;
+  }
+  if (last < String(text ?? "").length) out.push({ text: text.slice(last) });
+  return out;
+}
+
 /** Recorta un texto largo del portal a una línea legible. */
 export function clipText(text, max = 90) {
   const t = String(text ?? "").replace(/\s+/g, " ").trim();
@@ -160,8 +275,8 @@ export function clipText(text, max = 90) {
 export function getPendingCardInfo(group) {
   const rels = group.relations;
   const universities = [...new Set(rels.map((r) => r.university))];
-  const languages = [...new Set(rels.map((r) => r.languageRequirement).filter(Boolean).map((l) => clipText(l, 70)))];
-  const cost = rels.map((r) => r.monthlyCost).find(Boolean) ?? null;
+  const languages = [...new Set(rels.map((r) => cleanPortalText(r.languageRequirement)).filter(Boolean).map((l) => clipText(l, 70)))];
+  const cost = rels.map((r) => splitPortalCosts(r).living).find(Boolean) ?? null;
   return {
     universities,
     language: languages[0] ?? null,
@@ -284,21 +399,18 @@ export function studentQuoteLabel(shortName) {
 // ─── Invitación y campus ─────────────────────────────────────────────────────
 
 /**
- * Texto de la invitación a elegir universidad. Con una sola universidad en
- * el registro, la nombra; con varias, es genérico.
- * @param {{ count?: number, cityUniversity?: { shortName: string, count: number } | null }} [opts]
+ * Texto de la invitación a elegir universidad. Genérico siempre, salvo en la
+ * ficha, donde da el dato («Loyola tiene 4 convenios aquí»).
+ * @param {{ cityUniversity?: { shortName: string, count: number } | null }} [opts]
  */
-export function getInviteText({ cityUniversity = null } = {}, registry = UNIVERSITY_REGISTRY) {
+export function getInviteText({ cityUniversity = null } = {}) {
   if (cityUniversity) {
     return {
       title: `${cityUniversity.shortName} tiene ${formatAgreementCount(cityUniversity.count)} aquí.`,
       cta: "Elige tu grado",
     };
   }
-  if (registry.length === 1) {
-    return { title: `¿Eres de ${registry[0].shortName}?`, cta: "Elige tu grado y ve solo tus destinos" };
-  }
-  return { title: "¿Tu universidad está en MAbroad?", cta: "Elígela y ve solo tus destinos" };
+  return { title: "", cta: "Elige tu universidad y tu grado y ve solo tus destinos" };
 }
 
 /** Campus de una universidad por id (o null). */

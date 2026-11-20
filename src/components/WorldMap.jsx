@@ -272,6 +272,9 @@ export default function WorldMap() {
 
             {/* Pins de ciudades */}
             {CITIES.map(city => {
+              // Modo «Mi universidad»: las ciudades que no son tuyas no se
+              // pintan (ni en gris): solo se ven tus destinos.
+              if (!uni.isIncluded(city.slug)) return null;
               const visible = visibleCities.some(c => c.slug === city.slug);
               const isSelected = selected?.slug === city.slug;
               // Nota: se mantiene como hex literal (no var()) porque más abajo

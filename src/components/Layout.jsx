@@ -156,8 +156,8 @@ const MENU_ITEMS = [
     to: "/guias",
   },
   {
-    // Abre el selector «Mi universidad» de la home (UniversitySelector, id
-    // mi-universidad): el hash lo despliega y baja hasta él.
+    // Abre el buscador «Tu uni y grado» del hero de la home (UniversitySearchSegment,
+    // id mi-universidad): el hash lo despliega y baja hasta él.
     Icon: IconUniversidad,
     label: "Mi universidad",
     desc: "Ve solo los destinos con convenio de tu universidad y tu grado",

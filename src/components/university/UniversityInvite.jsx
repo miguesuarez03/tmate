@@ -3,14 +3,15 @@ import { IconUniversidad } from "../icons";
 import { useUniversity } from "../../hooks/useUniversity";
 import { getUniversityEntry } from "../../data/universities/registry";
 import { getInviteText } from "../../lib/universities";
-import UniversitySelector from "./UniversitySelector";
+import UniversityPicker from "./UniversityPicker";
 import styles from "./University.module.css";
 
 /**
- * Invitación discreta a elegir universidad: «¿Eres de Loyola? Elige tu grado
+ * Invitación discreta a elegir universidad: «Elige tu universidad y tu grado
  * y ve solo tus destinos →», con ✕ para cerrarla el resto de la sesión. Una
- * por página. Al pulsarla se despliega ahí mismo el selector (universidad +
- * grado); con universidad elegida no se enseña (manda el chip de la cabecera).
+ * por página. Al pulsarla se despliega ahí mismo el buscador «Tu uni y grado»
+ * (UniversityPicker, el mismo que el de la home); con universidad elegida no
+ * se enseña (manda el chip de la cabecera).
  *
  * El HTML prerenderizado la trae siempre; quien ya eligió o la cerró no la ve
  * parpadear gracias a <html data-uni-invite="off"> (script de index.html) y
@@ -22,6 +23,7 @@ import styles from "./University.module.css";
  *     ficha de ciudad: convenios de cada universidad aquí. Sin ninguno, no se
  *     enseña; con alguno, dice «Loyola tiene 4 convenios aquí».
  *   className?: string,
+ *   onExpandedChange?: (expanded: boolean) => void,
  * }} props
  */
 export default function UniversityInvite({ variant = "light", cityAgreements = null, className = "", onExpandedChange = null }) {
@@ -32,7 +34,7 @@ export default function UniversityInvite({ variant = "light", cityAgreements = n
     setExpandedState(v);
     onExpandedChange?.(v);
   };
-  // Al plegar, el selector (con el foco) desaparece: el foco vuelve a la
+  // Al plegar, el buscador (con el foco) desaparece: el foco vuelve a la
   // invitación o, si ya hay universidad elegida, al chip de la cabecera.
   const collapse = () => {
     setExpanded(false);
@@ -46,12 +48,12 @@ export default function UniversityInvite({ variant = "light", cityAgreements = n
 
   const cls = `${styles.invite} ${variant === "dark" ? styles.inviteDark : styles.inviteLight} ${className}`;
 
-  // Abierta: el selector, aunque ya se haya elegido universidad (si no,
-  // desaparecería al elegirla, antes de poder elegir el grado).
+  // Abierta: el buscador, aunque ya se haya elegido universidad (se pliega al
+  // elegir; así no desaparece a mitad).
   if (expanded) {
     return (
       <div className={`${cls} ${styles.inviteExpanded}`}>
-        <UniversitySelector autoOpen preselect={topEntry?.id ?? null} onClose={collapse} />
+        <UniversityPicker autoFocus uniId={topEntry?.id ?? null} onDone={collapse} />
       </div>
     );
   }
@@ -63,7 +65,8 @@ export default function UniversityInvite({ variant = "light", cityAgreements = n
       <button type="button" ref={mainRef} className={styles.inviteMain} onClick={() => setExpanded(true)} aria-expanded="false">
         <span className={styles.inviteIcon} aria-hidden="true"><IconUniversidad size={18} /></span>
         <span className={styles.inviteText}>
-          <strong>{text.title}</strong> <span className={styles.inviteCta}>{text.cta} →</span>
+          {text.title && <><strong>{text.title}</strong>{" "}</>}
+          <span className={styles.inviteCta}>{text.cta} →</span>
         </span>
       </button>
       <button type="button" className={styles.inviteClose} onClick={uni.dismissInvite} aria-label="Cerrar la invitación «Mi universidad»">

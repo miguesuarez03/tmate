@@ -805,6 +805,15 @@ export default function ComparePage() {
 
   // Modo «Mi universidad»: solo destinos con convenio (apagado, no quita nada).
   const uni = useUniversity();
+  // Destacados: los trending y después los más populares (índice `erasmus`),
+  // entre tus destinos si hay universidad. Siempre filas completas: 8 o 4.
+  const featured = useMemo(() => {
+    const pool = ALL_CITIES.filter((c) => uni.isIncluded(c.slug));
+    const rank = (c) => (TRENDING_SLUGS.includes(c.slug) ? 1000 - TRENDING_SLUGS.indexOf(c.slug) : c.erasmus ?? 0);
+    const sorted = [...pool].sort((a, b) => rank(b) - rank(a) || a.name.localeCompare(b.name, "es"));
+    const n = sorted.length >= 8 ? 8 : sorted.length >= 4 ? 4 : sorted.length;
+    return sorted.slice(0, n);
+  }, [uni]);
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim();
     return filterByProgram(ALL_CITIES, program).filter(
@@ -1271,9 +1280,8 @@ export default function ComparePage() {
           <section className={styles.selectedSection}>
             <h2 className={styles.groupTitle}>Destinos con más tirón ahora mismo</h2>
             <div className={styles.featuredGrid}>
-              {TRENDING_SLUGS.map((slug) => {
-                const city = ALL_CITIES.find((c) => c.slug === slug);
-                if (!city) return null;
+              {featured.map((city) => {
+                const slug = city.slug;
                 const pos = selected.indexOf(slug);
                 const checked = pos !== -1;
                 return (

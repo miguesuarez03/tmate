@@ -20,10 +20,8 @@ import { useIsoLayoutEffect } from "../hooks/useIsoLayoutEffect";
 import { HOME_JSON_LD } from "../lib/seo";
 import { isPrerenderedFirstRender } from "../lib/firstRender";
 import HomeExperiences from "../components/experiences/HomeExperiences";
-import UniversitySelector from "../components/university/UniversitySelector";
 import UniversityBanner from "../components/university/UniversityBanner";
 import PendingDestinations from "../components/university/PendingDestinations";
-import UniversityInvite from "../components/university/UniversityInvite";
 import { useUniversity } from "../hooks/useUniversity";
 
 // Índice ligero de ciudades (ver lib/cities.js).
@@ -675,12 +673,8 @@ export default function HomePage() {
           </p>
 
           <div className="fade-up-4" style={{ width: "100%", display: "flex", justifyContent: "center", position: "relative", zIndex: 10 }}>
-            <SearchBar />
+            <SearchBar withUniversity />
           </div>
-
-          {/* Modo «Mi universidad»: invitación junto al buscador (la única de
-              la home; el listado de destinos tiene su selector). */}
-          <UniversityInvite variant="dark" className="hero__uni-invite fade-up-5" />
 
           <div className="hero__trending fade-up-5">
             <span className="hero__trending-label">Trending:</span>
@@ -732,7 +726,6 @@ export default function HomePage() {
             <span className="section__count">{totalCount} ciudad{totalCount !== 1 ? 'es' : ''}</span>
           </div>
         </div>
-        <UniversitySelector id="mi-universidad" />
         {/* Cuenta las fichas y las «en preparación»; España (SICUE) no, va como «próximamente». */}
         <UniversityBanner count={filtered.length + (uni.filtering ? uni.view.pending.length : 0)} />
         <div className="filters">

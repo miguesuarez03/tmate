@@ -151,6 +151,13 @@ function run(id) {
   const mapping = {};
   for (const rel of data.relations) mapping[rel.relationId] = matchRelation(rel);
   writeFileSync(join(ROOT, "src/data/universities", `${id}.cities.json`), `${JSON.stringify(mapping, null, 1)}\n`);
+  // Lista ligera de grados (id + nombre) para el buscador «Tu uni y grado»:
+  // va en el bundle inicial (registry.js), sin descargar los convenios.
+  const degrees = data.degrees.map((d) => ({ id: d.id, name: d.name }));
+  writeFileSync(
+    join(ROOT, "src/data/universities", `${id}.degrees.js`),
+    `// Generado por scripts/match-university-cities.mjs a partir de ${entry.file} — no editar a mano.\nexport default ${JSON.stringify(degrees, null, 1)};\n`
+  );
   const { md, cities, relations, domesticCities, domesticRelations } = pendingMarkdown(data, mapping);
   mkdirSync(join(ROOT, "docs"), { recursive: true });
   writeFileSync(join(ROOT, "docs", `destinos-pendientes-${id}.md`), md);

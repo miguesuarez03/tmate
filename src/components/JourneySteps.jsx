@@ -10,10 +10,10 @@ import styles from "./JourneySteps.module.css";
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const JOURNEY = [
-  { id: "proceso", to: "/proceso", Icon: IconProceso, label: "Entiende el proceso", phrase: "entiende el proceso", desc: "El Erasmus paso a paso, de la solicitud a la vuelta" },
   { id: "city-match", to: "/city-match", Icon: IconCityMatch, label: "Encuentra tu ciudad", phrase: "encuentra tu ciudad", desc: "City Match: las ciudades que encajan contigo" },
   { id: "comparar", to: "/comparar", Icon: IconComparar, label: "Compara destinos", phrase: "compara destinos", desc: "Coste y notas de tus candidatas, lado a lado" },
   { id: "beca", to: "/beca-erasmus", Icon: IconBeca, label: "Calcula tu beca", phrase: "calcula tu beca", desc: "Cuánto cobrarías al mes y cuánto pondrías tú" },
+  { id: "proceso", to: "/proceso", Icon: IconProceso, label: "Entiende el proceso", phrase: "entiende el proceso", desc: "El Erasmus paso a paso, de la solicitud a la vuelta" },
   { id: "learning-agreement", to: "/learning-agreement", Icon: IconLearningAgreement, label: "Prepara tu Learning Agreement", phrase: "prepara tu Learning Agreement", desc: "Qué asignaturas cursas y cómo se convalidan" },
 ];
 

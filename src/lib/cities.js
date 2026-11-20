@@ -15,6 +15,7 @@ import { SCORE_CATEGORIES } from '../data/scoreCategories';
 import { CITY_EXPERIENCES, FOUNDER_EXPERIENCE, EXPERIENCE_TOPICS } from '../data/cityExperiences';
 import { RANKING_CRITERIA, RANKING_TOP } from '../data/rankings';
 import { MAP_COUNTRIES } from '../data/mapCountries';
+import { DEUTSCHLAND_TICKET, SEMESTER_TICKET_CITIES } from '../data/transportPasses';
 import { CITY_SIZE_LIMITS } from './cityMetrics';
 import { SUBSCORES, EXTRA_SCORES } from './scoring';
 import { DEFAULT_OG_IMAGE, getCityOgImage } from './seo';
@@ -506,6 +507,28 @@ export function getErasmusRanking(criterionId, limit = RANKING_TOP, include = nu
 }
 
 /** Número de destinos con beca Erasmus+ (lo que abarca cada ranking). */
+/**
+ * Transporte con precio oficial para el desglose de la beca: en Alemania, el
+ * Deutschland-Ticket (con el Deutschlandsemesterticket como opción más barata
+ * si la universidad lo incluye). null en el resto de países.
+ * @returns {{ amount: number, desc: string, source: string, sourceLabel: string } | null}
+ */
+export function getOfficialTransport(city) {
+  if (!city || city.country !== DEUTSCHLAND_TICKET.country) return null;
+  const t = DEUTSCHLAND_TICKET;
+  const fmt = (n) => n.toLocaleString("es-ES", { minimumFractionDigits: Number.isInteger(n) ? 0 : 2 });
+  const base = `${t.name}: ${fmt(t.monthly)} €/mes (${fmt(t.next.monthly)} € desde el ${t.next.from}), bus, tranvía, metro y regionales de toda Alemania.`;
+  const semester = SEMESTER_TICKET_CITIES[city.slug];
+  return {
+    amount: t.monthly,
+    desc: semester
+      ? `${base} Más barato: ${semester} incluye el Deutschlandsemesterticket en la cuota semestral.`
+      : base,
+    source: t.source,
+    sourceLabel: t.sourceLabel,
+  };
+}
+
 export function getErasmusCityCount(include = null) {
   return CITIES.filter((c) => isErasmusEligible(c) && (!include || include(c.slug))).length;
 }
@@ -559,14 +582,15 @@ const SIMILAR_MAX_PER_COUNTRY = 2;
  * @param {number} limit
  * @returns {City[]}
  */
-export function getRelatedCities(city, limit = 4) {
+export function getRelatedCities(city, limit = 4, include = null) {
   const baseCost = parseMinCost(city.costDetail || "");
   const baseOverall = getOverallScore(city.slug);
   const baseSize = getCitySize(city);
   const baseExperiences = city.experiences || [];
 
+  // `include(slug)`: modo «Mi universidad», solo destinos de tu universidad y grado.
   const scored = CITIES
-    .filter((c) => c.slug !== city.slug)
+    .filter((c) => c.slug !== city.slug && (!include || include(c.slug)))
     .map((c) => {
       let score = 0;
       if (c.programType === city.programType) score += 4;

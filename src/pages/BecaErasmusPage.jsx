@@ -10,8 +10,8 @@ import { useCityDetails } from "../hooks/useCityDetail";
 import { BECA_JSON_LD } from "../lib/seo";
 import { BECA_FAQS } from "../data/faqs";
 import { CITY_COORDS, haversineDistanceKm, distanceToRange, geocodeCity } from "../lib/cityCoords";
-import { getAllCities, parseMinCost, parseMaxCost, isErasmusEligible, getErasmusTransition, getStateCountry } from "../lib/cities";
-import { GROUP1, GROUP2, GROUP3, ESTIMATED_GROUPS, SEPIE_NAMES, SEPIE_MIN_MONTHLY } from "../data/becaGroups";
+import { getAllCities, parseMinCost, parseMaxCost, isErasmusEligible, getErasmusTransition, getStateCountry, getOfficialTransport } from "../lib/cities";
+import { GROUP1, GROUP2, GROUP3, ESTIMATED_GROUPS, SEPIE_NAMES, SEPIE_MIN_MONTHLY, REGIONAL_AIDS } from "../data/becaGroups";
 import { useUniversity } from "../hooks/useUniversity";
 import UniversityInvite from "../components/university/UniversityInvite";
 import UniversityBanner from "../components/university/UniversityBanner";
@@ -148,6 +148,10 @@ function Calculator() {
       .map((c) => ({ value: c.slug, label: c.name, sublabel: c.country, emoji: c.emoji })),
     [uni]
   );
+  // Ayudas autonómicas de la comunidad de tu universidad (REGIONAL_AIDS).
+  const regionalAids = uni.entry
+    ? REGIONAL_AIDS.filter((a) => a.region === uni.entry.region).map((a) => ({ ...a, applies: !a.onlyPublic || uni.entry.ownership === "public" }))
+    : [];
   // Campus guardado de otra visita: rellena el origen si aún está vacío.
   useEffect(() => {
     if (uni.campus && !originCity) setOriginCity(uni.campus.origin);
@@ -253,15 +257,23 @@ function Calculator() {
   const destDetail = useCityDetails(destCity ? [destCity.slug] : [])[destCity?.slug];
   const costeSubcats = destDetail?.insights.scores.find((s) => s.id === "coste")?.subcategories || [];
 
+  // Transporte con precio oficial (Alemania: el Deutschland-Ticket): esa
+  // partida es fija y el resto del total se reparte entre las demás.
+  const officialTransport = getOfficialTransport(destCity);
+  const isTransport = (s) => /transporte/i.test(s.label);
   const expenseBreakdown = costeSubcats.length
     ? (() => {
-        const weights = costeSubcats.map((s) => (10 - s.score) + 1);
+        const fixed = officialTransport && costeSubcats.some(isTransport) ? officialTransport.amount : 0;
+        const rest = costeSubcats.filter((s) => !(fixed && isTransport(s)));
+        const weights = rest.map((s) => (10 - s.score) + 1);
         const sumW = weights.reduce((a, b) => a + b, 0);
-        return costeSubcats.map((s, i) => ({
-          label: s.label,
-          desc: s.desc,
-          amount: Math.round((weights[i] / sumW) * costMid),
-        }));
+        return costeSubcats.map((s) => {
+          if (fixed && isTransport(s)) {
+            return { label: s.label, desc: officialTransport.desc, amount: fixed, source: officialTransport.source, sourceLabel: officialTransport.sourceLabel };
+          }
+          const i = rest.indexOf(s);
+          return { label: s.label, desc: s.desc, amount: Math.round((weights[i] / sumW) * Math.max(0, costMid - fixed)) };
+        });
       })()
     : [];
 
@@ -428,6 +440,22 @@ function Calculator() {
                   </div>
                 </div>
               )}
+              {/* Modo «Mi universidad»: ayudas de la comunidad de tu universidad.
+                  Si no te corresponden (p. ej. solo públicas), en gris y tachadas. */}
+              {regionalAids.map((a) => {
+                const amount = group ? `${a.base[group]} €/mes` : `${Math.min(...Object.values(a.base))}–${Math.max(...Object.values(a.base))} €/mes`;
+                return (
+                  <div key={a.id} className={`beca-regional${a.applies ? "" : " beca-regional--off"}`}>
+                    <p className="beca-regional__name">{a.name}</p>
+                    <p className="beca-regional__amount">
+                      {a.applies ? amount : <s>{amount}</s>}
+                      <span> · ayuda base{group ? `, grupo ${group}` : ""}, curso {a.course}</span>
+                    </p>
+                    {!a.applies && <p className="beca-regional__why">No aplica a {uni.entry.shortName}: {a.notApplicable}.</p>}
+                    <a className="beca-regional__src" href={a.url} target="_blank" rel="noopener noreferrer">Fuente: {a.source} ↗</a>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -511,9 +539,12 @@ function Calculator() {
                   <span className="beca-expenses__item-label" style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
                     {(() => { const ExpIcon = EXPENSE_ICONS[e.label] || IconBeca; return <ExpIcon size={20} />; })()} {e.label}
                   </span>
-                  <span className="beca-expenses__item-amount">~{e.amount}€/mes</span>
+                  <span className="beca-expenses__item-amount">{e.source ? "" : "~"}{e.amount}€/mes</span>
                 </div>
-                <p className="beca-expenses__item-desc">{e.desc}</p>
+                <p className="beca-expenses__item-desc">
+                  {e.desc}
+                  {e.source && <> <a href={e.source} target="_blank" rel="noopener noreferrer">Fuente: {e.sourceLabel} ↗</a></>}
+                </p>
               </div>
             ))}
           </div>

@@ -1,20 +1,22 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { IconUniversidad } from "../icons";
 import { useUniversity } from "../../hooks/useUniversity";
-import { getDegreeShortName } from "../../lib/universities";
+import { getDegreeShortName, getUniversityShareUrl } from "../../lib/universities";
+import UniversityPicker from "./UniversityPicker";
 
 /**
- * Chip fijo de la cabecera con la universidad elegida: «Loyola · ADE ▾». Abre
- * un menú pequeño para cambiar de grado, ver todos los destinos (sin perder la
- * universidad) o quitarla, desde cualquier página. Sin universidad elegida no
- * se pinta (manda la invitación de cada página). En pantallas estrechas queda
- * solo el icono con un punto naranja; el texto va dentro del menú.
- * Estilos en global.css («UNIVERSITY CHIP»), junto a los del navbar.
+ * Chip fijo de la cabecera con la universidad elegida: «Loyola · GITI ▾». Abre
+ * un menú pequeño con el buscador «Tu uni y grado» (para cambiar de grado o
+ * de universidad), «Ver todos los destinos» (sin perder la universidad),
+ * «Copiar enlace» y «Quitar». Sin universidad elegida no se pinta (manda la
+ * invitación de cada página). Nunca tapa la navegación: el texto solo se ve
+ * donde cabe (ver «UNIVERSITY CHIP» en global.css); si no, solo el icono.
  * @param {{ isDark?: boolean }} props  isDark: navbar transparente sobre foto
  */
 export default function UniversityChip({ isDark = false }) {
   const uni = useUniversity();
   const [open, setOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
   const rootRef = useRef(null);
   const buttonRef = useRef(null);
   const menuId = useId();
@@ -38,10 +40,26 @@ export default function UniversityChip({ isDark = false }) {
     };
   }, [open]);
 
+  useEffect(() => {
+    if (!copied) return undefined;
+    const t = setTimeout(() => setCopied(false), 2000);
+    return () => clearTimeout(t);
+  }, [copied]);
+
   if (!uni.uniId) return null;
   const name = uni.entry.shortName;
-  const degree = getDegreeShortName(uni.degreeName);
+  const degree = getDegreeShortName(uni.degreeName, uni.degreeId);
   const label = degree ? `${name} · ${degree}` : name;
+
+  async function copyLink() {
+    const url = getUniversityShareUrl(window.location.origin, uni.uniId, uni.degreeId);
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+    } catch {
+      window.prompt("Copia este enlace:", url);
+    }
+  }
 
   return (
     <div className={`uni-chip${isDark ? " uni-chip--dark" : ""}`} ref={rootRef}>
@@ -64,19 +82,8 @@ export default function UniversityChip({ isDark = false }) {
       {open && (
         <div className="uni-chip__menu" id={menuId} role="group" aria-label="Mi universidad">
           <p className="uni-chip__title">{uni.entry.name}</p>
-          <label className="uni-chip__field">
-            <span>Grado</span>
-            <select
-              value={uni.degreeId ?? ""}
-              disabled={!uni.data}
-              onChange={(e) => uni.setDegree(e.target.value || null)}
-            >
-              <option value="">{uni.data ? "Todos los grados" : uni.loadError ? "No se han podido cargar" : "Cargando grados…"}</option>
-              {(uni.data?.degrees ?? []).map((d) => (
-                <option key={d.id} value={d.id}>{d.name}</option>
-              ))}
-            </select>
-          </label>
+          <p className="uni-chip__current">{uni.degreeName ?? "Todos los grados"}</p>
+          <UniversityPicker placeholder="Cambia de grado o de universidad" onDone={() => buttonRef.current?.focus()} />
           {uni.loadError && (
             <button type="button" className="uni-chip__action" onClick={uni.retry}>Reintentar la carga</button>
           )}
@@ -85,6 +92,9 @@ export default function UniversityChip({ isDark = false }) {
               {uni.showAll ? `Ver solo mis destinos de ${name}` : "Ver todos los destinos"}
             </button>
           )}
+          <button type="button" className="uni-chip__action" onClick={copyLink}>
+            {copied ? "¡Enlace copiado!" : "Copiar enlace a mis destinos"}
+          </button>
           <button
             type="button"
             className="uni-chip__action uni-chip__action--muted"
@@ -94,7 +104,7 @@ export default function UniversityChip({ isDark = false }) {
               // El chip desaparece: el foco pasa a la invitación de la página (si
               // la hay) o al primer control de la cabecera (el logo, siempre visible).
               requestAnimationFrame(() =>
-                (document.querySelector("[data-uni-invite-el] button") ?? document.querySelector(".navbar a[href], .navbar button"))?.focus()
+                (document.querySelector("[data-uni-invite-el] button, .search-bar__uni-btn") ?? document.querySelector(".navbar a[href], .navbar button"))?.focus()
               );
             }}
           >

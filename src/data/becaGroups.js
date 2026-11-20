@@ -47,3 +47,31 @@ export const SEMP_MONTHLY = {
   source: "Universidad de Berna, importes SEMP 2025/26",
   url: "https://www.unibe.ch/studies/mobility/incoming/from_europe/semp_erasmus_studies/grants/index_eng.html",
 };
+
+/**
+ * Ayudas complementarias de las comunidades autónomas a la beca Erasmus+.
+ * La calculadora las enseña según la universidad elegida en «Mi universidad»
+ * (registry.js → region, ownership): si `onlyPublic` y la universidad es
+ * privada, sale en gris, con el importe tachado y «No aplica».
+ *
+ * Junta de Andalucía: Orden de 26 de mayo de 2025, de la Consejería de
+ * Universidad, Investigación e Innovación (BOJA núm. 103, de 2 de junio de
+ * 2025), curso 2025/2026, solo para el estudiantado de las Universidades
+ * Públicas de Andalucía. Aportación base (todo el alumnado Erasmus+) y
+ * especial (becarios de carácter general del Ministerio, refugiados…), en
+ * €/mes por grupo de países. Última orden publicada para universidades.
+ */
+export const REGIONAL_AIDS = [
+  {
+    id: "junta-andalucia",
+    region: "Andalucía",
+    name: "Ayuda complementaria de la Junta de Andalucía",
+    onlyPublic: true,
+    notApplicable: "solo para universidades públicas andaluzas",
+    course: "2025/2026",
+    base: { 1: 263, 2: 203, 3: 105 },
+    special: { 1: 210, 2: 152, 3: 79 },
+    source: "Orden de 26 de mayo de 2025 (BOJA núm. 103, 2/6/2025)",
+    url: "https://internacional.uca.es/wp-content/uploads/2025/07/FINANCIACION-JUNTA-ANDALUCIA_BOJA_junio2025_PUBLICAR.pdf",
+  },
+];

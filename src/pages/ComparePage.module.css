@@ -305,10 +305,15 @@
 /* Tarjetas destacadas (seleccionadas / trending) — mucho más grandes y
    foto-forward que .miniCard, para que tengan jerarquía visual clara sobre
    el listado compacto por región de más abajo. */
+/* 4 columnas (2 en pantallas estrechas): con 4 u 8 destacados las filas
+   siempre quedan completas, sin huecos. */
 .featuredGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
+}
+@media (max-width: 900px) {
+  .featuredGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 }
 .featuredCard {
   position: relative;

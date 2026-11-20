@@ -46,6 +46,9 @@
  * @property {() => Promise<[any, any]>} load  [convenios, mapeo relationId → slug]
  */
 
+// Grados (id + nombre): generados por `npm run universities:match`.
+import loyolaDegrees from "./loyola.degrees.js";
+
 const LOYOLA_INTERCAMBIO = "https://www.uloyola.es/servicios/oficina-internacional/intercambio-de-estudios/como-funciona-el-intercambio";
 const LOYOLA_OUTGOING = "https://www.uloyola.es/servicios/oficina-internacional/intercambio-de-estudios/estudiantes-de-intercambio";
 const LOYOLA_OFICINA = "https://www.uloyola.es/servicios/oficina-internacional";
@@ -57,6 +60,11 @@ export const UNIVERSITY_REGISTRY = [
     name: "Universidad Loyola Andalucía",
     shortName: "Loyola",
     file: "loyola.json",
+    degrees: loyolaDegrees,
+    // Titularidad y comunidad: deciden qué ayudas autonómicas le aplican
+    // (src/data/becaGroups.js → REGIONAL_AIDS).
+    ownership: "private",
+    region: "Andalucía",
     studyAgreementTypes: ["Erasmus-SMS", "Bilateral studies", "SICUE"],
     // https://www.uloyola.es/servicios/infraestructuras/nuestros-campus
     // La página lista también Granada; no se ofrece como origen hasta que
