@@ -722,6 +722,7 @@ export default function HomePage() {
           </div>
         </div>
         <UniversitySelector id="mi-universidad" />
+        {/* Cuenta las fichas y las «en preparación»; España (SICUE) no, va como «próximamente». */}
         <UniversityBanner count={filtered.length + (uni.filtering ? uni.view.pending.length : 0)} />
         <div className="filters">
           {VIBE_FILTERS.map((f) => (

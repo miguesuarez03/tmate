@@ -6,16 +6,50 @@ import styles from "./University.module.css";
 const INITIAL = 8;
 
 /**
- * Destinos de la universidad que todavía no tienen ficha en MAbroad (también
- * los SICUE, en España): tarjeta sencilla con ciudad, país, universidades,
- * idioma y coste, y la etiqueta «Ficha en preparación». No enlazan a ninguna
- * página: aún no existe.
+ * Destinos de la universidad que todavía no tienen ficha en MAbroad: tarjeta
+ * sencilla con ciudad, país, universidades, idioma y coste, y la etiqueta
+ * «Ficha en preparación». No enlazan a ninguna página: aún no existe.
+ * Los de España (SICUE) van aparte, en un bloque «próximamente» sin tarjetas.
  */
 export default function PendingDestinations() {
   const uni = useUniversity();
+  if (!uni.filtering) return null;
+  return (
+    <>
+      <AbroadPending groups={uni.view.pending} />
+      <DomesticPending groups={uni.view.domestic} />
+    </>
+  );
+}
+
+/**
+ * «Destinos en España (SICUE): próximamente». MAbroad aún no tiene fichas en
+ * España: solo la ciudad y el número de plazas, sin enlace ni datos del portal.
+ */
+function DomesticPending({ groups }) {
+  if (!groups.length) return null;
+  return (
+    <div className={styles.domestic}>
+      <h3 className={styles.pendingTitle}>
+        Destinos en España (SICUE): próximamente <span className={styles.pendingCount}>{groups.length}</span>
+      </h3>
+      <p className={styles.pendingSub}>Todavía no hay fichas de ciudades españolas en MAbroad.</p>
+      <ul className={styles.domesticList}>
+        {groups.map((g) => (
+          <li key={g.key} className={styles.domesticItem}>
+            <span className={styles.domesticCity}>{g.city}</span>
+            <span className={styles.domesticPlaces}>{formatPlacesBadge(g.relations)}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function AbroadPending({ groups }) {
+  const uni = useUniversity();
   const [showAll, setShowAll] = useState(false);
-  if (!uni.filtering || !uni.view.pending.length) return null;
-  const groups = uni.view.pending;
+  if (!groups.length) return null;
   const shown = showAll ? groups : groups.slice(0, INITIAL);
 
   return (

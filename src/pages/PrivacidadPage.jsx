@@ -11,7 +11,7 @@ import styles from "./PrivacidadPage.module.css";
 
 const OWNER_NAME = "Miguel Ángel Suárez Álvarez";
 const CONTACT_EMAIL = "suarezalvarez.ma03@gmail.com";
-const LAST_UPDATED = "10 de noviembre de 2026";
+const LAST_UPDATED = "20 de noviembre de 2026";
 
 /** Una fila «Etiqueta: texto» de la ficha de cada tratamiento. */
 function Item({ label, children }) {
@@ -218,6 +218,12 @@ export default function PrivacidadPage() {
             ciudades favoritas, si pausaste el vídeo de la portada, el progreso del checklist del Learning
             Agreement y el borrador de su asistente (con tu nombre y email si los escribiste; se borra al
             enviar la solicitud).
+          </li>
+          <li>
+            <strong>Mi universidad</strong> (localStorage, clave <code>mabroad:universidad</code>): la universidad
+            y el grado que eliges en «Mi universidad», para seguir enseñándote solo los destinos con plazas de tu
+            universidad cuando vuelvas. Solo se guarda si eliges una universidad, y se borra al pulsar «Quitar».
+            Si abres un enlace compartido con <code>?uni=…&amp;grado=…</code>, esa elección se guarda igual.
           </li>
           <li>
             <strong>Hasta que cierras la pestaña</strong> (sessionStorage): las ciudades que estás comparando

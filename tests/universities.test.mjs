@@ -34,15 +34,20 @@ for (const entry of UNIVERSITY_REGISTRY) {
   test(`${entry.id}: con un grado solo quedan sus plazas y las de titulación sin especificar`, () => {
     const degree = data.degrees[0].id;
     const view = buildUniversityView(data, mapping, degree);
-    const all = [...view.bySlug.values()].flat().concat(view.pending.flatMap((g) => g.relations));
+    const all = [...view.bySlug.values()].flat()
+      .concat(view.pending.flatMap((g) => g.relations), view.domestic.flatMap((g) => g.relations));
     assert.ok(all.length > 0);
     for (const rel of all) assert.ok(rel.degreesUnspecified || rel.degreeIds.includes(degree), rel.relationId);
     // Las ciudades sin ficha no aparecen en bySlug y viceversa.
     for (const g of view.pending) for (const rel of g.relations) assert.equal(mapping[rel.relationId], null);
     // Sin grado, todas las plazas.
     const full = buildUniversityView(data, mapping, null);
-    const total = [...full.bySlug.values()].flat().length + full.pending.reduce((n, g) => n + g.relations.length, 0);
+    const count = (groups) => groups.reduce((n, g) => n + g.relations.length, 0);
+    const total = [...full.bySlug.values()].flat().length + count(full.pending) + count(full.domestic);
     assert.equal(total, data.relations.length);
+    // España (SICUE) va aparte, nunca como «ficha en preparación».
+    for (const g of full.pending) assert.ok(g.relations.every((r) => r.countryCode !== "ES"), g.city);
+    for (const g of full.domestic) assert.ok(g.relations.every((r) => r.countryCode === "ES"), g.city);
   });
 }
 

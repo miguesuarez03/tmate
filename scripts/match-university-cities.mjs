@@ -96,21 +96,26 @@ function pendingMarkdown(data, mapping) {
   for (const rel of data.relations) {
     if (mapping[rel.relationId]) continue;
     const key = `${rel.countryCode}|${rel.city}`;
-    if (!groups.has(key)) groups.set(key, { city: rel.city, country: rel.country, coords: [], universities: new Map(), count: 0 });
+    if (!groups.has(key)) groups.set(key, { city: rel.city, country: rel.country, domestic: rel.countryCode === "ES", coords: [], universities: new Map(), count: 0 });
     const g = groups.get(key);
     g.count += 1;
     if (typeof rel.lat === "number") g.coords.push([rel.lat, rel.lng]);
     g.universities.set(rel.university, (g.universities.get(rel.university) ?? 0) + 1);
   }
-  const rows = [...groups.values()].sort((a, b) => b.count - a.count || a.country.localeCompare(b.country, "es") || a.city.localeCompare(b.city, "es"));
+  const sorted = [...groups.values()].sort((a, b) => b.count - a.count || a.country.localeCompare(b.country, "es") || a.city.localeCompare(b.city, "es"));
+  // España (SICUE) queda fuera de MAbroad por ahora: va en su propia lista,
+  // no en la cola de fichas (igual que en la web, ver lib/universities.js).
+  const rows = sorted.filter((r) => !r.domestic);
+  const domestic = sorted.filter((r) => r.domestic);
   const total = rows.reduce((n, r) => n + r.count, 0);
+  const domesticTotal = domestic.reduce((n, r) => n + r.count, 0);
   const fmt = (n) => n.toFixed(4);
   const lines = [
     `# Destinos de ${data.university.name} sin ficha en MAbroad`,
     "",
     `Generado por \`scripts/match-university-cities.mjs\` a partir de \`src/data/universities/${data.university.id}.json\` (portal de movilidad, extraído el ${data.university.extractedAt}). No editar a mano: vuelve a lanzar \`npm run universities:match\`.`,
     "",
-    `Es la cola de trabajo para añadir fichas: ${rows.length} ciudades con ${total} plazas (de ${data.relations.length}) que todavía no casan con ninguna ciudad de MAbroad (mismo país y nombre/alias, o universidad a ≤ ${MAX_KM} km). Ordenadas por número de plazas. Las coordenadas son las de la primera universidad de cada ciudad en el portal (algunas son aproximadas).`,
+    `Es la cola de trabajo para añadir fichas: ${rows.length} ciudades con ${total} plazas (de ${data.relations.length}) fuera de España que todavía no casan con ninguna ciudad de MAbroad (mismo país y nombre/alias, o universidad a ≤ ${MAX_KM} km). Ordenadas por número de plazas. Las coordenadas son las de la primera universidad de cada ciudad en el portal (algunas son aproximadas).`,
     "",
     "| # | Ciudad | País | Plazas | Coordenadas (lat, lng) | Universidades |",
     "|---|---|---|---|---|---|",
@@ -121,7 +126,22 @@ function pendingMarkdown(data, mapping) {
     }),
     "",
   ];
-  return { md: lines.join("\n"), cities: rows.length, relations: total };
+  if (domestic.length) {
+    lines.push(
+      "## Destinos en España (SICUE): fuera por ahora",
+      "",
+      `MAbroad todavía no tiene fichas de ciudades españolas. En «Mi universidad» salen agrupados como «Destinos en España (SICUE): próximamente», sin ficha: ${domestic.length} ciudades con ${domesticTotal} plazas.`,
+      "",
+      "| Ciudad | Plazas | Universidades |",
+      "|---|---|---|",
+      ...domestic.map((r) => {
+        const unis = [...r.universities.entries()].map(([u, n]) => (n > 1 ? `${u} (${n})` : u)).join("; ");
+        return `| ${r.city} | ${r.count} | ${unis.replace(/\|/g, "/")} |`;
+      }),
+      "",
+    );
+  }
+  return { md: lines.join("\n"), cities: rows.length, relations: total, domesticCities: domestic.length, domesticRelations: domesticTotal };
 }
 
 function run(id) {
@@ -131,13 +151,14 @@ function run(id) {
   const mapping = {};
   for (const rel of data.relations) mapping[rel.relationId] = matchRelation(rel);
   writeFileSync(join(ROOT, "src/data/universities", `${id}.cities.json`), `${JSON.stringify(mapping, null, 1)}\n`);
-  const { md, cities, relations } = pendingMarkdown(data, mapping);
+  const { md, cities, relations, domesticCities, domesticRelations } = pendingMarkdown(data, mapping);
   mkdirSync(join(ROOT, "docs"), { recursive: true });
   writeFileSync(join(ROOT, "docs", `destinos-pendientes-${id}.md`), md);
   const matched = Object.values(mapping).filter(Boolean);
   console.log(
     `${id}: ${matched.length}/${data.relations.length} plazas casan con ${new Set(matched).size} ciudades de MAbroad; ` +
-      `quedan ${relations} plazas en ${cities} ciudades sin ficha (docs/destinos-pendientes-${id}.md).`
+      `quedan ${relations} plazas en ${cities} ciudades sin ficha y ${domesticRelations} en ${domesticCities} ciudades de España (SICUE) ` +
+      `(docs/destinos-pendientes-${id}.md).`
   );
 }
 

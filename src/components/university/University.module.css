@@ -99,6 +99,17 @@
 .pendingFacts dt, .placeFacts dt { font-weight: 700; color: var(--color-slate); }
 .pendingFacts dd, .placeFacts dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
 
+/* ── España (SICUE): próximamente, sin fichas ── */
+.domestic { margin-top: 36px; }
+.domesticList { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.domesticItem {
+  display: inline-flex; align-items: center; gap: 8px; min-width: 0;
+  padding: 8px 14px; border-radius: var(--radius-full);
+  border: 1px dashed var(--color-border); background: var(--color-white);
+}
+.domesticCity { font: 700 14px var(--font-body); color: var(--color-dark); }
+.domesticPlaces { font: 600 12px var(--font-body); color: var(--color-slate); }
+
 /* ── Ficha: «Tus plazas desde…» ── */
 .places { padding: clamp(32px, 6vw, 56px) var(--section-px); background: var(--color-surface); }
 .placesInner { max-width: 1100px; margin: 0 auto; }

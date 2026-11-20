@@ -57,10 +57,22 @@ export function buildUniversityView(data, mapping, degreeId) {
       pendingByKey.get(key).relations.push(rel);
     }
   }
-  const pending = [...pendingByKey.values()].sort(
+  const groups = [...pendingByKey.values()].sort(
     (a, b) => b.relations.length - a.relations.length || a.city.localeCompare(b.city, "es")
   );
-  return { bySlug, slugs: new Set(bySlug.keys()), pending };
+  // España (sobre todo SICUE) queda fuera de MAbroad por ahora: no son
+  // «fichas en preparación», sino un bloque aparte «próximamente».
+  const pending = groups.filter((g) => !isDomesticGroup(g));
+  const domestic = groups.filter(isDomesticGroup);
+  return { bySlug, slugs: new Set(bySlug.keys()), pending, domestic };
+}
+
+/** País de los destinos nacionales (SICUE): MAbroad todavía no tiene fichas en España. */
+export const DOMESTIC_COUNTRY_CODE = "ES";
+
+/** ¿El grupo de plazas es de una ciudad española? */
+export function isDomesticGroup(group) {
+  return group.relations.some((r) => r.countryCode === DOMESTIC_COUNTRY_CODE);
 }
 
 /** Resumen para el distintivo de una tarjeta: nº de plazas y tipos de convenio. */
