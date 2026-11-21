@@ -137,6 +137,14 @@ Desde el 12/11/2026 `cityCoords.js` es la única fuente: el mapa también lee de
 y su país salen del índice (antes el mapa tenía su propia copia y le faltaban los rótulos de 18
 países, como Suecia, Grecia o Irlanda).
 
+### check:responsive: fallo intermitente del buscador de la home (21/11/2026)
+
+`npm run check:responsive` falla a veces con «las sugerencias del buscador se despega de su barra al
+deslizar» en la home, cada vez a un ancho distinto (360 px con «de 28 a 28px», 1280 px con «de 28 a 8px»),
+y la siguiente ejecución sale limpia. Parece cuestión de tiempos (la comprobación mide antes de que el
+desplegable termine de recolocarse), no de diseño. Pendiente: esperar a que se asiente antes de medir, o
+tolerar 1–2 px, en `scripts/check-responsive.mjs`.
+
 ## Mejoras propuestas
 
 1. **Rankings en el menú principal.** `/ranking` está enlazado desde la home, el comparador y cada

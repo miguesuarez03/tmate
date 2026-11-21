@@ -80,7 +80,7 @@ export const UNIVERSITY_REGISTRY = [
         { q: "¿Cómo se solicita el intercambio?", text: "La solicitud se presenta online, dentro del plazo de cada convocatoria.", source: LOYOLA_INTERCAMBIO },
         { q: "¿Cuándo es la convocatoria?", text: "Hay una convocatoria ordinaria en otoño y una extraordinaria en febrero; en la extraordinaria no se ofrecen todos los destinos.", source: LOYOLA_INTERCAMBIO },
         { q: "¿Qué nivel de idioma piden?", text: "Para destinos de países no hispanohablantes se pide como mínimo un B1 acreditado con certificado oficial; cada destino puede exigir un nivel más alto.", source: LOYOLA_INTERCAMBIO },
-        { q: "¿Qué pasa después de la asignación?", text: "Tras la asignación aceptas el destino en MoveOn y un tutor académico te ayuda a preparar el Learning Agreement.", source: LOYOLA_OUTGOING },
+        { q: "¿Qué pasa después de la adjudicación?", text: "Tras la adjudicación aceptas (o rechazas) tu destino en la plataforma MoveOn; al aceptarlo se te asigna un tutor académico que te ayuda a preparar el Learning Agreement.", source: LOYOLA_OUTGOING },
       ],
       links: [
         { label: "Cómo funciona el intercambio", url: LOYOLA_INTERCAMBIO, desc: "Convocatorias, requisitos y baremo" },
