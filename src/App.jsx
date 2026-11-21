@@ -30,6 +30,8 @@ export const PAGES = {
   GuiasPage:              lazyPage(() => import("./pages/GuiasPage")),
   GuidePage:              lazyPage(() => import("./pages/GuidePage")),
   RankingPage:            lazyPage(() => import("./pages/RankingPage")),
+  UniversidadesPage:      lazyPage(() => import("./pages/UniversidadesPage")),
+  UniversityPage:         lazyPage(() => import("./pages/UniversityPage")),
   NotFoundPage:           lazyPage(() => import("./pages/NotFoundPage")),
 };
 

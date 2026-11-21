@@ -159,6 +159,20 @@
   font: 400 12px/1.5 var(--font-body); color: var(--color-slate);
 }
 .portalLink { font: 700 14px var(--font-body); color: var(--color-teal); }
+.placesMore { margin-top: 18px; font: 700 14px var(--font-body); }
+.placesMore a { color: var(--color-teal); }
+
+/* Ficha sin universidad elegida: un desplegable por universidad. */
+.cityAgreements {
+  margin-top: 14px; padding: 4px 18px; border: 1px solid var(--color-border); border-radius: var(--radius-md);
+  background: var(--color-white);
+}
+.cityAgreements > summary {
+  cursor: pointer; padding: 12px 0; min-height: 44px; box-sizing: border-box;
+  font: 700 15px/1.4 var(--font-body); color: var(--color-dark);
+}
+.cityAgreements[open] { padding-bottom: 18px; }
+.cityAgreements > .placesList { margin-top: 6px; }
 
 .primaryBtn { border-color: var(--color-primary); background: var(--color-primary); color: #fff; }
 .primaryBtn:hover, .primaryBtn:focus-visible { border-color: var(--color-primary); color: #fff; filter: brightness(1.05); }

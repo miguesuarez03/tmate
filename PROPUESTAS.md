@@ -181,6 +181,16 @@ está en `main`. Queda:
 5. **Más universidades**: el modo ya es solo datos (registro + `<id>.json`); falta conseguir el
    permiso y los convenios de cada una.
 
+### Parte B (SEO) hecha (21/11/2026)
+
+`/universidades` y `/universidades/loyola` prerenderizadas (cifras, selector de grado con `#<grado>`,
+países con ancla, Oficina, FAQ con fuente, ItemList + BreadcrumbList + FAQPage) y el bloque de
+convenios de cada ficha en su HTML (plegado sin universidad). Pendiente: los plazos exactos de la
+convocatoria. La web de Loyola pone «2027-28» en la cabecera y da fechas (ordinaria del 13/10 al 6/11,
+extraordinaria del 4 al 15 de febrero), pero el calendario que enlaza es el «26/27». Hasta que Loyola
+lo confirme, la página solo dice «otoño / febrero». Lo mismo con los teléfonos y el horario de la
+Oficina, que no se publican hasta que Loyola diga cuáles quiere (punto 6 de abajo).
+
 ### Páginas por grado (después de completar los destinos)
 
 Decisión de Miguel (20/11/2026): por ahora, una sola página `/universidades/loyola` con selector de

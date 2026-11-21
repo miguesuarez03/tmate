@@ -16,6 +16,7 @@
 
 import { matchPath } from "react-router-dom";
 import { loadCityDetail } from "./lib/cities";
+import { loadUniversityPage } from "./lib/universities";
 
 const hasParam = (...names) => (url) => names.some((n) => url.searchParams.has(n));
 
@@ -45,6 +46,16 @@ export const ROUTES = [
   // Rankings (src/data/rankings.js): índice y una página por criterio.
   { path: "/ranking", page: "RankingPage" },
   { path: "/ranking/:slug", page: "RankingPage" },
+  // Universidades del registro (src/data/universities/registry.js): índice y
+  // una página por universidad con sus convenios (chunk generado, ver
+  // scripts/city-data.mjs). El grado (#ade) se lee en un efecto: se hidrata.
+  { path: "/universidades", page: "UniversidadesPage" },
+  {
+    path: "/universidades/:id",
+    page: "UniversityPage",
+    data: ({ id }) => loadUniversityPage(id),
+    dataModule: ({ id }) => `src/data/generated/universities/${id}.js`,
+  },
   { path: "*", page: "NotFoundPage" },
 ];
 

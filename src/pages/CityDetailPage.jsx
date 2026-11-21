@@ -54,8 +54,8 @@ export default function CityDetailPage() {
       {/* 1. Hero */}
       <HeroSection city={city} overallScore={overallScore} insights={insights} scoreDetail={detail?.scoring?.detail} universityAgreements={detail?.universityAgreements ?? null} />
 
-      {/* Modo «Mi universidad»: tus convenios en esta ciudad (sin modo, nada) */}
-      <UniversityPlaces slug={slug} cityName={city.name} />
+      {/* Convenios de las universidades del registro aquí: plegados, o «Tus convenios» con universidad elegida */}
+      <UniversityPlaces cityName={city.name} agreements={detail?.universityAgreements ?? null} />
 
       {/* 2. Bento highlights — with photos */}
       <BentoHighlights highlights={city.highlights} cityName={city.name} cityImg={city.heroImg || city.img} />

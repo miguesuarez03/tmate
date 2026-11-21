@@ -7,13 +7,15 @@ import styles from "./University.module.css";
  * universidad publica sobre su movilidad saliente (registry.js → official),
  * cada dato con su fuente oficial. Solo con universidad elegida; si la
  * universidad no tiene información oficial en el registro, no se pinta nada.
- * @param {{ context?: string }} props  frase de contexto bajo el título
+ * En /universidades/<id> se pinta siempre, con la universidad de la página (`entry`).
+ * @param {{ context?: string, entry?: any }} props  frase de contexto bajo el título
  */
-export default function UniversityOfficialInfo({ context = null }) {
+export default function UniversityOfficialInfo({ context = null, entry: entryProp = null }) {
   const uni = useUniversity();
-  const info = uni.entry?.official;
+  const entry = entryProp ?? uni.entry;
+  const info = entry?.official;
   if (!info || (!info.facts?.length && !info.links?.length)) return null;
-  const name = uni.entry.shortName;
+  const name = entry.shortName;
 
   return (
     <section className={styles.official} aria-labelledby="en-mi-universidad">
@@ -49,7 +51,7 @@ export default function UniversityOfficialInfo({ context = null }) {
         )}
 
         <p className={styles.placesFoot}>
-          Fuente: {uni.entry.name} ({info.office}). Las fechas y requisitos de cada convocatoria los fija la
+          Fuente: {entry.name} ({info.office}). Las fechas y requisitos de cada convocatoria los fija la
           universidad: confírmalos siempre en sus bases.
         </p>
       </div>

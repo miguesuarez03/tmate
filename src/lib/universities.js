@@ -10,6 +10,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { UNIVERSITY_REGISTRY } from "../data/universities/registry.js";
+import { getUniversityJsonLd, getUniversitiesIndexJsonLd } from "./seo.js";
 
 /** Etiqueta corta de cada tipo de convenio (las tarjetas no caben más). */
 const SHORT_AGREEMENT = {
@@ -496,6 +497,315 @@ export function getUniversityShareUrl(origin, uniId, degreeId, cities = []) {
   }
   return `${origin}/?${params.toString()}`;
 }
+
+// ─── Datos generados para el SEO (scripts/city-data.mjs) ────────────────────
+// Dos salidas por universidad, para que los convenios estén en el HTML
+// prerenderizado sin cargar el <id>.json completo (≈ 650 kB):
+//   · en la ficha de cada ciudad (generated/cities/<slug>.js), sus convenios
+//     con lo que pinta la tarjeta (idioma, coste, observaciones ya separadas);
+//   · en generated/universities/<id>.js, todos sus convenios fuera de España en
+//     versión ligera, para /universidades/<id>.
+// Los de España (SICUE) no salen en ninguna de las dos.
+
+/** Quita los campos vacíos (los chunks van al navegador). */
+function compact(obj) {
+  return Object.fromEntries(Object.entries(obj).filter(([, v]) => v != null && v !== false && !(Array.isArray(v) && !v.length)));
+}
+
+/** Convenio como lo pinta la tarjeta de la ficha. */
+function cardRelation(rel, notes) {
+  return compact({
+    relationId: rel.relationId,
+    university: rel.university,
+    city: rel.city,
+    countryCode: rel.countryCode,
+    agreementType: rel.agreementType,
+    languageRequirement: rel.languageRequirement,
+    monthlyCost: rel.monthlyCost,
+    rentPrice: rel.rentPrice,
+    major: rel.major,
+    degreeIds: rel.degreeIds,
+    degreesUnspecified: rel.degreesUnspecified,
+    noteParts: getRelationNotes(rel, notes),
+  });
+}
+
+/**
+ * Convenios de cada universidad del registro en cada ciudad con ficha:
+ * { slug: [{ id, count, study, other }] }. `count` = convenios de estudios
+ * (la invitación «Loyola tiene N convenios aquí»).
+ * @param {{ entry: any, data: any, mapping: Record<string, string | null>, notes?: any }[]} universities
+ */
+export function buildCityAgreements(universities) {
+  const out = {};
+  for (const { entry, data, mapping, notes } of universities) {
+    const bySlug = {};
+    for (const rel of data.relations) {
+      const slug = mapping[rel.relationId];
+      if (!slug || rel.countryCode === DOMESTIC_COUNTRY_CODE) continue;
+      const b = (bySlug[slug] ??= { study: [], other: [] });
+      (isStudyRelation(rel, entry) ? b.study : b.other).push(cardRelation(rel, notes));
+    }
+    for (const [slug, b] of Object.entries(bySlug)) {
+      (out[slug] ??= []).push({
+        id: entry.id,
+        count: b.study.length,
+        source: data.university.source,
+        extractedAt: data.university.extractedAt,
+        study: b.study,
+        other: b.other,
+      });
+    }
+  }
+  return out;
+}
+
+/** Cifras de unos convenios: cuántos, en cuántos países y ciudades. */
+export function countAgreements(relations) {
+  const key = (r) => r.slug ?? `${r.countryCode}|${r.city}`;
+  return {
+    agreements: relations.length,
+    countries: new Set(relations.map((r) => r.countryCode)).size,
+    cities: new Set(relations.map(key)).size,
+  };
+}
+
+/**
+ * Datos de /universidades/<id>: convenios fuera de España, ligeros.
+ * @param {{ entry: any, data: any, mapping: Record<string, string | null> }} u
+ * @param {Record<string, string>} [cityNames]  slug → nombre en MAbroad
+ */
+export function buildUniversityPageData({ entry, data, mapping }, cityNames = {}) {
+  const relations = data.relations
+    .filter((rel) => rel.countryCode !== DOMESTIC_COUNTRY_CODE)
+    .map((rel) => {
+      const slug = mapping[rel.relationId] ?? null;
+      const language = cleanPortalText(rel.languageRequirement);
+      return compact({
+        relationId: rel.relationId,
+        university: rel.university,
+        // Con ficha, el nombre de la ciudad en MAbroad (agrupa los convenios
+        // de las afueras con su ciudad).
+        city: (slug && cityNames[slug]) || rel.city,
+        country: rel.country,
+        countryCode: rel.countryCode,
+        slug,
+        agreementType: rel.agreementType,
+        study: isStudyRelation(rel, entry),
+        language: language ? clipText(language, 90) : null,
+        degreeIds: rel.degreeIds,
+        degreesUnspecified: rel.degreesUnspecified,
+      });
+    });
+  return {
+    id: entry.id,
+    source: data.university.source,
+    extractedAt: data.university.extractedAt,
+    agreementTypes: data.agreementTypes ?? {},
+    totals: countAgreements(relations.filter((r) => r.study)),
+    relations,
+  };
+}
+
+// ─── Página /universidades/<id> ──────────────────────────────────────────────
+
+/** Ancla de un país: «pais-reino-unido». */
+export function countryAnchor(country) {
+  return `pais-${fold(country).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
+}
+
+/** Agrupa convenios por país → ciudad (los dos por número de convenios). */
+function groupByCountry(relations) {
+  const countries = new Map();
+  for (const rel of relations) {
+    if (!countries.has(rel.countryCode)) {
+      countries.set(rel.countryCode, { code: rel.countryCode, name: rel.country, anchor: countryAnchor(rel.country), cities: new Map(), count: 0 });
+    }
+    const c = countries.get(rel.countryCode);
+    c.count += 1;
+    const key = rel.slug ?? rel.city;
+    if (!c.cities.has(key)) c.cities.set(key, { key, name: rel.city, slug: rel.slug ?? null, relations: [] });
+    c.cities.get(key).relations.push(rel);
+  }
+  const byCount = (a, b) => (b.count ?? b.relations.length) - (a.count ?? a.relations.length) || a.name.localeCompare(b.name, "es");
+  return [...countries.values()]
+    .map((c) => ({ ...c, cities: [...c.cities.values()].sort(byCount) }))
+    .sort(byCount);
+}
+
+/**
+ * Lo que pinta /universidades/<id> para un grado (o todos):
+ *   · totals     convenios de estudios, países y ciudades
+ *   · countries  por país → ciudad → convenios (con su ancla)
+ *   · other      otros programas (MAGIS…), por tipo, plegados en la página
+ * @param {ReturnType<typeof buildUniversityPageData>} page
+ * @param {string | null} degreeId
+ */
+export function buildUniversityPageView(page, degreeId = null) {
+  const rels = (page?.relations ?? []).filter((r) => relationMatchesDegree(r, degreeId));
+  const study = rels.filter((r) => r.study);
+  const otherByType = new Map();
+  for (const r of rels.filter((x) => !x.study)) {
+    if (!otherByType.has(r.agreementType)) otherByType.set(r.agreementType, []);
+    otherByType.get(r.agreementType).push(r);
+  }
+  return {
+    totals: countAgreements(study),
+    countries: groupByCountry(study),
+    other: [...otherByType.entries()].map(([type, relations]) => ({
+      type,
+      label: getAgreementLabel(type),
+      name: page.agreementTypes?.[type] ?? getAgreementLabel(type),
+      count: relations.length,
+      countries: groupByCountry(relations),
+    })),
+  };
+}
+
+/**
+ * Resumen por grado (secciones con ancla #<grado>): convenios de estudios y
+ * ciudades de cada grado, en el orden del registro. Los grados sin ningún
+ * convenio propio (solo los «consulta en tu oficina») no salen.
+ * @returns {{ id: string, name: string, short: string, totals: ReturnType<typeof countAgreements>, cities: { name: string, slug: string | null }[] }[]}
+ */
+export function getDegreeSummaries(entry, page) {
+  const study = (page?.relations ?? []).filter((r) => r.study);
+  return (entry?.degrees ?? [])
+    .map((d) => {
+      const rels = study.filter((r) => relationMatchesDegree(r, d.id));
+      if (!rels.some((r) => (r.degreeIds ?? []).includes(d.id))) return null;
+      const cities = new Map();
+      for (const r of rels) {
+        const key = r.slug ?? `${r.countryCode}|${r.city}`;
+        if (!cities.has(key)) cities.set(key, { name: r.city, slug: r.slug ?? null, count: 0 });
+        cities.get(key).count += 1;
+      }
+      return {
+        id: d.id,
+        name: d.name,
+        short: getDegreeShortName(d.name, d.id),
+        totals: countAgreements(rels),
+        cities: [...cities.values()].sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, "es")),
+      };
+    })
+    .filter(Boolean);
+}
+
+/** «convenios en 90 ciudades de 25 países». */
+export function formatTotals(t) {
+  const n = (x, one, many) => `${x} ${x === 1 ? one : many}`;
+  return `${formatAgreementCount(t.agreements)} en ${n(t.cities, "ciudad", "ciudades")} de ${n(t.countries, "país", "países")}`;
+}
+
+/** Ruta de la página de una universidad. */
+export function getUniversityPath(id) {
+  return `/universidades/${id}`;
+}
+
+/** Tipos de convenio de estudios fuera de España, en texto («Erasmus+ y convenios bilaterales»). */
+function studyTypesText(page) {
+  const types = [...new Set((page?.relations ?? []).filter((r) => r.study).map((r) => r.agreementType))];
+  const PLURAL = { "Erasmus-SMS": "Erasmus+", "Bilateral studies": "convenios bilaterales" };
+  const names = types.map((t) => PLURAL[t] ?? page.agreementTypes?.[t] ?? t);
+  return names.length > 1 ? `${names.slice(0, -1).join(", ")} y ${names.at(-1)}` : names[0] ?? "";
+}
+
+/**
+ * Preguntas frecuentes de la página: las que salen de los datos (cuántos
+ * convenios, qué países, convenios ≠ plazas) con el portal como fuente, más
+ * los datos oficiales del registro que traen pregunta (`q`).
+ * @returns {{ q: string, a: string, source: string }[]}
+ */
+export function getUniversityFaqs(entry, page) {
+  if (!entry || !page) return [];
+  const t = page.totals;
+  const date = formatExtractedAt(page.extractedAt);
+  const top = buildUniversityPageView(page).countries.slice(0, 3);
+  const others = [...new Set(page.relations.filter((r) => !r.study).map((r) => getAgreementLabel(r.agreementType)))];
+  const faqs = [
+    {
+      q: `¿Cuántos convenios de intercambio tiene la ${entry.name}?`,
+      a: `Según su portal de movilidad (datos del ${date}), tiene ${formatTotals(t)} fuera de España (${studyTypesText(page)}), para estudiar un cuatrimestre o un curso. No se cuentan los destinos en España (SICUE)${others.length ? ` ni los de otros programas (${others.join(", ")})` : ""}.`,
+      source: page.source,
+    },
+    {
+      q: `¿En qué países tiene más destinos ${entry.shortName}?`,
+      a: `${top.map((c) => `${c.name} (${formatAgreementCount(c.count)})`).join(", ")}. Abajo están todos los países, con las universidades de destino y el idioma que piden.`,
+      source: page.source,
+    },
+    {
+      q: "¿Un convenio es una plaza?",
+      a: `No. Cada convenio es un acuerdo con una universidad de destino, y el portal de ${entry.shortName} no dice cuántas plazas tiene cada uno. El número de plazas lo da la ${entry.official?.office ?? "Oficina de Relaciones Internacionales"} en la convocatoria.`,
+      source: page.source,
+    },
+  ];
+  for (const f of entry.official?.facts ?? []) if (f.q) faqs.push({ q: f.q, a: f.text, source: f.source });
+  return faqs;
+}
+
+// Datos de /universidades/<id>: un chunk por universidad, bajo demanda (el
+// prerender y main.jsx los esperan antes de pintar; ver src/routes.js).
+const pageCache = new Map();
+
+/** Carga los datos de la página de una universidad (null si no existe). */
+export function loadUniversityPage(id) {
+  if (!UNIVERSITY_REGISTRY.some((u) => u.id === id)) return Promise.resolve(null);
+  let entry = pageCache.get(id);
+  if (!entry || entry.error) {
+    entry = {};
+    entry.promise = import(`../data/generated/universities/${id}.js`).then(
+      (mod) => (entry.value = mod.default),
+      (err) => { entry.error = err; throw err; }
+    );
+    pageCache.set(id, entry);
+  }
+  return entry.promise;
+}
+
+/** Datos ya cargados de la página de una universidad, o null. */
+export function getLoadedUniversityPage(id) {
+  return pageCache.get(id)?.value ?? null;
+}
+
+/** Error de la última carga fallida, o null. */
+export function getUniversityPageError(id) {
+  return pageCache.get(id)?.error ?? null;
+}
+
+export const UNIVERSITIES_PATH = "/universidades";
+
+/** Title y description de /universidades (los usa también el prerender). */
+export const UNIVERSITIES_INDEX_META = {
+  title: "Destinos Erasmus por universidad | MAbroad",
+  description:
+    "Los convenios de intercambio de cada universidad, por grado y por país, con el idioma que piden y la ficha de cada ciudad. Datos del portal de movilidad oficial de cada universidad.",
+  path: UNIVERSITIES_PATH,
+};
+
+/** Title y description de /universidades/<id>. */
+export function getUniversityPageMeta(entry, page) {
+  const t = page.totals;
+  return {
+    title: `Destinos Erasmus de la ${entry.name} | MAbroad`,
+    description: `Los ${t.agreements} convenios de intercambio de la ${entry.name} en ${t.cities} ciudades de ${t.countries} países, por grado y por país: programa, idioma requerido y la ficha de cada ciudad.`,
+    path: getUniversityPath(entry.id),
+  };
+}
+
+/** Ciudades con ficha de una universidad, por número de convenios de estudios. */
+export function getUniversityFichaCities(page) {
+  return buildUniversityPageView(page).countries
+    .flatMap((c) => c.cities.filter((x) => x.slug).map((x) => ({ name: x.name, country: c.name, slug: x.slug, count: x.relations.length })))
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, "es"));
+}
+
+/** JSON-LD de /universidades/<id> (ItemList + BreadcrumbList + FAQPage). */
+export function getUniversityPageJsonLd(entry, page) {
+  return getUniversityJsonLd(entry, getUniversityFichaCities(page), getUniversityFaqs(entry, page));
+}
+
+/** JSON-LD de /universidades (constante: useSEO no reescribe el <script>). */
+export const UNIVERSITIES_INDEX_JSON_LD = getUniversitiesIndexJsonLd(UNIVERSITY_REGISTRY);
 
 /** «13/11/2026» a partir de «2026-11-13». */
 export function formatExtractedAt(iso) {

@@ -476,6 +476,7 @@ const FOOTER_LINKS = [
   { label: "Learning Agreement", path: "/learning-agreement" },
   { label: "Tipos de intercambio", path: "/tipos-de-intercambio" },
   { label: "Guías Erasmus", path: "/guias" },
+  { label: "Destinos por universidad", path: "/universidades" },
 ];
 
 export function Footer() {

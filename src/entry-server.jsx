@@ -38,6 +38,8 @@ import CreditosPage from "./pages/CreditosPage";
 import GuiasPage from "./pages/GuiasPage";
 import GuidePage from "./pages/GuidePage";
 import RankingPage from "./pages/RankingPage";
+import UniversidadesPage from "./pages/UniversidadesPage";
+import UniversityPage from "./pages/UniversityPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 import { CITY_MATCH_QUESTION_COUNT } from "./data/cityMatch";
@@ -50,8 +52,13 @@ import { RANKINGS_INDEX_META } from "./data/rankings";
 const PAGES = {
   HomePage, CityDetailPage, ProcesoPage, ComparePage, LearningAgreementPage,
   BecaErasmusPage, CityMatchPage, TiposDeIntercambioPage, PrivacidadPage,
-  CreditosPage, GuiasPage, GuidePage, RankingPage, NotFoundPage,
+  CreditosPage, GuiasPage, GuidePage, RankingPage, UniversidadesPage, UniversityPage, NotFoundPage,
 };
+import { UNIVERSITY_REGISTRY, getUniversityEntry } from "./data/universities/registry";
+import {
+  UNIVERSITIES_INDEX_META, UNIVERSITIES_INDEX_JSON_LD, getLoadedUniversityPage, getUniversityPageMeta,
+  getUniversityPageJsonLd, getUniversityPath,
+} from "./lib/universities";
 import { getGuides, getGuideBySlug, getGuideMeta, GUIDES_INDEX_META, GUIDES_INDEX_JSON_LD } from "./lib/guides";
 import {
   getCityJsonLd, getBreadcrumbJsonLd, HOME_JSON_LD, BECA_JSON_LD,
@@ -139,6 +146,14 @@ const STATIC_PAGE_META = {
     priority: 0.8,
     jsonLd: getRankingsIndexJsonLd(getRankingCriteria()),
   },
+  // Índice de universidades: mismos title/description/JSON-LD que UniversidadesPage.
+  "/universidades": {
+    title: UNIVERSITIES_INDEX_META.title,
+    description: UNIVERSITIES_INDEX_META.description,
+    changefreq: "monthly",
+    priority: 0.7,
+    jsonLd: UNIVERSITIES_INDEX_JSON_LD,
+  },
   // noindex: se prerenderiza (con <meta robots noindex>, sin canonical) pero
   // no entra en el sitemap.
   "/creditos": {
@@ -171,6 +186,12 @@ export const ALL_ROUTES = [
   // Rankings (src/data/rankings.js): una URL por criterio.
   ...getRankingCriteria().map((c) => ({
     path: getRankingPath(c),
+    changefreq: "monthly",
+    priority: 0.7,
+  })),
+  // Universidades del registro: una página por universidad con sus convenios.
+  ...UNIVERSITY_REGISTRY.map((u) => ({
+    path: getUniversityPath(u.id),
     changefreq: "monthly",
     priority: 0.7,
   })),
@@ -251,6 +272,25 @@ export function getMetaForPath(pathname) {
         ogType: "website",
         ...DEFAULT_OG,
         jsonLd: getRankingJsonLd(criterion, getErasmusRanking(criterion.id)),
+      };
+    }
+  }
+
+  // Universidad (mismos meta y JSON-LD que UniversityPage; los datos los ha
+  // cargado renderPage). ?uni= y ?grado= no llegan aquí: el canonical es
+  // siempre la ruta sin parámetros.
+  if (pathname.startsWith("/universidades/")) {
+    const entry = getUniversityEntry(pathname.replace("/universidades/", "").replace(/\/$/, ""));
+    const page = entry && getLoadedUniversityPage(entry.id);
+    if (page) {
+      const um = getUniversityPageMeta(entry, page);
+      return {
+        title: um.title,
+        description: um.description,
+        canonical,
+        ogType: "website",
+        ...DEFAULT_OG,
+        jsonLd: getUniversityPageJsonLd(entry, page),
       };
     }
   }

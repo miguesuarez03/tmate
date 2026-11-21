@@ -40,6 +40,8 @@ const PAGES = [
   { name: "beca", path: "/beca-erasmus" },
   { name: "proceso", path: "/proceso" },
   { name: "Learning Agreement", path: "/learning-agreement" },
+  { name: "universidad (Loyola)", path: "/universidades/loyola" },
+  { name: "ficha con convenios (Lisboa)", path: "/city/lisboa" },
 ];
 const WIDTHS = [360, 390, 768, 1024, 1280, 1536, 1920];
 const STATES = [

@@ -10,8 +10,12 @@
 //                        Match y Comparar (nombre, foto, tag, coste, las 8
 //                        notas, nota global, subnotas de clima e inglés,
 //                        tamaño…). Va en el bundle inicial.
-//   · cities/<slug>.js   Ficha completa de UNA ciudad (datos + insights). Se
+//   · cities/<slug>.js   Ficha completa de UNA ciudad (datos + insights + los
+//                        convenios de cada universidad del registro allí). Se
 //                        carga con import() solo al abrir esa ciudad.
+//   · universities/<id>.js  Convenios de una universidad fuera de España, en
+//                        versión ligera, para /universidades/<id>.
+//   · universityIndex.js Cifras de cada universidad, para /universidades.
 //
 // Lo ejecuta el plugin de vite.config.js al empezar cada build y `vite dev`
 // (y `npm test` a través de pretest). Solo reescribe los ficheros que cambian.
@@ -34,7 +38,7 @@ import { CITY_NEET } from "../src/data/scoring/neet.js";
 import { COUNTRY_LANGUAGE, CITY_LANGUAGE_PENDING } from "../src/data/scoring/languages.js";
 import * as BECA_DATA from "../src/data/becaGroups.js";
 import { UNIVERSITY_REGISTRY } from "../src/data/universities/registry.js";
-import { isStudyRelation } from "../src/lib/universities.js";
+import { buildCityAgreements, buildUniversityPageData } from "../src/lib/universities.js";
 
 const HEADER = "// Generado por scripts/city-data.mjs a partir de src/data/ — no editar a mano.\n";
 
@@ -45,26 +49,16 @@ const INDEX_FIELDS = [
   "erasmusFrom", "erasmusStatus",
 ];
 
-/**
- * Convenios de estudios de cada universidad del registro, por ciudad:
- * { slug: [{ id, count }] }. Va en la ficha de cada ciudad (no en el índice)
- * para la invitación «<Universidad> tiene N convenios aquí».
- */
-function universityAgreementsBySlug() {
-  const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-  const out = {};
-  for (const entry of UNIVERSITY_REGISTRY) {
-    const dir = join(root, "src", "data", "universities");
-    const data = JSON.parse(readFileSync(join(dir, entry.file), "utf-8"));
-    const mapping = JSON.parse(readFileSync(join(dir, `${entry.id}.cities.json`), "utf-8"));
-    const counts = {};
-    for (const rel of data.relations) {
-      const slug = mapping[rel.relationId];
-      if (slug && isStudyRelation(rel, entry)) counts[slug] = (counts[slug] ?? 0) + 1;
-    }
-    for (const [slug, count] of Object.entries(counts)) (out[slug] ??= []).push({ id: entry.id, count });
-  }
-  return out;
+/** Convenios, mapeo (relationId → slug) y observaciones a mano de cada universidad del registro. */
+function readUniversities() {
+  const dir = join(dirname(fileURLToPath(import.meta.url)), "..", "src", "data", "universities");
+  const read = (f) => JSON.parse(readFileSync(join(dir, f), "utf-8"));
+  return UNIVERSITY_REGISTRY.map((entry) => ({
+    entry,
+    data: read(entry.file),
+    mapping: read(`${entry.id}.cities.json`),
+    notes: existsSync(join(dir, `${entry.id}.notes.json`)) ? read(`${entry.id}.notes.json`) : null,
+  }));
 }
 
 function insightsFor(city) {
@@ -87,7 +81,11 @@ function checkScores(city, scores) {
 export function buildCityData() {
   const index = [];
   const details = {};
-  const agreements = universityAgreementsBySlug();
+  const universities = readUniversities();
+  const cityNames = Object.fromEntries(CITIES.map((c) => [c.slug, c.name]));
+  // Convenios de cada universidad en cada ciudad (con lo que pinta la tarjeta):
+  // van en la ficha, así el bloque de convenios sale en el HTML prerenderizado.
+  const agreements = buildCityAgreements(universities);
   for (const city of CITIES) {
     const insights = insightsFor(city);
     checkScores(city, insights.scores);
@@ -123,7 +121,8 @@ export function buildCityData() {
     details[city.slug] = { city, insights, scoring: { detail } };
     if (agreements[city.slug]) details[city.slug].universityAgreements = agreements[city.slug];
   }
-  return { index, details };
+  const universityPages = Object.fromEntries(universities.map((u) => [u.entry.id, buildUniversityPageData(u, cityNames)]));
+  return { index, details, universityPages };
 }
 
 function writeIfChanged(file, content) {
@@ -137,7 +136,7 @@ function writeIfChanged(file, content) {
 export function writeCityData(root = join(dirname(fileURLToPath(import.meta.url)), "..")) {
   const outDir = join(root, "src", "data", "generated");
   const citiesDir = join(outDir, "cities");
-  const { index, details } = buildCityData();
+  const { index, details, universityPages } = buildCityData();
   let changed = 0;
 
   changed += writeIfChanged(
@@ -147,6 +146,23 @@ export function writeCityData(root = join(dirname(fileURLToPath(import.meta.url)
   for (const [slug, detail] of Object.entries(details)) {
     changed += writeIfChanged(join(citiesDir, `${slug}.js`), `${HEADER}export default ${JSON.stringify(detail)};\n`);
   }
+  // Página de cada universidad (/universidades/<id>): sus convenios en versión
+  // ligera (sin observaciones ni costes, que van en la ficha de cada ciudad).
+  const uniDir = join(outDir, "universities");
+  for (const [id, page] of Object.entries(universityPages)) {
+    changed += writeIfChanged(join(uniDir, `${id}.js`), `${HEADER}export default ${JSON.stringify(page)};
+`);
+  }
+  for (const file of existsSync(uniDir) ? readdirSync(uniDir) : []) {
+    if (!universityPages[file.replace(/.js$/, "")]) {
+      rmSync(join(uniDir, file));
+      changed++;
+    }
+  }
+  // Índice /universidades: solo las cifras de cada una.
+  const uniIndex = Object.values(universityPages).map((p) => ({ id: p.id, totals: p.totals, extractedAt: p.extractedAt }));
+  changed += writeIfChanged(join(outDir, "universityIndex.js"), `${HEADER}export const UNIVERSITY_INDEX = ${JSON.stringify(uniIndex)};
+`);
   // Fichas de ciudades que ya no existen.
   for (const file of existsSync(citiesDir) ? readdirSync(citiesDir) : []) {
     if (!details[file.replace(/\.js$/, "")]) {

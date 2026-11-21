@@ -229,6 +229,61 @@ export function getRankingsIndexJsonLd(criteria) {
   };
 }
 
+/** Migas de pan a partir de [nombre, ruta] (la primera, Inicio). */
+function breadcrumbs(items) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map(([name, path], i) => ({
+      "@type": "ListItem", position: i + 1, name, item: `${SITE_URL}${path}`,
+    })),
+  };
+}
+
+/**
+ * /universidades: ItemList de universidades + migas de pan.
+ * @param {{ id: string, name: string }[]} universities
+ */
+export function getUniversitiesIndexJsonLd(universities) {
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "@id": `${SITE_URL}/universidades#lista`,
+      name: "Destinos Erasmus por universidad",
+      itemListElement: universities.map((u, i) => ({
+        "@type": "ListItem", position: i + 1, url: `${SITE_URL}/universidades/${u.id}`, name: u.name,
+      })),
+    },
+    breadcrumbs([["Inicio", "/"], ["Universidades", "/universidades"]]),
+  ];
+}
+
+/**
+ * /universidades/<id>: ItemList de las ciudades con ficha (por número de
+ * convenios), migas de pan y FAQPage con las mismas preguntas que se ven.
+ * @param {{ id: string, name: string }} entry
+ * @param {{ name: string, country: string, slug: string, count: number }[]} cities
+ * @param {{ q: string, a: string }[]} faqs
+ */
+export function getUniversityJsonLd(entry, cities, faqs) {
+  const path = `/universidades/${entry.id}`;
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "@id": `${SITE_URL}${path}#destinos`,
+      name: `Destinos de intercambio de la ${entry.name}`,
+      numberOfItems: cities.length,
+      itemListElement: cities.map((c, i) => ({
+        "@type": "ListItem", position: i + 1, url: `${SITE_URL}/city/${c.slug}`, name: `${c.name}, ${c.country}`,
+      })),
+    },
+    breadcrumbs([["Inicio", "/"], ["Universidades", "/universidades"], [entry.name, path]]),
+    getFaqJsonLd(faqs, path),
+  ];
+}
+
 /** Migas de pan (Inicio › Ciudad) para las fichas de destino. */
 export function getBreadcrumbJsonLd(city) {
   return {
