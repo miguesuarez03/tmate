@@ -1,5 +1,5 @@
 import { getUniversityEntry } from "../data/universities/registry";
-import { loadUniversityPage, getLoadedUniversityPage, getUniversityPageError } from "../lib/universities";
+import { loadUniversityPage, getLoadedUniversityPage, getUniversityPageError } from "../lib/universityPages";
 import { trackLoad } from "../lib/pendingLoads";
 
 /**

@@ -56,9 +56,10 @@ const PAGES = {
 };
 import { UNIVERSITY_REGISTRY, getUniversityEntry } from "./data/universities/registry";
 import {
-  UNIVERSITIES_INDEX_META, UNIVERSITIES_INDEX_JSON_LD, getLoadedUniversityPage, getUniversityPageMeta,
+  UNIVERSITIES_INDEX_META, UNIVERSITIES_INDEX_JSON_LD, getUniversityPageMeta,
   getUniversityPageJsonLd, getUniversityPath,
 } from "./lib/universities";
+import { getLoadedUniversityPage } from "./lib/universityPages";
 import { getGuides, getGuideBySlug, getGuideMeta, GUIDES_INDEX_META, GUIDES_INDEX_JSON_LD } from "./lib/guides";
 import {
   getCityJsonLd, getBreadcrumbJsonLd, HOME_JSON_LD, BECA_JSON_LD,

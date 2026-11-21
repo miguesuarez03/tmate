@@ -16,7 +16,7 @@
 
 import { matchPath } from "react-router-dom";
 import { loadCityDetail } from "./lib/cities";
-import { loadUniversityPage } from "./lib/universities";
+import { loadUniversityPage } from "./lib/universityPages";
 
 const hasParam = (...names) => (url) => names.some((n) => url.searchParams.has(n));
 
