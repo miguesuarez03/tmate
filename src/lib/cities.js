@@ -485,7 +485,7 @@ export const PROGRAM_FILTERS = ['todos', 'erasmus', 'otros'];
 /**
  * @param {CityIndexEntry[]} cities
  * @param {ProgramFilter} program  'erasmus' (beca Erasmus+, con Reino Unido desde
- *   2027-28), 'otros' (Suiza y América: convenios bilaterales) o 'todos'.
+ *   2027-28), 'otros' (Suiza y fuera de Europa: convenios bilaterales) o 'todos'.
  */
 export function filterByProgram(cities, program = 'todos') {
   if (program === 'erasmus') return cities.filter(isErasmusEligible);

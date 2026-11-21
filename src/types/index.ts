@@ -13,7 +13,8 @@ export type ExperienceType = 'erasmus' | 'internship' | 'work-travel' | 'volunte
 // Reino Unido es 'erasmus' (con erasmusFrom "2027-28", erasmusStatus confirmed);
 // Suiza sigue 'switzerland_bilateral' con erasmusStatus pending.
 export type ErasmusStatus = 'confirmed' | 'pending';
-export type ProgramType = 'erasmus' | 'switzerland_bilateral' | 'study_abroad_usa_canada' | 'study_abroad_latam';
+// study_abroad_world: convenios bilaterales en Asia, África y Oceanía.
+export type ProgramType = 'erasmus' | 'switzerland_bilateral' | 'study_abroad_usa_canada' | 'study_abroad_latam' | 'study_abroad_world';
 
 // ── Región geográfica ─────────────────────────────────────────────────────────
 export type Region =
@@ -23,7 +24,10 @@ export type Region =
   | 'Europa Central'
   | 'Europa del Oeste'
   | 'Norteamérica'
-  | 'Latinoamérica';
+  | 'Latinoamérica'
+  | 'Asia'
+  | 'África'
+  | 'Oceanía';
 
 // ── Barrio ────────────────────────────────────────────────────────────────────
 export interface Neighborhood {

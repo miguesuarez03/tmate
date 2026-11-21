@@ -69,3 +69,12 @@ test("dos ciudades con el mismo rango de coste empatan: ninguna queda «entre me
   assert.deepEqual(v.cost.priciestIdx, [2]);
   assert.deepEqual(v.cost.middleIdx, []);
 });
+
+test("cada región con ciudades está en la lista del comparador (si no, sus ciudades no salen)", async () => {
+  const { readFileSync } = await import("node:fs");
+  const { CITIES } = await import("../src/data/cities.js");
+  const src = readFileSync(new URL("../src/pages/ComparePage.jsx", import.meta.url), "utf8");
+  const block = src.match(/const REGION_ORDER = \[([\s\S]*?)\];/)[1];
+  const order = new Set([...block.matchAll(/"([^"]+)"/g)].map((m) => m[1]));
+  for (const c of CITIES) assert.ok(order.has(c.region), `${c.slug}: región «${c.region}» fuera de REGION_ORDER`);
+});

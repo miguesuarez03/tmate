@@ -53,11 +53,11 @@ const CITY_SLUGS = new Set(ALL_CITIES.map((c) => c.slug));
 // Chips de orden rápido (?orden=<id>): los mismos criterios que los rankings
 // (src/data/rankings.js). Se combinan con el buscador y con ?programa=.
 const SORT_CRITERIA = getRankingCriteria();
-// «otros» = Suiza y América (programType distinto de erasmus en cities.js).
+// «otros» = Suiza y los destinos fuera de Europa sin Erasmus+ (programType distinto de erasmus en cities.js).
 // Reino Unido entra en «erasmus» (Erasmus+ desde 2027-28, acuerdo cerrado).
 // Se nombran por lo que son, sin afirmar que nunca haya Erasmus+: depende de
 // la convocatoria de cada universidad.
-const PROGRAM_LABELS = { todos: "Todos", erasmus: "Erasmus+ (UE y asociados)", otros: "Suiza y América" };
+const PROGRAM_LABELS = { todos: "Todos", erasmus: "Erasmus+ (UE y asociados)", otros: "Suiza y fuera de Europa" };
 
 // Texto guía del selector según cuántas ciudades hay elegidas (0–3).
 const SELECTION_HINTS = [
@@ -723,6 +723,9 @@ const REGION_ORDER = [
   "Europa del Oeste",
   "Latinoamérica",
   "Norteamérica",
+  "Asia",
+  "África",
+  "Oceanía",
 ];
 
 /* ─── Main Component ────────────────────────────────────────────────────── */
@@ -869,7 +872,7 @@ export default function ComparePage() {
   // y se ocultan los que no tienen ninguno (ver filtro de arriba); al borrar
   // la búsqueda se vuelve al estado inicial (solo el primer grupo abierto).
   // Con el filtro de programa, el que se abre es el primer grupo que tenga
-  // ciudades (con «Suiza y América» no hay ninguna de Europa del Sur).
+  // ciudades (con «Suiza y fuera de Europa» no hay ninguna de Europa del Sur).
   const [openRegions, setOpenRegions] = useState(() => new Set([regionGroups[0]?.region ?? REGION_ORDER[0]]));
   useEffect(() => {
     if (search.trim()) {
