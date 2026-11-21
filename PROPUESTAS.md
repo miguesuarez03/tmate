@@ -166,6 +166,21 @@ países, como Suecia, Grecia o Irlanda).
 
 ## Mi universidad (Loyola)
 
+### Pendiente tras lanzar la parte A (21/11/2026)
+
+La parte A (filtrar la web por universidad y grado, invitación, chip, beca con campus, «En Loyola»)
+está en `main`. Queda:
+
+1. **Destinos sin ficha**: la cola está en `docs/destinos-pendientes-loyola.md` (por número de
+   convenios). Tras añadir cada ciudad, `npm run universities:match`.
+2. **Destinos en España (SICUE)**: hoy salen como «próximamente» (`view.domestic`); qué ciudades
+   españolas entran lo decide Miguel.
+3. **Datos que hay que pedir a Loyola** (lista de abajo): plazas, duración, grado por campus,
+   calendario, ayudas, contacto y requisitos. Con el grado por campus, la beca dejaría de pedir el campus.
+4. **Páginas por grado** (abajo), cuando los destinos tengan ficha casi todos.
+5. **Más universidades**: el modo ya es solo datos (registro + `<id>.json`); falta conseguir el
+   permiso y los convenios de cada una.
+
 ### Páginas por grado (después de completar los destinos)
 
 Decisión de Miguel (20/11/2026): por ahora, una sola página `/universidades/loyola` con selector de

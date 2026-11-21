@@ -106,16 +106,14 @@ En este repo también trabaja Codex (plugin `codex@openai-codex`). Las normas co
 
 @AGENTS.md
 
-### Flujo de cada tarea (Claude + Codex, sin Miguel de puente)
+### Flujo de cada tarea (Claude + Codex)
 
-1. **Claude Code hace la tarea.**
-2. **Revisión de Codex antes del push**: al terminar, Claude le pide a Codex que revise el diff y verifique los datos contra fuentes oficiales, siempre en modo solo lectura:
+1. **Rama y una sola tanda**: cada tarea va en su rama `tarea/<nombre>`, creada desde `main`, y se hace en una sola tanda.
+2. **Comprobaciones**: `npm test`, `npm run build` (desde PowerShell) y `npm run check:responsive` sin errores.
+3. **Una ronda de Codex** en solo lectura sobre el diff de la rama (y que verifique los datos contra fuentes oficiales):
    ```powershell
    Get-Content prompt.txt -Raw -Encoding utf8 | codex exec -s read-only --ephemeral --color never -c 'web_search="live"' -o respuesta.txt -
    ```
-   (prompt y respuesta en el scratchpad, no en el repo; no cortar la salida con `Select-Object -First`, que mata el proceso).
-3. **Si Codex encuentra fallos**, Claude los corrige y vuelve a pedir revisión: **máximo 2 rondas**. Si siguen sin estar de acuerdo, Claude decide con su criterio y lo apunta en el resumen.
-4. **Después**: `npm test` y `npm run build` (desde PowerShell) sin errores, commit y `git push` a `main` **sin preguntar** a Miguel.
-5. **Resumen final**: incluye una línea con lo que encontró Codex.
-
-`vercel --prod` sigue necesitando que Miguel lo pida (el push a `main` ya despliega solo en Vercel).
+   (prompt y respuesta en el scratchpad, no en el repo; no cortar la salida con `Select-Object -First`, que mata el proceso). Claude corrige lo que encuentre; **solo hay segunda ronda si encontró algo grave**. Si no están de acuerdo, decide Claude y lo apunta en el resumen.
+4. **Push de la rama** (nunca de `main`) y preview de Vercel: el resumen final da la URL del preview, una lista corta de qué probar y una línea con lo que encontró Codex.
+5. **Nada va a `main` sin el OK de Miguel.** Con su OK, se integra por fast-forward y se hace push de `main` (que despliega en producción). `vercel --prod` solo si Miguel lo pide.

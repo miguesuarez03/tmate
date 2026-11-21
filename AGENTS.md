@@ -8,14 +8,14 @@ MAbroad (repo `tmate`): web en español para elegir ciudad de Erasmus. React + V
 
 ## Reparto de papeles
 - **Claude Code hace las tareas**: planifica, decide (producto, diseño, arquitectura, textos), edita el código y los datos, y da el visto bueno final.
-- **Codex revisa**: Claude lo llama con `codex exec` en **modo solo lectura** (`-s read-only`) al terminar cada tarea, antes del push. Codex no edita archivos: informa y Claude corrige. **Solo edita si Miguel lo autoriza explícitamente** para esa tarea concreta (la autorización no vale para las siguientes).
+- **Codex revisa**: Claude lo llama con `codex exec` en **modo solo lectura** (`-s read-only`) al terminar cada tarea, antes del push de la rama. Codex no edita archivos: informa y Claude corrige. **Solo edita si Miguel lo autoriza explícitamente** para esa tarea concreta (la autorización no vale para las siguientes).
 
 ## Flujo de cada tarea
-1. Claude hace la tarea.
-2. Antes del push, Claude pide a Codex que revise el diff y verifique los datos contra **fuentes oficiales** (con búsqueda web).
-3. Si Codex encuentra fallos, Claude los corrige y vuelve a pedir revisión: **máximo 2 rondas**. Si siguen sin estar de acuerdo, decide Claude y lo apunta en el resumen.
-4. Después: `npm test` y `npm run build` sin errores, commit y `git push` a `main` sin preguntar a Miguel.
-5. El resumen final de Claude incluye una línea con lo que encontró Codex.
+1. Claude hace la tarea en su rama `tarea/<nombre>`, en una sola tanda.
+2. `npm test`, `npm run build` y `npm run check:responsive` sin errores.
+3. **Una ronda** de Codex en solo lectura sobre el diff de la rama, verificando los datos contra **fuentes oficiales** (con búsqueda web). Claude corrige lo que encuentre; como mucho una segunda ronda si encontró algo grave. Si siguen sin estar de acuerdo, decide Claude y lo apunta en el resumen.
+4. Push de la rama y preview de Vercel. El resumen final de Claude da la URL del preview, una lista corta de qué probar y una línea con lo que encontró Codex.
+5. **Nada va a `main` sin el OK de Miguel.**
 
 ## Cómo revisa Codex
 - Respuestas cortas y accionables: solo lo que hay que cambiar, con archivo/slug, valor actual, valor correcto y **URL de la fuente**.
@@ -26,8 +26,8 @@ MAbroad (repo `tmate`): web en español para elegir ciudad de Erasmus. React + V
 ## Reglas para los dos
 1. **Nunca editar a la vez los mismos archivos.** Claude edita y Codex revisa (Codex solo edita con autorización explícita de Miguel).
 2. **Git es el punto de encuentro**: commits pequeños, con mensaje en español que diga qué y por qué. Antes de empezar, `git status` para no pisar cambios sin commitear.
-3. **Revisión antes del push**: todo cambio no trivial pasa por la revisión de Codex antes de hacer push (los cambios pequeños, como un texto o un estilo, no la necesitan).
-4. **Despliegue**: el push a `main` (que despliega en Vercel) lo hace Claude tras la revisión y el build, sin preguntar. `vercel --prod` solo si Miguel lo pide.
+3. **Revisión antes del push**: todo cambio no trivial pasa por la revisión de Codex antes de hacer push de la rama (los cambios pequeños, como un texto o un estilo, no la necesitan).
+4. **Despliegue**: las tareas se suben a su rama `tarea/<nombre>` y se prueban en el preview de Vercel. **Nada va a `main` sin el OK de Miguel**: con su OK, Claude integra por fast-forward y hace push de `main` (que despliega en producción). `vercel --prod` solo si Miguel lo pide.
 5. Respetar las capas: datos en `src/data/`, lógica en `src/lib/cities.js`, estado en `src/hooks/`, tipos en `src/types/`, UI en `src/components/` y `src/pages/`.
 6. **Nunca inventar opiniones ni testimonios** de estudiantes (`cityExperiences.js` solo contiene experiencias reales aprobadas a mano). Las puntuaciones son valoración editorial de MAbroad, nunca datos oficiales.
 7. No levantar el servidor ni navegar la web para comprobar cambios visualmente: se revisa el código. Las pruebas visuales las hace Miguel.
