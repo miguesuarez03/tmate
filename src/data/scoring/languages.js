@@ -12,7 +12,9 @@
 //   · native: el inglés o el español es la lengua oficial y mayoritaria del
 //     país (para un estudiante español, se vive en su idioma o en inglés).
 //
-// Un país que no está aquí (Suiza, Noruega, Islandia, Turquía, Brasil) no
+// Un país que no está aquí (Suiza, Noruega, Islandia, Turquía, Brasil, Macedonia
+// del Norte y los de Asia, África y Oceanía; en India y Filipinas el inglés es
+// oficial pero no mayoritario, y Australia no tiene lengua oficial de iure) no
 // tiene dato comparable de la misma fuente: la subnota queda PENDIENTE.
 // Montreal y Quebec (francófonas) también: CITY_LANGUAGE_PENDING.
 // ─────────────────────────────────────────────────────────────────────────────
@@ -70,6 +72,10 @@ export const COUNTRY_LANGUAGE = {
   "Costa Rica": { native: "español" },
   "Chile": { native: "español" },
   "Bolivia": { native: "español" },
+  // Constitución de Honduras, art. 6 («El idioma oficial de Honduras es el español») y de Venezuela,
+  // art. 9 («El idioma oficial es el castellano»).
+  "Honduras": { native: "español" },
+  "Venezuela": { native: "español" },
 };
 
 /**

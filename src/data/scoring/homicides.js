@@ -1,6 +1,6 @@
 // Generado por scripts/scoring-data.mjs (npm run scoring:data) — no editar a mano.
 // Fuente: UNODC, homicidios intencionados por 100.000 habitantes (indicador VC.IHR.PSRC.P5 que publica el Banco Mundial: https://api.worldbank.org/v2/country/all/indicator/VC.IHR.PSRC.P5?format=json&per_page=20000&date=2015:2026).
-// Descargado el 2026-11-14.
+// Descargado el 2026-11-21.
 /** país (como en cities.js) → { año: tasa } con los 3 años más recientes con dato */
 export const COUNTRY_HOMICIDE_RATES = {
  "Italia": {
@@ -240,5 +240,58 @@ export const COUNTRY_HOMICIDE_RATES = {
   "2021": 3.5,
   "2022": 4.02,
   "2023": 4.42
+ },
+ "Macedonia del Norte": {
+  "2021": 0.76,
+  "2022": 0.98,
+  "2023": 1.53
+ },
+ "India": {
+  "2020": 2.94,
+  "2021": 2.92,
+  "2022": 2.82
+ },
+ "Corea del Sur": {
+  "2021": 0.47,
+  "2022": 0.5,
+  "2023": 0.48
+ },
+ "Japón": {
+  "2021": 0.23,
+  "2022": 0.23,
+  "2023": 0.23
+ },
+ "Taiwán": {},
+ "Filipinas": {
+  "2018": 5.16,
+  "2019": 4.3,
+  "2023": 4.35
+ },
+ "Australia": {
+  "2021": 0.74,
+  "2022": 0.84,
+  "2023": 0.85
+ },
+ "Marruecos": {
+  "2021": 1.94,
+  "2022": 1.66,
+  "2023": 1.71
+ },
+ "Burkina Faso": {
+  "2015": 0.65,
+  "2016": 1.12,
+  "2017": 1.25
+ },
+ "Costa de Marfil": {},
+ "Madagascar": {},
+ "Honduras": {
+  "2021": 38.2,
+  "2022": 34.97,
+  "2023": 31.44
+ },
+ "Venezuela": {
+  "2020": 29.48,
+  "2021": 19.28,
+  "2022": 12.65
  }
 };

@@ -58,6 +58,11 @@ export const COUNTRY_ISO = {
   "Eslovenia": ["SI", "SVN"], "Eslovaquia": ["SK", "SVK"], "El Salvador": ["SV", "SLV"], "Ecuador": ["EC", "ECU"],
   "Costa Rica": ["CR", "CRI"], "Chipre": ["CY", "CYP"], "Chile": ["CL", "CHL"], "Bulgaria": ["BG", "BGR"],
   "Bolivia": ["BO", "BOL"],
+  // Países de la fase 2 de la cola Loyola (base preparada antes que sus fichas).
+  "Macedonia del Norte": ["MK", "MKD"], "India": ["IN", "IND"], "Corea del Sur": ["KR", "KOR"], "Japón": ["JP", "JPN"],
+  "Taiwán": ["TW", "TWN"], "Filipinas": ["PH", "PHL"], "Australia": ["AU", "AUS"], "Marruecos": ["MA", "MAR"],
+  "Burkina Faso": ["BF", "BFA"], "Costa de Marfil": ["CI", "CIV"], "Madagascar": ["MG", "MDG"], "Honduras": ["HN", "HND"],
+  "Venezuela": ["VE", "VEN"],
 };
 
 /** Universidades de cada ciudad, con su nombre exacto en la tabla de THE

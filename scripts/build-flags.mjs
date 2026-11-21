@@ -46,7 +46,12 @@ if (!existsSync(ICONS)) {
   process.exit(1);
 }
 
-const codes = new Set();
+// Países de la fase 2 de la cola Loyola que aún no tienen ficha: su bandera
+// entra ya en el sprite, para que la ficha solo tenga que añadir la ciudad.
+// Cuando todos tengan ciudad, esta lista sobra (el escaneo de src/ ya los encuentra).
+const UPCOMING = ["mk", "in", "kr", "jp", "tw", "ph", "au", "ma", "bf", "ci", "mg", "hn", "ve"];
+
+const codes = new Set(UPCOMING);
 for (const file of walk(SRC)) {
   if (file === CODES_OUT) continue;
   for (const emoji of readFileSync(file, "utf8").match(FLAG_RE) ?? []) {
