@@ -109,7 +109,12 @@ export default function UniversityPage() {
   const known = useMemo(() => new Set(degrees.map((d) => d.id)), [degrees]);
   useEffect(() => {
     const fromHash = () => {
-      const h = decodeURIComponent(window.location.hash.slice(1));
+      let h = "";
+      try {
+        h = decodeURIComponent(window.location.hash.slice(1));
+      } catch {
+        return; // hash mal formado (#%): se ignora
+      }
       if (known.has(h)) setDegreeId(h);
     };
     fromHash();
