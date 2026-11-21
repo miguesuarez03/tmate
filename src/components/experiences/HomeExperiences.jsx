@@ -52,15 +52,13 @@ export default function HomeExperiences() {
 
       {experiences.length > 0 && (
         <section
-          className={`${styles.section}${showFounderStory ? ` ${styles.sectionAfter}` : ""}`}
+          className={`${styles.section} ${styles.sectionCompact}${showFounderStory ? ` ${styles.sectionAfter}` : ""}`}
           aria-labelledby={titleId}
         >
-          <div className={styles.sectionHeader}>
-            <SectionLabel color="var(--color-teal)">Experiencias reales</SectionLabel>
-            <h2 id={titleId} className="section__title">Erasmus contados por quien los vive.</h2>
-            <p className={styles.sectionSub}>
-              Las envían estudiantes como tú y las leemos una a una antes de publicarlas.
-            </p>
+          {/* Compacta: título pequeño, tarjetas estrechas y consejos plegados. */}
+          <div className={styles.compactHeader}>
+            <h2 id={titleId} className={styles.compactTitle}>Erasmus contados por quien los vive</h2>
+            <p className={styles.compactSub}>Experiencias reales de estudiantes, leídas una a una antes de publicarlas.</p>
           </div>
 
           <div className={styles.cardsRow}>

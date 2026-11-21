@@ -5,8 +5,9 @@ import styles from "./Experiences.module.css";
 
 /** @typedef {import('../../types').ExperienceEntry} ExperienceEntry */
 
-// A partir de esta longitud el texto se recorta y aparece «Leer más».
-const CLAMP_FROM = { row: 280, compact: 360, wide: 520 };
+// A partir de esta longitud el texto se recorta y aparece «Leer más» (en la
+// portada, «row», se recorta a 3 líneas: ver .row .clamped).
+const CLAMP_FROM = { row: 140, compact: 360, wide: 520 };
 // En la portada (fila de tarjetas) solo caben unos pocos consejos: el resto,
 // en la ficha de la ciudad.
 const MAX_TIPS = { row: 3, compact: Infinity, wide: Infinity };
@@ -81,7 +82,23 @@ export default function ExperienceCard({ entry, variant = "row", showCity = fals
         </button>
       )}
 
-      {tips.length > 0 && (
+      {/* Portada: cada consejo plegado (tema + inicio en una línea) y se amplía al tocarlo. */}
+      {tips.length > 0 && variant === "row" && (
+        <ul className={styles.tipList}>
+          {tips.map((t, i) => (
+            <li key={i}>
+              <details className={styles.tipFold}>
+                <summary>
+                  <span className={styles.tipTopic}>{t.topicLabel}</span>
+                  <span className={styles.tipPreview}>{t.text}</span>
+                </summary>
+                <p className={styles.tipText}>{t.text}</p>
+              </details>
+            </li>
+          ))}
+        </ul>
+      )}
+      {tips.length > 0 && variant !== "row" && (
         <ul className={styles.tipList}>
           {tips.map((t, i) => (
             <li key={i} className={styles.tip}>
@@ -98,7 +115,7 @@ export default function ExperienceCard({ entry, variant = "row", showCity = fals
       )}
 
       <footer className={styles.author}>
-        <Avatar name={entry.name} photo={entry.photo} />
+        <Avatar name={entry.name} photo={entry.photo} size={variant === "row" ? 32 : 44} />
         <div className={styles.authorText}>
           <p className={styles.authorName}>{entry.name}</p>
           <p className={styles.authorMeta}><Flag emoji={entry.cityEmoji} /> {meta}</p>

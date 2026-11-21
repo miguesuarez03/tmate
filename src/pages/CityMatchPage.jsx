@@ -927,8 +927,10 @@ export default function CityMatchPage() {
                     Compartir resultado
                   </ShareButton>
                 )}
+                {/* Con 2 o más, directo a la comparativa (antes abría el
+                    selector y había que pulsar «Comparar» otra vez). */}
                 {compareSlugs && (
-                  <Link className={`${styles.primaryBtn} link-btn`} to={`/comparar?cities=${compareSlugs}`}>
+                  <Link className={`${styles.primaryBtn} link-btn`} to={`/comparar?cities=${compareSlugs}${lead.length >= 2 ? "&view=compare" : ""}`}>
                     Comparar tu top {lead.length} →
                   </Link>
                 )}
