@@ -35,6 +35,11 @@ export default function CityCard({ city }) {
   const uni = useUniversity();
   const places = uni.active ? uni.placesFor(city.slug) : [];
   const onlyUnspecified = places.length > 0 && uni.degreeId && places.every((r) => r.degreesUnspecified);
+  // Etiqueta de programa: destinos no-Erasmus y los que entran en Erasmus+ en
+  // un curso concreto (Reino Unido 2027-28; Suiza, prevista y pendiente).
+  const transition = getErasmusTransition(city);
+  const eligible = isErasmusEligible(city);
+  const programTag = !eligible || Boolean(transition);
 
   // Entrada suave al hacer scroll — una sola vez, con IntersectionObserver
   // en vez de un listener de scroll propio. prefers-reduced-motion ya se
@@ -84,35 +89,36 @@ export default function CityCard({ city }) {
       {/* Gradient overlay — always on top of image */}
       <div className="city-card__overlay" />
 
-      {/* Tag pill */}
-      <span className="city-card__tag">
-        {city.tag === "Trending" && <IconFuego size={16} />} {city.tag}
-      </span>
+      {/* Etiquetas, apiladas arriba a la izquierda en una sola columna (antes
+          iban sueltas y la de convenios, abajo, chocaba con «No Erasmus» en
+          las tarjetas estrechas del móvil): tag, programa y convenios. */}
+      <div className="city-card__tags">
+        <span className="city-card__tag">
+          {city.tag === "Trending" && <IconFuego size={16} />} {city.tag}
+        </span>
 
-      {/* Program type pill — destinos no-Erasmus y los que entran en Erasmus+ en
-          un curso concreto (Reino Unido 2027-28; Suiza, prevista y pendiente). */}
-      {(() => {
-        const t = getErasmusTransition(city);
-        const eligible = isErasmusEligible(city);
-        if (eligible && !t) return null;
-        return (
+        {/* Programa: destinos no-Erasmus y los que entran en Erasmus+ en un
+            curso concreto (Reino Unido 2027-28; Suiza, prevista y pendiente). */}
+        {programTag && (
           <span className="city-card__tag city-card__tag--program">
-            {eligible ? "✅" : "🌍"} {t ? t.label : "No Erasmus"}
+            {eligible ? "✅" : "🌍"} {transition ? transition.label : "No Erasmus"}
           </span>
-        );
-      })()}
+        )}
+
+        {/* Modo «Mi universidad»: convenios y tipo (sin modo, nada). */}
+        {places.length > 0 && (
+          <span className="city-card__tag city-card__uni" title={onlyUnspecified ? "Tu grado no aparece en el convenio: consulta en tu oficina de RRII" : undefined}>
+            {formatPlacesBadge(places)}
+            {onlyUnspecified && <span className="city-card__uni-rri"> · Consulta en RRII</span>}
+          </span>
+        )}
+      </div>
 
       {/* Crédito de la foto: esquina inferior derecha (la frase le deja hueco) */}
       <PhotoCredit src={city.img} corner="bottom-right" nested />
 
       {/* Bottom content */}
-      <div className="city-card__content">
-        {places.length > 0 && (
-          <p className="city-card__uni">
-            {formatPlacesBadge(places)}
-            {onlyUnspecified && <span className="city-card__uni-rri"> · Consulta en tu oficina de RRII</span>}
-          </p>
-        )}
+      <div className={`city-card__content${places.length > 0 ? " city-card__content--uni" : programTag ? " city-card__content--two-tags" : ""}`}>
         <div className="city-card__contentTop">
           <div>
             <p className="city-card__name" style={{ "--name-len": longestWord(city.name) }}>{city.name}</p>

@@ -66,49 +66,39 @@
   display: inline-block; margin: 6px 0 0; padding: 3px 10px; border-radius: var(--radius-full);
   background: var(--surface-tint-primary); color: var(--color-dark); font: 600 12px var(--font-body);
 }
-.prepTag {
-  display: inline-block; margin-bottom: 8px; padding: 3px 10px; border-radius: var(--radius-full);
-  border: 1px solid var(--color-border); color: var(--color-slate); font: 700 11px var(--font-body);
-  letter-spacing: 0.04em; text-transform: uppercase;
-}
-
-/* ── Destinos sin ficha ── */
-.pending { margin-top: 36px; }
-.pendingTitle {
-  display: flex; align-items: center; gap: 8px;
-  font: 700 clamp(18px, 2.4vw, 22px) var(--font-display); color: var(--color-dark);
-}
-.pendingCount {
-  padding: 2px 9px; border-radius: var(--radius-full); background: var(--surface-tint-teal);
-  color: var(--color-teal); font-size: 13px;
-}
 .pendingSub { margin: 4px 0 16px; color: var(--color-slate); font: 400 14px/1.5 var(--font-body); }
-.pendingGrid {
-  list-style: none; display: grid; gap: 14px;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
-}
-.pendingCard {
-  padding: 16px; border-radius: var(--radius-md); border: 1px solid var(--color-border);
-  background: var(--color-white); box-shadow: var(--shadow-sm); min-width: 0;
-}
-.pendingCity { font: 700 18px var(--font-display); color: var(--color-dark); }
-.pendingCountry { font: 500 13px var(--font-body); color: var(--color-slate); }
-.pendingFacts, .placeFacts {
+.placeFacts {
   display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; margin-top: 12px;
   font: 400 13px/1.45 var(--font-body); color: var(--color-dark-mid);
 }
-.pendingFacts dt, .placeFacts dt { font-weight: 700; color: var(--color-slate); }
-.pendingFacts dd, .placeFacts dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.placeFacts dt { font-weight: 700; color: var(--color-slate); }
+.placeFacts dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
 
-/* ── España (SICUE): próximamente, sin fichas ── */
-.domestic { margin-top: 36px; }
-.domesticList { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+/* ── Home: destinos sin ficha (una línea), España (SICUE) y otros programas
+   (plegados), en poco espacio debajo de las tarjetas ── */
+.extraDest {
+  margin-top: 20px; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px 12px;
+  font: 400 14px/1.5 var(--font-body); color: var(--color-slate);
+}
+.extraLine { margin: 0; flex-basis: 100%; }
+.extraLine a { color: var(--color-teal); font-weight: 700; text-decoration: underline; text-underline-offset: 2px; white-space: nowrap; }
+.extraFold { min-width: 0; max-width: 100%; }
+.extraFold > summary {
+  cursor: pointer; width: fit-content; max-width: 100%; padding: 5px 12px; border-radius: var(--radius-full);
+  border: 1px solid var(--color-border); font: 600 13px/1.4 var(--font-body); color: var(--color-slate);
+}
+.extraFold[open] { flex-basis: 100%; }
+.extraFold[open] > summary { margin-bottom: 8px; }
+.extraNote { margin: 0 0 8px; font-size: 13px; }
+
+/* ── Listas de ciudades (España, otros programas) ── */
+.domesticList { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
 .domesticItem {
-  display: inline-flex; align-items: center; gap: 8px; min-width: 0;
-  padding: 8px 14px; border-radius: var(--radius-full);
+  display: inline-flex; align-items: center; gap: 6px; min-width: 0;
+  padding: 4px 10px; border-radius: var(--radius-full);
   border: 1px dashed var(--color-border); background: var(--color-white);
 }
-.domesticCity { font: 700 14px var(--font-body); color: var(--color-dark); }
+.domesticCity { font: 700 13px var(--font-body); color: var(--color-dark); }
 .domesticPlaces { font: 600 12px var(--font-body); color: var(--color-slate); }
 
 /* ── Ficha: «Tus plazas desde…» ── */

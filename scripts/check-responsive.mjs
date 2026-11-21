@@ -9,8 +9,12 @@
 //   · desplegables cortados o tapados («Tu uni y grado» y su hoja de móvil,
 //     sugerencias del buscador, menú del chip, la
 //     invitación desplegada), con elementFromPoint en su centro y esquinas;
-//   · en móvil, campos de texto con letra de menos de 16 px (iOS hace zoom).
-// En home, una ficha con convenios, comparador, City Match, beca, proceso y
+//   · en móvil, campos de texto con letra de menos de 16 px (iOS hace zoom);
+//   · tarjetas de destino: etiquetas de arriba (tag, «No Erasmus», convenios)
+//     que tocan el nombre o la frase de abajo;
+//   · el birrete de la cabecera, en todas las páginas, con y sin universidad
+//     y también tras deslizar; sin universidad, su menú («Tu uni y grado»).
+// En home (también con todos los destinos, ?ver=todo), una ficha con convenios, comparador, City Match, beca, proceso y
 // Learning Agreement; a 360, 390, 768, 1024, 1280, 1536 y 1920 px; sin
 // universidad y con una elegida. Solo imprime los fallos (y una línea final).
 //
@@ -34,6 +38,7 @@ const WANT_SHOTS = process.argv.includes("--capturas");
 
 const PAGES = [
   { name: "home", path: "/" },
+  { name: "home (todos los destinos)", path: "/?ver=todo" },
   { name: "ficha (Trento)", path: "/city/trento" },
   { name: "comparador", path: "/comparar" },
   { name: "City Match", path: "/city-match" },
@@ -135,6 +140,26 @@ function layoutChecks() {
   };
   overlaps(".navbar", "a, button, .uni-chip, .navbar__city-breadcrumb", "la cabecera");
   overlaps(".search-bar__inner", ".search-bar__input, .search-bar__uni-chip, .search-bar__btn, .search-bar__icon", "el buscador");
+
+  // 3. Tarjetas de destino: las etiquetas de arriba no tocan lo de abajo.
+  for (const card of document.querySelectorAll(".city-card")) {
+    const tags = [...card.querySelectorAll(".city-card__tags > *")].filter(visible);
+    const below = [...card.querySelectorAll(".city-card__content > *")].filter(visible);
+    if (!tags.length || !below.length) continue;
+    const tagsBottom = Math.max(...tags.map((t) => t.getBoundingClientRect().bottom));
+    const contentTop = Math.min(...below.map((b) => b.getBoundingClientRect().top));
+    if (tagsBottom > contentTop - 2) {
+      problems.push(`solape en la tarjeta ${desc(card)}: etiquetas hasta ${Math.round(tagsBottom)}px y nombre/frase desde ${Math.round(contentTop)}px`);
+    }
+  }
+
+  // 4. El birrete de la cabecera, siempre a la vista.
+  const cap = document.querySelector(".navbar .uni-chip__btn");
+  if (!cap || !visible(cap)) problems.push("no se ve el birrete (Tu uni y grado) en la cabecera");
+  else {
+    const r = cap.getBoundingClientRect();
+    if (r.top < -1 || r.bottom > window.innerHeight + 1) problems.push(`el birrete queda fuera de la pantalla (de ${Math.round(r.top)} a ${Math.round(r.bottom)}px)`);
+  }
   return problems;
 }
 
@@ -256,10 +281,19 @@ async function main() {
         const found = [];
         try {
           await page.goto(base + p.path, { waitUntil: "load" });
-          if (state.saved) await page.waitForSelector(".uni-chip__btn", { timeout: 5000 }).catch(() => found.push("no aparece el chip de la universidad"));
+          if (state.saved) await page.waitForSelector(".uni-chip:not(.uni-chip--empty) .uni-chip__btn", { timeout: 5000 }).catch(() => found.push("no aparece el chip de la universidad"));
           await page.waitForTimeout(400);
           found.push(...(await page.evaluate(layoutChecks)));
           if (width < 768) found.push(...(await page.evaluate(smallInputs)));
+          checks++;
+
+          // Tras deslizar, el birrete sigue en la cabecera (fija).
+          await page.mouse.move(10, 300);
+          await page.mouse.wheel(0, 1200);
+          await page.waitForTimeout(300);
+          found.push(...(await page.evaluate(layoutChecks)).filter((x) => x.includes("birrete")).map((x) => `tras deslizar, ${x}`));
+          await page.evaluate(() => window.scrollTo(0, 0));
+          await page.waitForTimeout(200);
           checks++;
 
           // Desplegables.
@@ -299,7 +333,19 @@ async function main() {
             await page.waitForTimeout(100);
             if (await page.$(".uni-chip__menu")) found.push("Escape no cierra el menú del chip");
             checks++;
-          } else if (p.path !== "/") {
+          } else {
+            // Sin universidad: el birrete abre «Tu uni y grado».
+            await page.click(".uni-chip--empty .uni-chip__btn");
+            await page.waitForTimeout(250);
+            found.push(...(await page.evaluate(dropdownCheck, { selector: ".uni-chip__menu", label: "el menú del birrete" })));
+            found.push(...(await page.evaluate(countCheck, { selector: ".uni-chip__menu [role='option']", max: 3, label: "el menú del birrete" })));
+            if (width < 768) found.push(...(await page.evaluate(smallInputs)));
+            await page.keyboard.press("Escape");
+            await page.waitForTimeout(150);
+            if (await page.$(".uni-chip__menu")) found.push("Escape no cierra el menú del birrete");
+            checks++;
+          }
+          if (!state.saved && p.path !== "/" && !p.path.startsWith("/?")) {
             const invite = await page.$("[data-uni-invite-el] button");
             if (invite && (await invite.isVisible())) {
               await invite.scrollIntoViewIfNeeded();

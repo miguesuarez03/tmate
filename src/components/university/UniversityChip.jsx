@@ -9,9 +9,10 @@ import { readSessionCompareCities } from "../../hooks/useSessionMemory";
  * Chip fijo de la cabecera con la universidad elegida: «Loyola · GITI ▾». Abre
  * un menú pequeño con el buscador «Tu uni y grado» (para cambiar de grado o
  * de universidad), «Ver todos los destinos» (sin perder la universidad),
- * «Copiar enlace» y «Quitar». Sin universidad elegida no se pinta (manda la
- * invitación de cada página). Nunca tapa la navegación: el texto solo se ve
- * donde cabe (ver «UNIVERSITY CHIP» en global.css); si no, solo el icono.
+ * «Copiar enlace» y «Quitar». Sin universidad elegida se pinta igual, solo con
+ * el birrete, en todas las páginas y anchos: abre el buscador «Tu uni y grado».
+ * Nunca tapa la navegación: el texto solo se ve donde cabe (ver «UNIVERSITY
+ * CHIP» en global.css); si no, solo el icono.
  * @param {{ isDark?: boolean }} props  isDark: navbar transparente sobre foto
  */
 export default function UniversityChip({ isDark = false }) {
@@ -47,7 +48,33 @@ export default function UniversityChip({ isDark = false }) {
     return () => clearTimeout(t);
   }, [copied]);
 
-  if (!uni.uniId) return null;
+  if (!uni.uniId) {
+    // Sin universidad: el birrete solo. El servidor pinta siempre este estado
+    // (la universidad guardada se aplica al hidratar, en useUniversity).
+    return (
+      <div className={`uni-chip uni-chip--empty${isDark ? " uni-chip--dark" : ""}`} ref={rootRef}>
+        <button
+          type="button"
+          ref={buttonRef}
+          className="uni-chip__btn"
+          aria-expanded={open}
+          aria-controls={menuId}
+          aria-label="Elige tu universidad y grado"
+          title="Elige tu universidad y grado"
+          onClick={() => setOpen((v) => !v)}
+        >
+          <IconUniversidad size={18} />
+        </button>
+        {open && (
+          <div className="uni-chip__menu" id={menuId} role="group" aria-label="Tu universidad y grado">
+            <p className="uni-chip__title">Tu universidad y grado</p>
+            <p className="uni-chip__current">Verás solo los destinos con convenio para tu grado.</p>
+            <UniversityPicker autoFocus max={3} onDone={() => { setOpen(false); buttonRef.current?.focus(); }} />
+          </div>
+        )}
+      </div>
+    );
+  }
   const name = uni.entry.shortName;
   const degree = getDegreeShortName(uni.degreeName, uni.degreeId);
   const label = degree ? `${name} · ${degree}` : name;
@@ -103,11 +130,8 @@ export default function UniversityChip({ isDark = false }) {
             onClick={() => {
               setOpen(false);
               uni.clear();
-              // El chip desaparece: el foco pasa a la invitación de la página (si
-              // la hay) o al primer control de la cabecera (el logo, siempre visible).
-              requestAnimationFrame(() =>
-                (document.querySelector("[data-uni-invite-el] button, .search-bar__uni-btn") ?? document.querySelector(".navbar a[href], .navbar button"))?.focus()
-              );
+              // El chip se queda solo con el birrete: el foco vuelve a él.
+              requestAnimationFrame(() => buttonRef.current?.focus());
             }}
           >
             Quitar mi universidad

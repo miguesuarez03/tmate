@@ -12,6 +12,16 @@
 .sectionAfter { padding-top: 0; }
 
 .sectionHeader { text-align: center; max-width: 640px; margin: 0 auto 44px; }
+
+/* «Erasmus contados por quien los vive»: versión compacta. */
+.sectionCompact { padding-block: clamp(28px, 5vw, 48px); }
+.sectionCompact.sectionAfter { padding-top: clamp(16px, 3vw, 28px); }
+.compactHeader { max-width: 1280px; margin: 0 auto 12px; padding: 0 4px; }
+.compactTitle {
+  margin: 0; font-family: var(--font-display); font-size: clamp(18px, 2.2vw, 22px);
+  font-weight: 800; line-height: 1.2; color: var(--color-dark);
+}
+.compactSub { margin: 2px 0 0; font-size: 13px; line-height: 1.45; color: var(--color-muted); }
 .sectionSub { margin: 14px auto 0; font-size: clamp(15px, 2vw, 17px); line-height: 1.6; color: var(--color-slate-light); }
 
 /* ── Estado 1: «Mi experiencia» ── */
@@ -133,15 +143,18 @@
 .cardsRow::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: var(--radius-full); }
 
 .ctaBar {
-  max-width: 1280px; margin: 28px auto 0;
-  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px 24px;
-  padding: 22px clamp(20px, 3vw, 32px);
+  max-width: 1280px; margin: 12px auto 0;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px 20px;
+  padding: 12px clamp(14px, 2vw, 20px);
   border-radius: var(--radius-xl);
   border: 1.5px solid rgba(245, 150, 58, 0.2);
   background: linear-gradient(135deg, var(--surface-tint-primary), var(--surface-tint-teal));
 }
 .ctaText { margin: 0; font-size: 15px; line-height: 1.55; color: var(--color-slate); flex: 1; min-width: 220px; }
 .ctaText strong { color: var(--color-dark); }
+.ctaBar .ctaText { font-size: 13.5px; }
+.ctaBar .primaryBtn { min-height: 40px; padding: 8px 20px; font-size: 14px; }
+.sectionCompact .cardsRow { padding-bottom: 8px; gap: 12px; }
 
 /* ── Tarjeta de experiencia ── */
 .card {
@@ -153,10 +166,40 @@
   --motion-safe-duration: var(--hover-duration);
 }
 .row {
-  flex: 0 0 min(340px, 85vw);
-  padding: 22px 22px 20px;
+  flex: 0 0 min(270px, 78vw);
+  /* Sin esto el consejo plegado (una línea sin cortar) ensancha la tarjeta. */
+  min-width: 0;
+  padding: 14px 14px 12px;
   scroll-snap-align: start;
 }
+.row .cardTop { min-height: 0; }
+.row .quoteMark { font-size: 34px; }
+.row .cardText { margin-top: 4px; font-size: 13.5px; line-height: 1.5; flex: 0 1 auto; }
+.row .clamped { -webkit-line-clamp: 3; line-clamp: 3; }
+.row .tipList { margin-top: 8px; gap: 4px; }
+.row .author { margin-top: 10px; padding-top: 8px; gap: 8px; }
+.row .authorName { font-size: 13px; }
+.row .authorMeta { font-size: 12px; }
+.row .cityLink { margin-top: 6px; font-size: 12.5px; }
+.row .moreTips { margin-top: 6px; font-size: 12px; }
+
+/* Consejo plegado (portada): tema + inicio del texto en una línea; al
+   abrirlo, el texto entero debajo. */
+.tipFold { border-radius: var(--radius-sm); background: var(--color-surface); }
+.tipFold > summary {
+  display: flex; align-items: baseline; gap: 6px; min-height: 32px; padding: 6px 8px;
+  cursor: pointer; list-style: none; min-width: 0;
+}
+.tipFold > summary::-webkit-details-marker { display: none; }
+.tipFold > summary::after { content: "+"; margin-left: auto; padding-left: 4px; font-weight: 800; color: var(--color-teal); }
+.tipFold[open] > summary::after { content: "−"; }
+.tipFold .tipTopic { flex-shrink: 0; font-size: 10.5px; }
+.tipPreview {
+  min-width: 0; flex: 1; font-size: 12.5px; color: var(--color-slate);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.tipFold[open] .tipPreview { display: none; }
+.tipFold .tipText { display: block; margin: 0; padding: 0 8px 8px; font-size: 13px; line-height: 1.5; }
 .compact { padding: 16px 16px 14px; }
 
 @media (hover: hover) and (pointer: fine) {

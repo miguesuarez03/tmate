@@ -412,6 +412,9 @@ a { text-decoration: none; color: inherit; }
    Erasmus». Las fichas (navbar--city) no tienen esos enlaces. */
 /* Solo icono: el birrete ocupa ~64 % del círculo (28 de 44 px). */
 .uni-chip__btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+/* Sin universidad elegida: siempre solo el birrete, en todos los anchos. */
+.uni-chip--empty .uni-chip__btn { width: 44px; padding: 0; justify-content: center; }
+.uni-chip--empty .uni-chip__btn svg { width: 28px; height: 28px; }
 @media (max-width: 640px) {
   .uni-chip__btn { width: 44px; padding: 0; justify-content: center; }
   /* El chip no está en el borde (a su derecha van tema y menú): el menú se
@@ -872,30 +875,25 @@ a { text-decoration: none; color: inherit; }
   pointer-events: none;
 }
 
+/* Etiquetas apiladas arriba a la izquierda (tag, programa, convenios): una
+   columna con hueco fijo, así nunca se pisan entre ellas ni con el nombre. */
+.city-card__tags {
+  position: absolute; top: 12px; left: 12px; right: 12px; z-index: 2;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 5px;
+  pointer-events: none;
+}
 .city-card__tag {
-  position: absolute; top: 13px; left: 13px; z-index: 2;
   background: rgba(255,255,255,0.18); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.25); border-radius: var(--radius-full);
-  padding: 4px 12px; font-size: 12px; font-weight: 700; color: #fff; letter-spacing: 0.2px;
+  padding: 4px 12px; font-size: 12px; font-weight: 700; line-height: 1.4; color: #fff; letter-spacing: 0.2px;
   /* Una sola línea: si la etiqueta no cabe en la tarjeta (móvil, 2 columnas)
      se corta con puntos suspensivos en vez de salirse por el borde. */
-  max-width: calc(100% - 26px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 
 .city-card__tag svg { display: inline-block; vertical-align: -3px; margin-right: 3px; }
-/* Segunda etiqueta (destinos no Erasmus): debajo de la primera, no a su
-   derecha — a 12px las dos ya no caben en la misma fila. */
-.city-card__tag--program {
-  top: 47px;
-}
-/* Modo «Mi universidad»: plazas y tipo de convenio, encima del nombre. */
-.city-card__uni {
-  display: inline-block; max-width: 100%; margin-bottom: 8px;
-  padding: 3px 10px; border-radius: var(--radius-full);
-  background: rgba(245,150,58,0.92); color: #fff;
-  font: 700 11px/1.4 var(--font-body); letter-spacing: 0.2px;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
+/* Modo «Mi universidad»: convenios y tipo, en naranja. */
+.city-card__uni { background: rgba(245,150,58,0.92); border-color: rgba(245,150,58,0.92); }
 .city-card__uni-rri { font-weight: 600; }
 
 .city-card__content {
@@ -939,6 +937,19 @@ a { text-decoration: none; color: inherit; }
   .city-card { --name-gap: 74px; } /* 2×12 + 44 + 6 */
   .city-card__content { padding: 14px 12px 16px; }
   .city-card__contentTop { gap: 6px; }
+}
+/* Móvil (2 columnas): etiquetas algo más pequeñas, y con la de convenios (3
+   etiquetas) la frase se quita para que nombre y etiquetas no se toquen. */
+@media (max-width: 768px) {
+  .city-card__tags { top: 10px; left: 10px; right: 10px; gap: 4px; }
+  .city-card__tag { padding: 3px 9px; font-size: 11px; }
+  .city-card__tag svg { width: 14px; height: 14px; }
+  .city-card__content--uni .city-card__phrase { display: none; }
+  .city-card__content--uni .city-card__country { margin-bottom: 0; }
+}
+/* Móvil estrecho con dos etiquetas (programa): la frase, en una línea. */
+@media (max-width: 480px) {
+  .city-card__content--two-tags .city-card__phrase { -webkit-line-clamp: 1; line-clamp: 1; }
 }
 
 /* ─── EXPERIENCE CARDS ───────────────────────────────────────────────────── */
@@ -2742,22 +2753,41 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
 /* ─── Directorio «Todos los destinos» (home) ───────────────────────────────
    Lista compacta de enlaces a TODAS las fichas, agrupadas por región: sirve
    de índice y garantiza que ninguna ficha quede sin enlace interno. */
-.city-directory__grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 28px 32px;
+.city-directory {
+  max-width: 1280px; margin: 0 auto;
+  padding: clamp(20px, 4vw, 36px) var(--section-px);
+}
+.city-directory__head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; margin-bottom: 10px; }
+.city-directory__title {
+  margin: 0; font-family: var(--font-display); font-size: clamp(18px, 2.2vw, 22px);
+  font-weight: 800; line-height: 1.2; color: var(--color-dark);
+}
+.city-directory__total { font-size: 13px; color: var(--color-muted); }
+/* Regiones plegadas en una fila que se reparte; la abierta ocupa todo el ancho. */
+.city-directory__grid { display: flex; flex-wrap: wrap; gap: 6px; }
+.city-directory__group { min-width: 0; max-width: 100%; }
+.city-directory__group[open] {
+  flex-basis: 100%; padding: 8px 12px 10px;
+  border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface);
 }
 .city-directory__region {
-  font-family: var(--font-display); font-size: 15px; font-weight: 800;
-  color: var(--color-dark); margin: 0 0 10px;
-  padding-bottom: 8px; border-bottom: 1px solid var(--color-border);
+  display: inline-flex; align-items: center; gap: 4px; min-height: 36px; padding: 0 12px;
+  border: 1px solid var(--color-border); border-radius: var(--radius-full); background: var(--color-white);
+  font-family: var(--font-body); font-size: 13px; font-weight: 700; color: var(--color-dark);
+  cursor: pointer; list-style: none;
 }
-.city-directory__count { font-family: var(--font-body); font-size: 12px; font-weight: 600; color: var(--color-muted); margin-left: 4px; }
+.city-directory__region::-webkit-details-marker { display: none; }
+.city-directory__region:hover { border-color: var(--color-teal); color: var(--color-teal); }
+.city-directory__region:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+.city-directory__group[open] > .city-directory__region { border-color: var(--color-teal); color: var(--color-teal); margin-bottom: 6px; }
+.city-directory__count { font-size: 12px; font-weight: 600; color: var(--color-muted); }
 .city-directory__list {
   list-style: none; margin: 0; padding: 0;
-  display: flex; flex-wrap: wrap; gap: 4px 14px;
+  display: flex; flex-wrap: wrap; gap: 0 14px;
 }
 .city-directory__list a {
-  font-size: 13.5px; line-height: 1.6; color: var(--color-slate);
+  display: inline-flex; align-items: center; min-height: 30px;
+  font-size: 13.5px; line-height: 1.3; color: var(--color-slate);
   text-decoration: none;
 }
 .city-directory__list a:hover { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
@@ -2897,7 +2927,7 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
 
 /* ─── RANKINGS ───────────────────────────────────────────────────────────── */
 .rankings-section {
-  padding: var(--section-py) var(--section-px);
+  padding: var(--section-py) var(--section-px) clamp(20px, 3vw, 32px);
   background: var(--color-white);
 }
 .rankings-inner { max-width: 760px; margin: 0 auto; }
@@ -2950,18 +2980,31 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
 .rankings-row--wide { grid-template-columns: 32px 1fr 80px 118px; }
 .rankings-row--wide .rankings-row__score { font-size: 14px; white-space: nowrap; }
 
-/* Enlaces a las páginas /ranking/<slug>: el de la pestaña activa y todos. */
-.rankings-more { margin-top: 22px; text-align: center; }
+/* Enlaces a las páginas /ranking/<slug>: el de la pestaña activa y, en una
+   sola línea con él, «Otros rankings» plegado (todas las páginas). */
+.rankings-more {
+  margin-top: 12px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0 18px;
+  font-size: 13.5px;
+}
 .rankings-more__main {
-  display: inline-flex; align-items: center; min-height: 44px;
-  font-size: 14.5px; font-weight: 700; color: var(--color-teal);
+  display: inline-flex; align-items: center; min-height: 36px;
+  font-weight: 700; color: var(--color-teal);
 }
 .rankings-more__main:hover { text-decoration: underline; }
-.rankings-more__all {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 16px;
-  margin-top: 10px; font-size: 13px;
+.rankings-more__fold > summary {
+  display: inline-flex; align-items: center; min-height: 36px; cursor: pointer;
+  font-weight: 600; color: var(--color-slate-light);
 }
-.rankings-more__all a { color: var(--color-slate-light); text-decoration: underline; text-underline-offset: 2px; }
+.rankings-more__fold > summary::-webkit-details-marker { display: none; }
+.rankings-more__fold > summary::after { content: "▾"; margin-left: 5px; font-size: 11px; }
+.rankings-more__fold[open] > summary::after { content: "▴"; }
+.rankings-more__fold > summary:hover { color: var(--color-primary); }
+.rankings-more__fold[open] { flex-basis: 100%; }
+.rankings-more__all {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 2px 14px;
+  font-size: 13px;
+}
+.rankings-more__all a { display: inline-flex; align-items: center; min-height: 28px; color: var(--color-slate-light); text-decoration: underline; text-underline-offset: 2px; }
 .rankings-more__all a:hover { color: var(--color-primary); }
 
 @media (max-width: 560px) {
@@ -2969,8 +3012,6 @@ a.btn-primary, a.btn-ghost { display: inline-block; line-height: normal; text-al
   .rankings-row--wide { grid-template-columns: 26px 1fr auto; }
   .rankings-row__bar { display: none; }
   .rankings-row__city { flex-direction: column; align-items: flex-start; gap: 0; }
-  .rankings-more__all { gap: 2px 14px; }
-  .rankings-more__all a { display: inline-flex; align-items: center; min-height: 32px; }
 }
 
 /* ─── DARK MODE: pastel note/callout/badge overrides ─────────────────────────

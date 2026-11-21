@@ -425,27 +425,30 @@ function GlobeSection() {
 // ninguna ficha quede huérfana en el HTML prerenderizado.
 const CITY_DIRECTORY = getCitiesGroupedByRegion();
 
+// Compacto: una fila de regiones plegadas («Italia · 18»); al abrir una, sus
+// ciudades en línea. Los enlaces están siempre en el HTML (dentro de
+// <details>), así que los buscadores siguen viendo todas las fichas.
+const CITY_DIRECTORY_TOTAL = CITY_DIRECTORY.reduce((n, g) => n + g.cities.length, 0);
+
 function CityDirectorySection() {
   return (
-    <section className="section city-directory" aria-labelledby="city-directory-title" style={{ maxWidth: 1280, margin: "0 auto" }}>
-      <div className="section__header">
-        <div>
-          <SectionLabel color="var(--color-teal)">Directorio</SectionLabel>
-          <h2 id="city-directory-title" className="section__title">Todos los destinos</h2>
-        </div>
+    <section className="city-directory" aria-labelledby="city-directory-title">
+      <div className="city-directory__head">
+        <h2 id="city-directory-title" className="city-directory__title">Todos los destinos</h2>
+        <span className="city-directory__total">{CITY_DIRECTORY_TOTAL} ciudades por región</span>
       </div>
       <div className="city-directory__grid">
         {CITY_DIRECTORY.map(({ region, cities }) => (
-          <div key={region} className="city-directory__group">
-            <h3 className="city-directory__region">
+          <details key={region} className="city-directory__group">
+            <summary className="city-directory__region">
               {region} <span className="city-directory__count">{cities.length}</span>
-            </h3>
+            </summary>
             <ul className="city-directory__list">
               {cities.map((c) => (
                 <li key={c.slug}><Link to={`/city/${c.slug}`}>{c.name}</Link></li>
               ))}
             </ul>
-          </div>
+          </details>
         ))}
       </div>
     </section>
@@ -560,17 +563,21 @@ function RankingsSection() {
           ))}
         </div>
 
+        {/* Compacto: el enlace de la pestaña activa y, en una línea plegada,
+            todas las páginas de ranking (siguen en el HTML, para los buscadores). */}
         <div className="rankings-more">
           <Link className="rankings-more__main" to={getRankingPath(criterion)}>
             Ver el top {RANKING_TOP} y cómo se calcula →
           </Link>
-          {/* Todas las páginas de ranking enlazadas en el HTML (no solo la pestaña activa). */}
-          <nav className="rankings-more__all" aria-label="Todos los rankings">
-            {RANKING_CRITERIA.map((c) => (
-              <Link key={c.id} to={getRankingPath(c)}>{c.title.replace(/ en \d{4}$/, "")}</Link>
-            ))}
-            <Link to="/ranking">Todos los rankings</Link>
-          </nav>
+          <details className="rankings-more__fold">
+            <summary>Otros rankings</summary>
+            <nav className="rankings-more__all" aria-label="Todos los rankings">
+              {RANKING_CRITERIA.map((c) => (
+                <Link key={c.id} to={getRankingPath(c)}>{c.title.replace(/ en \d{4}$/, "")}</Link>
+              ))}
+              <Link to="/ranking">Todos los rankings</Link>
+            </nav>
+          </details>
         </div>
       </div>
     </section>
