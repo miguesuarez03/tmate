@@ -266,6 +266,37 @@ Criterio completo en `docs/scoring.md`. Esta sección recoge de dónde sale cada
   - Propuesta: Excelente 8,0 o más (8 ciudades); Bueno, de 7,0 a 7,9 (97); Regular, de 6,0 a 6,9 (31); Difícil, por debajo de 6,0 (14, todas en América).
   - Hoy, con los umbrales actuales: 0 Excelente, 105 Bueno, 40 Regular y 5 Difícil.
 
+## Fase 2: todos los destinos internacionales de Loyola con ficha (antes del 30/11/2026)
+
+Una rama por tanda (`tarea/destinos-loyola-N`), 10 ciudades por tanda. Cola: `docs/destinos-pendientes-loyola.md`.
+
+### 21-11-2026 — cola al día y decisiones de Miguel
+
+**Cola** (`npm run universities:match`): el script ya solo cuenta convenios de estudios fuera de España. España (SICUE) y otros programas (MAGIS) van en listas aparte al final del documento, sin contar.
+- Al empezar: **100 ciudades sin ficha con 136 convenios de estudios internacionales** (de 418; 90 ciudades con ficha). Aparte: SICUE, 47 convenios en 9 ciudades; MAGIS, 23 en 23.
+- Países que aún no existen en MAbroad (cada uno necesita bandera, `mapCountries.js` y datos de la nota): India, Corea del Sur, Japón, Taiwán, Filipinas, Australia, Macedonia del Norte, Marruecos, Burkina Faso, Costa de Marfil, Madagascar, Honduras y Venezuela.
+
+**Tandas acordadas** (fechas objetivo):
+
+| Tanda | Fecha | Ciudades | Estado |
+|---|---|---|---|
+| 1 | 22/11 | Luneburgo, Odense, Angers, Campobasso, Salerno, Tetovo, Enschede, Santarém, Erfurt, Gotinga | Pendiente |
+| 2 | 23/11 | Ratisbona, Wurzburgo, Malinas, Belfort, Debrecen, Benevento, Castellanza, Bergen, Arnhem, Flesinga | Pendiente |
+| 3 | 24/11 | Aveiro, Vila Real, Nottingham, Ostrava, Zlín, Umeå, Brugg, Aquisgrán, Bamberg, Bonn | Pendiente |
+| 4 | 25/11 | Bremen, Fráncfort, Jena, Mannheim, Osnabrück, Passau, Stuttgart, Graz, Wiener Neustadt, Cortrique | Pendiente |
+| 5 | 26/11 | Diepenbeek, Namur, Limasol, Roskilde, Nitra, Prešov, Kuopio, Rovaniemi, Clermont-Ferrand, El Havre | Pendiente |
+| 6 | 26/11 | Ruan, Limerick, Waterford, Eindhoven, Zwolle, Rzeszów, Viseu, Olomouc, Örebro, Trollhättan | Pendiente |
+| 7 | 27/11 | Aberystwyth, Bradford, Hatfield, Leicester, Portsmouth, Fortaleza, São Leopoldo, Cali, León, Puebla | Pendiente |
+| 8 | 28/11 | Tijuana, Torreón, Búfalo, Cincinnati, Erie, Flint, Jacksonville, Laredo, Lock Haven, Milwaukee | Pendiente |
+| 9 | 28/11 | Newark, Omaha, Syracuse, Utica, Seúl, Busan, Tokio, Taipéi, Manila, Sídney | Pendiente |
+| 10 | 29/11 | Bhubaneswar, Chennai, Jamshedpur, Uagadugú, Abiyán, Fianarantsoa, Rabat, Tegucigalpa, Caracas, Willemstad | Pendiente |
+
+Si algo no aparece en una fuente oficial, la ficha sale sin esa cifra (o sin esa sección) en vez de retrasar la tanda; se apunta en el registro de la tanda.
+
+**Decisiones de Miguel (21-11). La regla es usar el nombre que da el portal de Loyola:**
+- **Castellanza, Hatfield y Diepenbeek tienen ficha propia**, con una línea de cercanía: «A 28 km de Milán», «A 28 km de Londres», «Junto a Hasselt». La línea enlaza a la ficha de esa ciudad si existe. Comprobado en `loyola.json`: el portal no las agrupa con la ciudad grande (`city` = «Castellanza» / «Hatfield» / «Diepenbeek», relaciones 2489, 1316, 2798 y 1231), así que no hacía falta avisar. Las distancias exactas se comprueban en su tanda.
+- **Willemstad (Curazao) es Erasmus+.** El portal la da como `Erasmus-SMS`, con el código Erasmus NLWILLEMS02 (relación 1383). La [Guía del Programa Erasmus+, «Eligible countries», nota 3](https://erasmus-plus.ec.europa.eu/programme-guide/part-a/eligible-countries) dice que los países y territorios de ultramar participan «on a 'EU Member State or third country associated to the Programme' status», con las reglas del Estado miembro al que están vinculados. La [lista de PTU de la Comisión](https://international-partnerships.ec.europa.eu/countries/overseas-countries-and-territories_en) da Curaçao como «linked to Netherlands». La guía no nombra a Curazao: el vínculo sale de la lista de la Comisión. País como en el portal: Países Bajos, y el texto de la ficha dice que está en Curazao (Caribe).
+
 ## Ciudades nuevas de la cola Loyola (rama `tandas-loyola`)
 
 ### 15-11-2026 — campus satélite y cierre de la revisión pendiente

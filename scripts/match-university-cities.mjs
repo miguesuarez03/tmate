@@ -91,38 +91,50 @@ export function matchRelation(rel) {
   return best?.slug ?? null;
 }
 
-function pendingMarkdown(data, mapping) {
+/** Convenios sin ficha agrupados por ciudad, de más a menos convenios. */
+function groupPending(relations) {
   const groups = new Map();
-  for (const rel of data.relations) {
-    if (mapping[rel.relationId]) continue;
+  for (const rel of relations) {
     const key = `${rel.countryCode}|${rel.city}`;
-    if (!groups.has(key)) groups.set(key, { city: rel.city, country: rel.country, domestic: rel.countryCode === "ES", coords: [], universities: new Map(), count: 0 });
+    if (!groups.has(key)) groups.set(key, { city: rel.city, country: rel.country, coords: [], universities: new Map(), count: 0 });
     const g = groups.get(key);
     g.count += 1;
     if (typeof rel.lat === "number") g.coords.push([rel.lat, rel.lng]);
     g.universities.set(rel.university, (g.universities.get(rel.university) ?? 0) + 1);
   }
-  const sorted = [...groups.values()].sort((a, b) => b.count - a.count || a.country.localeCompare(b.country, "es") || a.city.localeCompare(b.city, "es"));
-  // España (SICUE) queda fuera de MAbroad por ahora: va en su propia lista,
-  // no en la cola de fichas (igual que en la web, ver lib/universities.js).
-  const rows = sorted.filter((r) => !r.domestic);
-  const domestic = sorted.filter((r) => r.domestic);
+  return [...groups.values()].sort((a, b) => b.count - a.count || a.country.localeCompare(b.country, "es") || a.city.localeCompare(b.city, "es"));
+}
+
+const unisText = (r) => [...r.universities.entries()].map(([u, n]) => (n > 1 ? `${u} (${n})` : u)).join("; ").replace(/\|/g, "/");
+
+function pendingMarkdown(data, mapping, entry) {
+  // La cola solo cuenta convenios de estudios fuera de España. España (SICUE)
+  // y los programas que no son de estudios (MAGIS…) van en listas aparte que
+  // no cuentan (igual que en la web, ver lib/universities.js).
+  const isStudy = (rel) => !entry.studyAgreementTypes || entry.studyAgreementTypes.includes(rel.agreementType);
+  const unmatched = data.relations.filter((rel) => !mapping[rel.relationId]);
+  const abroadOther = unmatched.filter((r) => r.countryCode !== "ES" && !isStudy(r));
+  const rows = groupPending(unmatched.filter((r) => r.countryCode !== "ES" && isStudy(r)));
+  const domestic = groupPending(unmatched.filter((r) => r.countryCode === "ES"));
+  const other = groupPending(abroadOther);
+  const otherTypes = [...new Set(abroadOther.map((r) => data.agreementTypes?.[r.agreementType] ?? r.agreementType))];
   const total = rows.reduce((n, r) => n + r.count, 0);
   const domesticTotal = domestic.reduce((n, r) => n + r.count, 0);
+  const otherTotal = abroadOther.length;
+  const studyAbroad = data.relations.filter((r) => r.countryCode !== "ES" && isStudy(r)).length;
   const fmt = (n) => n.toFixed(4);
   const lines = [
     `# Destinos de ${data.university.name} sin ficha en MAbroad`,
     "",
     `Generado por \`scripts/match-university-cities.mjs\` a partir de \`src/data/universities/${data.university.id}.json\` (portal de movilidad, extraído el ${data.university.extractedAt}). No editar a mano: vuelve a lanzar \`npm run universities:match\`.`,
     "",
-    `Es la cola de trabajo para añadir fichas: ${rows.length} ciudades con ${total} convenios (de ${data.relations.length}) fuera de España que todavía no casan con ninguna ciudad de MAbroad (mismo país y nombre/alias, o universidad a ≤ ${MAX_KM} km). Ordenadas por número de convenios. Las coordenadas son las de la primera universidad de cada ciudad en el portal (algunas son aproximadas).`,
+    `Es la cola de trabajo para añadir fichas: ${rows.length} ciudades con ${total} convenios de estudios (de ${studyAbroad} fuera de España) que todavía no casan con ninguna ciudad de MAbroad (mismo país y nombre/alias, o universidad a ≤ ${MAX_KM} km). Ordenadas por número de convenios. No cuentan los destinos en España (SICUE) ni los de otros programas${otherTypes.length ? ` (${otherTypes.join(", ")})` : ""}: van aparte, al final. Las coordenadas son las de la primera universidad de cada ciudad en el portal (algunas son aproximadas).`,
     "",
     "| # | Ciudad | País | Convenios | Coordenadas (lat, lng) | Universidades |",
     "|---|---|---|---|---|---|",
     ...rows.map((r, i) => {
-      const unis = [...r.universities.entries()].map(([u, n]) => (n > 1 ? `${u} (${n})` : u)).join("; ");
       const c = r.coords[0];
-      return `| ${i + 1} | ${r.city} | ${r.country} | ${r.count} | ${c ? `${fmt(c[0])}, ${fmt(c[1])}` : "—"} | ${unis.replace(/\|/g, "/")} |`;
+      return `| ${i + 1} | ${r.city} | ${r.country} | ${r.count} | ${c ? `${fmt(c[0])}, ${fmt(c[1])}` : "—"} | ${unisText(r)} |`;
     }),
     "",
   ];
@@ -134,14 +146,26 @@ function pendingMarkdown(data, mapping) {
       "",
       "| Ciudad | Convenios | Universidades |",
       "|---|---|---|",
-      ...domestic.map((r) => {
-        const unis = [...r.universities.entries()].map(([u, n]) => (n > 1 ? `${u} (${n})` : u)).join("; ");
-        return `| ${r.city} | ${r.count} | ${unis.replace(/\|/g, "/")} |`;
-      }),
+      ...domestic.map((r) => `| ${r.city} | ${r.count} | ${unisText(r)} |`),
       "",
     );
   }
-  return { md: lines.join("\n"), cities: rows.length, relations: total, domesticCities: domestic.length, domesticRelations: domesticTotal };
+  if (other.length) {
+    lines.push(
+      `## Otros programas (${otherTypes.join(", ")}): no cuentan`,
+      "",
+      `No son intercambios de estudios de un cuatrimestre o un curso: en la web van plegados y fuera de los totales, así que no piden ficha. Sin ficha: ${other.length} ciudades con ${otherTotal} convenios.`,
+      "",
+      "| Ciudad | País | Convenios | Universidades |",
+      "|---|---|---|---|",
+      ...other.map((r) => `| ${r.city} | ${r.country} | ${r.count} | ${unisText(r)} |`),
+      "",
+    );
+  }
+  return {
+    md: lines.join("\n"), cities: rows.length, relations: total,
+    domesticCities: domestic.length, domesticRelations: domesticTotal, otherCities: other.length, otherRelations: otherTotal,
+  };
 }
 
 function run(id) {
@@ -169,13 +193,13 @@ function run(id) {
     join(ROOT, "src/data/universities", `${id}.degrees.js`),
     `// Generado por scripts/match-university-cities.mjs a partir de ${entry.file} — no editar a mano.\nexport default ${JSON.stringify(degrees, null, 1)};\n`
   );
-  const { md, cities, relations, domesticCities, domesticRelations } = pendingMarkdown(data, mapping);
+  const { md, cities, relations, domesticCities, domesticRelations, otherCities, otherRelations } = pendingMarkdown(data, mapping, entry);
   mkdirSync(join(ROOT, "docs"), { recursive: true });
   writeFileSync(join(ROOT, "docs", `destinos-pendientes-${id}.md`), md);
   const matched = Object.values(mapping).filter(Boolean);
   console.log(
     `${id}: ${matched.length}/${data.relations.length} convenios casan con ${new Set(matched).size} ciudades de MAbroad; ` +
-      `quedan ${relations} convenios en ${cities} ciudades sin ficha y ${domesticRelations} en ${domesticCities} ciudades de España (SICUE) ` +
+      `quedan ${relations} convenios de estudios internacionales en ${cities} ciudades sin ficha; aparte, ${domesticRelations} en ${domesticCities} ciudades de España (SICUE) y ${otherRelations} de otros programas en ${otherCities} ciudades ` +
       `(docs/destinos-pendientes-${id}.md).`
   );
 }
