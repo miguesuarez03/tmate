@@ -4707,8 +4707,7 @@ export const CITIES = [
     region: "Europa del Este",
     tag: "La Mezquita Pintada",
     phrase: "Una ciudad balcánica al pie de los montes Šar, con campus en inglés",
-    costDetail: "335–340€/mes",
-    costSource: "South East European University (guía orientativa para entrantes)",
+    costDetail: "350–500€/mes",
     vibe: "Balcánica & Asequible",
     erasmus: 60,
     weather: "Continental",
@@ -4716,12 +4715,12 @@ export const CITIES = [
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Tetovo_Bunte_Moschee.jpg/1920px-Tetovo_Bunte_Moschee.jpg",
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Tetovo_Bunte_Moschee.jpg/1920px-Tetovo_Bunte_Moschee.jpg",
     description: "Tetovo, en el noroeste de Macedonia del Norte y a unos 45 km del aeropuerto de Skopie, es una ciudad de mayoría albanesa al pie de los montes Šar. Su South East European University (SEEU) nació en 2001 por iniciativa de la OSCE y tiene el campus en la ciudad, con residencias propias. Su símbolo es la Mezquita Pintada (Šarena Džamija), monumento protegido.",
-    highlights: ["Mezquita Pintada (Šarena Džamija), monumento islámico protegido","SEEU: universidad creada en 2001 por iniciativa de la OSCE","Residencias en el campus: 7 edificios y 450 plazas","Uno de los costes más bajos de MAbroad: 335–340 € al mes según la SEEU"],
+    highlights: ["Mezquita Pintada (Šarena Džamija), monumento islámico protegido","SEEU: universidad creada en 2001 por iniciativa de la OSCE","Residencias en el campus: 7 edificios y 450 plazas","Uno de los destinos más baratos de MAbroad"],
     universities: ["Universiteti i Evropës Juglindore"],
     neighborhoods: [
       { name: "Campus de la SEEU", vibe: "Universidad y residencias", price: "€" },
     ],
-    tips: ["La SEEU calcula 335–340 € al mes: comida 150 €, residencia 75 €, transporte 50 €, teléfono 10–15 € y otros 50 €","Residencias en el campus: pide plaza cuanto antes (dormitory@seeu.edu.mk), hay mucha demanda","Plazos de solicitud de la SEEU: 10 de mayo (primer semestre o curso completo) y 10 de noviembre (segundo semestre); piden inglés B2 y seguro de viaje con al menos 30.000 € de cobertura","Al llegar tienes que registrarte en la comisaría; pregunta a la SEEU cómo tramitar el permiso de residencia si te quedas más de 3 meses","El aeropuerto de Skopie está a unos 45 km: hay buses regulares entre Skopie y Tetovo, y taxis las 24 horas"],
+    tips: ["La SEEU publica una guía orientativa de gastos (sin fecha) en su página de entrantes: confirma los precios con su oficina internacional","Residencias en el campus: pide plaza cuanto antes (dormitory@seeu.edu.mk), hay mucha demanda","Plazos de solicitud de la SEEU: 10 de mayo (primer semestre o curso completo) y 10 de noviembre (segundo semestre); piden inglés B2 y seguro de viaje con al menos 30.000 € de cobertura","Al llegar tienes que registrarte en la comisaría; pregunta a la SEEU cómo tramitar el permiso de residencia si te quedas más de 3 meses","El aeropuerto de Skopie está a unos 45 km: hay buses regulares entre Skopie y Tetovo, y taxis las 24 horas"],
     experiences: ["erasmus"],
   },
   {
@@ -4747,7 +4746,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro histórico", vibe: "Ciudad pequeña sobre el Tajo", price: "€" },
     ],
-    tips: ["Si vas a estudiar Ciencias de la Actividad Física y del Deporte, las clases son en la escuela de deporte de Rio Maior, no en Santarém","Desde el aeropuerto de Lisboa: metro (línea roja) hasta Oriente y tren regional de CP hasta Santarém, unos 56 minutos","Residencias del IPSantarém (SASIPS): pregunta por plaza en alojamento@sas.ipsantarem.pt","Si te quedas más de 3 meses, pide el certificado de registro de ciudadano de la UE en la Câmara Municipal (15 €)","No hay sección de ESN en Santarém; la más cercana es ESN Tomar"],
+    tips: ["Si vas a estudiar Ciencias de la Actividad Física y del Deporte, las clases son en la escuela de deporte de Rio Maior, no en Santarém","Desde el aeropuerto de Lisboa: metro (línea roja) hasta Oriente y tren regional de CP hasta Santarém, unos 56 minutos","Residencias del IPSantarém (SASIPS): pregunta por plaza en alojamento@sas.ipsantarem.pt","Si te quedas más de 3 meses, pide el certificado de registro de ciudadano de la UE en la Câmara Municipal (15 €)","Idioma: inglés B2 (fact sheet 2026). El portal de Loyola indica B1: confírmalo con la Oficina","No hay sección de ESN en Santarém; la más cercana es ESN Tomar"],
     experiences: ["erasmus"],
   },
   {

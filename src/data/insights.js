@@ -17870,12 +17870,12 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 9.5,
-        summary: "La SEEU calcula 335–340 € al mes con residencia, comida y transporte: uno de los destinos más baratos de MAbroad.",
+        summary: "Estimación MAbroad de 350–500 € al mes: uno de los destinos más baratos de MAbroad (la guía de gastos de la SEEU no tiene fecha).",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 9.5, desc: "Residencia de la SEEU por unos 75 € al mes." },
-          { label: "Comida y supermercados", score: 9.0, desc: "Comida por unos 150 € al mes, según la SEEU." },
-          { label: "Transporte", score: 8.5, desc: "Transporte por unos 50 € al mes, según la SEEU." },
+          { label: "Alojamiento", score: 9.5, desc: "Residencias de la SEEU en el campus, muy baratas." },
+          { label: "Comida y supermercados", score: 9.0, desc: "Comida barata." },
+          { label: "Transporte", score: 8.5, desc: "Ciudad pequeña; transporte barato." },
           { label: "Ocio y gastos diarios", score: 9.0, desc: "Ocio muy barato." },
         ],
       },
@@ -17885,7 +17885,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 6.5, desc: "Hay que pedir plaza pronto: mucha demanda." },
-          { label: "Precio", score: 9.5, desc: "Unos 75 € al mes en residencia." },
+          { label: "Precio", score: 9.5, desc: "Residencias muy baratas." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "Fuera del campus, poca información en inglés." },
           { label: "Residencias universitarias", score: 7.5, desc: "7 residencias y 450 plazas en el campus." },
         ],
