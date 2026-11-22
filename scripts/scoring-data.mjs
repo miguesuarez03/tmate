@@ -247,6 +247,17 @@ const THE_NAMES = {
   "santarem": [],
   "luneburgo": ["Leuphana University of Lüneburg"],
   "erfurt": [],
+  // Tanda 2. LIUC y NHH tienen perfil en THE pero sin puesto; HAN y HZ no salen.
+  "ratisbona": ["University of Regensburg"],
+  "wurzburgo": ["University of Würzburg"],
+  "malinas": [],
+  "belfort": [],
+  "debrecen": ["University of Debrecen"],
+  "benevento": ["University of Sannio"],
+  "castellanza": [],
+  "bergen": ["University of Bergen"],
+  "arnhem": [],
+  "flesinga": [],
 };
 
 /** Nombres con que ESN escribe cada ciudad (además del nombre de la ficha). */
@@ -268,7 +279,7 @@ const ESN_CITY_NAMES = {
   "milan": ["milano"], "roma": ["rome"], "bolonia": ["bologna"], "cluj-napoca": ["cluj"], "katowice": ["gliwice"],
   "nicosia": ["lefkosia"], "la-valeta": ["msida", "valletta"],
   "cosenza": ["rende", "arcavacata di rende", "arcavacata"],
-  "salerno": ["fisciano"], "gotinga": ["gottingen", "goettingen"], "luneburgo": ["luneburg", "lueneburg"],
+  "salerno": ["fisciano"], "gotinga": ["gottingen", "goettingen"], "luneburgo": ["luneburg", "lueneburg"], "flesinga": ["vlissingen"], "ratisbona": ["regensburg"], "wurzburgo": ["wurzburg", "wuerzburg"], "malinas": ["mechelen"],
 };
 
 const norm = (s) => (s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ł/g, "l").toLowerCase().trim();

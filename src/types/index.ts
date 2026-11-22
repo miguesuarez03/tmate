@@ -66,6 +66,8 @@ export interface CityBase {
 // ── Ciudad completa (detalle de página) ──────────────────────────────────────
 export interface City extends CityBase {
   description: string;
+  /** Línea de cercanía de una ficha pequeña junto a una ciudad grande: «A 28 km de Milán». slug: ficha a la que enlaza (si existe). */
+  near?: { text: string; slug?: string };
   highlights: string[];
   universities: string[];
   neighborhoods: Neighborhood[];

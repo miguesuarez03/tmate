@@ -572,6 +572,69 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "5–13°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Ambiente universitario"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-2–3°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas frecuentes.", tags: ["Frío","Heladas","Mercado navideño"] },
   ],
+  // Castellanza: Novara/Cameri (OMM 16064, a unos 20 km al oeste; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  castellanza: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "7–18°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada en la llanura lombarda.", tags: ["Templada","Llanura","Milán cerca"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "17–28°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano caluroso y húmedo.", tags: ["Calor","Húmedo","Lagos cerca"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "8–18°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Niebla"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-1–8°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con niebla y heladas.", tags: ["Frío","Niebla","Heladas"] },
+  ],
+  // Bergen: Bergen-Florida (OMM 01317, en la ciudad; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  bergen: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–11°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca y lluviosa.", tags: ["Fresca","Lluvia","Días largos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "12–19°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano fresco, con días muy largos.", tags: ["Fresco","Fiordos","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "6–12°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco y muy lluvioso para empezar el curso.", tags: ["Inicio Erasmus","Lluvia","Fresco"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "1–5°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave para Noruega, pero oscuro y lluvioso.", tags: ["Oscuro","Lluvia","Suave"] },
+  ],
+  // Arnhem: Deelen (OMM 06275, a unos 8 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  arnhem: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–15°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca, buena para la bici.", tags: ["Fresca","Bici","Parques"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "12–23°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Rin","Terrazas"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco y lluvioso para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–6°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y húmedo, con heladas.", tags: ["Frío","Húmedo","Heladas"] },
+  ],
+  // Flesinga: Vlissingen (OMM 06310, en la ciudad; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  flesinga: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "7–13°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca junto al mar.", tags: ["Fresca","Viento","Playa"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "15–21°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado, con playa.", tags: ["Templado","Playa","Brisa"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "10–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado por el mar para empezar el curso.", tags: ["Inicio Erasmus","Templado","Viento"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "3–7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave para los Países Bajos, con viento.", tags: ["Suave","Viento","Húmedo"] },
+  ],
+  // Ratisbona: Regensburg (OMM 10776, a unos 3 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  ratisbona: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–16°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca, la ciudad sale al Danubio.", tags: ["Fresca","Danubio","Terrazas"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–25°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido.", tags: ["Cálido","Biergarten","Danubio"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "5–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Ambiente universitario"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-2–3°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas.", tags: ["Frío","Heladas","Mercado navideño"] },
+  ],
+  // Wurzburgo: Würzburg (OMM 10655, a unos 3 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  wurzburgo: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–15°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada junto al Main.", tags: ["Templada","Río Main","Terrazas"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–25°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido.", tags: ["Cálido","Viñedos","Río Main"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "6–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado, época de vendimia, para empezar el curso.", tags: ["Inicio Erasmus","Templado","Vendimia"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-1–5°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas.", tags: ["Frío","Heladas","Días cortos"] },
+  ],
+  // Malinas: Brussels National, Zaventem (OMM 06451, a unos 15 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  malinas: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–15°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave.", tags: ["Suave","Bici","Terrazas"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–23°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Terrazas","Festivales"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco y lluvioso para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "1–7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y húmedo.", tags: ["Frío","Húmedo","Gris"] },
+  ],
+  // Belfort: Luxeuil (OMM 07292, a unos 41 km; normales OMM 1991–2020 publicadas por NOAA/NCEI). Es la estación con normal completa más cercana: la de Dorans (Météo-France) solo cubre 2009–2020.
+  belfort: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–16°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca.", tags: ["Fresca","Vosgos","Senderismo"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–25°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido.", tags: ["Cálido","Festivales","Lagos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "6–16°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Bosques"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-1–6°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas.", tags: ["Frío","Heladas","Nieve cerca"] },
+  ],
+  // Debrecen: Debrecen (OMM 12882, en el aeropuerto, a unos 5 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  debrecen: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–17°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada.", tags: ["Templada","Parques","Terrazas"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "15–27°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano caluroso y seco.", tags: ["Calor","Festivales","Balnearios"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–16°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Ambiente universitario"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-3–4°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas.", tags: ["Frío","Heladas","Nieve"] },
+  ],
 };
 
 // Mes más frío y mes más cálido de cada ciudad (normales 1991–2020 de la misma fuente oficial que
@@ -666,4 +729,13 @@ export const CITY_CLIMATE_EXTREMES = {
   santarem: { cold: { month: 0, min: 5.8 }, hot: { month: 7, max: 31.5 }, source: "IPMA, Santarém/Fonte Boa (734)" },
   luneburgo: { cold: { month: 0, min: -1 }, hot: { month: 6, max: 23.9 }, source: "OMM, Boizenburg (10249)" },
   erfurt: { cold: { month: 0, min: -2.5 }, hot: { month: 6, max: 23.6 }, source: "OMM, Erfurt-Weimar (10554)" },
+  castellanza: { cold: { month: 0, min: -1.88 }, hot: { month: 6, max: 29.12 }, source: "OMM, Novara/Cameri (16064)" },
+  bergen: { cold: { month: 1, min: 0.1 }, hot: { month: 6, max: 19.6 }, source: "OMM, Bergen-Florida (01317)" },
+  arnhem: { cold: { month: 0, min: 0 }, hot: { month: 6, max: 23.4 }, source: "OMM, Deelen (06275)" },
+  flesinga: { cold: { month: 0, min: 2.6 }, hot: { month: 7, max: 22 }, source: "OMM, Vlissingen (06310)" },
+  ratisbona: { cold: { month: 0, min: -2.9 }, hot: { month: 6, max: 26.1 }, source: "OMM, Regensburg (10776)" },
+  wurzburgo: { cold: { month: 0, min: -1.4 }, hot: { month: 6, max: 25.5 }, source: "OMM, Würzburg (10655)" },
+  malinas: { cold: { month: 1, min: 1 }, hot: { month: 6, max: 23.7 }, source: "OMM, Brussels National (06451)" },
+  belfort: { cold: { month: 0, min: -1.2 }, hot: { month: 6, max: 26 }, source: "OMM, Luxeuil (07292), a unos 41 km" },
+  debrecen: { cold: { month: 0, min: -3.6 }, hot: { month: 7, max: 28.1 }, source: "OMM, Debrecen (12882)" },
 };

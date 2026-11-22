@@ -184,4 +184,13 @@ export const CITY_POPULATION = {
   "santarem": { population: 69392, year: 2025, source: "INE, estimación a 31-12 (vía PORDATA)", area: "Concelho de Santarém" },
   "luneburgo": { population: 78246, year: 2025, source: "Hansestadt Lüneburg (padrón, residencia principal)" },
   "erfurt": { population: 217159, year: 2025, source: "Oficina Estadística de Turingia (TLS)" },
+  "ratisbona": { population: 151517, year: 2025, source: "Oficina de Estadística de Baviera" },
+  "wurzburgo": { population: 133753, year: 2025, source: "Oficina de Estadística de Baviera" },
+  "malinas": { population: 91239, year: 2026, source: "Registro Nacional de Bélgica (1-9-2026)" },
+  "belfort": { population: 45912, year: 2023, source: "INSEE" },
+  "debrecen": { population: 202331, year: 2026, source: "KSH" },
+  // Benevento y Castellanza: sin cifra municipal de ISTAT leída en fuente primaria (VERIFICACION.md, tanda 2).
+  "bergen": { population: 295589, year: 2026, source: "SSB" },
+  "arnhem": { population: 171822, year: 2026, source: "CBS" },
+  "flesinga": { population: 45878, year: 2026, source: "CBS" },
 };

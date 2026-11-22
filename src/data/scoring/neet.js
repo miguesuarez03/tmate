@@ -1820,5 +1820,112 @@ export const CITY_NEET = {
    "2024": 9.3,
    "2025": 10.2
   }
+ },
+ "ratisbona": {
+  "source": "eurostat",
+  "scope": "country",
+  "geo": "DE",
+  "years": {
+   "2023": 7.5,
+   "2024": 7.7,
+   "2025": 8.2
+  }
+ },
+ "wurzburgo": {
+  "source": "eurostat",
+  "scope": "country",
+  "geo": "DE",
+  "years": {
+   "2023": 7.5,
+   "2024": 7.7,
+   "2025": 8.2
+  }
+ },
+ "malinas": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "BE21",
+  "name": "Prov. Antwerpen",
+  "years": {
+   "2023": 6.7,
+   "2024": 6.6,
+   "2025": 5.6
+  }
+ },
+ "belfort": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "FRC2",
+  "name": "Franche-Comté",
+  "years": {
+   "2023": 10.9,
+   "2024": 10.5,
+   "2025": 13
+  }
+ },
+ "debrecen": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "HU32",
+  "name": "Észak-Alföld",
+  "years": {
+   "2023": 13.6,
+   "2024": 15.2,
+   "2025": 12.9
+  }
+ },
+ "benevento": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "ITF3",
+  "name": "Campania",
+  "years": {
+   "2023": 21.8,
+   "2024": 19.4,
+   "2025": 16
+  }
+ },
+ "castellanza": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "ITC4",
+  "name": "Lombardia",
+  "years": {
+   "2023": 9.1,
+   "2024": 8.9,
+   "2025": 6.3
+  }
+ },
+ "bergen": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "NO0A",
+  "name": "Vestlandet",
+  "years": {
+   "2023": 4,
+   "2024": 4.6,
+   "2025": 5.2
+  }
+ },
+ "arnhem": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "NL22",
+  "name": "Gelderland",
+  "years": {
+   "2023": 3.3,
+   "2024": 3.5,
+   "2025": 4.1
+  }
+ },
+ "flesinga": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "NL34",
+  "name": "Zeeland",
+  "years": {
+   "2022": 3.9,
+   "2024": 4.6
+  }
  }
 };

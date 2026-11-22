@@ -111,6 +111,18 @@ export function getErasmusTransition(city) {
 }
 
 /**
+ * Línea de cercanía de una ficha pequeña junto a una ciudad grande
+ * («A 28 km de Milán»). Devuelve null si la ficha no la tiene, o
+ * { text, href }: href enlaza a la ficha de la ciudad grande solo si existe.
+ * @param {{ near?: { text: string, slug?: string } }} city
+ */
+export function getNearLine(city) {
+  if (!city?.near?.text) return null;
+  const target = city.near.slug ? getCityBySlug(city.near.slug) : null;
+  return { text: city.near.text, href: target ? `/city/${target.slug}` : null };
+}
+
+/**
  * Etiqueta corta del programa para tablas y tarjetas: «Erasmus+»,
  * «Erasmus+ desde 2027-28», «Bilateral · Erasmus+ 2027 (pendiente)» o «Bilateral».
  */

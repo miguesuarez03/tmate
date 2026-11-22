@@ -2833,5 +2833,55 @@ export const CITY_UNIVERSITIES = {
    "intlPct": 13
   }
  ],
- "erfurt": []
+ "erfurt": [],
+ "ratisbona": [
+  {
+   "name": "University of Regensburg",
+   "edition": 2027,
+   "rank": "451–500",
+   "students": 16674,
+   "intlPct": 9
+  }
+ ],
+ "wurzburgo": [
+  {
+   "name": "University of Würzburg",
+   "edition": 2027,
+   "rank": "182",
+   "students": 20783,
+   "intlPct": 12
+  }
+ ],
+ "malinas": [],
+ "belfort": [],
+ "debrecen": [
+  {
+   "name": "University of Debrecen",
+   "edition": 2027,
+   "rank": "801–1000",
+   "students": 21646,
+   "intlPct": 25
+  }
+ ],
+ "benevento": [
+  {
+   "name": "University of Sannio",
+   "edition": 2027,
+   "rank": "1001–1200",
+   "students": 3006,
+   "intlPct": 3
+  }
+ ],
+ "castellanza": [],
+ "bergen": [
+  {
+   "name": "University of Bergen",
+   "edition": 2027,
+   "rank": "=273",
+   "students": 15335,
+   "intlPct": 13
+  }
+ ],
+ "arnhem": [],
+ "flesinga": []
 };

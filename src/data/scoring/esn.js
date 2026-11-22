@@ -506,5 +506,27 @@ export const CITY_ESN_SECTIONS = {
  "tetovo": [],
  "santarem": [],
  "luneburgo": [],
- "erfurt": []
+ "erfurt": [],
+ "ratisbona": [
+  "ESN Regensburg"
+ ],
+ "wurzburgo": [],
+ "malinas": [
+  "ESN Mechelen"
+ ],
+ "belfort": [],
+ "debrecen": [
+  "ESN Debrecen"
+ ],
+ "benevento": [
+  "ESN Maleventum"
+ ],
+ "castellanza": [],
+ "bergen": [
+  "ESN Bergen"
+ ],
+ "arnhem": [
+  "ESN Arnhem"
+ ],
+ "flesinga": []
 };

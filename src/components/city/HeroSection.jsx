@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./HeroSection.module.css";
 import { getCityWhatsappGroup } from "../../data/cityWhatsappGroups";
-import { isErasmusEligible, getErasmusTransition, getScoreLevel, isAffordable, getCostSourceLabel, hasOfficialCost, getBecaGapForCity, getBecaGapNote } from "../../lib/cities";
+import { isErasmusEligible, getErasmusTransition, getScoreLevel, isAffordable, getCostSourceLabel, hasOfficialCost, getBecaGapForCity, getBecaGapNote, getNearLine } from "../../lib/cities";
 import { IconUniversidad, IconIdiomas, IconFiesta, IconBeca, IconSol, IconBici, IconSeguridad, IconComida, IconArte, IconLaptop, IconPlaya, IconFuego, IconComparar } from "../icons";
 import ScoreRing from "../ScoreRing";
 import ScoreBreakdown from "../ScoreBreakdown";
@@ -121,6 +121,8 @@ export default function HeroSection({ city, overallScore, insights, scoreDetail 
   const transition = getErasmusTransition(city);
   // Lo que falta al mes tras la beca (dato aparte, no cuenta en la nota).
   const becaGap = getBecaGapForCity(city.slug);
+  // Ficha pequeña junto a una ciudad grande: «A 28 km de Milán» (enlaza si esa ciudad tiene ficha).
+  const near = getNearLine(city);
 
   return (
     <>
@@ -153,6 +155,12 @@ export default function HeroSection({ city, overallScore, insights, scoreDetail 
           </div>
 
           <h1 className={styles.heroTitle}>{city.name}</h1>
+
+          {near && (
+            <p className={styles.heroNear}>
+              {near.href ? <Link to={near.href}>{near.text}</Link> : near.text}
+            </p>
+          )}
 
           <p className={erasmusEligible ? styles.heroProgramBadgeOk : styles.heroProgramBadgeWarn}>
             {erasmusEligible

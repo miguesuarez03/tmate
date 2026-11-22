@@ -92,6 +92,27 @@
   text-shadow: 0 4px 40px rgba(0,0,0,0.3);
 }
 
+/* Línea de cercanía bajo el título («A 28 km de Milán»). */
+.heroNear {
+  margin: 10px 0 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.heroNear a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.heroNear a:hover,
+.heroNear a:focus-visible {
+  color: #fff;
+}
+
 .heroTagline {
   font-family: var(--font-body);
   font-size: clamp(1rem, 1.6vw, 1.2rem);

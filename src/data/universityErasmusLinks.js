@@ -595,6 +595,18 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Instituto Politécnico de Santarém": "https://www.ipsantarem.pt/en/internacionalizacao/erasmus/",
   "Leuphana Universität Lüneburg": "https://www.leuphana.de/en/international-center",
   "Universität Erfurt": "https://www.uni-erfurt.de/en/international/incoming/exchange-studies/study-programmes-and-application",
+
+  // ── Fase 2 Loyola, tanda 2 ─────────────────────────────
+  "Universität Regensburg": "https://www.uni-regensburg.de/en/international/coming-to-regensburg/exchange-programs/application",
+  "Julius-Maximilians-Universität Würzburg": "https://www.uni-wuerzburg.de/en/international/studying-in-wuerzburg/exchange-students/before-arrival-exchange-students/living/",
+  "Thomas More Mechelen-Antwerpen": "https://thomasmore.be/en/faq-exchange-students",
+  "Debreceni Egyetem": "https://internationaloffice.unideb.hu/en/erasmus-key-data",
+  // UTBM: su página de entrantes daba 404 el 22-11-2026; sin enlace hasta confirmarla.
+  "Università degli Studi del Sannio": "https://www.unisannio.it/studente/studente-erasmus/incoming",
+  "Università Carlo Cattaneo - LIUC": "https://www.liuc.it/wp-content/uploads/Brochure_International-Student-guide-2026.pdf",
+  "Norges Handelshøyskole": "https://www.nhh.no/en/incoming-exchange/",
+  "Hogeschool van Arnhem en Nijmegen": "https://www.hanuniversity.com/en/study-and-living/studying-at-han/exchange-programs/",
+  // HZ University of Applied Sciences: no se ha localizado su página de entrantes (22-11-2026); sin enlace hasta confirmarla.
 };
 
 /**
