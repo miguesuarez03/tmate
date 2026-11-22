@@ -235,6 +235,18 @@ const THE_NAMES = {
   // THE publica los internacionales de toda KU Leuven.
   "geel": [{ name: "KU Leuven", satellite: true }],
   "kleve": [],
+  // Fase 2 Loyola. Solo cuentan las universidades del convenio y las de la ciudad que salen en THE.
+  "campobasso": ["University of Molise"],
+  "salerno": ["University of Salerno"],
+  "angers": ["University of Angers"],
+  "enschede": ["University of Twente"],
+  "gotinga": ["University of Göttingen"],
+  "odense": ["University of Southern Denmark"],
+  // SEEU, el IPSantarém y la Universität Erfurt no salen en THE 2026 ni 2027.
+  "tetovo": [],
+  "santarem": [],
+  "luneburgo": ["Leuphana University of Lüneburg"],
+  "erfurt": [],
 };
 
 /** Nombres con que ESN escribe cada ciudad (además del nombre de la ficha). */
@@ -256,6 +268,7 @@ const ESN_CITY_NAMES = {
   "milan": ["milano"], "roma": ["rome"], "bolonia": ["bologna"], "cluj-napoca": ["cluj"], "katowice": ["gliwice"],
   "nicosia": ["lefkosia"], "la-valeta": ["msida", "valletta"],
   "cosenza": ["rende", "arcavacata di rende", "arcavacata"],
+  "salerno": ["fisciano"], "gotinga": ["gottingen", "goettingen"], "luneburgo": ["luneburg", "lueneburg"],
 };
 
 const norm = (s) => (s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ł/g, "l").toLowerCase().trim();

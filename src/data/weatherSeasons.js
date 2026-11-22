@@ -523,6 +523,55 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco y lluvioso para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Lluvia"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "1–7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y húmedo.", tags: ["Frío","Húmedo","Tranquilo"] },
   ],
+  // Campobasso: Campobasso (OMM 16252, en la ciudad, normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  campobasso: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "7–15°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca en los Apeninos.", tags: ["Fresca","Montaña","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "17–27°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido, con noches más frescas que en la costa.", tags: ["Cálido","Noches frescas","Fiestas"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "11–17°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "2–8°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío.", tags: ["Frío","Montaña","Tranquilo"] },
+  ],
+  // Angers: Angers-Beaucouzé (Météo-France, ficha 49020001, normales 1991–2020).
+  angers: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "7–17°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave en el valle del Loira.", tags: ["Suave","Loira","Terrazas"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "14–25°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Río Maine","Terrazas"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "9–17°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño suave para empezar el curso.", tags: ["Inicio Erasmus","Suave","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "3–9°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y húmedo.", tags: ["Suave","Húmedo","Pocas heladas"] },
+  ],
+  // Enschede: Twenthe (OMM 06290, KNMI; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  enschede: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–15°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca, buena para la bici.", tags: ["Fresca","Bici","Días largos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "11–23°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Terrazas","Bici"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "6–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco y lluvioso para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–6°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y húmedo, con heladas.", tags: ["Frío","Húmedo","Heladas"] },
+  ],
+  // Gotinga: Göttingen (OMM 10444; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  gotinga: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–14°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca.", tags: ["Fresca","Terrazas","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "11–23°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Terrazas","Excursiones"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "6–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Ambiente universitario"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-1–5°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas frecuentes.", tags: ["Frío","Heladas","Días cortos"] },
+  ],
+  // Santarém: Santarém/Fonte Boa (IPMA, estación 734, a unos 6 km; normales 1991–2020, serie híbrida del IPMA).
+  santarem: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "10–22°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada y soleada.", tags: ["Templada","Soleada","Tajo"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "16–30°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano caluroso y seco.", tags: ["Calor","Seco","Noches suaves"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "13–24°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño cálido para empezar el curso.", tags: ["Inicio Erasmus","Cálido","Primeras lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "6–16°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y lluvioso.", tags: ["Suave","Lluvias","Sin nieve"] },
+  ],
+  // Luneburgo: Boizenburg (OMM 10249, a unos 24 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  luneburgo: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–14°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca.", tags: ["Fresca","Terrazas","Bici"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–23°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Río Ilmenau","Terrazas"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "6–13°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-1–4°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y gris.", tags: ["Frío","Gris","Heladas"] },
+  ],
+  // Erfurt: Erfurt-Weimar (OMM 10554, en el aeropuerto, a unos 5 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  erfurt: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–13°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca.", tags: ["Fresca","Parques","Terrazas"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "12–23°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Terrazas","Festivales"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "5–13°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Ambiente universitario"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-2–3°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas frecuentes.", tags: ["Frío","Heladas","Mercado navideño"] },
+  ],
 };
 
 // Mes más frío y mes más cálido de cada ciudad (normales 1991–2020 de la misma fuente oficial que
@@ -610,4 +659,11 @@ export const CITY_CLIMATE_EXTREMES = {
   braganza: { cold: { month: 0, min: 0.4 }, hot: { month: 6, max: 29.8 }, source: "IPMA, Bragança (575)" },
   newcastle: { cold: { month: 0, min: 2.5 }, hot: { month: 6, max: 18.4 }, source: "Met Office, Tynemouth" },
   geel: { cold: { month: 1, min: 1 }, hot: { month: 6, max: 23.6 }, source: "OMM, Antwerpen-Deurne (06450)" },
+  campobasso: { cold: { month: 1, min: 1.73 }, hot: { month: 7, max: 28.11 }, source: "OMM, Campobasso (16252)" },
+  angers: { cold: { month: 1, min: 2.9 }, hot: { month: 7, max: 25.9 }, source: "Météo-France, Angers-Beaucouzé (49020001)" },
+  enschede: { cold: { month: 1, min: -0.2 }, hot: { month: 6, max: 23.6 }, source: "OMM, Twenthe (06290)" },
+  gotinga: { cold: { month: 0, min: -1.4 }, hot: { month: 7, max: 24.1 }, source: "OMM, Göttingen (10444)" },
+  santarem: { cold: { month: 0, min: 5.8 }, hot: { month: 7, max: 31.5 }, source: "IPMA, Santarém/Fonte Boa (734)" },
+  luneburgo: { cold: { month: 0, min: -1 }, hot: { month: 6, max: 23.9 }, source: "OMM, Boizenburg (10249)" },
+  erfurt: { cold: { month: 0, min: -2.5 }, hot: { month: 6, max: 23.6 }, source: "OMM, Erfurt-Weimar (10554)" },
 };

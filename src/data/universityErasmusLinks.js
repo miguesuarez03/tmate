@@ -582,6 +582,19 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "KU Leuven Campus Geel": "https://www.kuleuven.be/english/education/student/register/exchange",
   // Universidade Politécnica de Bragança: ipb.pt redirige a unipb.pt y no se ha localizado su página
   // de entrantes (15-11-2026); sin enlace hasta confirmarla.
+
+  // ── Fase 2 Loyola, tanda 1 ─────────────────────────────
+  "Università degli Studi del Molise": "https://www.unimol.it/english/?p=867",
+  "Università degli Studi di Salerno": "https://web.unisa.it/en/international/incoming-mobility/students-opportunities",
+  // Página de la UCO de 2019-20: se usa solo como enlace a la oficina de entrantes.
+  "Université Catholique de l'Ouest": "https://www.uco.fr/en/node/525",
+  "Saxion": "https://www.saxion.edu/studying-in-the-netherlands/application/exchange",
+  "PFH Private Hochschule Göttingen": "https://www.pfh.de/en/international-exchange-students",
+  "Syddansk Universitet": "https://www.sdu.dk/en/uddannelse/exchange/apply",
+  "Universiteti i Evropës Juglindore": "https://seeu.edu.mk/en/current-students/international-relation/incoming-students-staff",
+  "Instituto Politécnico de Santarém": "https://www.ipsantarem.pt/en/internacionalizacao/erasmus/",
+  "Leuphana Universität Lüneburg": "https://www.leuphana.de/en/international-center",
+  "Universität Erfurt": "https://www.uni-erfurt.de/en/international/incoming/exchange-studies/study-programmes-and-application",
 };
 
 /**
