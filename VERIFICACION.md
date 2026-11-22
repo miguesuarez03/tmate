@@ -297,6 +297,75 @@ Si algo no aparece en una fuente oficial, la ficha sale sin esa cifra (o sin esa
 - **Castellanza, Hatfield y Diepenbeek tienen ficha propia**, con una línea de cercanía: «A 28 km de Milán», «A 28 km de Londres», «Junto a Hasselt». La línea enlaza a la ficha de esa ciudad si existe. Comprobado en `loyola.json`: el portal no las agrupa con la ciudad grande (`city` = «Castellanza» / «Hatfield» / «Diepenbeek», relaciones 2489, 1316, 2798 y 1231), así que no hacía falta avisar. Las distancias exactas se comprueban en su tanda.
 - **Willemstad (Curazao) es Erasmus+.** El portal la da como `Erasmus-SMS`, con el código Erasmus NLWILLEMS02 (relación 1383). La [Guía del Programa Erasmus+, «Eligible countries», nota 3](https://erasmus-plus.ec.europa.eu/programme-guide/part-a/eligible-countries) dice que los países y territorios de ultramar participan «on a 'EU Member State or third country associated to the Programme' status», con las reglas del Estado miembro al que están vinculados. La [lista de PTU de la Comisión](https://international-partnerships.ec.europa.eu/countries/overseas-countries-and-territories_en) da Curaçao como «linked to Netherlands». La guía no nombra a Curazao: el vínculo sale de la lista de la Comisión. País como en el portal: Países Bajos, y el texto de la ficha dice que está en Curazao (Caribe).
 
+### 21-11-2026 — base de los 13 países nuevos (tanda 1, rama `tarea/destinos-loyola-1`)
+
+Cambio de Miguel: la base de los países nuevos va en la tanda 1 o la 2, y las tandas 9 y 10 son solo fichas.
+- **Banderas** de los 13 países en el sprite (`UPCOMING` en `scripts/build-flags.mjs`: sobra cuando todos tengan ciudad). **Rótulo del mapa** en `mapCountries.js`. **ISO** en `COUNTRY_ISO` (`scripts/scoring-data.mjs`).
+- **Homicidios (UNODC, vía Banco Mundial)**, `npm run scoring:data` del 21-11. Sin dato: **Taiwán, Costa de Marfil y Madagascar**, con la mitad «país» de seguridad pendiente. Burkina Faso tiene datos solo hasta 2017. Los NEET se bajan cuando exista la ciudad (van por región NUTS o por país, de la OIT).
+- **Idioma (extra, no cuenta en la nota):** Honduras y Venezuela como `native: "español"` (Constitución de Honduras, art. 6, y de Venezuela, art. 9). El resto queda pendiente: en India y Filipinas el inglés es oficial pero no mayoritario, Australia no tiene lengua oficial de iure, y del resto no hay dato comparable.
+- **Regiones** nuevas Asia, África y Oceanía (`types`, `REGION_ORDER` del comparador; un test nuevo falla si una región con ciudades no está en esa lista) y **programa** `study_abroad_world` para sus convenios bilaterales. El filtro del comparador pasa de «Suiza y América» a «Suiza y fuera de Europa».
+- **Para la tanda 9** (primera ciudad de Asia): City Match dice «También América» en la opción «Europa y fuera de Europa»; hay que ampliarlo cuando existan. **Para la tanda 10:** comprobar qué grupo de beca aplica el SEPIE a Curazao (PTU de los Países Bajos).
+
+### Tanda 1 — 21/22-11-2026: Luneburgo, Odense, Angers, Campobasso, Salerno, Tetovo, Enschede, Santarém, Erfurt, Gotinga
+
+Cinco agentes `contenido-verificacion` (dos ciudades cada uno, solo lectura) preparan un informe con fuente oficial por dato. Claude escribe las fichas con lo verificado; lo que no tiene fuente oficial no se publica (se anota abajo).
+
+**Fuentes por ciudad (informes de los agentes, 21-11):**
+- **Campobasso.**
+  - Población: 47.547 a 31-12-2024 ([ISTAT, Molise, censo 2024, diap. 4](https://www.istat.it/wp-content/uploads/2026/04/Approfondimento-Regionale-Molise.pdf)).
+  - Clima: Campobasso OMM 16252, en la ciudad, a 793 m ([NOAA](https://www.ncei.noaa.gov/data/oceans/archive/arc0216/0253808/6.6/data/0-data/Region-6-WMO-Normals-9120/Italy/CSV/Campobasso_16252.csv)). Invierno 2,3/7,9; primavera 7,5/15,2; verano 17,4/26,8; otoño 10,5/17,4.
+  - Universidad: Unimol, THE 2027 801–1000 ([perfil](https://www.timeshighereducation.com/world-university-rankings/universita-degli-studi-del-molise)). Da clase también en Pesche y Termoli; Medicina, en Contrada Tappino. Residencias: Vazzieri y Collegio Medico ([Unimol](https://www.unimol.it/english/services-2/student-residences/)). Entrantes: [Unimol](https://www.unimol.it/english/?p=867).
+  - ESN Unimol: sí.
+  - Hechos: Unimol se fundó en 1982 ([Unimol](https://www.unimol.it/english/?p=633)); Museo dei Misteri, con 13 «Ingegni» de Di Zinno ([MiC](https://cultura.gov.it/luogo/museo-dei-misteri)).
+  - Tren: el servicio está interrumpido por obras ([RFI](https://www.rfi.it/it/rete/i-nostri-progetti/I-nostri-progetti-regione-per-regione/molise.html)) y Trenitalia pone un bus de sustitución hasta el 12-12-2026.
+  - **Sin fuente oficial (no se publica):** coste mensual (queda «Estimación MAbroad»), operador y precio del bus urbano, aeropuerto, Castello Monforte, barrios, economía municipal. La ficha Erasmus de Unimol más reciente es la 2022/23: lo que sale de ella (registro en la policía, B1) no se publica.
+- **Salerno.**
+  - Población: 126.000 a 31-12-2024 ([ISTAT, Campania, diap. 4](https://www.istat.it/wp-content/uploads/2026/04/Approfondimento-Regionale-Campania.pdf)).
+  - Universidad: University of Salerno, THE 2026 501–600 y 2027 651–700. **El campus está en Fisciano**, a unos 12 km de la estación, con los buses Busitalia 7, 17 y 27 ([UNISA, trasporti](https://web.unisa.it/vivere-il-campus/campus/trasporti)).
+  - Residencias ADISURC en el campus: 215–274 €/mes con gastos; solicitud hasta el 31-10; sin plaza garantizada. Habitación privada unos 350 € (individual) y 300 € (doble). Ambos datos de la [UNISA Data Sheet 2025-26](https://www.novaims.unl.pt/media/lxhpznzy/2025-2026-unisa-data-sheet.pdf), que solo da partidas sueltas, así que el coste queda como «Estimación MAbroad».
+  - Aeropuerto: Salerno Airlink, unos 40 min y 8 € además del billete de tren ([Trenitalia](https://www.trenitalia.com/content/trenitalia/it/regionale/collegamenti-regionale/salerno-airlink.html)). Catedral de 1080–1085 con los restos de san Mateo ([Italia.it](https://www.italia.it/it/campania/salerno/salerno-il-duomo)). Entrantes: [UNISA](https://web.unisa.it/en/international/incoming-mobility/students-opportunities).
+  - ESN Salerno: sí.
+  - **Sin fuente oficial (no se publica):** el clima (no hay normal OMM completa cerca: Capodichino no tiene mayo ni julio y Capri no es representativa, así que no hay bloque), el precio del bus (tarifas de Campania del 1-10-2026, igual que en Caserta) y la economía.
+- **Angers.**
+  - Población: 159.022, población municipal 2023 en vigor desde el 1-1-2026 ([Banatic, Ministerio del Interior](https://www.banatic.interieur.gouv.fr/commune/49007-Angers), INSEE).
+  - Clima: Angers-Beaucouzé ([Météo-France, ficha 49020001](https://donneespubliques.meteofrance.fr/FichesClim/FICHECLIM_49020001.pdf)). Invierno 3,2/9,3; primavera 6,8/16,5; verano 13,7/25,1; otoño 8,9/17,4.
+  - **Coste: «a minimum of €700 per month»** (y 1.200 € el primer mes), calculado con una residencia Crous ([Université d'Angers](https://www.univ-angers.fr/en/you-are/exchange-student/essential-mobility-formalities.html)). Es un total oficial con una sola cifra, como en Trento: `~700 €/mes` con `costSource`, y la ficha dice que es un mínimo.
+  - Alojamiento: Crous, 274,20 € (9 m²) y 397,69 € (estudio 18 m², solo curso completo), sin plaza garantizada (misma página).
+  - Transporte: Irigo, sin contacto 1,70 € el viaje y 4,80 € como máximo al día ([Irigo](https://www.irigo.fr/titres-tarifs/paiement-sans-contact-irigo-voyagez-facilement-avec-votre-carte-bancaire)).
+  - THE: University of Angers 1001–1200 (2026 y 2027); la UCO no aparece.
+  - Hechos: Tapicería del Apocalipsis, Memoria del Mundo de la UNESCO el 18-05-2023 ([Ministerio de Cultura](https://www.culture.gouv.fr/Regions/DRAC-Pays-de-la-Loire/Vos-actualites/Inscription-au-registre-Memoire-du-monde-de-l-UNESCO-de-la-tenture-de-l-Apocalypse-a-Angers)); sede de la OCVV, agencia de la UE ([CPVO](https://cpvo.europa.eu/en/about-us/what-we-do/our-mission)).
+  - Entrantes: [UCO](https://www.uco.fr/en/node/525), aunque la página es de 2019-20 y solo se usa el enlace. ESN Angers: sí. Registro: los ciudadanos de la UE no necesitan permiso ([service-public](https://www.service-public.gouv.fr/particuliers/vosdroits/F2739)).
+  - **Sin fuente oficial:** abono joven de Irigo, precios de la UCO, THE de la UCO.
+- **Enschede.**
+  - Población: 162.683 a 1-1-2026 (CBS, StatLine 03759ned).
+  - Clima: Twenthe, OMM 06290, KNMI ([NOAA](https://www.ncei.noaa.gov/data/oceans/archive/arc0216/0253808/1.1/data/0-data/Region-6-WMO-Normals-9120/Netherlands/CSV/TwentheAws_06290.csv)). Invierno 0,2/5,8; primavera 3,9/14,5; verano 11,2/22,7; otoño 6,1/14,3.
+  - **Coste: 1.311 €/mes sin matrícula, con todas las partidas** ([Universiteit Twente, actualizado 24-07-2026](https://www.utwente.nl/en/education/student-services/upcoming-students/money-matters/cost-of-living/)). Es la media nacional de Nibud: `~1.300 €/mes` con `costSource` y la aclaración, como el DSW en Kleve.
+  - Alojamiento Saxion: Xior, en Ariensplein, 346–550 € de alquiler base más unos 260 € de servicios, y no se puede acortar el contrato ([Saxion](https://www.saxion.edu/studying-in-the-netherlands/housing/availability-and-rental-prices)). La garantía de la UT (Boulevard 1945, unos 580 €) es **solo para estudiantes de fuera del EEE**: no aplica a Loyola.
+  - Tren: intercity directo desde Schiphol, uno por hora ([Saxion](https://saxion.edu/studying-in-the-netherlands/welcome-to-saxion/arrival-information)).
+  - THE: University of Twente =201 en 2027; Saxion no aparece.
+  - Hechos: la UT, aprobada el 1-12-1961, tuvo el primer campus universitario del país ([UT](https://www.utwente.nl/en/alumni/ut-canon/stories/foundation-tht)); Kennispark tiene más de 480 empresas y casi 13.000 empleos ([UT, 11-03-2026](https://www.utwente.nl/en/news/2026/3/843058/new-strategy-aims-to-grow-kennispark-twente-to-700-companies-and-16500-jobs)).
+  - Registro BRP en 5 días para estancias de más de 4 meses ([government.nl](https://www.government.nl/topics/personal-data/question-and-answer/when-should-i-register-with-the-personal-records-database-as-a-resident)). Entrantes: [Saxion](https://www.saxion.edu/studying-in-the-netherlands/application/exchange). ESN Twente: sí.
+  - **Sin fuente oficial:** tarifas de Arriva; en qué sede de Saxion son los convenios (también está en Deventer y Apeldoorn); la explosión de Roombeek (solo fuente de prensa, NOS: no se publica).
+- **Gotinga.**
+  - Población: 124.548 en el censo 2022 ([Ayuntamiento](https://www.goettingen.de/portal/meldungen/zensus-2022-ergebnis-amtlich-bestaetigt-900003878-25480.html)). La cifra de 2025 (130.521) solo aparece en terceros, así que se usa la del censo.
+  - Clima: Göttingen, OMM 10444 ([NOAA](https://www.ncei.noaa.gov/data/oceans/archive/arc0216/0253808/1.1/data/0-data/Region-6-WMO-Normals-9120/Germany/CSV/Goettingen_10444.csv)). Invierno −0,9/4,6; primavera 3,6/14,2; verano 11,2/23,2; otoño 5,7/13,8.
+  - **Coste:** «Overall cost of living per months: 650 € to 850 €» ([Fact Sheet Erasmus 2026/27 de la Universität Göttingen, marzo de 2026](https://e-learning.uni-goettingen.de/de/document/download/9be867810a8262ba35669c1f13080cfd.pdf/Fact_Sheet_D_GOTTING01_E+KA131_2026_27.pdf)). Va con `costSource`. **Conflicto para Miguel:** [otra página de la misma universidad](https://www.uni-goettingen.de/en/573247.html) dice «at least 950 to 1.000 euros». Se usa la Fact Sheet porque está dirigida a estudiantes de intercambio y es más reciente.
+  - Residencias: unas 4.700 plazas del Studierendenwerk, con mucha demanda; 200–300 € según la Fact Sheet.
+  - Bus: GöVB, 2,60 € (2,90 € desde el 1-1-2027) ([GöVB](https://www.goevb.de/fahrkarten/tarife)). La cuota semestral de la universidad incluye el Deutschlandsemesterticket (226,80 €) ([uni-goettingen](https://www.uni-goettingen.de/de/semester+fees/133195.html)), pero no está confirmado si la pagan los de intercambio.
+  - Tren: ICE; Hannover aeropuerto, S5 + ICE ([uni](https://www.uni-goettingen.de/en/getting+to+g%c3%b6ttingen/95413.html)).
+  - THE: University of Göttingen, 133 en 2027. La PFH no aparece. Entrantes: [PFH](https://www.pfh.de/en/international-exchange-students), con alemán B1 o inglés B2. ESN Göttingen: sí.
+  - Hechos: clases desde 1734 e inauguración en 1737 ([uni](https://uni-goettingen.de/en/90607.html)); tradición del Gänseliesel ([uni](https://uni-goettingen.de/de/690255.html)).
+  - **Sin fuente oficial:** población de 2025, empleadores aparte de la universidad, THE de la PFH, número de premios Nobel (las cifras de la universidad no coinciden: no se publica).
+- **Odense.**
+  - Población: 214.064 en el 4.º trimestre de 2026 ([Danmarks Statistik](https://www.dst.dk/da/Statistik/kommunekort/kommunefakta/kommune?kom=461)).
+  - **Clima: sin normal oficial con mínimas y máximas** (la OMM 06120 solo da la media), así que la ficha va sin bloque de clima.
+  - **Coste:** SDU solo publica el ejemplo de un estudiante, así que queda «Estimación MAbroad». Lo oficial: vivienda de SDU 2.350–4.000 DKK/mes con gastos ([SDU](https://www.sdu.dk/en/uddannelse/studenthousing/odense/housingodense)), garantizada si se pide en plazo (1 de mayo y 1 de noviembre).
+  - Bus: FynBus, 28 DKK; «Young Odense» por 10 DKK los menores de 26; abono de 30 días, 435 DKK ([FynBus](https://en.fynbus.dk/fares/fares)). Las tarifas cambian en enero de 2027.
+  - THE: University of Southern Denmark, =277 en 2027. Entrantes: [SDU](https://www.sdu.dk/en/uddannelse/exchange/apply), sin matrícula e inglés B2. ESN Odense: sí.
+  - Registro UE: certificado del SIRI y CPR en ICS South ([lifeindenmark](https://lifeindenmark.borger.dk/settle-in-denmark/ics-international-citizen-service/ics-south-in-odense)).
+  - Hechos: la Odense Universitet abrió el 31-08-1966 y pasó a SDU en 1998 ([SDU](https://www.sdu.dk/en/om-sdu/historie/tidslinje)); H.C. Andersens Hus.
+  - **Sin fuente oficial:** fecha de apertura del tranvía (solo prensa), cómo llegar desde Billund, el clúster de robótica, el plazo del CPR (las fuentes oficiales no coinciden).
+
 ## Ciudades nuevas de la cola Loyola (rama `tandas-loyola`)
 
 ### 15-11-2026 — campus satélite y cierre de la revisión pendiente
