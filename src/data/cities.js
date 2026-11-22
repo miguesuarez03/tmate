@@ -4582,12 +4582,12 @@ export const CITIES = [
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Lungomare_Trieste.jpg/1920px-Lungomare_Trieste.jpg",
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Lungomare_Trieste.jpg/1920px-Lungomare_Trieste.jpg",
     description: "Salerno, en el golfo del mismo nombre, al sur de Nápoles, es una ciudad costera con un largo paseo marítimo y una catedral construida entre 1080 y 1085 que guarda los restos de san Mateo. Su universidad, la Università degli Studi di Salerno (UNISA), tiene el campus en Fisciano, a unos 12 km de la estación, unido a la ciudad por autobús.",
-    highlights: ["Catedral de 1080–1085, con los restos del apóstol san Mateo","Campus de la UNISA en Fisciano, con residencias en el propio campus","Paseo marítimo (Lungomare Trieste) frente al golfo de Salerno","Salerno Airlink: bus al aeropuerto de Nápoles en unos 40 minutos"],
+    highlights: ["Catedral de 1080–1085, con los restos del apóstol san Mateo","Campus de la UNISA en Fisciano, con residencias en el propio campus","Paseo marítimo (Lungomare Trieste) frente al golfo de Salerno","Salerno Airlink: bus al aeropuerto de Salerno Costa d’Amalfi en unos 40 minutos"],
     universities: ["Università degli Studi di Salerno"],
     neighborhoods: [
       { name: "Campus de Fisciano", vibe: "Residencias universitarias, a unos 12 km de la ciudad", price: "€" },
     ],
-    tips: ["El campus está en Fisciano: desde Salerno van los autobuses 7, 17 y 27 de Busitalia","Residencias de ADISURC en el campus por 215–274 € al mes con gastos; se piden hasta el 31 de octubre y no hay plaza garantizada","Una habitación en piso privado ronda los 350 € (individual) o 300 € (doble), según la UNISA","Salerno Airlink une la estación con el aeropuerto de Nápoles en unos 40 minutos (8 €, además del billete de tren)"],
+    tips: ["El campus está en Fisciano: desde Salerno van los autobuses 7, 17 y 27 de Busitalia","Residencias de ADISURC en el campus por 215–274 € al mes con gastos; se piden hasta el 31 de octubre y no hay plaza garantizada","Una habitación en piso privado ronda los 350 € (individual) o 300 € (doble), según la UNISA","Salerno Airlink une la estación con el aeropuerto de Salerno Costa d’Amalfi en unos 40 minutos (8 €, además del billete de tren)"],
     experiences: ["erasmus"],
   },
   {
@@ -4721,7 +4721,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Campus de la SEEU", vibe: "Universidad y residencias", price: "€" },
     ],
-    tips: ["La SEEU calcula 335–340 € al mes: comida 150 €, residencia 75 €, transporte 50 €, teléfono 10–15 € y otros 50 €","Residencias en el campus: pide plaza cuanto antes (dormitory@seeu.edu.mk), hay mucha demanda","Plazos de solicitud de la SEEU: 10 de mayo (primer semestre o curso completo) y 10 de noviembre (segundo semestre); piden inglés B2 y seguro de viaje con al menos 30.000 € de cobertura","Al llegar tienes que registrarte en la comisaría; pregunta a la SEEU cómo tramitar el permiso de residencia si te quedas más de 3 meses","Del aeropuerto de Skopie (a unos 45 km) hay buses regulares Skopie–Tetovo y taxis las 24 horas"],
+    tips: ["La SEEU calcula 335–340 € al mes: comida 150 €, residencia 75 €, transporte 50 €, teléfono 10–15 € y otros 50 €","Residencias en el campus: pide plaza cuanto antes (dormitory@seeu.edu.mk), hay mucha demanda","Plazos de solicitud de la SEEU: 10 de mayo (primer semestre o curso completo) y 10 de noviembre (segundo semestre); piden inglés B2 y seguro de viaje con al menos 30.000 € de cobertura","Al llegar tienes que registrarte en la comisaría; pregunta a la SEEU cómo tramitar el permiso de residencia si te quedas más de 3 meses","El aeropuerto de Skopie está a unos 45 km: hay buses regulares entre Skopie y Tetovo, y taxis las 24 horas"],
     experiences: ["erasmus"],
   },
   {

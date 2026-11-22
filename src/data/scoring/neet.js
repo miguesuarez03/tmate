@@ -1,6 +1,6 @@
 // Generado por scripts/scoring-data.mjs (npm run scoring:data) — no editar a mano.
 // Fuente: Tasa NEET (jóvenes de 15 a 24 años que ni trabajan ni estudian ni se forman, %). Eurostat edat_lfse_22 por región NUTS 2 (https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/edat_lfse_22?format=JSON&lang=EN&sex=T&age=Y15-24&sinceTimePeriod=2021) con la región de cada ciudad según los límites GISCO NUTS 2024 (https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_10M_2024_4326_LEVL_2.geojson); fuera de Eurostat, OIT por país (indicador SL.UEM.NEET.ZS del Banco Mundial: https://api.worldbank.org/v2/country/all/indicator/SL.UEM.NEET.ZS?format=json&per_page=20000&date=2015:2026).
-// Descargado el 2026-11-14.
+// Descargado el 2026-11-22.
 /** slug → { source: "eurostat" | "ilo", scope: "region" | "country", geo, name?, years: { año: % } } o null (sin dato) */
 export const CITY_NEET = {
  "bolonia": {
@@ -1710,6 +1710,115 @@ export const CITY_NEET = {
    "2023": 8.3,
    "2024": 8.4,
    "2025": 9.5
+  }
+ },
+ "campobasso": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "ITF2",
+  "name": "Molise",
+  "years": {
+   "2023": 13.4,
+   "2024": 14.2,
+   "2025": 8.5
+  }
+ },
+ "salerno": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "ITF3",
+  "name": "Campania",
+  "years": {
+   "2023": 21.8,
+   "2024": 19.4,
+   "2025": 16
+  }
+ },
+ "angers": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "FRG0",
+  "name": "Pays de la Loire",
+  "years": {
+   "2023": 8.7,
+   "2024": 9.5,
+   "2025": 10.1
+  }
+ },
+ "enschede": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "NL21",
+  "name": "Overijssel",
+  "years": {
+   "2023": 2.4,
+   "2024": 4.4,
+   "2025": 4.3
+  }
+ },
+ "gotinga": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "DE91",
+  "name": "Braunschweig",
+  "years": {
+   "2023": 8.1,
+   "2024": 9.5,
+   "2025": 8.4
+  }
+ },
+ "odense": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "DK03",
+  "name": "Syddanmark",
+  "years": {
+   "2023": 7.1,
+   "2024": 8,
+   "2025": 9.3
+  }
+ },
+ "tetovo": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "MK00",
+  "name": "Severna Makedonija ",
+  "years": {
+   "2023": 18.8,
+   "2024": 18.2,
+   "2025": 19.3
+  }
+ },
+ "santarem": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "PT1D",
+  "name": "Oeste e Vale do Tejo",
+  "years": {
+   "2023": 7.3,
+   "2024": 7,
+   "2025": 7.2
+  }
+ },
+ "luneburgo": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "DE93",
+  "name": "Lüneburg",
+  "years": {
+   "2023": 8.3,
+   "2024": 7.8
+  }
+ },
+ "erfurt": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "DEG0",
+  "name": "Thüringen",
+  "years": {
+   "2023": 7.4,
+   "2024": 9.3,
+   "2025": 10.2
   }
  }
 };

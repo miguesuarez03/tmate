@@ -17444,7 +17444,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Transporte público", score: 6.5, desc: "Bus al campus de Fisciano (líneas 7, 17 y 27 de Busitalia)." },
           { label: "Ciudad caminable", score: 7.5, desc: "Centro y paseo marítimo se recorren andando." },
-          { label: "Conexiones internacionales", score: 7.0, desc: "Salerno Airlink hasta el aeropuerto de Nápoles." },
+          { label: "Conexiones internacionales", score: 7.0, desc: "Salerno Airlink hasta el aeropuerto de Salerno Costa d’Amalfi." },
           { label: "Escapadas de fin de semana", score: 9.0, desc: "Costa Amalfitana, Pompeya, Paestum y Nápoles a mano." },
         ],
       },
@@ -18109,7 +18109,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Transporte público", score: 7.5, desc: "Buses urbanos y tren regional." },
           { label: "Ciudad caminable", score: 8.5, desc: "Casco antiguo compacto y ciclable." },
-          { label: "Conexiones internacionales", score: 8.0, desc: "Aeropuerto de Hamburgo a menos de una hora." },
+          { label: "Conexiones internacionales", score: 8.0, desc: "Aeropuerto de Hamburgo: S-Bahn a la estación central (25 min) y tren a Luneburgo (28 min)." },
           { label: "Escapadas de fin de semana", score: 8.5, desc: "Hamburgo, Lübeck y el mar Báltico." },
         ],
       },

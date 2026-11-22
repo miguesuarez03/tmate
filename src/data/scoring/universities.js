@@ -1,6 +1,6 @@
 // Generado por scripts/scoring-data.mjs (npm run scoring:data) — no editar a mano.
 // Fuente: Times Higher Education World University Rankings 2027 (https://www.timeshighereducation.com/json/ranking_tables/world_university_rankings/2027); ediciones 2026, 2025, 2024, 2023 para las universidades que ya no salen en la actual.
-// Descargado el 2026-11-15.
+// Descargado el 2026-11-22.
 export const THE_EDITION = 2027;
 /** slug → [{ name, edition, rank, students, intlPct, satellite? }] (satellite: solo un campus pequeño en la ciudad, no cuenta para la comunidad; rank tal como lo publica THE: «=111», «301–325», «Reporter»…) */
 export const CITY_UNIVERSITIES = {
@@ -2767,5 +2767,71 @@ export const CITY_UNIVERSITIES = {
    "satellite": true
   }
  ],
- "kleve": []
+ "kleve": [],
+ "campobasso": [
+  {
+   "name": "Università degli Studi del Molise",
+   "edition": 2027,
+   "rank": "801–1000",
+   "students": 4741,
+   "intlPct": 2
+  }
+ ],
+ "salerno": [
+  {
+   "name": "University of Salerno",
+   "edition": 2027,
+   "rank": "651–700",
+   "students": 21834,
+   "intlPct": 3
+  }
+ ],
+ "angers": [
+  {
+   "name": "University of Angers",
+   "edition": 2027,
+   "rank": "1001–1200",
+   "students": 27071,
+   "intlPct": 15
+  }
+ ],
+ "enschede": [
+  {
+   "name": "University of Twente",
+   "edition": 2027,
+   "rank": "=201",
+   "students": 8108,
+   "intlPct": 43
+  }
+ ],
+ "gotinga": [
+  {
+   "name": "University of Göttingen",
+   "edition": 2027,
+   "rank": "=133",
+   "students": 19413,
+   "intlPct": 16
+  }
+ ],
+ "odense": [
+  {
+   "name": "University of Southern Denmark",
+   "edition": 2027,
+   "rank": "=277",
+   "students": 20711,
+   "intlPct": 22
+  }
+ ],
+ "tetovo": [],
+ "santarem": [],
+ "luneburgo": [
+  {
+   "name": "Leuphana University of Lüneburg",
+   "edition": 2027,
+   "rank": "501–550",
+   "students": 7211,
+   "intlPct": 13
+  }
+ ],
+ "erfurt": []
 };

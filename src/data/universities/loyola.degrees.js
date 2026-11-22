@@ -3,12 +3,12 @@ export default [
  {
   "id": "ade",
   "name": "Administración y Dirección de Empresas (ADE)",
-  "destinations": 59
+  "destinations": 65
  },
  {
   "id": "economia",
   "name": "Economía",
-  "destinations": 28
+  "destinations": 30
  },
  {
   "id": "derecho",
@@ -18,12 +18,12 @@ export default [
  {
   "id": "rrii",
   "name": "Relaciones Internacionales",
-  "destinations": 40
+  "destinations": 45
  },
  {
   "id": "psicologia",
   "name": "Psicología",
-  "destinations": 33
+  "destinations": 35
  },
  {
   "id": "criminologia",
@@ -33,7 +33,7 @@ export default [
  {
   "id": "comunicacion",
   "name": "Comunicación",
-  "destinations": 38
+  "destinations": 44
  },
  {
   "id": "cadv",
@@ -43,27 +43,27 @@ export default [
  {
   "id": "periodismo",
   "name": "Periodismo",
-  "destinations": 29
+  "destinations": 31
  },
  {
   "id": "publicidad",
   "name": "Publicidad",
-  "destinations": 32
+  "destinations": 34
  },
  {
   "id": "edu-primaria",
   "name": "Educación Primaria",
-  "destinations": 21
+  "destinations": 23
  },
  {
   "id": "edu-infantil",
   "name": "Educación Infantil",
-  "destinations": 20
+  "destinations": 22
  },
  {
   "id": "cafd",
   "name": "Ciencias de la Actividad Física y del Deporte",
-  "destinations": 15
+  "destinations": 18
  },
  {
   "id": "giti",
@@ -73,12 +73,12 @@ export default [
  {
   "id": "ioi",
   "name": "Ingeniería de Organización Industrial",
-  "destinations": 22
+  "destinations": 23
  },
  {
   "id": "iem",
   "name": "Ingeniería Electromecánica",
-  "destinations": 21
+  "destinations": 22
  },
  {
   "id": "imr",
@@ -98,27 +98,27 @@ export default [
  {
   "id": "iinftv",
   "name": "Ingeniería Informática y Tecnologías Virtuales",
-  "destinations": 21
+  "destinations": 23
  },
  {
   "id": "software",
   "name": "Ingeniería del Software",
-  "destinations": 19
+  "destinations": 21
  },
  {
   "id": "matematicas",
   "name": "Matemática Aplicada",
-  "destinations": 24
+  "destinations": 27
  },
  {
   "id": "datos",
   "name": "Datos y Analítica de Negocio",
-  "destinations": 8
+  "destinations": 9
  },
  {
   "id": "videojuegos",
   "name": "Diseño y Desarrollo de Videojuegos y Animación Digital",
-  "destinations": 10
+  "destinations": 11
  },
  {
   "id": "farmacia",

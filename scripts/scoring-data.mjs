@@ -236,7 +236,7 @@ const THE_NAMES = {
   "geel": [{ name: "KU Leuven", satellite: true }],
   "kleve": [],
   // Fase 2 Loyola. Solo cuentan las universidades del convenio y las de la ciudad que salen en THE.
-  "campobasso": ["University of Molise"],
+  "campobasso": ["Università degli Studi del Molise"],
   "salerno": ["University of Salerno"],
   "angers": ["University of Angers"],
   "enschede": ["University of Twente"],
