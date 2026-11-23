@@ -635,6 +635,76 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–16°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Ambiente universitario"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-3–4°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas.", tags: ["Frío","Heladas","Nieve"] },
   ],
+  // Aveiro: Aveiro/Universidade (IPMA, estación 702, en la ciudad; normales 1991–2020).
+  aveiro: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "11–19°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave junto a la ría.", tags: ["Suave","Ría","Bici"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "16–24°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado por el mar.", tags: ["Templado","Playas","Brisa"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "13–21°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Primeras lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "7–15°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y lluvioso.", tags: ["Suave","Lluvias","Heladas muy raras"] },
+  ],
+  // Vila Real: Vila Real (IPMA, estación 567, en la ciudad; normales 1991–2020).
+  "vila-real": [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "7–18°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada.", tags: ["Templada","Douro","Senderismo"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "14–28°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano caluroso y seco.", tags: ["Calor","Seco","Viñedos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "10–19°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado, época de vendimia, para empezar el curso.", tags: ["Inicio Erasmus","Vendimia","Templado"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "3–11°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío.", tags: ["Frío","Heladas","Tranquilo"] },
+  ],
+  // Nottingham: Watnall (OMM 03354, a unos 9 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  nottingham: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–13°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca.", tags: ["Fresca","Parques","Días largos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "12–21°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Terrazas","Festivales"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco: arranque de curso y freshers.", tags: ["Inicio Erasmus","Fresco","Freshers"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "2–7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y gris.", tags: ["Frío","Gris","Pubs"] },
+  ],
+  // Ostrava: Ostrava/Mošnov (OMM 11782, en el aeropuerto, a unos 21 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  ostrava: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–14°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca.", tags: ["Fresca","Parques","Terrazas"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–25°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido, con festivales.", tags: ["Cálido","Festivales","Terrazas"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "6–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Ambiente universitario"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-3–3°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas.", tags: ["Frío","Heladas","Nieve"] },
+  ],
+  // Zlín: Holešov (OMM 11774, a unos 13 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  zlin: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–15°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca.", tags: ["Fresca","Colinas","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–25°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido.", tags: ["Cálido","Terrazas","Excursiones"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "5–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Bosques"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-4–3°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas.", tags: ["Frío","Heladas","Nieve"] },
+  ],
+  // Umeå: Umeå Flygplats (OMM 02286, a unos 4 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  umea: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "-3–7°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fría, con mucha luz.", tags: ["Fría","Días largos","Deshielo"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "9–19°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano suave, con noches casi sin oscuridad.", tags: ["Suave","Días larguísimos","Lagos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "0–8°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño frío para empezar el curso.", tags: ["Inicio Erasmus","Frío","Días cortos"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-10–-2°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno muy frío, oscuro y nevado.", tags: ["Muy frío","Nieve","Pocas horas de luz"] },
+  ],
+  // Brugg: Buchs/Aarau (OMM 06633, a unos 15 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  brugg: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–15°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada junto al Aar.", tags: ["Templada","Río Aar","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–25°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido.", tags: ["Cálido","Baños en el río","Alpes"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "6–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Niebla"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-1–5°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con niebla y heladas.", tags: ["Frío","Niebla","Esquí cerca"] },
+  ],
+  // Aquisgrán: Maastricht-Aachen Airport (OMM 06380, a unos 27 km; normales OMM 1991–2020 publicadas por NOAA/NCEI). La estación de Aachen (10501) solo tiene 20–21 años de datos.
+  aquisgran: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–15°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave.", tags: ["Suave","Terrazas","Bici"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–23°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Terrazas","Festivales"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco y lluvioso para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "1–6°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y húmedo.", tags: ["Frío","Húmedo","Mercado navideño"] },
+  ],
+  // Bamberg: Bamberg (OMM 10675, a unos 3 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  bamberg: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "3–15°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca, la ciudad sale al río.", tags: ["Fresca","Río Regnitz","Terrazas"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "12–25°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido.", tags: ["Cálido","Biergarten","Río"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "5–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Ambiente universitario"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-2–5°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas.", tags: ["Frío","Heladas","Mercado navideño"] },
+  ],
+  // Bonn: Köln-Bonn (OMM 10513, en el aeropuerto, a unos 15 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  bonn: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–16°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave junto al Rin.", tags: ["Suave","Rin","Parques"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "12–24°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Rin","Biergarten"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y húmedo.", tags: ["Suave","Húmedo","Mercado navideño"] },
+  ],
 };
 
 // Mes más frío y mes más cálido de cada ciudad (normales 1991–2020 de la misma fuente oficial que
@@ -738,4 +808,14 @@ export const CITY_CLIMATE_EXTREMES = {
   malinas: { cold: { month: 1, min: 1 }, hot: { month: 6, max: 23.7 }, source: "OMM, Brussels National (06451)" },
   belfort: { cold: { month: 0, min: -1.2 }, hot: { month: 6, max: 26 }, source: "OMM, Luxeuil (07292), a unos 41 km" },
   debrecen: { cold: { month: 0, min: -3.6 }, hot: { month: 7, max: 28.1 }, source: "OMM, Debrecen (12882)" },
+  aveiro: { cold: { month: 0, min: 6.8 }, hot: { month: 7, max: 24.5 }, source: "IPMA, Aveiro/Universidade (702)" },
+  "vila-real": { cold: { month: 0, min: 2.8 }, hot: { month: 7, max: 29 }, source: "IPMA, Vila Real (567)" },
+  nottingham: { cold: { month: 0, min: 1.6 }, hot: { month: 6, max: 21.5 }, source: "OMM, Nottingham Watnall (03354)" },
+  ostrava: { cold: { month: 0, min: -3.7 }, hot: { month: 6, max: 25.4 }, source: "OMM, Ostrava/Mošnov (11782)" },
+  zlin: { cold: { month: 0, min: -4.5 }, hot: { month: 6, max: 26.1 }, source: "OMM, Holešov (11774)" },
+  umea: { cold: { month: 1, min: -11 }, hot: { month: 6, max: 20.9 }, source: "OMM, Umeå Flygplats (02286)" },
+  brugg: { cold: { month: 1, min: -1.7 }, hot: { month: 6, max: 25.6 }, source: "OMM, Buchs/Aarau (06633)" },
+  aquisgran: { cold: { month: 0, min: 0.5 }, hot: { month: 6, max: 23.8 }, source: "OMM, Maastricht-Aachen Airport (06380), a unos 27 km" },
+  bamberg: { cold: { month: 0, min: -2.6 }, hot: { month: 6, max: 25.5 }, source: "OMM, Bamberg (10675)" },
+  bonn: { cold: { month: 0, min: 0 }, hot: { month: 6, max: 24.9 }, source: "OMM, Köln-Bonn (10513)" },
 };

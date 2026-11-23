@@ -1,6 +1,6 @@
 // Generado por scripts/scoring-data.mjs (npm run scoring:data) — no editar a mano.
 // Fuente: Tasa NEET (jóvenes de 15 a 24 años que ni trabajan ni estudian ni se forman, %). Eurostat edat_lfse_22 por región NUTS 2 (https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/edat_lfse_22?format=JSON&lang=EN&sex=T&age=Y15-24&sinceTimePeriod=2021) con la región de cada ciudad según los límites GISCO NUTS 2024 (https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_10M_2024_4326_LEVL_2.geojson); fuera de Eurostat, OIT por país (indicador SL.UEM.NEET.ZS del Banco Mundial: https://api.worldbank.org/v2/country/all/indicator/SL.UEM.NEET.ZS?format=json&per_page=20000&date=2015:2026).
-// Descargado el 2026-11-22.
+// Descargado el 2026-11-23.
 /** slug → { source: "eurostat" | "ilo", scope: "region" | "country", geo, name?, years: { año: % } } o null (sin dato) */
 export const CITY_NEET = {
  "bolonia": {
@@ -1926,6 +1926,113 @@ export const CITY_NEET = {
   "years": {
    "2022": 3.9,
    "2024": 4.6
+  }
+ },
+ "aveiro": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "PT19",
+  "name": "Centro (PT)",
+  "years": {
+   "2023": 7.3,
+   "2024": 7.1,
+   "2025": 6
+  }
+ },
+ "vila-real": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "PT11",
+  "name": "Norte",
+  "years": {
+   "2023": 7.4,
+   "2024": 7.4,
+   "2025": 6.4
+  }
+ },
+ "nottingham": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "GBR",
+  "years": {
+   "2023": 12.8,
+   "2024": 14.3,
+   "2025": 14.4
+  }
+ },
+ "ostrava": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "CZ08",
+  "name": "Moravskoslezsko",
+  "years": {
+   "2023": 8.8,
+   "2024": 5.7,
+   "2025": 7
+  }
+ },
+ "zlin": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "CZ07",
+  "name": "Střední Morava",
+  "years": {
+   "2023": 5.5,
+   "2024": 5.1,
+   "2025": 4.2
+  }
+ },
+ "umea": {
+  "source": "eurostat",
+  "scope": "country",
+  "geo": "SE",
+  "years": {
+   "2023": 5.1,
+   "2024": 5.5,
+   "2025": 5
+  }
+ },
+ "brugg": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "CH03",
+  "name": "Nordwestschweiz",
+  "years": {
+   "2023": 7.4,
+   "2024": 8.7,
+   "2025": 8.5
+  }
+ },
+ "aquisgran": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "DEA2",
+  "name": "Köln",
+  "years": {
+   "2023": 6.4,
+   "2024": 6.8,
+   "2025": 8.3
+  }
+ },
+ "bamberg": {
+  "source": "eurostat",
+  "scope": "country",
+  "geo": "DE",
+  "years": {
+   "2023": 7.5,
+   "2024": 7.7,
+   "2025": 8.2
+  }
+ },
+ "bonn": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "DEA2",
+  "name": "Köln",
+  "years": {
+   "2023": 6.4,
+   "2024": 6.8,
+   "2025": 8.3
   }
  }
 };

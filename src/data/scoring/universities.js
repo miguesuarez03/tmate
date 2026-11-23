@@ -1,6 +1,6 @@
 // Generado por scripts/scoring-data.mjs (npm run scoring:data) — no editar a mano.
 // Fuente: Times Higher Education World University Rankings 2027 (https://www.timeshighereducation.com/json/ranking_tables/world_university_rankings/2027); ediciones 2026, 2025, 2024, 2023 para las universidades que ya no salen en la actual.
-// Descargado el 2026-11-22.
+// Descargado el 2026-11-23.
 export const THE_EDITION = 2027;
 /** slug → [{ name, edition, rank, students, intlPct, satellite? }] (satellite: solo un campus pequeño en la ciudad, no cuenta para la comunidad; rank tal como lo publica THE: «=111», «301–325», «Reporter»…) */
 export const CITY_UNIVERSITIES = {
@@ -2883,5 +2883,93 @@ export const CITY_UNIVERSITIES = {
   }
  ],
  "arnhem": [],
- "flesinga": []
+ "flesinga": [],
+ "aveiro": [
+  {
+   "name": "University of Aveiro",
+   "edition": 2027,
+   "rank": "701–800",
+   "students": 14238,
+   "intlPct": 11
+  }
+ ],
+ "vila-real": [
+  {
+   "name": "University of Trás-os-Montes and Alto Douro",
+   "edition": 2027,
+   "rank": "1201–1400",
+   "students": 9009,
+   "intlPct": 12
+  }
+ ],
+ "nottingham": [
+  {
+   "name": "Nottingham Trent University",
+   "edition": 2027,
+   "rank": "601–650",
+   "students": 34930,
+   "intlPct": 27
+  },
+  {
+   "name": "University of Nottingham",
+   "edition": 2027,
+   "rank": "=157",
+   "students": 34370,
+   "intlPct": 27
+  }
+ ],
+ "ostrava": [
+  {
+   "name": "VSB – Technical University of Ostrava",
+   "edition": 2027,
+   "rank": "1001–1200",
+   "students": 13086,
+   "intlPct": 14
+  },
+  {
+   "name": "University of Ostrava",
+   "edition": 2027,
+   "rank": "1601–1800",
+   "students": 9313,
+   "intlPct": 11
+  }
+ ],
+ "zlin": [
+  {
+   "name": "Tomas Bata University in Zlín",
+   "edition": 2027,
+   "rank": "1401–1600",
+   "students": 8989,
+   "intlPct": 13
+  }
+ ],
+ "umea": [
+  {
+   "name": "Umeå University",
+   "edition": 2027,
+   "rank": "351–375",
+   "students": 13294,
+   "intlPct": 12
+  }
+ ],
+ "brugg": [],
+ "aquisgran": [
+  {
+   "name": "RWTH Aachen University",
+   "edition": 2027,
+   "rank": "90",
+   "students": 27840,
+   "intlPct": 35
+  }
+ ],
+ "bamberg": [],
+ "bonn": [
+  {
+   "name": "University of Bonn",
+   "edition": 2027,
+   "rank": "89",
+   "students": 23123,
+   "intlPct": 17
+  }
+ ]
 };

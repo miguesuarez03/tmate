@@ -258,6 +258,17 @@ const THE_NAMES = {
   "bergen": ["University of Bergen"],
   "arnhem": [],
   "flesinga": [],
+  // Tanda 3. FHNW y la Universität Bamberg tienen perfil en THE pero no salen en la tabla.
+  "aveiro": ["University of Aveiro"],
+  "vila-real": ["University of Trás-os-Montes and Alto Douro"],
+  "nottingham": ["Nottingham Trent University", "University of Nottingham"],
+  "ostrava": ["VSB – Technical University of Ostrava", "University of Ostrava"],
+  "zlin": ["Tomas Bata University in Zlín"],
+  "umea": ["Umeå University"],
+  "brugg": [],
+  "aquisgran": ["RWTH Aachen University"],
+  "bamberg": [],
+  "bonn": ["University of Bonn"],
 };
 
 /** Nombres con que ESN escribe cada ciudad (además del nombre de la ficha). */
@@ -279,7 +290,7 @@ const ESN_CITY_NAMES = {
   "milan": ["milano"], "roma": ["rome"], "bolonia": ["bologna"], "cluj-napoca": ["cluj"], "katowice": ["gliwice"],
   "nicosia": ["lefkosia"], "la-valeta": ["msida", "valletta"],
   "cosenza": ["rende", "arcavacata di rende", "arcavacata"],
-  "salerno": ["fisciano"], "gotinga": ["gottingen", "goettingen"], "luneburgo": ["luneburg", "lueneburg"], "flesinga": ["vlissingen"], "ratisbona": ["regensburg"], "wurzburgo": ["wurzburg", "wuerzburg"], "malinas": ["mechelen"],
+  "salerno": ["fisciano"], "gotinga": ["gottingen", "goettingen"], "luneburgo": ["luneburg", "lueneburg"], "flesinga": ["vlissingen"], "ratisbona": ["regensburg"], "wurzburgo": ["wurzburg", "wuerzburg"], "malinas": ["mechelen"], "aquisgran": ["aachen"],
 };
 
 const norm = (s) => (s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ł/g, "l").toLowerCase().trim();

@@ -596,6 +596,19 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Leuphana Universität Lüneburg": "https://www.leuphana.de/en/international-center",
   "Universität Erfurt": "https://www.uni-erfurt.de/en/international/incoming/exchange-studies/study-programmes-and-application",
 
+  // ── Fase 2 Loyola, tanda 3 ─────────────────────────────
+  // Universidade de Aveiro: ua.pt es una SPA; se enlaza la guía de entrantes.
+  "Universidade de Aveiro": "https://api-portal.ua.pt/api/v1/file/89434",
+  "Universidade de Trás-os-Montes e Alto Douro": "https://www.utad.pt/grim/en/home/erasmus-en/",
+  "Vysoká škola báňská – Technická univerzita Ostrava": "https://www.vsb.cz/en/study/exchange-students/erasmus-plus/admission-requirements-and-application-procedure",
+  "Univerzita Tomáše Bati ve Zlíně": "https://www.utb.cz/en/university/international/students/exchange-students/incoming-students/application/",
+  "Umeå universitet": "https://www.umu.se/en/education/application-and-admission/future-exchange-students/",
+  "FHNW Fachhochschule Nordwestschweiz": "https://www.fhnw.ch/en/business/degree-programmes/international/offers-for-incoming-students",
+  "Rheinisch-Westfälische Technische Hochschule Aachen": "https://www.rwth-aachen.de/exchange-students",
+  "Otto-Friedrich-Universität Bamberg": "https://uni-bamberg.de/studies/exchange-students-eg-erasmus",
+  "Rheinische Friedrich-Wilhelms-Universität Bonn": "https://www.uni-bonn.de/en/studying/international-students/exchange-students/erasmus-program/erasmus-study-in-bonn",
+  // Nottingham Trent University: ntu.ac.uk da 403 a los bots; sin enlace hasta confirmarlo.
+
   // ── Fase 2 Loyola, tanda 2 ─────────────────────────────
   "Universität Regensburg": "https://www.uni-regensburg.de/en/international/coming-to-regensburg/exchange-programs/application",
   "Julius-Maximilians-Universität Würzburg": "https://www.uni-wuerzburg.de/en/international/studying-in-wuerzburg/exchange-students/before-arrival-exchange-students/living/",

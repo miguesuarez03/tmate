@@ -3,12 +3,12 @@ export default [
  {
   "id": "ade",
   "name": "Administración y Dirección de Empresas (ADE)",
-  "destinations": 73
+  "destinations": 79
  },
  {
   "id": "economia",
   "name": "Economía",
-  "destinations": 33
+  "destinations": 36
  },
  {
   "id": "derecho",
@@ -18,17 +18,17 @@ export default [
  {
   "id": "rrii",
   "name": "Relaciones Internacionales",
-  "destinations": 46
+  "destinations": 47
  },
  {
   "id": "psicologia",
   "name": "Psicología",
-  "destinations": 36
+  "destinations": 38
  },
  {
   "id": "criminologia",
   "name": "Criminología",
-  "destinations": 7
+  "destinations": 8
  },
  {
   "id": "comunicacion",
@@ -53,7 +53,7 @@ export default [
  {
   "id": "edu-primaria",
   "name": "Educación Primaria",
-  "destinations": 23
+  "destinations": 24
  },
  {
   "id": "edu-infantil",
@@ -68,22 +68,22 @@ export default [
  {
   "id": "giti",
   "name": "Ingeniería en Tecnologías Industriales",
-  "destinations": 23
+  "destinations": 24
  },
  {
   "id": "ioi",
   "name": "Ingeniería de Organización Industrial",
-  "destinations": 24
+  "destinations": 27
  },
  {
   "id": "iem",
   "name": "Ingeniería Electromecánica",
-  "destinations": 23
+  "destinations": 26
  },
  {
   "id": "imr",
   "name": "Ingeniería Mecatrónica y Robótica",
-  "destinations": 13
+  "destinations": 15
  },
  {
   "id": "aeroespacial",
@@ -98,17 +98,17 @@ export default [
  {
   "id": "iinftv",
   "name": "Ingeniería Informática y Tecnologías Virtuales",
-  "destinations": 24
+  "destinations": 25
  },
  {
   "id": "software",
   "name": "Ingeniería del Software",
-  "destinations": 22
+  "destinations": 23
  },
  {
   "id": "matematicas",
   "name": "Matemática Aplicada",
-  "destinations": 31
+  "destinations": 34
  },
  {
   "id": "datos",
@@ -158,6 +158,6 @@ export default [
  {
   "id": "teologia",
   "name": "Teología y Ciencias Religiosas",
-  "destinations": 4
+  "destinations": 5
  }
 ];
