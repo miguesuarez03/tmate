@@ -705,6 +705,76 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Lluvias"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y húmedo.", tags: ["Suave","Húmedo","Mercado navideño"] },
   ],
+  // Bremen: Bremen (OMM 10224, en el aeropuerto, a unos 4 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  bremen: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–14°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca junto al Weser.", tags: ["Fresca","Weser","Parques"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "12–23°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado, sin grandes calores.", tags: ["Templado","Weser","Terrazas"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "6–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–5°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y húmedo.", tags: ["Frío","Húmedo","Mercado navideño"] },
+  ],
+  // Fráncfort: Frankfurt/Main (OMM 10637, en el aeropuerto, a unos 15 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  francfort: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–16°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave junto al Meno.", tags: ["Suave","Meno","Parques"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "14–25°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido.", tags: ["Cálido","Meno","Terrazas"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–6°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas.", tags: ["Frío","Heladas","Mercado navideño"] },
+  ],
+  // Jena: Gera-Leumnitz (OMM 10567, a unos 38 km; Weimar, más cerca, no publica máximas ni mínimas). Normales OMM 1991–2020 publicadas por NOAA/NCEI.
+  jena: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–14°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca en el valle del Saale.", tags: ["Fresca","Saale","Senderismo"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "12–23°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Saale","Terrazas"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "6–13°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Ambiente universitario"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-2–4°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas.", tags: ["Frío","Heladas","Nieve"] },
+  ],
+  // Mannheim: Mannheim (OMM 10729, a unos 7 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  mannheim: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–17°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave entre el Rin y el Neckar.", tags: ["Suave","Rin","Parques"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "14–26°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido.", tags: ["Cálido","Rin","Terrazas"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Ambiente universitario"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–6°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y gris.", tags: ["Frío","Heladas","Mercado navideño"] },
+  ],
+  // Osnabrück: Münster/Osnabrück (OMM 10315, en el aeropuerto, a unos 29 km): la estación de Osnabrück (10317) solo tiene 17–20 años de datos. Normales OMM 1991–2020 publicadas por NOAA/NCEI.
+  osnabruck: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–15°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave.", tags: ["Suave","Parques","Bici"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–23°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Terrazas","Bici"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–6°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y húmedo.", tags: ["Frío","Húmedo","Mercado navideño"] },
+  ],
+  // Passau: Fürstenzell (OMM 10895, a unos 8 km). Normales OMM 1991–2020 publicadas por NOAA/NCEI, con 24 años de datos (23 en enero).
+  passau: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–14°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca junto a los tres ríos.", tags: ["Fresca","Ríos","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–23°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Danubio","Terrazas"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "5–13°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Ambiente universitario"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-3–2°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas.", tags: ["Frío","Heladas","Nieve"] },
+  ],
+  // Stuttgart: Stuttgart-Schnarrenberg (OMM 10739, en la ciudad; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  stuttgart: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–15°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave entre colinas y viñedos.", tags: ["Suave","Viñedos","Parques"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "14–24°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido.", tags: ["Cálido","Viñedos","Terrazas"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Ambiente universitario"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "0–6°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas.", tags: ["Frío","Heladas","Mercado navideño"] },
+  ],
+  // Graz: Graz-Flughafen (OMM 11240, a unos 10 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  graz: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–16°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera que se templa rápido.", tags: ["Suave","Mur","Parques"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–25°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido.", tags: ["Cálido","Mur","Terrazas"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "5–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Ambiente universitario"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-5–4°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas.", tags: ["Frío","Heladas","Nieve"] },
+  ],
+  // Wiener Neustadt: Wien Hohe Warte (OMM 11035, a unos 50 km; es la estación OMM con normales publicadas más cercana). Normales OMM 1991–2020 publicadas por NOAA/NCEI.
+  "wiener-neustadt": [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "7–16°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave.", tags: ["Suave","Parques","Viena cerca"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "15–26°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido.", tags: ["Cálido","Terrazas","Excursiones"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "8–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Ambiente universitario"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-1–5°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas.", tags: ["Frío","Heladas","Mercado navideño"] },
+  ],
+  // Cortrique: Semmerzake (OMM 06428, a unos 31 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  cortrique: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–15°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave junto al Lys.", tags: ["Suave","Lys","Bici"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–23°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Lys","Terrazas"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "8–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "2–7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y húmedo.", tags: ["Suave","Húmedo","Lluvias"] },
+  ],
 };
 
 // Mes más frío y mes más cálido de cada ciudad (normales 1991–2020 de la misma fuente oficial que
@@ -818,4 +888,14 @@ export const CITY_CLIMATE_EXTREMES = {
   aquisgran: { cold: { month: 0, min: 0.5 }, hot: { month: 6, max: 23.8 }, source: "OMM, Maastricht-Aachen Airport (06380), a unos 27 km" },
   bamberg: { cold: { month: 0, min: -2.6 }, hot: { month: 6, max: 25.5 }, source: "OMM, Bamberg (10675)" },
   bonn: { cold: { month: 0, min: 0 }, hot: { month: 6, max: 24.9 }, source: "OMM, Köln-Bonn (10513)" },
+  bremen: { cold: { month: 0, min: -0.5 }, hot: { month: 6, max: 23.6 }, source: "OMM, Bremen (10224)" },
+  francfort: { cold: { month: 0, min: -0.5 }, hot: { month: 6, max: 26.1 }, source: "OMM, Frankfurt/Main (10637)" },
+  jena: { cold: { month: 0, min: -2.4 }, hot: { month: 6, max: 24.2 }, source: "OMM, Gera-Leumnitz (10567), a unos 38 km" },
+  mannheim: { cold: { month: 0, min: -0.7 }, hot: { month: 6, max: 26.7 }, source: "OMM, Mannheim (10729)" },
+  osnabruck: { cold: { month: 0, min: 0 }, hot: { month: 6, max: 24.2 }, source: "OMM, Münster/Osnabrück (10315), a unos 29 km" },
+  passau: { cold: { month: 0, min: -3.7 }, hot: { month: 6, max: 24 }, source: "OMM, Fürstenzell (10895)" },
+  stuttgart: { cold: { month: 0, min: -0.6 }, hot: { month: 6, max: 25.2 }, source: "OMM, Stuttgart-Schnarrenberg (10739)" },
+  graz: { cold: { month: 0, min: -5.6 }, hot: { month: 6, max: 25.6 }, source: "OMM, Graz-Flughafen (11240)" },
+  "wiener-neustadt": { cold: { month: 0, min: -1.3 }, hot: { month: 6, max: 26.4 }, source: "OMM, Wien Hohe Warte (11035), a unos 50 km" },
+  cortrique: { cold: { month: 1, min: 1.3 }, hot: { month: 6, max: 23.6 }, source: "OMM, Semmerzake (06428), a unos 31 km" },
 };

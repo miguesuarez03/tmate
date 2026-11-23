@@ -3,12 +3,12 @@ export default [
  {
   "id": "ade",
   "name": "Administración y Dirección de Empresas (ADE)",
-  "destinations": 79
+  "destinations": 86
  },
  {
   "id": "economia",
   "name": "Economía",
-  "destinations": 36
+  "destinations": 38
  },
  {
   "id": "derecho",
@@ -18,7 +18,7 @@ export default [
  {
   "id": "rrii",
   "name": "Relaciones Internacionales",
-  "destinations": 47
+  "destinations": 48
  },
  {
   "id": "psicologia",
@@ -53,12 +53,12 @@ export default [
  {
   "id": "edu-primaria",
   "name": "Educación Primaria",
-  "destinations": 24
+  "destinations": 25
  },
  {
   "id": "edu-infantil",
   "name": "Educación Infantil",
-  "destinations": 22
+  "destinations": 23
  },
  {
   "id": "cafd",
@@ -98,17 +98,17 @@ export default [
  {
   "id": "iinftv",
   "name": "Ingeniería Informática y Tecnologías Virtuales",
-  "destinations": 25
+  "destinations": 26
  },
  {
   "id": "software",
   "name": "Ingeniería del Software",
-  "destinations": 23
+  "destinations": 24
  },
  {
   "id": "matematicas",
   "name": "Matemática Aplicada",
-  "destinations": 34
+  "destinations": 35
  },
  {
   "id": "datos",
@@ -158,6 +158,6 @@ export default [
  {
   "id": "teologia",
   "name": "Teología y Ciencias Religiosas",
-  "destinations": 5
+  "destinations": 7
  }
 ];

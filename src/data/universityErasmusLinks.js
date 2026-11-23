@@ -598,6 +598,18 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Leuphana Universität Lüneburg": "https://www.leuphana.de/en/international-center",
   "Universität Erfurt": "https://www.uni-erfurt.de/en/international/incoming/exchange-studies/study-programmes-and-application",
 
+  // ── Fase 2 Loyola, tanda 4 ─────────────────────────────
+  "Constructor University Bremen": "https://constructor.university/student-life/study-abroad/incoming-students",
+  "Philosophisch-Theologische Hochschule Sankt Georgen Frankfurt am Main": "https://www.sankt-georgen.de/studium/hinweise-fuer-internationale-studierende-und-antrag-auf-zulassung/",
+  "Friedrich-Schiller-Universität Jena": "https://www.uni-jena.de/en/25500/application",
+  "Universität Mannheim": "https://www.uni-mannheim.de/en/academics/coming-to-mannheim/exchange-students/application/",
+  "Universität Osnabrück": "https://www.uni-osnabrueck.de/en/studying/our-study-programs/exchange-studies-at-osnabrueck-university",
+  "Universität Passau": "https://uni-passau.de/en/incoming-exchange-students",
+  "Universität Stuttgart": "https://www.uni-stuttgart.de/en/study/application/international-non-degree/erasmus/",
+  "Private Pädagogische Hochschule Augustinum": "https://pph-augustinum.at/internationales/incomings/",
+  "Fachhochschule Wiener Neustadt": "https://www.fhwn.ac.at/en/international/incomings",
+  // VIVES University: vives.be da 403 a los bots; sin enlace hasta confirmarlo.
+
   // ── Fase 2 Loyola, tanda 3 ─────────────────────────────
   // Universidade de Aveiro: ua.pt es una SPA; se enlaza la guía de entrantes.
   "Universidade de Aveiro": "https://api-portal.ua.pt/api/v1/file/89434",

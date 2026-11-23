@@ -2971,5 +2971,108 @@ export const CITY_UNIVERSITIES = {
    "students": 23123,
    "intlPct": 17
   }
+ ],
+ "bremen": [
+  {
+   "name": "Constructor University",
+   "edition": 2027,
+   "rank": "376–400",
+   "students": 1262,
+   "intlPct": 89
+  },
+  {
+   "name": "University of Bremen",
+   "edition": 2027,
+   "rank": "351–375",
+   "students": 12302,
+   "intlPct": 20
+  }
+ ],
+ "francfort": [
+  {
+   "name": "Goethe University Frankfurt",
+   "edition": 2027,
+   "rank": "193",
+   "students": 27112,
+   "intlPct": 13
+  }
+ ],
+ "jena": [
+  {
+   "name": "Friedrich Schiller University Jena",
+   "edition": 2027,
+   "rank": "217",
+   "students": 14233,
+   "intlPct": 14
+  }
+ ],
+ "mannheim": [
+  {
+   "name": "University of Mannheim",
+   "edition": 2027,
+   "rank": "=224",
+   "students": 8047,
+   "intlPct": 18
+  }
+ ],
+ "osnabruck": [],
+ "passau": [
+  {
+   "name": "University of Passau",
+   "edition": 2027,
+   "rank": "601–650",
+   "students": 7486,
+   "intlPct": 15
+  }
+ ],
+ "stuttgart": [
+  {
+   "name": "University of Stuttgart",
+   "edition": 2027,
+   "rank": "301–325",
+   "students": 14180,
+   "intlPct": 22
+  },
+  {
+   "name": "University of Hohenheim",
+   "edition": 2027,
+   "rank": "376–400",
+   "students": 8769,
+   "intlPct": 17
+  }
+ ],
+ "graz": [
+  {
+   "name": "University of Graz",
+   "edition": 2027,
+   "rank": "501–550",
+   "students": 10721,
+   "intlPct": 20
+  },
+  {
+   "name": "Graz University of Technology",
+   "edition": 2027,
+   "rank": "401–450",
+   "students": 6724,
+   "intlPct": 27
+  },
+  {
+   "name": "Medical University of Graz",
+   "edition": 2027,
+   "rank": "221",
+   "students": 4678,
+   "intlPct": 29
+  }
+ ],
+ "wiener-neustadt": [],
+ "cortrique": [
+  {
+   "name": "KU Leuven",
+   "edition": 2027,
+   "rank": "=45",
+   "students": 50364,
+   "intlPct": 22,
+   "satellite": true
+  }
  ]
 };

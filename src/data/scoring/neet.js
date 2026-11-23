@@ -2034,5 +2034,113 @@ export const CITY_NEET = {
    "2024": 6.8,
    "2025": 8.3
   }
+ },
+ "bremen": {
+  "source": "eurostat",
+  "scope": "country",
+  "geo": "DE",
+  "years": {
+   "2023": 7.5,
+   "2024": 7.7,
+   "2025": 8.2
+  }
+ },
+ "francfort": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "DE71",
+  "name": "Darmstadt",
+  "years": {
+   "2023": 8.4,
+   "2024": 8.2,
+   "2025": 7.8
+  }
+ },
+ "jena": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "DEG0",
+  "name": "Thüringen",
+  "years": {
+   "2023": 7.4,
+   "2024": 9.3,
+   "2025": 10.2
+  }
+ },
+ "mannheim": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "DE12",
+  "name": "Karlsruhe",
+  "years": {
+   "2023": 5.8,
+   "2024": 6.7,
+   "2025": 7.4
+  }
+ },
+ "osnabruck": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "DE94",
+  "name": "Weser-Ems",
+  "years": {
+   "2023": 7.9,
+   "2024": 8.5,
+   "2025": 8.6
+  }
+ },
+ "passau": {
+  "source": "eurostat",
+  "scope": "country",
+  "geo": "DE",
+  "years": {
+   "2023": 7.5,
+   "2024": 7.7,
+   "2025": 8.2
+  }
+ },
+ "stuttgart": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "DE11",
+  "name": "Stuttgart",
+  "years": {
+   "2023": 7.2,
+   "2024": 7.6,
+   "2025": 8.3
+  }
+ },
+ "graz": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "AT22",
+  "name": "Steiermark",
+  "years": {
+   "2023": 7.7,
+   "2024": 7.6,
+   "2025": 10.6
+  }
+ },
+ "wiener-neustadt": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "AT12",
+  "name": "Niederösterreich",
+  "years": {
+   "2023": 7.3,
+   "2024": 7.8,
+   "2025": 8.1
+  }
+ },
+ "cortrique": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "BE25",
+  "name": "Prov. West-Vlaanderen",
+  "years": {
+   "2023": 4.8,
+   "2024": 5,
+   "2025": 4.5
+  }
  }
 };

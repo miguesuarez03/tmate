@@ -269,6 +269,18 @@ const THE_NAMES = {
   "aquisgran": ["RWTH Aachen University"],
   "bamberg": [],
   "bonn": ["University of Bonn"],
+  // Tanda 4. Osnabrück tiene perfil en THE sin puesto; la PPH Augustinum, Sankt Georgen, la FH Wiener Neustadt y VIVES no salen.
+  // Cortrique: KU Leuven solo tiene en la ciudad el campus Kulak (satélite, como Geel).
+  "bremen": ["Constructor University", "University of Bremen"],
+  "francfort": ["Goethe University Frankfurt"],
+  "jena": ["Friedrich Schiller University Jena"],
+  "mannheim": ["University of Mannheim"],
+  "osnabruck": [],
+  "passau": ["University of Passau"],
+  "stuttgart": ["University of Stuttgart", "University of Hohenheim"],
+  "graz": ["University of Graz", "Graz University of Technology", "Medical University of Graz"],
+  "wiener-neustadt": [],
+  "cortrique": [{ name: "KU Leuven", satellite: true }],
 };
 
 /** Nombres con que ESN escribe cada ciudad (además del nombre de la ficha). */
@@ -290,7 +302,7 @@ const ESN_CITY_NAMES = {
   "milan": ["milano"], "roma": ["rome"], "bolonia": ["bologna"], "cluj-napoca": ["cluj"], "katowice": ["gliwice"],
   "nicosia": ["lefkosia"], "la-valeta": ["msida", "valletta"],
   "cosenza": ["rende", "arcavacata di rende", "arcavacata"],
-  "salerno": ["fisciano"], "gotinga": ["gottingen", "goettingen"], "luneburgo": ["luneburg", "lueneburg"], "flesinga": ["vlissingen"], "ratisbona": ["regensburg"], "wurzburgo": ["wurzburg", "wuerzburg"], "malinas": ["mechelen"], "aquisgran": ["aachen"],
+  "salerno": ["fisciano"], "gotinga": ["gottingen", "goettingen"], "luneburgo": ["luneburg", "lueneburg"], "flesinga": ["vlissingen"], "ratisbona": ["regensburg"], "wurzburgo": ["wurzburg", "wuerzburg"], "malinas": ["mechelen"], "aquisgran": ["aachen"], "francfort": ["frankfurt", "frankfurt am main"], "cortrique": ["kortrijk"], "osnabruck": ["osnabrueck"],
 };
 
 const norm = (s) => (s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ł/g, "l").toLowerCase().trim();

@@ -553,5 +553,30 @@ export const CITY_ESN_SECTIONS = {
  "bamberg": [],
  "bonn": [
   "ESN Bonn e.V."
+ ],
+ "bremen": [
+  "ESN Bremen"
+ ],
+ "francfort": [
+  "ESN Frankfurt am Main"
+ ],
+ "jena": [
+  "ESN Jena"
+ ],
+ "mannheim": [
+  "ESN Mannheim"
+ ],
+ "osnabruck": [],
+ "passau": [],
+ "stuttgart": [
+  "ESN Stuttgart"
+ ],
+ "graz": [
+  "ESN TU Graz",
+  "ESN Uni Graz"
+ ],
+ "wiener-neustadt": [],
+ "cortrique": [
+  "ESN Leonardo Kortrijk"
  ]
 };
