@@ -220,6 +220,14 @@ La tanda 1 no apuntó de dónde salía el coste de estas cuatro ciudades. Solo s
 
 Criterio completo en `docs/scoring.md`. Esta sección recoge de dónde sale cada dato, qué queda pendiente y las decisiones tomadas.
 
+### 23-11-2026 — vida estudiantil solo con ESN cuando falta THE (rama `tarea/nota-vida-esn`)
+
+**Decisión de Miguel:** si una ciudad no tiene datos de THE, la comunidad de la vida estudiantil se calcula solo con ESN (escalada de 0–4 a 0–10); sin THE ni ESN, sigue provisional. Documentado en `docs/scoring.md` y `MethodologyNote.jsx`, con test propio.
+
+- **Salen de provisional:** Geel (7,4), Malinas (7,0) y Arnhem (7,0). Ninguna entra en el top 20 de «Mejor nota global» ni en el de «Vida estudiantil»: los dos top 20 quedan igual.
+- **Siguen provisionales (sin THE ni sección activa de ESN):** Rosenheim, Leipzig, Kleve, Tetovo, Santarém, Erfurt, Belfort, Castellanza y Flesinga (Erasmus+), y Cusco, La Paz, Ciudad de Guatemala y San Salvador.
+- **Bloqueo para Miguel:** pidió volver a poner en el 5 % el tope del test de rankings, pero quedan 9 destinos Erasmus+ provisionales de 135 y el 5 % admite 7, así que `tests/rankings.test.mjs` falla. La rama no se sube hasta que Miguel decida (mantener el 10 %, otro tope o completar datos de esas ciudades).
+
 ### 14-11-2026 — revisión de Codex
 - Descarga completa repetida para las 150 ciudades y 48 países: las cifras guardadas de THE 2027 (y ediciones 2023–2026), ESN, UNODC y NEET coinciden con sus API; antes de corregir las asignaciones, el diff solo cambiaba la fecha de descarga.
 - Fuentes cotejadas: [THE 2027](https://www.timeshighereducation.com/json/ranking_tables/world_university_rankings/2027), [ESN](https://accounts.esn.org/api/v2/sections), [UNODC vía Banco Mundial](https://api.worldbank.org/v2/country/all/indicator/VC.IHR.PSRC.P5?format=json&per_page=20000&date=2015:2026), [Eurostat](https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/edat_lfse_22?format=JSON&lang=EN&sex=T&age=Y15-24&sinceTimePeriod=2021), [GISCO](https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_10M_2024_4326_LEVL_2.geojson) y [OIT vía Banco Mundial](https://api.worldbank.org/v2/country/all/indicator/SL.UEM.NEET.ZS?format=json&per_page=20000&date=2015:2026). Comprobadas las dimensiones de Eurostat: anual, ambos sexos, 15–24, sin educación formal/no formal, no empleados, porcentaje; sin mezclar series al aplanar el JSON. El cruce de coordenadas con GISCO reproduce las regiones guardadas.

@@ -151,6 +151,9 @@ export function theRankToScore(rank) {
   return THE_BANDS.find(([max]) => n <= max)[1];
 }
 
+/** Puntos máximos de ESN en la comunidad (de 10). */
+export const ESN_MAX_POINTS = 4;
+
 /** Secciones ESN activas → puntos de comunidad (0–4). */
 export function esnPoints(sections) {
   if (!isNum(sections) || sections <= 0) return 0;
@@ -300,16 +303,26 @@ export function computeCitySubscores(p) {
     : null;
   const intlPts = intl == null ? null : intlStudentPoints(intl);
   const esn = esnPoints(esnSections.length);
-  if (intlPts == null || ambiente == null) {
+  const esnTxt = esnSections.length === 0 ? "sin sección de ESN"
+    : esnSections.length === 1 ? "1 sección de ESN" : `${esnSections.length} secciones de ESN`;
+  // Sin cifras de THE (ninguna universidad clasificada con datos, o solo un campus
+  // satélite), la comunidad sale solo de ESN, escalada de 0–4 a 0–10 (lo que falta
+  // se reparte en proporción, como en la nota). Sin THE ni ESN, queda pendiente.
+  const intlMissingWhy = satellites.length
+    ? `${satellites.join(" y ")} solo tiene aquí un campus pequeño y THE publica los estudiantes internacionales de toda la institución`
+    : "ninguna universidad de la ciudad publica sus datos en THE";
+  if (ambiente == null || (intlPts == null && esn === 0)) {
     subs.vida = null;
-    detail.vida = intlPts == null && satellites.length
-      ? `Pendiente: ${satellites.join(" y ")} solo tiene aquí un campus pequeño y THE publica los estudiantes internacionales de toda la institución, así que no sabemos cuántos hay en la ciudad.`
-      : "Pendiente: ninguna universidad de la ciudad publica sus datos en THE, así que no sabemos cuántos estudiantes internacionales tiene.";
+    detail.vida = ambiente == null
+      ? "Pendiente: falta la valoración del ambiente."
+      : `Pendiente: ${intlMissingWhy} y no hay sección de ESN, así que no sabemos cómo es la comunidad internacional.`;
+  } else if (intlPts == null) {
+    const comunidad = round1((esn / ESN_MAX_POINTS) * 10);
+    subs.vida = round1((comunidad + ambiente) / 2);
+    detail.vida = `Comunidad ${fmt1(comunidad)}/10 solo con ESN (${esnTxt}: ${intlMissingWhy}) y ambiente ${fmt1(ambiente)}/10 (valoración MAbroad).`;
   } else {
     const comunidad = esn + intlPts;
     subs.vida = round1((comunidad + ambiente) / 2);
-    const esnTxt = esnSections.length === 0 ? "sin sección de ESN"
-      : esnSections.length === 1 ? "1 sección de ESN" : `${esnSections.length} secciones de ESN`;
     detail.vida = `Comunidad ${comunidad}/10 (${esnTxt}; unos ${fmtInt(Math.round(intl / 100) * 100)} estudiantes internacionales en sus universidades de THE) y ambiente ${fmt1(ambiente)}/10 (valoración MAbroad).`;
   }
 

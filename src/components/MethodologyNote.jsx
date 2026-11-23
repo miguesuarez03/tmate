@@ -46,6 +46,7 @@ export default function MethodologyNote({ compact = false }) {
               según THE, y el ambiente: fiesta y eventos). Las cifras de THE corresponden a instituciones completas,
               pueden incluir otros campus y conservan su año cuando se usa una edición histórica. Si una universidad solo
               tiene un campus pequeño en la ciudad, cuenta para el nivel académico pero no para la comunidad internacional.
+              Si ninguna universidad de la ciudad publica sus datos en THE, la comunidad se calcula solo con ESN.
             </li>
             <li>
               <strong>Subnotas de valoración MAbroad:</strong> alojamiento, calidad de vida y clima, y conectividad salen

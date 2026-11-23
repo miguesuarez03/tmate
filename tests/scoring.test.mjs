@@ -59,6 +59,26 @@ test("campus satélite: cuenta para el académico, no para la comunidad", () => 
   assert.equal(CITY_UNIVERSITIES.geel[0].satellite, true);
 });
 
+test("sin datos de THE, la comunidad sale solo de ESN; sin THE ni ESN, pendiente", () => {
+  const p = { city: {}, scores: [{ id: "vida_social", score: 6 }], costSourceLabel: "", theEdition: 2027 };
+  // Una sección de ESN: 3 de 4 puntos → comunidad 7,5; con ambiente 6 → 6,8.
+  const una = computeCitySubscores({ ...p, esnSections: ["ESN X"] });
+  assert.equal(una.subs.vida, 6.8);
+  assert.match(una.detail.vida, /solo con ESN/);
+  // Dos o más secciones: comunidad 10 → (10 + 6) / 2 = 8.
+  assert.equal(computeCitySubscores({ ...p, esnSections: ["ESN X", "ESN Y"] }).subs.vida, 8);
+  // Un campus satélite cuenta como «sin datos de THE».
+  const sat = { name: "KU Leuven", rank: "=45", edition: 2027, students: 50364, intlPct: 22, satellite: true };
+  assert.equal(computeCitySubscores({ ...p, universities: [sat], esnSections: ["ESN X"] }).subs.vida, 6.8);
+  // Sin THE ni ESN: pendiente.
+  const nada = computeCitySubscores({ ...p, esnSections: [] });
+  assert.equal(nada.subs.vida, null);
+  assert.match(nada.detail.vida, /no hay sección de ESN/);
+  // Con datos de THE, la regla de siempre (ESN + internacionales).
+  const conThe = computeCitySubscores({ ...p, esnSections: ["ESN X"], universities: [{ name: "X", rank: "Reporter", edition: 2027, students: 1000, intlPct: 25 }] });
+  assert.equal(conThe.subs.vida, 5);
+});
+
 test("calidad usa la categoría completa si falta clima o calidad de vida", () => {
   const p = { city: {}, costSourceLabel: "", scores: [{ id: "estilo_vida", score: 6, subcategories: [{ label: "Clima", score: 9 }] }] };
   assert.equal(computeCitySubscores(p).subs.calidad, 6);
