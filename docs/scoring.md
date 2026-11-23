@@ -76,7 +76,7 @@ Es la media de dos mitades, cada una de 0 a 10.
 
 **Ambiente (valoración MAbroad), de 0 a 10.** Media de las subnotas de la ficha que empiezan por «Fiesta» o «Eventos». Si una ficha no las tiene, se usa su categoría «Vida social y ambiente».
 
-**Pendiente:** si ninguna universidad de la ciudad publica datos en THE (o la única que los publica es un campus satélite), no sabemos cuántos estudiantes internacionales tiene, y la subnota queda pendiente.
+**Pendiente:** si la ciudad no tiene datos de THE utilizables (ninguna universidad los publica, o la única que los publica es un campus satélite) **ni sección activa de ESN**, o si falta la valoración del ambiente, la subnota queda pendiente.
 
 **Sin datos de THE (decisión de Miguel, 23-11-2026).** Si ninguna universidad de la ciudad publica sus cifras en THE (o solo hay un campus satélite), la comunidad se calcula **solo con ESN**, escalada de 0–4 a 0–10 (`esnPoints / ESN_MAX_POINTS × 10`): una sección da 7,5 y dos o más, 10. Es el mismo criterio que la nota con lo pendiente: el peso que falta se reparte en proporción. El desglose lo dice («solo con ESN»). Si la ciudad **no tiene THE ni sección activa de ESN**, la vida estudiantil sigue **pendiente** y la nota es provisional.
 

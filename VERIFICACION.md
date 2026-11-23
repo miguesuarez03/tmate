@@ -226,7 +226,7 @@ Criterio completo en `docs/scoring.md`. Esta sección recoge de dónde sale cada
 
 - **Salen de provisional:** Geel (7,4), Malinas (7,0) y Arnhem (7,0). Ninguna entra en el top 20 de «Mejor nota global» ni en el de «Vida estudiantil»: los dos top 20 quedan igual.
 - **Siguen provisionales (sin THE ni sección activa de ESN):** Rosenheim, Leipzig, Kleve, Tetovo, Santarém, Erfurt, Belfort, Castellanza y Flesinga (Erasmus+), y Cusco, La Paz, Ciudad de Guatemala y San Salvador.
-- **Bloqueo para Miguel:** pidió volver a poner en el 5 % el tope del test de rankings, pero quedan 9 destinos Erasmus+ provisionales de 135 y el 5 % admite 7, así que `tests/rankings.test.mjs` falla. La rama no se sube hasta que Miguel decida (mantener el 10 %, otro tope o completar datos de esas ciudades).
+- **Tope del test de rankings:** en main estaba en el 10 % (subido en la tanda 2); Miguel pidió volver al 5 % con esta regla, pero el 5 % (7 de 135) no admite los 9 provisionales. **Decisión de Miguel (23-11):** como máximo el 15 % de los destinos Erasmus+ (`Math.floor`, revisión de Codex), con el comentario «revisar al acabar la fase 2» en `tests/rankings.test.mjs`. Codex revisó solo este cambio: corregidos el texto de «Pendiente» en `docs/scoring.md`, la nota de metodología, el caso de ambiente nulo en el test y el redondeo del tope.
 
 ### 14-11-2026 — revisión de Codex
 - Descarga completa repetida para las 150 ciudades y 48 países: las cifras guardadas de THE 2027 (y ediciones 2023–2026), ESN, UNODC y NEET coinciden con sus API; antes de corregir las asignaciones, el diff solo cambiaba la fecha de descarga.

@@ -77,6 +77,12 @@ test("sin datos de THE, la comunidad sale solo de ESN; sin THE ni ESN, pendiente
   // Con datos de THE, la regla de siempre (ESN + internacionales).
   const conThe = computeCitySubscores({ ...p, esnSections: ["ESN X"], universities: [{ name: "X", rank: "Reporter", edition: 2027, students: 1000, intlPct: 25 }] });
   assert.equal(conThe.subs.vida, 5);
+  // Sin valoración del ambiente: pendiente, haya THE o solo ESN.
+  const sinAmbiente = { ...p, scores: [] };
+  const a = computeCitySubscores({ ...sinAmbiente, esnSections: ["ESN X"] });
+  assert.equal(a.subs.vida, null);
+  assert.match(a.detail.vida, /falta la valoración del ambiente/);
+  assert.equal(computeCitySubscores({ ...sinAmbiente, esnSections: ["ESN X"], universities: [{ name: "X", rank: "Reporter", edition: 2027, students: 1000, intlPct: 25 }] }).subs.vida, null);
 });
 
 test("calidad usa la categoría completa si falta clima o calidad de vida", () => {
