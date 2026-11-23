@@ -20231,7 +20231,7 @@ export const CITY_INSIGHTS = {
         summary: "Ciudad tranquila; precauciones habituales.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 7.5, desc: "Sin incidencias específicas para estudiantes." },
+          { label: "Seguridad general", score: 7.5, desc: "Sin datos específicos; precauciones habituales." },
           { label: "Seguridad nocturna", score: 7.0, desc: "Precaución habitual de noche." },
           { label: "Ambiente de la ciudad", score: 7.5, desc: "Ambiente tranquilo." },
         ],
@@ -20421,7 +20421,7 @@ export const CITY_INSIGHTS = {
         summary: "Ciudad tranquila; precauciones habituales.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 8.0, desc: "Sin incidencias específicas para estudiantes." },
+          { label: "Seguridad general", score: 8.0, desc: "Sin datos específicos; precauciones habituales." },
           { label: "Seguridad nocturna", score: 7.5, desc: "Tranquila de noche." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ambiente tranquilo." },
         ],
@@ -20516,7 +20516,7 @@ export const CITY_INSIGHTS = {
         summary: "Ciudad grande; precauciones habituales.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 7.0, desc: "Sin incidencias específicas para estudiantes." },
+          { label: "Seguridad general", score: 7.0, desc: "Sin datos específicos; precauciones habituales." },
           { label: "Seguridad nocturna", score: 6.5, desc: "Cuidado de noche en algunas zonas." },
           { label: "Ambiente de la ciudad", score: 7.0, desc: "Ambiente urbano." },
         ],
@@ -20611,7 +20611,7 @@ export const CITY_INSIGHTS = {
         summary: "Ciudad tranquila; precauciones habituales.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 8.0, desc: "Sin incidencias específicas para estudiantes." },
+          { label: "Seguridad general", score: 8.0, desc: "Sin datos específicos; precauciones habituales." },
           { label: "Seguridad nocturna", score: 7.5, desc: "Tranquila de noche." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ambiente tranquilo." },
         ],
@@ -20706,7 +20706,7 @@ export const CITY_INSIGHTS = {
         summary: "Ciudad muy tranquila; precauciones habituales.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 8.5, desc: "Sin incidencias específicas para estudiantes." },
+          { label: "Seguridad general", score: 8.5, desc: "Sin datos específicos; precauciones habituales." },
           { label: "Seguridad nocturna", score: 8.0, desc: "Tranquila de noche." },
           { label: "Ambiente de la ciudad", score: 8.5, desc: "Ambiente tranquilo." },
         ],
@@ -20801,7 +20801,7 @@ export const CITY_INSIGHTS = {
         summary: "Ciudad segura; precauciones habituales.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 7.5, desc: "Sin incidencias específicas para estudiantes." },
+          { label: "Seguridad general", score: 7.5, desc: "Sin datos específicos; precauciones habituales." },
           { label: "Seguridad nocturna", score: 7.0, desc: "Precaución habitual de noche." },
           { label: "Ambiente de la ciudad", score: 7.5, desc: "Ambiente tranquilo." },
         ],
@@ -20896,7 +20896,7 @@ export const CITY_INSIGHTS = {
         summary: "Ciudad tranquila; precauciones habituales.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 8.0, desc: "Sin incidencias específicas para estudiantes." },
+          { label: "Seguridad general", score: 8.0, desc: "Sin datos específicos; precauciones habituales." },
           { label: "Seguridad nocturna", score: 7.5, desc: "Tranquila de noche." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ambiente tranquilo." },
         ],
@@ -20991,7 +20991,7 @@ export const CITY_INSIGHTS = {
         summary: "Ciudad tranquila; precauciones habituales.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 8.0, desc: "Sin incidencias específicas para estudiantes." },
+          { label: "Seguridad general", score: 8.0, desc: "Sin datos específicos; precauciones habituales." },
           { label: "Seguridad nocturna", score: 7.5, desc: "Tranquila de noche." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ambiente tranquilo." },
         ],
@@ -21086,7 +21086,7 @@ export const CITY_INSIGHTS = {
         summary: "Ciudad tranquila; precauciones habituales.",
         color: "#22C55E",
         subcategories: [
-          { label: "Seguridad general", score: 8.0, desc: "Sin incidencias específicas para estudiantes." },
+          { label: "Seguridad general", score: 8.0, desc: "Sin datos específicos; precauciones habituales." },
           { label: "Seguridad nocturna", score: 7.5, desc: "Tranquila de noche." },
           { label: "Ambiente de la ciudad", score: 8.0, desc: "Ambiente tranquilo." },
         ],

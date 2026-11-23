@@ -476,6 +476,8 @@ Dos agentes `contenido-verificacion` (cinco ciudades cada uno, solo lectura); Cl
 
 **Sin fuente oficial (no se publica):** web de VIVES (da 403: idioma, plazos, vivienda y coste de Cortrique; el bachelor de 1.000 € del portal), billetes sencillos de BSAG, VMT, VRN, VVS, VOS, Graz y VOR, tiempo de tren de Wiener Neustadt a Viena, coste total de Graz, Wiener Neustadt, Osnabrück y Bremen, fundación de la Universität Passau y de la Universität Stuttgart, % de internacionales de Sankt Georgen y Osnabrück.
 
+**Revisión de Codex (23-11).** Corregido: Constructor fundada en 1999 (campus desde 2001, [constructor.university/about](https://constructor.university/about)); Anmeldebescheinigung en Austria para más de 3 meses, en los 4 primeros meses y 44 € ([oesterreich.gv.at](https://www.oesterreich.gv.at/de/themen/menschen_aus_anderen_staaten/aufenthalt/4/2/Seite.120810); la hoja del Augustinum decía 4 meses, 3 meses y 15 €); vía A2 + inglés B2 y plazo de C@MPUS en Stuttgart; cuota de Jena solo para el invierno 2026/27; remisión a la Oficina en Mannheim; «sin incidencias específicas» cambiado por «sin datos específicos» en las nuevas. **No aplicado:** la fecha del Fact Sheet de Passau (Codex dice diciembre de 2025; el PDF termina con «November 2026»). Codex dice que VIVES publica inglés B1 sin certificado, pero la página da 403 y no se ha podido leer: la ficha mantiene la remisión a la Oficina. Sin segunda ronda.
+
 ## Ciudades nuevas de la cola Loyola (rama `tandas-loyola`)
 
 ### 15-11-2026 — campus satélite y cierre de la revisión pendiente

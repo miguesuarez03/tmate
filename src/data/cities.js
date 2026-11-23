@@ -5352,7 +5352,7 @@ export const CITIES = [
     language: "Alemán",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Bremen_Marktplatz.jpg/1920px-Bremen_Marktplatz.jpg",
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Bremen_Marktplatz.jpg/1920px-Bremen_Marktplatz.jpg",
-    description: "Bremen, a orillas del Weser, es una ciudad hanseática de unos 588.000 habitantes cuyo ayuntamiento y estatua de Roland, en la plaza del Mercado, son Patrimonio Mundial de la UNESCO desde 2004. El convenio es con la Constructor University, la antigua Jacobs University, fundada en 2001: una universidad privada con campus residencial y clases en inglés.",
+    description: "Bremen, a orillas del Weser, es una ciudad hanseática de unos 588.000 habitantes cuyo ayuntamiento y estatua de Roland, en la plaza del Mercado, son Patrimonio Mundial de la UNESCO desde 2004. El convenio es con la Constructor University, la antigua Jacobs University, fundada en 1999 y con campus desde 2001: una universidad privada con campus residencial y clases en inglés.",
     highlights: ["Ayuntamiento y Roland, Patrimonio Mundial de la UNESCO desde 2004","Constructor University, puesto 376–400 en THE 2027, con un 89 % de estudiantes internacionales","University of Bremen, puesto 351–375 en THE 2027, y sección ESN Bremen","Tranvía 6 del aeropuerto al centro en unos 11 minutos"],
     universities: ["Constructor University Bremen"],
     neighborhoods: [
@@ -5411,7 +5411,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro", vibe: "Universidad y vida de la ciudad", price: "€€" },
     ],
-    tips: ["La universidad calcula 750–900 € al mes para todo, con unos 300 € de alquiler (página sin fecha)","Residencias del Studierendenwerk Thüringen: 200–350 € al mes, contrato de 6 meses y 300 € de fianza; se piden antes del 15 de enero o del 15 de julio, sin garantía","Cuota semestral de 333,05 € en 2026/27 (353,05 € el primer semestre, con la tarjeta thoska), con el Deutschlandsemesterticket","La mayoría de las asignaturas de grado son en alemán (B2 aproximado, sin certificado); las pocas en inglés piden B2–C1. El portal de Loyola indica «alemán B2 o inglés B2»: confírmalo con la Oficina","Plazos: nominación hasta el 15 de junio o el 15 de noviembre y solicitud hasta el 15 de julio o el 15 de enero"],
+    tips: ["La universidad calcula 750–900 € al mes para todo, con unos 300 € de alquiler (página sin fecha)","Residencias del Studierendenwerk Thüringen: 200–350 € al mes, contrato de 6 meses y 300 € de fianza; se piden antes del 15 de enero o del 15 de julio, sin garantía","Cuota semestral de 333,05 € en el invierno 2026/27 (353,05 € el primer semestre, con la tarjeta thoska), con el Deutschlandsemesterticket","La mayoría de las asignaturas de grado son en alemán (B2 aproximado, sin certificado); las pocas en inglés piden B2–C1. El portal de Loyola indica «alemán B2 o inglés B2»: confírmalo con la Oficina","Plazos: nominación hasta el 15 de junio o el 15 de noviembre y solicitud hasta el 15 de julio o el 15 de enero"],
     experiences: ["erasmus"],
   },
   {
@@ -5437,7 +5437,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro (Quadrate)", vibe: "Centro en cuadrícula, entre el Rin y el Neckar", price: "€€" },
     ],
-    tips: ["La universidad calcula unos 950–1.000 € al mes con alojamiento, seguro, comida y otros gastos (página sin fecha)","Alojamiento sin garantía: la oficina internacional tiene un cupo en dos residencias del Studierendenwerk (390–510 € con gastos, solo el primer semestre); un piso compartido cuesta 350–600 €","Los de intercambio solo pagan los 100 € del Studierendenwerk; ya no hay Semesterticket y la universidad remite al D-Ticket JugendBW o al Deutschlandticket","La universidad pide alemán o inglés B2, sin certificado (el portal de Loyola no indica nivel)","Plazos: nominación del 15 de marzo al 15 de abril (otoño) o del 15 de septiembre al 15 de octubre (primavera); solicitud hasta el 30 de abril o el 31 de octubre"],
+    tips: ["La universidad calcula unos 950–1.000 € al mes con alojamiento, seguro, comida y otros gastos (página sin fecha)","Alojamiento sin garantía: la oficina internacional tiene un cupo en dos residencias del Studierendenwerk (390–510 € con gastos, solo el primer semestre); un piso compartido cuesta 350–600 €","Los de intercambio solo pagan los 100 € del Studierendenwerk; ya no hay Semesterticket y la universidad remite al D-Ticket JugendBW o al Deutschlandticket","La universidad pide alemán o inglés B2, sin certificado; el portal de Loyola no indica nivel: confírmalo con la Oficina","Plazos: nominación del 15 de marzo al 15 de abril (otoño) o del 15 de septiembre al 15 de octubre (primavera); solicitud hasta el 30 de abril o el 31 de octubre"],
     experiences: ["erasmus"],
   },
   {
@@ -5516,7 +5516,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro (Schlossplatz)", vibe: "Plazas, palacios y comercio", price: "€€€" },
     ],
-    tips: ["La universidad da 992 € al mes como mínimo: habitación en piso compartido 350–600 € más gastos y unos 30 € de transporte","El alojamiento lo adjudica el Studierendenwerk Stuttgart; la universidad no tiene plazas propias","La Universität Stuttgart no tiene Deutschlandsemesterticket; los de intercambio pagan una cuota de unos 100 €","Asignaturas en inglés: B2, pero en grado hay muy pocas. Para asignaturas en alemán, con B1–B2 el curso intensivo (250 €) es opcional y con A2 es obligatorio. El portal de Loyola indica «alemán B1 o inglés B2»: confírmalo con la Oficina","Plazos: nominación hasta el 1 de abril (invierno) o el 1 de octubre (verano); solicitud en Mobility-Online hasta el 1 de mayo o el 1 de noviembre"],
+    tips: ["La universidad da 992 € al mes como mínimo: habitación en piso compartido 350–600 € más gastos y unos 30 € de transporte","El alojamiento lo adjudica el Studierendenwerk Stuttgart; la universidad no tiene plazas propias","La Universität Stuttgart no tiene Deutschlandsemesterticket; los de intercambio pagan una cuota de unos 100 €","Asignaturas en inglés: B2, pero en grado hay muy pocas. Para asignaturas en alemán, con B1–B2 el curso intensivo (250 €) es opcional; con alemán A2 e inglés B2 también se puede ir, con el intensivo obligatorio. El portal de Loyola indica «alemán B1 o inglés B2»: confírmalo con la Oficina","Plazos: nominación hasta el 1 de abril (invierno) o el 1 de octubre (verano); solicitud en Mobility-Online hasta el 1 de mayo o el 1 de noviembre y después en C@MPUS hasta el 1 de junio o el 1 de diciembre"],
     experiences: ["erasmus"],
   },
   {
@@ -5542,7 +5542,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro histórico", vibe: "Schlossberg y orillas del Mur", price: "€€" },
     ],
-    tips: ["El Augustinum pide alemán o inglés B2; el portal de Loyola indica B1: confírmalo con la Oficina. Se enseña en alemán, con algunos cursos en inglés","Plazos: 1 de junio (semestre de invierno) y 1 de diciembre (verano), con la solicitud por correo a la oficina internacional","Alojamiento: habitaciones de la KHG (Katholische Hochschulgemeinde), residencias de OeAD Student Housing o piso compartido","Empadrónate en los 3 primeros días; si te quedas más de 4 meses, pide la Anmeldebescheinigung en los 3 primeros meses (15 €)","Semestre de invierno del 1 de octubre al 31 de enero; de verano, del 1 de marzo al 30 de junio"],
+    tips: ["El Augustinum pide alemán o inglés B2; el portal de Loyola indica B1: confírmalo con la Oficina. Se enseña en alemán, con algunos cursos en inglés","Plazos: 1 de junio (semestre de invierno) y 1 de diciembre (verano), con la solicitud por correo a la oficina internacional","Alojamiento: habitaciones de la KHG (Katholische Hochschulgemeinde), residencias de OeAD Student Housing o piso compartido","Empadrónate en los 3 primeros días; si te quedas más de 3 meses, pide la Anmeldebescheinigung en los 4 primeros meses (44 €)","Semestre de invierno del 1 de octubre al 31 de enero; de verano, del 1 de marzo al 30 de junio"],
     experiences: ["erasmus"],
   },
   {
