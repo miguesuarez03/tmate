@@ -3158,5 +3158,80 @@ export const CITY_UNIVERSITIES = {
    "intlPct": 7
   }
  ],
- "trollhattan": []
+ "trollhattan": [],
+ "aberystwyth": [
+  {
+   "name": "Aberystwyth University",
+   "edition": 2027,
+   "rank": "701–800",
+   "students": 6285,
+   "intlPct": 20
+  }
+ ],
+ "bradford": [
+  {
+   "name": "University of Bradford",
+   "edition": 2027,
+   "rank": "601–650",
+   "students": 10860,
+   "intlPct": 43
+  }
+ ],
+ "hatfield": [
+  {
+   "name": "University of Hertfordshire",
+   "edition": 2027,
+   "rank": "701–800",
+   "students": 27195,
+   "intlPct": 65
+  }
+ ],
+ "leicester": [
+  {
+   "name": "University of Leicester",
+   "edition": 2027,
+   "rank": "=209",
+   "students": 17170,
+   "intlPct": 33
+  }
+ ],
+ "portsmouth": [
+  {
+   "name": "University of Portsmouth",
+   "edition": 2027,
+   "rank": "401–450",
+   "students": 21435,
+   "intlPct": 37
+  }
+ ],
+ "fortaleza": [
+  {
+   "name": "University of Fortaleza (UNIFOR)",
+   "edition": 2027,
+   "rank": "2001+",
+   "students": 23944,
+   "intlPct": 0
+  }
+ ],
+ "sao-leopoldo": [
+  {
+   "name": "Unisinos University",
+   "edition": 2027,
+   "rank": "1601–1800",
+   "students": 11084,
+   "intlPct": 0
+  }
+ ],
+ "cali": [
+  {
+   "name": "Pontificia Universidad Javeriana",
+   "edition": 2027,
+   "rank": "1801–2000",
+   "students": 27605,
+   "intlPct": 1,
+   "satellite": true
+  }
+ ],
+ "leon-mexico": [],
+ "puebla": []
 };

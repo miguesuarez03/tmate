@@ -2362,5 +2362,105 @@ export const CITY_NEET = {
    "2024": 5.2,
    "2025": 4.8
   }
+ },
+ "aberystwyth": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "GBR",
+  "years": {
+   "2023": 12.8,
+   "2024": 14.3,
+   "2025": 14.4
+  }
+ },
+ "bradford": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "GBR",
+  "years": {
+   "2023": 12.8,
+   "2024": 14.3,
+   "2025": 14.4
+  }
+ },
+ "hatfield": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "GBR",
+  "years": {
+   "2023": 12.8,
+   "2024": 14.3,
+   "2025": 14.4
+  }
+ },
+ "leicester": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "GBR",
+  "years": {
+   "2023": 12.8,
+   "2024": 14.3,
+   "2025": 14.4
+  }
+ },
+ "portsmouth": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "GBR",
+  "years": {
+   "2023": 12.8,
+   "2024": 14.3,
+   "2025": 14.4
+  }
+ },
+ "fortaleza": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "BRA",
+  "years": {
+   "2023": 20.6,
+   "2024": 19.3,
+   "2025": 18.7
+  }
+ },
+ "sao-leopoldo": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "BRA",
+  "years": {
+   "2023": 20.6,
+   "2024": 19.3,
+   "2025": 18.7
+  }
+ },
+ "cali": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "COL",
+  "years": {
+   "2023": 23.3,
+   "2024": 23.2,
+   "2025": 22
+  }
+ },
+ "leon-mexico": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "MEX",
+  "years": {
+   "2023": 15.9,
+   "2024": 15.9,
+   "2025": 16.2
+  }
+ },
+ "puebla": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "MEX",
+  "years": {
+   "2023": 15.9,
+   "2024": 15.9,
+   "2025": 16.2
+  }
  }
 };

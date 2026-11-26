@@ -628,6 +628,9 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "University of Hertfordshire": "https://herts.ac.uk/international/global-study-opportunities/study-abroad-and-semester-exchange/inbound-study-abroad",
   "University of Leicester": "https://le.ac.uk/cite/study-abroad-unit/incoming/studying",
   "University of Portsmouth": "https://www.port.ac.uk/study/exchanges-and-study-abroad/exchange-inbound-students-1",
+  "Universidade de Fortaleza (UNIFOR)": "https://www.unifor.br/en/english",
+  "Pontificia Universidad Javeriana Cali": "https://www.javerianacali.edu.co/relaciones-internacionales/soy-internacional/semestre-academico-internacional-SAI",
+  "Universidad Iberoamericana León": "https://www.iberoleon.mx/intercambios",
 
   // ── Fase 2 Loyola, tanda 4 ─────────────────────────────
   "Constructor University Bremen": "https://constructor.university/student-life/study-abroad/incoming-students",

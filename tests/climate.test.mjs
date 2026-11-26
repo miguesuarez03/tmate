@@ -4,6 +4,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { CITY_SEASONS, CITY_CLIMATE_EXTREMES } from "../src/data/weatherSeasons.js";
+import { CITY_COORDS } from "../src/lib/cityCoords.js";
 
 const range = (t) => {
   const m = /^(-?\d+)–(-?\d+)°C$/.exec(t);
@@ -69,8 +70,13 @@ test("los meses extremos solo existen para ciudades con bloque de clima y cuadra
     const highs = seasons.map((s) => range(s.temp)[1]);
     assert.ok(Math.round(e.cold.min) <= Math.min(...lows) + 1, `${slug}: mes frío ${e.cold.min} frente a ${Math.min(...lows)}`);
     assert.ok(Math.round(e.hot.max) >= Math.max(...highs) - 1, `${slug}: mes cálido ${e.hot.max} frente a ${Math.max(...highs)}`);
-    // Invierno en el mes frío y verano en el cálido (todas las ciudades con clima son europeas).
-    assert.ok([11, 0, 1].includes(e.cold.month), `${slug}: el mes más frío no es de invierno`);
-    assert.ok([5, 6, 7].includes(e.hot.month), `${slug}: el mes más cálido no es de verano`);
+    // Invierno en el mes frío y verano en el cálido. En el hemisferio sur van al revés; entre los
+    // trópicos no se exige (el mes más cálido puede ser el de antes de las lluvias, p. ej. mayo en León).
+    const lat = CITY_COORDS[slug]?.[1];
+    assert.ok(lat != null, `${slug}: sin coordenadas`);
+    if (Math.abs(lat) < 23.5) continue;
+    const [winter, summer] = lat < 0 ? [[5, 6, 7], [11, 0, 1]] : [[11, 0, 1], [5, 6, 7]];
+    assert.ok(winter.includes(e.cold.month), `${slug}: el mes más frío no es de invierno`);
+    assert.ok(summer.includes(e.hot.month), `${slug}: el mes más cálido no es de verano`);
   }
 });

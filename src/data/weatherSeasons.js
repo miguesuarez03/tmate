@@ -943,6 +943,27 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "9–16°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño suave para empezar el curso.", tags: ["Inicio Erasmus","Suave","Costa"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "3–9°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y ventoso.", tags: ["Suave","Viento","Lluvias"] },
   ],
+  // Fortaleza: Fortaleza (OMM 82397, a unos 10 km del centro; normales OMM 1991–2020 publicadas por NOAA/NCEI). Hemisferio sur, junto al ecuador: etiquetas de estación del sur.
+  fortaleza: [
+    { id: "spring", label: "Otoño", months: "Mar–May", temp: "24–31°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Calor todo el año, en la temporada de lluvias.", tags: ["Calor","Lluvias","Playa"] },
+    { id: "summer", label: "Invierno", months: "Jun–Ago", temp: "23–31°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Calor y menos lluvia; empieza el semestre de agosto.", tags: ["Inicio de semestre","Calor","Brisa"], highlight: true },
+    { id: "autumn", label: "Primavera", months: "Sep–Nov", temp: "24–32°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Calor seco y mucho viento.", tags: ["Calor","Seco","Viento"] },
+    { id: "winter", label: "Verano", months: "Dic–Feb", temp: "25–31°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Calor, con el semestre de febrero.", tags: ["Calor","Playa","Carnaval"] },
+  ],
+  // São Leopoldo: Porto Alegre (OMM 83967, a unos 33 km; normales OMM 1991–2020 publicadas por NOAA/NCEI). Hemisferio sur: etiquetas de estación del sur.
+  "sao-leopoldo": [
+    { id: "spring", label: "Otoño", months: "Mar–May", temp: "17–26°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Otoño templado.", tags: ["Templado","Parques","Paseos"] },
+    { id: "summer", label: "Invierno", months: "Jun–Ago", temp: "11–21°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Invierno fresco; empieza el semestre de agosto.", tags: ["Inicio de semestre","Fresco","Chimarrão"], highlight: true },
+    { id: "autumn", label: "Primavera", months: "Sep–Nov", temp: "15–25°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Primavera templada.", tags: ["Templada","Lluvias","Paseos"] },
+    { id: "winter", label: "Verano", months: "Dic–Feb", temp: "20–31°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Verano caluroso y húmedo.", tags: ["Caluroso","Húmedo","Tormentas"] },
+  ],
+  // León: Guanajuato (OMM 76577, a unos 45 km y a 1.999 m; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  "leon-mexico": [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "12–30°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera seca y calurosa de día.", tags: ["Seca","Calor de día","Sol"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "15–29°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado, con lluvias; empieza el semestre de otoño.", tags: ["Inicio de semestre","Lluvias","Templado"], highlight: true },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "12–26°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado y seco.", tags: ["Templado","Seco","Sol"] },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "8–24°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave de día y fresco de noche.", tags: ["Suave","Noches frescas","Seco"] },
+  ],
 };
 
 // Mes más frío y mes más cálido de cada ciudad (normales 1991–2020 de la misma fuente oficial que
@@ -1090,4 +1111,7 @@ export const CITY_CLIMATE_EXTREMES = {
   hatfield: { cold: { month: 1, min: 1.5 }, hot: { month: 6, max: 22.1 }, source: "OMM, Rothamsted (03680), a unos 11 km" },
   leicester: { cold: { month: 0, min: 1.5 }, hot: { month: 6, max: 22.2 }, source: "OMM, Church Lawford (03544), a unos 35 km" },
   portsmouth: { cold: { month: 1, min: 2.6 }, hot: { month: 6, max: 21.8 }, source: "OMM, Thorney Island (03872), a unos 12 km" },
+  fortaleza: { cold: { month: 6, min: 22.8 }, hot: { month: 10, max: 31.7 }, source: "OMM, Fortaleza (82397), a unos 10 km" },
+  "sao-leopoldo": { cold: { month: 6, min: 10.4 }, hot: { month: 0, max: 31 }, source: "OMM, Porto Alegre (83967), a unos 33 km" },
+  "leon-mexico": { cold: { month: 0, min: 7.2 }, hot: { month: 4, max: 31.6 }, source: "OMM, Guanajuato (76577), a unos 45 km" },
 };

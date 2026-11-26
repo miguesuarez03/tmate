@@ -229,4 +229,9 @@ export const CITY_POPULATION = {
   "orebro": { population: 160687, year: 2025, source: "SCB" },
   "leicester": { population: 368600, year: 2021, source: "ONS (censo)" },
   "portsmouth": { population: 208100, year: 2021, source: "ONS (censo)" },
+  "fortaleza": { population: 2428708, year: 2022, source: "IBGE (censo)" },
+  "sao-leopoldo": { population: 217409, year: 2022, source: "IBGE (censo)" },
+  "cali": { population: 2283846, year: 2024, source: "DANE (proyección)" },
+  "leon-mexico": { population: 1721215, year: 2020, source: "INEGI (censo)" },
+  "puebla": { population: 1692181, year: 2020, source: "INEGI (censo)" },
 };

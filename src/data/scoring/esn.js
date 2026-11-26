@@ -618,5 +618,17 @@ export const CITY_ESN_SECTIONS = {
   "ESN UP OLOMOUC"
  ],
  "orebro": [],
- "trollhattan": []
+ "trollhattan": [],
+ "aberystwyth": [
+  "ESN Aberystwyth"
+ ],
+ "bradford": [],
+ "hatfield": [],
+ "leicester": [],
+ "portsmouth": [],
+ "fortaleza": [],
+ "sao-leopoldo": [],
+ "cali": [],
+ "leon-mexico": [],
+ "puebla": []
 };

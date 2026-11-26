@@ -3,112 +3,112 @@ export default [
  {
   "id": "ade",
   "name": "Administración y Dirección de Empresas (ADE)",
-  "destinations": 99
+  "destinations": 107
  },
  {
   "id": "economia",
   "name": "Economía",
-  "destinations": 40
+  "destinations": 45
  },
  {
   "id": "derecho",
   "name": "Derecho",
-  "destinations": 32
+  "destinations": 38
  },
  {
   "id": "rrii",
   "name": "Relaciones Internacionales",
-  "destinations": 51
+  "destinations": 58
  },
  {
   "id": "psicologia",
   "name": "Psicología",
-  "destinations": 38
+  "destinations": 45
  },
  {
   "id": "criminologia",
   "name": "Criminología",
-  "destinations": 8
+  "destinations": 10
  },
  {
   "id": "comunicacion",
   "name": "Comunicación",
-  "destinations": 48
+  "destinations": 54
  },
  {
   "id": "cadv",
   "name": "Comunicación Audiovisual",
-  "destinations": 12
+  "destinations": 17
  },
  {
   "id": "periodismo",
   "name": "Periodismo",
-  "destinations": 33
+  "destinations": 38
  },
  {
   "id": "publicidad",
   "name": "Publicidad",
-  "destinations": 35
+  "destinations": 40
  },
  {
   "id": "edu-primaria",
   "name": "Educación Primaria",
-  "destinations": 29
+  "destinations": 30
  },
  {
   "id": "edu-infantil",
   "name": "Educación Infantil",
-  "destinations": 26
+  "destinations": 27
  },
  {
   "id": "cafd",
   "name": "Ciencias de la Actividad Física y del Deporte",
-  "destinations": 20
+  "destinations": 23
  },
  {
   "id": "giti",
   "name": "Ingeniería en Tecnologías Industriales",
-  "destinations": 24
+  "destinations": 28
  },
  {
   "id": "ioi",
   "name": "Ingeniería de Organización Industrial",
-  "destinations": 27
+  "destinations": 33
  },
  {
   "id": "iem",
   "name": "Ingeniería Electromecánica",
-  "destinations": 26
+  "destinations": 31
  },
  {
   "id": "imr",
   "name": "Ingeniería Mecatrónica y Robótica",
-  "destinations": 16
+  "destinations": 17
  },
  {
   "id": "aeroespacial",
   "name": "Ingeniería Aeroespacial",
-  "destinations": 6
+  "destinations": 8
  },
  {
   "id": "biomedica",
   "name": "Ingeniería Biomédica",
-  "destinations": 6
+  "destinations": 8
  },
  {
   "id": "iinftv",
   "name": "Ingeniería Informática y Tecnologías Virtuales",
-  "destinations": 26
+  "destinations": 31
  },
  {
   "id": "software",
   "name": "Ingeniería del Software",
-  "destinations": 24
+  "destinations": 29
  },
  {
   "id": "matematicas",
   "name": "Matemática Aplicada",
-  "destinations": 36
+  "destinations": 40
  },
  {
   "id": "datos",
@@ -118,12 +118,12 @@ export default [
  {
   "id": "videojuegos",
   "name": "Diseño y Desarrollo de Videojuegos y Animación Digital",
-  "destinations": 13
+  "destinations": 14
  },
  {
   "id": "farmacia",
   "name": "Farmacia",
-  "destinations": 17
+  "destinations": 18
  },
  {
   "id": "biotecnologia",
@@ -148,12 +148,12 @@ export default [
  {
   "id": "musica",
   "name": "Creación y Producción Musical",
-  "destinations": 9
+  "destinations": 10
  },
  {
   "id": "artes-escenicas",
   "name": "Artes Escénicas y Cinematográficas",
-  "destinations": 9
+  "destinations": 10
  },
  {
   "id": "teologia",
