@@ -22159,7 +22159,7 @@ export const CITY_INSIGHTS = {
         summary: "Residencia de MIC para internacionales.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 6.5, desc: "O'Dwyer House, en el campus." },
+          { label: "Disponibilidad", score: 6.5, desc: "O'Dwyer House, a pocos minutos andando del campus." },
           { label: "Precio", score: 5.0, desc: "2.762 € el semestre en individual (2025-26)." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "MIC envía oferta tras la nominación." },
           { label: "Residencias universitarias", score: 7.0, desc: "Residencia solo para internacionales." },

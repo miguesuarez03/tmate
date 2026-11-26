@@ -6022,8 +6022,8 @@ export const CITIES = [
     language: "Polaco",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/2018_Rzesz%C3%B3w%2C_Rynek_13-14-15%2C_Kamienice_01.jpg/1920px-2018_Rzesz%C3%B3w%2C_Rynek_13-14-15%2C_Kamienice_01.jpg",
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/2018_Rzesz%C3%B3w%2C_Rynek_13-14-15%2C_Kamienice_01.jpg/1920px-2018_Rzesz%C3%B3w%2C_Rynek_13-14-15%2C_Kamienice_01.jpg",
-    description: "Rzeszów es la ciudad principal del sureste de Polonia, con la plaza del mercado (Rynek) en el centro. El convenio es con la Politechnika Rzeszowska, que nació en 1951 y lleva desde 1974 el nombre de Ignacy Łukasiewicz; tiene unos 17.000 estudiantes.",
-    highlights: ["Rynek, la plaza del mercado del casco antiguo","Politechnika Rzeszowska, con unos 17.000 estudiantes","Residencia Ikar para los de intercambio","Bus del aeropuerto de Jasionka al centro en unos 35 minutos"],
+    description: "Rzeszów es la ciudad principal del sureste de Polonia, con la plaza del mercado (Rynek) en el centro. El convenio es con la Politechnika Rzeszowska, que nació en 1951 y lleva desde 1974 el nombre de Ignacy Łukasiewicz; tenía 11.371 estudiantes a 31 de diciembre de 2025.",
+    highlights: ["Rynek, la plaza del mercado del casco antiguo","Politechnika Rzeszowska: 11.371 estudiantes (2025-26)","Residencia Ikar para los de intercambio","Bus del aeropuerto de Jasionka al centro en unos 35 minutos"],
     universities: ["Politechnika Rzeszowska"],
     neighborhoods: [
       { name: "Centro (Rynek)", vibe: "Plaza del mercado", price: "€" },
