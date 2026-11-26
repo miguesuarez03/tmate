@@ -838,6 +838,76 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "11–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Lluvias"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "4–8°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y húmedo.", tags: ["Suave","Húmedo","Viento"] },
   ],
+  // Ruan: Rouen-Boos (OMM 07037, a unos 8 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  ruan: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–15°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave y algo lluviosa.", tags: ["Suave","Sena","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "12–23°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Terrazas","Sena"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "8–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño suave para empezar el curso.", tags: ["Inicio Erasmus","Suave","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "2–7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno fresco y húmedo.", tags: ["Fresco","Húmedo","Lluvias"] },
+  ],
+  // Limerick: aeropuerto de Shannon (OMM 03962, a unos 20 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  limerick: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–13°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca y verde.", tags: ["Fresca","Verde","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "12–19°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano suave, sin calor.", tags: ["Suave","Shannon","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "8–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño suave y lluvioso para empezar el curso.", tags: ["Inicio Erasmus","Suave","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "3–9°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y lluvioso, sin apenas heladas.", tags: ["Suave","Lluvias","Viento"] },
+  ],
+  // Waterford: aeropuerto de Cork (OMM 03955, a unos 100 km: no hay estación OMM más cercana con normales 1991–2020 en NOAA/NCEI).
+  waterford: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–12°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca y verde.", tags: ["Fresca","Verde","Costa"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "11–18°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano suave, sin calor.", tags: ["Suave","Costa","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "8–13°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño suave y lluvioso para empezar el curso.", tags: ["Inicio Erasmus","Suave","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "3–8°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y lluvioso.", tags: ["Suave","Lluvias","Viento"] },
+  ],
+  // Eindhoven: aeropuerto de Eindhoven (OMM 06370, a unos 7 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  eindhoven: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–15°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave, buena para ir en bici.", tags: ["Suave","Bici","Parques"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "12–23°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Terrazas","Festivales"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño suave para empezar el curso.", tags: ["Inicio Erasmus","Suave","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "1–7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno fresco y gris.", tags: ["Fresco","Gris","Lluvias"] },
+  ],
+  // Zwolle: Marknesse (OMM 06273, a unos 25 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  zwolle: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–14°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave, buena para ir en bici.", tags: ["Suave","Bici","Canales"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "12–22°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Terrazas","Bici"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño suave para empezar el curso.", tags: ["Inicio Erasmus","Suave","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "1–6°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno fresco y húmedo.", tags: ["Fresco","Húmedo","Viento"] },
+  ],
+  // Rzeszów: Rzeszów-Jasionka (OMM 12580; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  rzeszow: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–14°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca que se templa en mayo.", tags: ["Fresca","Parques","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–25°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido.", tags: ["Cálido","Terrazas","Rynek"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "5–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Ambiente universitario"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-4–2°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas y nieve.", tags: ["Frío","Heladas","Nieve"] },
+  ],
+  // Viseu: Viseu (IPMA 560; normal climatológica 1991–2020 del IPMA).
+  viseu: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "8–17°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave en el interior.", tags: ["Suave","Casco antiguo","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "14–27°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano caluroso y seco.", tags: ["Caluroso","Seco","Terrazas"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "10–19°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Vendimia"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "4–11°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno fresco, con alguna helada.", tags: ["Fresco","Heladas","Lluvias"] },
+  ],
+  // Olomouc: Holešov (OMM 11774, a unos 40 km, en la llanura de Haná; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  olomouc: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–15°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca que se templa en mayo.", tags: ["Fresca","Parques","Casco antiguo"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–25°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido.", tags: ["Cálido","Terrazas","Festivales"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "5–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Ambiente universitario"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-4–3°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas.", tags: ["Frío","Heladas","Mercados navideños"] },
+  ],
+  // Örebro: aeropuerto de Örebro (OMM 02432, a unos 10 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  orebro: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "1–11°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fría que se templa en mayo.", tags: ["Fría","Días largos","Parques"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "11–22°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano suave y de días largos.", tags: ["Suave","Días largos","Lagos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "3–11°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Bosques"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-5–1°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, oscuro y con nieve.", tags: ["Frío","Nieve","Días cortos"] },
+  ],
+  // Trollhättan: Sätenäs (OMM 02520, a unos 30 km; la estación del aeropuerto de Trollhättan no trae temperaturas en NOAA/NCEI; normales OMM 1991–2020).
+  trollhattan: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "2–11°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fría que se templa en mayo.", tags: ["Fría","Días largos","Cascadas"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "11–21°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano suave y de días largos.", tags: ["Suave","Días largos","Göta älv"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "5–11°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Bosques"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-3–2°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y oscuro.", tags: ["Frío","Días cortos","Nieve"] },
+  ],
 };
 
 // Mes más frío y mes más cálido de cada ciudad (normales 1991–2020 de la misma fuente oficial que
@@ -970,4 +1040,14 @@ export const CITY_CLIMATE_EXTREMES = {
   rovaniemi: { cold: { month: 0, min: -13.5 }, hot: { month: 6, max: 20.1 }, source: "OMM, aeropuerto de Rovaniemi (02845)" },
   "clermont-ferrand": { cold: { month: 0, min: 0.6 }, hot: { month: 6, max: 26.8 }, source: "OMM, Clermont-Ferrand (07460)" },
   "el-havre": { cold: { month: 0, min: 3.9 }, hot: { month: 7, max: 21.2 }, source: "OMM, Cap de la Hève (07028)" },
+  ruan: { cold: { month: 0, min: 1.6 }, hot: { month: 6, max: 23.4 }, source: "OMM, Rouen-Boos (07037), a unos 8 km" },
+  limerick: { cold: { month: 0, min: 3.3 }, hot: { month: 6, max: 19.5 }, source: "OMM, aeropuerto de Shannon (03962), a unos 20 km" },
+  waterford: { cold: { month: 0, min: 3.2 }, hot: { month: 6, max: 18.6 }, source: "OMM, aeropuerto de Cork (03955), a unos 100 km" },
+  eindhoven: { cold: { month: 1, min: 0.3 }, hot: { month: 6, max: 24 }, source: "OMM, aeropuerto de Eindhoven (06370), a unos 7 km" },
+  zwolle: { cold: { month: 1, min: 0.7 }, hot: { month: 6, max: 22.4 }, source: "OMM, Marknesse (06273), a unos 25 km" },
+  rzeszow: { cold: { month: 0, min: -4.7 }, hot: { month: 6, max: 25.6 }, source: "OMM, Rzeszów-Jasionka (12580)" },
+  viseu: { cold: { month: 0, min: 3.9 }, hot: { month: 7, max: 28.3 }, source: "IPMA, Viseu (560)" },
+  olomouc: { cold: { month: 0, min: -4.5 }, hot: { month: 6, max: 26.1 }, source: "OMM, Holešov (11774), a unos 40 km" },
+  orebro: { cold: { month: 1, min: -5.1 }, hot: { month: 6, max: 23.1 }, source: "OMM, aeropuerto de Örebro (02432), a unos 10 km" },
+  trollhattan: { cold: { month: 1, min: -3.6 }, hot: { month: 6, max: 21.7 }, source: "OMM, Sätenäs (02520), a unos 30 km" },
 };

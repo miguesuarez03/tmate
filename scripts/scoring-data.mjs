@@ -294,6 +294,19 @@ const THE_NAMES = {
   "rovaniemi": [],
   "clermont-ferrand": ["University of Clermont Auvergne"],
   "el-havre": [],
+  // Tanda 6. Solo las universidades con convenio en el portal de Loyola: NEOMA (Ruan), Mary Immaculate College (Limerick;
+  // la University of Limerick no cuenta), SETU (Waterford), Fontys (Eindhoven; la TU/e no cuenta), Windesheim (Zwolle),
+  // el Politécnico de Viseu y University West (Trollhättan) no salen en THE.
+  "ruan": [],
+  "limerick": [],
+  "waterford": [],
+  "eindhoven": [],
+  "zwolle": [],
+  "rzeszow": ["Rzeszów University of Technology"],
+  "viseu": [],
+  "olomouc": ["Palacký University Olomouc"],
+  "orebro": ["Örebro University"],
+  "trollhattan": [],
 };
 
 /** Nombres con que ESN escribe cada ciudad (además del nombre de la ficha). */
@@ -315,7 +328,7 @@ const ESN_CITY_NAMES = {
   "milan": ["milano"], "roma": ["rome"], "bolonia": ["bologna"], "cluj-napoca": ["cluj"], "katowice": ["gliwice"],
   "nicosia": ["lefkosia"], "la-valeta": ["msida", "valletta"],
   "cosenza": ["rende", "arcavacata di rende", "arcavacata"],
-  "salerno": ["fisciano"], "gotinga": ["gottingen", "goettingen"], "luneburgo": ["luneburg", "lueneburg"], "flesinga": ["vlissingen"], "ratisbona": ["regensburg"], "wurzburgo": ["wurzburg", "wuerzburg"], "malinas": ["mechelen"], "aquisgran": ["aachen"], "francfort": ["frankfurt", "frankfurt am main"], "cortrique": ["kortrijk"], "osnabruck": ["osnabrueck"], "limasol": ["limassol", "lemesos"], "el-havre": ["le havre"],
+  "salerno": ["fisciano"], "gotinga": ["gottingen", "goettingen"], "luneburgo": ["luneburg", "lueneburg"], "flesinga": ["vlissingen"], "ratisbona": ["regensburg"], "wurzburgo": ["wurzburg", "wuerzburg"], "malinas": ["mechelen"], "aquisgran": ["aachen"], "francfort": ["frankfurt", "frankfurt am main"], "cortrique": ["kortrijk"], "osnabruck": ["osnabrueck"], "limasol": ["limassol", "lemesos"], "el-havre": ["le havre"], "ruan": ["rouen"], "rzeszow": ["35-959 rzeszow"],
 };
 
 const norm = (s) => (s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ł/g, "l").toLowerCase().trim();
