@@ -630,5 +630,15 @@ export const CITY_ESN_SECTIONS = {
  "sao-leopoldo": [],
  "cali": [],
  "leon-mexico": [],
- "puebla": []
+ "puebla": [],
+ "tijuana": [],
+ "torreon": [],
+ "bufalo": [],
+ "cincinnati": [],
+ "erie": [],
+ "flint": [],
+ "jacksonville": [],
+ "laredo": [],
+ "lock-haven": [],
+ "milwaukee": []
 };

@@ -2462,5 +2462,105 @@ export const CITY_NEET = {
    "2024": 15.9,
    "2025": 16.2
   }
+ },
+ "tijuana": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "MEX",
+  "years": {
+   "2023": 15.9,
+   "2024": 15.9,
+   "2025": 16.2
+  }
+ },
+ "torreon": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "MEX",
+  "years": {
+   "2023": 15.9,
+   "2024": 15.9,
+   "2025": 16.2
+  }
+ },
+ "bufalo": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "USA",
+  "years": {
+   "2023": 11.2,
+   "2024": 11.6,
+   "2025": 11.6
+  }
+ },
+ "cincinnati": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "USA",
+  "years": {
+   "2023": 11.2,
+   "2024": 11.6,
+   "2025": 11.6
+  }
+ },
+ "erie": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "USA",
+  "years": {
+   "2023": 11.2,
+   "2024": 11.6,
+   "2025": 11.6
+  }
+ },
+ "flint": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "USA",
+  "years": {
+   "2023": 11.2,
+   "2024": 11.6,
+   "2025": 11.6
+  }
+ },
+ "jacksonville": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "USA",
+  "years": {
+   "2023": 11.2,
+   "2024": 11.6,
+   "2025": 11.6
+  }
+ },
+ "laredo": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "USA",
+  "years": {
+   "2023": 11.2,
+   "2024": 11.6,
+   "2025": 11.6
+  }
+ },
+ "lock-haven": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "USA",
+  "years": {
+   "2023": 11.2,
+   "2024": 11.6,
+   "2025": 11.6
+  }
+ },
+ "milwaukee": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "USA",
+  "years": {
+   "2023": 11.2,
+   "2024": 11.6,
+   "2025": 11.6
+  }
  }
 };

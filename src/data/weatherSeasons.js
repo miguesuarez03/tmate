@@ -964,6 +964,69 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "12–26°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado y seco.", tags: ["Templado","Seco","Sol"] },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "8–24°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave de día y fresco de noche.", tags: ["Suave","Noches frescas","Seco"] },
   ],
+  // Tijuana: San Diego Lindbergh Field (OMM 72290, en EE. UU., a unos 26 km; normales OMM 1991–2020 publicadas por NOAA/NCEI): no hay estación OMM en Tijuana con normales en NOAA.
+  tijuana: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "14–20°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave, con nubes por la mañana.", tags: ["Suave","Nubes matinales","Playa"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "19–24°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado y seco.", tags: ["Templado","Seco","Playa"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "16–23°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño cálido y seco.", tags: ["Semestre de otoño","Cálido","Seco"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "10–19°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave, con las pocas lluvias del año.", tags: ["Suave","Lluvias","Sol"] },
+  ],
+  // Torreón: Torreón (OMM 76382, a unos 4 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  torreon: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "17–34°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera muy calurosa y seca.", tags: ["Muy calurosa","Seca","Sol"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "22–36°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano muy caluroso.", tags: ["Muy caluroso","Tormentas","Sol"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "16–30°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño caluroso que se suaviza en noviembre.", tags: ["Semestre de otoño","Caluroso","Seco"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "9–25°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave de día y fresco de noche.", tags: ["Suave","Noches frescas","Seco"] },
+  ],
+  // Búfalo: aeropuerto de Búfalo (OMM 72528, a unos 13 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  bufalo: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "3–13°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fría que se templa en mayo.", tags: ["Fría","Lago Erie","Niágara"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "16–26°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido junto al lago Erie.", tags: ["Cálido","Lago Erie","Niágara"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–16°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Semestre de otoño","Fresco","Hojas de otoño"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-6–1°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno muy frío y con mucha nieve.", tags: ["Muy frío","Nieve","Hielo"] },
+  ],
+  // Cincinnati: aeropuerto de Cincinnati/Northern Kentucky (OMM 72421, a unos 15 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  cincinnati: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "7–18°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada.", tags: ["Templada","Parques","Río Ohio"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "18–29°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano caluroso y húmedo.", tags: ["Caluroso","Húmedo","Tormentas"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "8–19°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Semestre de otoño","Templado","Hojas de otoño"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-4–6°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas.", tags: ["Frío","Heladas","Nieve"] },
+  ],
+  // Erie: aeropuerto de Erie (OMM 72526, a unos 9 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  erie: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–14°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fría que se templa en mayo.", tags: ["Fría","Lago Erie","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "17–26°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido junto al lago Erie.", tags: ["Cálido","Playas del lago","Presque Isle"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "8–17°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Semestre de otoño","Fresco","Hojas de otoño"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-5–3°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno muy frío y nevado.", tags: ["Muy frío","Nieve","Hielo"] },
+  ],
+  // Flint: aeropuerto Bishop de Flint (OMM 72637, a unos 6 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  flint: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "2–14°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fría que se templa en mayo.", tags: ["Fría","Parques","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "14–27°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido.", tags: ["Cálido","Lagos","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "5–16°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Semestre de otoño","Fresco","Hojas de otoño"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-8–0°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno muy frío y nevado.", tags: ["Muy frío","Nieve","Hielo"] },
+  ],
+  // Jacksonville: aeropuerto Craig (OMM 74782, a unos 14 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  jacksonville: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "15–26°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera cálida y soleada.", tags: ["Cálida","Playa","Sol"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "23–32°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano muy caluroso y húmedo, con tormentas.", tags: ["Muy caluroso","Húmedo","Tormentas"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "17–27°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño cálido para empezar el curso.", tags: ["Semestre de otoño","Cálido","Playa"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "8–19°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave.", tags: ["Suave","Sol","Playa"] },
+  ],
+  // Lock Haven: Williamsport (OMM 72514, a unos 40 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  "lock-haven": [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–16°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca que se templa en mayo.", tags: ["Fresca","Montes Apalaches","Río"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "16–28°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido.", tags: ["Cálido","Río","Montaña"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "6–17°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Semestre de otoño","Fresco","Hojas de otoño"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-5–3°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con nieve.", tags: ["Frío","Nieve","Heladas"] },
+  ],
+  // Milwaukee: aeropuerto Mitchell de Milwaukee (OMM 72640, a unos 9 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  milwaukee: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "3–13°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fría junto al lago Míchigan.", tags: ["Fría","Lago Míchigan","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "17–27°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido, con festivales junto al lago.", tags: ["Cálido","Summerfest","Lago"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–16°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Semestre de otoño","Fresco","Hojas de otoño"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-7–1°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno muy frío y nevado.", tags: ["Muy frío","Nieve","Hielo"] },
+  ],
 };
 
 // Mes más frío y mes más cálido de cada ciudad (normales 1991–2020 de la misma fuente oficial que
@@ -1114,4 +1177,13 @@ export const CITY_CLIMATE_EXTREMES = {
   fortaleza: { cold: { month: 6, min: 22.8 }, hot: { month: 10, max: 31.7 }, source: "OMM, Fortaleza (82397), a unos 10 km" },
   "sao-leopoldo": { cold: { month: 6, min: 10.4 }, hot: { month: 0, max: 31 }, source: "OMM, Porto Alegre (83967), a unos 33 km" },
   "leon-mexico": { cold: { month: 0, min: 7.2 }, hot: { month: 4, max: 31.6 }, source: "OMM, Guanajuato (76577), a unos 45 km" },
+  tijuana: { cold: { month: 11, min: 9.9 }, hot: { month: 7, max: 25.2 }, source: "OMM, San Diego Lindbergh Field (72290), a unos 26 km" },
+  torreon: { cold: { month: 0, min: 7.9 }, hot: { month: 5, max: 37.1 }, source: "OMM, Torreón (76382), a unos 4 km" },
+  bufalo: { cold: { month: 0, min: -7.2 }, hot: { month: 6, max: 26.8 }, source: "OMM, aeropuerto de Búfalo (72528), a unos 13 km" },
+  cincinnati: { cold: { month: 0, min: -4.9 }, hot: { month: 6, max: 30 }, source: "OMM, aeropuerto de Cincinnati/Northern Kentucky (72421), a unos 15 km" },
+  erie: { cold: { month: 0, min: -5.9 }, hot: { month: 6, max: 27.3 }, source: "OMM, aeropuerto de Erie (72526), a unos 9 km" },
+  flint: { cold: { month: 0, min: -8.9 }, hot: { month: 6, max: 27.8 }, source: "OMM, aeropuerto Bishop de Flint (72637), a unos 6 km" },
+  jacksonville: { cold: { month: 0, min: 7.1 }, hot: { month: 6, max: 32.9 }, source: "OMM, aeropuerto Craig de Jacksonville (74782), a unos 14 km" },
+  "lock-haven": { cold: { month: 0, min: -6.6 }, hot: { month: 6, max: 29.4 }, source: "OMM, Williamsport (72514), a unos 40 km" },
+  milwaukee: { cold: { month: 0, min: -8.2 }, hot: { month: 6, max: 27.7 }, source: "OMM, aeropuerto Mitchell de Milwaukee (72640), a unos 9 km" },
 };

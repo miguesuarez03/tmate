@@ -632,6 +632,17 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Pontificia Universidad Javeriana Cali": "https://www.javerianacali.edu.co/relaciones-internacionales/soy-internacional/semestre-academico-internacional-SAI",
   "Universidad Iberoamericana León": "https://www.iberoleon.mx/intercambios",
 
+  // ── Fase 2 Loyola, tanda 8 ─────────────────────────────
+  "Universidad Iberoamericana Tijuana": "https://tijuana.ibero.mx/intercambios-visitantes",
+  "Canisius University": "https://www.canisius.edu/student-experience/global-education/exchange-visiting-student-information",
+  "Xavier University": "https://www.xavier.edu/international-admission/applications-and-requirements/exchange/",
+  "Gannon University": "https://ww4.gannon.edu/Academic-Offerings/Special-Programs/Learning-Abroad/Spend-a-Semester-at-Gannon",
+  "University of Michigan-Flint": "https://www.umflint.edu/cge/exchange-hosted-student-resources/",
+  "University of North Florida": "https://www.unf.edu/intlctr/international-students/exchange-fact-sheet.html",
+  "Texas A&M International University": "https://www.tamiu.edu/international/exchangeapplication.shtml",
+  "Commonwealth University of Pennsylvania": "https://commonwealthu.edu/offices-directory/global-engagement",
+  "Marquette University": "https://studyabroad.marquette.edu/?go=incoming",
+
   // ── Fase 2 Loyola, tanda 4 ─────────────────────────────
   "Constructor University Bremen": "https://constructor.university/student-life/study-abroad/incoming-students",
   "Philosophisch-Theologische Hochschule Sankt Georgen Frankfurt am Main": "https://www.sankt-georgen.de/studium/hinweise-fuer-internationale-studierende-und-antrag-auf-zulassung/",
