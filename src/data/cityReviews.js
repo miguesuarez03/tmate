@@ -29,4 +29,8 @@ export const CITY_REVIEWS = {
   ...T("2026-11-22", "luneburgo odense angers campobasso salerno tetovo enschede santarem erfurt gotinga ratisbona wurzburgo malinas belfort debrecen benevento castellanza bergen arnhem flesinga"),
   // Fase 2 Loyola, tanda 3 (23-11-2026)
   ...T("2026-11-23", "aveiro vila-real nottingham ostrava zlin umea brugg aquisgran bamberg bonn"),
+  // Fase 2 Loyola, tanda 4 (23-11-2026)
+  ...T("2026-11-23", "bremen francfort jena mannheim osnabruck passau stuttgart graz wiener-neustadt cortrique"),
+  // Fase 2 Loyola, tanda 5 (26-11-2026)
+  ...T("2026-11-26", "diepenbeek namur limasol roskilde nitra presov kuopio rovaniemi clermont-ferrand el-havre"),
 };
