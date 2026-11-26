@@ -20340,10 +20340,10 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.5,
-        summary: "La universidad calcula 750–900 € al mes (sin fecha).",
+        summary: "Según la Universidad Loyola, unos 900 € al mes.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 7.5, desc: "Residencias por 200–350 €." },
+          { label: "Alojamiento", score: 7.5, desc: "Unos 450 € de alojamiento, según la Universidad Loyola." },
           { label: "Comida y supermercados", score: 7.5, desc: "Supermercados alemanes a buen precio." },
           { label: "Transporte", score: 8.5, desc: "Deutschlandsemesterticket en la cuota semestral." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Ocio estudiantil asequible." },
@@ -20355,7 +20355,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 6.5, desc: "Unas 3.000 plazas; no está garantizada." },
-          { label: "Precio", score: 8.0, desc: "200–350 € al mes." },
+          { label: "Precio", score: 8.0, desc: "Unos 450 € al mes, según la Universidad Loyola." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "Hay plazos fijos de solicitud." },
           { label: "Residencias universitarias", score: 7.0, desc: "Studierendenwerk Thüringen." },
         ],
@@ -21103,7 +21103,7 @@ export const CITY_INSIGHTS = {
         summary: "Coste medio para Flandes.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 6.5, desc: "Habitaciones de 360–480 € más gastos, según UHasselt." },
+          { label: "Alojamiento", score: 6.5, desc: "Alquiler medio de 313–430 €, según la Universidad Loyola." },
           { label: "Comida y supermercados", score: 7.0, desc: "Supermercados a buen precio." },
           { label: "Transporte", score: 7.5, desc: "Bus de De Lijn y bici de la universidad." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Ocio en Hasselt." },
@@ -21115,7 +21115,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 6.0, desc: "Base de datos de alojamiento de UHasselt." },
-          { label: "Precio", score: 6.5, desc: "Alquiler medio de 360–480 € más gastos." },
+          { label: "Precio", score: 6.5, desc: "Alquiler medio de 313–430 €, según la Universidad Loyola." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "Hay que buscar con tiempo." },
           { label: "Residencias universitarias", score: 5.0, desc: "UHasselt no tiene residencias propias." },
         ],
@@ -21195,10 +21195,10 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.0,
-        summary: "Coste moderado para Bélgica.",
+        summary: "Según la Universidad Loyola, unos 700 € al mes.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 7.0, desc: "Residencia de la universidad por unos 370 €." },
+          { label: "Alojamiento", score: 7.0, desc: "Unos 300 € de alojamiento, según la Universidad Loyola." },
           { label: "Comida y supermercados", score: 7.0, desc: "Supermercados a buen precio." },
           { label: "Transporte", score: 7.5, desc: "Bus del TEC y ciudad compacta." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Ocio estudiantil razonable." },
@@ -21210,7 +21210,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 6.5, desc: "Maison Internationale y habitaciones privadas (kots)." },
-          { label: "Precio", score: 7.0, desc: "Residencia por unos 370 € con gastos." },
+          { label: "Precio", score: 7.0, desc: "Unos 300 € al mes, según la Universidad Loyola." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "Conviene pedir residencia pronto." },
           { label: "Residencias universitarias", score: 7.0, desc: "Maison Internationale de UNamur." },
         ],
@@ -21385,10 +21385,10 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 5.0,
-        summary: "Dinamarca es cara.",
+        summary: "Según la Universidad Loyola, 850–1.000 € al mes.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 5.0, desc: "Residencias de 4.200–5.300 coronas." },
+          { label: "Alojamiento", score: 5.0, desc: "500–670 € de alojamiento, según la Universidad Loyola." },
           { label: "Comida y supermercados", score: 5.5, desc: "Supermercados caros." },
           { label: "Transporte", score: 5.5, desc: "Tren a Copenhague." },
           { label: "Ocio y gastos diarios", score: 5.0, desc: "Ocio caro." },
@@ -21400,7 +21400,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 7.0, desc: "Tres residencias en el campus." },
-          { label: "Precio", score: 5.5, desc: "4.200–5.300 coronas al mes y 11.000 de fianza." },
+          { label: "Precio", score: 5.5, desc: "500–670 € al mes según la Universidad Loyola; 11.000 coronas de fianza." },
           { label: "Facilidad de búsqueda", score: 7.5, desc: "Lo gestiona la universidad." },
           { label: "Residencias universitarias", score: 8.0, desc: "Korallen, Kolibrien y Rockwool." },
         ],
@@ -21578,7 +21578,7 @@ export const CITY_INSIGHTS = {
         summary: "Muy asequible.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 9.0, desc: "Residencia por 140 € al mes." },
+          { label: "Alojamiento", score: 9.0, desc: "Alojamiento por unos 120 € al mes, según la Universidad Loyola." },
           { label: "Comida y supermercados", score: 8.5, desc: "Supermercados baratos." },
           { label: "Transporte", score: 8.5, desc: "Billete de bus por menos de 1 €." },
           { label: "Ocio y gastos diarios", score: 8.5, desc: "Ocio barato." },
@@ -21590,7 +21590,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 7.5, desc: "Habitaciones para Erasmus." },
-          { label: "Precio", score: 9.0, desc: "140 € al mes." },
+          { label: "Precio", score: 9.0, desc: "Unos 120 € al mes, según la Universidad Loyola." },
           { label: "Facilidad de búsqueda", score: 7.5, desc: "Lo gestiona la universidad." },
           { label: "Residencias universitarias", score: 7.5, desc: "Residencia en la calle 17. novembra." },
         ],
@@ -21670,10 +21670,10 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.0,
-        summary: "Moderado para Finlandia.",
+        summary: "Según la Universidad Loyola, unos 400 € al mes.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 7.0, desc: "Alojamiento de 290–400 € según Savonia." },
+          { label: "Alojamiento", score: 7.0, desc: "Alquiler de 250–600 €, según la Universidad Loyola." },
           { label: "Comida y supermercados", score: 6.5, desc: "Comedores universitarios baratos." },
           { label: "Transporte", score: 7.0, desc: "Billete de bus de 2,85 €." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Ocio a precio nórdico." },
@@ -21685,7 +21685,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 7.0, desc: "Vivienda municipal de KUOPAS." },
-          { label: "Precio", score: 7.0, desc: "290–400 € al mes." },
+          { label: "Precio", score: 7.0, desc: "250–600 € al mes, según la Universidad Loyola." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "Se pide con tiempo." },
           { label: "Residencias universitarias", score: 7.0, desc: "Pisos amueblados de KUOPAS." },
         ],
@@ -21860,11 +21860,11 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.5,
-        summary: "Asequible para Francia.",
+        summary: "Según la Universidad Loyola, 610–800 € al mes.",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Habitación o estudio de 320–450 € con gastos." },
-          { label: "Comida y supermercados", score: 7.5, desc: "Comida de 180–350 € al mes, según la escuela." },
+          { label: "Comida y supermercados", score: 7.5, desc: "Supermercados a precio medio." },
           { label: "Transporte", score: 8.0, desc: "Billete de T2C de 1,60 €." },
           { label: "Ocio y gastos diarios", score: 7.5, desc: "Ocio estudiantil asequible." },
         ],
@@ -21955,7 +21955,7 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.0,
-        summary: "Moderado para Francia.",
+        summary: "Según la Universidad Loyola, 800–900 € al mes con el alojamiento.",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.0, desc: "Alquileres moderados." },

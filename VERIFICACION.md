@@ -852,3 +852,13 @@ Sustituye a la regla anterior de idioma («la ficha sigue a la universidad de de
 Sin cambios: Diepenbeek sin `near`; Nitra y Prešov con Eurostat 2022; Limasol sin población.
 
 **Revisión de Codex (26-11, solo lectura, commit `6d6f663`), aplicada:** Nottingham con todas las condiciones de inglés que da el portal (mínimos de TOEFL por parte, Home Edition/online, Oxford 111 por parte e ISE IV); Arnhem, Umeå y Brugg sin los precios de alojamiento de destino que contradecían a Loyola (ahora 380–450 €, ~2.900 SEK y 400–900 CHF al mes); `costBy: "loyola"` manda sobre `costSource` (nunca oficial ni «Asequible», con test); «plazas propias» de Stuttgart cambiado por «alojamiento propio». Nada grave: sin segunda ronda. `check:responsive`: a la primera, 2 combinaciones con fallos de 140 (no se vio cuáles); al repetirlo, limpio.
+
+**Coste de Loyola también en Jena y la tanda 5 (decisión de Miguel, 26-11-2026; se muestra lo de Loyola, `costBy: "loyola"`, sin año en el portal):**
+- Jena: ~900 €, con unos 450 € de alojamiento (la universidad, 750–900 € con unos 300 € de alquiler, sin fecha; residencias del Studierendenwerk 200–350 €, precio retirado de la ficha).
+- Kuopio: ~400 €, alquiler de 250–600 € (antes estimación de 650–900 €; Savonia, 290–400 € de alojamiento sin fecha).
+- Namur: ~700 €, con unos 300 € de alojamiento (UNamur, 600–700 € sin fecha; Maison Internationale unos 370 €, precio retirado de la ficha).
+- Roskilde: 850–1.000 €, con 500–670 € de alojamiento (antes estimación de 1.000–1.350 €; RUC, residencias de 4.200–5.300 coronas, precio retirado).
+- Clermont-Ferrand: 610–800 € (antes 610–1.050 € de la guía 2026-27 de Clermont SB, con `costSource`, retirado: ya no lleva «Asequible»).
+- El Havre: 800–900 € con alojamiento (EM Normandie, unos 800 € sin fecha).
+- **Prešov y Diepenbeek: el portal no da total mensual**, solo alojamiento; el presupuesto sigue como estimación MAbroad y se muestra el alojamiento de Loyola: Prešov, unos 120 € (la universidad cobra 140 € desde el 29-09-2026); Diepenbeek, 313–430 € de alquiler medio (UHasselt, 360–480 € más unos 90 € de gastos en la hoja 2026-27).
+- Sin Codex (mismo cambio ya revisado en `6d6f663`/`cdcf757`).
