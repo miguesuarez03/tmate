@@ -32,7 +32,7 @@ Herramientas en `scripts/verificacion/` (ejecutar desde la raíz del repo):
 3. **Ver los textos marcados**: `node scripts/verificacion/show.cjs <slug> "patrón1|patrón2"` imprime las líneas de esa ciudad en cities.js, insights.js, comparePhrases.js y weatherSeasons.js.
 4. **Aplicar (Claude)**: un script con `require("./scripts/verificacion/lib.cjs")` → `city(slug, { C, I, P, W })` (reemplazos exactos dentro del bloque de la ciudad; falla si el texto no aparece una sola vez), `temps(slug, {...})`, `score(slug, "coste", "7.0", "6.5")` y `file(ruta, pares)`. Hacer copia de `src/data` antes por si falla a medias.
 5. **Revisión (Codex)**: ronda 1 sobre `git diff` con las afirmaciones nuevas y las decisiones editoriales; corregir y ronda 2 si hace falta (máx. 2).
-6. **Cerrar**: actualizar «Dónde vamos», la tabla y el registro; `npm run build`; commit y push.
+6. **Cerrar**: actualizar «Dónde vamos», la tabla y el registro; poner la fecha de la tanda a sus ciudades en `src/data/cityReviews.js` (la ficha la enseña como «Datos revisados el …»); `npm run build`; commit y push.
 
 Criterios fijados en las tandas 1–5: `language` = solo idiomas oficiales; `costDetail` = estimación mensual que publica una universidad de la ciudad, siempre como rango `mín–máx€/mes` (si la universidad da una sola cifra, se usa su desglose o una segunda estimación de gastos de la ciudad; si no hay, rango editorial marcado como pendiente; no vale el mínimo para el visado, que es solvencia y no gasto; `npm test` falla con una cifra suelta) (si no hay, estimación editorial marcada como pendiente) y nota de coste coherente; con fuente oficial, `costSource` en `cities.js` (sin él, la ficha dice «Estimación MAbroad» y no lleva «Asequible»); clima = medias de mínimas y máximas por estación de las normales 1991–2020 (sin dato verificado, sin bloque: la sección no se muestra); precios sueltos de cervezas o menús sin fuente → se reescriben sin cifra; testimonios en primera persona que no estén en `cityExperiences.js` → fuera.
 
@@ -703,6 +703,15 @@ Petición de Miguel: los rangos por estación son medias y esconden los días ex
 - `formatScore` centraliza el decimal español de la nota en anillo, navbar, mapa, análisis, comparador y rankings. RankingPage y CityCard reciben el cambio mediante sus utilidades/componentes compartidos. No se añaden lecturas del entorno durante render o inicialización del estado.
 - Burbujas de 44 px en móvil, ocultas mediante una clase de body gestionada en efecto mientras el desglose está abierto. Espacio al final de la ficha para apartar el texto de las acciones. Navbar compacta para conservar la nota y los controles en 320/375 px.
 - Validación: `npm test`, 63 pruebas correctas, incluidas formato y contraste; sintaxis JS/JSX/CSS comprobada con esbuild. `npm run build` desde PowerShell no pudo cargar `vite.config.js`: esbuild devuelve «Cannot read directory ../..: Access is denied». No se ha comprobado visualmente ni probado el gesto en iPhone, conforme a la instrucción de no navegar ni levantar servidor.
+
+## Fase 1, tareas pequeñas (26-11-2026, rama `tarea/fase1-pequenas`)
+
+- **Fecha de revisión por ficha** (`src/data/cityReviews.js`): sale de las tandas cerradas de este documento (tandas 1–13 y 13b, Loyola A/B con su cierre del 15-11 y fase 2, tandas 1–3). Las fichas que no han pasado por ninguna dicen que están pendientes de revisión, sin fecha.
+- **Enlaces de entrantes:**
+  - Trento: se mantiene la [página de UniTrento para estudiantes de intercambio](https://www.unitn.it/en/international/coming-unitrento/exchange-student) (la web oficial la devuelve en las búsquedas; a los bots les da 403).
+  - Pavía: pasa a la página concreta [Erasmus+ EU Students](https://en.unipv.it/en/international/study-pavia/exchange-student/study/erasmus-eu-students) de la UniPV (carga, con el buzón incoming.erasmus@unipv.it).
+  - Braganza: **sin enlace**. portal3.ipb.pt rechaza la conexión y unipb.pt solo se carga con JavaScript; no hay página oficial comprobada.
+  - Una universidad sin enlace oficial sale ya sin enlace en la ficha (antes abría una búsqueda de Google).
 
 ## Pendiente de Miguel (Rosenheim, vive allí)
 

@@ -16,7 +16,7 @@ import { useUniversity } from "../hooks/useUniversity";
 import { formatExtractedAt } from "../lib/universities";
 import UniversityChip from "./university/UniversityChip";
 import ThemeToggle, { ThemeToggleRow } from "./ThemeToggle";
-import { CITY_MATCH_QUESTION_COUNT } from "../data/cityMatch";
+import { CONTACT_EMAIL, INSTAGRAM } from "../data/contact";
 
 // Símbolo MA — trazo grueso de puntas redondeadas que dibuja la M y la A de
 // un solo recorrido (vertical → valle → pico → base), con el tramo derecho
@@ -109,49 +109,42 @@ const MENU_ITEMS = [
   {
     Icon: IconExplorar,
     label: "Explorar destinos",
-    desc: "Todas las ciudades Erasmus con scores y guías",
     action: "explore",
     to: "/",
   },
   {
     Icon: IconCityMatch,
     label: "City Match",
-    desc: `Responde ${CITY_MATCH_QUESTION_COUNT} preguntas y descubre tu ciudad ideal`,
     action: "match",
     to: "/city-match",
   },
   {
     Icon: IconComparar,
     label: "Comparativa de destinos",
-    desc: "Compara tus ciudades favoritas lado a lado",
     action: "compare",
     to: "/comparar",
   },
   {
     Icon: IconBeca,
     label: "Beca Erasmus+",
-    desc: "Cuánto cobras, complementos y calculadora de ayudas",
     action: "beca",
     to: "/beca-erasmus",
   },
   {
     Icon: IconProceso,
     label: "¿Cómo funciona el Erasmus?",
-    desc: "Todo el proceso explicado sin rodeos, paso a paso",
     action: "steps",
     to: "/proceso",
   },
   {
     Icon: IconLearningAgreement,
     label: "Tu Learning Agreement",
-    desc: "Cómo preparar el contrato académico y conseguir las convalidaciones",
     action: "la",
     to: "/learning-agreement",
   },
   {
     Icon: IconDocumento,
     label: "Guías Erasmus",
-    desc: "Beca, Learning Agreement, destino y papeles, explicados a fondo",
     action: "guias",
     to: "/guias",
   },
@@ -160,14 +153,12 @@ const MENU_ITEMS = [
     // id mi-universidad): el hash lo despliega y baja hasta él.
     Icon: IconUniversidad,
     label: "Mi universidad",
-    desc: "Ve solo los destinos con convenio de tu universidad y tu grado",
     action: "universidad",
     to: "/#mi-universidad",
   },
   {
     Icon: IconExperiencia,
     label: "Cuéntanos tu experiencia",
-    desc: "Comparte tu Erasmus y ayuda a otros estudiantes",
     action: "share",
     to: "/?accion=compartir",
   },
@@ -175,7 +166,7 @@ const MENU_ITEMS = [
 
 // Navegación horizontal (desktop/tablet-landscape, ver .navbar__links en
 // global.css) — etiquetas cortas a propósito, distintas de las de
-// MENU_ITEMS (que sí llevan descripción larga, para el drawer móvil). No
+// MENU_ITEMS (las del menú lateral; solo título, sin descripción). No
 // incluye "Cuéntanos tu experiencia": es una acción secundaria (abre un
 // modal en Home), no una sección — en escritorio vive en el footer.
 export const NAV_LINKS = [
@@ -356,7 +347,6 @@ function NavMenuDrawer({ menuOpen, setMenuOpen, triggerRef }) {
               </span>
               <span className="nav-drawer__item-text">
                 <span className="nav-drawer__item-label">{item.label}</span>
-                <span className="nav-drawer__item-desc">{item.desc}</span>
               </span>
               <span className="nav-drawer__item-arrow" aria-hidden="true">›</span>
             </Link>
@@ -479,6 +469,11 @@ const FOOTER_LINKS = [
   { label: "Destinos por universidad", path: "/universidades" },
 ];
 
+// Año del build (define de vite.config.js), igual en el HTML prerenderizado y
+// en el cliente. Fuera de Vite (tests con Node) no existe.
+// eslint-disable-next-line no-undef
+const FOOTER_YEAR = typeof __BUILD_YEAR__ !== "undefined" ? __BUILD_YEAR__ : new Date().getFullYear();
+
 export function Footer() {
   const { pathname } = useLocation();
   const uni = useUniversity();
@@ -493,10 +488,17 @@ export function Footer() {
       )}
       <Logo dark={false} />
       <p className="footer__copy">
-        © {new Date().getFullYear()} MAbroad · Hecho para ciudadanos globales ·{" "}
+        © {FOOTER_YEAR} MAbroad · Hecho para ciudadanos globales ·{" "}
         <Link to="/privacidad" className="footer__link">Aviso legal y privacidad</Link>
         {" · "}
         <Link to="/creditos" className="footer__link">Créditos de las fotos</Link>
+      </p>
+      <p className="footer__copy">
+        <a href={`mailto:${CONTACT_EMAIL}`} className="footer__link">{CONTACT_EMAIL}</a>
+        {" · "}
+        <a href={INSTAGRAM.url} className="footer__link" target="_blank" rel="noopener noreferrer">
+          Instagram {INSTAGRAM.handle}
+        </a>
       </p>
       {/* Enlaces rastreables a todas las páginas indexables (ninguna queda
           huérfana: /tipos-de-intercambio no está en el navbar). */}

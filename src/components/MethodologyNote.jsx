@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { IconGrafica, IconReloj } from "./icons";
+import { CONTACT_EMAIL } from "../data/contact";
 
-// Actualiza esto cuando revises o refresques los datos de las ciudades.
-export const DATA_LAST_REVIEWED = "enero de 2026";
 
 /**
  * Nota de metodología: cómo se calculan DE VERDAD los scores (pesos y escalas
@@ -12,8 +11,12 @@ export const DATA_LAST_REVIEWED = "enero de 2026";
  * de estudiantes mientras no haya experiencias reales publicadas: cuando las
  * haya (src/data/cityExperiences.js), habrá que contar aquí cómo influyen.
  * Se usa en la ficha de ciudad y en el comparador.
+ *
+ * review (solo en la ficha): getCityReview(slug), la fecha de la última
+ * revisión de sus datos (src/data/cityReviews.js), siempre visible; null si
+ * la ficha aún no ha pasado por una tanda de verificación.
  */
-export default function MethodologyNote({ compact = false }) {
+export default function MethodologyNote({ compact = false, review, cityName }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -22,6 +25,16 @@ export default function MethodologyNote({ compact = false }) {
         <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}><IconGrafica size={20} /> Cómo calculamos estos datos</span>
         <span className="trust-note__arrow">{open ? "▲" : "▼"}</span>
       </button>
+      {cityName && (
+        <p className="trust-note__updated trust-note__review" style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
+          <IconReloj size={16} />
+          <span>
+            {review
+              ? <>Datos de {cityName} revisados el <time dateTime={review.iso}>{review.label}</time>.</>
+              : <>Los datos de {cityName} aún no han pasado por nuestra revisión con fuentes oficiales.</>}
+          </span>
+        </p>
+      )}
       {open && (
         <div className="trust-note__body">
           <ul className="trust-note__list">
@@ -96,12 +109,12 @@ export default function MethodologyNote({ compact = false }) {
             <li>Las distancias de la calculadora se miden en línea recta con coordenadas (OpenStreetMap / Nominatim).</li>
           </ul>
           <p className="trust-note__updated" style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
-            <IconReloj size={16} /> Contenido revisado en <strong>{DATA_LAST_REVIEWED}</strong>. Precios y condiciones
+            <IconReloj size={16} /> Cada ficha indica la fecha de la última revisión de sus datos. Precios y condiciones
             cambian: confirma lo importante con tu universidad y en fuentes oficiales.
           </p>
           <p className="trust-note__feedback">
             ¿Ves algo desactualizado o que no cuadra?{" "}
-            <a href="mailto:suarezalvarez.ma03@gmail.com?subject=Dato%20desactualizado%20en%20MAbroad">Escríbenos</a>.
+            <a href={`mailto:${CONTACT_EMAIL}?subject=Dato%20desactualizado%20en%20MAbroad`}>Escríbenos</a>.
           </p>
         </div>
       )}

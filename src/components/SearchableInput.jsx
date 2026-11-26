@@ -29,6 +29,20 @@ export default function SearchableInput({
   const ref = useRef(null);
   const listId = useId();
 
+  // El texto sigue al valor que llega de fuera: lo recuperado de la sesión
+  // (que se aplica tras el primer render), el campus elegido o una selección
+  // que la página quita. Antes solo se leía al montar y el campo enseñaba
+  // otra cosa que la que se calculaba. Si el valor se vacía porque el usuario
+  // está escribiendo otra cosa, no se le borra lo escrito.
+  const prevValue = useRef(value || "");
+  useEffect(() => {
+    const next = value || "";
+    const prev = prevValue.current;
+    prevValue.current = next;
+    if (next === prev) return;
+    setQuery((current) => (next || current === prev ? next : current));
+  }, [value]);
+
   const q = query.toLowerCase();
   const filtered = options.filter((o) =>
     o.label.toLowerCase().includes(q) ||

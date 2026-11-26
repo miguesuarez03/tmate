@@ -17,6 +17,12 @@ function cityDataPlugin() {
 
 export default defineConfig(({ isSsrBuild }) => ({
   plugins: [cityDataPlugin(), react()],
+  // Año del © del footer, fijado al construir: el HTML prerenderizado y el
+  // cliente pintan el mismo (con new Date() en el render, una visita en un
+  // año distinto al del build rompía la hidratación).
+  define: {
+    __BUILD_YEAR__: JSON.stringify(new Date().getFullYear()),
+  },
   build: {
     // dist/.vite/manifest.json: el prerender lo usa para saber qué chunks y
     // CSS precargar en cada página (y después lo borra de dist/).

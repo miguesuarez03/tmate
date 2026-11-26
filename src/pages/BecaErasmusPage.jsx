@@ -162,6 +162,21 @@ function Calculator() {
   }, [uni.campus]);
   // Si al cambiar de universidad o de grado el destino elegido deja de ser
   // tuyo, se quita (y el resultado de la distancia con él).
+  // Destino recuperado de la sesión (respuesta de otra visita): si ya no es
+  // un destino de la calculadora, se descarta; si vale, se aplica la banda de
+  // distancia de su país, como al elegirlo (antes se quedaba la de por defecto).
+  const restoredDestination = useRef(true);
+  useEffect(() => {
+    if (!destinationSlug || !restoredDestination.current) return;
+    restoredDestination.current = false;
+    const city = ALL_CITIES.find((c) => c.slug === destinationSlug);
+    if (!city || !isErasmusEligible(city)) {
+      setDestinationSlug("");
+      return;
+    }
+    const sepie = programCountry(city.country);
+    if (COUNTRY_DISTANCE[sepie]) setDistanceRange(COUNTRY_DISTANCE[sepie]);
+  }, [destinationSlug, setDestinationSlug]);
   useEffect(() => {
     if (destinationSlug && !uni.isIncluded(destinationSlug)) {
       calcRequest.current += 1;
@@ -177,9 +192,6 @@ function Calculator() {
   const country = destCity?.country || "";
   // El mismo país, con el nombre de las tablas del SEPIE (grupos y distancias).
   const sepieCountry = country ? programCountry(country) : "";
-
-  // Actualizar distanceRange sugerida cuando cambia el país
-  const suggestedRange = sepieCountry && COUNTRY_DISTANCE[sepieCountry] ? COUNTRY_DISTANCE[sepieCountry] : distanceRange;
 
   const handleDestinationChange = (slug) => {
     calcRequest.current += 1;
@@ -334,7 +346,10 @@ function Calculator() {
                 />
                 <SearchableInput
                   value={destCity?.name || ""}
-                  onChange={() => {}}
+                  // Si escribes otra cosa, el destino de antes deja de valer:
+                  // se quita para que el cálculo no siga con una ciudad que
+                  // ya no aparece en el campo.
+                  onChange={(text) => { if (destCity && text !== destCity.name) handleDestinationChange(""); }}
                   onSelect={(opt) => handleDestinationChange(opt.value)}
                   options={destinationOptions}
                   placeholder="Ciudad de destino…"

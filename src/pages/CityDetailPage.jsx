@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { getCityBySlug, getRelatedCities, getOverallScore } from "../lib/cities";
+import { getCityBySlug, getRelatedCities, getOverallScore, getCityReview } from "../lib/cities";
 import { useCityDetail } from "../hooks/useCityDetail";
 import { getCityJsonLd, getBreadcrumbJsonLd } from "../lib/seo";
 import { useSEO } from "../hooks/useSEO";
@@ -66,7 +66,7 @@ export default function CityDetailPage() {
       <InsightDashboard scores={insights?.scores ?? []} overallScore={overallScore} citySlug={slug} cityName={city.name} scoreDetail={detail?.scoring?.detail} />
 
       <div className="trust-note-wrap">
-        <MethodologyNote compact />
+        <MethodologyNote compact cityName={city.name} review={getCityReview(slug)} />
       </div>
 
       <div className="cdp-divider" />

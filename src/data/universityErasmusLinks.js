@@ -9,8 +9,8 @@
  * concreta, en cuyo caso se enlaza directamente a esa facultad.
  *
  * Fuente: investigación manual por ciudad (ver mejoras_tmate.md, punto 11).
- * Si una universidad nueva se añade a cities.js sin entrada aquí, el componente
- * cae automáticamente en un buscador de Google como fallback seguro.
+ * Sin entrada aquí (no hay página oficial verificada), la ficha muestra la
+ * universidad sin enlace: nunca un buscador ni una URL sin fuente.
  */
 
 export const UNIVERSITY_ERASMUS_LINKS = {
@@ -573,7 +573,8 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Università degli Studi di Trento": "https://www.unitn.it/en/international/coming-unitrento/exchange-student",
 
   // ── Tandas Loyola B ─────────────────────────────────────
-  "Università degli Studi di Pavia": "https://en.unipv.it/en/exchange-students",
+  // Página de entrantes Erasmus+ (UE) de la UniPV, comprobada el 26-11-2026.
+  "Università degli Studi di Pavia": "https://en.unipv.it/en/international/study-pavia/exchange-student/study/erasmus-eu-students",
   "Northumbria University": "https://www.northumbria.ac.uk/international/incoming-students/i-am-an-erasmus-student/",
   "Thomas More": "https://www.thomasmore.be/en/exchange-programmes",
   "Hochschule Rhein-Waal": "https://www.hochschule-rhein-waal.de/en/study/during-your-studies/semester-abroad/a-semester-with-us",
@@ -581,7 +582,8 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   // Página general de entrantes de KU Leuven: el campus de Geel se elige en su selector.
   "KU Leuven Campus Geel": "https://www.kuleuven.be/english/education/student/register/exchange",
   // Universidade Politécnica de Bragança: ipb.pt redirige a unipb.pt y no se ha localizado su página
-  // de entrantes (15-11-2026); sin enlace hasta confirmarla.
+  // de entrantes (15-11-2026). 26-11-2026: portal3.ipb.pt rechaza la conexión y unipb.pt solo se carga
+  // con JavaScript; sigue sin enlace hasta confirmar una página oficial.
 
   // ── Fase 2 Loyola, tanda 1 ─────────────────────────────
   "Università degli Studi del Molise": "https://www.unimol.it/english/?p=867",
@@ -624,12 +626,9 @@ export const UNIVERSITY_ERASMUS_LINKS = {
 
 /**
  * Devuelve el enlace oficial de Erasmus de una universidad.
- * Si no hay entrada en el mapa, cae a una búsqueda de Google como fallback
- * seguro (mejor que un enlace roto o un "#").
+ * Si no hay entrada en el mapa, devuelve null y la ficha no pone enlace
+ * (sin fuente oficial, sin enlace).
  */
 export function getUniversityErasmusLink(universityName) {
-  return (
-    UNIVERSITY_ERASMUS_LINKS[universityName] ||
-    `https://www.google.com/search?q=${encodeURIComponent(universityName + " Erasmus incoming students international office")}`
-  );
+  return UNIVERSITY_ERASMUS_LINKS[universityName] || null;
 }

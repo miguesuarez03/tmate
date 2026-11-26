@@ -4,12 +4,13 @@ import { getUniversityErasmusLink } from "../../data/universityErasmusLinks";
 function UniCard({ name, index }) {
   const colors = ["#2F5073", "#00BFA5", "#A855F7", "#F97316", "#22C55E"];
   const color = colors[index % colors.length];
+  // Sin página oficial verificada, la tarjeta no enlaza a nada.
   const href = getUniversityErasmusLink(name);
+  const Card = href ? "a" : "div";
+  const linkProps = href ? { href, target: "_blank", rel: "noopener noreferrer" } : {};
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+    <Card
+      {...linkProps}
       className={styles.uniCard}
       style={{ "--uni-color": color }}
     >
@@ -20,10 +21,10 @@ function UniCard({ name, index }) {
       </div>
       <div className={styles.uniBody}>
         <p className={styles.uniName}>{name}</p>
-        <span className={styles.uniLink}>Info para estudiantes de intercambio →</span>
+        {href && <span className={styles.uniLink}>Info para estudiantes de intercambio →</span>}
       </div>
-      <div className={styles.uniArrow}>→</div>
-    </a>
+      {href && <div className={styles.uniArrow}>→</div>}
+    </Card>
   );
 }
 

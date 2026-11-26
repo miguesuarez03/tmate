@@ -9,6 +9,7 @@ import { useCityDetails } from "../hooks/useCityDetail";
 import { getAllCities, isErasmusEligible } from "../lib/cities";
 import SearchableInput from "../components/SearchableInput";
 import styles from "./LearningAgreementPage.module.css";
+import { CONTACT_EMAIL } from "../data/contact";
 import UniversityInvite from "../components/university/UniversityInvite";
 import UniversityOfficialInfo from "../components/university/UniversityOfficialInfo";
 
@@ -311,7 +312,6 @@ const WIZARD_STEPS = [
 // envío falla, queda el mailto: de respaldo con el texto ya escrito.
 const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || "";
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
-const CONTACT_EMAIL = "suarezalvarez.ma03@gmail.com";
 // Plazo en el que Miguel responde a una solicitud de propuesta. Es un
 // compromiso con el estudiante: si cambia, se cambia aquí y se actualiza en
 // el hero, la introducción del formulario y las dos pantallas de confirmación.

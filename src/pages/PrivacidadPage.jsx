@@ -1,6 +1,7 @@
 import { Navbar, Footer, SectionLabel } from "../components/Layout";
 import { useSEO } from "../hooks/useSEO";
 import styles from "./PrivacidadPage.module.css";
+import { CONTACT_EMAIL } from "../data/contact";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Aviso legal (titular, art. 10 LSSI) + política de privacidad (art. 13 RGPD).
@@ -10,8 +11,7 @@ import styles from "./PrivacidadPage.module.css";
 // ─────────────────────────────────────────────────────────────────────────────
 
 const OWNER_NAME = "Miguel Ángel Suárez Álvarez";
-const CONTACT_EMAIL = "suarezalvarez.ma03@gmail.com";
-const LAST_UPDATED = "20 de noviembre de 2026";
+const LAST_UPDATED = "26 de noviembre de 2026";
 
 /** Una fila «Etiqueta: texto» de la ficha de cada tratamiento. */
 function Item({ label, children }) {
@@ -214,8 +214,8 @@ export default function PrivacidadPage() {
         </p>
         <ul>
           <li>
-            <strong>Hasta que borres los datos del sitio</strong> (localStorage): el tema claro u oscuro, tus
-            ciudades favoritas, si pausaste el vídeo de la portada, el progreso del checklist del Learning
+            <strong>Hasta que borres los datos del sitio</strong> (localStorage): el tema claro u oscuro, si
+            pausaste el vídeo de la portada, el progreso del checklist del Learning
             Agreement y el borrador de su asistente (con tu nombre y email si los escribiste; se borra al
             enviar la solicitud).
           </li>
@@ -228,15 +228,23 @@ export default function PrivacidadPage() {
             direcciones.
           </li>
           <li>
-            <strong>Hasta que cierras la pestaña</strong> (sessionStorage), para que tu selección se mantenga
-            mientras usas la web: los destinos del comparador, su orden y el programa elegido, el filtro del listado de destinos, el
-            país y el filtro del mapa, tu resultado de City Match, la ciudad de origen y el destino de la
-            calculadora de la beca y las últimas fichas que has visto (claves que empiezan por{" "}
-            <code>mabroad:sesion:</code>); la posición de scroll para volver atrás; y, si cierras la invitación
-            «Elige tu universidad y tu grado», que no vuelva a salir (clave{" "}
-            <code>mabroad:invitacion-universidad</code>). Nada de esto sale de tu navegador, salvo que copies y
-            compartas tú el enlace de «Mi universidad», que lleva tu universidad, tu grado y los destinos del
-            comparador.
+            <strong>Hasta que cierras la pestaña</strong> (sessionStorage), para que no pierdas lo que has
+            elegido mientras usas la web:
+            <ul>
+              <li>
+                Tu selección (claves que empiezan por <code>mabroad:sesion:</code>): los destinos del comparador,
+                su orden y el programa; la región del listado de destinos; el país y el filtro del mapa; tus
+                respuestas de City Match y lo que marcaste como imprescindible; la ciudad de origen y el destino
+                de la calculadora de la beca; y las últimas fichas que has visto.
+              </li>
+              <li>La posición de scroll de cada página, para volver atrás al mismo sitio.</li>
+              <li>
+                Si cierras la invitación «Elige tu universidad y tu grado», que no vuelva a salir (clave{" "}
+                <code>mabroad:invitacion-universidad</code>).
+              </li>
+            </ul>
+            Nada de esto sale de tu navegador, salvo que copies y compartas tú el enlace de «Mi universidad», que
+            lleva tu universidad, tu grado y los destinos del comparador.
           </li>
         </ul>
         <p>Puedes borrarlo todo cuando quieras limpiando los datos del sitio en tu navegador.</p>

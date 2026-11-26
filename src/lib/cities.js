@@ -16,6 +16,7 @@ import { CITY_EXPERIENCES, FOUNDER_EXPERIENCE, EXPERIENCE_TOPICS } from '../data
 import { RANKING_CRITERIA, RANKING_TOP } from '../data/rankings';
 import { MAP_COUNTRIES } from '../data/mapCountries';
 import { DEUTSCHLAND_TICKET, SEMESTER_TICKET_CITIES } from '../data/transportPasses';
+import { CITY_REVIEWS } from '../data/cityReviews';
 import { CITY_SIZE_LIMITS } from './cityMetrics';
 import { SUBSCORES, EXTRA_SCORES } from './scoring';
 import { DEFAULT_OG_IMAGE, getCityOgImage } from './seo';
@@ -706,6 +707,22 @@ export function toggleCompare(slug) {
 
 export function clearCompare() {
   sessionStorage.removeItem(COMPARE_KEY);
+}
+
+// ─── FECHA DE REVISIÓN ───────────────────────────────────────────────────────
+
+const REVIEW_MONTHS = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+
+/**
+ * Última revisión de los datos de una ficha (src/data/cityReviews.js, sale de
+ * las tandas de VERIFICACION.md), o null si aún no ha pasado por ninguna.
+ * @returns {{ iso: string, label: string } | null}  label: «13 de noviembre de 2026»
+ */
+export function getCityReview(slug) {
+  const iso = CITY_REVIEWS[slug];
+  if (!iso) return null;
+  const [y, m, d] = iso.split("-").map(Number);
+  return { iso, label: `${d} de ${REVIEW_MONTHS[m - 1]} de ${y}` };
 }
 
 // ─── EXPERIENCIAS REALES ─────────────────────────────────────────────────────

@@ -4,6 +4,7 @@ import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { IconCheck, IconLapiz } from "../icons";
 import styles from "./ShareExperienceModal.module.css";
+import { CONTACT_EMAIL } from "../../data/contact";
 
 // Índice ligero de ciudades (ver lib/cities.js).
 const ALL_CITIES = getAllCities();
@@ -19,8 +20,7 @@ const ALL_CITIES = getAllCities();
 
 const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || "";
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
-// Mismo buzón que el resto de la web (FeedbackWidget, MethodologyNote, /privacidad).
-const CONTACT_EMAIL = "suarezalvarez.ma03@gmail.com";
+// CONTACT_EMAIL: mismo buzón que el resto de la web (src/data/contact.js).
 const MAX_LEN = 1500;
 const MIN_LEN = 40;
 const YEARS_BACK = 15;
