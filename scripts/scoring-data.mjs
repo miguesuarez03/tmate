@@ -318,6 +318,18 @@ const THE_NAMES = {
   "cali": [{ name: "Pontificia Universidad Javeriana", satellite: true }],
   "leon-mexico": [],
   "puebla": [],
+  // Tanda 8. Ninguna de las universidades con convenio sale en THE (Iberoamericanas de Tijuana y Torreón, Canisius,
+  // Xavier, Gannon, UM-Flint, UNF, TAMIU, Commonwealth y Marquette).
+  "tijuana": [],
+  "torreon": [],
+  "bufalo": [],
+  "cincinnati": [],
+  "erie": [],
+  "flint": [],
+  "jacksonville": [],
+  "laredo": [],
+  "lock-haven": [],
+  "milwaukee": [],
 };
 
 /** Nombres con que ESN escribe cada ciudad (además del nombre de la ficha). */
