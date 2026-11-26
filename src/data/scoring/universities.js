@@ -3124,5 +3124,39 @@ export const CITY_UNIVERSITIES = {
    "intlPct": 15
   }
  ],
- "el-havre": []
+ "el-havre": [],
+ "ruan": [],
+ "limerick": [],
+ "waterford": [],
+ "eindhoven": [],
+ "zwolle": [],
+ "rzeszow": [
+  {
+   "name": "Rzeszów University of Technology",
+   "edition": 2027,
+   "rank": "2001+",
+   "students": 11308,
+   "intlPct": 1
+  }
+ ],
+ "viseu": [],
+ "olomouc": [
+  {
+   "name": "Palacký University Olomouc",
+   "edition": 2027,
+   "rank": "1001–1200",
+   "students": 19612,
+   "intlPct": 13
+  }
+ ],
+ "orebro": [
+  {
+   "name": "Örebro University",
+   "edition": 2027,
+   "rank": "651–700",
+   "students": 9814,
+   "intlPct": 7
+  }
+ ],
+ "trollhattan": []
 };

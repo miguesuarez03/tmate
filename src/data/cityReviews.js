@@ -33,4 +33,6 @@ export const CITY_REVIEWS = {
   ...T("2026-11-23", "bremen francfort jena mannheim osnabruck passau stuttgart graz wiener-neustadt cortrique"),
   // Fase 2 Loyola, tanda 5 (26-11-2026)
   ...T("2026-11-26", "diepenbeek namur limasol roskilde nitra presov kuopio rovaniemi clermont-ferrand el-havre"),
+  // Fase 2 Loyola, tanda 6 (27-11-2026)
+  ...T("2026-11-27", "ruan limerick waterford eindhoven zwolle rzeszow viseu olomouc orebro trollhattan"),
 };

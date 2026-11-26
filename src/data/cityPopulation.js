@@ -222,4 +222,9 @@ export const CITY_POPULATION = {
   "rovaniemi": { population: 66191, year: 2025, source: "Statistics Finland" },
   "clermont-ferrand": { population: 146351, year: 2023, source: "INSEE" },
   "el-havre": { population: 166687, year: 2023, source: "INSEE" },
+  "ruan": { population: 117662, year: 2023, source: "INSEE" },
+  "eindhoven": { population: 249783, year: 2026, source: "CBS" },
+  "zwolle": { population: 134147, year: 2026, source: "CBS" },
+  "olomouc": { population: 103063, year: 2024, source: "ČSÚ" },
+  "orebro": { population: 160687, year: 2025, source: "SCB" },
 };

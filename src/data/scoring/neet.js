@@ -2252,5 +2252,115 @@ export const CITY_NEET = {
    "2024": 12.4,
    "2025": 13.9
   }
+ },
+ "ruan": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "FRD2",
+  "name": "Haute-Normandie ",
+  "years": {
+   "2023": 10.7,
+   "2024": 12.4,
+   "2025": 13.9
+  }
+ },
+ "limerick": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "IE05",
+  "name": "Southern",
+  "years": {
+   "2023": 6.5,
+   "2024": 5.1,
+   "2025": 5.6
+  }
+ },
+ "waterford": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "IE05",
+  "name": "Southern",
+  "years": {
+   "2023": 6.5,
+   "2024": 5.1,
+   "2025": 5.6
+  }
+ },
+ "eindhoven": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "NL41",
+  "name": "Noord-Brabant",
+  "years": {
+   "2023": 3.1,
+   "2024": 3.4,
+   "2025": 3.7
+  }
+ },
+ "zwolle": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "NL21",
+  "name": "Overijssel",
+  "years": {
+   "2023": 2.4,
+   "2024": 4.4,
+   "2025": 4.3
+  }
+ },
+ "rzeszow": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "PL82",
+  "name": "Podkarpackie",
+  "years": {
+   "2023": 12.8,
+   "2024": 9.9,
+   "2025": 11.4
+  }
+ },
+ "viseu": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "PT19",
+  "name": "Centro (PT)",
+  "years": {
+   "2023": 7.3,
+   "2024": 7.1,
+   "2025": 6
+  }
+ },
+ "olomouc": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "CZ07",
+  "name": "Střední Morava",
+  "years": {
+   "2023": 5.5,
+   "2024": 5.1,
+   "2025": 4.2
+  }
+ },
+ "orebro": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "SE12",
+  "name": "Östra Mellansverige",
+  "years": {
+   "2023": 5.5,
+   "2024": 6.6,
+   "2025": 5.8
+  }
+ },
+ "trollhattan": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "SE23",
+  "name": "Västsverige",
+  "years": {
+   "2023": 6,
+   "2024": 5.2,
+   "2025": 4.8
+  }
  }
 };

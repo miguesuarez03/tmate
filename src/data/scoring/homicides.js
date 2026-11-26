@@ -1,6 +1,6 @@
 // Generado por scripts/scoring-data.mjs (npm run scoring:data) — no editar a mano.
 // Fuente: UNODC, homicidios intencionados por 100.000 habitantes (indicador VC.IHR.PSRC.P5 que publica el Banco Mundial: https://api.worldbank.org/v2/country/all/indicator/VC.IHR.PSRC.P5?format=json&per_page=20000&date=2015:2026).
-// Descargado el 2026-11-23.
+// Descargado el 2026-11-26.
 /** país (como en cities.js) → { año: tasa } con los 3 años más recientes con dato */
 export const COUNTRY_HOMICIDE_RATES = {
  "Italia": {

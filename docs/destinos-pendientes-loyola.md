@@ -2,7 +2,7 @@
 
 Generado por `scripts/match-university-cities.mjs` a partir de `src/data/universities/loyola.json` (portal de movilidad, extraído el 2026-11-13). No editar a mano: vuelve a lanzar `npm run universities:match`.
 
-Es la cola de trabajo para añadir fichas: 50 ciudades con 51 convenios de estudios (de 418 fuera de España) que todavía no casan con ninguna ciudad de MAbroad (mismo país y nombre/alias, o universidad a ≤ 15 km). Ordenadas por número de convenios. No cuentan los destinos en España (SICUE) ni los de otros programas (MAGIS (red jesuita)): van aparte, al final. Las coordenadas son las de la primera universidad de cada ciudad en el portal (algunas son aproximadas).
+Es la cola de trabajo para añadir fichas: 40 ciudades con 41 convenios de estudios (de 418 fuera de España) que todavía no casan con ninguna ciudad de MAbroad (mismo país y nombre/alias, o universidad a ≤ 15 km). Ordenadas por número de convenios. No cuentan los destinos en España (SICUE) ni los de otros programas (MAGIS (red jesuita)): van aparte, al final. Las coordenadas son las de la primera universidad de cada ciudad en el portal (algunas son aproximadas).
 
 | # | Ciudad | País | Convenios | Coordenadas (lat, lng) | Universidades |
 |---|---|---|---|---|---|
@@ -27,35 +27,25 @@ Es la cola de trabajo para añadir fichas: 50 ciudades con 51 convenios de estud
 | 19 | Syracuse | Estados Unidos | 1 | 43.0492, -76.0849 | Le Moyne College |
 | 20 | Utica | Estados Unidos | 1 | 43.0940, -75.2710 | Utica University |
 | 21 | Manila | Filipinas | 1 | 14.6007, 120.9822 | Ateneo de Manila University |
-| 22 | Ruan | Francia | 1 | 49.4631, 1.0638 | NEOMA Business School |
-| 23 | Tegucigalpa | Honduras | 1 | 14.0821, -87.2063 | Universidad Nacional Autónoma de Honduras |
-| 24 | Bhubaneswar | India | 1 | 20.1592, 85.7625 | XIM University |
-| 25 | Chennai | India | 1 | 13.0616, 80.2347 | Loyola College |
-| 26 | Jamshedpur | India | 1 | 22.8133, 86.1908 | XLRI, Xavier School of Management |
-| 27 | Limerick | Irlanda | 1 | 52.6639, -8.6268 | Mary Immaculate College |
-| 28 | Waterford | Irlanda | 1 | 52.2568, -7.1292 | South East Technological University |
-| 29 | Tokio | Japón | 1 | 35.6785, 139.6823 | Sophia University |
-| 30 | Fianarantsoa | Madagascar | 1 | -21.4277, 47.3027 | Magis University |
-| 31 | Rabat | Marruecos | 1 | 34.0229, -6.7668 | Université Internationale de Rabat |
-| 32 | León | México | 1 | 21.1282, -101.6282 | Universidad Iberoamericana León |
-| 33 | Puebla | México | 1 | 19.0309, -98.2418 | Universidad Iberoamericana Puebla |
-| 34 | Tijuana | México | 1 | 32.5149, -117.0382 | Universidad Iberoamericana Tijuana |
-| 35 | Torreón | México | 1 | 25.6110, -103.4017 | Universidad Iberoamericana de Torreón |
-| 36 | Eindhoven | Países Bajos | 1 | 51.4513, 5.4803 | Fontys Hogescholen |
-| 37 | Willemstad | Países Bajos | 1 | 12.1696, -68.9900 | University of Curaçao Dr. Moises Da Costa Gomez |
-| 38 | Zwolle | Países Bajos | 1 | 52.5128, 6.0915 | Windesheim |
-| 39 | Rzeszów | Polonia | 1 | 50.0197, 21.9858 | Politechnika Rzeszowska |
-| 40 | Viseu | Portugal | 1 | 40.6575, -7.9143 | Instituto Superior Politécnico de Viseu |
-| 41 | Aberystwyth | Reino Unido | 1 | 52.4179, -4.0656 | Aberystwyth University |
-| 42 | Bradford | Reino Unido | 1 | 53.7926, -1.7658 | University of Bradford |
-| 43 | Hatfield | Reino Unido | 1 | 51.7528, -0.2420 | University of Hertfordshire |
-| 44 | Leicester | Reino Unido | 1 | 52.6233, -1.1248 | University of Leicester |
-| 45 | Portsmouth | Reino Unido | 1 | 50.7954, -1.0913 | University of Portsmouth |
-| 46 | Olomouc | República Checa | 1 | 49.5952, 17.2588 | Univerzita Palackého v Olomouci |
-| 47 | Örebro | Suecia | 1 | 59.2540, 15.2531 | Örebro universitet |
-| 48 | Trollhättan | Suecia | 1 | 58.2827, 12.2919 | Högskolan Väst |
-| 49 | Taipéi | Taiwán | 1 | 25.0911, 121.5598 | Fu Jen Catholic University |
-| 50 | Caracas | Venezuela | 1 | 10.4643, -66.9758 | Universidad Católica Andrés Bello |
+| 22 | Tegucigalpa | Honduras | 1 | 14.0821, -87.2063 | Universidad Nacional Autónoma de Honduras |
+| 23 | Bhubaneswar | India | 1 | 20.1592, 85.7625 | XIM University |
+| 24 | Chennai | India | 1 | 13.0616, 80.2347 | Loyola College |
+| 25 | Jamshedpur | India | 1 | 22.8133, 86.1908 | XLRI, Xavier School of Management |
+| 26 | Tokio | Japón | 1 | 35.6785, 139.6823 | Sophia University |
+| 27 | Fianarantsoa | Madagascar | 1 | -21.4277, 47.3027 | Magis University |
+| 28 | Rabat | Marruecos | 1 | 34.0229, -6.7668 | Université Internationale de Rabat |
+| 29 | León | México | 1 | 21.1282, -101.6282 | Universidad Iberoamericana León |
+| 30 | Puebla | México | 1 | 19.0309, -98.2418 | Universidad Iberoamericana Puebla |
+| 31 | Tijuana | México | 1 | 32.5149, -117.0382 | Universidad Iberoamericana Tijuana |
+| 32 | Torreón | México | 1 | 25.6110, -103.4017 | Universidad Iberoamericana de Torreón |
+| 33 | Willemstad | Países Bajos | 1 | 12.1696, -68.9900 | University of Curaçao Dr. Moises Da Costa Gomez |
+| 34 | Aberystwyth | Reino Unido | 1 | 52.4179, -4.0656 | Aberystwyth University |
+| 35 | Bradford | Reino Unido | 1 | 53.7926, -1.7658 | University of Bradford |
+| 36 | Hatfield | Reino Unido | 1 | 51.7528, -0.2420 | University of Hertfordshire |
+| 37 | Leicester | Reino Unido | 1 | 52.6233, -1.1248 | University of Leicester |
+| 38 | Portsmouth | Reino Unido | 1 | 50.7954, -1.0913 | University of Portsmouth |
+| 39 | Taipéi | Taiwán | 1 | 25.0911, 121.5598 | Fu Jen Catholic University |
+| 40 | Caracas | Venezuela | 1 | 10.4643, -66.9758 | Universidad Católica Andrés Bello |
 
 ## Destinos en España (SICUE): fuera por ahora
 

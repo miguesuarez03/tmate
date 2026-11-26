@@ -3,22 +3,22 @@ export default [
  {
   "id": "ade",
   "name": "Administración y Dirección de Empresas (ADE)",
-  "destinations": 94
+  "destinations": 99
  },
  {
   "id": "economia",
   "name": "Economía",
-  "destinations": 39
+  "destinations": 40
  },
  {
   "id": "derecho",
   "name": "Derecho",
-  "destinations": 31
+  "destinations": 32
  },
  {
   "id": "rrii",
   "name": "Relaciones Internacionales",
-  "destinations": 50
+  "destinations": 51
  },
  {
   "id": "psicologia",
@@ -33,7 +33,7 @@ export default [
  {
   "id": "comunicacion",
   "name": "Comunicación",
-  "destinations": 47
+  "destinations": 48
  },
  {
   "id": "cadv",
@@ -48,22 +48,22 @@ export default [
  {
   "id": "publicidad",
   "name": "Publicidad",
-  "destinations": 34
+  "destinations": 35
  },
  {
   "id": "edu-primaria",
   "name": "Educación Primaria",
-  "destinations": 26
+  "destinations": 29
  },
  {
   "id": "edu-infantil",
   "name": "Educación Infantil",
-  "destinations": 24
+  "destinations": 26
  },
  {
   "id": "cafd",
   "name": "Ciencias de la Actividad Física y del Deporte",
-  "destinations": 19
+  "destinations": 20
  },
  {
   "id": "giti",
@@ -83,12 +83,12 @@ export default [
  {
   "id": "imr",
   "name": "Ingeniería Mecatrónica y Robótica",
-  "destinations": 15
+  "destinations": 16
  },
  {
   "id": "aeroespacial",
   "name": "Ingeniería Aeroespacial",
-  "destinations": 5
+  "destinations": 6
  },
  {
   "id": "biomedica",
@@ -108,17 +108,17 @@ export default [
  {
   "id": "matematicas",
   "name": "Matemática Aplicada",
-  "destinations": 35
+  "destinations": 36
  },
  {
   "id": "datos",
   "name": "Datos y Analítica de Negocio",
-  "destinations": 12
+  "destinations": 13
  },
  {
   "id": "videojuegos",
   "name": "Diseño y Desarrollo de Videojuegos y Animación Digital",
-  "destinations": 12
+  "destinations": 13
  },
  {
   "id": "farmacia",

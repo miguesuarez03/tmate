@@ -610,6 +610,18 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Clermont School of Business": "https://www.clermont-sb.fr/en/etudiant-etranger/",
   "EM Normandie Business School": "https://en.em-normandie.com/internationally-recognised-business-school/international-students",
 
+  // ── Fase 2 Loyola, tanda 6 ─────────────────────────────
+  "NEOMA Business School": "https://neoma-bs.com/welcome-to-neoma",
+  "Mary Immaculate College": "https://www.mic.ul.ie/ga/node/237",
+  "South East Technological University": "https://www.setu.ie/global/global-mobility/erasmus-and-non-eu-exchange/erasmus-incoming-students/general-information",
+  "Fontys University of Applied Sciences": "https://www.fontys.nl/en/Study-at-Fontys/Exchange-programmes/How-to-apply-as-an-exchange-student.htm",
+  "Windesheim University of Applied Sciences": "https://windesheim.com/study-programmes/exchange-programmes/application-information",
+  "Politechnika Rzeszowska": "https://dwm.prz.edu.pl/en/erasmus/erasmus/student",
+  "Universidade Politécnica de Viseu": "https://univiseu.pt/en/?p=57454",
+  "Univerzita Palackého v Olomouci": "https://international.upol.cz/en/exchange-programmes/im-an-exchange-student/study/erasmus-europe/",
+  "Örebro universitet": "https://oru.se/exchange",
+  "Högskolan Väst": "https://www.hv.se/en/education/exchange-studies",
+
   // ── Fase 2 Loyola, tanda 4 ─────────────────────────────
   "Constructor University Bremen": "https://constructor.university/student-life/study-abroad/incoming-students",
   "Philosophisch-Theologische Hochschule Sankt Georgen Frankfurt am Main": "https://www.sankt-georgen.de/studium/hinweise-fuer-internationale-studierende-und-antrag-auf-zulassung/",

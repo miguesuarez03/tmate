@@ -601,5 +601,22 @@ export const CITY_ESN_SECTIONS = {
  "clermont-ferrand": [
   "ESN Worldtop Clermont-Ferrand"
  ],
- "el-havre": []
+ "el-havre": [],
+ "ruan": [],
+ "limerick": [
+  "ESN TUS Midwest Global",
+  "ESN UL"
+ ],
+ "waterford": [],
+ "eindhoven": [],
+ "zwolle": [
+  "ESN Zwolle"
+ ],
+ "rzeszow": [],
+ "viseu": [],
+ "olomouc": [
+  "ESN UP OLOMOUC"
+ ],
+ "orebro": [],
+ "trollhattan": []
 };

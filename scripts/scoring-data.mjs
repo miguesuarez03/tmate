@@ -328,7 +328,7 @@ const ESN_CITY_NAMES = {
   "milan": ["milano"], "roma": ["rome"], "bolonia": ["bologna"], "cluj-napoca": ["cluj"], "katowice": ["gliwice"],
   "nicosia": ["lefkosia"], "la-valeta": ["msida", "valletta"],
   "cosenza": ["rende", "arcavacata di rende", "arcavacata"],
-  "salerno": ["fisciano"], "gotinga": ["gottingen", "goettingen"], "luneburgo": ["luneburg", "lueneburg"], "flesinga": ["vlissingen"], "ratisbona": ["regensburg"], "wurzburgo": ["wurzburg", "wuerzburg"], "malinas": ["mechelen"], "aquisgran": ["aachen"], "francfort": ["frankfurt", "frankfurt am main"], "cortrique": ["kortrijk"], "osnabruck": ["osnabrueck"], "limasol": ["limassol", "lemesos"], "el-havre": ["le havre"], "ruan": ["rouen"], "rzeszow": ["35-959 rzeszow"],
+  "salerno": ["fisciano"], "gotinga": ["gottingen", "goettingen"], "luneburgo": ["luneburg", "lueneburg"], "flesinga": ["vlissingen"], "ratisbona": ["regensburg"], "wurzburgo": ["wurzburg", "wuerzburg"], "malinas": ["mechelen"], "aquisgran": ["aachen"], "francfort": ["frankfurt", "frankfurt am main"], "cortrique": ["kortrijk"], "osnabruck": ["osnabrueck"], "limasol": ["limassol", "lemesos"], "el-havre": ["le havre"],
 };
 
 const norm = (s) => (s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ł/g, "l").toLowerCase().trim();
