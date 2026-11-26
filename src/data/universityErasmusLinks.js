@@ -598,6 +598,18 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Leuphana Universität Lüneburg": "https://www.leuphana.de/en/international-center",
   "Universität Erfurt": "https://www.uni-erfurt.de/en/international/incoming/exchange-studies/study-programmes-and-application",
 
+  // ── Fase 2 Loyola, tanda 5 ─────────────────────────────
+  "Universiteit Hasselt": "https://www.uhasselt.be/en/international/from-abroad/exchange-students",
+  "Université de Namur": "https://www.unamur.be/en/international/mobility/in/exchange-students/administrative-procedure",
+  "University of Limassol": "https://www.uol.ac.cy/en/mobility/",
+  "Roskilde Universitet": "https://ruc.dk/en/node/899",
+  "Slovenská poľnohospodárska univerzita v Nitre": "https://contao.uniag.sk/en/student-mobility/",
+  "Prešovská univerzita v Prešove": "https://www.unipo.sk/taxonomy/term/60950",
+  "Savonia University of Applied Sciences": "https://www.savonia.fi/en/study-with-us/studies/exchange-studies/",
+  "Lapland University of Applied Sciences": "https://lapinamk.fi/en/studies/exchange-students/",
+  "Clermont School of Business": "https://www.clermont-sb.fr/en/etudiant-etranger/",
+  "EM Normandie Business School": "https://en.em-normandie.com/internationally-recognised-business-school/international-students",
+
   // ── Fase 2 Loyola, tanda 4 ─────────────────────────────
   "Constructor University Bremen": "https://constructor.university/student-life/study-abroad/incoming-students",
   "Philosophisch-Theologische Hochschule Sankt Georgen Frankfurt am Main": "https://www.sankt-georgen.de/studium/hinweise-fuer-internationale-studierende-und-antrag-auf-zulassung/",

@@ -767,3 +767,39 @@ Datos de Rosenheim que no se pueden comprobar con fuentes oficiales. Siguen como
 - Empleo: «muchos estudiantes hacen prácticas en Múnich», prácticas accesibles en empresas locales.
 - Seguridad: «de las ciudades más seguras de la guía», «todos se conocen».
 - Texto de ambiente: «huele a madera de pino y cerveza artesanal», «el silencio de los Alpes».
+
+### Tanda 5 — 26-11-2026: Diepenbeek, Namur, Limasol, Roskilde, Nitra, Prešov, Kuopio, Rovaniemi, Clermont-Ferrand, El Havre (rama `tarea/destinos-tanda-5`)
+
+Rama creada desde `tarea/destinos-tanda4` y rebasada sobre `origin/main`, porque la tanda 4 aún no estaba en `main`: si la tanda 4 se integra antes, el rebase quita sus commits solo. Dos agentes `contenido-verificacion` (cinco ciudades cada uno, solo lectura); Claude abre los PDF y XLSX oficiales y calcula el clima.
+
+**Población:** Statbel a 1-1-2026 ([XLSX por municipio](https://statbel.fgov.be/sites/default/files/files/documents/bevolking/5.1%20Structuur%20van%20de%20bevolking/Bevolking_per_gemeente.xlsx)): Diepenbeek 19.867 y Namur 115.457. Roskilde, 93.162 en el municipio (Danmarks Statistik, [FOLK1A](https://api.statbank.dk/v1/data/FOLK1A/CSV?lang=en&OMR%C3%85DE=265&Tid=2026K4), 4.º trimestre de 2026). Kuopio 126.572 y Rovaniemi 66.191 a 31-12-2025 (Statistics Finland, [tabla 11ra](https://pxdata.stat.fi/PxWeb/pxweb/en/StatFin/StatFin__vaerak/statfin_vaerak_pxt_11ra.px/)). Clermont-Ferrand 146.351 y El Havre 166.687 (INSEE, [poblaciones de referencia 2023](https://www.insee.fr/fr/statistiques/8643952?geo=COM-63113)). **Nitra (77.610) y Prešov (83.897) son de 1-1-2022** ([Eurostat urb_cpop1](https://ec.europa.eu/eurostat/databrowser/view/urb_cpop1/default/table), con datos del ŠÚ SR): el DATAcube y el portal de capitales regionales del ŠÚ SR no respondían; conviene actualizarlas. **Limasol sin población**: desde el 1-7-2024 el municipio incluye otros antiguos municipios y no hay cifra oficial con los límites nuevos.
+
+**Clima** (normales OMM 1991–2020 de NOAA; rangos redondeados a la mitad alejándose de cero, comprobado con Semmerzake/Cortrique): Diepenbeek con Kleine-Brogel (06479, a unos 29 km), Namur con Charleroi-Gosselies (06449, a unos 30 km), **Limasol con el aeropuerto de Pafos (17600, a unos 50 km)**, Kuopio con su aeropuerto (02917, a unos 14 km); el resto, estaciones a menos de 10 km. Las fichas de Eslovaquia y Finlandia de NOAA no traen el número de años. **Roskilde sin bloque de clima**: las normales OMM danesas de NOAA (versiones 1.1 y 6.6) no traen máximas ni mínimas, como en Copenhague, Aarhus y Odense.
+
+**Decisiones de Claude (para que las revise Miguel):**
+- **Diepenbeek sin línea de cercanía**: ninguna fuente oficial da la distancia ni el tiempo a Hasselt (UHasselt solo dice que hay bus desde la estación de Hasselt al menos cada 15 minutos, y no dice cuál de sus dos campus es el principal). Solo hay distancias de planificadores de rutas (unos 6 km). Va como ficha propia, sin `near`.
+- **Roskilde con línea de cercanía** a Copenhague: «unos 22 minutos en tren» ([DSB](https://www.dsb.dk/togture-i-danmark/roskilde-kobenhavn/)).
+- **THE**: en Limasol cuenta la Cyprus University of Technology (501–550), porque la University of Limassol solo sale como «Reporter». Kuopio cuenta la University of Eastern Finland (451–500) sin marcarla como satélite: tiene dos campus grandes, Kuopio y Joensuu (mismo criterio que Leiden en La Haya).
+- **Coste con `costSource` solo en Clermont-Ferrand** (610–1.050 €): la [guía para internacionales 2026-2027](https://www.clermont-sb.fr/docs/CLERMONT-SB_GUIDE_ETUDIANTS_INTERNATIONAUX_EN.pdf) desglosa alquiler, comida, ocio, teléfono y transporte. El resto, estimación MAbroad: Namur (600–700 € de UNamur), Kuopio (desglose de Savonia) y El Havre (unos 800 € de EM Normandie) no tienen fecha; Diepenbeek, Limasol, Roskilde, Nitra, Prešov y Rovaniemi no publican total.
+- **Nota provisional: El Havre** (sin THE ni ESN). Quedan 13 provisionales de 164 destinos Erasmus+ (7,9 %, tope del 15 %). Namur, Limasol y Roskilde no tienen ESN, pero sí THE.
+- Fotos: campus de UHasselt (Diepenbeek), confluencia del Mosa y el Sambre (Namur), paseo marítimo (Limasol), catedral (Roskilde), castillo (Nitra), concatedral (Prešov), Kuopio desde Puijo, puente Jätkänkynttilä (Rovaniemi), panorámica de Clermont y edificios de Perret (El Havre); originales de 3.200 px o más.
+
+**Discrepancias con el portal de Loyola (la ficha sigue a la universidad de destino y remite a la Oficina):**
+- **Idioma:**
+  - Prešov: el portal dice inglés B1; la universidad pide inglés B2 ([Fact Sheet 2025/26](https://www.unipo.sk/public/media/11395/Fact_Sheet-University%20of%20Presov_25_26.pdf)).
+  - Namur: el portal pide francés B1; UNamur no exige acreditar nivel y recomienda B1/B2 ([UNamur](https://www.unamur.be/en/international/mobility/in/exchange-students/administrative-procedure)).
+  - Roskilde: el portal pide B2 certificado con menos de 2 años; RUC pide IELTS 6.5, Cambridge C1 Advanced 160 o TOEFL iBT 80, o un documento de la universidad si se estudia en inglés, sin antigüedad máxima ([RUC](https://ruc.dk/en/node/899)).
+  - Rovaniemi: el portal no da idioma; Lapland UAS pide inglés B1 ([Lapland UAS](https://lapinamk.fi/en/studies/exchange-students/application-process/)).
+  - Limasol: el portal pide inglés B2; la universidad no publica nivel para intercambio.
+  - Clermont-Ferrand: «francés B2 o inglés» y «mayoritariamente en francés» del portal no aparecen en la web ni en la guía de la escuela.
+  - El Havre: EM Normandie pide B2 en la lengua de las clases; el portal dice «mayoritariamente en francés». La oferta de cursos 2026-27 está en un dominio ajeno (azurewebsites) y no se ha usado.
+- **Coste y alojamiento:**
+  - Prešov: el portal da unos 120 €; la residencia cuesta 140 € al mes, más 50 € de tasa inicial ([Before Mobility, 29-09-2026](https://www.unipo.sk/taxonomy/term/60950)).
+  - Kuopio: el portal da «~400 €» al mes; solo el desglose de Savonia sin la compra ya pasa de 450 €.
+  - Diepenbeek: el portal da 313–430 €; la hoja 2026-27 de UHasselt, 360–480 € más unos 90 € de gastos. Idioma (inglés o neerlandés B2) y bici (70 € + 25 €) coinciden.
+  - Namur: el portal da unos 300 € de alojamiento; la Maison Internationale cuesta unos 370 € con gastos.
+  - Roskilde: el portal da 500–670 €; RUC, 4.200–5.300 coronas (unos 560–710 €).
+  - Clermont-Ferrand: el portal da 610–800 €; la guía 2026-27, 610–1.050 €.
+  - El Havre: el portal da 800–900 € con alojamiento; EM Normandie, unos 800 € (sin fecha).
+
+**Sin fuente oficial (no se publica en la ficha):** distancia Diepenbeek–Hasselt y fundación de UHasselt; población de Limasol con los límites de 2024; plazos, tasas, precios de alojamiento y coste de vida de la University of Limassol; registro en Chipre (la página del CRMD da 404); precio de las residencias de la SPU (Nitra); billetes urbanos de TEC (403), EMEL, Movia, Nitra y Linkkari (Rovaniemi); tiempos a los aeropuertos salvo Kuopio y Rovaniemi; plazos de Clermont SB 2026-27 y de Lapland UAS 2027-28; año de fundación de Savonia; la capitalidad de Valonia y la confluencia del Sambre y el Mosa en Namur (solo enciclopedias).

@@ -775,6 +775,69 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "8–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Lluvias"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "2–7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y húmedo.", tags: ["Suave","Húmedo","Lluvias"] },
   ],
+  // Diepenbeek: Kleine-Brogel (OMM 06479, a unos 29 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  diepenbeek: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–16°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave en Limburgo.", tags: ["Suave","Bici","Parques"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "12–24°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Terrazas","Bici"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–16°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "1–7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y húmedo.", tags: ["Frío","Húmedo","Lluvias"] },
+  ],
+  // Namur: Charleroi-Gosselies (OMM 06449, a unos 30 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  namur: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–14°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave junto al Mosa.", tags: ["Suave","Mosa","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–23°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Mosa","Terrazas"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "1–6°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y húmedo.", tags: ["Frío","Húmedo","Lluvias"] },
+  ],
+  // Limasol: aeropuerto de Pafos (OMM 17600, a unos 50 km por la costa; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  limasol: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "12–22°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera cálida junto al mar.", tags: ["Cálida","Mar","Paseo marítimo"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "20–30°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano caluroso y seco.", tags: ["Caluroso","Seco","Playa"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "17–27°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño cálido para empezar el curso.", tags: ["Inicio Erasmus","Cálido","Playa"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "9–18°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave, con las lluvias del año.", tags: ["Suave","Lluvias","Sol"] },
+  ],
+  // Nitra: Nitra-Veľké Janíkovce (OMM 11855, a unos 5 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  nitra: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–17°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada bajo el castillo.", tags: ["Templada","Castillo","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "14–27°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano caluroso.", tags: ["Caluroso","Terrazas","Río Nitra"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "6–16°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Ambiente universitario"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-3–4°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas.", tags: ["Frío","Heladas","Nieve"] },
+  ],
+  // Prešov: Prešov-Vojsko (OMM 11955, a unos 6 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  presov: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "3–15°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca que se templa en mayo.", tags: ["Fresca","Casco antiguo","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–25°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Terrazas","Montaña"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "4–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Ambiente universitario"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-5–1°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con heladas y nieve.", tags: ["Frío","Heladas","Nieve"] },
+  ],
+  // Kuopio: aeropuerto de Kuopio (OMM 02917, en Siilinjärvi, a unos 14 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  kuopio: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "-2–7°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fría que se templa en mayo.", tags: ["Fría","Lagos","Días largos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "12–20°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano suave y de días largos.", tags: ["Suave","Lagos","Sauna"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "2–7°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Lagos"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-10–-4°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno muy frío, oscuro y nevado.", tags: ["Muy frío","Nieve","Esquí de fondo"] },
+  ],
+  // Rovaniemi: aeropuerto de Rovaniemi (OMM 02845, a unos 8 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  rovaniemi: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "-3–4°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fría, con nieve.", tags: ["Fría","Nieve","Días largos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "10–18°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano suave, con sol de medianoche.", tags: ["Suave","Sol de medianoche","Ríos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "-1–4°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño frío para empezar el curso.", tags: ["Inicio Erasmus","Frío","Auroras"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-12–-7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno muy frío, oscuro y nevado.", tags: ["Muy frío","Nieve","Auroras"] },
+  ],
+  // Clermont-Ferrand: Clermont-Ferrand (OMM 07460, en el aeropuerto, a unos 5 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  "clermont-ferrand": [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–17°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave a los pies de los volcanes.", tags: ["Suave","Volcanes","Senderismo"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "14–26°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido.", tags: ["Cálido","Volcanes","Terrazas"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "8–17°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Senderismo"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "1–9°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno fresco, con heladas.", tags: ["Fresco","Heladas","Montaña"] },
+  ],
+  // El Havre: Cap de la Hève (OMM 07028, a unos 4 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  "el-havre": [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "8–13°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca junto al mar.", tags: ["Fresca","Mar","Viento"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "15–20°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano suave junto al canal de la Mancha.", tags: ["Suave","Playa","Mar"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "11–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Inicio Erasmus","Templado","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "4–8°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y húmedo.", tags: ["Suave","Húmedo","Viento"] },
+  ],
 };
 
 // Mes más frío y mes más cálido de cada ciudad (normales 1991–2020 de la misma fuente oficial que
@@ -898,4 +961,13 @@ export const CITY_CLIMATE_EXTREMES = {
   graz: { cold: { month: 0, min: -5.6 }, hot: { month: 6, max: 25.6 }, source: "OMM, Graz-Flughafen (11240)" },
   "wiener-neustadt": { cold: { month: 0, min: -1.3 }, hot: { month: 6, max: 26.4 }, source: "OMM, datos de la estación de Viena (Hohe Warte, 11035), a unos 50 km" },
   cortrique: { cold: { month: 1, min: 1.3 }, hot: { month: 6, max: 23.6 }, source: "OMM, Semmerzake (06428), a unos 31 km" },
+  diepenbeek: { cold: { month: 1, min: 0.1 }, hot: { month: 6, max: 24.9 }, source: "OMM, Kleine-Brogel (06479), a unos 29 km" },
+  namur: { cold: { month: 0, min: 0.6 }, hot: { month: 6, max: 23.4 }, source: "OMM, Charleroi-Gosselies (06449), a unos 30 km" },
+  limasol: { cold: { month: 1, min: 8.5 }, hot: { month: 7, max: 31 }, source: "OMM, aeropuerto de Pafos (17600), a unos 50 km" },
+  nitra: { cold: { month: 0, min: -3.8 }, hot: { month: 6, max: 28 }, source: "OMM, Nitra-Veľké Janíkovce (11855)" },
+  presov: { cold: { month: 0, min: -5.5 }, hot: { month: 7, max: 25.8 }, source: "OMM, Prešov-Vojsko (11955)" },
+  kuopio: { cold: { month: 1, min: -11.8 }, hot: { month: 6, max: 21.8 }, source: "OMM, aeropuerto de Kuopio (02917), a unos 14 km" },
+  rovaniemi: { cold: { month: 0, min: -13.5 }, hot: { month: 6, max: 20.1 }, source: "OMM, aeropuerto de Rovaniemi (02845)" },
+  "clermont-ferrand": { cold: { month: 0, min: 0.6 }, hot: { month: 6, max: 26.8 }, source: "OMM, Clermont-Ferrand (07460)" },
+  "el-havre": { cold: { month: 0, min: 3.9 }, hot: { month: 7, max: 21.2 }, source: "OMM, Cap de la Hève (07028)" },
 };

@@ -3,12 +3,12 @@ export default [
  {
   "id": "ade",
   "name": "Administración y Dirección de Empresas (ADE)",
-  "destinations": 86
+  "destinations": 94
  },
  {
   "id": "economia",
   "name": "Economía",
-  "destinations": 38
+  "destinations": 39
  },
  {
   "id": "derecho",
@@ -18,7 +18,7 @@ export default [
  {
   "id": "rrii",
   "name": "Relaciones Internacionales",
-  "destinations": 48
+  "destinations": 50
  },
  {
   "id": "psicologia",
@@ -33,7 +33,7 @@ export default [
  {
   "id": "comunicacion",
   "name": "Comunicación",
-  "destinations": 45
+  "destinations": 47
  },
  {
   "id": "cadv",
@@ -43,7 +43,7 @@ export default [
  {
   "id": "periodismo",
   "name": "Periodismo",
-  "destinations": 32
+  "destinations": 33
  },
  {
   "id": "publicidad",
@@ -53,12 +53,12 @@ export default [
  {
   "id": "edu-primaria",
   "name": "Educación Primaria",
-  "destinations": 25
+  "destinations": 26
  },
  {
   "id": "edu-infantil",
   "name": "Educación Infantil",
-  "destinations": 23
+  "destinations": 24
  },
  {
   "id": "cafd",
@@ -113,7 +113,7 @@ export default [
  {
   "id": "datos",
   "name": "Datos y Analítica de Negocio",
-  "destinations": 11
+  "destinations": 12
  },
  {
   "id": "videojuegos",

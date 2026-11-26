@@ -1,6 +1,6 @@
 // Generado por scripts/scoring-data.mjs (npm run scoring:data) — no editar a mano.
 // Fuente: Erasmus Student Network, listado público de secciones (https://accounts.esn.org/api/v2/sections); solo secciones con estado «active».
-// Descargado el 2026-11-23.
+// Descargado el 2026-11-26.
 /** slug → nombres de las secciones ESN activas en la ciudad */
 export const CITY_ESN_SECTIONS = {
  "bolonia": [
@@ -578,5 +578,28 @@ export const CITY_ESN_SECTIONS = {
  "wiener-neustadt": [],
  "cortrique": [
   "ESN Leonardo Kortrijk"
- ]
+ ],
+ "diepenbeek": [
+  "ESN Hasselt"
+ ],
+ "namur": [],
+ "limasol": [],
+ "roskilde": [],
+ "nitra": [
+  "ESN SUA",
+  "ESN UKF"
+ ],
+ "presov": [
+  "ESN Prešov"
+ ],
+ "kuopio": [
+  "ESN Savo"
+ ],
+ "rovaniemi": [
+  "ESN Lapland"
+ ],
+ "clermont-ferrand": [
+  "ESN Worldtop Clermont-Ferrand"
+ ],
+ "el-havre": []
 };

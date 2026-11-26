@@ -1,6 +1,6 @@
 // Generado por scripts/scoring-data.mjs (npm run scoring:data) — no editar a mano.
 // Fuente: Tasa NEET (jóvenes de 15 a 24 años que ni trabajan ni estudian ni se forman, %). Eurostat edat_lfse_22 por región NUTS 2 (https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/edat_lfse_22?format=JSON&lang=EN&sex=T&age=Y15-24&sinceTimePeriod=2021) con la región de cada ciudad según los límites GISCO NUTS 2024 (https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_10M_2024_4326_LEVL_2.geojson); fuera de Eurostat, OIT por país (indicador SL.UEM.NEET.ZS del Banco Mundial: https://api.worldbank.org/v2/country/all/indicator/SL.UEM.NEET.ZS?format=json&per_page=20000&date=2015:2026).
-// Descargado el 2026-11-23.
+// Descargado el 2026-11-26.
 /** slug → { source: "eurostat" | "ilo", scope: "region" | "country", geo, name?, years: { año: % } } o null (sin dato) */
 export const CITY_NEET = {
  "bolonia": {
@@ -2141,6 +2141,116 @@ export const CITY_NEET = {
    "2023": 4.8,
    "2024": 5,
    "2025": 4.5
+  }
+ },
+ "diepenbeek": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "BE22",
+  "name": "Prov. Limburg (BE)",
+  "years": {
+   "2023": 4.2,
+   "2024": 3.5,
+   "2025": 5.5
+  }
+ },
+ "namur": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "BE35",
+  "name": "Prov. Namur",
+  "years": {
+   "2023": 8.2,
+   "2024": 9.8,
+   "2025": 10
+  }
+ },
+ "limasol": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "CY00",
+  "name": "Kýpros",
+  "years": {
+   "2023": 11.4,
+   "2024": 10.2,
+   "2025": 9.4
+  }
+ },
+ "roskilde": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "DK02",
+  "name": "Sjælland",
+  "years": {
+   "2023": 8,
+   "2024": 7.5,
+   "2025": 8.4
+  }
+ },
+ "nitra": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "SK02",
+  "name": "Západné Slovensko",
+  "years": {
+   "2023": 5.3,
+   "2024": 4.3,
+   "2025": 5
+  }
+ },
+ "presov": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "SK04",
+  "name": "Východné Slovensko",
+  "years": {
+   "2023": 15,
+   "2024": 15.5,
+   "2025": 13.7
+  }
+ },
+ "kuopio": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "FI1D",
+  "name": "Pohjois- ja Itä-Suomi",
+  "years": {
+   "2023": 9.2,
+   "2024": 10,
+   "2025": 10.5
+  }
+ },
+ "rovaniemi": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "FI1D",
+  "name": "Pohjois- ja Itä-Suomi",
+  "years": {
+   "2023": 9.2,
+   "2024": 10,
+   "2025": 10.5
+  }
+ },
+ "clermont-ferrand": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "FRK1",
+  "name": "Auvergne",
+  "years": {
+   "2023": 10.4,
+   "2024": 10.7,
+   "2025": 9.1
+  }
+ },
+ "el-havre": {
+  "source": "eurostat",
+  "scope": "region",
+  "geo": "FRD2",
+  "name": "Haute-Normandie ",
+  "years": {
+   "2023": 10.7,
+   "2024": 12.4,
+   "2025": 13.9
   }
  }
 };

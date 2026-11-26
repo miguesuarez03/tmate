@@ -2,70 +2,60 @@
 
 Generado por `scripts/match-university-cities.mjs` a partir de `src/data/universities/loyola.json` (portal de movilidad, extraído el 2026-11-13). No editar a mano: vuelve a lanzar `npm run universities:match`.
 
-Es la cola de trabajo para añadir fichas: 60 ciudades con 61 convenios de estudios (de 418 fuera de España) que todavía no casan con ninguna ciudad de MAbroad (mismo país y nombre/alias, o universidad a ≤ 15 km). Ordenadas por número de convenios. No cuentan los destinos en España (SICUE) ni los de otros programas (MAGIS (red jesuita)): van aparte, al final. Las coordenadas son las de la primera universidad de cada ciudad en el portal (algunas son aproximadas).
+Es la cola de trabajo para añadir fichas: 50 ciudades con 51 convenios de estudios (de 418 fuera de España) que todavía no casan con ninguna ciudad de MAbroad (mismo país y nombre/alias, o universidad a ≤ 15 km). Ordenadas por número de convenios. No cuentan los destinos en España (SICUE) ni los de otros programas (MAGIS (red jesuita)): van aparte, al final. Las coordenadas son las de la primera universidad de cada ciudad en el portal (algunas son aproximadas).
 
 | # | Ciudad | País | Convenios | Coordenadas (lat, lng) | Universidades |
 |---|---|---|---|---|---|
 | 1 | Seúl | Corea del Sur | 2 | 37.5399, 127.0773 | Konkuk University; Sogang University |
 | 2 | Sídney | Australia | 1 | -33.8671, 151.2071 | Australian Catholic University |
-| 3 | Diepenbeek | Bélgica | 1 | 50.9078, 5.4195 | Universiteit Hasselt |
-| 4 | Namur | Bélgica | 1 | 50.4663, 4.8605 | Université de Namur |
-| 5 | Fortaleza | Brasil | 1 | -3.7184, -38.5434 | Universidade de Fortaleza (UNIFOR) |
-| 6 | São Leopoldo | Brasil | 1 | -29.7608, -51.1522 | Universidade do Vale do Rio dos Sinos (UNISINOS) |
-| 7 | Uagadugú | Burkina Faso | 1 | 12.2844, -1.5194 | Kosyam Jesuit University of Science (KoJUS) |
-| 8 | Limasol | Chipre | 1 | 34.6816, 33.0297 | University of Limassol |
-| 9 | Cali | Colombia | 1 | 3.3753, -76.5341 | Pontificia Universidad Javeriana (Cali) |
-| 10 | Busan | Corea del Sur | 1 | 35.1400, 129.0990 | Kyungsung University |
-| 11 | Abiyán | Costa de Marfil | 1 | 5.3399, -4.0006 | CERAP-IDDH University |
-| 12 | Roskilde | Dinamarca | 1 | 55.6535, 12.1388 | Roskilde Universitet |
-| 13 | Nitra | Eslovaquia | 1 | 48.3071, 18.0932 | Slovenská Polnohospodárska Univerzita v Nitre |
-| 14 | Prešov | Eslovaquia | 1 | 48.9891, 21.2358 | Presovská Univerzita v Presove |
-| 15 | Búfalo | Estados Unidos | 1 | 42.9255, -78.8524 | Canisius College |
-| 16 | Cincinnati | Estados Unidos | 1 | 39.1461, -84.4766 | Xavier University |
-| 17 | Erie | Estados Unidos | 1 | 42.1168, -80.0733 | Gannon University |
-| 18 | Flint | Estados Unidos | 1 | 43.0200, -83.6880 | University of Michigan-Flint |
-| 19 | Jacksonville | Estados Unidos | 1 | 30.2677, -81.5081 | University of North Florida |
-| 20 | Laredo | Estados Unidos | 1 | 27.5071, -99.5075 | Texas A&M International University |
-| 21 | Lock Haven | Estados Unidos | 1 | 41.1370, -77.4469 | Commonwealth University of Pennsylvania |
-| 22 | Milwaukee | Estados Unidos | 1 | 43.0365, -87.9315 | Marquette University |
-| 23 | Newark | Estados Unidos | 1 | 39.6791, -75.7520 | University of Delaware |
-| 24 | Omaha | Estados Unidos | 1 | 41.2654, -95.9493 | Creighton University |
-| 25 | Syracuse | Estados Unidos | 1 | 43.0492, -76.0849 | Le Moyne College |
-| 26 | Utica | Estados Unidos | 1 | 43.0940, -75.2710 | Utica University |
-| 27 | Manila | Filipinas | 1 | 14.6007, 120.9822 | Ateneo de Manila University |
-| 28 | Kuopio | Finlandia | 1 | 62.8933, 27.6793 | Savonia Ammattikorkeakoulu |
-| 29 | Rovaniemi | Finlandia | 1 | 66.4820, 25.7220 | Lapland University of Applied Sciences |
-| 30 | Clermont-Ferrand | Francia | 1 | 45.7780, 3.0900 | Clermont School of Business |
-| 31 | El Havre | Francia | 1 | 49.4894, 0.1036 | Ecole de Management de Normandie |
-| 32 | Ruan | Francia | 1 | 49.4631, 1.0638 | NEOMA Business School |
-| 33 | Tegucigalpa | Honduras | 1 | 14.0821, -87.2063 | Universidad Nacional Autónoma de Honduras |
-| 34 | Bhubaneswar | India | 1 | 20.1592, 85.7625 | XIM University |
-| 35 | Chennai | India | 1 | 13.0616, 80.2347 | Loyola College |
-| 36 | Jamshedpur | India | 1 | 22.8133, 86.1908 | XLRI, Xavier School of Management |
-| 37 | Limerick | Irlanda | 1 | 52.6639, -8.6268 | Mary Immaculate College |
-| 38 | Waterford | Irlanda | 1 | 52.2568, -7.1292 | South East Technological University |
-| 39 | Tokio | Japón | 1 | 35.6785, 139.6823 | Sophia University |
-| 40 | Fianarantsoa | Madagascar | 1 | -21.4277, 47.3027 | Magis University |
-| 41 | Rabat | Marruecos | 1 | 34.0229, -6.7668 | Université Internationale de Rabat |
-| 42 | León | México | 1 | 21.1282, -101.6282 | Universidad Iberoamericana León |
-| 43 | Puebla | México | 1 | 19.0309, -98.2418 | Universidad Iberoamericana Puebla |
-| 44 | Tijuana | México | 1 | 32.5149, -117.0382 | Universidad Iberoamericana Tijuana |
-| 45 | Torreón | México | 1 | 25.6110, -103.4017 | Universidad Iberoamericana de Torreón |
-| 46 | Eindhoven | Países Bajos | 1 | 51.4513, 5.4803 | Fontys Hogescholen |
-| 47 | Willemstad | Países Bajos | 1 | 12.1696, -68.9900 | University of Curaçao Dr. Moises Da Costa Gomez |
-| 48 | Zwolle | Países Bajos | 1 | 52.5128, 6.0915 | Windesheim |
-| 49 | Rzeszów | Polonia | 1 | 50.0197, 21.9858 | Politechnika Rzeszowska |
-| 50 | Viseu | Portugal | 1 | 40.6575, -7.9143 | Instituto Superior Politécnico de Viseu |
-| 51 | Aberystwyth | Reino Unido | 1 | 52.4179, -4.0656 | Aberystwyth University |
-| 52 | Bradford | Reino Unido | 1 | 53.7926, -1.7658 | University of Bradford |
-| 53 | Hatfield | Reino Unido | 1 | 51.7528, -0.2420 | University of Hertfordshire |
-| 54 | Leicester | Reino Unido | 1 | 52.6233, -1.1248 | University of Leicester |
-| 55 | Portsmouth | Reino Unido | 1 | 50.7954, -1.0913 | University of Portsmouth |
-| 56 | Olomouc | República Checa | 1 | 49.5952, 17.2588 | Univerzita Palackého v Olomouci |
-| 57 | Örebro | Suecia | 1 | 59.2540, 15.2531 | Örebro universitet |
-| 58 | Trollhättan | Suecia | 1 | 58.2827, 12.2919 | Högskolan Väst |
-| 59 | Taipéi | Taiwán | 1 | 25.0911, 121.5598 | Fu Jen Catholic University |
-| 60 | Caracas | Venezuela | 1 | 10.4643, -66.9758 | Universidad Católica Andrés Bello |
+| 3 | Fortaleza | Brasil | 1 | -3.7184, -38.5434 | Universidade de Fortaleza (UNIFOR) |
+| 4 | São Leopoldo | Brasil | 1 | -29.7608, -51.1522 | Universidade do Vale do Rio dos Sinos (UNISINOS) |
+| 5 | Uagadugú | Burkina Faso | 1 | 12.2844, -1.5194 | Kosyam Jesuit University of Science (KoJUS) |
+| 6 | Cali | Colombia | 1 | 3.3753, -76.5341 | Pontificia Universidad Javeriana (Cali) |
+| 7 | Busan | Corea del Sur | 1 | 35.1400, 129.0990 | Kyungsung University |
+| 8 | Abiyán | Costa de Marfil | 1 | 5.3399, -4.0006 | CERAP-IDDH University |
+| 9 | Búfalo | Estados Unidos | 1 | 42.9255, -78.8524 | Canisius College |
+| 10 | Cincinnati | Estados Unidos | 1 | 39.1461, -84.4766 | Xavier University |
+| 11 | Erie | Estados Unidos | 1 | 42.1168, -80.0733 | Gannon University |
+| 12 | Flint | Estados Unidos | 1 | 43.0200, -83.6880 | University of Michigan-Flint |
+| 13 | Jacksonville | Estados Unidos | 1 | 30.2677, -81.5081 | University of North Florida |
+| 14 | Laredo | Estados Unidos | 1 | 27.5071, -99.5075 | Texas A&M International University |
+| 15 | Lock Haven | Estados Unidos | 1 | 41.1370, -77.4469 | Commonwealth University of Pennsylvania |
+| 16 | Milwaukee | Estados Unidos | 1 | 43.0365, -87.9315 | Marquette University |
+| 17 | Newark | Estados Unidos | 1 | 39.6791, -75.7520 | University of Delaware |
+| 18 | Omaha | Estados Unidos | 1 | 41.2654, -95.9493 | Creighton University |
+| 19 | Syracuse | Estados Unidos | 1 | 43.0492, -76.0849 | Le Moyne College |
+| 20 | Utica | Estados Unidos | 1 | 43.0940, -75.2710 | Utica University |
+| 21 | Manila | Filipinas | 1 | 14.6007, 120.9822 | Ateneo de Manila University |
+| 22 | Ruan | Francia | 1 | 49.4631, 1.0638 | NEOMA Business School |
+| 23 | Tegucigalpa | Honduras | 1 | 14.0821, -87.2063 | Universidad Nacional Autónoma de Honduras |
+| 24 | Bhubaneswar | India | 1 | 20.1592, 85.7625 | XIM University |
+| 25 | Chennai | India | 1 | 13.0616, 80.2347 | Loyola College |
+| 26 | Jamshedpur | India | 1 | 22.8133, 86.1908 | XLRI, Xavier School of Management |
+| 27 | Limerick | Irlanda | 1 | 52.6639, -8.6268 | Mary Immaculate College |
+| 28 | Waterford | Irlanda | 1 | 52.2568, -7.1292 | South East Technological University |
+| 29 | Tokio | Japón | 1 | 35.6785, 139.6823 | Sophia University |
+| 30 | Fianarantsoa | Madagascar | 1 | -21.4277, 47.3027 | Magis University |
+| 31 | Rabat | Marruecos | 1 | 34.0229, -6.7668 | Université Internationale de Rabat |
+| 32 | León | México | 1 | 21.1282, -101.6282 | Universidad Iberoamericana León |
+| 33 | Puebla | México | 1 | 19.0309, -98.2418 | Universidad Iberoamericana Puebla |
+| 34 | Tijuana | México | 1 | 32.5149, -117.0382 | Universidad Iberoamericana Tijuana |
+| 35 | Torreón | México | 1 | 25.6110, -103.4017 | Universidad Iberoamericana de Torreón |
+| 36 | Eindhoven | Países Bajos | 1 | 51.4513, 5.4803 | Fontys Hogescholen |
+| 37 | Willemstad | Países Bajos | 1 | 12.1696, -68.9900 | University of Curaçao Dr. Moises Da Costa Gomez |
+| 38 | Zwolle | Países Bajos | 1 | 52.5128, 6.0915 | Windesheim |
+| 39 | Rzeszów | Polonia | 1 | 50.0197, 21.9858 | Politechnika Rzeszowska |
+| 40 | Viseu | Portugal | 1 | 40.6575, -7.9143 | Instituto Superior Politécnico de Viseu |
+| 41 | Aberystwyth | Reino Unido | 1 | 52.4179, -4.0656 | Aberystwyth University |
+| 42 | Bradford | Reino Unido | 1 | 53.7926, -1.7658 | University of Bradford |
+| 43 | Hatfield | Reino Unido | 1 | 51.7528, -0.2420 | University of Hertfordshire |
+| 44 | Leicester | Reino Unido | 1 | 52.6233, -1.1248 | University of Leicester |
+| 45 | Portsmouth | Reino Unido | 1 | 50.7954, -1.0913 | University of Portsmouth |
+| 46 | Olomouc | República Checa | 1 | 49.5952, 17.2588 | Univerzita Palackého v Olomouci |
+| 47 | Örebro | Suecia | 1 | 59.2540, 15.2531 | Örebro universitet |
+| 48 | Trollhättan | Suecia | 1 | 58.2827, 12.2919 | Högskolan Väst |
+| 49 | Taipéi | Taiwán | 1 | 25.0911, 121.5598 | Fu Jen Catholic University |
+| 50 | Caracas | Venezuela | 1 | 10.4643, -66.9758 | Universidad Católica Andrés Bello |
 
 ## Destinos en España (SICUE): fuera por ahora
 
@@ -85,11 +75,10 @@ MAbroad todavía no tiene fichas de ciudades españolas. En «Mi universidad» s
 
 ## Otros programas (MAGIS (red jesuita)): no cuentan
 
-No son intercambios de estudios de un cuatrimestre o un curso: en la web van plegados y fuera de los totales, así que no piden ficha. Sin ficha: 23 ciudades con 23 convenios.
+No son intercambios de estudios de un cuatrimestre o un curso: en la web van plegados y fuera de los totales, así que no piden ficha. Sin ficha: 22 ciudades con 22 convenios.
 
 | Ciudad | País | Convenios | Universidades |
 |---|---|---|---|
-| Namur | Bélgica | 1 | Université de Namur |
 | São Leopoldo | Brasil | 1 | Universidade do Vale do Rio dos Sinos (UNISINOS) |
 | Pekín | China | 1 | The Beijing Center |
 | Cali | Colombia | 1 | Pontificia Universidad Javeriana (Cali) |

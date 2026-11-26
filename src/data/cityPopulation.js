@@ -213,4 +213,13 @@ export const CITY_POPULATION = {
   "graz": { population: 306971, year: 2026, source: "Statistik Austria" },
   "wiener-neustadt": { population: 50025, year: 2026, source: "Statistik Austria" },
   "cortrique": { population: 82017, year: 2026, source: "Registro Nacional de Bélgica (Rijksregister)" },
+  "diepenbeek": { population: 19867, year: 2026, source: "Statbel" },
+  "namur": { population: 115457, year: 2026, source: "Statbel" },
+  "roskilde": { population: 93162, year: 2026, source: "Danmarks Statistik" },
+  "nitra": { population: 77610, year: 2022, source: "Eurostat (Urban Audit, con datos del ŠÚ SR)" },
+  "presov": { population: 83897, year: 2022, source: "Eurostat (Urban Audit, con datos del ŠÚ SR)" },
+  "kuopio": { population: 126572, year: 2025, source: "Statistics Finland" },
+  "rovaniemi": { population: 66191, year: 2025, source: "Statistics Finland" },
+  "clermont-ferrand": { population: 146351, year: 2023, source: "INSEE" },
+  "el-havre": { population: 166687, year: 2023, source: "INSEE" },
 };

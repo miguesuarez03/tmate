@@ -1,6 +1,6 @@
 // Generado por scripts/scoring-data.mjs (npm run scoring:data) — no editar a mano.
 // Fuente: Times Higher Education World University Rankings 2027 (https://www.timeshighereducation.com/json/ranking_tables/world_university_rankings/2027); ediciones 2026, 2025, 2024, 2023 para las universidades que ya no salen en la actual.
-// Descargado el 2026-11-23.
+// Descargado el 2026-11-26.
 export const THE_EDITION = 2027;
 /** slug → [{ name, edition, rank, students, intlPct, satellite? }] (satellite: solo un campus pequeño en la ciudad, no cuenta para la comunidad; rank tal como lo publica THE: «=111», «301–325», «Reporter»…) */
 export const CITY_UNIVERSITIES = {
@@ -3074,5 +3074,71 @@ export const CITY_UNIVERSITIES = {
    "intlPct": 22,
    "satellite": true
   }
- ]
+ ],
+ "diepenbeek": [
+  {
+   "name": "Hasselt University",
+   "edition": 2027,
+   "rank": "351–375",
+   "students": 6561,
+   "intlPct": 17
+  }
+ ],
+ "namur": [
+  {
+   "name": "University of Namur",
+   "edition": 2027,
+   "rank": "801–1000",
+   "students": 6382,
+   "intlPct": 20
+  }
+ ],
+ "limasol": [
+  {
+   "name": "Cyprus University of Technology",
+   "edition": 2027,
+   "rank": "501–550",
+   "students": 3186,
+   "intlPct": 16
+  }
+ ],
+ "roskilde": [
+  {
+   "name": "Roskilde University",
+   "edition": 2027,
+   "rank": "501–550",
+   "students": 5291,
+   "intlPct": 21
+  }
+ ],
+ "nitra": [
+  {
+   "name": "Slovak University of Agriculture in Nitra",
+   "edition": 2027,
+   "rank": "1401–1600",
+   "students": 4500,
+   "intlPct": 6
+  }
+ ],
+ "presov": [],
+ "kuopio": [
+  {
+   "name": "University of Eastern Finland",
+   "edition": 2027,
+   "rank": "451–500",
+   "students": 13323,
+   "intlPct": 7
+  }
+ ],
+ "rovaniemi": [],
+ "clermont-ferrand": [
+  {
+   "name": "University of Clermont Auvergne",
+   "edition": 2027,
+   "rank": "1001–1200",
+   "students": 35429,
+   "intlPct": 15
+  }
+ ],
+ "el-havre": []
 };

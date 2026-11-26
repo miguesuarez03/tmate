@@ -281,6 +281,19 @@ const THE_NAMES = {
   "graz": ["University of Graz", "Graz University of Technology", "Medical University of Graz"],
   "wiener-neustadt": [],
   "cortrique": [{ name: "KU Leuven", satellite: true }],
+  // Tanda 5. University of Limassol solo sale como «Reporter» (sin puesto): cuenta la Cyprus University of Technology, con sede en Limasol.
+  // Kuopio: UEF tiene dos campus grandes (Kuopio y Joensuu); no se marca como satélite (mismo criterio que Leiden en La Haya).
+  // Prešov (University of Prešov), Rovaniemi (University of Lapland, sin puesto) y El Havre (Université Le Havre Normandie, sin puesto) no salen.
+  "diepenbeek": ["Hasselt University"],
+  "namur": ["University of Namur"],
+  "limasol": ["Cyprus University of Technology"],
+  "roskilde": ["Roskilde University"],
+  "nitra": ["Slovak University of Agriculture in Nitra"],
+  "presov": [],
+  "kuopio": ["University of Eastern Finland"],
+  "rovaniemi": [],
+  "clermont-ferrand": ["University of Clermont Auvergne"],
+  "el-havre": [],
 };
 
 /** Nombres con que ESN escribe cada ciudad (además del nombre de la ficha). */
@@ -302,7 +315,7 @@ const ESN_CITY_NAMES = {
   "milan": ["milano"], "roma": ["rome"], "bolonia": ["bologna"], "cluj-napoca": ["cluj"], "katowice": ["gliwice"],
   "nicosia": ["lefkosia"], "la-valeta": ["msida", "valletta"],
   "cosenza": ["rende", "arcavacata di rende", "arcavacata"],
-  "salerno": ["fisciano"], "gotinga": ["gottingen", "goettingen"], "luneburgo": ["luneburg", "lueneburg"], "flesinga": ["vlissingen"], "ratisbona": ["regensburg"], "wurzburgo": ["wurzburg", "wuerzburg"], "malinas": ["mechelen"], "aquisgran": ["aachen"], "francfort": ["frankfurt", "frankfurt am main"], "cortrique": ["kortrijk"], "osnabruck": ["osnabrueck"],
+  "salerno": ["fisciano"], "gotinga": ["gottingen", "goettingen"], "luneburgo": ["luneburg", "lueneburg"], "flesinga": ["vlissingen"], "ratisbona": ["regensburg"], "wurzburgo": ["wurzburg", "wuerzburg"], "malinas": ["mechelen"], "aquisgran": ["aachen"], "francfort": ["frankfurt", "frankfurt am main"], "cortrique": ["kortrijk"], "osnabruck": ["osnabrueck"], "limasol": ["limassol", "lemesos"], "el-havre": ["le havre"],
 };
 
 const norm = (s) => (s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ł/g, "l").toLowerCase().trim();
