@@ -478,6 +478,23 @@ Dos agentes `contenido-verificacion` (cinco ciudades cada uno, solo lectura); Cl
 
 **Revisión de Codex (23-11).** Corregido: Constructor fundada en 1999 (campus desde 2001, [constructor.university/about](https://constructor.university/about)); Anmeldebescheinigung en Austria para más de 3 meses, en los 4 primeros meses y 44 € ([oesterreich.gv.at](https://www.oesterreich.gv.at/de/themen/menschen_aus_anderen_staaten/aufenthalt/4/2/Seite.120810); la hoja del Augustinum decía 4 meses, 3 meses y 15 €); vía A2 + inglés B2 y plazo de C@MPUS en Stuttgart; cuota de Jena solo para el invierno 2026/27; remisión a la Oficina en Mannheim; «sin incidencias específicas» cambiado por «sin datos específicos» en las nuevas. **No aplicado:** la fecha del Fact Sheet de Passau (Codex dice diciembre de 2025; el PDF termina con «November 2026»). Codex dice que VIVES publica inglés B1 sin certificado, pero la página da 403 y no se ha podido leer: la ficha mantiene la remisión a la Oficina. Sin segunda ronda.
 
+**Para el correo a Loyola (discrepancias de la tanda 4, decisión de Miguel del 26-11).** En todos los casos la ficha sigue a la universidad de destino y remite a la Oficina.
+- **Idioma:**
+  - Passau: el portal pide alemán B2; la universidad pide alemán o inglés B1, con B2 recomendado (Fact Sheet 2026/27).
+  - Graz (PPH Augustinum): el portal pide alemán o inglés B1; la escuela pide B2 (First information on Erasmus studies 2026).
+  - Jena: el portal da «alemán B2 o inglés B2»; casi todo el grado es en alemán (B2 aproximado) y las pocas asignaturas en inglés piden B2–C1.
+  - Stuttgart: «alemán B1 o inglés B2» encaja, pero en grado hay muy pocas asignaturas en inglés y el curso intensivo de alemán solo es obligatorio con A2 (y B2 de inglés), no «para quien no tenga nivel».
+  - Mannheim: el portal no da idioma; la universidad pide alemán o inglés B2, sin certificado.
+  - Fráncfort (Sankt Georgen): el portal no da idioma; la facultad pide alemán C1 a los de carrera completa y no publica nivel para intercambio.
+  - Cortrique (VIVES): el portal dice inglés B1; no se ha podido comprobar en vives.be (da 403).
+- **Coste:**
+  - Passau: el portal da 760 € al mes y alquiler de 250–450 €; la universidad, 600–950 € al mes (Fact Sheet 2026/27) y residencias de 250–400 €.
+  - Stuttgart: el portal da 750 € al mes; la universidad, 992 € como mínimo.
+  - Jena: el portal da unos 900 € con unos 450 € de alojamiento; la universidad, 750–900 € con unos 300 € de alquiler (200–350 € en residencia).
+  - Graz: el «máx. 1.000 € con residencia» del portal no aparece en ninguna fuente del Augustinum.
+  - Cortrique: el bachelor de International Management de 1.000 € del portal no tiene fuente oficial.
+- **Clima** (decisión de Miguel): se mantiene en Jena, Passau y Wiener Neustadt, y el pie del bloque indica la estación y la distancia (Passau, además, «24 de 30 años de datos»).
+
 ## Ciudades nuevas de la cola Loyola (rama `tandas-loyola`)
 
 ### 15-11-2026 — campus satélite y cierre de la revisión pendiente
