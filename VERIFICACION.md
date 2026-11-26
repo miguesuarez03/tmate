@@ -862,3 +862,34 @@ Sin cambios: Diepenbeek sin `near`; Nitra y Prešov con Eurostat 2022; Limasol s
 - El Havre: 800–900 € con alojamiento (EM Normandie, unos 800 € sin fecha).
 - **Prešov y Diepenbeek: el portal no da total mensual**, solo alojamiento; el presupuesto sigue como estimación MAbroad y se muestra el alojamiento de Loyola: Prešov, unos 120 € (la universidad cobra 140 € desde el 29-09-2026); Diepenbeek, 313–430 € de alquiler medio (UHasselt, 360–480 € más unos 90 € de gastos en la hoja 2026-27).
 - Sin Codex (mismo cambio ya revisado en `6d6f663`/`cdcf757`).
+
+### Tanda 6 — 27-11-2026: Ruan, Limerick, Waterford, Eindhoven, Zwolle, Rzeszów, Viseu, Olomouc, Örebro, Trollhättan (rama `tarea/destinos-tanda-6`)
+
+Rama creada desde `origin/main`. Dos agentes `contenido-verificacion` (cinco ciudades cada uno, solo lectura); Claude abre los PDF oficiales (Örebro, Olomouc, IPMA), calcula el clima y consulta THE 2027 y la API de ESN.
+
+**Población:** Ruan 117.662 (INSEE, población de referencia 2023); Eindhoven 249.783 y Zwolle 134.147 (CBS, 1-1-2026, tabla 03759ned); Olomouc 103.063 (ČSÚ, final de 2024); Örebro 160.687 (SCB, 31-12-2025). **Sin población:** Limerick y Waterford (el CSO solo da el condado en sus notas; la cifra de «city and suburbs» solo se ha visto en Wikipedia), Rzeszów (199.436 del GUS solo en un resumen del buscador), Viseu (109.166 de PORDATA, estimación del INE sin leer en el INE) y Trollhättan (solo la previsión municipal).
+
+**Clima** (normales OMM 1991–2020 de NOAA, mismo redondeo que la tanda 5): Ruan con Rouen-Boos (07037, a unos 8 km), Limerick con el aeropuerto de Shannon (03962, a unos 20 km), **Waterford con el aeropuerto de Cork (03955, a unos 100 km: no hay estación OMM más cercana en NOAA)**, Eindhoven con su aeropuerto (06370, a unos 7 km), Zwolle con Marknesse (06273, a unos 25 km), Rzeszów con Jasionka (12580), **Olomouc con Holešov (11774, a unos 40 km)**, Örebro con su aeropuerto (02432, a unos 10 km), **Trollhättan con Sätenäs (02520, a unos 30 km**: la estación del aeropuerto, 02523, no trae temperaturas). Viseu con la normal del IPMA (estación 560, [PDF](https://www.ipma.pt/bin/file.data/climate-normal/cn_91-20_VISEU.pdf)).
+
+**Decidido provisionalmente:**
+- **Olomouc con Holešov y no con Luká** (a unos 22 km, pero a 510 m de altitud frente a unos 220 m de la ciudad): Holešov está en la misma llanura de Haná, a 222 m.
+- **Waterford con Cork, a unos 100 km**, indicándolo en la ficha.
+- **Viseu con el nombre nuevo**, «Universidade Politécnica de Viseu» (DGES, [aviso de 13-08-2026](https://www.dges.gov.pt/simges/public/www/detalhes_ies/35)), con «antes Instituto Politécnico de Viseu» en la descripción.
+- **Limerick: el coste va como estimación MAbroad** (1.200–1.500 €), aunque MIC publica 1.493 € al mes para 2026-27: Loyola no da total y la regla de la fase 2 manda estimación. La cifra de MIC sale en los consejos.
+- **ESN solo cuenta si la sección está activa**: ESN Rouen, ESN Örebro y ESN PRz Rzeszów figuran como «expelled» en la [API de ESN](https://accounts.esn.org/api/v2/sections). Limerick cuenta ESN UL y ESN TUS Midwest Global (están en la ciudad, aunque no en MIC).
+- **THE solo con las universidades del convenio**: cuentan Rzeszów University of Technology (2001+), Palacký University Olomouc (1001–1200) y Örebro University (651–700). No salen NEOMA, Mary Immaculate College, SETU, Fontys, Windesheim, el Politécnico de Viseu ni University West (la University of Limerick y la TU/e no cuentan).
+- **Notas provisionales: Ruan, Waterford, Eindhoven, Viseu y Trollhättan** (sin THE ni ESN activa). Quedan **19 de 174** destinos Erasmus+ (10,9 %, tope del 15 %).
+- Fotos: catedral (Ruan), castillo del rey Juan (Limerick), Reginald's Tower (Waterford), Evoluon (Eindhoven), Sassenpoort (Zwolle), Rynek (Rzeszów), catedral (Viseu), columna de la Trinidad (Olomouc), castillo (Örebro) y cascada de Stampeströmmen (Trollhättan); originales de 3.200 px o más.
+
+**Se muestra lo de Loyola (discrepancias con la universidad de destino):**
+- Ruan: Loyola pide francés o inglés B2 y dice «algunas asignaturas en francés»; NEOMA no exige certificado (recomienda IELTS 6.0, o B2 para cursar en francés) y da hasta un 95 % en inglés. Coste: Loyola ~750 € con 400–500 € de alojamiento; NEOMA 600–1.050 € (ficha 2024-25) y residencias de 254–357 € (sin año).
+- Limerick: Loyola dice inglés B2 y solo primer semestre; MIC no publica nivel para intercambio y abre también la primavera.
+- Waterford: Loyola dice que el alojamiento corre por tu cuenta; SETU publica residencias (2.670–3.905 € por semestre en 2025-26).
+- Eindhoven: Loyola 800–1.000 € con alojamiento; Fontys 1.100–1.500 € (sin año).
+- Rzeszów: Loyola 100–120 € de alquiler; la Politechnika, 170–190 € en la residencia Ikar (Orden del Rector 29-2026) y 400 € de fianza.
+- Viseu: Loyola pide portugués B1 y dice asignaturas en portugués; la web actual no da nivel y publica lista de asignaturas en inglés (una ficha antigua decía B2 en inglés o portugués).
+- Olomouc: los ~700 € de Loyola caben en las 10.000–20.000 coronas de la UP (sin fecha); el nivel de inglés lo pone cada facultad.
+- Trollhättan: Loyola no da idioma; Högskolan Väst no pide examen y recomienda B1 (sale en el consejo).
+- Örebro y Zwolle: coinciden.
+
+**Sin fuente oficial (no se publica en la ficha):** población de Limerick, Waterford, Rzeszów, Viseu y Trollhättan; billetes urbanos de Ruan (Astuce), Limerick y Waterford (TFI da 1,35 y 1,50 € a la vez), Zwolle, Rzeszów y Viseu; plazos de SETU (la web da 403) y de NEOMA 2026-27 (ficha no descargable: se dan los de 2024-25 avisando); coste de vida de SETU, Viseu y Högskolan Väst; fundación de Fontys, Windesheim, Högskolan Väst y del Politécnico de Viseu; nº de estudiantes de Fontys y del Politécnico de Viseu; fuentes municipales de los monumentos de Rzeszów y Viseu; vikingos y Reginald's Tower de Waterford (solo la web turística).
