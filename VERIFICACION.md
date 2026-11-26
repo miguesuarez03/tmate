@@ -706,7 +706,7 @@ Petición de Miguel: los rangos por estación son medias y esconden los días ex
 
 ## Fase 1, tareas pequeñas (26-11-2026, rama `tarea/fase1-pequenas`)
 
-- **Fecha de revisión por ficha** (`src/data/cityReviews.js`): sale de las tandas cerradas de este documento (tandas 1–13 y 13b, Loyola A/B con su cierre del 15-11 y fase 2, tandas 1–3). Las fichas que no han pasado por ninguna dicen que están pendientes de revisión, sin fecha.
+- **Fecha de revisión por ficha** (`src/data/cityReviews.js`): sale de las tandas cerradas de este documento (tandas 1–13 y 13b, Loyola A/B con su cierre del 15-11 y fase 2, tandas 1–3). Las fichas que no han pasado por ninguna no enseñan fecha (decisión de Miguel: nada de «pendiente de revisión»).
 - **Enlaces de entrantes:**
   - Trento: se mantiene la [página de UniTrento para estudiantes de intercambio](https://www.unitn.it/en/international/coming-unitrento/exchange-student) (la web oficial la devuelve en las búsquedas; a los bots les da 403).
   - Pavía: pasa a la página concreta [Erasmus+ EU Students](https://en.unipv.it/en/international/study-pavia/exchange-student/study/erasmus-eu-students) de la UniPV (carga, con el buzón incoming.erasmus@unipv.it).

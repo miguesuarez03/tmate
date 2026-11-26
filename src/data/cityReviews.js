@@ -6,8 +6,8 @@
  * ciudad (no la del build ni la del último commit, que cambian con cualquier
  * ajuste de código). La ficha la enseña como «Datos revisados el …».
  *
- * Una ciudad que aún no ha pasado por una tanda NO va aquí: su ficha dice que
- * está pendiente de revisión, en vez de inventar una fecha.
+ * Una ciudad que aún no ha pasado por una tanda NO va aquí: su ficha no
+ * enseña ninguna fecha (nunca una inventada).
  *
  * Al cerrar una tanda (o crear una ficha nueva ya verificada), añade o cambia
  * aquí la fecha de sus ciudades. tests/reviews.test.mjs comprueba que cada

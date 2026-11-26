@@ -14,7 +14,7 @@ import { CONTACT_EMAIL } from "../data/contact";
  *
  * review (solo en la ficha): getCityReview(slug), la fecha de la última
  * revisión de sus datos (src/data/cityReviews.js), siempre visible; null si
- * la ficha aún no ha pasado por una tanda de verificación.
+ * la ficha aún no ha pasado por una tanda de verificación (entonces no hay línea).
  */
 export default function MethodologyNote({ compact = false, review, cityName }) {
   const [open, setOpen] = useState(false);
@@ -25,14 +25,10 @@ export default function MethodologyNote({ compact = false, review, cityName }) {
         <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}><IconGrafica size={20} /> Cómo calculamos estos datos</span>
         <span className="trust-note__arrow">{open ? "▲" : "▼"}</span>
       </button>
-      {cityName && (
+      {cityName && review && (
         <p className="trust-note__updated trust-note__review" style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
           <IconReloj size={16} />
-          <span>
-            {review
-              ? <>Datos de {cityName} revisados el <time dateTime={review.iso}>{review.label}</time>.</>
-              : <>Los datos de {cityName} aún no han pasado por nuestra revisión con fuentes oficiales.</>}
-          </span>
+          <span>Datos de {cityName} revisados el <time dateTime={review.iso}>{review.label}</time>.</span>
         </p>
       )}
       {open && (
