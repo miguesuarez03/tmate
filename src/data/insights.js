@@ -18155,7 +18155,7 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.0,
-        summary: "Estimación MAbroad de 800–1.000 € al mes: la Universität Erfurt publica 947 € de una encuesta de 2021, demasiado antigua.",
+        summary: "Según la Universidad Loyola, unos 900 € al mes.",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.5, desc: "Residencias del Studierendenwerk por 204–423 € al mes con todo incluido." },
@@ -18283,10 +18283,10 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.0,
-        summary: "Las clases son en italiano: hace falta el idioma.",
+        summary: "Idioma según la Universidad Loyola: inglés o italiano B1.",
         color: "#3F7A7D",
         subcategories: [
-          { label: "Nivel de inglés", score: 4.0, desc: "Las clases son en italiano y fuera se habla poco inglés." },
+          { label: "Nivel de inglés", score: 4.0, desc: "Fuera de la universidad se habla poco inglés." },
           { label: "Actitud local", score: 7.5, desc: "Ciudad acogedora." },
           { label: "Integración con locales", score: 7.0, desc: "Con pocos internacionales, es fácil tratar con estudiantes locales." },
           { label: "Facilidad para hacer amigos", score: 6.5, desc: "Comunidad pequeña." },
@@ -18440,7 +18440,7 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 4.5,
-        summary: "Estimación MAbroad de 1.000–1.400 € al mes: la NHH no publica presupuesto; Noruega es de los países más caros de Europa.",
+        summary: "Según la Universidad Loyola, unos 1.050 € al mes; Noruega es de los países más caros de Europa.",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "Vivienda de Sammen garantizada para intercambio." },
@@ -18535,7 +18535,7 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.0,
-        summary: "La HAN calcula unos 1.200 € al mes con el alojamiento (Fact Sheet 2026-27).",
+        summary: "Según la Universidad Loyola, unos 900 € al mes.",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 5.5, desc: "Habitaciones de SSH& por 500–900 € (la mayoría, 530–630 €)." },
@@ -19043,10 +19043,10 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.0,
-        summary: "La mayoría de los cursos son en francés.",
+        summary: "Idioma según la Universidad Loyola: inglés o francés B1.",
         color: "#3F7A7D",
         subcategories: [
-          { label: "Nivel de inglés", score: 5.0, desc: "Cursos sobre todo en francés; fuera, poco inglés." },
+          { label: "Nivel de inglés", score: 5.0, desc: "Fuera de la universidad, poco inglés." },
           { label: "Actitud local", score: 7.0, desc: "Ciudad acogedora." },
           { label: "Integración con locales", score: 6.5, desc: "El francés abre puertas." },
           { label: "Facilidad para hacer amigos", score: 6.5, desc: "Comunidad de ingenieros de la UTBM." },
@@ -19211,13 +19211,13 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 5.5,
-        summary: "La universidad no da residencia a los de intercambio.",
+        summary: "Según la Universidad Loyola, 25 habitaciones en residencias para intercambio, con prioridad para algunos casos.",
         color: "#EF4444",
         subcategories: [
-          { label: "Disponibilidad", score: 5.0, desc: "Las residencias de la UA no admiten estudiantes de intercambio." },
+          { label: "Disponibilidad", score: 5.0, desc: "Pocas habitaciones en residencias (25) y con prioridad." },
           { label: "Precio", score: 7.0, desc: "Habitaciones privadas de 250–400 €." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "Los servicios sociales de la UA tienen una lista de alojamientos verificados." },
-          { label: "Residencias universitarias", score: 3.5, desc: "Sin residencia para intercambio." },
+          { label: "Residencias universitarias", score: 3.5, desc: "25 habitaciones a 180 € al mes, según la Universidad Loyola." },
         ],
       },
       {
@@ -19675,7 +19675,7 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.0,
-        summary: "Estimación MAbroad de 800–1.100 € al mes: la universidad no publica un presupuesto actual para intercambio.",
+        summary: "Según la Universidad Loyola, unos 7.600 SEK al mes (unos 680 €).",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.5, desc: "Unos 20.500–24.500 SEK por semestre en vivienda de la universidad." },
@@ -19770,7 +19770,7 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 3.5,
-        summary: "Estimación MAbroad de 1.400–2.100 € al mes; la FHNW calcula 1.415–2.080 CHF (fact sheet 2026).",
+        summary: "Según la Universidad Loyola, 1.215–1.980 CHF al mes.",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 3.5, desc: "Pisos desde 600 CHF al mes." },
@@ -19865,7 +19865,7 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 6.5,
-        summary: "Estimación MAbroad de 950–1.250 € al mes: la hoja de la RWTH que da 1.200 € no tiene fecha.",
+        summary: "Según la Universidad Loyola, unos 800 € al mes.",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 6.0, desc: "La RWTH no ofrece alojamiento a los de intercambio." },
@@ -20373,10 +20373,10 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.5,
-        summary: "Ciudad abierta; casi todo el grado es en alemán.",
+        summary: "Ciudad abierta; el alemán ayuda mucho.",
         color: "#3F7A7D",
         subcategories: [
-          { label: "Nivel de inglés", score: 6.0, desc: "La docencia de grado es sobre todo en alemán." },
+          { label: "Nivel de inglés", score: 6.0, desc: "Inglés limitado fuera de la universidad." },
           { label: "Actitud local", score: 7.0, desc: "Ciudad acostumbrada a estudiantes." },
           { label: "Integración con locales", score: 6.5, desc: "El alemán ayuda mucho." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "Ciudad pequeña y estudiantil." },
@@ -20625,11 +20625,11 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.5,
-        summary: "La universidad calcula 600–950 € al mes (Fact Sheet 2026/27).",
+        summary: "Según la Universidad Loyola, unos 760 € al mes.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 7.5, desc: "Alojamiento 300–500 €; residencias 250–400 €." },
-          { label: "Comida y supermercados", score: 7.5, desc: "Comida 200–300 €." },
+          { label: "Alojamiento", score: 7.5, desc: "Alquiler de 250–450 € según la Universidad Loyola; residencias 250–400 €." },
+          { label: "Comida y supermercados", score: 7.5, desc: "Supermercados a precio medio." },
           { label: "Transporte", score: 8.5, desc: "Bus urbano en la cuota semestral." },
           { label: "Ocio y gastos diarios", score: 7.0, desc: "Ocio de ciudad pequeña." },
         ],
@@ -20720,10 +20720,10 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 5.5,
-        summary: "Ciudad cara; la universidad da 992 € al mes como mínimo.",
+        summary: "Según la Universidad Loyola, unos 750 € al mes.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 5.0, desc: "Habitación 350–600 € más gastos." },
+          { label: "Alojamiento", score: 5.0, desc: "Alquiler de 350–500 € según la Universidad Loyola." },
           { label: "Comida y supermercados", score: 7.0, desc: "Supermercados alemanes a buen precio." },
           { label: "Transporte", score: 6.0, desc: "Sin Semesterticket." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Ocio de ciudad grande." },
@@ -20753,10 +20753,10 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.5,
-        summary: "Ciudad internacional; muy pocas asignaturas de grado en inglés.",
+        summary: "Ciudad internacional; el alemán ayuda mucho.",
         color: "#3F7A7D",
         subcategories: [
-          { label: "Nivel de inglés", score: 6.0, desc: "Pocas asignaturas en inglés en grado." },
+          { label: "Nivel de inglés", score: 6.0, desc: "Inglés extendido entre estudiantes." },
           { label: "Actitud local", score: 7.0, desc: "Ciudad abierta." },
           { label: "Integración con locales", score: 6.0, desc: "El alemán ayuda mucho." },
           { label: "Facilidad para hacer amigos", score: 7.0, desc: "Comunidad internacional amplia." },
@@ -20815,7 +20815,7 @@ export const CITY_INSIGHTS = {
     scores: [
       {
         id: "coste", label: "Coste de vida", icon: "💰", score: 7.0,
-        summary: "Precios moderados para Austria.",
+        summary: "Según la Universidad Loyola, como mucho 1.000 € al mes con la residencia.",
         color: "#B45309",
         subcategories: [
           { label: "Alojamiento", score: 7.0, desc: "Residencias de la KHG y de OeAD Student Housing." },

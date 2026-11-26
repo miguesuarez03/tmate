@@ -17,7 +17,7 @@ import { RANKING_CRITERIA, RANKING_TOP } from '../data/rankings';
 import { MAP_COUNTRIES } from '../data/mapCountries';
 import { DEUTSCHLAND_TICKET, SEMESTER_TICKET_CITIES } from '../data/transportPasses';
 import { CITY_REVIEWS } from '../data/cityReviews';
-import { CITY_SIZE_LIMITS } from './cityMetrics';
+import { CITY_SIZE_LIMITS, costSourceLabel } from './cityMetrics';
 import { SUBSCORES, EXTRA_SCORES } from './scoring';
 import { DEFAULT_OG_IMAGE, getCityOgImage } from './seo';
 
@@ -895,9 +895,9 @@ export function hasOfficialCost(city) {
   return typeof city?.costSource === "string" && city.costSource.trim() !== "";
 }
 
-/** Texto de la procedencia del coste en la ficha: la fuente oficial o «Estimación MAbroad». */
+/** Texto de la procedencia del coste en la ficha: la fuente oficial, «Según la Universidad Loyola» o «Estimación MAbroad». */
 export function getCostSourceLabel(city) {
-  return hasOfficialCost(city) ? `Fuente: ${city.costSource}` : "Estimación MAbroad";
+  return costSourceLabel(city);
 }
 
 /**

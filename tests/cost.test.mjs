@@ -28,13 +28,14 @@ test("parseMinCost/parseMaxCost entienden los miles con punto", () => {
   assert.equal(isAffordable({ costDetail: "~700 €/mes", costSource: "UniTrento" }), false);
 });
 
-test("el coste es un rango o una cifra aproximada respaldada por fuente oficial", () => {
+test("el coste es un rango o una cifra aproximada respaldada por fuente oficial o por el portal de Loyola", () => {
   const RANGE = /^\d{1,3}(?:\.\d{3})?–\d{1,3}(?:\.\d{3})?€\/mes$/;
   const SINGLE = /^~\d{1,3}(?:\.\d{3})? €\/mes$/;
   for (const c of CITIES) {
     const single = SINGLE.test(c.costDetail);
     assert.ok(RANGE.test(c.costDetail) || single, `${c.slug}: «${c.costDetail}»`);
-    if (single) assert.ok(hasOfficialCost(c), `${c.slug}: cifra única sin fuente`);
+    if (single) assert.ok(hasOfficialCost(c) || c.costBy === "loyola", `${c.slug}: cifra única sin fuente`);
+    if (c.costBy !== undefined) assert.equal(c.costBy, "loyola", `${c.slug}: costBy desconocido`);
     const min = parseMinCost(c.costDetail);
     const max = parseMaxCost(c.costDetail);
     assert.ok(min >= 100 && (single ? min === max : min < max), `${c.slug}: mínimo ${min}, máximo ${max}`);
@@ -83,6 +84,11 @@ test("«Asequible» solo si el coste tiene fuente oficial; si no, «Estimación 
   assert.equal(isAffordable({ costDetail: "450–700€/mes", costSource: "  " }), false);
   assert.equal(getCostSourceLabel({ costDetail: "450–700€/mes" }), "Estimación MAbroad");
   assert.equal(getCostSourceLabel({ costDetail: "450–700€/mes", costSource: "Universidad X" }), "Fuente: Universidad X");
+  // Cifra del portal de Loyola: se etiqueta, pero no es fuente oficial ni da «Asequible».
+  const loyola = { costDetail: "~500 €/mes", costBy: "loyola" };
+  assert.equal(getCostSourceLabel(loyola), "Según la Universidad Loyola");
+  assert.equal(hasOfficialCost(loyola), false);
+  assert.equal(isAffordable(loyola), false);
   // Ciudades con coste estimado por MAbroad (pendiente de fuente, ver VERIFICACION.md).
   for (const slug of ["parma", "bergamo", "ferrara", "genova", "grenoble", "venecia", "coimbra", "dresde", "tubinga", "catania", "palermo", "cagliari", "bolonia"]) {
     const c = CITIES.find((x) => x.slug === slug);

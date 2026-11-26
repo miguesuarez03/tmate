@@ -4746,7 +4746,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro histórico", vibe: "Ciudad pequeña sobre el Tajo", price: "€" },
     ],
-    tips: ["Si vas a estudiar Ciencias de la Actividad Física y del Deporte, las clases son en la escuela de deporte de Rio Maior, no en Santarém","Desde el aeropuerto de Lisboa: metro (línea roja) hasta Oriente y tren regional de CP hasta Santarém, unos 56 minutos","Residencias del IPSantarém (SASIPS): pregunta por plaza en alojamento@sas.ipsantarem.pt","Si te quedas más de 3 meses, pide el certificado de registro de ciudadano de la UE en la Câmara Municipal (15 €)","Idioma: inglés B2 (fact sheet 2026). El portal de Loyola indica B1: confírmalo con la Oficina","No hay sección de ESN en Santarém; la más cercana es ESN Tomar"],
+    tips: ["Si vas a estudiar Ciencias de la Actividad Física y del Deporte, las clases son en la escuela de deporte de Rio Maior, no en Santarém","Desde el aeropuerto de Lisboa: metro (línea roja) hasta Oriente y tren regional de CP hasta Santarém, unos 56 minutos","Residencias del IPSantarém (SASIPS): pregunta por plaza en alojamento@sas.ipsantarem.pt","Si te quedas más de 3 meses, pide el certificado de registro de ciudadano de la UE en la Câmara Municipal (15 €)","Idioma según la Universidad Loyola: inglés o portugués B1: confírmalo con la Oficina","No hay sección de ESN en Santarém; la más cercana es ESN Tomar"],
     experiences: ["erasmus"],
   },
   {
@@ -4786,7 +4786,8 @@ export const CITIES = [
     region: "Europa Central",
     tag: "Capital de Turingia",
     phrase: "Una capital medieval en el centro de Alemania, con universidad de 1379",
-    costDetail: "800–1.000€/mes",
+    costDetail: "~900 €/mes",
+    costBy: "loyola",
     vibe: "Medieval & Bien Comunicada",
     erasmus: 74,
     weather: "Continental templado",
@@ -4799,7 +4800,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Casco antiguo", vibe: "Catedral, Domplatz y calles medievales", price: "€€" },
     ],
-    tips: ["Residencias del Studierendenwerk Thüringen: 204–423 € al mes con todo incluido, fianza de 300 € y estancia mínima de 6 meses; se piden desde el 1 de abril o el 1 de octubre","La cuota semestral (357,80 € en 2026/27) incluye el Deutschlandsemesterticket y la pagan también los de intercambio","La universidad recomienda alemán A2; para Relaciones Internacionales y Comunicación piden inglés B2","Curso intensivo de alemán gratuito de 4 semanas antes del semestre (6 ECTS)","Empadrónate en las dos semanas siguientes a mudarte, en el Bürgeramt con cita previa o por internet"],
+    tips: ["Residencias del Studierendenwerk Thüringen: 204–423 € al mes con todo incluido, fianza de 300 € y estancia mínima de 6 meses; se piden desde el 1 de abril o el 1 de octubre","Según la Universidad Loyola, unos 900 € al mes","La cuota semestral (357,80 € en 2026/27) incluye el Deutschlandsemesterticket y la pagan también los de intercambio","La universidad recomienda alemán A2; para Relaciones Internacionales y Comunicación piden inglés B2","Curso intensivo de alemán gratuito de 4 semanas antes del semestre (6 ECTS)","Empadrónate en las dos semanas siguientes a mudarte, en el Bürgeramt con cita previa o por internet"],
     experiences: ["erasmus"],
   },
   // ── Fase 2 Loyola, tanda 2 (fuentes en VERIFICACION.md) ──
@@ -4906,7 +4907,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro y ciudadela", vibe: "Ciudad tranquila bajo la ciudadela", price: "€" },
     ],
-    tips: ["Residencias del Crous en Belfort desde 261 € al mes (Duvillard); en Sevenans no hay residencias","Bus Optymo: con el Pass, 1 € el viaje y como mucho 36 € al mes","La UTBM da la mayoría de los cursos en francés; el B1 del portal de Loyola no aparece en la UTBM: confírmalo con la Oficina","Como ciudadano de la UE no necesitas permiso de residencia en Francia"],
+    tips: ["Residencias del Crous en Belfort desde 261 € al mes (Duvillard); en Sevenans no hay residencias","Bus Optymo: con el Pass, 1 € el viaje y como mucho 36 € al mes","Idioma según la Universidad Loyola: inglés o francés B1: confírmalo con la Oficina","Como ciudadano de la UE no necesitas permiso de residencia en Francia"],
     experiences: ["erasmus"],
   },
   {
@@ -4958,7 +4959,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro histórico", vibe: "Ciudad pequeña y tranquila", price: "€" },
     ],
-    tips: ["Las clases son en italiano (guía de entrantes de Unisannio, mayo de 2026); el portal de Loyola indica inglés o italiano B1: confírmalo con la Oficina","Unisannio organiza cursos de italiano para estudiantes Erasmus, uno por semestre","Residencias de ADISURC en Via San Pasquale y Palazzo Zoppoli: los Erasmus van los últimos en la prioridad, así que busca también piso","Plazos de Unisannio: nominación del 15 de mayo al 30 de junio (primer semestre) y del 20 de octubre al 30 de noviembre (segundo)"],
+    tips: ["Idioma según la Universidad Loyola: inglés o italiano B1: confírmalo con la Oficina","Unisannio organiza cursos de italiano para estudiantes Erasmus, uno por semestre","Residencias de ADISURC en Via San Pasquale y Palazzo Zoppoli: los Erasmus van los últimos en la prioridad, así que busca también piso","Plazos de Unisannio: nominación del 15 de mayo al 30 de junio (primer semestre) y del 20 de octubre al 30 de noviembre (segundo)"],
     experiences: ["erasmus"],
   },
   {
@@ -4985,7 +4986,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Campus de la LIUC", vibe: "Universidad y residencia", price: "€€" },
     ],
-    tips: ["Residencia en el campus: 500 € al mes por persona en habitación doble y 750 € en individual, con contratos de 4 a 11 meses; se pide a la oficina internacional antes del 30 de junio o del 30 de noviembre","La LIUC recomienda inglés B2; el portal de Loyola indica B1: confírmalo con la Oficina","Desde Malpensa: Malpensa Express hasta la estación de Castellanza y bus a la universidad","No hay sección de ESN en Castellanza; la más cercana es ESN Insubria (Varese y Como)"],
+    tips: ["Residencia en el campus: 500 € al mes por persona en habitación doble y 750 € en individual, con contratos de 4 a 11 meses; se pide a la oficina internacional antes del 30 de junio o del 30 de noviembre","Idioma según la Universidad Loyola: italiano o inglés B1: confírmalo con la Oficina","Desde Malpensa: Malpensa Express hasta la estación de Castellanza y bus a la universidad","No hay sección de ESN en Castellanza; la más cercana es ESN Insubria (Varese y Como)"],
     experiences: ["erasmus"],
   },
   {
@@ -4998,7 +4999,8 @@ export const CITIES = [
     region: "Europa del Norte",
     tag: "Bryggen y fiordos",
     phrase: "La puerta de los fiordos, con el muelle hanseático de Bryggen",
-    costDetail: "1.000–1.400€/mes",
+    costDetail: "~1.050 €/mes",
+    costBy: "loyola",
     vibe: "Lluviosa & Espectacular",
     erasmus: 82,
     weather: "Oceánico lluvioso",
@@ -5011,7 +5013,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro (Bryggen y Vågen)", vibe: "Puerto histórico y vida de la ciudad", price: "€€€" },
     ],
-    tips: ["Vivienda de Sammen garantizada si es tu primer intercambio en la NHH: se pide del 1 de abril al 15 de mayo (otoño) o del 1 de octubre al 1 de noviembre (primavera); lo normal es habitación compartida","Skyss: billete de estudiante de 30 NOK y abono de 30 días de 302 NOK (precios desde el 1 de noviembre de 2026)","Desde el aeropuerto: Flybussen (unos 20 minutos) o el tranvía Bybanen, línea 1","Si te quedas más de 3 meses, regístrate en la UDI; la NHH explica cómo hacerlo al llegar","Curso de noruego gratuito de 7,5 ECTS en la NHH"],
+    tips: ["Según la Universidad Loyola, unos 1.050 € al mes, con unos 300 € de alojamiento","Vivienda de Sammen garantizada si es tu primer intercambio en la NHH: se pide del 1 de abril al 15 de mayo (otoño) o del 1 de octubre al 1 de noviembre (primavera); lo normal es habitación compartida","Skyss: billete de estudiante de 30 NOK y abono de 30 días de 302 NOK (precios desde el 1 de noviembre de 2026)","Desde el aeropuerto: Flybussen (unos 20 minutos) o el tranvía Bybanen, línea 1","Si te quedas más de 3 meses, regístrate en la UDI; la NHH explica cómo hacerlo al llegar","Curso de noruego gratuito de 7,5 ECTS en la NHH"],
     experiences: ["erasmus"],
   },
   {
@@ -5024,8 +5026,8 @@ export const CITIES = [
     region: "Europa del Norte",
     tag: "Ciudad del Rin",
     phrase: "Una ciudad verde junto al Rin, con universidad de ciencias aplicadas y vivienda para intercambio",
-    costDetail: "~1.200 €/mes",
-    costSource: "HAN (Fact Sheet 2026-27)",
+    costDetail: "~900 €/mes",
+    costBy: "loyola",
     vibe: "Verde & Práctica",
     erasmus: 74,
     weather: "Oceánico",
@@ -5038,7 +5040,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Campus de Ruitenberglaan", vibe: "Sede de Business de la HAN", price: "€€" },
     ],
-    tips: ["La HAN calcula unos 1.200 € al mes con el alojamiento (Fact Sheet 2026-27); el «900 €» del portal de Loyola está desfasado","Habitaciones de SSH& en Arnhem por 500–900 € (la mayoría, 530–630 € con gastos); hay que pagar 2,5 meses por adelantado y ser menor de 31 años","Si te quedas más de 4 meses, inscríbete en el registro municipal (BRP) en los 5 días siguientes a llegar","Plazos de la HAN para otoño: nominación hasta el 15 de abril (Business, Communication y Education) o el 15 de marzo (resto de programas); para primavera, el 15 de septiembre. Solicitud hasta el 15 de mayo o el 15 de octubre"],
+    tips: ["Según la Universidad Loyola, unos 900 € al mes, con 380–450 € de alojamiento","Habitaciones de SSH& en Arnhem por 500–900 € (la mayoría, 530–630 € con gastos); hay que pagar 2,5 meses por adelantado y ser menor de 31 años","Si te quedas más de 4 meses, inscríbete en el registro municipal (BRP) en los 5 días siguientes a llegar","Plazos de la HAN para otoño: nominación hasta el 15 de abril (Business, Communication y Education) o el 15 de marzo (resto de programas); para primavera, el 15 de septiembre. Solicitud hasta el 15 de mayo o el 15 de octubre"],
     experiences: ["erasmus"],
   },
   {
@@ -5091,7 +5093,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro y campus", vibe: "Ciudad llana, de bici y a pie", price: "€€" },
     ],
-    tips: ["La universidad avisa de que no puede dar residencia a los estudiantes de intercambio: busca piso en cuanto recibas la aceptación (habitación individual en el sector privado, unos 350–400 € al mes, según la UA)","Pide la lista de alojamientos verificados de los servicios sociales de la UA (SASUA) y no pagues nada antes de ver el piso","Bus urbano Aveirobus: 2 € a bordo y abono mensual de zona 1 por 15 €","Desde el aeropuerto de Oporto: metro hasta Porto-Campanhã y tren a Aveiro","Si te quedas más de 3 meses, pide el certificado de registro de ciudadano de la UE en la Câmara Municipal (15 €)"],
+    tips: ["Según la Universidad Loyola, hay 25 habitaciones en residencias para estudiantes de intercambio (180 € al mes), con prioridad para los de universidades con acuerdo de alojamiento con la UA y para estudiantes con discapacidad física: confírmalo con la Oficina","Pide la lista de alojamientos verificados de los servicios sociales de la UA (SASUA) y no pagues nada antes de ver el piso","Bus urbano Aveirobus: 2 € a bordo y abono mensual de zona 1 por 15 €","Desde el aeropuerto de Oporto: metro hasta Porto-Campanhã y tren a Aveiro","Si te quedas más de 3 meses, pide el certificado de registro de ciudadano de la UE en la Câmara Municipal (15 €)"],
     experiences: ["erasmus"],
   },
   {
@@ -5117,7 +5119,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro y campus de la UTAD", vibe: "Ciudad pequeña y tranquila", price: "€" },
     ],
-    tips: ["Según la UTAD, una habitación cuesta 200–300 € al mes y un apartamento T1, 350–500 €","Abono de transporte para estudiantes: 21 € al mes (UTAD)","La UTAD tiene cinco residencias; pregunta a la oficina internacional si hay plaza para Erasmus","El portal de Loyola pide portugués o inglés B2: confírmalo con la Oficina","Si te quedas más de 3 meses, pide el certificado de registro de ciudadano de la UE en la Câmara Municipal (15 €)"],
+    tips: ["Según la UTAD, una habitación cuesta 200–300 € al mes y un apartamento T1, 350–500 €","Abono de transporte para estudiantes: 21 € al mes (UTAD)","La UTAD tiene cinco residencias; pregunta a la oficina internacional si hay plaza para Erasmus","Idioma según la Universidad Loyola: portugués o inglés B2: confírmalo con la Oficina","Si te quedas más de 3 meses, pide el certificado de registro de ciudadano de la UE en la Câmara Municipal (15 €)"],
     experiences: ["erasmus"],
   },
   {
@@ -5145,7 +5147,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "City Centre", vibe: "Campus urbano de NTU y vida de la ciudad", price: "€€€" },
     ],
-    tips: ["Para un semestre de hasta 6 meses basta la entrada como visitante (Standard Visitor), con la autorización ETA (20 £); para el curso completo hace falta Student visa, con NTU como sponsor (GOV.UK)","El requisito de inglés de NTU depende de la facultad y del tipo de estancia: confírmalo con la Oficina","Desde el aeropuerto de East Midlands: bus Skylink a Nottingham","No hay sección de ESN en Nottingham"],
+    tips: ["Para un semestre de hasta 6 meses basta la entrada como visitante (Standard Visitor), con la autorización ETA (20 £); para el curso completo hace falta Student visa, con NTU como sponsor (GOV.UK)","Idioma según la Universidad Loyola: el convenio se consigue con inglés B2, pero NTU pide IELTS Academic 6.5 (5.5 en cada parte) o equivalente (TOEFL iBT 74, Cambridge C1, Oxford 120 o Trinity ISE III): confírmalo con la Oficina","Desde el aeropuerto de East Midlands: bus Skylink a Nottingham","No hay sección de ESN en Nottingham"],
     experiences: ["erasmus"],
   },
   {
@@ -5198,7 +5200,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro (náměstí Míru)", vibe: "Ciudad funcionalista y tranquila", price: "€" },
     ],
-    tips: ["La UTB espera un nivel B2 de inglés; el portal de Loyola indica B1: confírmalo con la Oficina","La mayoría de los internacionales viven en las residencias TGM o MSI; se piden en ISKAM con un depósito de 4.500 CZK","Bus y trolebús DSZO: 18 CZK el billete de 30 minutos y 490 CZK el abono mensual de zona A","No hay aeropuerto en Zlín: llega por Brno, Praga o Viena","Si te quedas más de 30 días, comunica tu residencia a la policía de extranjería (lo puede hacer la residencia)"],
+    tips: ["Idioma según la Universidad Loyola: inglés B1: confírmalo con la Oficina","La mayoría de los internacionales viven en las residencias TGM o MSI; se piden en ISKAM con un depósito de 4.500 CZK","Bus y trolebús DSZO: 18 CZK el billete de 30 minutos y 490 CZK el abono mensual de zona A","No hay aeropuerto en Zlín: llega por Brno, Praga o Viena","Si te quedas más de 30 días, comunica tu residencia a la policía de extranjería (lo puede hacer la residencia)"],
     experiences: ["erasmus"],
   },
   {
@@ -5211,7 +5213,8 @@ export const CITIES = [
     region: "Europa del Norte",
     tag: "Ciudad de estudiantes del norte",
     phrase: "Una ciudad universitaria del norte de Suecia, con más de 250 cursos en inglés",
-    costDetail: "800–1.100€/mes",
+    costDetail: "~680 €/mes",
+    costBy: "loyola",
     vibe: "Nórdica & Estudiantil",
     erasmus: 78,
     weather: "Continental frío",
@@ -5224,7 +5227,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Campus de Umeå", vibe: "Universidad y residencias junto al centro", price: "€€" },
     ],
-    tips: ["Vivienda a través de la universidad: unos 20.500–24.500 SEK por semestre, más 5.000 SEK de fianza y 800 SEK de tasa; no está garantizada","Bus Ultra: 26 SEK el billete sencillo comprado antes si tienes 20–25 años (31 SEK de 26 a 64); el bus del aeropuerto entra en la misma tarifa","La universidad no pide acreditar el inglés a los de intercambio; el portal de Loyola pide B2: confírmalo con la Oficina","Inviernos muy fríos: mínimas medias de unos -11 °C en febrero (OMM, 1991–2020)"],
+    tips: ["Según la Universidad Loyola, unos 7.600 SEK al mes, con unos 2.900 SEK de alojamiento (en euros, al cambio del BCE del 26-11-2026)","Vivienda a través de la universidad: unos 20.500–24.500 SEK por semestre, más 5.000 SEK de fianza y 800 SEK de tasa; no está garantizada","Bus Ultra: 26 SEK el billete sencillo comprado antes si tienes 20–25 años (31 SEK de 26 a 64); el bus del aeropuerto entra en la misma tarifa","Idioma según la Universidad Loyola: inglés B2: confírmalo con la Oficina","Inviernos muy fríos: mínimas medias de unos -11 °C en febrero (OMM, 1991–2020)"],
     experiences: ["erasmus"],
   },
   {
@@ -5239,7 +5242,8 @@ export const CITIES = [
     region: "Europa del Oeste",
     tag: "Campus junto al Aar",
     phrase: "Una pequeña ciudad suiza sobre el Aar, con el campus de la FHNW junto a la estación",
-    costDetail: "1.400–2.100€/mes",
+    costDetail: "1.330–2.160€/mes",
+    costBy: "loyola",
     vibe: "Tranquila & Bien Comunicada",
     erasmus: 66,
     weather: "Continental templado",
@@ -5252,7 +5256,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Brugg-Windisch", vibe: "Campus junto a la estación", price: "€€€" },
     ],
-    tips: ["La FHNW calcula 1.415–2.080 CHF al mes (fact sheet 2026): alojamiento 600–900, comida 400–600, transporte 150–200, seguro 65–80 y otros 200–300","La FHNW no tiene residencias: pisos privados o compartidos desde 600 CHF al mes, con ayuda de la oficina internacional","Los de intercambio pueden elegir cursos de los tres campus de la escuela de empresa (Basilea, Brugg-Windisch y Olten)","Plazos de solicitud: 30 de mayo (otoño) y 30 de noviembre (primavera); inglés B2 o alemán B2 según los cursos","Al llegar tienes que pedir el permiso de residencia de estudiante en Argovia"],
+    tips: ["Según la Universidad Loyola, 1.215–1.980 CHF al mes y 400–900 CHF de residencia según el tipo (en euros, al cambio del BCE del 26-11-2026)","La FHNW no tiene residencias: pisos privados o compartidos desde 600 CHF al mes, con ayuda de la oficina internacional","Los de intercambio pueden elegir cursos de los tres campus de la escuela de empresa (Basilea, Brugg-Windisch y Olten)","Plazos de solicitud: 30 de mayo (otoño) y 30 de noviembre (primavera); inglés B2 o alemán B2 según los cursos","Al llegar tienes que pedir el permiso de residencia de estudiante en Argovia"],
     experiences: ["erasmus"],
   },
   {
@@ -5265,7 +5269,8 @@ export const CITIES = [
     region: "Europa Central",
     tag: "Catedral Patrimonio Mundial",
     phrase: "Una catedral Patrimonio Mundial y una de las grandes universidades técnicas de Alemania",
-    costDetail: "950–1.250€/mes",
+    costDetail: "~800 €/mes",
+    costBy: "loyola",
     vibe: "Histórica & Tecnológica",
     erasmus: 84,
     weather: "Oceánico",
@@ -5278,7 +5283,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro", vibe: "Catedral, campus y vida estudiantil", price: "€€" },
     ],
-    tips: ["La RWTH no ofrece ni garantiza alojamiento a los de intercambio: busca piso con tiempo","La contribución semestral (375,19 € en invierno 2026/27) incluye el Deutschlandsemesterticket","En general basta B1 de inglés o alemán, pero la mayoría de los cursos de grado son en alemán; hay que estar al menos en el 5.º semestre","Empadrónate en las dos semanas siguientes a mudarte, con cita en el Bürgerservice"],
+    tips: ["La RWTH no ofrece ni garantiza alojamiento a los de intercambio: busca piso con tiempo","Según la Universidad Loyola, unos 800 € al mes, con unos 450 € de alquiler en piso privado","La contribución semestral (375,19 € en invierno 2026/27) incluye el Deutschlandsemesterticket","En general basta B1 de inglés o alemán, pero la mayoría de los cursos de grado son en alemán; hay que estar al menos en el 5.º semestre","Empadrónate en las dos semanas siguientes a mudarte, con cita en el Bürgerservice"],
     experiences: ["erasmus"],
   },
   {
@@ -5385,7 +5390,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro", vibe: "Römer y orillas del Meno", price: "€€€" },
     ],
-    tips: ["Sankt Georgen no tiene residencia de estudiantes (el seminario solo aloja a sacerdotes y religiosos): busca alojamiento con tiempo","La facultad calcula unos 1.200 € al mes con alojamiento, comida, seguro, matrícula y libros, en una página sin fecha","A los internacionales que hacen la carrera completa les pide alemán C1; para intercambio no publica nivel y el portal de Loyola tampoco: confírmalo con la Oficina","Billete sencillo del RMV dentro de Fráncfort: 3,80 € (no vale para el aeropuerto)","Empadrónate en las dos semanas siguientes a mudarte"],
+    tips: ["Sankt Georgen no tiene residencia de estudiantes (el seminario solo aloja a sacerdotes y religiosos): busca alojamiento con tiempo","La facultad calcula unos 1.200 € al mes con alojamiento, comida, seguro, matrícula y libros, en una página sin fecha","El portal de la Universidad Loyola no indica el nivel de idioma: confírmalo con la Oficina","Billete sencillo del RMV dentro de Fráncfort: 3,80 € (no vale para el aeropuerto)","Empadrónate en las dos semanas siguientes a mudarte"],
     experiences: ["erasmus"],
   },
   {
@@ -5411,7 +5416,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro", vibe: "Universidad y vida de la ciudad", price: "€€" },
     ],
-    tips: ["La universidad calcula 750–900 € al mes para todo, con unos 300 € de alquiler (página sin fecha)","Residencias del Studierendenwerk Thüringen: 200–350 € al mes, contrato de 6 meses y 300 € de fianza; se piden antes del 15 de enero o del 15 de julio, sin garantía","Cuota semestral de 333,05 € en el invierno 2026/27 (353,05 € el primer semestre, con la tarjeta thoska), con el Deutschlandsemesterticket","La mayoría de las asignaturas de grado son en alemán (B2 aproximado, sin certificado); las pocas en inglés piden B2–C1. El portal de Loyola indica «alemán B2 o inglés B2»: confírmalo con la Oficina","Plazos: nominación hasta el 15 de junio o el 15 de noviembre y solicitud hasta el 15 de julio o el 15 de enero"],
+    tips: ["La universidad calcula 750–900 € al mes para todo, con unos 300 € de alquiler (página sin fecha)","Residencias del Studierendenwerk Thüringen: 200–350 € al mes, contrato de 6 meses y 300 € de fianza; se piden antes del 15 de enero o del 15 de julio, sin garantía","Cuota semestral de 333,05 € en el invierno 2026/27 (353,05 € el primer semestre, con la tarjeta thoska), con el Deutschlandsemesterticket","Idioma según la Universidad Loyola: alemán B2 o inglés B2: confírmalo con la Oficina","Plazos: nominación hasta el 15 de junio o el 15 de noviembre y solicitud hasta el 15 de julio o el 15 de enero"],
     experiences: ["erasmus"],
   },
   {
@@ -5437,7 +5442,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro (Quadrate)", vibe: "Centro en cuadrícula, entre el Rin y el Neckar", price: "€€" },
     ],
-    tips: ["La universidad calcula unos 950–1.000 € al mes con alojamiento, seguro, comida y otros gastos (página sin fecha)","Alojamiento sin garantía: la oficina internacional tiene un cupo en dos residencias del Studierendenwerk (390–510 € con gastos, solo el primer semestre); un piso compartido cuesta 350–600 €","Los de intercambio solo pagan los 100 € del Studierendenwerk; ya no hay Semesterticket y la universidad remite al D-Ticket JugendBW o al Deutschlandticket","La universidad pide alemán o inglés B2, sin certificado; el portal de Loyola no indica nivel: confírmalo con la Oficina","Plazos: nominación del 15 de marzo al 15 de abril (otoño) o del 15 de septiembre al 15 de octubre (primavera); solicitud hasta el 30 de abril o el 31 de octubre"],
+    tips: ["La universidad calcula unos 950–1.000 € al mes con alojamiento, seguro, comida y otros gastos (página sin fecha)","Alojamiento sin garantía: la oficina internacional tiene un cupo en dos residencias del Studierendenwerk (390–510 € con gastos, solo el primer semestre); un piso compartido cuesta 350–600 €","Los de intercambio solo pagan los 100 € del Studierendenwerk; ya no hay Semesterticket y la universidad remite al D-Ticket JugendBW o al Deutschlandticket","El portal de la Universidad Loyola no indica el nivel de idioma: confírmalo con la Oficina","Plazos: nominación del 15 de marzo al 15 de abril (otoño) o del 15 de septiembre al 15 de octubre (primavera); solicitud hasta el 30 de abril o el 31 de octubre"],
     experiences: ["erasmus"],
   },
   {
@@ -5476,8 +5481,8 @@ export const CITIES = [
     region: "Europa Central",
     tag: "Ciudad de los tres ríos",
     phrase: "Donde se unen el Danubio, el Eno y el Ilz, junto a la frontera austriaca",
-    costDetail: "600–950€/mes",
-    costSource: "Universität Passau (Fact Sheet 2026/27)",
+    costDetail: "~760 €/mes",
+    costBy: "loyola",
     vibe: "Pequeña & Universitaria",
     erasmus: 76,
     weather: "Continental templado",
@@ -5490,7 +5495,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Casco antiguo", vibe: "Entre el Danubio y el Eno", price: "€€" },
     ],
-    tips: ["La universidad calcula al mes: alojamiento 300–500 €, comida 200–300 €, libros 50–100 € y unos 43 € de transporte, incluido en la cuota semestral (Fact Sheet 2026/27)","Residencias con prioridad para los de intercambio pero sin garantía, por unos 250–400 € al mes con gastos; se piden antes del 15 de junio o del 15 de diciembre","La universidad pide alemán o inglés B1 y recomienda B2; el portal de Loyola indica alemán B2: confírmalo con la Oficina","Cuota semestral de unos 128 €, con el abono de bus urbano","Empadrónate en las dos semanas siguientes a mudarte"],
+    tips: ["Según la Universidad Loyola, unos 760 € al mes, con un alquiler de 250–450 €","Residencias con prioridad para los de intercambio pero sin garantía, por unos 250–400 € al mes con gastos; se piden antes del 15 de junio o del 15 de diciembre","Idioma según la Universidad Loyola: alemán B2: confírmalo con la Oficina","Cuota semestral de unos 128 €, con el abono de bus urbano","Empadrónate en las dos semanas siguientes a mudarte"],
     experiences: ["erasmus"],
   },
   {
@@ -5503,7 +5508,8 @@ export const CITIES = [
     region: "Europa Central",
     tag: "Capital de Baden-Wurtemberg",
     phrase: "Una capital entre colinas y viñedos, con universidad técnica entre las 325 mejores",
-    costDetail: "1.000–1.300€/mes",
+    costDetail: "~750 €/mes",
+    costBy: "loyola",
     vibe: "Urbana & Técnica",
     erasmus: 78,
     weather: "Continental templado",
@@ -5516,7 +5522,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro (Schlossplatz)", vibe: "Plazas, palacios y comercio", price: "€€€" },
     ],
-    tips: ["La universidad da 992 € al mes como mínimo: habitación en piso compartido 350–600 € más gastos y unos 30 € de transporte","El alojamiento lo adjudica el Studierendenwerk Stuttgart; la universidad no tiene plazas propias","La Universität Stuttgart no tiene Deutschlandsemesterticket; los de intercambio pagan una cuota de unos 100 €","Asignaturas en inglés: B2, pero en grado hay muy pocas. Para asignaturas en alemán, con B1–B2 el curso intensivo (250 €) es opcional; con alemán A2 e inglés B2 también se puede ir, con el intensivo obligatorio. El portal de Loyola indica «alemán B1 o inglés B2»: confírmalo con la Oficina","Plazos: nominación hasta el 1 de abril (invierno) o el 1 de octubre (verano); solicitud en Mobility-Online hasta el 1 de mayo o el 1 de noviembre y después en C@MPUS hasta el 1 de junio o el 1 de diciembre"],
+    tips: ["Según la Universidad Loyola, unos 750 € al mes, con un alquiler de 350–500 €","El alojamiento lo adjudica el Studierendenwerk Stuttgart; la universidad no tiene plazas propias","La Universität Stuttgart no tiene Deutschlandsemesterticket; los de intercambio pagan una cuota de unos 100 €","Idioma según la Universidad Loyola: alemán B1 o inglés B2: confírmalo con la Oficina","Plazos: nominación hasta el 1 de abril (invierno) o el 1 de octubre (verano); solicitud en Mobility-Online hasta el 1 de mayo o el 1 de noviembre y después en C@MPUS hasta el 1 de junio o el 1 de diciembre"],
     experiences: ["erasmus"],
   },
   {
@@ -5529,7 +5535,8 @@ export const CITIES = [
     region: "Europa Central",
     tag: "Casco histórico UNESCO",
     phrase: "La segunda ciudad de Austria, con casco histórico Patrimonio Mundial",
-    costDetail: "850–1.100€/mes",
+    costDetail: "~1.000 €/mes",
+    costBy: "loyola",
     vibe: "Universitaria & Histórica",
     erasmus: 82,
     weather: "Continental templado",
@@ -5542,7 +5549,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro histórico", vibe: "Schlossberg y orillas del Mur", price: "€€" },
     ],
-    tips: ["El Augustinum pide alemán o inglés B2; el portal de Loyola indica B1: confírmalo con la Oficina. Se enseña en alemán, con algunos cursos en inglés","Plazos: 1 de junio (semestre de invierno) y 1 de diciembre (verano), con la solicitud por correo a la oficina internacional","Alojamiento: habitaciones de la KHG (Katholische Hochschulgemeinde), residencias de OeAD Student Housing o piso compartido","Empadrónate en los 3 primeros días; si te quedas más de 3 meses, pide la Anmeldebescheinigung en los 4 primeros meses (44 €)","Semestre de invierno del 1 de octubre al 31 de enero; de verano, del 1 de marzo al 30 de junio"],
+    tips: ["Idioma según la Universidad Loyola: alemán o inglés B1: confírmalo con la Oficina. Se enseña en alemán, con algunos cursos en inglés","Plazos: 1 de junio (semestre de invierno) y 1 de diciembre (verano), con la solicitud por correo a la oficina internacional","Según la Universidad Loyola, como mucho 1.000 € al mes con la residencia","Alojamiento: habitaciones de la KHG (Katholische Hochschulgemeinde), residencias de OeAD Student Housing o piso compartido","Empadrónate en los 3 primeros días; si te quedas más de 3 meses, pide la Anmeldebescheinigung en los 4 primeros meses (44 €)","Semestre de invierno del 1 de octubre al 31 de enero; de verano, del 1 de marzo al 30 de junio"],
     experiences: ["erasmus"],
   },
   {
@@ -5647,7 +5654,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro", vibe: "Universidad, campanario y comercio", price: "€€" },
     ],
-    tips: ["UNamur no exige acreditar idioma y recomienda un B1/B2 de francés o inglés; el portal de Loyola pide francés B1: confírmalo con la Oficina","Residencia de la universidad (Maison Internationale) por unos 370 € al mes con gastos, sin plaza garantizada","UNamur calcula 600–700 € al mes de coste de vida, en una página sin fecha","Plazos: nominación hasta el 30 de abril (primer semestre o curso completo) o el 15 de octubre (segundo), y solicitud hasta el 15 de mayo o el 31 de octubre","Si te quedas más de 3 meses, inscríbete en el ayuntamiento de Namur"],
+    tips: ["Idioma según la Universidad Loyola: francés B1, con al menos un certificado oficial de idioma (el francés se puede acreditar con la prueba de Loyola Idiomas): confírmalo con la Oficina","Residencia de la universidad (Maison Internationale) por unos 370 € al mes con gastos, sin plaza garantizada","UNamur calcula 600–700 € al mes de coste de vida, en una página sin fecha","Plazos: nominación hasta el 30 de abril (primer semestre o curso completo) o el 15 de octubre (segundo), y solicitud hasta el 15 de mayo o el 31 de octubre","Si te quedas más de 3 meses, inscríbete en el ayuntamiento de Namur"],
     experiences: ["erasmus"],
   },
   {
@@ -5668,12 +5675,12 @@ export const CITIES = [
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Lemesos-seafront.jpg/1920px-Lemesos-seafront.jpg",
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Lemesos-seafront.jpg/1920px-Lemesos-seafront.jpg",
     description: "Limasol es una ciudad costera del sur de Chipre; su castillo medieval alberga el Museo Medieval de Chipre. El convenio es con la University of Limassol, que nació en 1990 como CIIM y funciona como universidad desde septiembre de 2023. En la ciudad está también la Cyprus University of Technology.",
-    highlights: ["Castillo medieval con el Museo Medieval de Chipre","Grado del convenio en inglés: BSc in Computing & Business Technologies","Cyprus University of Technology, puesto 501–550 en THE 2027","Clima mediterráneo: máxima media de 31 °C en agosto (OMM, Pafos)"],
+    highlights: ["Castillo medieval con el Museo Medieval de Chipre","Grado del convenio en inglés: BSc in Computing & Business Technologies","University of Limassol: antes CIIM (1990), universidad desde 2023","Clima mediterráneo: máxima media de 31 °C en agosto (OMM, Pafos)"],
     universities: ["University of Limassol"],
     neighborhoods: [
       { name: "Centro y paseo marítimo", vibe: "Castillo y frente marítimo", price: "€€€" },
     ],
-    tips: ["El grado del convenio se imparte en inglés; para intercambio la universidad no publica nivel y el portal de Loyola pide inglés B2: confírmalo con la Oficina","La universidad ayuda a buscar alojamiento y lista residencias privadas, sin publicar precios","La universidad no publica plazos ni coste de vida: pídelos a la Oficina"],
+    tips: ["El grado del convenio se imparte en inglés. Idioma según la Universidad Loyola: inglés B2: confírmalo con la Oficina","La universidad ayuda a buscar alojamiento y lista residencias privadas, sin publicar precios","La universidad no publica plazos ni coste de vida: pídelos a la Oficina"],
     experiences: ["erasmus"],
   },
   {
@@ -5701,7 +5708,7 @@ export const CITIES = [
       { name: "Campus de RUC", vibe: "Residencias en el campus", price: "€€€" },
       { name: "Centro", vibe: "Catedral y estación", price: "€€€" },
     ],
-    tips: ["RUC pide inglés acreditado (IELTS 6.5, Cambridge C1 Advanced con 160 o TOEFL iBT 80) o un documento firmado de tu universidad que confirme que tu programa se imparte íntegramente en inglés; el portal de Loyola pide B2 con menos de 2 años: confírmalo con la Oficina","Residencias en el campus por 4.200–5.300 coronas al mes y 11.000 de fianza; sin garantía, aunque normalmente hay plaza si la pides a tiempo","Plazos: 1 de mayo (otoño) y 1 de octubre (primavera); los de intercambio no pagan matrícula","Si te quedas más de 3 meses, pide el documento de residencia UE a SIRI y preséntate en una de sus oficinas en los 30 días siguientes: lo necesitas para el número CPR"],
+    tips: ["Idioma según la Universidad Loyola: inglés B2 con certificado de menos de 2 años, con excepciones si estudias tu grado completo en inglés: confírmalo con la Oficina","Residencias en el campus por 4.200–5.300 coronas al mes y 11.000 de fianza; sin garantía, aunque normalmente hay plaza si la pides a tiempo","Plazos: 1 de mayo (otoño) y 1 de octubre (primavera); los de intercambio no pagan matrícula","Si te quedas más de 3 meses, pide el documento de residencia UE a SIRI y preséntate en una de sus oficinas en los 30 días siguientes: lo necesitas para el número CPR"],
     experiences: ["erasmus"],
   },
   {
@@ -5753,7 +5760,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro (Hlavná ulica)", vibe: "Calle mayor y concatedral", price: "€" },
     ],
-    tips: ["Las clases para Erasmus son en inglés y la universidad pide inglés B2 (Fact Sheet 2025/26); el portal de Loyola indica B1: confírmalo con la Oficina","Residencia en la calle 17. novembra por 140 € al mes; el primer pago es de 190 €, con 50 € de tasa no reembolsable","Plazos: nominación del 1 de abril al 15 de mayo (invierno) o del 1 al 31 de octubre (verano); solicitud del 15 de mayo al 30 de junio o del 1 al 30 de noviembre","Declara tu estancia a la policía en los 10 días hábiles siguientes a llegar; si te quedas más de 3 meses, regístrate en la policía de extranjería"],
+    tips: ["Las clases para Erasmus son en inglés. Idioma según la Universidad Loyola: inglés B1: confírmalo con la Oficina","Residencia en la calle 17. novembra por 140 € al mes; el primer pago es de 190 €, con 50 € de tasa no reembolsable","Plazos: nominación del 1 de abril al 15 de mayo (invierno) o del 1 al 31 de octubre (verano); solicitud del 15 de mayo al 30 de junio o del 1 al 30 de noviembre","Declara tu estancia a la policía en los 10 días hábiles siguientes a llegar; si te quedas más de 3 meses, regístrate en la policía de extranjería"],
     experiences: ["erasmus"],
   },
   {
@@ -5774,7 +5781,7 @@ export const CITIES = [
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Downtown_Kuopio_and_Kallavesi_as_seen_from_Puijo_tower%2C_Kuopio%2C_North_Savo%2C_Finland%2C_2023_April.jpg/1920px-Downtown_Kuopio_and_Kallavesi_as_seen_from_Puijo_tower%2C_Kuopio%2C_North_Savo%2C_Finland%2C_2023_April.jpg",
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Downtown_Kuopio_and_Kallavesi_as_seen_from_Puijo_tower%2C_Kuopio%2C_North_Savo%2C_Finland%2C_2023_April.jpg/1920px-Downtown_Kuopio_and_Kallavesi_as_seen_from_Puijo_tower%2C_Kuopio%2C_North_Savo%2C_Finland%2C_2023_April.jpg",
     description: "Kuopio, en Savonia del Norte, es una ciudad de unos 127.000 habitantes junto al lago Kallavesi; su símbolo es la torre de Puijo, con vistas sobre el lago. El convenio es con Savonia, una universidad de ciencias aplicadas con más de 9.000 estudiantes y campus en Kuopio, Iisalmi y Varkaus. En la ciudad está también la University of Eastern Finland.",
-    highlights: ["University of Eastern Finland, puesto 451–500 en THE 2027","Savonia: más de 9.000 estudiantes, unos 500 internacionales","Sección de ESN: ESN Savo","Línea 40 de Vilkku al aeropuerto, a unos 14 km"],
+    highlights: ["Torre de Puijo, con vistas sobre el lago Kallavesi","Savonia: más de 9.000 estudiantes, unos 500 internacionales","Sección de ESN: ESN Savo","Línea 40 de Vilkku al aeropuerto, a unos 14 km"],
     universities: ["Savonia University of Applied Sciences"],
     neighborhoods: [
       { name: "Centro", vibe: "Junto al lago Kallavesi", price: "€€" },
@@ -5805,7 +5812,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro", vibe: "Junto al Kemijoki", price: "€€" },
     ],
-    tips: ["Lapland UAS pide inglés B1 como mínimo; el portal de Loyola no indica idioma: confírmalo con la Oficina","Alojamiento con DAS (Domus Arctica), KAS, VVO o Lumo, sin precios publicados ni garantía","Plazos 2026-27: nominación del 1 de marzo al 30 de abril (otoño) o del 1 de septiembre al 15 de octubre (primavera); los de 2027-28 aún no están publicados","Si te quedas más de 3 meses seguidos, registra tu derecho de residencia en Migri (53 € en 2026)"],
+    tips: ["El portal de la Universidad Loyola no indica el nivel de idioma: confírmalo con la Oficina","Alojamiento con DAS (Domus Arctica), KAS, VVO o Lumo, sin precios publicados ni garantía","Plazos 2026-27: nominación del 1 de marzo al 30 de abril (otoño) o del 1 de septiembre al 15 de octubre (primavera); los de 2027-28 aún no están publicados","Si te quedas más de 3 meses seguidos, registra tu derecho de residencia en Migri (53 € en 2026)"],
     experiences: ["erasmus"],
   },
   {
@@ -5832,7 +5839,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro", vibe: "Escuela y vida de la ciudad, a pie", price: "€€" },
     ],
-    tips: ["La escuela calcula 610–1.050 € al mes con alquiler, comida, ocio, teléfono y transporte (guía 2026-27)","Habitación o estudio amueblado por 320–450 € al mes con gastos; no hay alojamiento garantizado","La escuela no publica el nivel de idioma para intercambio; el portal de Loyola pide francés B2 o inglés y avisa de que la oferta es sobre todo en francés: confírmalo con la Oficina","Billete de T2C de 1 h 10 min: 1,60 € (también con tarjeta sin contacto a bordo) o 2 € si lo compras al conductor","Como ciudadano de la UE no necesitas permiso de residencia"],
+    tips: ["La escuela calcula 610–1.050 € al mes con alquiler, comida, ocio, teléfono y transporte (guía 2026-27)","Habitación o estudio amueblado por 320–450 € al mes con gastos; no hay alojamiento garantizado","Idioma según la Universidad Loyola: francés B2 o inglés, con la oferta sobre todo en francés: confírmalo con la Oficina","Billete de T2C de 1 h 10 min: 1,60 € (también con tarjeta sin contacto a bordo) o 2 € si lo compras al conductor","Como ciudadano de la UE no necesitas permiso de residencia"],
     experiences: ["erasmus"],
   },
   {
@@ -5858,7 +5865,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro (Perret)", vibe: "Ciudad reconstruida, Patrimonio Mundial", price: "€€" },
     ],
-    tips: ["EM Normandie pide B2 en la lengua de las clases (francés o inglés); el portal de Loyola avisa de que la oferta es sobre todo en francés: revisa el catálogo con la Oficina","La escuela calcula unos 800 € al mes con alojamiento, comidas, transporte y seguro de vivienda (página sin fecha)","Plazos: nominación hasta el 30 de abril o el 15 de octubre, y solicitud hasta el 15 de mayo o el 31 de octubre","Billete de LiA de 1 hora: 1,80 € (tarifa de 2025)","Como ciudadano de la UE no necesitas permiso de residencia"],
+    tips: ["Idioma según la Universidad Loyola: francés o inglés B2, con la oferta sobre todo en francés: confírmalo con la Oficina","La escuela calcula unos 800 € al mes con alojamiento, comidas, transporte y seguro de vivienda (página sin fecha)","Plazos: nominación hasta el 30 de abril o el 15 de octubre, y solicitud hasta el 15 de mayo o el 31 de octubre","Billete de LiA de 1 hora: 1,80 € (tarifa de 2025)","Como ciudadano de la UE no necesitas permiso de residencia"],
     experiences: ["erasmus"],
   },
 ];

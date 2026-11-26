@@ -49,6 +49,8 @@ export interface CityBase {
   costDetail: string;         // ej: "600–900€/mes"
   /** Quién publica la estimación oficial de costDetail (p. ej. "Universidad de Pisa"). Sin ella, el coste es estimación de MAbroad y no lleva «Asequible». */
   costSource?: string;
+  /** "loyola": costDetail es la cifra del portal de movilidad de la Universidad Loyola («Según la Universidad Loyola»); no es fuente oficial ni da «Asequible». */
+  costBy?: "loyola";
   vibe: string;
   erasmus: number;            // score global 0-100
   weather: string;

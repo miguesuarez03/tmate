@@ -29,7 +29,7 @@ import { CITIES } from "../src/data/cities.js";
 import { CITY_INSIGHTS, DEFAULT_INSIGHTS } from "../src/data/insights.js";
 import { CITY_POPULATION } from "../src/data/cityPopulation.js";
 import { SCORE_CATEGORIES } from "../src/data/scoreCategories.js";
-import { citySizeFromPopulation, natureLevel, pickSubscores } from "../src/lib/cityMetrics.js";
+import { citySizeFromPopulation, costSourceLabel, natureLevel, pickSubscores } from "../src/lib/cityMetrics.js";
 import { computeCitySubscores, computeScore, getBecaGap, parseCostMidpoint } from "../src/lib/scoring.js";
 import { CITY_UNIVERSITIES, THE_EDITION } from "../src/data/scoring/universities.js";
 import { CITY_ESN_SECTIONS } from "../src/data/scoring/esn.js";
@@ -98,7 +98,7 @@ export function buildCityData() {
       city,
       scores: insights.scores,
       costMid,
-      costSourceLabel: city.costSource ? `Fuente: ${city.costSource}` : "Estimación MAbroad",
+      costSourceLabel: costSourceLabel(city),
       universities: CITY_UNIVERSITIES[city.slug],
       theEdition: THE_EDITION,
       esnSections: CITY_ESN_SECTIONS[city.slug],

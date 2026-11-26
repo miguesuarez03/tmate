@@ -805,3 +805,48 @@ Rama creada desde `tarea/destinos-tanda4` y rebasada sobre `origin/main`, porque
 **Sin fuente oficial (no se publica en la ficha):** distancia Diepenbeek–Hasselt y fundación de UHasselt; población de Limasol con los límites de 2024; plazos, tasas, precios de alojamiento y coste de vida de la University of Limassol; registro en Chipre (la página del CRMD da 404); precio de las residencias de la SPU (Nitra); billetes urbanos de TEC (403), EMEL, Movia, Nitra y Linkkari (Rovaniemi); tiempos a los aeropuertos salvo Kuopio y Rovaniemi; plazos de Clermont SB 2026-27 y de Lapland UAS 2027-28; año de fundación de Savonia; la capitalidad de Valonia y la confluencia del Sambre y el Mosa en Namur (solo enciclopedias).
 
 **Revisión de Codex (26-11, solo lectura, commit `877f837`), aplicada:** Diepenbeek ya no dice que «la mayoría de los programas» de UHasselt son en inglés (solo hay asignaturas de intercambio en inglés según la facultad); en Roskilde, el documento de la universidad de origen tiene que confirmar que el programa es íntegramente en inglés ([RUC](https://ruc.dk/en/admission-exchange)); en Kuopio y Rovaniemi, el registro en Migri solo hace falta para más de 3 meses seguidos ([Migri](https://migri.fi/en/eu-citizen)); en Clermont-Ferrand, el billete de 1,60 € también se paga a bordo con tarjeta sin contacto y el de 2 € es el que se compra al conductor ([T2C](https://www.t2c.fr/page/les-supports-au-voyage)). Nada grave: sin segunda ronda.
+
+### 26-11-2026 — Regla nueva de Miguel: si el portal de Loyola no coincide con la universidad de destino, se muestra lo de Loyola (rama `tarea/destinos-tanda-5`)
+
+Sustituye a la regla anterior de idioma («la ficha sigue a la universidad de destino»). La ficha muestra lo que dice el portal de movilidad de Loyola (extraído el 13-11-2026) y sigue remitiendo a la Oficina. Para el correo a Loyola, cada discrepancia queda aquí, marcada **se muestra lo de Loyola**.
+
+**Idioma (se muestra lo de Loyola):**
+- Prešov: Loyola, inglés B1; la universidad, B2 (Fact Sheet 2025/26).
+- Namur: Loyola, francés B1 con certificado; UNamur no exige acreditar nivel y recomienda B1/B2.
+- Roskilde: Loyola, inglés B2 certificado con menos de 2 años; RUC, IELTS 6.5 / C1 Advanced 160 / TOEFL 80 o documento si el programa es íntegramente en inglés.
+- Rovaniemi: Loyola no indica idioma; Lapland UAS pide inglés B1. La ficha dice que el portal no indica nivel.
+- Limasol: Loyola, inglés B2; la universidad no publica nivel para intercambio.
+- Clermont-Ferrand: Loyola, francés B2 o inglés, oferta sobre todo en francés; la escuela no publica nivel.
+- El Havre: Loyola, francés o inglés B2, oferta sobre todo en francés; EM Normandie, B2 en la lengua de las clases.
+- Santarém: Loyola, inglés o portugués B1; la fact sheet 2026, inglés B2.
+- Benevento: Loyola, inglés o italiano B1; Unisannio dice que las clases son en italiano (guía de mayo de 2026).
+- Castellanza: Loyola, italiano o inglés B1; la LIUC recomienda inglés B2.
+- Belfort: Loyola, inglés o francés B1; la UTBM no publica ese B1 y da la mayoría de los cursos en francés.
+- Vila Real: Loyola, portugués o inglés B2 (ya se mostraba).
+- Nottingham: Loyola, B2 para el convenio, pero NTU pide IELTS 6.5 o equivalente (el propio portal lo dice).
+- Zlín: Loyola, inglés B1; la UTB espera B2.
+- Umeå: Loyola, inglés B2; la universidad no pide acreditar el inglés.
+- Passau: Loyola, alemán B2; la universidad, alemán o inglés B1 con B2 recomendado.
+- Graz (Augustinum): Loyola, alemán o inglés B1; la escuela, B2.
+- Jena: Loyola, alemán B2 o inglés B2; la universidad, grado casi todo en alemán (B2 aproximado) y pocas asignaturas en inglés con B2–C1.
+- Stuttgart: Loyola, alemán B1 o inglés B2; la universidad, muy pocas asignaturas de grado en inglés y vía A2 + inglés B2 con curso intensivo obligatorio.
+- Mannheim: Loyola no indica idioma; la universidad, alemán o inglés B2 sin certificado. La ficha dice que el portal no indica nivel.
+- Fráncfort (Sankt Georgen): Loyola no indica idioma; la facultad pide C1 a los de carrera completa. La ficha dice que el portal no indica nivel.
+
+**Alojamiento (se muestra lo de Loyola):** Aveiro: Loyola, 25 habitaciones en residencias para intercambio a 180 € al mes, con prioridad para universidades con acuerdo de alojamiento y estudiantes con discapacidad física; la guía de la UA dice que no puede dar residencia a los de intercambio.
+
+**Coste (se muestra lo de Loyola, campo `costBy: "loyola"`, etiqueta «Según la Universidad Loyola»).** No es fuente oficial: nunca da «Asequible». Ninguna cifra del portal lleva año.
+- Erfurt: ~900 € (antes estimación MAbroad de 800–1.000 €; la universidad, 947 € de una encuesta de 2021).
+- Bergen: ~1.050 €, con unos 300 € de alojamiento (antes estimación de 1.000–1.400 €).
+- Arnhem: ~900 €, con 380–450 € de alojamiento (antes ~1.200 € de la HAN, Fact Sheet 2026-27, con `costSource`).
+- Umeå: 7.600 SEK, unos 680 € al cambio del BCE del 26-11-2026 (antes estimación de 800–1.100 €).
+- Brugg: 1.215–1.980 CHF, 1.330–2.160 € al cambio del BCE del 26-11-2026 (la FHNW, 1.415–2.080 CHF en la fact sheet 2026).
+- Aquisgrán: ~800 €, con unos 450 € de piso privado (antes estimación de 950–1.250 €; la RWTH, 1.200 € sin fecha).
+- Passau: ~760 €, alquiler de 250–450 € (antes 600–950 € de la universidad, Fact Sheet 2026/27, con `costSource`).
+- Stuttgart: ~750 €, alquiler de 350–500 € (la universidad, 992 € como mínimo).
+- Graz: como mucho 1.000 € con residencia, mostrado como ~1.000 € (no aparece en ninguna fuente del Augustinum).
+- Aplicado solo a esta lista. Otras diferencias de coste anotadas (Jena; Prešov, Kuopio, Diepenbeek, Namur, Roskilde, Clermont-Ferrand y El Havre en la tanda 5) siguen como estaban, pendientes de que Miguel diga si también van con la cifra de Loyola.
+
+**Clasificación como en el portal:** Kuopio y Limasol solo cuentan las universidades del convenio (Savonia y University of Limassol, sin puesto en THE). Kuopio sigue con nota (ESN Savo); **Limasol pasa a provisional** (sin THE ni ESN). Notas provisionales: **14 de 164** destinos Erasmus+ (8,5 %, tope del 15 %).
+
+Sin cambios: Diepenbeek sin `near`; Nitra y Prešov con Eurostat 2022; Limasol sin población.

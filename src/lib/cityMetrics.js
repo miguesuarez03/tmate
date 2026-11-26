@@ -33,6 +33,18 @@ export function pickSubscores(scores = []) {
 }
 
 /** Umbrales de población oficial (CITY_POPULATION) para cada tamaño. */
+/**
+ * Procedencia del coste de la ficha: la fuente oficial (`costSource`), la cifra
+ * del portal de la Universidad Loyola (`costBy: "loyola"`, cuando no coincide con
+ * la universidad de destino se muestra la de Loyola) o la estimación de MAbroad.
+ * Solo `costSource` es fuente oficial (y la única que permite «Asequible»).
+ */
+export function costSourceLabel(city) {
+  if (typeof city?.costSource === "string" && city.costSource.trim() !== "") return `Fuente: ${city.costSource}`;
+  if (city?.costBy === "loyola") return "Según la Universidad Loyola";
+  return "Estimación MAbroad";
+}
+
 export const CITY_SIZE_LIMITS = { mediana: 300000, grande: 1000000 };
 
 /**

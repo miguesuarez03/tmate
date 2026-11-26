@@ -281,16 +281,16 @@ const THE_NAMES = {
   "graz": ["University of Graz", "Graz University of Technology", "Medical University of Graz"],
   "wiener-neustadt": [],
   "cortrique": [{ name: "KU Leuven", satellite: true }],
-  // Tanda 5. University of Limassol solo sale como «Reporter» (sin puesto): cuenta la Cyprus University of Technology, con sede en Limasol.
-  // Kuopio: UEF tiene dos campus grandes (Kuopio y Joensuu); no se marca como satélite (mismo criterio que Leiden en La Haya).
+  // Tanda 5. Kuopio y Limasol solo con las universidades del portal de Loyola (decisión de Miguel, 26-11-2026): Savonia no
+  // sale en THE y la University of Limassol solo como «Reporter» (sin puesto); no cuentan UEF ni la Cyprus University of Technology.
   // Prešov (University of Prešov), Rovaniemi (University of Lapland, sin puesto) y El Havre (Université Le Havre Normandie, sin puesto) no salen.
   "diepenbeek": ["Hasselt University"],
   "namur": ["University of Namur"],
-  "limasol": ["Cyprus University of Technology"],
+  "limasol": [],
   "roskilde": ["Roskilde University"],
   "nitra": ["Slovak University of Agriculture in Nitra"],
   "presov": [],
-  "kuopio": ["University of Eastern Finland"],
+  "kuopio": [],
   "rovaniemi": [],
   "clermont-ferrand": ["University of Clermont Auvergne"],
   "el-havre": [],

@@ -3093,15 +3093,7 @@ export const CITY_UNIVERSITIES = {
    "intlPct": 20
   }
  ],
- "limasol": [
-  {
-   "name": "Cyprus University of Technology",
-   "edition": 2027,
-   "rank": "501–550",
-   "students": 3186,
-   "intlPct": 16
-  }
- ],
+ "limasol": [],
  "roskilde": [
   {
    "name": "Roskilde University",
@@ -3121,15 +3113,7 @@ export const CITY_UNIVERSITIES = {
   }
  ],
  "presov": [],
- "kuopio": [
-  {
-   "name": "University of Eastern Finland",
-   "edition": 2027,
-   "rank": "451–500",
-   "students": 13323,
-   "intlPct": 7
-  }
- ],
+ "kuopio": [],
  "rovaniemi": [],
  "clermont-ferrand": [
   {
