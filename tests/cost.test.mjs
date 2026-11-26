@@ -89,6 +89,11 @@ test("«Asequible» solo si el coste tiene fuente oficial; si no, «Estimación 
   assert.equal(getCostSourceLabel(loyola), "Según la Universidad Loyola");
   assert.equal(hasOfficialCost(loyola), false);
   assert.equal(isAffordable(loyola), false);
+  // Aunque quede un costSource, la cifra de Loyola manda: ni oficial ni «Asequible».
+  const mixta = { costDetail: "~500 €/mes", costBy: "loyola", costSource: "Universidad X" };
+  assert.equal(getCostSourceLabel(mixta), "Según la Universidad Loyola");
+  assert.equal(hasOfficialCost(mixta), false);
+  assert.equal(isAffordable(mixta), false);
   // Ciudades con coste estimado por MAbroad (pendiente de fuente, ver VERIFICACION.md).
   for (const slug of ["parma", "bergamo", "ferrara", "genova", "grenoble", "venecia", "coimbra", "dresde", "tubinga", "catania", "palermo", "cagliari", "bolonia"]) {
     const c = CITIES.find((x) => x.slug === slug);

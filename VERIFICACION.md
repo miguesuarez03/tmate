@@ -850,3 +850,5 @@ Sustituye a la regla anterior de idioma («la ficha sigue a la universidad de de
 **Clasificación como en el portal:** Kuopio y Limasol solo cuentan las universidades del convenio (Savonia y University of Limassol, sin puesto en THE). Kuopio sigue con nota (ESN Savo); **Limasol pasa a provisional** (sin THE ni ESN). Notas provisionales: **14 de 164** destinos Erasmus+ (8,5 %, tope del 15 %).
 
 Sin cambios: Diepenbeek sin `near`; Nitra y Prešov con Eurostat 2022; Limasol sin población.
+
+**Revisión de Codex (26-11, solo lectura, commit `6d6f663`), aplicada:** Nottingham con todas las condiciones de inglés que da el portal (mínimos de TOEFL por parte, Home Edition/online, Oxford 111 por parte e ISE IV); Arnhem, Umeå y Brugg sin los precios de alojamiento de destino que contradecían a Loyola (ahora 380–450 €, ~2.900 SEK y 400–900 CHF al mes); `costBy: "loyola"` manda sobre `costSource` (nunca oficial ni «Asequible», con test); «plazas propias» de Stuttgart cambiado por «alojamiento propio». Nada grave: sin segunda ronda. `check:responsive`: a la primera, 2 combinaciones con fallos de 140 (no se vio cuáles); al repetirlo, limpio.

@@ -18538,7 +18538,7 @@ export const CITY_INSIGHTS = {
         summary: "Según la Universidad Loyola, unos 900 € al mes.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 5.5, desc: "Habitaciones de SSH& por 500–900 € (la mayoría, 530–630 €)." },
+          { label: "Alojamiento", score: 5.5, desc: "Alojamiento de 380–450 € al mes, según la Universidad Loyola." },
           { label: "Comida y supermercados", score: 7.0, desc: "Supermercados neerlandeses a precio medio." },
           { label: "Transporte", score: 7.5, desc: "Ciudad que se recorre en bici." },
           { label: "Ocio y gastos diarios", score: 6.5, desc: "Ocio a precio neerlandés." },
@@ -18550,7 +18550,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 8.0, desc: "La HAN da habitación a los de intercambio que se inscriben a tiempo." },
-          { label: "Precio", score: 5.5, desc: "500–900 €, con 2,5 meses por adelantado." },
+          { label: "Precio", score: 5.5, desc: "380–450 € al mes según la Universidad Loyola; 2,5 meses por adelantado en SSH&." },
           { label: "Facilidad de búsqueda", score: 8.0, desc: "Lo gestiona SSH& con la HAN." },
           { label: "Residencias universitarias", score: 7.5, desc: "Edificios Atlas, Helix y Leeuwensteinplein." },
         ],
@@ -19678,7 +19678,7 @@ export const CITY_INSIGHTS = {
         summary: "Según la Universidad Loyola, unos 7.600 SEK al mes (unos 680 €).",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 6.5, desc: "Unos 20.500–24.500 SEK por semestre en vivienda de la universidad." },
+          { label: "Alojamiento", score: 6.5, desc: "Unos 2.900 SEK al mes de alojamiento, según la Universidad Loyola." },
           { label: "Comida y supermercados", score: 5.5, desc: "Supermercados suecos caros." },
           { label: "Transporte", score: 7.0, desc: "Bus Ultra: 26 SEK de 20 a 25 años." },
           { label: "Ocio y gastos diarios", score: 5.5, desc: "Ocio caro." },
@@ -19773,7 +19773,7 @@ export const CITY_INSIGHTS = {
         summary: "Según la Universidad Loyola, 1.215–1.980 CHF al mes.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 3.5, desc: "Pisos desde 600 CHF al mes." },
+          { label: "Alojamiento", score: 3.5, desc: "400–900 CHF al mes según el tipo, según la Universidad Loyola." },
           { label: "Comida y supermercados", score: 3.5, desc: "Supermercados suizos muy caros." },
           { label: "Transporte", score: 5.0, desc: "Transporte de 150–200 CHF al mes según la FHNW." },
           { label: "Ocio y gastos diarios", score: 3.5, desc: "Ocio muy caro." },
@@ -19785,7 +19785,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 5.0, desc: "Oferta pequeña en Brugg-Windisch." },
-          { label: "Precio", score: 4.0, desc: "Desde 600 CHF al mes." },
+          { label: "Precio", score: 4.0, desc: "400–900 CHF al mes, según la Universidad Loyola." },
           { label: "Facilidad de búsqueda", score: 6.0, desc: "La oficina internacional ayuda a buscar." },
           { label: "Residencias universitarias", score: 3.0, desc: "La FHNW no tiene residencias propias." },
         ],

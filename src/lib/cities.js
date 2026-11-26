@@ -892,6 +892,7 @@ export const AFFORDABLE_MAX_COST = 500;
 
 /** ¿El coste de la ciudad viene de una fuente oficial (`costSource` en cities.js)? */
 export function hasOfficialCost(city) {
+  if (city?.costBy === "loyola") return false; // cifra del portal de Loyola: nunca es fuente oficial
   return typeof city?.costSource === "string" && city.costSource.trim() !== "";
 }
 

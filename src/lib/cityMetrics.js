@@ -40,8 +40,9 @@ export function pickSubscores(scores = []) {
  * Solo `costSource` es fuente oficial (y la única que permite «Asequible»).
  */
 export function costSourceLabel(city) {
-  if (typeof city?.costSource === "string" && city.costSource.trim() !== "") return `Fuente: ${city.costSource}`;
+  // La cifra de Loyola manda aunque la ficha conserve un costSource: nunca cuenta como oficial.
   if (city?.costBy === "loyola") return "Según la Universidad Loyola";
+  if (typeof city?.costSource === "string" && city.costSource.trim() !== "") return `Fuente: ${city.costSource}`;
   return "Estimación MAbroad";
 }
 

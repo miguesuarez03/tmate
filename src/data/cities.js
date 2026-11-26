@@ -5040,7 +5040,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Campus de Ruitenberglaan", vibe: "Sede de Business de la HAN", price: "€€" },
     ],
-    tips: ["Según la Universidad Loyola, unos 900 € al mes, con 380–450 € de alojamiento","Habitaciones de SSH& en Arnhem por 500–900 € (la mayoría, 530–630 € con gastos); hay que pagar 2,5 meses por adelantado y ser menor de 31 años","Si te quedas más de 4 meses, inscríbete en el registro municipal (BRP) en los 5 días siguientes a llegar","Plazos de la HAN para otoño: nominación hasta el 15 de abril (Business, Communication y Education) o el 15 de marzo (resto de programas); para primavera, el 15 de septiembre. Solicitud hasta el 15 de mayo o el 15 de octubre"],
+    tips: ["Según la Universidad Loyola, unos 900 € al mes, con 380–450 € de alojamiento","Habitaciones de SSH& en Arnhem: hay que pagar 2,5 meses por adelantado y ser menor de 31 años","Si te quedas más de 4 meses, inscríbete en el registro municipal (BRP) en los 5 días siguientes a llegar","Plazos de la HAN para otoño: nominación hasta el 15 de abril (Business, Communication y Education) o el 15 de marzo (resto de programas); para primavera, el 15 de septiembre. Solicitud hasta el 15 de mayo o el 15 de octubre"],
     experiences: ["erasmus"],
   },
   {
@@ -5147,7 +5147,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "City Centre", vibe: "Campus urbano de NTU y vida de la ciudad", price: "€€€" },
     ],
-    tips: ["Para un semestre de hasta 6 meses basta la entrada como visitante (Standard Visitor), con la autorización ETA (20 £); para el curso completo hace falta Student visa, con NTU como sponsor (GOV.UK)","Idioma según la Universidad Loyola: el convenio se consigue con inglés B2, pero NTU pide IELTS Academic 6.5 (5.5 en cada parte) o equivalente (TOEFL iBT 74, Cambridge C1, Oxford 120 o Trinity ISE III): confírmalo con la Oficina","Desde el aeropuerto de East Midlands: bus Skylink a Nottingham","No hay sección de ESN en Nottingham"],
+    tips: ["Para un semestre de hasta 6 meses basta la entrada como visitante (Standard Visitor), con la autorización ETA (20 £); para el curso completo hace falta Student visa, con NTU como sponsor (GOV.UK)","Idioma según la Universidad Loyola: el convenio se consigue con inglés B2, pero NTU pide IELTS Academic 6.5 (5.5 en cada parte), TOEFL iBT 74 (también Home Edition u online; 18 en Reading, 17 en Listening, 20 en Speaking y 19 en Writing), Cambridge C1, Oxford 120 (111 en cada parte) o Trinity ISE III o ISE IV: confírmalo con la Oficina","Desde el aeropuerto de East Midlands: bus Skylink a Nottingham","No hay sección de ESN en Nottingham"],
     experiences: ["erasmus"],
   },
   {
@@ -5227,7 +5227,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Campus de Umeå", vibe: "Universidad y residencias junto al centro", price: "€€" },
     ],
-    tips: ["Según la Universidad Loyola, unos 7.600 SEK al mes, con unos 2.900 SEK de alojamiento (en euros, al cambio del BCE del 26-11-2026)","Vivienda a través de la universidad: unos 20.500–24.500 SEK por semestre, más 5.000 SEK de fianza y 800 SEK de tasa; no está garantizada","Bus Ultra: 26 SEK el billete sencillo comprado antes si tienes 20–25 años (31 SEK de 26 a 64); el bus del aeropuerto entra en la misma tarifa","Idioma según la Universidad Loyola: inglés B2: confírmalo con la Oficina","Inviernos muy fríos: mínimas medias de unos -11 °C en febrero (OMM, 1991–2020)"],
+    tips: ["Según la Universidad Loyola, unos 7.600 SEK al mes, con unos 2.900 SEK de alojamiento (en euros, al cambio del BCE del 26-11-2026)","Vivienda a través de la universidad, con 5.000 SEK de fianza y 800 SEK de tasa; no está garantizada","Bus Ultra: 26 SEK el billete sencillo comprado antes si tienes 20–25 años (31 SEK de 26 a 64); el bus del aeropuerto entra en la misma tarifa","Idioma según la Universidad Loyola: inglés B2: confírmalo con la Oficina","Inviernos muy fríos: mínimas medias de unos -11 °C en febrero (OMM, 1991–2020)"],
     experiences: ["erasmus"],
   },
   {
@@ -5256,7 +5256,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Brugg-Windisch", vibe: "Campus junto a la estación", price: "€€€" },
     ],
-    tips: ["Según la Universidad Loyola, 1.215–1.980 CHF al mes y 400–900 CHF de residencia según el tipo (en euros, al cambio del BCE del 26-11-2026)","La FHNW no tiene residencias: pisos privados o compartidos desde 600 CHF al mes, con ayuda de la oficina internacional","Los de intercambio pueden elegir cursos de los tres campus de la escuela de empresa (Basilea, Brugg-Windisch y Olten)","Plazos de solicitud: 30 de mayo (otoño) y 30 de noviembre (primavera); inglés B2 o alemán B2 según los cursos","Al llegar tienes que pedir el permiso de residencia de estudiante en Argovia"],
+    tips: ["Según la Universidad Loyola, 1.215–1.980 CHF al mes y 400–900 CHF de residencia según el tipo (en euros, al cambio del BCE del 26-11-2026)","Alojamiento: 400–900 CHF al mes según el tipo, según la Universidad Loyola; la oficina internacional ayuda a buscar","Los de intercambio pueden elegir cursos de los tres campus de la escuela de empresa (Basilea, Brugg-Windisch y Olten)","Plazos de solicitud: 30 de mayo (otoño) y 30 de noviembre (primavera); inglés B2 o alemán B2 según los cursos","Al llegar tienes que pedir el permiso de residencia de estudiante en Argovia"],
     experiences: ["erasmus"],
   },
   {
@@ -5522,7 +5522,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro (Schlossplatz)", vibe: "Plazas, palacios y comercio", price: "€€€" },
     ],
-    tips: ["Según la Universidad Loyola, unos 750 € al mes, con un alquiler de 350–500 €","El alojamiento lo adjudica el Studierendenwerk Stuttgart; la universidad no tiene plazas propias","La Universität Stuttgart no tiene Deutschlandsemesterticket; los de intercambio pagan una cuota de unos 100 €","Idioma según la Universidad Loyola: alemán B1 o inglés B2: confírmalo con la Oficina","Plazos: nominación hasta el 1 de abril (invierno) o el 1 de octubre (verano); solicitud en Mobility-Online hasta el 1 de mayo o el 1 de noviembre y después en C@MPUS hasta el 1 de junio o el 1 de diciembre"],
+    tips: ["Según la Universidad Loyola, unos 750 € al mes, con un alquiler de 350–500 €","El alojamiento lo adjudica el Studierendenwerk Stuttgart; la universidad no dispone de alojamiento propio","La Universität Stuttgart no tiene Deutschlandsemesterticket; los de intercambio pagan una cuota de unos 100 €","Idioma según la Universidad Loyola: alemán B1 o inglés B2: confírmalo con la Oficina","Plazos: nominación hasta el 1 de abril (invierno) o el 1 de octubre (verano); solicitud en Mobility-Online hasta el 1 de mayo o el 1 de noviembre y después en C@MPUS hasta el 1 de junio o el 1 de diciembre"],
     experiences: ["erasmus"],
   },
   {
