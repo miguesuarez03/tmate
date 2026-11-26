@@ -54,6 +54,15 @@ test("cada estación tiene un rango «mín–máx°C» con la mínima por debajo
   }
 });
 
+test("el icono de cada estación va con su nombre (en el hemisferio sur, «Verano» en Dic–Feb lleva el sol)", () => {
+  const ICON = { Primavera: "🌸", Verano: "☀️", "Otoño": "🍂", Invierno: "❄️" };
+  for (const [slug, seasons] of Object.entries(CITY_SEASONS)) {
+    for (const s of seasons) {
+      if (ICON[s.label]) assert.equal(s.emoji, ICON[s.label], `${slug} ${s.id}: «${s.label}» con ${s.emoji}`);
+    }
+  }
+});
+
 test("los meses extremos solo existen para ciudades con bloque de clima y cuadran con sus estaciones", () => {
   for (const [slug, e] of Object.entries(CITY_CLIMATE_EXTREMES)) {
     const seasons = CITY_SEASONS[slug];

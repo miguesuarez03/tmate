@@ -6157,12 +6157,12 @@ export const CITIES = [
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Aberystwyth_seafront_-_geograph.org.uk_-_8183720.jpg/1920px-Aberystwyth_seafront_-_geograph.org.uk_-_8183720.jpg",
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Aberystwyth_seafront_-_geograph.org.uk_-_8183720.jpg/1920px-Aberystwyth_seafront_-_geograph.org.uk_-_8183720.jpg",
     description: "Aberystwyth, en la costa de Gales, es la sede de la National Library of Wales, fundada por carta real en 1907. El convenio es con la Aberystwyth University, que abrió en 1872 como el primer University College de Gales; tiene más de 6.000 estudiantes, el campus de Penglais y el Old College frente al mar. Reino Unido vuelve a Erasmus+ en el curso 2027-28.",
-    highlights: ["National Library of Wales, desde 1907","Aberystwyth University, abierta en 1872","Alojamiento garantizado si lo pides antes del 1 de septiembre","Sección de ESN: ESN Aberystwyth"],
+    highlights: ["National Library of Wales, desde 1907","Aberystwyth University, abierta en 1872","Alojamiento garantizado en residencia para intercambio","Sección de ESN: ESN Aberystwyth"],
     universities: ["Aberystwyth University"],
     neighborhoods: [
       { name: "Centro y paseo marítimo", vibe: "Old College frente al mar", price: "€€" },
     ],
-    tips: ["Para un semestre de hasta 6 meses basta la entrada como visitante (Standard Visitor), con la autorización ETA (20 £); para el curso completo hace falta Student visa (GOV.UK)","Inglés B2 para los socios europeos","Alojamiento garantizado en residencia si lo pides antes del 1 de septiembre, con 100 £ de tasa de aceptación; en 2026-27, desde 124,08 £ por semana con suministros incluidos","Plazos: 1 de mayo (primer semestre o curso completo) y 15 de octubre (segundo semestre)"],
+    tips: ["Para un semestre de hasta 6 meses basta la entrada como visitante (Standard Visitor), con la autorización ETA (20 £); para el curso completo hace falta Student visa (GOV.UK)","Inglés B2 para los socios europeos","Alojamiento garantizado en residencia: para el primer semestre o el curso completo, si lo pides antes del 1 de septiembre; para el segundo, se pide desde noviembre; 100 £ de tasa de aceptación; en 2026-27, desde 124,08 £ por semana con suministros incluidos","Plazos: 1 de mayo (primer semestre o curso completo) y 15 de octubre (segundo semestre)"],
     experiences: ["erasmus"],
   },
   {
@@ -6271,12 +6271,12 @@ export const CITIES = [
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Portsmouth_waterfront_at_Spinnaker_Tower.jpg/1920px-Portsmouth_waterfront_at_Spinnaker_Tower.jpg",
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Portsmouth_waterfront_at_Spinnaker_Tower.jpg/1920px-Portsmouth_waterfront_at_Spinnaker_Tower.jpg",
     description: "Portsmouth, en la costa sur de Inglaterra, es una ciudad portuaria de unos 208.000 habitantes; en su arsenal histórico están el HMS Victory y el Mary Rose. El convenio es con la University of Portsmouth, universidad desde 1992. Reino Unido vuelve a Erasmus+ en el curso 2027-28.",
-    highlights: ["HMS Victory y el Mary Rose, en el arsenal histórico","University of Portsmouth, universidad desde 1992","Puesto 401–450 en THE 2027","Residencias desde 120 £ por semana (2027-28)"],
+    highlights: ["HMS Victory y el Mary Rose, en el arsenal histórico","University of Portsmouth, universidad desde 1992","Puesto 401–450 en THE 2027","Residencias de 120–208 £ por semana (2027-28, provisional)"],
     universities: ["University of Portsmouth"],
     neighborhoods: [
       { name: "Southsea", vibe: "Barrio estudiantil junto al mar", price: "€€" },
     ],
-    tips: ["Para un semestre de hasta 6 meses basta la entrada como visitante (Standard Visitor), con la autorización ETA (20 £); para el curso completo hace falta Student visa (GOV.UK)","El portal de la Universidad Loyola no indica el nivel de idioma: confírmalo con la Oficina (Portsmouth pide IELTS 6.0, sin ninguna parte por debajo de 5.5, o equivalente)","Puedes pedir residencia en cuanto te acepten, pero a los de intercambio no se les garantiza; en 2027-28, de 120 £ (Trust Hall) a 205 £ por semana (Rees Hall, con comidas)","La universidad calcula unas 45 £ por semana de comida y 5–10 £ de transporte"],
+    tips: ["Para un semestre de hasta 6 meses basta la entrada como visitante (Standard Visitor), con la autorización ETA (20 £); para el curso completo hace falta Student visa (GOV.UK)","El portal de la Universidad Loyola no indica el nivel de idioma: confírmalo con la Oficina (Portsmouth pide IELTS 6.0, sin ninguna parte por debajo de 5.5, o equivalente)","Puedes pedir residencia en cuanto te acepten, pero a los de intercambio no se les garantiza; en 2027-28, de 120 £ (Trust Hall) a 208 £ por semana (Greetham Street), con tarifas provisionales hasta marzo de 2027","La universidad calcula unas 45 £ por semana de comida y 5–10 £ de transporte"],
     experiences: ["erasmus"],
   },
   {
@@ -6302,7 +6302,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Meireles y Aldeota", vibe: "Paseo marítimo y zona universitaria", price: "€€" },
     ],
-    tips: ["Idioma según la Universidad Loyola: B1 en un idioma extranjero, con portugués recomendado; para Psicología, Loyola recomienda el semestre de agosto a diciembre","UNIFOR no tiene alojamiento en el campus: la oficina internacional da una lista de pisos de alquiler, y calcula 1.500–2.000 reales al mes de gastos","Plazos: hasta el 15 de diciembre (semestre de febrero) y hasta el 31 de mayo (semestre de agosto)","Necesitas el visado de estudiante VITEM IV y registrarte en la Polícia Federal en los 90 días siguientes a llegar"],
+    tips: ["Idioma según la Universidad Loyola: B1 en un idioma extranjero, con portugués recomendado; para Psicología, Loyola recomienda el semestre de agosto a diciembre","UNIFOR no tiene alojamiento en el campus: la oficina internacional da una lista de pisos de alquiler, y calcula 2.000–2.500 reales al mes de gastos","Plazos: hasta el 15 de diciembre (semestre de febrero) y hasta el 31 de mayo (semestre de agosto)","Necesitas el visado de estudiante VITEM IV y registrarte en la Polícia Federal en los 90 días siguientes a llegar"],
     experiences: ["erasmus"],
   },
   {
@@ -6380,7 +6380,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro histórico", vibe: "Arco de la Calzada y plazas", price: "€" },
     ],
-    tips: ["Idioma según la Universidad Loyola: español B1, e inglés B2 para las clases en inglés: confírmalo con la Oficina","Según la Universidad Loyola, 450–650 dólares al mes, con 200–400 de alquiler","Como mínimo 3 asignaturas por semestre","Como español no necesitas visado para estudios de hasta 180 días sin remuneración: entras con la Forma Migratoria Múltiple (SRE)"],
+    tips: ["Idioma según la Universidad Loyola: español B1, e inglés B2 para las clases en inglés: confírmalo con la Oficina","Según la Universidad Loyola, 450–650 dólares al mes, con 200–400 de alquiler","Como español no necesitas visado para estudios de hasta 180 días sin remuneración: entras con la Forma Migratoria Múltiple (SRE)"],
     experiences: ["erasmus"],
   },
   {

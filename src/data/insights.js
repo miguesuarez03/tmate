@@ -23011,7 +23011,7 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 8.0,
-        summary: "Garantizado si lo pides antes del 1 de septiembre.",
+        summary: "Residencia garantizada para intercambio.",
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 8.0, desc: "Residencia garantizada." },
@@ -23383,7 +23383,7 @@ export const CITY_INSIGHTS = {
         summary: "Precios del sur de Inglaterra.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 5.5, desc: "Residencias de 120–205 £ por semana." },
+          { label: "Alojamiento", score: 5.5, desc: "Residencias de 120–208 £ por semana." },
           { label: "Comida y supermercados", score: 6.0, desc: "Unas 45 £ por semana de comida, según la universidad." },
           { label: "Transporte", score: 6.5, desc: "Ciudad compacta." },
           { label: "Ocio y gastos diarios", score: 5.5, desc: "Ocio a precio británico." },
@@ -23395,7 +23395,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 6.0, desc: "Sin garantía para intercambio." },
-          { label: "Precio", score: 6.0, desc: "120–205 £ por semana (2027-28)." },
+          { label: "Precio", score: 6.0, desc: "120–208 £ por semana (2027-28, provisional)." },
           { label: "Facilidad de búsqueda", score: 6.5, desc: "Se pide tras la aceptación." },
           { label: "Residencias universitarias", score: 7.0, desc: "Residencias de la universidad." },
         ],

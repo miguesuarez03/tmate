@@ -933,8 +933,8 @@ export const CITY_SEASONS = {
   leicester: [
     { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–14°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave.", tags: ["Suave","Parques","Paseos"] },
     { id: "summer", label: "Verano", months: "Jun–Ago", temp: "11–21°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Festivales","Días largos"] },
-    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño suave para empezar el curso.", tags: ["Inicio Erasmus","Suave","Lluvias"], highlight: true },
-    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "2–7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno fresco y húmedo.", tags: ["Fresco","Húmedo","Diwali"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño suave para empezar el curso.", tags: ["Inicio Erasmus","Suave","Diwali"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "2–7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno fresco y húmedo.", tags: ["Fresco","Húmedo","Lluvias"] },
   ],
   // Portsmouth: Thorney Island (OMM 03872, a unos 12 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
   portsmouth: [
@@ -945,17 +945,17 @@ export const CITY_SEASONS = {
   ],
   // Fortaleza: Fortaleza (OMM 82397, a unos 10 km del centro; normales OMM 1991–2020 publicadas por NOAA/NCEI). Hemisferio sur, junto al ecuador: etiquetas de estación del sur.
   fortaleza: [
-    { id: "spring", label: "Otoño", months: "Mar–May", temp: "24–31°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Calor todo el año, en la temporada de lluvias.", tags: ["Calor","Lluvias","Playa"] },
-    { id: "summer", label: "Invierno", months: "Jun–Ago", temp: "23–31°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Calor y menos lluvia; empieza el semestre de agosto.", tags: ["Inicio de semestre","Calor","Brisa"], highlight: true },
-    { id: "autumn", label: "Primavera", months: "Sep–Nov", temp: "24–32°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Calor seco y mucho viento.", tags: ["Calor","Seco","Viento"] },
-    { id: "winter", label: "Verano", months: "Dic–Feb", temp: "25–31°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Calor, con el semestre de febrero.", tags: ["Calor","Playa","Carnaval"] },
+    { id: "spring", label: "Otoño", months: "Mar–May", temp: "24–31°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Calor todo el año, en la temporada de lluvias.", tags: ["Calor","Lluvias","Playa"] },
+    { id: "summer", label: "Invierno", months: "Jun–Ago", temp: "23–31°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Calor y menos lluvia; empieza el semestre de agosto.", tags: ["Inicio de semestre","Calor","Brisa"], highlight: true },
+    { id: "autumn", label: "Primavera", months: "Sep–Nov", temp: "24–32°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Calor seco y mucho viento.", tags: ["Calor","Seco","Viento"] },
+    { id: "winter", label: "Verano", months: "Dic–Feb", temp: "25–31°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Calor, con el semestre de febrero.", tags: ["Calor","Playa","Carnaval"] },
   ],
   // São Leopoldo: Porto Alegre (OMM 83967, a unos 33 km; normales OMM 1991–2020 publicadas por NOAA/NCEI). Hemisferio sur: etiquetas de estación del sur.
   "sao-leopoldo": [
-    { id: "spring", label: "Otoño", months: "Mar–May", temp: "17–26°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Otoño templado.", tags: ["Templado","Parques","Paseos"] },
-    { id: "summer", label: "Invierno", months: "Jun–Ago", temp: "11–21°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Invierno fresco; empieza el semestre de agosto.", tags: ["Inicio de semestre","Fresco","Chimarrão"], highlight: true },
-    { id: "autumn", label: "Primavera", months: "Sep–Nov", temp: "15–25°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Primavera templada.", tags: ["Templada","Lluvias","Paseos"] },
-    { id: "winter", label: "Verano", months: "Dic–Feb", temp: "20–31°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Verano caluroso y húmedo.", tags: ["Caluroso","Húmedo","Tormentas"] },
+    { id: "spring", label: "Otoño", months: "Mar–May", temp: "17–26°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado.", tags: ["Templado","Parques","Paseos"] },
+    { id: "summer", label: "Invierno", months: "Jun–Ago", temp: "11–21°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno fresco; empieza el semestre de agosto.", tags: ["Inicio de semestre","Fresco","Chimarrão"], highlight: true },
+    { id: "autumn", label: "Primavera", months: "Sep–Nov", temp: "15–25°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada.", tags: ["Templada","Lluvias","Paseos"] },
+    { id: "winter", label: "Verano", months: "Dic–Feb", temp: "20–31°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano caluroso y húmedo.", tags: ["Caluroso","Húmedo","Tormentas"] },
   ],
   // León: Guanajuato (OMM 76577, a unos 45 km y a 1.999 m; normales OMM 1991–2020 publicadas por NOAA/NCEI).
   "leon-mexico": [
