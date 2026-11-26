@@ -5615,7 +5615,7 @@ export const CITIES = [
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/UHasselt.jpg/1920px-UHasselt.jpg",
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/UHasselt.jpg/1920px-UHasselt.jpg",
     description: "Diepenbeek es un municipio de unos 20.000 habitantes de Limburgo (Flandes), junto a Hasselt. Allí está uno de los dos campus de la Universidad de Hasselt (UHasselt), que tiene el otro en Hasselt; desde la estación de Hasselt sale un bus al campus de Diepenbeek al menos cada 15 minutos.",
-    highlights: ["Hasselt University, puesto 351–375 en THE 2027","La mayoría de los programas de UHasselt se imparten en inglés","Sección de ESN: ESN Hasselt, que cubre Hasselt, Diepenbeek y Genk","Bus al campus desde la estación de Hasselt al menos cada 15 minutos"],
+    highlights: ["Hasselt University, puesto 351–375 en THE 2027","Asignaturas de intercambio en inglés: consulta la oferta de tu facultad","Sección de ESN: ESN Hasselt, que cubre Hasselt, Diepenbeek y Genk","Bus al campus desde la estación de Hasselt al menos cada 15 minutos"],
     universities: ["Universiteit Hasselt"],
     neighborhoods: [
       { name: "Campus Diepenbeek", vibe: "Campus universitario, con bus a Hasselt", price: "€€" },
@@ -5701,7 +5701,7 @@ export const CITIES = [
       { name: "Campus de RUC", vibe: "Residencias en el campus", price: "€€€" },
       { name: "Centro", vibe: "Catedral y estación", price: "€€€" },
     ],
-    tips: ["RUC pide inglés acreditado (IELTS 6.5, Cambridge C1 Advanced con 160 o TOEFL iBT 80) o un documento de tu universidad si estudias en inglés; el portal de Loyola pide B2 con menos de 2 años: confírmalo con la Oficina","Residencias en el campus por 4.200–5.300 coronas al mes y 11.000 de fianza; sin garantía, aunque normalmente hay plaza si la pides a tiempo","Plazos: 1 de mayo (otoño) y 1 de octubre (primavera); los de intercambio no pagan matrícula","Si te quedas más de 3 meses, pide el documento de residencia UE a SIRI y preséntate en una de sus oficinas en los 30 días siguientes: lo necesitas para el número CPR"],
+    tips: ["RUC pide inglés acreditado (IELTS 6.5, Cambridge C1 Advanced con 160 o TOEFL iBT 80) o un documento firmado de tu universidad que confirme que tu programa se imparte íntegramente en inglés; el portal de Loyola pide B2 con menos de 2 años: confírmalo con la Oficina","Residencias en el campus por 4.200–5.300 coronas al mes y 11.000 de fianza; sin garantía, aunque normalmente hay plaza si la pides a tiempo","Plazos: 1 de mayo (otoño) y 1 de octubre (primavera); los de intercambio no pagan matrícula","Si te quedas más de 3 meses, pide el documento de residencia UE a SIRI y preséntate en una de sus oficinas en los 30 días siguientes: lo necesitas para el número CPR"],
     experiences: ["erasmus"],
   },
   {
@@ -5779,7 +5779,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro", vibe: "Junto al lago Kallavesi", price: "€€" },
     ],
-    tips: ["Savonia pide inglés comparable a un B2","Alojamiento con KUOPAS, la empresa municipal de vivienda, sin garantía; Savonia calcula 290–400 € al mes de alojamiento (página sin fecha)","Plazos de nominación: 31 de marzo (otoño o curso completo) y 30 de septiembre (primavera)","Billete sencillo de Vilkku (zona AB): 2,85 € con app o tarjeta y 4 € en efectivo","Registra tu derecho de residencia en Migri en los 3 meses siguientes a llegar (53 € en 2026)"],
+    tips: ["Savonia pide inglés comparable a un B2","Alojamiento con KUOPAS, la empresa municipal de vivienda, sin garantía; Savonia calcula 290–400 € al mes de alojamiento (página sin fecha)","Plazos de nominación: 31 de marzo (otoño o curso completo) y 30 de septiembre (primavera)","Billete sencillo de Vilkku (zona AB): 2,85 € con app o tarjeta y 4 € en efectivo","Si te quedas más de 3 meses seguidos, registra tu derecho de residencia en Migri (53 € en 2026)"],
     experiences: ["erasmus"],
   },
   {
@@ -5805,7 +5805,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro", vibe: "Junto al Kemijoki", price: "€€" },
     ],
-    tips: ["Lapland UAS pide inglés B1 como mínimo; el portal de Loyola no indica idioma: confírmalo con la Oficina","Alojamiento con DAS (Domus Arctica), KAS, VVO o Lumo, sin precios publicados ni garantía","Plazos 2026-27: nominación del 1 de marzo al 30 de abril (otoño) o del 1 de septiembre al 15 de octubre (primavera); los de 2027-28 aún no están publicados","Registra tu derecho de residencia en Migri en los 3 meses siguientes a llegar (53 € en 2026)"],
+    tips: ["Lapland UAS pide inglés B1 como mínimo; el portal de Loyola no indica idioma: confírmalo con la Oficina","Alojamiento con DAS (Domus Arctica), KAS, VVO o Lumo, sin precios publicados ni garantía","Plazos 2026-27: nominación del 1 de marzo al 30 de abril (otoño) o del 1 de septiembre al 15 de octubre (primavera); los de 2027-28 aún no están publicados","Si te quedas más de 3 meses seguidos, registra tu derecho de residencia en Migri (53 € en 2026)"],
     experiences: ["erasmus"],
   },
   {
@@ -5832,7 +5832,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro", vibe: "Escuela y vida de la ciudad, a pie", price: "€€" },
     ],
-    tips: ["La escuela calcula 610–1.050 € al mes con alquiler, comida, ocio, teléfono y transporte (guía 2026-27)","Habitación o estudio amueblado por 320–450 € al mes con gastos; no hay alojamiento garantizado","La escuela no publica el nivel de idioma para intercambio; el portal de Loyola pide francés B2 o inglés y avisa de que la oferta es sobre todo en francés: confírmalo con la Oficina","Billete de T2C: 1,60 € comprado antes o 2 € a bordo, válido 1 h 10 min","Como ciudadano de la UE no necesitas permiso de residencia"],
+    tips: ["La escuela calcula 610–1.050 € al mes con alquiler, comida, ocio, teléfono y transporte (guía 2026-27)","Habitación o estudio amueblado por 320–450 € al mes con gastos; no hay alojamiento garantizado","La escuela no publica el nivel de idioma para intercambio; el portal de Loyola pide francés B2 o inglés y avisa de que la oferta es sobre todo en francés: confírmalo con la Oficina","Billete de T2C de 1 h 10 min: 1,60 € (también con tarjeta sin contacto a bordo) o 2 € si lo compras al conductor","Como ciudadano de la UE no necesitas permiso de residencia"],
     experiences: ["erasmus"],
   },
   {
