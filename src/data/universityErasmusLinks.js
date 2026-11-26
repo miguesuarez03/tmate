@@ -622,6 +622,13 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Örebro universitet": "https://oru.se/exchange",
   "Högskolan Väst": "https://www.hv.se/en/education/exchange-studies",
 
+  // ── Fase 2 Loyola, tanda 7 ─────────────────────────────
+  "Aberystwyth University": "https://aber.ac.uk/en/study-with-us/global-opportunities/study-at-aberystwyth/exchange-at-aber/",
+  "University of Bradford": "https://bradford.ac.uk/study/abroad/incoming-students",
+  "University of Hertfordshire": "https://herts.ac.uk/international/global-study-opportunities/study-abroad-and-semester-exchange/inbound-study-abroad",
+  "University of Leicester": "https://le.ac.uk/cite/study-abroad-unit/incoming/studying",
+  "University of Portsmouth": "https://www.port.ac.uk/study/exchanges-and-study-abroad/exchange-inbound-students-1",
+
   // ── Fase 2 Loyola, tanda 4 ─────────────────────────────
   "Constructor University Bremen": "https://constructor.university/student-life/study-abroad/incoming-students",
   "Philosophisch-Theologische Hochschule Sankt Georgen Frankfurt am Main": "https://www.sankt-georgen.de/studium/hinweise-fuer-internationale-studierende-und-antrag-auf-zulassung/",

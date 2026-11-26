@@ -908,6 +908,41 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "5–11°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Bosques"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-3–2°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y oscuro.", tags: ["Frío","Días cortos","Nieve"] },
   ],
+  // Aberystwyth: Trawsgoed (OMM 03503, a unos 12 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  aberystwyth: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–13°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca junto al mar.", tags: ["Fresca","Costa","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "11–19°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano suave.", tags: ["Suave","Playa","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–15°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño suave y lluvioso para empezar el curso.", tags: ["Inicio Erasmus","Suave","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "2–9°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave, húmedo y ventoso.", tags: ["Suave","Lluvias","Viento"] },
+  ],
+  // Bradford: Bingley (OMM 03344, a unos 8 km y a 262 m; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  bradford: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "4–11°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fresca.", tags: ["Fresca","Parques","Páramos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "11–18°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano suave.", tags: ["Suave","Festivales","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "6–12°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Inicio Erasmus","Fresco","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "1–6°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y húmedo.", tags: ["Frío","Húmedo","Lluvias"] },
+  ],
+  // Hatfield: Rothamsted (OMM 03680, en Harpenden, a unos 11 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  hatfield: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–13°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave.", tags: ["Suave","Parques","Londres cerca"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "12–21°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Terrazas","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño suave para empezar el curso.", tags: ["Inicio Erasmus","Suave","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "2–7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno fresco y húmedo.", tags: ["Fresco","Húmedo","Lluvias"] },
+  ],
+  // Leicester: Church Lawford (OMM 03544, a unos 35 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  leicester: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–14°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave.", tags: ["Suave","Parques","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "11–21°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado.", tags: ["Templado","Festivales","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–14°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño suave para empezar el curso.", tags: ["Inicio Erasmus","Suave","Lluvias"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "2–7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno fresco y húmedo.", tags: ["Fresco","Húmedo","Diwali"] },
+  ],
+  // Portsmouth: Thorney Island (OMM 03872, a unos 12 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  portsmouth: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–14°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave junto al mar.", tags: ["Suave","Costa","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "13–21°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado y soleado.", tags: ["Templado","Playa","Vela"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "9–16°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño suave para empezar el curso.", tags: ["Inicio Erasmus","Suave","Costa"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "3–9°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y ventoso.", tags: ["Suave","Viento","Lluvias"] },
+  ],
 };
 
 // Mes más frío y mes más cálido de cada ciudad (normales 1991–2020 de la misma fuente oficial que
@@ -1050,4 +1085,9 @@ export const CITY_CLIMATE_EXTREMES = {
   olomouc: { cold: { month: 0, min: -4.5 }, hot: { month: 6, max: 26.1 }, source: "OMM, Holešov (11774), a unos 40 km" },
   orebro: { cold: { month: 1, min: -5.1 }, hot: { month: 6, max: 23.1 }, source: "OMM, aeropuerto de Örebro (02432), a unos 10 km" },
   trollhattan: { cold: { month: 1, min: -3.6 }, hot: { month: 6, max: 21.7 }, source: "OMM, Sätenäs (02520), a unos 30 km" },
+  aberystwyth: { cold: { month: 1, min: 2.1 }, hot: { month: 6, max: 19.9 }, source: "OMM, Trawsgoed (03503), a unos 12 km" },
+  bradford: { cold: { month: 1, min: 0.9 }, hot: { month: 6, max: 19.3 }, source: "OMM, Bingley (03344), a unos 8 km" },
+  hatfield: { cold: { month: 1, min: 1.5 }, hot: { month: 6, max: 22.1 }, source: "OMM, Rothamsted (03680), a unos 11 km" },
+  leicester: { cold: { month: 0, min: 1.5 }, hot: { month: 6, max: 22.2 }, source: "OMM, Church Lawford (03544), a unos 35 km" },
+  portsmouth: { cold: { month: 1, min: 2.6 }, hot: { month: 6, max: 21.8 }, source: "OMM, Thorney Island (03872), a unos 12 km" },
 };

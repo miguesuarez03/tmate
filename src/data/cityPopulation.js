@@ -227,4 +227,6 @@ export const CITY_POPULATION = {
   "zwolle": { population: 134147, year: 2026, source: "CBS" },
   "olomouc": { population: 103063, year: 2024, source: "ČSÚ" },
   "orebro": { population: 160687, year: 2025, source: "SCB" },
+  "leicester": { population: 368600, year: 2021, source: "ONS (censo)" },
+  "portsmouth": { population: 208100, year: 2021, source: "ONS (censo)" },
 };
