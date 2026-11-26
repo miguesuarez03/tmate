@@ -184,8 +184,10 @@ function Calculator() {
       setCalcStatus("idle");
       setCalcKm(null);
     }
+    // También con destinationSlug: el recuperado de la sesión llega después
+    // y puede no ser de tus convenios (cambiaste de universidad en otra página).
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [uni]);
+  }, [uni, destinationSlug]);
 
   // País se deduce de la ciudad de destino seleccionada
   const destCity = ALL_CITIES.find(c => c.slug === destinationSlug);
