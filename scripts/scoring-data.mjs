@@ -307,6 +307,17 @@ const THE_NAMES = {
   "olomouc": ["Palacký University Olomouc"],
   "orebro": ["Örebro University"],
   "trollhattan": [],
+  // Tanda 7. La Javeriana de Cali es una seccional de la de Bogotá (satélite). Las Iberoamericanas de León y Puebla no salen en THE.
+  "aberystwyth": ["Aberystwyth University"],
+  "bradford": ["University of Bradford"],
+  "hatfield": ["University of Hertfordshire"],
+  "leicester": ["University of Leicester"],
+  "portsmouth": ["University of Portsmouth"],
+  "fortaleza": ["University of Fortaleza (UNIFOR)"],
+  "sao-leopoldo": ["Unisinos University"],
+  "cali": [{ name: "Pontificia Universidad Javeriana", satellite: true }],
+  "leon-mexico": [],
+  "puebla": [],
 };
 
 /** Nombres con que ESN escribe cada ciudad (además del nombre de la ficha). */
