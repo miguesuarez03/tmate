@@ -25653,6 +25653,196 @@ export const CITY_INSIGHTS = {
       },
     ],
   },
+  manila: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Manila%2C_Fort_Santiago%2C_Walled_city_of_Intramuros%2C_Philippines.jpg/1920px-Manila%2C_Fort_Santiago%2C_Walled_city_of_Intramuros%2C_Philippines.jpg",
+    tagline: "Intramuros, calor tropical y un campus verde.",
+    atmosphere: "Manila es una metrópoli enorme y caótica, con tráfico intenso, mucha vida en la calle y gente muy acogedora.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 7.0,
+        summary: "Estimación MAbroad: 550–800 € al mes.",
+        color: "#B45309",
+        subcategories: [
+          { label: "Alojamiento", score: 6.5, desc: "Residencias del campus a precio medio." },
+          { label: "Comida y supermercados", score: 8.0, desc: "Comida barata." },
+          { label: "Transporte", score: 8.0, desc: "Transporte barato." },
+          { label: "Ocio y gastos diarios", score: 7.0, desc: "Ocio asequible." },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.5,
+        summary: "Residencias en el campus y opciones fuera.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 7.0, desc: "Residencias propias." },
+          { label: "Precio", score: 6.5, desc: "Precio medio." },
+          { label: "Facilidad de búsqueda", score: 6.0, desc: "Fuera del campus lo gestionas tú." },
+          { label: "Residencias universitarias", score: 7.0, desc: "Eliazo e International Residence Hall." },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 7.5,
+        summary: "Ciudad animada y gente acogedora.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 6.0, desc: "Comunidad internacional pequeña." },
+          { label: "Ambiente internacional", score: 7.0, desc: "Universidad grande y prestigiosa." },
+          { label: "Fiesta y vida nocturna", score: 7.5, desc: "Vida nocturna en Makati y BGC." },
+          { label: "Eventos y actividades", score: 8.0, desc: "Fiestas y Navidad filipina." },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
+        summary: "Clases y vida diaria en inglés.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Nivel de inglés", score: 8.5, desc: "El inglés es lengua oficial." },
+          { label: "Actitud local", score: 9.0, desc: "Gente muy acogedora." },
+          { label: "Integración con locales", score: 7.5, desc: "Fácil conocer a locales." },
+          { label: "Facilidad para hacer amigos", score: 8.0, desc: "Mucha vida de campus." },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 4.5,
+        summary: "Tráfico muy denso y transporte saturado.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 4.0, desc: "Metro y LRT saturados." },
+          { label: "Ciudad caminable", score: 4.0, desc: "Poco caminable." },
+          { label: "Conexiones internacionales", score: 7.0, desc: "Aeropuerto internacional NAIA." },
+          { label: "Escapadas de fin de semana", score: 8.0, desc: "Islas y playas en vuelo corto." },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 6.5,
+        summary: "Mucho calor y escapadas a las islas.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Naturaleza", score: 7.5, desc: "Islas y playas cerca en avión." },
+          { label: "Clima", score: 5.5, desc: "Tropical: mínima media de 21,4 °C en enero y máxima de 34,6 °C en abril (OMM, Science Garden, Quezon City, 1991–2020)." },
+          { label: "Calidad de vida", score: 5.5, desc: "Contaminación y tráfico." },
+          { label: "Autenticidad local", score: 8.0, desc: "Intramuros y cultura filipina." },
+          { label: "Estilo de vida", score: 6.5, desc: "Ritmo caótico." },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 4.5,
+        summary: "Mercado grande, pero con visado de estudiante.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 5.5, desc: "Servicios y externalización." },
+          { label: "Prácticas", score: 4.0, desc: "Prácticas limitadas." },
+          { label: "Empresas relevantes", score: 5.5, desc: "Multinacionales en Makati." },
+          { label: "Oportunidades para estudiantes", score: 3.0, desc: "Sin permiso de trabajo como estudiante." },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 5.0,
+        summary: "Precaución, sobre todo de noche.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 5.0, desc: "Hurtos y zonas que evitar." },
+          { label: "Seguridad nocturna", score: 4.5, desc: "Precaución de noche." },
+          { label: "Ambiente de la ciudad", score: 6.5, desc: "Campus tranquilo." },
+        ],
+      },
+    ],
+  },
+  sidney: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Sydney_Opera_House_-_Dec_2008.jpg/1920px-Sydney_Opera_House_-_Dec_2008.jpg",
+    tagline: "Bahía, playas y vida al aire libre.",
+    atmosphere: "Sídney es una ciudad grande y cosmopolita, volcada en el mar y en la vida al aire libre.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 3.0,
+        summary: "Estimación MAbroad: 1.500–2.100 € al mes.",
+        color: "#B45309",
+        subcategories: [
+          { label: "Alojamiento", score: 2.5, desc: "Alquiler muy caro." },
+          { label: "Comida y supermercados", score: 4.0, desc: "Supermercado caro." },
+          { label: "Transporte", score: 6.0, desc: "Opal con tope diario." },
+          { label: "Ocio y gastos diarios", score: 4.0, desc: "Ocio caro." },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 4.0,
+        summary: "Alquiler muy caro y competido.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 4.5, desc: "Mercado tensionado." },
+          { label: "Precio", score: 2.5, desc: "Precios muy altos." },
+          { label: "Facilidad de búsqueda", score: 4.5, desc: "Búsqueda difícil." },
+          { label: "Residencias universitarias", score: 5.0, desc: "Residencias universitarias caras." },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 8.5,
+        summary: "Playas, deporte y vida nocturna.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 7.5, desc: "Muchos estudiantes internacionales." },
+          { label: "Ambiente internacional", score: 8.5, desc: "Ciudad muy multicultural." },
+          { label: "Fiesta y vida nocturna", score: 8.0, desc: "Bares y pubs." },
+          { label: "Eventos y actividades", score: 9.0, desc: "Playas, deporte y festivales." },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.5,
+        summary: "Se habla inglés y la ciudad es muy multicultural.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Nivel de inglés", score: 10.0, desc: "Lengua nativa." },
+          { label: "Actitud local", score: 8.0, desc: "Gente abierta." },
+          { label: "Integración con locales", score: 7.5, desc: "Fácil conocer gente." },
+          { label: "Facilidad para hacer amigos", score: 8.0, desc: "Clubes y deporte." },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 7.0,
+        summary: "Buen transporte, pero lejos del resto del mundo.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 7.5, desc: "Trenes, ferris y buses." },
+          { label: "Ciudad caminable", score: 7.0, desc: "Centro caminable." },
+          { label: "Conexiones internacionales", score: 6.0, desc: "Vuelos largos a Europa." },
+          { label: "Escapadas de fin de semana", score: 7.5, desc: "Blue Mountains y costa." },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 9.0,
+        summary: "Playas, parques y clima suave.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Naturaleza", score: 9.0, desc: "Playas y Blue Mountains." },
+          { label: "Clima", score: 8.0, desc: "Templado húmedo: mínima media de 8,9 °C en julio y máxima de 27,7 °C en febrero (OMM, Sydney Observatory Hill, 1991–2020)." },
+          { label: "Calidad de vida", score: 9.0, desc: "Calidad de vida muy alta." },
+          { label: "Autenticidad local", score: 8.0, desc: "Bahía y barrios con carácter." },
+          { label: "Estilo de vida", score: 9.0, desc: "Vida al aire libre." },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 6.0,
+        summary: "Puedes trabajar a media jornada con el visado.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 7.5, desc: "Mercado laboral fuerte." },
+          { label: "Prácticas", score: 6.0, desc: "Prácticas sin sueldo posibles." },
+          { label: "Empresas relevantes", score: 7.5, desc: "Finanzas, servicios y turismo." },
+          { label: "Oportunidades para estudiantes", score: 6.5, desc: "El visado de estudiante permite trabajar a tiempo parcial." },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 8.0,
+        summary: "Ciudad segura.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 8.0, desc: "Delincuencia baja." },
+          { label: "Seguridad nocturna", score: 7.5, desc: "Segura de noche con precauciones." },
+          { label: "Ambiente de la ciudad", score: 8.5, desc: "Ambiente tranquilo." },
+        ],
+      },
+    ],
+  },
 };
 
 // Generate default scores for cities without custom data

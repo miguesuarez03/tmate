@@ -686,6 +686,7 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Sogang University": "https://inbound.sogang.ac.kr/inbound/1930/subview.do",
   "Sophia University": "https://piloti.sophia.ac.jp/eng/studyabroad/exchangeprograms/application_info/qualification/",
   "Fu Jen Catholic University": "https://iscoie.fju.edu.tw/teachingServicesEN.jsp?labelID=17",
+  "Australian Catholic University": "https://www.acu.edu.au/international-students/study-abroad-and-exchange/how-to-apply",
 };
 
 /**
