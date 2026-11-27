@@ -158,9 +158,9 @@ test("seguridad y salidas: mitad dato (país o región) y mitad valoración de l
     const b = getScoreBreakdown(c.slug);
     const seg = b.rows.find((r) => r.id === "seguridad").score;
     const sal = b.rows.find((r) => r.id === "salidas").score;
+    assert.ok(sal != null || !CITY_NEET[c.slug], `${c.slug}: salidas`);
     if (SIN_UNODC.has(c.country)) { assert.equal(seg, null, `${c.slug}: seguridad sin UNODC`); continue; }
     assert.ok(seg != null, `${c.slug}: seguridad`);
-    assert.ok(sal != null || !CITY_NEET[c.slug], `${c.slug}: salidas`);
     // La mitad de la ciudad pesa: con la misma valoración que el dato, sale igual.
     assert.ok(seg >= Math.min(c.scores.seguridad, 10) / 2, c.slug);
   }

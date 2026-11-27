@@ -248,7 +248,6 @@ export const CITY_POPULATION = {
   "omaha": { population: 488797, year: 2025, source: "U.S. Census Bureau" },
   "syracuse": { population: 144896, year: 2025, source: "U.S. Census Bureau" },
   "utica": { population: 62978, year: 2025, source: "U.S. Census Bureau" },
-  "seul": { population: 9281625, year: 2026, source: "Ministerio del Interior de Corea (MOIS)" },
   "tokio": { population: 14288867, year: 2026, source: "Gobierno Metropolitano de Tokio" },
   "sidney": { population: 5638800, year: 2025, source: "ABS (Greater Sydney)" },
 };

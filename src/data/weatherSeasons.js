@@ -1095,7 +1095,7 @@ export const CITY_SEASONS = {
     { id: "spring", label: "Otoño", months: "Mar–May", temp: "15–24°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado y agradable.", tags: ["Templado","Playas","Paseos"] },
     { id: "summer", label: "Invierno", months: "Jun–Ago", temp: "10–19°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y soleado; empieza el segundo semestre.", tags: ["Inicio de semestre","Suave","Ballenas"], highlight: true },
     { id: "autumn", label: "Primavera", months: "Sep–Nov", temp: "15–23°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada.", tags: ["Templada","Playas","Jacarandas"] },
-    { id: "winter", label: "Verano", months: "Dic–Feb", temp: "19–27°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido; empieza el primer semestre en febrero.", tags: ["Cálido","Playa","Bondi"] },
+    { id: "winter", label: "Verano", months: "Dic–Feb", temp: "19–27°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido; orientación del primer semestre en febrero y clases desde marzo.", tags: ["Cálido","Playa","Bondi"] },
   ],
 };
 

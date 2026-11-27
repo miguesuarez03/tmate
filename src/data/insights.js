@@ -25044,7 +25044,7 @@ export const CITY_INSIGHTS = {
         subcategories: [
           { label: "Transporte público", score: 5.0, desc: "Red de buses limitada." },
           { label: "Ciudad caminable", score: 6.0, desc: "Centro y campus caminables." },
-          { label: "Conexiones internacionales", score: 5.0, desc: "Aeropuerto Eppley, con pocos vuelos internacionales." },
+          { label: "Conexiones internacionales", score: 5.0, desc: "Aeropuerto Eppley, con vuelos nacionales; al extranjero, con escala." },
           { label: "Escapadas de fin de semana", score: 5.5, desc: "Kansas City y Chicago, lejos." },
         ],
       },
@@ -25615,7 +25615,7 @@ export const CITY_INSIGHTS = {
           { label: "Transporte público", score: 9.5, desc: "Metro limpio y puntual." },
           { label: "Ciudad caminable", score: 7.5, desc: "Barrios caminables." },
           { label: "Conexiones internacionales", score: 8.5, desc: "Taoyuan, con vuelos por Asia." },
-          { label: "Escapadas de fin de semana", score: 8.0, desc: "Tren de alta velocidad por toda la isla." },
+          { label: "Escapadas de fin de semana", score: 8.0, desc: "Alta velocidad por la costa oeste, de Nangang a Zuoying." },
         ],
       },
       {

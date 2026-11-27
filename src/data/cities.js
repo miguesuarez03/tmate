@@ -6805,7 +6805,7 @@ export const CITIES = [
     language: "Coreano",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Gyeonghoeru_%28Royal_Banquet_Hall%29_at_Gyeongbokgung_Palace%2C_Seoul.jpg/1920px-Gyeonghoeru_%28Royal_Banquet_Hall%29_at_Gyeongbokgung_Palace%2C_Seoul.jpg",
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Gyeonghoeru_%28Royal_Banquet_Hall%29_at_Gyeongbokgung_Palace%2C_Seoul.jpg/1920px-Gyeonghoeru_%28Royal_Banquet_Hall%29_at_Gyeongbokgung_Palace%2C_Seoul.jpg",
-    description: "Seúl, capital de Corea del Sur, tenía 9.281.625 habitantes empadronados en agosto de 2026 según el Ministerio del Interior. Hay dos convenios: con la Konkuk University, en Gwangjin, cuyo origen oficial es el Korea Institute of Politics de 1946, y con la Sogang University, en Mapo, universidad jesuita con carta fundacional de 1960.",
+    description: "Seúl es la capital de Corea del Sur. Hay dos convenios: con la Konkuk University, en Gwangjin, cuyo origen oficial es el Korea Institute of Politics de 1946, y con la Sogang University, en Mapo, universidad jesuita con carta fundacional de 1960.",
     highlights: ["Dos convenios: Konkuk y Sogang","Konkuk, puesto 601–650 en THE 2027","Sogang: más de 200 asignaturas en inglés","Metro: 1.550 wones con tarjeta"],
     universities: ["Konkuk University","Sogang University"],
     neighborhoods: [
