@@ -149,11 +149,16 @@ test("salidas: NEET 4 % o menos = 10, cada 2 puntos resta 1, 24 % o más = 0", (
   assert.equal(neetToScore(null), null);
 });
 
+// Países sin tasa de homicidios comparable de UNODC (ni fuente oficial que la sustituya):
+// su subnota de seguridad queda pendiente y la nota sale provisional.
+const SIN_UNODC = new Set(["Taiwán", "Costa de Marfil", "Madagascar"]);
+
 test("seguridad y salidas: mitad dato (país o región) y mitad valoración de la ciudad", () => {
   for (const c of INDEX) {
     const b = getScoreBreakdown(c.slug);
     const seg = b.rows.find((r) => r.id === "seguridad").score;
     const sal = b.rows.find((r) => r.id === "salidas").score;
+    if (SIN_UNODC.has(c.country)) { assert.equal(seg, null, `${c.slug}: seguridad sin UNODC`); continue; }
     assert.ok(seg != null, `${c.slug}: seguridad`);
     assert.ok(sal != null || !CITY_NEET[c.slug], `${c.slug}: salidas`);
     // La mitad de la ciudad pesa: con la misma valoración que el dato, sale igual.
@@ -220,7 +225,7 @@ test("cada ciudad tiene sus datos de puntuación (aunque sea una lista vacía)",
   for (const c of CITIES) {
     assert.ok(Array.isArray(CITY_UNIVERSITIES[c.slug]), `universidades: ${c.slug}`);
     assert.ok(Array.isArray(CITY_ESN_SECTIONS[c.slug]), `ESN: ${c.slug}`);
-    assert.ok(Object.keys(COUNTRY_HOMICIDE_RATES[c.country] ?? {}).length > 0, `homicidios: ${c.country}`);
+    assert.ok(SIN_UNODC.has(c.country) || Object.keys(COUNTRY_HOMICIDE_RATES[c.country] ?? {}).length > 0, `homicidios: ${c.country}`);
     for (const u of CITY_UNIVERSITIES[c.slug]) assert.ok(u.name && u.edition >= 2023 && u.rank, `${c.slug}: ${u.name}`);
   }
 });
@@ -253,8 +258,8 @@ test("todas las ciudades tienen nota, subnotas entre 0 y 10 (o pendientes) y la 
     assert.equal(typeof overall, "number", `${c.slug} sin nota`);
     assert.deepEqual(b.pending, pending, c.slug);
     assert.equal(b.provisional, pending.length > 0);
-    // Coste y seguridad salen siempre de un dato: nunca pendientes.
-    assert.ok(subs.coste != null && subs.seguridad != null && subs.academico != null, c.slug);
+    // Coste y seguridad salen siempre de un dato: nunca pendientes (seguridad, salvo sin UNODC).
+    assert.ok(subs.coste != null && (subs.seguridad != null || SIN_UNODC.has(c.country)) && subs.academico != null, c.slug);
   }
 });
 
