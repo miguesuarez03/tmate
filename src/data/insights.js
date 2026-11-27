@@ -24207,13 +24207,13 @@ export const CITY_INSIGHTS = {
       },
       {
         id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 5.0,
-        summary: "Mercado amplio, pero con visado J-1.",
+        summary: "Mercado amplio, pero con visado F-1.",
         color: "#8B5CF6",
         subcategories: [
           { label: "Mercado laboral", score: 6.0, desc: "Mercado laboral regional." },
           { label: "Prácticas", score: 5.0, desc: "Prácticas en la región." },
           { label: "Empresas relevantes", score: 6.0, desc: "Salud, educación y servicios." },
-          { label: "Oportunidades para estudiantes", score: 4.0, desc: "Con visado J-1, trabajo muy limitado." },
+          { label: "Oportunidades para estudiantes", score: 4.0, desc: "Con visado F-1, trabajo muy limitado." },
         ],
       },
       {
@@ -24713,8 +24713,8 @@ export const CITY_INSIGHTS = {
         summary: "Residencia y comida obligatorias en el campus.",
         color: "#B45309",
         subcategories: [
-          { label: "Alojamiento", score: 4.5, desc: "Unos 4.845 USD por semestre." },
-          { label: "Comida y supermercados", score: 4.5, desc: "Plan de comidas de unos 2.184 USD por semestre." },
+          { label: "Alojamiento", score: 4.5, desc: "3.918 USD por semestre en doble." },
+          { label: "Comida y supermercados", score: 4.5, desc: "Plan de 19 comidas semanales: 2.672 USD por semestre." },
           { label: "Transporte", score: 6.0, desc: "Pueblo pequeño: se va andando." },
           { label: "Ocio y gastos diarios", score: 6.0, desc: "Ocio barato." },
         ],
@@ -24725,7 +24725,7 @@ export const CITY_INSIGHTS = {
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 8.5, desc: "Plaza en el campus." },
-          { label: "Precio", score: 4.5, desc: "Unos 4.845 USD por semestre." },
+          { label: "Precio", score: 4.5, desc: "3.918 USD por semestre en doble." },
           { label: "Facilidad de búsqueda", score: 8.5, desc: "Lo gestiona la universidad." },
           { label: "Residencias universitarias", score: 8.0, desc: "Residencias del campus." },
         ],

@@ -5924,7 +5924,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro", vibe: "Junto al Shannon", price: "€€€" },
     ],
-    tips: ["Idioma según la Universidad Loyola: inglés B2; según Loyola, este convenio es solo para el primer semestre: confírmalo con la Oficina","MIC calcula para 2026-27 unos 1.493 € al mes: 719 € de alojamiento con suministros, 322 € de comida y 452 € de otros gastos, viajes por Irlanda incluidos; O'Dwyer House cuesta 2.762 € el semestre en habitación individual (2025-26), más 500 € de fianza","Plazos de MIC 2026-27: nominación hasta el 15 de abril y solicitud hasta el 15 de mayo (otoño)","Como ciudadano de la UE no tienes que registrarte en inmigración"],
+    tips: ["Idioma según la Universidad Loyola: inglés B2; según Loyola, este convenio es solo para el primer semestre: confírmalo con la Oficina","MIC calcula para 2026-27 unos 1.493 € al mes: 719 € de alojamiento con suministros, 322 € de comida y 452 € de otros gastos, viajes por Irlanda incluidos, más 489 € de libros al curso; O'Dwyer House cuesta 2.762 € el semestre en habitación individual (2025-26), más 500 € de fianza","Plazos de MIC 2026-27: nominación hasta el 15 de abril y solicitud hasta el 15 de mayo (otoño)","Como ciudadano de la UE no tienes que registrarte en inmigración"],
     experiences: ["erasmus"],
   },
   {
@@ -6493,7 +6493,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Main Street", vibe: "Campus de Canisius", price: "€€" },
     ],
-    tips: ["Para estudiar un semestre necesitas visado de estudiante, normalmente J-1 con el formulario DS-2019 que emite la universidad: tasa SEVIS de 220 USD (J-1) y tasa de visado de 185 USD","Idioma según la Universidad Loyola: B2 para el convenio; Canisius pide TOEFL iBT 79, PBT 550 o IELTS 6.5; Loyola exige nota media de 6,5: confírmalo con la Oficina","Los de intercambio internacionales viven en el campus; en 2026-27, desde 3.675 USD por semestre en doble (Bosch o Frisch), con plan de comidas obligatorio en algunas residencias","Plazos: 1 de abril (otoño) y 1 de noviembre (primavera); orientación obligatoria el 19 y el 20 de agosto de 2026"],
+    tips: ["Para estudiar un semestre necesitas visado de estudiante, F-1 con el formulario I-20 que emite Canisius (lo exige para los de intercambio): tasa SEVIS de 350 USD (F-1) y tasa de visado de 185 USD","Idioma según la Universidad Loyola: B2 para el convenio; Canisius pide TOEFL iBT 79, PBT 550 o IELTS 6.5; Loyola exige nota media de 6,5: confírmalo con la Oficina","Los de intercambio internacionales viven en el campus; en 2026-27, desde 3.675 USD por semestre en doble (Bosch o Frisch), con plan de comidas obligatorio en algunas residencias","Plazos: 1 de abril (otoño) y 1 de noviembre (primavera); orientación obligatoria el 19 y el 20 de agosto de 2026"],
     experiences: ["erasmus"],
   },
   {
@@ -6514,7 +6514,7 @@ export const CITIES = [
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cincinnati_night_skyline_from_Covington%2C_January_2019.jpg/1920px-Cincinnati_night_skyline_from_Covington%2C_January_2019.jpg",
     heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cincinnati_night_skyline_from_Covington%2C_January_2019.jpg/1920px-Cincinnati_night_skyline_from_Covington%2C_January_2019.jpg",
     description: "Cincinnati, en Ohio, a orillas del río Ohio, tenía 314.367 habitantes a 1 de julio de 2025 según el Census Bureau. El convenio es con la Xavier University, católica y jesuita, fundada en 1831 y sexta universidad católica más antigua de EE. UU., con más de 6.000 estudiantes.",
-    highlights: ["Xavier University, jesuita desde 1831","Más de 6.000 estudiantes","Billete de Metro: 2,20 USD","Línea 2X de TANK al aeropuerto, cada 30 minutos"],
+    highlights: ["Xavier University, fundada en 1831 (jesuita desde 1840)","Más de 6.000 estudiantes","Billete de Metro: 2,20 USD","Línea 2X de TANK al aeropuerto, cada 30 minutos"],
     universities: ["Xavier University"],
     neighborhoods: [
       { name: "Norwood y Evanston", vibe: "Campus de Xavier", price: "€€" },
@@ -6652,7 +6652,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Campus", vibe: "Vida universitaria", price: "€€" },
     ],
-    tips: ["Para estudiar un semestre necesitas visado de estudiante, normalmente J-1 con el formulario DS-2019 que emite la universidad: tasa SEVIS de 220 USD (J-1) y tasa de visado de 185 USD","Idioma según la Universidad Loyola: B2; la universidad pide TOEFL 70 o Duolingo 95: confírmalo con la Oficina","Vives en el campus, con plan de comidas obligatorio: en 2026-27, unos 4.845 USD de alojamiento y 2.184 USD de comida por semestre (media del campus)","Otoño de 2026 desde el 24 de agosto; primavera de 2027 desde el 19 de enero"],
+    tips: ["Para estudiar un semestre necesitas visado de estudiante, normalmente J-1 con el formulario DS-2019 que emite la universidad: tasa SEVIS de 220 USD (J-1) y tasa de visado de 185 USD","Idioma según la Universidad Loyola: B2; la universidad pide TOEFL 70 o Duolingo 95: confírmalo con la Oficina","Vives en el campus, con plan de comidas obligatorio: 3.918 USD por semestre en habitación doble y 2.672 USD por el plan de 19 comidas a la semana con 275 USD de saldo (tabla vigente de Commonwealth)","Otoño de 2026 desde el 24 de agosto; primavera de 2027 desde el 19 de enero"],
     experiences: ["erasmus"],
   },
   {
