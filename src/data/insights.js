@@ -25463,6 +25463,196 @@ export const CITY_INSIGHTS = {
       },
     ],
   },
+  tokio: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Shibuya_Crossing_%2825790725888%29.jpg/1920px-Shibuya_Crossing_%2825790725888%29.jpg",
+    tagline: "Metro perfecto, barrios infinitos y campus en el centro.",
+    atmosphere: "Tokio es una metrópoli gigantesca, ordenada y segura, con barrios muy distintos a pocas paradas.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 5.5,
+        summary: "Según la Universidad Loyola, unos 150.000 yenes al mes.",
+        color: "#B45309",
+        subcategories: [
+          { label: "Alojamiento", score: 5.0, desc: "Alojamiento caro en el centro." },
+          { label: "Comida y supermercados", score: 6.5, desc: "Comer fuera es asequible." },
+          { label: "Transporte", score: 7.5, desc: "Abono de transporte a buen precio." },
+          { label: "Ocio y gastos diarios", score: 6.0, desc: "Ocio para todos los bolsillos." },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.0,
+        summary: "Residencias de Sophia, sin garantía.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 6.5, desc: "Varias residencias propias." },
+          { label: "Precio", score: 5.0, desc: "Alquiler caro." },
+          { label: "Facilidad de búsqueda", score: 6.0, desc: "Se piden con la solicitud." },
+          { label: "Residencias universitarias", score: 7.0, desc: "Soshigaya, Arrupe y Edagawa." },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 8.5,
+        summary: "Ciudad con planes infinitos.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 7.5, desc: "Muchos estudiantes internacionales." },
+          { label: "Ambiente internacional", score: 8.5, desc: "Sophia, muy internacional." },
+          { label: "Fiesta y vida nocturna", score: 8.5, desc: "Shibuya, Shinjuku e izakayas." },
+          { label: "Eventos y actividades", score: 9.0, desc: "Cultura, festivales y museos." },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 5.5,
+        summary: "El japonés pesa fuera de la universidad.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Nivel de inglés", score: 4.5, desc: "Poco inglés en la calle." },
+          { label: "Actitud local", score: 7.5, desc: "Gente educada y servicial." },
+          { label: "Integración con locales", score: 5.0, desc: "Cuesta entrar en grupos locales." },
+          { label: "Facilidad para hacer amigos", score: 6.5, desc: "Clubes universitarios." },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 10.0,
+        summary: "Uno de los mejores transportes del mundo.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 10.0, desc: "Metro y trenes puntualísimos." },
+          { label: "Ciudad caminable", score: 8.0, desc: "Barrios caminables." },
+          { label: "Conexiones internacionales", score: 10.0, desc: "Narita y Haneda." },
+          { label: "Escapadas de fin de semana", score: 9.5, desc: "Shinkansen a Kioto, Osaka y Hakone." },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.5,
+        summary: "Ciudad cómoda, limpia y llena de cultura.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Naturaleza", score: 7.0, desc: "Parques y montes cerca." },
+          { label: "Clima", score: 7.0, desc: "Subtropical húmedo: mínima media de 1,2 °C en enero y máxima de 31,3 °C en agosto (OMM, Tokio, 1991–2020)." },
+          { label: "Calidad de vida", score: 9.0, desc: "Calidad de vida muy alta." },
+          { label: "Autenticidad local", score: 9.5, desc: "Templos, barrios tradicionales y gastronomía." },
+          { label: "Estilo de vida", score: 8.0, desc: "Ritmo intenso." },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 5.0,
+        summary: "Gran mercado, pero en japonés.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 7.5, desc: "Gran economía." },
+          { label: "Prácticas", score: 4.0, desc: "Prácticas difíciles sin japonés." },
+          { label: "Empresas relevantes", score: 8.0, desc: "Sedes de grandes empresas." },
+          { label: "Oportunidades para estudiantes", score: 3.5, desc: "Con visado de estudiante, trabajo limitado y con permiso." },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 9.5,
+        summary: "Muy segura, también de noche.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 9.5, desc: "Delincuencia muy baja." },
+          { label: "Seguridad nocturna", score: 9.0, desc: "Calles seguras de noche." },
+          { label: "Ambiente de la ciudad", score: 9.5, desc: "Ambiente cívico." },
+        ],
+      },
+    ],
+  },
+  taipei: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Taipei_Skyline_2016.jpg/1920px-Taipei_Skyline_2016.jpg",
+    tagline: "Mercados nocturnos, metro y montañas al lado.",
+    atmosphere: "Taipéi es una capital cómoda y segura, con una comida callejera famosa y naturaleza a un paso.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 7.0,
+        summary: "Según la Universidad Loyola, unos 800 USD al mes.",
+        color: "#B45309",
+        subcategories: [
+          { label: "Alojamiento", score: 7.0, desc: "300 USD de alquiler, según Loyola." },
+          { label: "Comida y supermercados", score: 8.0, desc: "Comida callejera barata." },
+          { label: "Transporte", score: 8.5, desc: "Metro barato." },
+          { label: "Ocio y gastos diarios", score: 7.0, desc: "Ocio asequible." },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.5,
+        summary: "Residencia en el campus, sin garantía.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 6.5, desc: "Residencia de Fu Jen." },
+          { label: "Precio", score: 7.5, desc: "Precio bajo." },
+          { label: "Facilidad de búsqueda", score: 6.0, desc: "Sin garantía de plaza." },
+          { label: "Residencias universitarias", score: 6.5, desc: "Residencia en el campus." },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 7.5,
+        summary: "Mercados nocturnos y vida urbana.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 6.5, desc: "Comunidad internacional mediana." },
+          { label: "Ambiente internacional", score: 7.0, desc: "Universidad grande y católica." },
+          { label: "Fiesta y vida nocturna", score: 7.0, desc: "Bares en Xinyi y Da'an." },
+          { label: "Eventos y actividades", score: 8.5, desc: "Mercados nocturnos y festivales." },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.0,
+        summary: "El chino pesa fuera de la universidad.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Nivel de inglés", score: 5.0, desc: "Inglés limitado en la calle." },
+          { label: "Actitud local", score: 8.5, desc: "Gente muy amable." },
+          { label: "Integración con locales", score: 5.5, desc: "Cuesta entrar en grupos locales." },
+          { label: "Facilidad para hacer amigos", score: 6.5, desc: "Clases de chino para extranjeros." },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 9.0,
+        summary: "Metro excelente y aeropuerto de Taoyuan.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 9.5, desc: "Metro limpio y puntual." },
+          { label: "Ciudad caminable", score: 7.5, desc: "Barrios caminables." },
+          { label: "Conexiones internacionales", score: 8.5, desc: "Taoyuan, con vuelos por Asia." },
+          { label: "Escapadas de fin de semana", score: 8.0, desc: "Tren de alta velocidad por toda la isla." },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.5,
+        summary: "Ciudad cómoda con montañas y aguas termales cerca.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Naturaleza", score: 8.0, desc: "Yangmingshan y senderos." },
+          { label: "Clima", score: 6.5, desc: "Subtropical húmedo: mínima media de 14,2 °C en enero y máxima de 34,8 °C en julio (CWA (Taiwán), Taipéi, 1991–2020)." },
+          { label: "Calidad de vida", score: 8.5, desc: "Calidad de vida alta." },
+          { label: "Autenticidad local", score: 9.0, desc: "Templos y comida callejera." },
+          { label: "Estilo de vida", score: 8.0, desc: "Ritmo amable." },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 4.5,
+        summary: "Tecnología fuerte, pero en chino.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 6.5, desc: "Electrónica y semiconductores." },
+          { label: "Prácticas", score: 3.5, desc: "Prácticas difíciles sin chino." },
+          { label: "Empresas relevantes", score: 7.0, desc: "Grandes empresas tecnológicas." },
+          { label: "Oportunidades para estudiantes", score: 3.5, desc: "Trabajo muy limitado como estudiante de intercambio." },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 9.0,
+        summary: "Muy segura.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 9.0, desc: "Delincuencia baja." },
+          { label: "Seguridad nocturna", score: 9.0, desc: "Calles seguras de noche." },
+          { label: "Ambiente de la ciudad", score: 9.0, desc: "Ambiente tranquilo." },
+        ],
+      },
+    ],
+  },
 };
 
 // Generate default scores for cities without custom data

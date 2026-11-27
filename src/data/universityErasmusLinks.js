@@ -684,6 +684,8 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Utica University": "https://www.utica.edu/academic/international/Utica_Exchange_Student_Fact_Sheet.pdf",
   "Konkuk University": "https://www.konkuk.ac.kr/oiaeng/18828/subview.do",
   "Sogang University": "https://inbound.sogang.ac.kr/inbound/1930/subview.do",
+  "Sophia University": "https://piloti.sophia.ac.jp/eng/studyabroad/exchangeprograms/application_info/qualification/",
+  "Fu Jen Catholic University": "https://iscoie.fju.edu.tw/teachingServicesEN.jsp?labelID=17",
 };
 
 /**
