@@ -145,6 +145,17 @@ export function getStateCountry(country) {
 }
 
 /**
+ * País con el que la ciudad sale en el mapa: el territorio si tiene encuadre
+ * propio en MAP_COUNTRIES (Curazao, en el Caribe, lejos de Países Bajos) y, si
+ * no, el Estado (Escocia va dentro de Reino Unido).
+ * @param {string} country
+ */
+export function getMapCountry(country) {
+  const territory = country?.replace(/ \([^)]+\)$/, "");
+  return territory && territory !== country && MAP_COUNTRIES[territory] ? territory : getStateCountry(country);
+}
+
+/**
  * Países con destinos para el mapa de la portada: nombre, bandera (la más
  * repetida entre sus ciudades, así Reino Unido lleva la británica aunque tenga
  * ciudades escocesas), número de ciudades y su posición en MAP_COUNTRIES
@@ -153,7 +164,7 @@ export function getStateCountry(country) {
 export function getMapCountries() {
   const byCountry = new Map();
   for (const city of CITY_INDEX) {
-    const name = getStateCountry(city.country);
+    const name = getMapCountry(city.country);
     if (!byCountry.has(name)) byCountry.set(name, []);
     byCountry.get(name).push(city);
   }

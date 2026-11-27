@@ -8,7 +8,7 @@ import {
 } from "react-simple-maps";
 import { Link } from "react-router-dom";
 import styles from "./WorldMap.module.css";
-import { formatScore, getAllCities, getOverallScore, getScoreMap, getScoreLevel, getStateCountry, getMapCountries } from "../lib/cities";
+import { formatScore, getAllCities, getOverallScore, getScoreMap, getScoreLevel, getMapCountry, getMapCountries } from "../lib/cities";
 import { CITY_COORDS } from "../lib/cityCoords";
 import { useUniversity } from "../hooks/useUniversity";
 import { useSessionState } from "../hooks/useSessionMemory";
@@ -40,7 +40,7 @@ const CITIES = getAllCities()
       name: city.name,
       // «Escocia (Reino Unido)» se agrupa con Reino Unido (filtro y rótulo);
       // el pin conserva su bandera escocesa.
-      country: getStateCountry(city.country),
+      country: getMapCountry(city.country),
       flag: city.emoji,
       coords: CITY_COORDS[city.slug],
       img: city.img ?? null,

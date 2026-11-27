@@ -1107,7 +1107,7 @@ export const CITY_SEASONS = {
   // Chennai: Chennai, Nungambakkam (OMM 43278, en la ciudad; normales OMM 1991–2020 publicadas por NOAA/NCEI).
   chennai: [
     { id: "spring", label: "Primavera", months: "Mar–May", temp: "27–35°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Calor fuerte y húmedo.", tags: ["Caluroso","Húmedo","Playa"] },
-    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "27–36°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Calor muy fuerte; el monzón del suroeste apenas llueve aquí.", tags: ["Muy caluroso","Seco","Sol"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "27–36°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Calor muy fuerte, con lluvias que van a más en julio y agosto.", tags: ["Muy caluroso","Lluvias","Humedad"] },
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "25–32°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Lluvias del monzón del nordeste y riesgo de ciclones.", tags: ["Monzón del nordeste","Lluvias","Ciclones"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "22–30°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "La época más suave del año.", tags: ["Templado","Seco","Sol"] },
   ],

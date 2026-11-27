@@ -26715,14 +26715,14 @@ export const CITY_INSIGHTS = {
         ],
       },
       {
-        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 5.0,
-        summary: "Alquiler por tu cuenta.",
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.0,
+        summary: "La UoC ofrece alojamiento en el campus.",
         color: "#EF4444",
         subcategories: [
           { label: "Disponibilidad", score: 5.0, desc: "Mercado pequeño." },
           { label: "Precio", score: 5.5, desc: "450–600 €, según Loyola." },
-          { label: "Facilidad de búsqueda", score: 5.0, desc: "Sin residencia universitaria conocida." },
-          { label: "Residencias universitarias", score: 4.0, desc: "Sin residencia conocida." },
+          { label: "Facilidad de búsqueda", score: 6.0, desc: "La universidad ofrece alojamiento." },
+          { label: "Residencias universitarias", score: 6.0, desc: "Alojamiento en el campus de la UoC." },
         ],
       },
       {

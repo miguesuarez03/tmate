@@ -6,7 +6,8 @@
  * filtro «País». Coordenadas [lng, lat].
  *
  * La clave es el país tal como lo agrupa getMapCountry() en lib/cities.js: el
- * `country` de cities.js, con «Escocia (Reino Unido)» dentro de «Reino Unido».
+ * `country` de cities.js, con «Escocia (Reino Unido)» dentro de «Reino Unido»; un
+ * territorio con entrada propia aquí (Curazao) sale aparte (getMapCountry).
  * La bandera del rótulo NO va aquí: sale de las ciudades de ese país, así que
  * nunca se desfasa. `short` es el nombre corto del rótulo, si hace falta.
  *
@@ -42,6 +43,8 @@ export const MAP_COUNTRIES = {
   "Malta":           { label: [14.4, 35.7],  center: [14.45, 35.9], zoom: 8.0 },
   "Noruega":         { label: [8.5, 61.0],   center: [10, 61],      zoom: 3.0 },
   "Países Bajos":    { label: [5.3, 52.3],   center: [5, 52.3],     zoom: 4.5 },
+  // Curazao (Reino de los Países Bajos, en el Caribe): rótulo propio; la beca va con Países Bajos.
+  "Curazao":         { label: [-68.95, 12.6], center: [-68.95, 12.2], zoom: 6.0 },
   "Polonia":         { label: [19.5, 52.0],  center: [20, 52],      zoom: 3.5 },
   "Portugal":        { label: [-8.0, 39.5],  center: [-8.5, 39],    zoom: 3.8 },
   "Reino Unido":     { label: [-2.0, 53.5],  center: [-2.5, 54],    zoom: 3.2 },

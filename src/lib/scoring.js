@@ -42,6 +42,9 @@ export const SCORING_WEIGHTS = Object.freeze({
   conectividad: 5,
 });
 
+/** Territorios con dato NEET propio de la OIT (no el del Estado al que pertenecen). */
+const NEET_TERRITORY = { CUW: "Curazao" };
+
 /** Por debajo de esta parte del peso con dato, la ciudad se queda sin nota. */
 export const MIN_COVERAGE = 0.7;
 
@@ -344,7 +347,7 @@ export function computeCitySubscores(p) {
   if (subs.salidas == null) {
     detail.salidas = "Pendiente: sin dato de jóvenes que ni trabajan ni estudian para la región ni el país.";
   } else {
-    const donde = neet.scope === "region" ? `la región ${neet.name}` : getStateCountry(city.country);
+    const donde = neet.scope === "region" ? `la región ${neet.name}` : (NEET_TERRITORY[neet.geo] ?? getStateCountry(city.country));
     const fuente = neet.source === "eurostat" ? "Eurostat" : "OIT";
     const periodo = neetYears.length > 1 ? `media ${neetYears[0]}–${neetYears.at(-1)}` : neetYears[0];
     detail.salidas = `Región o país ${fmt1(salNeet)}/10 (el ${fmt1(neetRate)} % de los jóvenes de 15 a 24 años ni trabaja ni estudia en ${donde}, ${periodo}, ${fuente}) y ciudad ${fmt1(salCiudad)}/10 (valoración MAbroad de mercado laboral, prácticas y empresas).`;

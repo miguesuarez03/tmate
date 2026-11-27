@@ -4,7 +4,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, readdirSync } from "node:fs";
 import { join, extname } from "node:path";
-import { getAllCities, getMapCountries } from "../src/lib/cities.js";
+import { getAllCities, getMapCountries, getMapCountry, getStateCountry } from "../src/lib/cities.js";
 import { CITY_COORDS } from "../src/lib/cityCoords.js";
 import { FLAG_CODES } from "../src/data/flagSprite.js";
 import { flagEmojiToCode } from "../src/lib/flags.js";
@@ -66,4 +66,12 @@ test("la UI no pinta emojis de bandera sueltos (siempre con <Flag>)", () => {
   };
   walk(new URL("../src", import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1"));
   assert.deepEqual(offenders, []);
+});
+
+test("mapa: Curazao tiene rótulo propio; Escocia va con Reino Unido; la beca sigue con el Estado", () => {
+  assert.equal(getMapCountry("Curazao (Países Bajos)"), "Curazao");
+  assert.equal(getMapCountry("Escocia (Reino Unido)"), "Reino Unido");
+  assert.equal(getMapCountry("Italia"), "Italia");
+  assert.equal(getStateCountry("Curazao (Países Bajos)"), "Países Bajos");
+  assert.ok(getMapCountries().some((c) => c.name === "Curazao" && c.position));
 });
