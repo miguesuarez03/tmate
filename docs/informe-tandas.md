@@ -29,3 +29,10 @@
 - Codex: alta velocidad de Taiwán, vuelos de Omaha e inicio del semestre en Sídney (graves), test de salidas y población de Seúl sin fuente; corregidos sin segunda ronda.
 - Nota: seguridad pendiente donde no hay dato de UNODC (Taipéi; también Costa de Marfil, Madagascar y Curazao en la tanda 10); provisionales Omaha, Syracuse, Utica, Busan y Taipéi (fuera de Erasmus+).
 - Decidido provisionalmente: Syracuse suma gastos y alquiler de Loyola (1.969 USD); Tokio toma los 150.000 JPY de Sophia a los que remite Loyola; Newark, Omaha, Utica, Manila y Sídney como estimación MAbroad.
+
+## Tanda 10 (27-11-2026)
+- Rama `tarea/destinos-tanda-10`, commit `4f7e9a4`. Preview: https://tmate-2qh7lpdu0-miguelsuarez-tmate.vercel.app (rama: https://tmate-git-tarea-destinos-tanda-10-miguelsuarez-tmate.vercel.app).
+- Ciudades: Bhubaneswar, Chennai, Jamshedpur, Uagadugú, Abiyán, Fianarantsoa, Rabat, Tegucigalpa, Caracas y Willemstad («Curazao (Países Bajos)», Erasmus+, grupo 1 del SEPIE según la Guía; rótulo propio en el mapa). Build 286/286, 95 tests, check:responsive limpio. **Cruce: 0 convenios de estudios internacionales sin ficha.**
+- Codex: alojamiento de la UoC, lluvias de verano en Chennai y NEET de Curazao (graves), Curazao fuera del encuadre de Países Bajos; corregidos sin segunda ronda.
+- Sin nota (sin UNODC, THE ni ESN): Abiyán, Fianarantsoa y Willemstad. Exteriores desaconseja Burkina Faso y pide extrema precaución en Honduras y Venezuela: fichas con aviso, **pendiente de Miguel si se muestran**.
+- Decidido provisionalmente: Bhubaneswar con el total oficial de XIM de 2022-23 (~150 €); Rabat como estimación (Loyola no da moneda); XLRI es de posgrado (aviso en la ficha).
