@@ -687,6 +687,8 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Sophia University": "https://piloti.sophia.ac.jp/eng/studyabroad/exchangeprograms/application_info/qualification/",
   "Fu Jen Catholic University": "https://iscoie.fju.edu.tw/teachingServicesEN.jsp?labelID=17",
   "Australian Catholic University": "https://www.acu.edu.au/international-students/study-abroad-and-exchange/how-to-apply",
+  "XIM University": "https://xim.edu.in/wp-content/uploads/2023/02/IRC-Factsheet-2022-23.pdf",
+  "XLRI – Xavier School of Management": "https://www.xlri.ac.in/isep",
 };
 
 /**

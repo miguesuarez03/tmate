@@ -86,7 +86,7 @@ Es la media de dos mitades, cada una de 0 a 10.
 
 - **País (dato):** homicidios intencionados por cada 100.000 habitantes, según UNODC (indicador `VC.IHR.PSRC.P5`, el que publica el Banco Mundial). Se usa la media de los 3 años más recientes con dato. Así se suavizan los saltos de un año a otro en países pequeños: Malta pasó de 1,51 en 2022 a 0,56 en 2023.
   - **A 0–10:** escala logarítmica. Una tasa de 0,5 o menos da un 10 y una de 40 o más da un 0. La fórmula es `10 × ln(40 / tasa) / ln(80)` (`homicideToScore`). Cada vez que la tasa se duplica, la nota baja unos 1,6 puntos.
-  - **Sin dato de UNODC** (Taiwán, Costa de Marfil y Madagascar, noviembre de 2026): la subnota de seguridad queda pendiente y la nota sale provisional. No se calcula una tasa propia con los casos de la policía nacional (en Taiwán, la NPA publica casos de 故意殺人, no víctimas, y no dice si incluye tentativas).
+  - **Sin dato de UNODC** (Taiwán, Costa de Marfil, Madagascar y Curazao, noviembre de 2026): la subnota de seguridad queda pendiente y la nota sale provisional. No se calcula una tasa propia con los casos de la policía nacional (en Taiwán, la NPA publica casos de 故意殺人, no víctimas, y no dice si incluye tentativas).
   - Ejemplos: Italia (0,54), 9,8; Alemania (0,85), 8,8; Estados Unidos (6,3), 4,2; Colombia (25,1), 1,1.
 - **Ciudad (valoración MAbroad):** la nota de la categoría «Seguridad» de la ficha (seguridad general, de noche y ambiente). Sirve para distinguir ciudades del mismo país, como Nápoles y Bolonia.
 - **Subnota:** media de las dos mitades. El ranking «Más seguras» sigue usando solo la valoración de la ciudad.

@@ -1097,6 +1097,55 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Primavera", months: "Sep–Nov", temp: "15–23°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada.", tags: ["Templada","Playas","Jacarandas"] },
     { id: "winter", label: "Verano", months: "Dic–Feb", temp: "19–27°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido; orientación del primer semestre en febrero y clases desde marzo.", tags: ["Cálido","Playa","Bondi"] },
   ],
+  // Bhubaneswar: Bhubaneswar (OMM 42971, aeropuerto; normales OMM 1991–2020 publicadas por NOAA/NCEI, con 26–28 años de datos).
+  bhubaneswar: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "25–37°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Calor muy fuerte antes del monzón.", tags: ["Muy caluroso","Antes del monzón","Sol"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "26–33°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Monzón: lluvias fuertes y calor húmedo.", tags: ["Monzón","Lluvias","Humedad"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "23–32°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Lluvias que se retiran y riesgo de ciclones.", tags: ["Semestre de julio","Fin del monzón","Ciclones"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "16–30°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno seco y templado; la mejor época.", tags: ["Templado","Seco","Sol"] },
+  ],
+  // Chennai: Chennai, Nungambakkam (OMM 43278, en la ciudad; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  chennai: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "27–35°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Calor fuerte y húmedo.", tags: ["Caluroso","Húmedo","Playa"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "27–36°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Calor muy fuerte; el monzón del suroeste apenas llueve aquí.", tags: ["Muy caluroso","Seco","Sol"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "25–32°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Lluvias del monzón del nordeste y riesgo de ciclones.", tags: ["Monzón del nordeste","Lluvias","Ciclones"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "22–30°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "La época más suave del año.", tags: ["Templado","Seco","Sol"] },
+  ],
+  // Uagadugú: Uagadugú (OMM 65503, aeropuerto; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  uagadugu: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "26–39°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "El calor más fuerte del año, antes de las lluvias.", tags: ["Muy caluroso","Seco","Sol"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "24–33°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Temporada de lluvias, con tormentas.", tags: ["Lluvias","Tormentas","Verde"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "22–35°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Fin de las lluvias y calor que vuelve a subir.", tags: ["Caluroso","Fin de lluvias","Sol"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "18–35°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Seco, con el viento harmattan cargado de polvo.", tags: ["Seco","Harmattan","Noches frescas"] },
+  ],
+  // Fianarantsoa: Fianarantsoa (OMM 67137; normales OMM 1991–2020 publicadas por NOAA/NCEI). Hemisferio sur: etiquetas de estación del sur.
+  fianarantsoa: [
+    { id: "spring", label: "Otoño", months: "Mar–May", temp: "16–25°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado de altura.", tags: ["Templado","Altura","Arrozales"] },
+    { id: "summer", label: "Invierno", months: "Jun–Ago", temp: "11–21°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno fresco y seco, con noches frías.", tags: ["Fresco","Noches frías","Seco"] },
+    { id: "autumn", label: "Primavera", months: "Sep–Nov", temp: "14–26°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada y seca.", tags: ["Templada","Seca","Sol"], highlight: true },
+    { id: "winter", label: "Verano", months: "Dic–Feb", temp: "18–27°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado y lluvioso.", tags: ["Templado","Lluvias","Tormentas"] },
+  ],
+  // Rabat: Rabat-Salé (OMM 60135, aeropuerto; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  rabat: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "11–22°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave junto al Atlántico.", tags: ["Suave","Atlántico","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "17–27°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano templado por la brisa del mar.", tags: ["Templado","Brisa","Playa"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "14–24°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño suave para empezar el semestre.", tags: ["Semestre de otoño","Suave","Sol"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "8–18°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y algo lluvioso.", tags: ["Suave","Lluvias","Fresco de noche"] },
+  ],
+  // Caracas: Caracas, La Carlota (OMM 80416, en la ciudad; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  caracas: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "20–29°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Templado y todavía seco.", tags: ["Templado","Seco","El Ávila"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "21–28°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Época de lluvias, con chaparrones por la tarde.", tags: ["Lluvias","Templado","Verde"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "21–29°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Lluvias y temperaturas suaves todo el día.", tags: ["Semestre de septiembre","Lluvias","Templado"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "18–27°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Época seca, con noches frescas.", tags: ["Seco","Noches frescas","Sol"] },
+  ],
+  // Willemstad: aeropuerto Hato (normales 1991–2020 del Meteorological Department Curaçao).
+  willemstad: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "26–31°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Calor seco con alisios.", tags: ["Calor","Alisios","Playa"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "27–32°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Calor con brisa constante.", tags: ["Calor","Brisa","Buceo"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "26–32°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "El calor más fuerte y las pocas lluvias del año.", tags: ["Semestre de otoño","Calor","Chaparrones"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "25–30°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Calor algo más suave.", tags: ["Calor suave","Brisa","Playa"] },
+  ],
 };
 
 // Mes más frío y mes más cálido de cada ciudad (normales 1991–2020 de la misma fuente oficial que
@@ -1266,4 +1315,11 @@ export const CITY_CLIMATE_EXTREMES = {
   taipei: { cold: { month: 0, min: 14.2 }, hot: { month: 6, max: 34.8 }, source: "CWA (Taiwán), Taipéi" },
   manila: { cold: { month: 0, min: 21.4 }, hot: { month: 3, max: 34.6 }, source: "OMM, Science Garden, Quezon City (98430)" },
   sidney: { cold: { month: 6, min: 8.9 }, hot: { month: 1, max: 27.7 }, source: "OMM, Sydney Observatory Hill (94768)" },
+  bhubaneswar: { cold: { month: 11, min: 15.4 }, hot: { month: 3, max: 37.7 }, source: "OMM, Bhubaneswar (42971)" },
+  chennai: { cold: { month: 0, min: 21.5 }, hot: { month: 4, max: 37.3 }, source: "OMM, Chennai Nungambakkam (43278)" },
+  uagadugu: { cold: { month: 0, min: 17.1 }, hot: { month: 3, max: 40 }, source: "OMM, Uagadugú (65503)" },
+  fianarantsoa: { cold: { month: 6, min: 10.7 }, hot: { month: 11, max: 27.7 }, source: "OMM, Fianarantsoa (67137)" },
+  rabat: { cold: { month: 0, min: 7.2 }, hot: { month: 7, max: 27.8 }, source: "OMM, Rabat-Salé (60135)" },
+  caracas: { cold: { month: 0, min: 17.3 }, hot: { month: 4, max: 29.4 }, source: "OMM, Caracas La Carlota (80416)" },
+  willemstad: { cold: { month: 0, min: 24.5 }, hot: { month: 8, max: 33 }, source: "Meteorological Department Curaçao, aeropuerto Hato" },
 };

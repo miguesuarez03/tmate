@@ -151,7 +151,7 @@ test("salidas: NEET 4 % o menos = 10, cada 2 puntos resta 1, 24 % o más = 0", (
 
 // Países sin tasa de homicidios comparable de UNODC (ni fuente oficial que la sustituya):
 // su subnota de seguridad queda pendiente y la nota sale provisional.
-const SIN_UNODC = new Set(["Taiwán", "Costa de Marfil", "Madagascar"]);
+const SIN_UNODC = new Set(["Taiwán", "Costa de Marfil", "Madagascar", "Curazao (Países Bajos)"]);
 
 test("seguridad y salidas: mitad dato (país o región) y mitad valoración de la ciudad", () => {
   for (const c of INDEX) {

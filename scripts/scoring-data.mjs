@@ -62,7 +62,7 @@ export const COUNTRY_ISO = {
   "Macedonia del Norte": ["MK", "MKD"], "India": ["IN", "IND"], "Corea del Sur": ["KR", "KOR"], "Japón": ["JP", "JPN"],
   "Taiwán": ["TW", "TWN"], "Filipinas": ["PH", "PHL"], "Australia": ["AU", "AUS"], "Marruecos": ["MA", "MAR"],
   "Burkina Faso": ["BF", "BFA"], "Costa de Marfil": ["CI", "CIV"], "Madagascar": ["MG", "MDG"], "Honduras": ["HN", "HND"],
-  "Venezuela": ["VE", "VEN"],
+  "Venezuela": ["VE", "VEN"], "Curazao (Países Bajos)": ["CW", "CUW"],
 };
 
 /** Universidades de cada ciudad, con su nombre exacto en la tabla de THE
@@ -342,6 +342,18 @@ const THE_NAMES = {
   "taipei": ["Fu Jen Catholic University"],
   "manila": ["Ateneo de Manila University"],
   "sidney": ["Australian Catholic University"],
+  // Tanda 10. Solo sale en THE 2027 la International University of Rabat; UCAB y UNAH son «Reporter» (sin puesto);
+  // no salen XIM, Loyola College, XLRI, KoJUS, CERAP, Magis ni la University of Curaçao.
+  "bhubaneswar": [],
+  "chennai": [],
+  "jamshedpur": [],
+  "uagadugu": [],
+  "abiyan": [],
+  "fianarantsoa": [],
+  "rabat": ["International University of Rabat"],
+  "tegucigalpa": [],
+  "caracas": [],
+  "willemstad": [],
 };
 
 /** Nombres con que ESN escribe cada ciudad (además del nombre de la ficha). */

@@ -25843,6 +25843,291 @@ export const CITY_INSIGHTS = {
       },
     ],
   },
+  bhubaneswar: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Lingaraja_Temple_01.jpg/1920px-Lingaraja_Temple_01.jpg",
+    tagline: "Templos milenarios y un campus jesuita nuevo.",
+    atmosphere: "Bhubaneswar es una ciudad india mediana y ordenada, con cientos de templos y un ritmo más tranquilo que las grandes metrópolis.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 9.5,
+        summary: "XIM calcula unas 15.000 rupias al mes (2022-23).",
+        color: "#B45309",
+        subcategories: [
+          { label: "Alojamiento", score: 9.5, desc: "Residencia muy barata." },
+          { label: "Comida y supermercados", score: 9.5, desc: "Comida muy barata." },
+          { label: "Transporte", score: 9.0, desc: "Bus barato." },
+          { label: "Ocio y gastos diarios", score: 9.0, desc: "Ocio barato." },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.0,
+        summary: "Residencia en el campus.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 7.0, desc: "Plazas en el campus." },
+          { label: "Precio", score: 9.5, desc: "Precio muy bajo." },
+          { label: "Facilidad de búsqueda", score: 6.5, desc: "Se pide a la universidad." },
+          { label: "Residencias universitarias", score: 7.0, desc: "Residencia sin comida." },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 5.0,
+        summary: "Vida de campus en una ciudad tranquila.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 4.0, desc: "Muy pocos estudiantes europeos." },
+          { label: "Ambiente internacional", score: 5.0, desc: "Universidad joven." },
+          { label: "Fiesta y vida nocturna", score: 4.0, desc: "Poca vida nocturna." },
+          { label: "Eventos y actividades", score: 7.5, desc: "Festivales y templos." },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.5,
+        summary: "Clases en inglés y gente acogedora.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Nivel de inglés", score: 7.0, desc: "Inglés en la universidad." },
+          { label: "Actitud local", score: 8.0, desc: "Gente acogedora." },
+          { label: "Integración con locales", score: 6.0, desc: "Choque cultural fuerte." },
+          { label: "Facilidad para hacer amigos", score: 6.5, desc: "Vida de campus." },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 5.5,
+        summary: "Aeropuerto con vuelos nacionales y algún internacional.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 5.0, desc: "Mo Bus y rickshaws." },
+          { label: "Ciudad caminable", score: 4.0, desc: "Poco caminable." },
+          { label: "Conexiones internacionales", score: 5.0, desc: "Aeropuerto Biju Patnaik." },
+          { label: "Escapadas de fin de semana", score: 7.0, desc: "Puri, Konark y la costa." },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 6.5,
+        summary: "Templos y costa cerca.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Naturaleza", score: 6.5, desc: "Playas de Puri cerca." },
+          { label: "Clima", score: 5.0, desc: "Tropical monzónico: mínima media de 15,4 °C en diciembre y máxima de 37,7 °C en abril (OMM, Bhubaneswar, 1991–2020)." },
+          { label: "Calidad de vida", score: 5.5, desc: "Calor y humedad." },
+          { label: "Autenticidad local", score: 9.0, desc: "Templos y cultura odia." },
+          { label: "Estilo de vida", score: 6.0, desc: "Ritmo tranquilo." },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 3.5,
+        summary: "Mercado local y sin permiso de trabajo.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 4.5, desc: "Tecnología y servicios en crecimiento." },
+          { label: "Prácticas", score: 3.5, desc: "Prácticas difíciles." },
+          { label: "Empresas relevantes", score: 4.0, desc: "Empresas locales." },
+          { label: "Oportunidades para estudiantes", score: 2.5, desc: "Sin permiso de trabajo como estudiante." },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 6.0,
+        summary: "Ciudad tranquila; precauciones habituales.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 6.0, desc: "Sin datos específicos; precauciones habituales." },
+          { label: "Seguridad nocturna", score: 5.0, desc: "Precaución de noche." },
+          { label: "Ambiente de la ciudad", score: 7.0, desc: "Campus tranquilo." },
+        ],
+      },
+    ],
+  },
+  chennai: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Marina_Beach_in_Chennai.jpg/1920px-Marina_Beach_in_Chennai.jpg",
+    tagline: "Costa de Coromandel, templos y un college jesuita centenario.",
+    atmosphere: "Chennai es una metrópoli grande, calurosa y muy tamil, con playas urbanas y mucha vida cultural.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 9.0,
+        summary: "Estimación MAbroad: 300–500 € al mes.",
+        color: "#B45309",
+        subcategories: [
+          { label: "Alojamiento", score: 8.5, desc: "Alquiler barato." },
+          { label: "Comida y supermercados", score: 9.5, desc: "Comida muy barata." },
+          { label: "Transporte", score: 9.0, desc: "Transporte barato." },
+          { label: "Ocio y gastos diarios", score: 8.5, desc: "Ocio barato." },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 5.0,
+        summary: "Pocas plazas en la residencia del college.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 4.5, desc: "Plazas limitadas." },
+          { label: "Precio", score: 8.5, desc: "Precio bajo." },
+          { label: "Facilidad de búsqueda", score: 4.5, desc: "Sin página para intercambio." },
+          { label: "Residencias universitarias", score: 4.5, desc: "Residencia con prioridad para otros colectivos." },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 6.0,
+        summary: "Gran ciudad con mucha cultura.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 4.0, desc: "Muy pocos estudiantes europeos." },
+          { label: "Ambiente internacional", score: 6.0, desc: "College grande." },
+          { label: "Fiesta y vida nocturna", score: 5.0, desc: "Vida nocturna limitada." },
+          { label: "Eventos y actividades", score: 8.0, desc: "Música carnática y festivales." },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.5,
+        summary: "Inglés en la universidad y gente acogedora.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Nivel de inglés", score: 7.0, desc: "Inglés en la universidad." },
+          { label: "Actitud local", score: 8.0, desc: "Gente acogedora." },
+          { label: "Integración con locales", score: 6.0, desc: "Choque cultural fuerte." },
+          { label: "Facilidad para hacer amigos", score: 6.0, desc: "Vida de college." },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 6.5,
+        summary: "Metro y aeropuerto internacional.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 6.5, desc: "Metro, trenes de cercanías y buses." },
+          { label: "Ciudad caminable", score: 4.0, desc: "Poco caminable." },
+          { label: "Conexiones internacionales", score: 7.5, desc: "Aeropuerto internacional." },
+          { label: "Escapadas de fin de semana", score: 7.0, desc: "Pondicherry y Mahabalipuram." },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 6.0,
+        summary: "Calor, playa y cultura del sur.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Naturaleza", score: 5.5, desc: "Playas urbanas." },
+          { label: "Clima", score: 4.5, desc: "Tropical: mínima media de 21,5 °C en enero y máxima de 37,3 °C en mayo (OMM, Chennai Nungambakkam, 1991–2020)." },
+          { label: "Calidad de vida", score: 5.0, desc: "Calor, tráfico y contaminación." },
+          { label: "Autenticidad local", score: 9.0, desc: "Templos y cocina del sur de la India." },
+          { label: "Estilo de vida", score: 6.0, desc: "Ritmo intenso." },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 4.0,
+        summary: "Gran polo industrial, sin permiso de trabajo.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 6.0, desc: "Automoción y tecnología." },
+          { label: "Prácticas", score: 3.5, desc: "Prácticas difíciles." },
+          { label: "Empresas relevantes", score: 6.0, desc: "Fábricas y empresas de servicios." },
+          { label: "Oportunidades para estudiantes", score: 2.5, desc: "Sin permiso de trabajo como estudiante." },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 6.0,
+        summary: "Precauciones habituales.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 6.0, desc: "Sin datos específicos; precauciones habituales." },
+          { label: "Seguridad nocturna", score: 5.0, desc: "Precaución de noche." },
+          { label: "Ambiente de la ciudad", score: 6.5, desc: "Campus tranquilo." },
+        ],
+      },
+    ],
+  },
+  jamshedpur: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Mughal_Gardens_at_Jubilee_Park%2C_Jamshedpur.jpg/1920px-Mughal_Gardens_at_Jubilee_Park%2C_Jamshedpur.jpg",
+    tagline: "Escuela de negocios jesuita en la ciudad del acero.",
+    atmosphere: "Jamshedpur es una ciudad industrial ordenada y verde para la India, con la vida girando en torno a Tata y al campus.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 9.0,
+        summary: "Estimación MAbroad: 300–500 € al mes.",
+        color: "#B45309",
+        subcategories: [
+          { label: "Alojamiento", score: 9.0, desc: "Alojamiento barato." },
+          { label: "Comida y supermercados", score: 9.5, desc: "Comida muy barata." },
+          { label: "Transporte", score: 9.0, desc: "Transporte barato." },
+          { label: "Ocio y gastos diarios", score: 8.5, desc: "Ocio barato." },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 5.5,
+        summary: "Sin información para intercambio.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 5.5, desc: "Campus residencial." },
+          { label: "Precio", score: 9.0, desc: "Precio bajo." },
+          { label: "Facilidad de búsqueda", score: 4.0, desc: "Sin datos publicados." },
+          { label: "Residencias universitarias", score: 5.5, desc: "Residencias de posgrado." },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 4.5,
+        summary: "Vida de campus en una ciudad industrial.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 4.0, desc: "Muy pocos estudiantes europeos." },
+          { label: "Ambiente internacional", score: 5.0, desc: "Escuela de posgrado." },
+          { label: "Fiesta y vida nocturna", score: 3.5, desc: "Poca vida nocturna." },
+          { label: "Eventos y actividades", score: 6.0, desc: "Festivales y vida de campus." },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.5,
+        summary: "Clases en inglés.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Nivel de inglés", score: 7.0, desc: "Inglés en la escuela." },
+          { label: "Actitud local", score: 8.0, desc: "Gente acogedora." },
+          { label: "Integración con locales", score: 6.0, desc: "Choque cultural fuerte." },
+          { label: "Facilidad para hacer amigos", score: 6.0, desc: "Vida de campus." },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 3.5,
+        summary: "Lejos de los grandes aeropuertos.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 4.0, desc: "Buses y rickshaws." },
+          { label: "Ciudad caminable", score: 4.5, desc: "Ciudad ordenada." },
+          { label: "Conexiones internacionales", score: 2.5, desc: "Aeropuerto pequeño con vuelos irregulares." },
+          { label: "Escapadas de fin de semana", score: 5.0, desc: "Ranchi y Calcuta, a horas en tren." },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 5.5,
+        summary: "Ciudad verde e industrial.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Naturaleza", score: 6.0, desc: "Parques y colinas de Dalma." },
+          { label: "Clima", score: 5.0, desc: "Tropical húmedo y seco, con monzón de junio a septiembre: la estación de Jamshedpur solo tiene 10–16 años de datos en las normales OMM 1991–2020, así que no se muestran temperaturas." },
+          { label: "Calidad de vida", score: 5.5, desc: "Ciudad ordenada para la India." },
+          { label: "Autenticidad local", score: 6.5, desc: "Ciudad de empresa." },
+          { label: "Estilo de vida", score: 5.0, desc: "Ritmo tranquilo." },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 4.0,
+        summary: "Ciudad de Tata, sin permiso de trabajo.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 5.5, desc: "Acero e industria." },
+          { label: "Prácticas", score: 3.5, desc: "Prácticas difíciles." },
+          { label: "Empresas relevantes", score: 6.0, desc: "Tata Steel y su industria." },
+          { label: "Oportunidades para estudiantes", score: 2.5, desc: "Sin permiso de trabajo como estudiante." },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 6.0,
+        summary: "Ciudad tranquila; precauciones habituales.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 6.0, desc: "Sin datos específicos; precauciones habituales." },
+          { label: "Seguridad nocturna", score: 5.0, desc: "Precaución de noche." },
+          { label: "Ambiente de la ciudad", score: 7.0, desc: "Campus tranquilo." },
+        ],
+      },
+    ],
+  },
 };
 
 // Generate default scores for cities without custom data
