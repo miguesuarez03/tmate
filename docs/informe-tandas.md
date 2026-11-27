@@ -22,3 +22,10 @@
 - Corrección de costes (tandas 6–8): divisas de Loyola a euros al BCE del 26-11 con `costBy: "loyola"` (Leicester, Cali, León, Puebla, São Leopoldo, Laredo, Milwaukee); totales oficiales con fecha en Limerick (MIC, 1.493 €), Örebro, Bradford y Jacksonville (UNF). Test de fechas con la hora de España.
 - Codex: F-1 en Canisius y «jesuita desde 1840» en Xavier (graves), precios vigentes de Lock Haven; corregidos sin segunda ronda. No aplicado: sumar los libros al total de MIC (se queda en 1.493 €).
 - Decidido provisionalmente: meses de un semestre de EE. UU. = 4,5 (curso de 9); el presupuesto desglosado de UNF cuenta como total oficial aunque sea el del DS-2019.
+
+## Tanda 9 (27-11-2026)
+- Rama `tarea/destinos-tanda-9`, commit `986ea3e`. Preview: https://tmate-llnplzqqd-miguelsuarez-tmate.vercel.app (rama: https://tmate-git-tarea-destinos-tanda-9-miguelsuarez-tmate.vercel.app).
+- Ciudades: Newark, Omaha, Syracuse, Utica, Seúl, Busan, Tokio, Taipéi, Manila y Sídney; primeros destinos de Asia y Oceanía (`study_abroad_world`) y City Match con «También América, Asia y Oceanía». Build 276/276, 94 tests, check:responsive limpio.
+- Codex: alta velocidad de Taiwán, vuelos de Omaha e inicio del semestre en Sídney (graves), test de salidas y población de Seúl sin fuente; corregidos sin segunda ronda.
+- Nota: seguridad pendiente donde no hay dato de UNODC (Taipéi; también Costa de Marfil, Madagascar y Curazao en la tanda 10); provisionales Omaha, Syracuse, Utica, Busan y Taipéi (fuera de Erasmus+).
+- Decidido provisionalmente: Syracuse suma gastos y alquiler de Loyola (1.969 USD); Tokio toma los 150.000 JPY de Sophia a los que remite Loyola; Newark, Omaha, Utica, Manila y Sídney como estimación MAbroad.
