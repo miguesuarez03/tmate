@@ -26128,6 +26128,291 @@ export const CITY_INSIGHTS = {
       },
     ],
   },
+  uagadugu: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Cathedrale_Ouagadougou.jpg/1920px-Cathedrale_Ouagadougou.jpg",
+    tagline: "Cine africano, mercados y un campus jesuita nuevo.",
+    atmosphere: "Uagadugú es una capital del Sahel muy viva culturalmente, pero el país vive una situación de seguridad delicada.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 8.5,
+        summary: "Estimación MAbroad: 350–550 € al mes.",
+        color: "#B45309",
+        subcategories: [
+          { label: "Alojamiento", score: 8.0, desc: "Alquiler barato." },
+          { label: "Comida y supermercados", score: 9.0, desc: "Comida barata." },
+          { label: "Transporte", score: 8.5, desc: "Transporte barato." },
+          { label: "Ocio y gastos diarios", score: 8.5, desc: "Ocio barato." },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 4.0,
+        summary: "Sin información de alojamiento.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 4.0, desc: "Sin datos publicados." },
+          { label: "Precio", score: 8.0, desc: "Precio bajo." },
+          { label: "Facilidad de búsqueda", score: 3.0, desc: "Sin información para intercambio." },
+          { label: "Residencias universitarias", score: 3.0, desc: "Sin residencia conocida." },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 5.0,
+        summary: "Cultura viva, pero pocos estudiantes de intercambio.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 3.0, desc: "Muy pocos estudiantes europeos." },
+          { label: "Ambiente internacional", score: 4.5, desc: "Universidad nueva." },
+          { label: "Fiesta y vida nocturna", score: 5.0, desc: "Maquis y música en directo." },
+          { label: "Eventos y actividades", score: 8.0, desc: "FESPACO y festivales." },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.0,
+        summary: "Francés y gente muy acogedora.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Nivel de inglés", score: 3.0, desc: "Poco inglés." },
+          { label: "Actitud local", score: 8.5, desc: "Gente muy acogedora." },
+          { label: "Integración con locales", score: 6.0, desc: "Choque cultural fuerte." },
+          { label: "Facilidad para hacer amigos", score: 6.0, desc: "Comunidad pequeña." },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 3.0,
+        summary: "Pocas conexiones y viajes por carretera desaconsejados.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 3.0, desc: "Transporte urbano limitado." },
+          { label: "Ciudad caminable", score: 4.0, desc: "Poco caminable por el calor." },
+          { label: "Conexiones internacionales", score: 4.0, desc: "Aeropuerto con pocos vuelos." },
+          { label: "Escapadas de fin de semana", score: 1.5, desc: "Viajar por el país está desaconsejado." },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 5.0,
+        summary: "Calor seco y mucha cultura.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Naturaleza", score: 4.5, desc: "Sabana y parques." },
+          { label: "Clima", score: 4.5, desc: "Tropical seco (Sahel): mínima media de 17,1 °C en enero y máxima de 40 °C en abril (OMM, Uagadugú, 1991–2020)." },
+          { label: "Calidad de vida", score: 4.0, desc: "Servicios limitados." },
+          { label: "Autenticidad local", score: 8.5, desc: "Música, cine y mercados." },
+          { label: "Estilo de vida", score: 5.0, desc: "Ritmo tranquilo." },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 2.5,
+        summary: "Mercado pequeño.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 3.0, desc: "Economía informal y servicios." },
+          { label: "Prácticas", score: 2.5, desc: "Prácticas difíciles." },
+          { label: "Empresas relevantes", score: 3.0, desc: "ONG y organismos internacionales." },
+          { label: "Oportunidades para estudiantes", score: 2.0, desc: "Sin permiso de trabajo como estudiante." },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 2.5,
+        summary: "Exteriores desaconseja viajar al país.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 2.5, desc: "Riesgo terrorista también en la capital." },
+          { label: "Seguridad nocturna", score: 2.5, desc: "Toques de queda frecuentes." },
+          { label: "Ambiente de la ciudad", score: 3.0, desc: "Situación delicada." },
+        ],
+      },
+    ],
+  },
+  abiyan: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Plateau%2C_Abidjan%2C_C%C3%B4te_d%27Ivoire.JPG/1920px-Plateau%2C_Abidjan%2C_C%C3%B4te_d%27Ivoire.JPG",
+    tagline: "Lagunas, el Plateau y un campus jesuita en Cocody.",
+    atmosphere: "Abiyán es una metrópoli grande y dinámica de África occidental, con mucha vida nocturna y música.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 7.0,
+        summary: "Estimación MAbroad: 450–700 € al mes.",
+        color: "#B45309",
+        subcategories: [
+          { label: "Alojamiento", score: 6.5, desc: "Alquiler medio en Cocody." },
+          { label: "Comida y supermercados", score: 7.5, desc: "Comida local barata." },
+          { label: "Transporte", score: 8.0, desc: "Transporte barato." },
+          { label: "Ocio y gastos diarios", score: 7.0, desc: "Ocio asequible." },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 4.0,
+        summary: "Sin información de alojamiento.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 4.5, desc: "Mercado de alquiler amplio." },
+          { label: "Precio", score: 6.5, desc: "Precio medio." },
+          { label: "Facilidad de búsqueda", score: 3.0, desc: "Sin información para intercambio." },
+          { label: "Residencias universitarias", score: 3.0, desc: "Sin residencia conocida." },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 6.5,
+        summary: "Mucha música y vida nocturna.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 3.5, desc: "Muy pocos estudiantes europeos." },
+          { label: "Ambiente internacional", score: 5.0, desc: "Universidad pequeña." },
+          { label: "Fiesta y vida nocturna", score: 8.0, desc: "Maquis y música en directo." },
+          { label: "Eventos y actividades", score: 7.0, desc: "Festivales y cultura urbana." },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.5,
+        summary: "Francés y gente abierta.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Nivel de inglés", score: 3.5, desc: "Poco inglés." },
+          { label: "Actitud local", score: 8.0, desc: "Gente abierta." },
+          { label: "Integración con locales", score: 6.5, desc: "Fácil conocer gente." },
+          { label: "Facilidad para hacer amigos", score: 6.0, desc: "Comunidad pequeña." },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 5.0,
+        summary: "Aeropuerto internacional y tráfico intenso.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 4.5, desc: "Buses, taxis y barcos-bus." },
+          { label: "Ciudad caminable", score: 4.0, desc: "Poco caminable." },
+          { label: "Conexiones internacionales", score: 7.0, desc: "Aeropuerto internacional." },
+          { label: "Escapadas de fin de semana", score: 5.0, desc: "Grand-Bassam y la costa." },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 6.0,
+        summary: "Lagunas, playas y ritmo urbano.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Naturaleza", score: 6.5, desc: "Lagunas y Parque del Banco." },
+          { label: "Clima", score: 5.0, desc: "Tropical húmedo, caluroso todo el año, con lluvias fuertes de mayo a julio: la estación OMM de Abiyán no trae temperaturas en las normales 1991–2020 de NOAA, así que no se muestran." },
+          { label: "Calidad de vida", score: 5.0, desc: "Servicios desiguales." },
+          { label: "Autenticidad local", score: 8.0, desc: "Cultura marfileña." },
+          { label: "Estilo de vida", score: 6.0, desc: "Ritmo intenso." },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 3.5,
+        summary: "Centro económico de la región.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 5.0, desc: "Puerto y servicios." },
+          { label: "Prácticas", score: 3.0, desc: "Prácticas difíciles." },
+          { label: "Empresas relevantes", score: 5.0, desc: "Sedes regionales." },
+          { label: "Oportunidades para estudiantes", score: 2.0, desc: "Sin permiso de trabajo como estudiante." },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 4.5,
+        summary: "Precaución, sobre todo en algunos barrios.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 4.5, desc: "Hurtos y barrios que evitar." },
+          { label: "Seguridad nocturna", score: 4.0, desc: "Precaución de noche." },
+          { label: "Ambiente de la ciudad", score: 5.5, desc: "Cocody, más tranquilo." },
+        ],
+      },
+    ],
+  },
+  fianarantsoa: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Vue_globale_de_la_ville_Fianarantsoa_2.jpg/1920px-Vue_globale_de_la_ville_Fianarantsoa_2.jpg",
+    tagline: "Colinas, arrozales y clima de altura.",
+    atmosphere: "Fianarantsoa es una ciudad tranquila de las tierras altas, puerta de los parques del sur de Madagascar.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 9.0,
+        summary: "Estimación MAbroad: 250–400 € al mes.",
+        color: "#B45309",
+        subcategories: [
+          { label: "Alojamiento", score: 9.0, desc: "Alquiler barato." },
+          { label: "Comida y supermercados", score: 9.5, desc: "Comida muy barata." },
+          { label: "Transporte", score: 9.0, desc: "Transporte barato." },
+          { label: "Ocio y gastos diarios", score: 9.0, desc: "Ocio barato." },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 4.5,
+        summary: "Sin información de alojamiento.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 4.5, desc: "Sin datos publicados." },
+          { label: "Precio", score: 9.0, desc: "Precio bajo." },
+          { label: "Facilidad de búsqueda", score: 3.0, desc: "Sin información para intercambio." },
+          { label: "Residencias universitarias", score: 3.0, desc: "Sin residencia conocida." },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 4.0,
+        summary: "Ciudad pequeña y tranquila.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 3.0, desc: "Muy pocos estudiantes europeos." },
+          { label: "Ambiente internacional", score: 4.0, desc: "Instituto pequeño." },
+          { label: "Fiesta y vida nocturna", score: 3.0, desc: "Poca vida nocturna." },
+          { label: "Eventos y actividades", score: 5.5, desc: "Mercados y fiestas locales." },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.0,
+        summary: "Francés y gente amable.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Nivel de inglés", score: 3.0, desc: "Poco inglés." },
+          { label: "Actitud local", score: 8.5, desc: "Gente muy amable." },
+          { label: "Integración con locales", score: 6.0, desc: "Choque cultural fuerte." },
+          { label: "Facilidad para hacer amigos", score: 5.5, desc: "Comunidad pequeña." },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 2.5,
+        summary: "Lejos de la capital y con carreteras lentas.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 3.0, desc: "Taxi-brousse y taxis." },
+          { label: "Ciudad caminable", score: 5.5, desc: "Centro caminable con cuestas." },
+          { label: "Conexiones internacionales", score: 2.0, desc: "Vuelos por Antananarivo." },
+          { label: "Escapadas de fin de semana", score: 6.5, desc: "Parques de Ranomafana e Isalo." },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 6.5,
+        summary: "Naturaleza y clima suave.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Naturaleza", score: 8.5, desc: "Ranomafana y paisajes de arrozales." },
+          { label: "Clima", score: 7.0, desc: "Subtropical de altura: mínima media de 10,7 °C en julio y máxima de 27,7 °C en diciembre (OMM, Fianarantsoa, 1991–2020)." },
+          { label: "Calidad de vida", score: 4.0, desc: "Servicios limitados." },
+          { label: "Autenticidad local", score: 8.0, desc: "Ciudad alta, en la colina." },
+          { label: "Estilo de vida", score: 6.0, desc: "Ritmo muy tranquilo." },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 2.0,
+        summary: "Mercado muy pequeño.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 2.5, desc: "Agricultura y servicios." },
+          { label: "Prácticas", score: 2.0, desc: "Prácticas difíciles." },
+          { label: "Empresas relevantes", score: 2.5, desc: "ONG y misiones." },
+          { label: "Oportunidades para estudiantes", score: 1.5, desc: "Sin permiso de trabajo como estudiante." },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 5.0,
+        summary: "Viajar con precaución.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 5.0, desc: "Hurtos; precauciones habituales." },
+          { label: "Seguridad nocturna", score: 4.0, desc: "Precaución de noche." },
+          { label: "Ambiente de la ciudad", score: 6.0, desc: "Ambiente tranquilo." },
+        ],
+      },
+    ],
+  },
 };
 
 // Generate default scores for cities without custom data
