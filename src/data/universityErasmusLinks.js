@@ -689,6 +689,7 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Australian Catholic University": "https://www.acu.edu.au/international-students/study-abroad-and-exchange/how-to-apply",
   "XIM University": "https://xim.edu.in/wp-content/uploads/2023/02/IRC-Factsheet-2022-23.pdf",
   "XLRI – Xavier School of Management": "https://www.xlri.ac.in/isep",
+  "University of Curaçao Dr. Moises da Costa Gomez": "https://uoc.cw/exchange-programs-erasmus/",
 };
 
 /**
