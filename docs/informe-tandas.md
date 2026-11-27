@@ -15,3 +15,10 @@
 - Notas provisionales Erasmus+: 19 de 179 (10,6 %); fuera de Europa, Cali (Javeriana como satélite), León y Puebla también provisionales.
 - Sin verificar: herts.ac.uk y le.ac.uk dan 403 (la frase de 25 minutos a King's Cross sale del extracto del buscador); billetes de bus y enlaces al aeropuerto de casi todas; Cali y Puebla sin bloque de clima.
 - Decidido provisionalmente: costes de Loyola en libras, dólares, pesos o reales como estimación MAbroad en euros, con la cifra de Loyola en los consejos; São Leopoldo sin `near` (34 o 27 km según la fuente).
+
+## Tanda 8 (27-11-2026)
+- Rama `tarea/destinos-tanda-8`, commit `a7c107e`. Preview: https://tmate-lkja9h5ac-miguelsuarez-tmate.vercel.app (rama: https://tmate-git-tarea-destinos-tanda-8-miguelsuarez-tmate.vercel.app).
+- Ciudades: Tijuana, Torreón, Búfalo, Cincinnati, Erie, Flint, Jacksonville, Laredo, Lock Haven y Milwaukee (las diez con nota provisional: sin THE ni ESN). Build 266/266, 94 tests, check:responsive limpio.
+- Corrección de costes (tandas 6–8): divisas de Loyola a euros al BCE del 26-11 con `costBy: "loyola"` (Leicester, Cali, León, Puebla, São Leopoldo, Laredo, Milwaukee); totales oficiales con fecha en Limerick (MIC, 1.493 €), Örebro, Bradford y Jacksonville (UNF). Test de fechas con la hora de España.
+- Codex: F-1 en Canisius y «jesuita desde 1840» en Xavier (graves), precios vigentes de Lock Haven; corregidos sin segunda ronda. No aplicado: sumar los libros al total de MIC (se queda en 1.493 €).
+- Decidido provisionalmente: meses de un semestre de EE. UU. = 4,5 (curso de 9); el presupuesto desglosado de UNF cuenta como total oficial aunque sea el del DS-2019.
