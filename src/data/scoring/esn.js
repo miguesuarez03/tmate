@@ -650,5 +650,15 @@ export const CITY_ESN_SECTIONS = {
  "tokio": [],
  "taipei": [],
  "manila": [],
- "sidney": []
+ "sidney": [],
+ "bhubaneswar": [],
+ "chennai": [],
+ "jamshedpur": [],
+ "uagadugu": [],
+ "abiyan": [],
+ "fianarantsoa": [],
+ "rabat": [],
+ "tegucigalpa": [],
+ "caracas": [],
+ "willemstad": []
 };

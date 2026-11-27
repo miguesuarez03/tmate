@@ -2635,5 +2635,93 @@ export const CITY_NEET = {
    "2024": 8.5,
    "2025": 8.4
   }
+ },
+ "bhubaneswar": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "IND",
+  "years": {
+   "2023": 23.5,
+   "2024": 24.2,
+   "2025": 25.6
+  }
+ },
+ "chennai": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "IND",
+  "years": {
+   "2023": 23.5,
+   "2024": 24.2,
+   "2025": 25.6
+  }
+ },
+ "jamshedpur": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "IND",
+  "years": {
+   "2023": 23.5,
+   "2024": 24.2,
+   "2025": 25.6
+  }
+ },
+ "uagadugu": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "BFA",
+  "years": {
+   "2023": 34.3,
+   "2024": 21.6,
+   "2025": 24.5
+  }
+ },
+ "abiyan": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "CIV",
+  "years": {
+   "2017": 34.8,
+   "2019": 21.9,
+   "2022": 18.8
+  }
+ },
+ "fianarantsoa": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "MDG",
+  "years": {
+   "2022": 24.3
+  }
+ },
+ "rabat": null,
+ "tegucigalpa": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "HND",
+  "years": {
+   "2023": 30.4,
+   "2024": 30.8,
+   "2025": 29
+  }
+ },
+ "caracas": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "VEN",
+  "years": {
+   "2016": 20.3,
+   "2017": 22.8,
+   "2020": 37.1
+  }
+ },
+ "willemstad": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "CUW",
+  "years": {
+   "2018": 5.1,
+   "2020": 17.5
+  }
  }
 };

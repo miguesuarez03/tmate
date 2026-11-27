@@ -3308,5 +3308,23 @@ export const CITY_UNIVERSITIES = {
    "students": 24609,
    "intlPct": 26
   }
- ]
+ ],
+ "bhubaneswar": [],
+ "chennai": [],
+ "jamshedpur": [],
+ "uagadugu": [],
+ "abiyan": [],
+ "fianarantsoa": [],
+ "rabat": [
+  {
+   "name": "International University of Rabat",
+   "edition": 2027,
+   "rank": "801–1000",
+   "students": 10116,
+   "intlPct": 5
+  }
+ ],
+ "tegucigalpa": [],
+ "caracas": [],
+ "willemstad": []
 };

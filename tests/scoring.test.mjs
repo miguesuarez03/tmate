@@ -255,7 +255,8 @@ test("todas las ciudades tienen nota, subnotas entre 0 y 10 (o pendientes) y la 
     for (const [id, v] of Object.entries(subs)) assert.ok(v === null || (v >= 0 && v <= 10), `${c.slug}/${id}: ${v}`);
     const { overall, pending } = computeScore(subs);
     assert.equal(getOverallScore(c.slug), overall, c.slug);
-    assert.equal(typeof overall, "number", `${c.slug} sin nota`);
+    // Sin nota solo si falta más del 30 % del peso, y eso solo pasa sin dato de UNODC (y sin THE ni ESN).
+    assert.ok(typeof overall === "number" || SIN_UNODC.has(c.country), `${c.slug} sin nota`);
     assert.deepEqual(b.pending, pending, c.slug);
     assert.equal(b.provisional, pending.length > 0);
     // Coste y seguridad salen siempre de un dato: nunca pendientes (seguridad, salvo sin UNODC).

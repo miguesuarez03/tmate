@@ -293,5 +293,6 @@ export const COUNTRY_HOMICIDE_RATES = {
   "2020": 29.48,
   "2021": 19.28,
   "2022": 12.65
- }
+ },
+ "Curazao (Países Bajos)": {}
 };
