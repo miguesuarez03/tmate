@@ -5910,7 +5910,8 @@ export const CITIES = [
     region: "Europa del Norte",
     tag: "Ciudad del Shannon",
     phrase: "Una ciudad junto al río Shannon, con la Treaty Stone y el castillo del rey Juan",
-    costDetail: "1.200–1.500€/mes",
+    costDetail: "~1.493 €/mes",
+    costSource: "Mary Immaculate College (2026-27)",
     vibe: "Fluvial & Universitaria",
     erasmus: 72,
     weather: "Oceánico",
@@ -5923,7 +5924,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro", vibe: "Junto al Shannon", price: "€€€" },
     ],
-    tips: ["Idioma según la Universidad Loyola: inglés B2; según Loyola, este convenio es solo para el primer semestre: confírmalo con la Oficina","MIC calcula unos 1.493 € al mes en 2026-27, con 719 € de alojamiento; O'Dwyer House cuesta 2.762 € el semestre en habitación individual (2025-26), más 500 € de fianza","Plazos de MIC 2026-27: nominación hasta el 15 de abril y solicitud hasta el 15 de mayo (otoño)","Como ciudadano de la UE no tienes que registrarte en inmigración"],
+    tips: ["Idioma según la Universidad Loyola: inglés B2; según Loyola, este convenio es solo para el primer semestre: confírmalo con la Oficina","MIC calcula para 2026-27 unos 1.493 € al mes: 719 € de alojamiento con suministros, 322 € de comida y 452 € de otros gastos, viajes por Irlanda incluidos; O'Dwyer House cuesta 2.762 € el semestre en habitación individual (2025-26), más 500 € de fianza","Plazos de MIC 2026-27: nominación hasta el 15 de abril y solicitud hasta el 15 de mayo (otoño)","Como ciudadano de la UE no tienes que registrarte en inmigración"],
     experiences: ["erasmus"],
   },
   {
@@ -6095,7 +6096,8 @@ export const CITIES = [
     region: "Europa del Norte",
     tag: "Ciudad del castillo",
     phrase: "Una ciudad sueca con un castillo sobre un islote del río Svartån",
-    costDetail: "900–1.200€/mes",
+    costDetail: "~980 €/mes",
+    costSource: "Örebro universitet (2026-27)",
     vibe: "Tranquila & Universitaria",
     erasmus: 74,
     weather: "Continental frío",
@@ -6108,7 +6110,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro", vibe: "Castillo y río Svartån", price: "€€" },
     ],
-    tips: ["Inglés B2; no hace falta subir certificado","Alojamiento garantizado en Campus Örebro si lo pides a tiempo: 25.000–30.000 coronas por semestre (ficha 2026-27), con 2.500 de fianza y pago por adelantado; la universidad calcula unas 11.000 coronas al mes de gastos","Plazos: nominación del 1 al 31 de marzo (otoño o curso completo) o del 1 al 30 de septiembre (primavera); solicitud del 15 de marzo al 15 de abril o del 15 de septiembre al 15 de octubre","Como ciudadano de la UE no tienes que pedir nada a Migrationsverket; el empadronamiento en Skatteverket solo es obligatorio si te quedas un año o más"],
+    tips: ["Inglés B2; no hace falta subir certificado","Alojamiento garantizado en Campus Örebro si lo pides a tiempo: 25.000–30.000 coronas por semestre (ficha 2026-27), con 2.500 de fianza y pago por adelantado; la universidad calcula unas 11.000 coronas al mes de gastos con el alquiler (ficha 2026-27; unos 980 € al cambio del BCE del 26-11-2026)","Plazos: nominación del 1 al 31 de marzo (otoño o curso completo) o del 1 al 30 de septiembre (primavera); solicitud del 15 de marzo al 15 de abril o del 15 de septiembre al 15 de octubre","Como ciudadano de la UE no tienes que pedir nada a Migrationsverket; el empadronamiento en Skatteverket solo es obligatorio si te quedas un año o más"],
     experiences: ["erasmus"],
   },
   {
@@ -6177,7 +6179,8 @@ export const CITIES = [
     region: "Europa del Norte",
     tag: "Ciudad de Yorkshire",
     phrase: "Una gran ciudad de West Yorkshire, con campus en el centro",
-    costDetail: "900–1.200€/mes",
+    costDetail: "1.290–1.740€/mes",
+    costSource: "University of Bradford (2025-26)",
     vibe: "Multicultural & Urbana",
     erasmus: 70,
     weather: "Oceánico",
@@ -6190,7 +6193,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "City Centre", vibe: "Campus y centro", price: "€€" },
     ],
-    tips: ["Para un semestre de hasta 6 meses basta la entrada como visitante (Standard Visitor), con la autorización ETA (20 £); para el curso completo hace falta Student visa (GOV.UK)","Idioma según la Universidad Loyola: inglés B2; para el curso completo hacen falta certificados concretos","Alojamiento en The Green, en el campus: se pide en los webinars de bienvenida; fuera del campus te lo buscas tú","Plazos 2026-27: nominación hasta el 30 de abril (curso completo o primer semestre) o el 30 de septiembre (segundo); solicitud hasta el 31 de mayo o el 30 de octubre"],
+    tips: ["Para un semestre de hasta 6 meses basta la entrada como visitante (Standard Visitor), con la autorización ETA (20 £); para el curso completo hace falta Student visa (GOV.UK)","Idioma según la Universidad Loyola: inglés B2; para el curso completo hacen falta certificados concretos","Alojamiento en The Green, en el campus: se pide en los webinars de bienvenida; fuera del campus te lo buscas tú","La universidad calcula como mínimo 10.436–14.091 £ por un curso de 42 semanas (2025-26), con alojamiento, comida, transporte, libros y seguro: unos 1.290–1.740 € al mes al cambio del BCE del 26-11-2026","Plazos 2026-27: nominación hasta el 30 de abril (curso completo o primer semestre) o el 30 de septiembre (segundo); solicitud hasta el 31 de mayo o el 30 de octubre"],
     experiences: ["erasmus"],
   },
   {
@@ -6235,7 +6238,8 @@ export const CITIES = [
     region: "Europa del Norte",
     tag: "Ciudad de Ricardo III",
     phrase: "Una ciudad de las Midlands donde la universidad encontró los restos de Ricardo III",
-    costDetail: "1.050–1.350€/mes",
+    costDetail: "~1.160 €/mes",
+    costBy: "loyola",
     vibe: "Multicultural & Universitaria",
     erasmus: 78,
     weather: "Oceánico",
@@ -6248,7 +6252,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Clarendon Park", vibe: "Barrio estudiantil junto al campus", price: "€€" },
     ],
-    tips: ["Para un semestre de hasta 6 meses basta la entrada como visitante (Standard Visitor), con la autorización ETA (20 £); para el curso completo hace falta Student visa (GOV.UK)","Idioma según la Universidad Loyola: inglés B2 con un máximo de dos años de antigüedad para un semestre, C1 para ADE; los de curso completo presentan otro certificado tras la aceptación: confírmalo con la Oficina","Según la Universidad Loyola, unas 969 libras al mes, según la calculadora de presupuesto de la University of Leicester","Curso 2026-27: del 21 de septiembre de 2026 al 4 de junio de 2027"],
+    tips: ["Para un semestre de hasta 6 meses basta la entrada como visitante (Standard Visitor), con la autorización ETA (20 £); para el curso completo hace falta Student visa (GOV.UK)","Idioma según la Universidad Loyola: inglés B2 con un máximo de dos años de antigüedad para un semestre, C1 para ADE; los de curso completo presentan otro certificado tras la aceptación: confírmalo con la Oficina","Según la Universidad Loyola, unas 969 libras al mes (unos 1.160 € al cambio del BCE del 26-11-2026), según la calculadora de presupuesto de la University of Leicester","Curso 2026-27: del 21 de septiembre de 2026 al 4 de junio de 2027"],
     experiences: ["erasmus"],
   },
   {
@@ -6315,7 +6319,8 @@ export const CITIES = [
     region: "Latinoamérica",
     tag: "Cuna de la colonización alemana",
     phrase: "La ciudad de Rio Grande do Sul donde empezó la colonización alemana de Brasil",
-    costDetail: "400–650€/mes",
+    costDetail: "190–350€/mes",
+    costBy: "loyola",
     vibe: "Universitaria & Tranquila",
     erasmus: 70,
     weather: "Subtropical húmedo",
@@ -6328,7 +6333,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro", vibe: "Junto al río dos Sinos", price: "€" },
     ],
-    tips: ["Idioma según la Universidad Loyola: inglés B1, con portugués B1 recomendado: confírmalo con la Oficina","Según la Universidad Loyola, 1.200–2.200 reales al mes en São Leopoldo (1.800–3.500 en Porto Alegre); UNISINOS no tiene residencias y el alquiler es más barato en São Leopoldo","El tren Trensurb para en la estación Unisinos y llega a Porto Alegre","Necesitas el visado de estudiante VITEM IV y registrarte en la Polícia Federal en los 90 días siguientes a llegar"],
+    tips: ["Idioma según la Universidad Loyola: inglés B1, con portugués B1 recomendado: confírmalo con la Oficina","Según la Universidad Loyola, 1.200–2.200 reales al mes en São Leopoldo (unos 190–350 € al cambio del BCE del 26-11-2026; 1.800–3.500 reales en Porto Alegre); UNISINOS no tiene residencias y el alquiler es más barato en São Leopoldo","El tren Trensurb para en la estación Unisinos y llega a Porto Alegre","Necesitas el visado de estudiante VITEM IV y registrarte en la Polícia Federal en los 90 días siguientes a llegar"],
     experiences: ["erasmus"],
   },
   {
@@ -6341,7 +6346,8 @@ export const CITIES = [
     region: "Latinoamérica",
     tag: "Capital de la salsa",
     phrase: "La capital del Valle del Cauca, a los pies del Cerro de los Cristales",
-    costDetail: "450–700€/mes",
+    costDetail: "~460 €/mes",
+    costBy: "loyola",
     vibe: "Salsera & Universitaria",
     erasmus: 74,
     weather: "Tropical",
@@ -6354,7 +6360,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "San Antonio", vibe: "Barrio colonial con vistas", price: "€" },
     ],
-    tips: ["Clases en español; el B1 solo se pide a quien no lo habla","Según la Universidad Loyola, unos 500 dólares al mes, con 300 de alquiler, y hay beca de alojamiento para estudiantes de intercambio excelentes; la Javeriana no tiene residencias y orienta sobre familias y pisos","Nominación del 15 de agosto al 30 de octubre (primer semestre) o del 15 de febrero al 30 de abril (segundo semestre)","Como español no necesitas visado para un intercambio de hasta 180 días (Cancillería de Colombia)"],
+    tips: ["Clases en español; el B1 solo se pide a quien no lo habla","Según la Universidad Loyola, unos 500 dólares al mes (unos 460 € al cambio del BCE del 26-11-2026), con 300 de alquiler, y hay beca de alojamiento para estudiantes de intercambio excelentes; la Javeriana no tiene residencias y orienta sobre familias y pisos","Nominación del 15 de agosto al 30 de octubre (primer semestre) o del 15 de febrero al 30 de abril (segundo semestre)","Como español no necesitas visado para un intercambio de hasta 180 días (Cancillería de Colombia)"],
     experiences: ["erasmus"],
   },
   {
@@ -6367,7 +6373,8 @@ export const CITIES = [
     region: "Latinoamérica",
     tag: "Capital del calzado",
     phrase: "La gran ciudad de Guanajuato, con su Arco de la Calzada",
-    costDetail: "500–750€/mes",
+    costDetail: "410–590€/mes",
+    costBy: "loyola",
     vibe: "Industrial & Universitaria",
     erasmus: 70,
     weather: "Semiárido templado",
@@ -6380,7 +6387,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro histórico", vibe: "Arco de la Calzada y plazas", price: "€" },
     ],
-    tips: ["Idioma según la Universidad Loyola: español B1, e inglés B2 para las clases en inglés: confírmalo con la Oficina","Según la Universidad Loyola, 450–650 dólares al mes, con 200–400 de alquiler","Como español no necesitas visado para estudios de hasta 180 días sin remuneración: entras con la Forma Migratoria Múltiple (SRE)"],
+    tips: ["Idioma según la Universidad Loyola: español B1, e inglés B2 para las clases en inglés: confírmalo con la Oficina","Según la Universidad Loyola, 450–650 dólares al mes (unos 410–590 € al cambio del BCE del 26-11-2026), con 200–400 de alquiler","Como español no necesitas visado para estudios de hasta 180 días sin remuneración: entras con la Forma Migratoria Múltiple (SRE)"],
     experiences: ["erasmus"],
   },
   {
@@ -6393,7 +6400,8 @@ export const CITIES = [
     region: "Latinoamérica",
     tag: "Ciudad de los Ángeles",
     phrase: "Una ciudad colonial Patrimonio de la UNESCO, entre volcanes",
-    costDetail: "500–750€/mes",
+    costDetail: "~460 €/mes",
+    costBy: "loyola",
     vibe: "Colonial & Universitaria",
     erasmus: 74,
     weather: "Templado",
@@ -6406,7 +6414,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Centro histórico", vibe: "Catedral y Zócalo", price: "€" },
     ],
-    tips: ["Idioma según la Universidad Loyola: español B1","Según la Universidad Loyola, unos 10.000 pesos al mes, con 4.000 de alquiler","Villa IBERO, otoño de 2026: 27.600 pesos el semestre en habitación compartida (4 pagos de 6.900), más 6.900 de depósito; no dice si admite a estudiantes de intercambio","Como español no necesitas visado para estudios de hasta 180 días sin remuneración: entras con la Forma Migratoria Múltiple (SRE)"],
+    tips: ["Idioma según la Universidad Loyola: español B1","Según la Universidad Loyola, unos 10.000 pesos mexicanos al mes (unos 460 € al cambio del BCE del 26-11-2026), con 4.000 de alquiler","Villa IBERO, otoño de 2026: 27.600 pesos el semestre en habitación compartida (4 pagos de 6.900), más 6.900 de depósito; no dice si admite a estudiantes de intercambio","Como español no necesitas visado para estudios de hasta 180 días sin remuneración: entras con la Forma Migratoria Múltiple (SRE)"],
     experiences: ["erasmus"],
   },
   {
@@ -6577,7 +6585,8 @@ export const CITIES = [
     region: "Norteamérica",
     tag: "Ciudad del río San Juan",
     phrase: "La gran ciudad del norte de Florida, entre el río San Juan y el Atlántico",
-    costDetail: "1.700–2.200€/mes",
+    costDetail: "~2.120 €/mes",
+    costSource: "University of North Florida (2026-27)",
     vibe: "Playera & Universitaria",
     erasmus: 72,
     weather: "Subtropical húmedo",
@@ -6590,7 +6599,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Southside", vibe: "Campus de UNF", price: "€€€" },
     ],
-    tips: ["Para estudiar un semestre necesitas visado de estudiante, normalmente J-1 con el formulario DS-2019 que emite la universidad: tasa SEVIS de 220 USD (J-1) y tasa de visado de 185 USD","Idioma según la Universidad Loyola: B2; la UNF pide TOEFL iBT 79, IELTS 6.5 o Duolingo 110 recomendado: confírmalo con la Oficina","Según la Universidad Loyola, el alquiler cuesta unos 1.200 USD al mes; la UNF pide demostrar 10.474 USD por semestre (otoño de 2026) para el visado","Plazos: 1 de mayo (otoño) y 1 de septiembre (primavera)","Otoño de 2026 desde el 17 de agosto; primavera de 2027 desde el 6 de enero"],
+    tips: ["Para estudiar un semestre necesitas visado de estudiante, normalmente J-1 con el formulario DS-2019 que emite la universidad: tasa SEVIS de 220 USD (J-1) y tasa de visado de 185 USD","Idioma según la Universidad Loyola: B2; la UNF pide TOEFL iBT 79, IELTS 6.5 o Duolingo 110 recomendado: confírmalo con la Oficina","La UNF calcula 20.948 USD el curso 2026-27 para los de intercambio, sin matrícula (alojamiento y comida 11.810, libros 960, otros gastos 5.397 y seguro médico 2.781): unos 2.120 € al mes en 9 meses al cambio del BCE del 26-11-2026; es lo que pide demostrar para el visado (10.474 USD por semestre). Según la Universidad Loyola, el alquiler cuesta unos 1.200 USD al mes","Plazos: 1 de mayo (otoño) y 1 de septiembre (primavera)","Otoño de 2026 desde el 17 de agosto; primavera de 2027 desde el 6 de enero"],
     experiences: ["erasmus"],
   },
   {
@@ -6603,7 +6612,8 @@ export const CITIES = [
     region: "Norteamérica",
     tag: "Ciudad fronteriza",
     phrase: "La ciudad tejana de la frontera, frente a Nuevo Laredo y el río Bravo",
-    costDetail: "1.600–2.100€/mes",
+    costDetail: "~1.270 €/mes",
+    costBy: "loyola",
     vibe: "Fronteriza & Bilingüe",
     erasmus: 68,
     weather: "Semiárido cálido",
@@ -6616,7 +6626,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Campus de TAMIU", vibe: "Norte de la ciudad", price: "€€" },
     ],
-    tips: ["Para estudiar un semestre necesitas visado de estudiante, normalmente J-1 con el formulario DS-2019 que emite la universidad: tasa SEVIS de 220 USD (J-1) y tasa de visado de 185 USD","Idioma según la Universidad Loyola: B2; TAMIU pide TOEFL 69, IELTS 5.5 o PTE 47, y Loyola exige nota media de 6,5: confírmalo con la Oficina","Según la Universidad Loyola, unos 534 USD al mes de gastos y 857 de alquiler; TAMIU pide demostrar 10.179 USD por semestre en 2026-27","Plazos: nominación hasta el 1 de abril (otoño) o el 1 de octubre (primavera); solicitud hasta el 15 de mayo o el 15 de octubre","Otoño de 2026 desde el 24 de agosto; primavera de 2027 desde el 19 de enero"],
+    tips: ["Para estudiar un semestre necesitas visado de estudiante, normalmente J-1 con el formulario DS-2019 que emite la universidad: tasa SEVIS de 220 USD (J-1) y tasa de visado de 185 USD","Idioma según la Universidad Loyola: B2; TAMIU pide TOEFL 69, IELTS 5.5 o PTE 47, y Loyola exige nota media de 6,5: confírmalo con la Oficina","Según la Universidad Loyola, unos 534 USD al mes de gastos y 857 de alquiler: 1.391 USD en total (unos 1.270 € al cambio del BCE del 26-11-2026); TAMIU pide demostrar 10.179 USD por semestre en 2026-27","Plazos: nominación hasta el 1 de abril (otoño) o el 1 de octubre (primavera); solicitud hasta el 15 de mayo o el 15 de octubre","Otoño de 2026 desde el 24 de agosto; primavera de 2027 desde el 19 de enero"],
     experiences: ["erasmus"],
   },
   {
@@ -6655,7 +6665,8 @@ export const CITIES = [
     region: "Norteamérica",
     tag: "Ciudad del lago Míchigan",
     phrase: "La gran ciudad de Wisconsin junto al lago Míchigan, con una universidad jesuita",
-    costDetail: "1.800–2.300€/mes",
+    costDetail: "~1.820 €/mes",
+    costBy: "loyola",
     vibe: "Urbana & Jesuita",
     erasmus: 76,
     weather: "Continental húmedo",
@@ -6668,7 +6679,7 @@ export const CITIES = [
     neighborhoods: [
       { name: "Near West Side", vibe: "Campus de Marquette", price: "€€€" },
     ],
-    tips: ["Para estudiar un semestre necesitas visado de estudiante, normalmente J-1 con el formulario DS-2019 que emite la universidad: tasa SEVIS de 220 USD (J-1) y tasa de visado de 185 USD","Idioma según la Universidad Loyola: TOEFL iBT 80 (18 por parte), IELTS 6.5 (6.5 por parte) o Duolingo 115, entre otros; Loyola exige nota media de 6,5: confírmalo con la Oficina","Según la Universidad Loyola, unos 9.000 USD por semestre con alojamiento, comida y seguro; con Global Village compartes piso amueblado con dos estudiantes de Marquette","El seguro médico de Marquette es obligatorio con visado J-1","Otoño de 2026 desde el 31 de agosto; primavera de 2027 desde el 19 de enero"],
+    tips: ["Para estudiar un semestre necesitas visado de estudiante, normalmente J-1 con el formulario DS-2019 que emite la universidad: tasa SEVIS de 220 USD (J-1) y tasa de visado de 185 USD","Idioma según la Universidad Loyola: TOEFL iBT 80 (18 por parte), IELTS 6.5 (6.5 por parte) o Duolingo 115, entre otros; Loyola exige nota media de 6,5: confírmalo con la Oficina","Según la Universidad Loyola, unos 9.000 USD por semestre con alojamiento, comida y seguro (unos 8.200 € al cambio del BCE del 26-11-2026: unos 1.820 € al mes en un semestre de 4,5 meses); con Global Village compartes piso amueblado con dos estudiantes de Marquette","El seguro médico de Marquette es obligatorio con visado J-1","Otoño de 2026 desde el 31 de agosto; primavera de 2027 desde el 19 de enero"],
     experiences: ["erasmus"],
   },
 ];

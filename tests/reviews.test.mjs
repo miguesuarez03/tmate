@@ -14,7 +14,10 @@ test("cada fecha de revisión es de una ciudad que existe", () => {
 });
 
 test("las fechas de revisión son válidas y no están en el futuro", () => {
-  const today = new Date().toISOString().slice(0, 10);
+  // «Hoy» en España, no en UTC: entre las 00:00 y la 01:00 (o las 02:00 en
+  // verano) la fecha UTC aún es la de ayer y la revisión de hoy parecería futura.
+  // El formato sv-SE da AAAA-MM-DD.
+  const today = new Intl.DateTimeFormat("sv-SE", { timeZone: "Europe/Madrid" }).format(new Date());
   for (const [slug, iso] of Object.entries(CITY_REVIEWS)) {
     assert.match(iso, /^\d{4}-\d{2}-\d{2}$/, slug);
     const d = new Date(`${iso}T00:00:00Z`);
