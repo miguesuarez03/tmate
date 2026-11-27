@@ -681,6 +681,9 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   // HZ University of Applied Sciences: no se ha localizado su página de entrantes (22-11-2026); sin enlace hasta confirmarla.
   "University of Delaware": "https://udel.edu/academics/global/study-abroad/exchange-ud",
   "Creighton University": "https://www.creighton.edu/geo/internationalstudents/exchangestudents",
+  "Utica University": "https://www.utica.edu/academic/international/Utica_Exchange_Student_Fact_Sheet.pdf",
+  "Konkuk University": "https://www.konkuk.ac.kr/oiaeng/18828/subview.do",
+  "Sogang University": "https://inbound.sogang.ac.kr/inbound/1930/subview.do",
 };
 
 /**

@@ -247,4 +247,6 @@ export const CITY_POPULATION = {
   "newark": { population: 30359, year: 2025, source: "U.S. Census Bureau" },
   "omaha": { population: 488797, year: 2025, source: "U.S. Census Bureau" },
   "syracuse": { population: 144896, year: 2025, source: "U.S. Census Bureau" },
+  "utica": { population: 62978, year: 2025, source: "U.S. Census Bureau" },
+  "seul": { population: 9281625, year: 2026, source: "Ministerio del Interior de Corea (MOIS)" },
 };

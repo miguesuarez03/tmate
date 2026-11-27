@@ -25178,6 +25178,291 @@ export const CITY_INSIGHTS = {
       },
     ],
   },
+  utica: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/City_of_Utica%2C_New_York.jpg/1920px-City_of_Utica%2C_New_York.jpg",
+    tagline: "Campus tranquilo y los Adirondacks cerca.",
+    atmosphere: "Utica es una ciudad pequeña y asequible del centro del estado de Nueva York, con mucha nieve en invierno.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 4.0,
+        summary: "Estimación MAbroad: 1.600–2.100 € al mes.",
+        color: "#B45309",
+        subcategories: [
+          { label: "Alojamiento", score: 4.0, desc: "Residencia con plan de comidas obligatorio." },
+          { label: "Comida y supermercados", score: 4.0, desc: "Plan de comidas Gold." },
+          { label: "Transporte", score: 7.0, desc: "Bus barato." },
+          { label: "Ocio y gastos diarios", score: 6.0, desc: "Ocio barato." },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.0,
+        summary: "Global Village para los de intercambio, si hay plaza.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 7.0, desc: "Plazas en el campus." },
+          { label: "Precio", score: 4.5, desc: "Precio estadounidense." },
+          { label: "Facilidad de búsqueda", score: 7.5, desc: "Lo gestiona la universidad." },
+          { label: "Residencias universitarias", score: 7.5, desc: "Residencia Tower Hall." },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 5.5,
+        summary: "Vida de campus en una ciudad pequeña.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 5.0, desc: "Pocos estudiantes de intercambio." },
+          { label: "Ambiente internacional", score: 5.5, desc: "Universidad pequeña." },
+          { label: "Fiesta y vida nocturna", score: 5.0, desc: "Poca vida nocturna." },
+          { label: "Eventos y actividades", score: 6.5, desc: "Clubes y deporte universitario." },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
+        summary: "Se habla inglés.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Nivel de inglés", score: 10.0, desc: "Lengua nativa." },
+          { label: "Actitud local", score: 7.5, desc: "Gente cercana." },
+          { label: "Integración con locales", score: 7.5, desc: "Universidad pequeña." },
+          { label: "Facilidad para hacer amigos", score: 7.5, desc: "Comunidad pequeña." },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 4.5,
+        summary: "Ciudad pensada para el coche; aeropuerto de Syracuse a 1 hora.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 5.0, desc: "Buses de Centro y lanzadera." },
+          { label: "Ciudad caminable", score: 5.5, desc: "Centro pequeño." },
+          { label: "Conexiones internacionales", score: 4.0, desc: "Aeropuerto de Syracuse, a 1 hora en coche." },
+          { label: "Escapadas de fin de semana", score: 6.5, desc: "Adirondacks y lagos." },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 6.0,
+        summary: "Naturaleza cerca e inviernos largos.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Naturaleza", score: 8.0, desc: "Adirondacks." },
+          { label: "Clima", score: 4.5, desc: "Continental húmedo: mínima media de −8,6 °C en enero y máxima de 27,6 °C en julio (OMM, aeropuerto Hancock de Syracuse, a unos 70 km, 1991–2020)." },
+          { label: "Calidad de vida", score: 6.5, desc: "Vida tranquila." },
+          { label: "Autenticidad local", score: 6.0, desc: "Ciudad industrial del valle del Mohawk." },
+          { label: "Estilo de vida", score: 5.5, desc: "Inviernos largos." },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 4.0,
+        summary: "Mercado pequeño y visado J-1.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 4.5, desc: "Salud y educación." },
+          { label: "Prácticas", score: 4.0, desc: "Prácticas limitadas." },
+          { label: "Empresas relevantes", score: 4.5, desc: "Empresas locales." },
+          { label: "Oportunidades para estudiantes", score: 4.0, desc: "Con visado J-1, trabajo muy limitado." },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 6.0,
+        summary: "Precauciones habituales.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 6.0, desc: "Sin datos específicos; precauciones habituales." },
+          { label: "Seguridad nocturna", score: 5.5, desc: "Precaución de noche." },
+          { label: "Ambiente de la ciudad", score: 7.0, desc: "Campus tranquilo." },
+        ],
+      },
+    ],
+  },
+  seul: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Gyeonghoeru_%28Royal_Banquet_Hall%29_at_Gyeongbokgung_Palace%2C_Seoul.jpg/1920px-Gyeonghoeru_%28Royal_Banquet_Hall%29_at_Gyeongbokgung_Palace%2C_Seoul.jpg",
+    tagline: "Palacios, metro rápido y barrios universitarios.",
+    atmosphere: "Seúl es una metrópoli enorme, segura y muy bien conectada, con barrios universitarios llenos de vida.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 6.0,
+        summary: "Según la Universidad Loyola, 1,2–1,5 millones de wones al mes.",
+        color: "#B45309",
+        subcategories: [
+          { label: "Alojamiento", score: 5.5, desc: "700.000–800.000 wones de alquiler, según Loyola." },
+          { label: "Comida y supermercados", score: 6.5, desc: "Comer fuera es asequible." },
+          { label: "Transporte", score: 8.5, desc: "Metro barato y muy completo." },
+          { label: "Ocio y gastos diarios", score: 6.0, desc: "Mucho ocio a precios variados." },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.5,
+        summary: "Residencias universitarias y habitaciones cerca del campus.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 7.0, desc: "Residencias en los dos campus." },
+          { label: "Precio", score: 6.0, desc: "Pisos caros cerca del campus." },
+          { label: "Facilidad de búsqueda", score: 6.5, desc: "Las universidades orientan." },
+          { label: "Residencias universitarias", score: 7.0, desc: "KU:L House y residencia de Sogang." },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 9.0,
+        summary: "Una de las capitales con más vida estudiantil de Asia.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 7.5, desc: "Muchos estudiantes internacionales." },
+          { label: "Ambiente internacional", score: 8.5, desc: "Barrios universitarios como Sinchon y Kondae." },
+          { label: "Fiesta y vida nocturna", score: 9.0, desc: "Vida nocturna hasta muy tarde." },
+          { label: "Eventos y actividades", score: 9.0, desc: "Cultura, festivales y K-pop." },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.0,
+        summary: "El inglés no está muy extendido fuera de la universidad.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Nivel de inglés", score: 4.5, desc: "Poco inglés en la calle." },
+          { label: "Actitud local", score: 7.5, desc: "Gente educada y amable." },
+          { label: "Integración con locales", score: 5.5, desc: "Cuesta entrar en grupos locales." },
+          { label: "Facilidad para hacer amigos", score: 7.0, desc: "Clubes de intercambio en las universidades." },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 9.5,
+        summary: "Metro excelente y aeropuerto internacional.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 10.0, desc: "Metro y buses muy completos." },
+          { label: "Ciudad caminable", score: 7.5, desc: "Barrios caminables." },
+          { label: "Conexiones internacionales", score: 9.5, desc: "Incheon, gran aeropuerto de Asia." },
+          { label: "Escapadas de fin de semana", score: 8.5, desc: "Tren rápido KTX y vuelos a Japón y China." },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.0,
+        summary: "Montañas dentro de la ciudad y vida urbana intensa.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Naturaleza", score: 7.5, desc: "Montañas como Bukhansan y el río Han." },
+          { label: "Clima", score: 6.0, desc: "Continental húmedo: mínima media de −5,5 °C en enero y máxima de 30 °C en agosto (OMM, Seúl, 1991–2020)." },
+          { label: "Calidad de vida", score: 8.0, desc: "Ciudad segura y cómoda." },
+          { label: "Autenticidad local", score: 9.0, desc: "Palacios, mercados y comida coreana." },
+          { label: "Estilo de vida", score: 8.0, desc: "Ritmo rápido y muy urbano." },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 5.0,
+        summary: "Gran mercado laboral, pero en coreano.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 7.0, desc: "Tecnología, industria y cultura." },
+          { label: "Prácticas", score: 4.0, desc: "Prácticas difíciles sin coreano." },
+          { label: "Empresas relevantes", score: 7.5, desc: "Sedes de grandes grupos coreanos." },
+          { label: "Oportunidades para estudiantes", score: 3.5, desc: "Con visado de estudiante, trabajo limitado y con permiso." },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 9.0,
+        summary: "Muy segura, también de noche.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 9.0, desc: "Delincuencia baja." },
+          { label: "Seguridad nocturna", score: 9.0, desc: "Calles seguras de noche." },
+          { label: "Ambiente de la ciudad", score: 9.0, desc: "Ambiente tranquilo y ordenado." },
+        ],
+      },
+    ],
+  },
+  busan: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Gamcheon_Culture_Village.jpg/1920px-Gamcheon_Culture_Village.jpg",
+    tagline: "Playas, montaña y metro hasta el campus.",
+    atmosphere: "Busan es una ciudad grande y costera, más relajada que Seúl, con playas urbanas y barrios en las laderas.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 7.0,
+        summary: "Según la Universidad Loyola, unos 900.000 wones al mes.",
+        color: "#B45309",
+        subcategories: [
+          { label: "Alojamiento", score: 7.5, desc: "Residencia barata." },
+          { label: "Comida y supermercados", score: 7.0, desc: "Comer fuera es barato." },
+          { label: "Transporte", score: 8.5, desc: "Metro barato." },
+          { label: "Ocio y gastos diarios", score: 7.0, desc: "Ocio asequible." },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.5,
+        summary: "Residencia Nuri en el campus.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 7.5, desc: "Residencia para intercambio." },
+          { label: "Precio", score: 8.0, desc: "Precio bajo." },
+          { label: "Facilidad de búsqueda", score: 7.0, desc: "Se pide con la solicitud." },
+          { label: "Residencias universitarias", score: 7.5, desc: "Habitaciones dobles y triples." },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 7.5,
+        summary: "Playas, festivales y barrios animados.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 6.5, desc: "Comunidad internacional más pequeña que en Seúl." },
+          { label: "Ambiente internacional", score: 7.0, desc: "Global College con programas en inglés." },
+          { label: "Fiesta y vida nocturna", score: 7.5, desc: "Gwangalli y Seomyeon." },
+          { label: "Eventos y actividades", score: 8.0, desc: "Festival de cine y playas." },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 6.0,
+        summary: "El inglés no está muy extendido.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Nivel de inglés", score: 4.5, desc: "Poco inglés en la calle." },
+          { label: "Actitud local", score: 7.5, desc: "Gente abierta." },
+          { label: "Integración con locales", score: 5.5, desc: "Cuesta entrar en grupos locales." },
+          { label: "Facilidad para hacer amigos", score: 7.0, desc: "Programas para intercambio." },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 8.0,
+        summary: "Metro completo y aeropuerto de Gimhae.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 8.5, desc: "Metro y buses." },
+          { label: "Ciudad caminable", score: 7.0, desc: "Ciudad en cuestas." },
+          { label: "Conexiones internacionales", score: 7.0, desc: "Gimhae, con vuelos por Asia." },
+          { label: "Escapadas de fin de semana", score: 8.0, desc: "KTX a Seúl y ferris a Japón." },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 8.5,
+        summary: "Mar y montaña en la misma ciudad.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Naturaleza", score: 8.5, desc: "Playas y montañas." },
+          { label: "Clima", score: 7.0, desc: "Templado húmedo: mínima media de −0,1 °C en enero y máxima de 29,5 °C en agosto (OMM, Busan, 1991–2020)." },
+          { label: "Calidad de vida", score: 8.0, desc: "Ciudad cómoda y segura." },
+          { label: "Autenticidad local", score: 8.5, desc: "Mercados de pescado y barrios en las laderas." },
+          { label: "Estilo de vida", score: 8.0, desc: "Ritmo más relajado que Seúl." },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 4.5,
+        summary: "Puerto e industria, pero en coreano.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 6.0, desc: "Puerto, logística e industria." },
+          { label: "Prácticas", score: 3.5, desc: "Prácticas difíciles sin coreano." },
+          { label: "Empresas relevantes", score: 6.0, desc: "Navieras y astilleros." },
+          { label: "Oportunidades para estudiantes", score: 3.5, desc: "Con visado de estudiante, trabajo limitado y con permiso." },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 9.0,
+        summary: "Muy segura.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 9.0, desc: "Delincuencia baja." },
+          { label: "Seguridad nocturna", score: 8.5, desc: "Calles seguras de noche." },
+          { label: "Ambiente de la ciudad", score: 9.0, desc: "Ambiente tranquilo." },
+        ],
+      },
+    ],
+  },
 };
 
 // Generate default scores for cities without custom data
