@@ -1,6 +1,6 @@
 // Generado por scripts/scoring-data.mjs (npm run scoring:data) — no editar a mano.
 // Fuente: Tasa NEET (jóvenes de 15 a 24 años que ni trabajan ni estudian ni se forman, %). Eurostat edat_lfse_22 por región NUTS 2 (https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/edat_lfse_22?format=JSON&lang=EN&sex=T&age=Y15-24&sinceTimePeriod=2021) con la región de cada ciudad según los límites GISCO NUTS 2024 (https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_10M_2024_4326_LEVL_2.geojson); fuera de Eurostat, OIT por país (indicador SL.UEM.NEET.ZS del Banco Mundial: https://api.worldbank.org/v2/country/all/indicator/SL.UEM.NEET.ZS?format=json&per_page=20000&date=2015:2026).
-// Descargado el 2026-11-26.
+// Descargado el 2026-11-27.
 /** slug → { source: "eurostat" | "ilo", scope: "region" | "country", geo, name?, years: { año: % } } o null (sin dato) */
 export const CITY_NEET = {
  "bolonia": {
@@ -2561,6 +2561,79 @@ export const CITY_NEET = {
    "2023": 11.2,
    "2024": 11.6,
    "2025": 11.6
+  }
+ },
+ "newark": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "USA",
+  "years": {
+   "2023": 11.2,
+   "2024": 11.6,
+   "2025": 11.6
+  }
+ },
+ "omaha": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "USA",
+  "years": {
+   "2023": 11.2,
+   "2024": 11.6,
+   "2025": 11.6
+  }
+ },
+ "syracuse": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "USA",
+  "years": {
+   "2023": 11.2,
+   "2024": 11.6,
+   "2025": 11.6
+  }
+ },
+ "utica": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "USA",
+  "years": {
+   "2023": 11.2,
+   "2024": 11.6,
+   "2025": 11.6
+  }
+ },
+ "seul": null,
+ "busan": null,
+ "tokio": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "JPN",
+  "years": {
+   "2017": 3.3,
+   "2018": 3,
+   "2019": 3.1
+  }
+ },
+ "taipei": null,
+ "manila": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "PHL",
+  "years": {
+   "2022": 13,
+   "2023": 3,
+   "2024": 16.5
+  }
+ },
+ "sidney": {
+  "source": "ilo",
+  "scope": "country",
+  "geo": "AUS",
+  "years": {
+   "2023": 7.9,
+   "2024": 8.5,
+   "2025": 8.4
   }
  }
 };

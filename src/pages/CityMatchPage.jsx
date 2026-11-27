@@ -96,7 +96,7 @@ const QUESTION_DEFS = [
     options: [
       { value: "erasmus", label: "Solo destinos con beca Erasmus+", desc: "Europa, con Reino Unido desde 2027-28" },
       { value: "europa", label: "Toda Europa", desc: "También Suiza, con otros convenios" },
-      { value: "mundo", label: "Europa y fuera de Europa", desc: "También América" },
+      { value: "mundo", label: "Europa y fuera de Europa", desc: "También América, Asia y Oceanía" },
       { value: NEUTRAL, label: "Me da igual" },
     ],
   },

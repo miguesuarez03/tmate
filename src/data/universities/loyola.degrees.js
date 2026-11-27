@@ -3,87 +3,87 @@ export default [
  {
   "id": "ade",
   "name": "Administración y Dirección de Empresas (ADE)",
-  "destinations": 115
+  "destinations": 124
  },
  {
   "id": "economia",
   "name": "Economía",
-  "destinations": 53
+  "destinations": 60
  },
  {
   "id": "derecho",
   "name": "Derecho",
-  "destinations": 42
+  "destinations": 45
  },
  {
   "id": "rrii",
   "name": "Relaciones Internacionales",
-  "destinations": 65
+  "destinations": 71
  },
  {
   "id": "psicologia",
   "name": "Psicología",
-  "destinations": 53
+  "destinations": 59
  },
  {
   "id": "criminologia",
   "name": "Criminología",
-  "destinations": 14
+  "destinations": 16
  },
  {
   "id": "comunicacion",
   "name": "Comunicación",
-  "destinations": 63
+  "destinations": 68
  },
  {
   "id": "cadv",
   "name": "Comunicación Audiovisual",
-  "destinations": 20
+  "destinations": 23
  },
  {
   "id": "periodismo",
   "name": "Periodismo",
-  "destinations": 43
+  "destinations": 46
  },
  {
   "id": "publicidad",
   "name": "Publicidad",
-  "destinations": 47
+  "destinations": 51
  },
  {
   "id": "edu-primaria",
   "name": "Educación Primaria",
-  "destinations": 39
+  "destinations": 44
  },
  {
   "id": "edu-infantil",
   "name": "Educación Infantil",
-  "destinations": 35
+  "destinations": 40
  },
  {
   "id": "cafd",
   "name": "Ciencias de la Actividad Física y del Deporte",
-  "destinations": 28
+  "destinations": 30
  },
  {
   "id": "giti",
   "name": "Ingeniería en Tecnologías Industriales",
-  "destinations": 32
+  "destinations": 34
  },
  {
   "id": "ioi",
   "name": "Ingeniería de Organización Industrial",
-  "destinations": 37
+  "destinations": 38
  },
  {
   "id": "iem",
   "name": "Ingeniería Electromecánica",
-  "destinations": 35
+  "destinations": 38
  },
  {
   "id": "imr",
   "name": "Ingeniería Mecatrónica y Robótica",
-  "destinations": 18
+  "destinations": 20
  },
  {
   "id": "aeroespacial",
@@ -98,22 +98,22 @@ export default [
  {
   "id": "iinftv",
   "name": "Ingeniería Informática y Tecnologías Virtuales",
-  "destinations": 36
+  "destinations": 37
  },
  {
   "id": "software",
   "name": "Ingeniería del Software",
-  "destinations": 33
+  "destinations": 34
  },
  {
   "id": "matematicas",
   "name": "Matemática Aplicada",
-  "destinations": 43
+  "destinations": 45
  },
  {
   "id": "datos",
   "name": "Datos y Analítica de Negocio",
-  "destinations": 16
+  "destinations": 19
  },
  {
   "id": "videojuegos",
@@ -148,7 +148,7 @@ export default [
  {
   "id": "musica",
   "name": "Creación y Producción Musical",
-  "destinations": 13
+  "destinations": 14
  },
  {
   "id": "artes-escenicas",

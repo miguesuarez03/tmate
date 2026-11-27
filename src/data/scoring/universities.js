@@ -1,6 +1,6 @@
 // Generado por scripts/scoring-data.mjs (npm run scoring:data) — no editar a mano.
 // Fuente: Times Higher Education World University Rankings 2027 (https://www.timeshighereducation.com/json/ranking_tables/world_university_rankings/2027); ediciones 2026, 2025, 2024, 2023 para las universidades que ya no salen en la actual.
-// Descargado el 2026-11-26.
+// Descargado el 2026-11-27.
 export const THE_EDITION = 2027;
 /** slug → [{ name, edition, rank, students, intlPct, satellite? }] (satellite: solo un campus pequeño en la ciudad, no cuenta para la comunidad; rank tal como lo publica THE: «=111», «301–325», «Reporter»…) */
 export const CITY_UNIVERSITIES = {
@@ -3243,5 +3243,70 @@ export const CITY_UNIVERSITIES = {
  "jacksonville": [],
  "laredo": [],
  "lock-haven": [],
- "milwaukee": []
+ "milwaukee": [],
+ "newark": [
+  {
+   "name": "University of Delaware",
+   "edition": 2027,
+   "rank": "451–500",
+   "students": 21557,
+   "intlPct": 11
+  }
+ ],
+ "omaha": [],
+ "syracuse": [],
+ "utica": [],
+ "seul": [
+  {
+   "name": "Konkuk University",
+   "edition": 2027,
+   "rank": "601–650",
+   "students": 10865,
+   "intlPct": 20
+  },
+  {
+   "name": "Sogang University",
+   "edition": 2027,
+   "rank": "801–1000",
+   "students": 10806,
+   "intlPct": 18
+  }
+ ],
+ "busan": [],
+ "tokio": [
+  {
+   "name": "Sophia University",
+   "edition": 2027,
+   "rank": "2001+",
+   "students": 13151,
+   "intlPct": 12
+  }
+ ],
+ "taipei": [
+  {
+   "name": "Fu Jen Catholic University",
+   "edition": 2027,
+   "rank": "1201–1400",
+   "students": 19026,
+   "intlPct": 4
+  }
+ ],
+ "manila": [
+  {
+   "name": "Ateneo de Manila University",
+   "edition": 2027,
+   "rank": "1001–1200",
+   "students": 14252,
+   "intlPct": 1
+  }
+ ],
+ "sidney": [
+  {
+   "name": "Australian Catholic University",
+   "edition": 2027,
+   "rank": "401–450",
+   "students": 24609,
+   "intlPct": 26
+  }
+ ]
 };

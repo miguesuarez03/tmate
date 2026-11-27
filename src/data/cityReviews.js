@@ -39,4 +39,6 @@ export const CITY_REVIEWS = {
   ...T("2026-11-27", "aberystwyth bradford hatfield leicester portsmouth fortaleza sao-leopoldo cali leon-mexico puebla"),
   // Fase 2 Loyola, tanda 8 (27-11-2026)
   ...T("2026-11-27", "tijuana torreon bufalo cincinnati erie flint jacksonville laredo lock-haven milwaukee"),
+  // Fase 2 Loyola, tanda 9 (27-11-2026)
+  ...T("2026-11-27", "newark omaha syracuse utica seul busan tokio taipei manila sidney"),
 };
