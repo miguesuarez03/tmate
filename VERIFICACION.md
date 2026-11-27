@@ -953,3 +953,5 @@ Rama creada desde `tarea/destinos-tanda-7`. Dos agentes `contenido-verificacion`
 - Flint: Loyola pide B2; UM-Flint publica para grado TOEFL 61, IELTS 6.0 o Duolingo 100 (web con 403, extracto).
 
 **Sin fuente oficial (no se publica en la ficha):** nº de estudiantes de Canisius, Gannon, Ibero Tijuana e Ibero Torreón; fundación de Canisius (solo Britannica) y de las Iberoamericanas de Tijuana y Torreón; presupuestos de intercambio de UM-Flint, Commonwealth, Marquette y Canisius; precios 2026-27 de TAMIU y Gannon; plazos de Lock Haven, Marquette, Xavier, Ibero Tijuana e Ibero Torreón; billetes de Tijuana, Torreón, Laredo (tabla de 2020) y Lock Haven; calendarios de Canisius, Gannon e Ibero Tijuana (PDF sin leer). UM-Flint, Laredo y Canisius: casi todo sale del extracto del buscador (webs con 403 o caídas).
+
+**Revisión de Codex: pendiente.** El 27-11 a las 00:55 Codex llegó a su límite de uso (vuelve a la 01:44). Decidido provisionalmente: se cierra la tanda sin esperar y se pasa Codex sobre este diff (`tarea/destinos-tanda-7...tarea/destinos-tanda-8`) en cuanto haya margen; lo que encuentre se corrige en esta rama.
