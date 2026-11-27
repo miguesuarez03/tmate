@@ -330,6 +330,18 @@ const THE_NAMES = {
   "laredo": [],
   "lock-haven": [],
   "milwaukee": [],
+  // Tanda 9. Salen en THE 2027: University of Delaware, Konkuk, Sogang, Sophia, Fu Jen, Ateneo de Manila y ACU;
+  // no salen Creighton, Le Moyne, Utica ni Kyungsung.
+  "newark": ["University of Delaware"],
+  "omaha": [],
+  "syracuse": [],
+  "utica": [],
+  "seul": ["Konkuk University", "Sogang University"],
+  "busan": [],
+  "tokio": ["Sophia University"],
+  "taipei": ["Fu Jen Catholic University"],
+  "manila": ["Ateneo de Manila University"],
+  "sidney": ["Australian Catholic University"],
 };
 
 /** Nombres con que ESN escribe cada ciudad (además del nombre de la ficha). */

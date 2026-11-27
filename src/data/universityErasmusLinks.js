@@ -679,6 +679,8 @@ export const UNIVERSITY_ERASMUS_LINKS = {
   "Norges Handelshøyskole": "https://www.nhh.no/en/incoming-exchange/",
   "Hogeschool van Arnhem en Nijmegen": "https://www.hanuniversity.com/en/study-and-living/studying-at-han/exchange-programs/",
   // HZ University of Applied Sciences: no se ha localizado su página de entrantes (22-11-2026); sin enlace hasta confirmarla.
+  "University of Delaware": "https://udel.edu/academics/global/study-abroad/exchange-ud",
+  "Creighton University": "https://www.creighton.edu/geo/internationalstudents/exchangestudents",
 };
 
 /**

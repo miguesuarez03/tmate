@@ -24893,6 +24893,291 @@ export const CITY_INSIGHTS = {
       },
     ],
   },
+  newark: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Newark_DE_Main_Street.jpg/1920px-Newark_DE_Main_Street.jpg",
+    tagline: "Campus histórico y Main Street a un paso.",
+    atmosphere: "Newark es un pueblo universitario pequeño y verde, volcado en la vida del campus.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 3.5,
+        summary: "Estimación MAbroad: 1.700–2.200 € al mes.",
+        color: "#B45309",
+        subcategories: [
+          { label: "Alojamiento", score: 3.5, desc: "Alquiler estadounidense." },
+          { label: "Comida y supermercados", score: 4.0, desc: "Supermercado caro." },
+          { label: "Transporte", score: 7.0, desc: "Bus barato, con tarifa de estudiante." },
+          { label: "Ocio y gastos diarios", score: 5.0, desc: "Ocio de pueblo universitario." },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 6.0,
+        summary: "Residencias del campus y pisos junto a Main Street.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 6.5, desc: "Oferta pensada para estudiantes." },
+          { label: "Precio", score: 4.0, desc: "Precio estadounidense." },
+          { label: "Facilidad de búsqueda", score: 6.5, desc: "La universidad orienta." },
+          { label: "Residencias universitarias", score: 7.0, desc: "Residencias del campus." },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 7.0,
+        summary: "Mucha vida de campus.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 5.5, desc: "Pocos estudiantes de intercambio europeos." },
+          { label: "Ambiente internacional", score: 6.5, desc: "Universidad grande." },
+          { label: "Fiesta y vida nocturna", score: 7.0, desc: "Bares de Main Street." },
+          { label: "Eventos y actividades", score: 8.0, desc: "Deporte y clubes universitarios." },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
+        summary: "Se habla inglés.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Nivel de inglés", score: 10.0, desc: "Lengua nativa." },
+          { label: "Actitud local", score: 7.5, desc: "Gente cercana." },
+          { label: "Integración con locales", score: 7.5, desc: "Vida de campus." },
+          { label: "Facilidad para hacer amigos", score: 7.5, desc: "Muchos clubes." },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 6.0,
+        summary: "Tren SEPTA hacia Filadelfia.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 6.0, desc: "Buses de DART y tren regional." },
+          { label: "Ciudad caminable", score: 8.0, desc: "Pueblo caminable." },
+          { label: "Conexiones internacionales", score: 6.0, desc: "Aeropuerto de Filadelfia, con transbordo." },
+          { label: "Escapadas de fin de semana", score: 7.5, desc: "Filadelfia, Baltimore y Washington." },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 7.0,
+        summary: "Pueblo verde y tranquilo.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Naturaleza", score: 6.5, desc: "Parques y campus verde." },
+          { label: "Clima", score: 6.5, desc: "Templado húmedo: mínima media de −3,6 °C en enero y máxima de 30,5 °C en julio (OMM, aeropuerto de Wilmington/New Castle, a unos 13 km, 1991–2020)." },
+          { label: "Calidad de vida", score: 7.5, desc: "Calidad de vida alta." },
+          { label: "Autenticidad local", score: 6.5, desc: "Pueblo universitario." },
+          { label: "Estilo de vida", score: 7.0, desc: "Ritmo tranquilo." },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 5.0,
+        summary: "Mercado regional y visado J-1.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 5.5, desc: "Química y salud en la región." },
+          { label: "Prácticas", score: 5.0, desc: "Prácticas limitadas con J-1." },
+          { label: "Empresas relevantes", score: 5.5, desc: "Empresas de la zona de Wilmington." },
+          { label: "Oportunidades para estudiantes", score: 4.0, desc: "Con visado J-1, trabajo muy limitado." },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 7.0,
+        summary: "Pueblo tranquilo; precauciones habituales.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 7.0, desc: "Sin datos específicos; precauciones habituales." },
+          { label: "Seguridad nocturna", score: 6.5, desc: "Ambiente estudiantil de noche." },
+          { label: "Ambiente de la ciudad", score: 7.5, desc: "Campus tranquilo." },
+        ],
+      },
+    ],
+  },
+  omaha: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Omaha_skyline_from_Lincoln_Monument_in_Council_Bluffs%2C_May_2025.jpg/1920px-Omaha_skyline_from_Lincoln_Monument_in_Council_Bluffs%2C_May_2025.jpg",
+    tagline: "Río Misuri, Old Market y campus jesuita.",
+    atmosphere: "Omaha es una ciudad mediana y tranquila del Medio Oeste, con un centro animado junto al río.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 4.0,
+        summary: "Estimación MAbroad: 1.600–2.100 € al mes.",
+        color: "#B45309",
+        subcategories: [
+          { label: "Alojamiento", score: 4.0, desc: "Residencia obligatoria en el campus." },
+          { label: "Comida y supermercados", score: 4.5, desc: "Plan de comidas." },
+          { label: "Transporte", score: 7.0, desc: "Bus barato." },
+          { label: "Ocio y gastos diarios", score: 5.5, desc: "Ocio a precio del Medio Oeste." },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 8.0,
+        summary: "Apartamentos del campus asignados por la universidad.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 8.5, desc: "Plaza en el campus." },
+          { label: "Precio", score: 4.5, desc: "Precio estadounidense." },
+          { label: "Facilidad de búsqueda", score: 8.5, desc: "Lo gestiona la universidad." },
+          { label: "Residencias universitarias", score: 8.0, desc: "Apartamentos con cocina." },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 6.5,
+        summary: "Vida de campus y Old Market.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 5.0, desc: "Pocos estudiantes de intercambio." },
+          { label: "Ambiente internacional", score: 6.0, desc: "Universidad mediana." },
+          { label: "Fiesta y vida nocturna", score: 6.5, desc: "Bares del Old Market." },
+          { label: "Eventos y actividades", score: 7.0, desc: "Deporte universitario." },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
+        summary: "Se habla inglés.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Nivel de inglés", score: 10.0, desc: "Lengua nativa." },
+          { label: "Actitud local", score: 8.0, desc: "Gente amable del Medio Oeste." },
+          { label: "Integración con locales", score: 7.5, desc: "Vida de campus." },
+          { label: "Facilidad para hacer amigos", score: 7.5, desc: "Comunidad cercana." },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 5.0,
+        summary: "Ciudad pensada para el coche.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 5.0, desc: "Red de buses limitada." },
+          { label: "Ciudad caminable", score: 6.0, desc: "Centro y campus caminables." },
+          { label: "Conexiones internacionales", score: 5.0, desc: "Aeropuerto Eppley, con pocos vuelos internacionales." },
+          { label: "Escapadas de fin de semana", score: 5.5, desc: "Kansas City y Chicago, lejos." },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 6.5,
+        summary: "Ciudad cómoda junto al Misuri.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Naturaleza", score: 6.5, desc: "Río y parques." },
+          { label: "Clima", score: 5.0, desc: "Continental húmedo: mínima media de −9,3 °C en enero y máxima de 31,2 °C en julio (OMM, aeropuerto Eppley de Omaha, a unos 6 km, 1991–2020)." },
+          { label: "Calidad de vida", score: 7.5, desc: "Calidad de vida buena." },
+          { label: "Autenticidad local", score: 6.5, desc: "Old Market." },
+          { label: "Estilo de vida", score: 6.5, desc: "Ritmo tranquilo." },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 5.0,
+        summary: "Mercado sólido, pero visado J-1.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 6.0, desc: "Seguros, finanzas y salud." },
+          { label: "Prácticas", score: 5.0, desc: "Prácticas limitadas con J-1." },
+          { label: "Empresas relevantes", score: 6.0, desc: "Sedes de grandes empresas." },
+          { label: "Oportunidades para estudiantes", score: 4.0, desc: "Con visado J-1, trabajo muy limitado." },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 6.5,
+        summary: "Ciudad tranquila; precauciones habituales.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 6.5, desc: "Sin datos específicos; precauciones habituales." },
+          { label: "Seguridad nocturna", score: 6.0, desc: "Precaución de noche." },
+          { label: "Ambiente de la ciudad", score: 7.0, desc: "Campus tranquilo." },
+        ],
+      },
+    ],
+  },
+  syracuse: {
+    heroImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Clinton_Square%2C_Syracuse%2C_NY_%2854417860133%29.jpg/1920px-Clinton_Square%2C_Syracuse%2C_NY_%2854417860133%29.jpg",
+    tagline: "Canal de Erie, lagos Finger y mucha nieve.",
+    atmosphere: "Syracuse es una ciudad mediana y universitaria, con inviernos muy nevados y otoños de colores.",
+    scores: [
+      {
+        id: "coste", label: "Coste de vida", icon: "💰", score: 4.0,
+        summary: "Según la Universidad Loyola, unos 1.969 USD al mes.",
+        color: "#B45309",
+        subcategories: [
+          { label: "Alojamiento", score: 4.5, desc: "969 USD de alquiler, según la Universidad Loyola." },
+          { label: "Comida y supermercados", score: 4.5, desc: "Supermercado caro." },
+          { label: "Transporte", score: 7.0, desc: "Bus barato." },
+          { label: "Ocio y gastos diarios", score: 5.5, desc: "Ocio a precio medio." },
+        ],
+      },
+      {
+        id: "alojamiento", label: "Alojamiento", icon: "🏠", score: 7.0,
+        summary: "Apartamentos del campus.",
+        color: "#EF4444",
+        subcategories: [
+          { label: "Disponibilidad", score: 7.0, desc: "Plazas en el campus." },
+          { label: "Precio", score: 4.5, desc: "Precio estadounidense." },
+          { label: "Facilidad de búsqueda", score: 7.5, desc: "Lo gestiona la universidad." },
+          { label: "Residencias universitarias", score: 7.5, desc: "Apartamentos de Le Moyne." },
+        ],
+      },
+      {
+        id: "vida_social", label: "Vida social y ambiente", icon: "🎉", score: 6.0,
+        summary: "Vida de campus en una ciudad universitaria.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Comunidad Erasmus", score: 5.0, desc: "Pocos estudiantes de intercambio." },
+          { label: "Ambiente internacional", score: 5.5, desc: "College pequeño." },
+          { label: "Fiesta y vida nocturna", score: 6.5, desc: "Bares de Armory Square." },
+          { label: "Eventos y actividades", score: 6.5, desc: "Deporte universitario." },
+        ],
+      },
+      {
+        id: "integracion", label: "Integración internacional", icon: "🌍", score: 8.0,
+        summary: "Se habla inglés.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Nivel de inglés", score: 10.0, desc: "Lengua nativa." },
+          { label: "Actitud local", score: 7.5, desc: "Gente cercana." },
+          { label: "Integración con locales", score: 7.5, desc: "College pequeño y cercano." },
+          { label: "Facilidad para hacer amigos", score: 7.5, desc: "Comunidad pequeña." },
+        ],
+      },
+      {
+        id: "movilidad", label: "Ubicación y movilidad", icon: "🚆", score: 5.0,
+        summary: "Aeropuerto regional; Nueva York a unas 4 horas.",
+        color: "#F59E0B",
+        subcategories: [
+          { label: "Transporte público", score: 5.5, desc: "Buses de Centro." },
+          { label: "Ciudad caminable", score: 6.0, desc: "Centro caminable." },
+          { label: "Conexiones internacionales", score: 5.0, desc: "Aeropuerto Hancock, con vuelos nacionales." },
+          { label: "Escapadas de fin de semana", score: 7.0, desc: "Lagos Finger, Niágara y Nueva York." },
+        ],
+      },
+      {
+        id: "estilo_vida", label: "Estilo de vida y entorno", icon: "🏔️", score: 6.5,
+        summary: "Lagos y otoños de colores.",
+        color: "#3F7A7D",
+        subcategories: [
+          { label: "Naturaleza", score: 8.0, desc: "Lagos Finger y Adirondacks." },
+          { label: "Clima", score: 4.5, desc: "Continental húmedo: mínima media de −8,6 °C en enero y máxima de 27,6 °C en julio (OMM, aeropuerto Hancock de Syracuse, a unos 8 km, 1991–2020)." },
+          { label: "Calidad de vida", score: 7.0, desc: "Calidad de vida buena." },
+          { label: "Autenticidad local", score: 6.5, desc: "Ciudad del canal de Erie." },
+          { label: "Estilo de vida", score: 6.0, desc: "Inviernos largos." },
+        ],
+      },
+      {
+        id: "empleo", label: "Empleo y oportunidades", icon: "💼", score: 4.5,
+        summary: "Mercado regional y visado F-1.",
+        color: "#8B5CF6",
+        subcategories: [
+          { label: "Mercado laboral", score: 5.0, desc: "Salud y educación." },
+          { label: "Prácticas", score: 4.5, desc: "Prácticas limitadas." },
+          { label: "Empresas relevantes", score: 5.0, desc: "Hospitales y universidades." },
+          { label: "Oportunidades para estudiantes", score: 4.0, desc: "Con visado F-1, trabajo solo en el campus." },
+        ],
+      },
+      {
+        id: "seguridad", label: "Seguridad", icon: "🛡️", score: 6.0,
+        summary: "Precauciones habituales.",
+        color: "#22C55E",
+        subcategories: [
+          { label: "Seguridad general", score: 6.0, desc: "Sin datos específicos; precauciones habituales." },
+          { label: "Seguridad nocturna", score: 5.5, desc: "Precaución de noche en algunas zonas." },
+          { label: "Ambiente de la ciudad", score: 7.0, desc: "Campus tranquilo." },
+        ],
+      },
+    ],
+  },
 };
 
 // Generate default scores for cities without custom data

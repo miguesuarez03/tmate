@@ -1027,6 +1027,76 @@ export const CITY_SEASONS = {
     { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "7–16°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Semestre de otoño","Fresco","Hojas de otoño"], highlight: true },
     { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-7–1°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno muy frío y nevado.", tags: ["Muy frío","Nieve","Hielo"] },
   ],
+  // Newark: aeropuerto de Wilmington/New Castle (OMM 72418, a unos 13 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  newark: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "6–17°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada.", tags: ["Templada","Campus verde","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "19–29°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano caluroso y húmedo.", tags: ["Caluroso","Húmedo","Playas de Delaware"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "9–20°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Semestre de otoño","Templado","Hojas de otoño"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-2–7°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío, con alguna nevada.", tags: ["Frío","Heladas","Nieve"] },
+  ],
+  // Omaha: aeropuerto Eppley de Omaha (OMM 72550, a unos 6 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  omaha: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "5–18°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera variable, con tormentas.", tags: ["Variable","Tormentas","Parques"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "19–30°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano caluroso.", tags: ["Caluroso","Tormentas","Río Misuri"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "6–18°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el curso.", tags: ["Semestre de otoño","Templado","Hojas de otoño"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-8–3°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno muy frío y seco.", tags: ["Muy frío","Nieve","Viento"] },
+  ],
+  // Syracuse: aeropuerto Hancock de Syracuse (OMM 72519, a unos 8 km; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  syracuse: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "2–13°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fría que se templa en mayo.", tags: ["Fría","Lagos","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "15–27°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido.", tags: ["Cálido","Lagos Finger","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "6–16°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Semestre de otoño","Fresco","Hojas de otoño"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-7–1°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno muy frío y con mucha nieve.", tags: ["Muy frío","Mucha nieve","Hielo"] },
+  ],
+  // Utica: aeropuerto Hancock de Syracuse (OMM 72519, a unos 70 km: no hay estación OMM más cercana con normales en NOAA/NCEI).
+  utica: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "2–13°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera fría que se templa en mayo.", tags: ["Fría","Adirondacks","Paseos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "15–27°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido.", tags: ["Cálido","Lagos","Días largos"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "6–16°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño fresco para empezar el curso.", tags: ["Semestre de otoño","Fresco","Hojas de otoño"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-7–1°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno muy frío y con mucha nieve.", tags: ["Muy frío","Mucha nieve","Hielo"] },
+  ],
+  // Seúl: Seúl (OMM 47108, en el centro; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  seul: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "8–18°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave, con los cerezos en flor.", tags: ["Suave","Cerezos","Polvo amarillo"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "21–29°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano caluroso y húmedo, con el monzón.", tags: ["Caluroso","Monzón","Humedad"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "11–19°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño seco y soleado para empezar el semestre.", tags: ["Semestre de otoño","Soleado","Hojas de otoño"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "-4–4°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno frío y seco.", tags: ["Frío","Seco","Viento siberiano"] },
+  ],
+  // Busan: Busan (OMM 47159, en la ciudad; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  busan: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "10–18°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave junto al mar.", tags: ["Suave","Playa","Cerezos"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "21–27°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano caluroso y húmedo, con el monzón.", tags: ["Caluroso","Monzón","Playa de Haeundae"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "14–22°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el semestre.", tags: ["Semestre de otoño","Templado","Festival de cine"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "1–10°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno fresco y seco, más suave que en Seúl.", tags: ["Fresco","Seco","Sol"] },
+  ],
+  // Tokio: Tokio (OMM 47662, en el centro; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  tokio: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "10–19°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera suave, con los cerezos en flor.", tags: ["Suave","Sakura","Parques"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "21–29°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano caluroso y húmedo, con la estación de lluvias.", tags: ["Caluroso","Lluvias","Festivales"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "15–22°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado para empezar el semestre.", tags: ["Semestre de otoño","Templado","Momiji"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "2–11°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno fresco, seco y soleado.", tags: ["Fresco","Seco","Sol"] },
+  ],
+  // Taipéi: Taipéi (normales 1991–2020 de la Central Weather Administration de Taiwán; NOAA no trae datos de esta estación).
+  taipei: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "19–26°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada y húmeda, con lluvias de mayo.", tags: ["Templada","Lluvias de mayo","Humedad"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "26–34°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano muy caluroso y húmedo, con tifones.", tags: ["Muy caluroso","Tifones","Humedad"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "22–28°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño cálido para empezar el semestre.", tags: ["Semestre de otoño","Cálido","Tifones en septiembre"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "15–20°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave, nublado y con llovizna.", tags: ["Suave","Llovizna","Nublado"] },
+  ],
+  // Manila: Science Garden, Quezon City (OMM 98430, a pocos km del campus de Ateneo; normales OMM 1991–2020 publicadas por NOAA/NCEI).
+  manila: [
+    { id: "spring", label: "Primavera", months: "Mar–May", temp: "24–34°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Calor seco, el más fuerte del año.", tags: ["Muy caluroso","Seco","Sol"] },
+    { id: "summer", label: "Verano", months: "Jun–Ago", temp: "25–32°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Calor y temporada de lluvias y tifones.", tags: ["Calor","Lluvias","Tifones"] },
+    { id: "autumn", label: "Otoño", months: "Sep–Nov", temp: "24–32°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Calor y lluvias que se van retirando.", tags: ["Semestre de agosto","Lluvias","Calor"], highlight: true },
+    { id: "winter", label: "Invierno", months: "Dic–Feb", temp: "22–31°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Calor más suave y seco.", tags: ["Cálido","Seco","Navidad filipina"] },
+  ],
+  // Sídney: Sydney Observatory Hill (OMM 94768, en el centro; normales OMM 1991–2020 publicadas por NOAA/NCEI). Hemisferio sur: etiquetas de estación del sur.
+  sidney: [
+    { id: "spring", label: "Otoño", months: "Mar–May", temp: "15–24°C", emoji: "🍂", bg: "#FFF7ED", accent: "#C2410C", light: "#FED7AA", summary: "Otoño templado y agradable.", tags: ["Templado","Playas","Paseos"] },
+    { id: "summer", label: "Invierno", months: "Jun–Ago", temp: "10–19°C", emoji: "❄️", bg: "#EFF6FF", accent: "#1D4ED8", light: "#BFDBFE", summary: "Invierno suave y soleado; empieza el segundo semestre.", tags: ["Inicio de semestre","Suave","Ballenas"], highlight: true },
+    { id: "autumn", label: "Primavera", months: "Sep–Nov", temp: "15–23°C", emoji: "🌸", bg: "#F0FDF4", accent: "#16A34A", light: "#BBF7D0", summary: "Primavera templada.", tags: ["Templada","Playas","Jacarandas"] },
+    { id: "winter", label: "Verano", months: "Dic–Feb", temp: "19–27°C", emoji: "☀️", bg: "#FFFBEB", accent: "#D97706", light: "#FDE68A", summary: "Verano cálido; empieza el primer semestre en febrero.", tags: ["Cálido","Playa","Bondi"] },
+  ],
 };
 
 // Mes más frío y mes más cálido de cada ciudad (normales 1991–2020 de la misma fuente oficial que
@@ -1186,4 +1256,14 @@ export const CITY_CLIMATE_EXTREMES = {
   jacksonville: { cold: { month: 0, min: 7.1 }, hot: { month: 6, max: 32.9 }, source: "OMM, aeropuerto Craig de Jacksonville (74782), a unos 14 km" },
   "lock-haven": { cold: { month: 0, min: -6.6 }, hot: { month: 6, max: 29.4 }, source: "OMM, Williamsport (72514), a unos 40 km" },
   milwaukee: { cold: { month: 0, min: -8.2 }, hot: { month: 6, max: 27.7 }, source: "OMM, aeropuerto Mitchell de Milwaukee (72640), a unos 9 km" },
+  newark: { cold: { month: 0, min: -3.6 }, hot: { month: 6, max: 30.5 }, source: "OMM, aeropuerto de Wilmington/New Castle (72418), a unos 13 km" },
+  omaha: { cold: { month: 0, min: -9.3 }, hot: { month: 6, max: 31.2 }, source: "OMM, aeropuerto Eppley de Omaha (72550), a unos 6 km" },
+  syracuse: { cold: { month: 0, min: -8.6 }, hot: { month: 6, max: 27.6 }, source: "OMM, aeropuerto Hancock de Syracuse (72519), a unos 8 km" },
+  utica: { cold: { month: 0, min: -8.6 }, hot: { month: 6, max: 27.6 }, source: "OMM, aeropuerto Hancock de Syracuse (72519), a unos 70 km" },
+  seul: { cold: { month: 0, min: -5.5 }, hot: { month: 7, max: 30 }, source: "OMM, Seúl (47108)" },
+  busan: { cold: { month: 0, min: -0.1 }, hot: { month: 7, max: 29.5 }, source: "OMM, Busan (47159)" },
+  tokio: { cold: { month: 0, min: 1.2 }, hot: { month: 7, max: 31.3 }, source: "OMM, Tokio (47662)" },
+  taipei: { cold: { month: 0, min: 14.2 }, hot: { month: 6, max: 34.8 }, source: "CWA (Taiwán), Taipéi" },
+  manila: { cold: { month: 0, min: 21.4 }, hot: { month: 3, max: 34.6 }, source: "OMM, Science Garden, Quezon City (98430)" },
+  sidney: { cold: { month: 6, min: 8.9 }, hot: { month: 1, max: 27.7 }, source: "OMM, Sydney Observatory Hill (94768)" },
 };

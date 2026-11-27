@@ -244,4 +244,7 @@ export const CITY_POPULATION = {
   "laredo": { population: 269515, year: 2025, source: "U.S. Census Bureau" },
   "lock-haven": { population: 8500, year: 2025, source: "U.S. Census Bureau" },
   "milwaukee": { population: 562407, year: 2025, source: "U.S. Census Bureau" },
+  "newark": { population: 30359, year: 2025, source: "U.S. Census Bureau" },
+  "omaha": { population: 488797, year: 2025, source: "U.S. Census Bureau" },
+  "syracuse": { population: 144896, year: 2025, source: "U.S. Census Bureau" },
 };
